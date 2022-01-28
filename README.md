@@ -3,6 +3,12 @@
 
 这是我在B站看席南华院士的《线性代数》课程时作的笔记以及一部分课后习题的答案，供大家参考，也请各位大佬帮忙修改。
 
+## 使用方法
+
+在 [这里](https://github.com/ayhe123/algebra-lecturenote/releases) 下载我编译好的 PDF 文件。
+
+如果你会使用 $\LaTeX$, 可以自己编译，具体方法见“编译方法”一节。
+
 ## 笔记阅读建议
 
 下面的 “教材” 指柯斯特利金的《代数学引论》前两卷，“视频”指席南华院士的《线性代数》课程。
@@ -29,6 +35,10 @@
 在第2卷的笔记（`2-x.tex`）中，用 “[BAI]” 表示教材第1卷，用 “书上” 表示教材第2卷，其他的与 `1-x.tex` 类似。
 
 ## 编译方法
+
+建议使用最新的 $\LaTeX$ 发行版的 `xelatex` 编译。
+
+在 Linux 或者 MacOS 下执行：
 
 ```bash
 git clone https://github.com/ayhe123/algebra-lecturenote.git
