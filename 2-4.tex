@@ -1,0 +1,1485 @@
+% TODO:
+% 定理 3.11 应该与开闭无关
+% 习题 2.1 与答案不一样
+% 习题 2.3
+% 补充题 2(2)
+% 习题 4.2 计算要化简, 用计算器算的那一步要补充
+
+\documentclass{ctexart}
+\usepackage{lecturenote}
+\title{第4章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{仿射空间(对应第 1 节)}
+在这节中, 不加说明的话, $\mathbb{A}$ 一律为与域 $K$ 上的 $n$ 维线性空间 $V$ 相伴的仿射空间.
+
+前面介绍的向量空间 $\mathbb{R}^n$ 与物理中的向量空间有一些区别. 一个向量在前者中由一个点表示, 而在后者中由两个点表示. 事实上, 可以将后者中的向量看成是一个等价类, 等价关系是长度与方向相同, 前者中的向量是后者中的向量的代表元.
+
+仿射空间的定义看起来奇怪, 但是这个定义可以从物理中的向量空间很自然地得到. 仿射空间的定义中的映射 $\dot{p}+\boldsymbol{v}$ 的物理意义是以 $\dot{p}$ 为起点, 向量 $\boldsymbol{v}$ 的终点. 性质 (i) 的物理意义是向量加法的三角形法则, 性质 (ii) 的物理意义是向量减法的三角形法则.
+
+$\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点的减法可以与向量的减法等同起来.
+\begin{theorem}
+    设 $\dot{p}+\boldsymbol{u},\dot{q}+\boldsymbol{v}\in\mathbb{A}$, 则 $(\dot{p}+\boldsymbol{u})-(\dot{q}+\boldsymbol{v})=(\dot{p}-\dot{q})+\boldsymbol{u}-\boldsymbol{v}$.
+\end{theorem}
+\begin{proof}
+    设 $\boldsymbol{x}=(\dot{p}+\boldsymbol{u})-(\dot{q}+\boldsymbol{v})$, 则
+    \begin{align*}
+        \dot{q}+\boldsymbol{v}+\boldsymbol{x}=\dot{p}+\boldsymbol{u} & \Rightarrow\dot{q}+\boldsymbol{v}+\boldsymbol{x}=\dot{q}+(\dot{p}-\dot{q})+\boldsymbol{u} \\
+        & \Rightarrow\boldsymbol{v}+\boldsymbol{x}=(\dot{p}-\dot{q})+\boldsymbol{u} \\
+        & \Rightarrow\boldsymbol{x}=(\dot{p}-\dot{q})+\boldsymbol{u}-\boldsymbol{v}.\qedhere
+    \end{align*}
+\end{proof}
+
+在 $V$ 上的映射
+\[\begin{array}{rcl}
+    (V\times V) & \to & V \\
+    (\boldsymbol{u},\boldsymbol{v}) & \to & \boldsymbol{u}+\boldsymbol{v} \\
+\end{array}\]
+满足书上定义 1 的两个性质(性质(i)由线性空间的定义得, 对 $\boldsymbol{u},\boldsymbol{v}\in V$, 有 $\boldsymbol{u}+(\boldsymbol{v}-\boldsymbol{u})=\boldsymbol{v}$, $\therefore$ 性质(ii)也满足), $\therefore$ 线性空间 $V$ 也是仿射空间. 线性空间 $V$ 同时也是仿射空间(更进一步, 域 $K$ 同时也是线性空间和仿射空间), 这体现了现代数学的思想: 集合中的元素是什么不重要, 元素间的关系才重要. 一个集合中的元素间只要具有某种关系, 这个集合就可以被当成对应的结构.
+\begin{theorem}[书上定理 1 的前半部分]
+    沿用书上定理 1 证明中的记号. 有: $f$ 是双射.
+\end{theorem}
+\begin{proof}
+    设 $\dot{p}_1=\dot{o}+\boldsymbol{v}_1\neq\dot{p}_2=\dot{o}+\boldsymbol{v}_2$. $\because\mathcal{F}$ 是单射, $\therefore\mathcal{F}\boldsymbol{v}_1\neq\mathcal{F}\boldsymbol{v}_2$, $\therefore f(\dot{p}_1)=\dot{o}'+\mathcal{F}\boldsymbol{v}_1\neq\dot{o}'+\mathcal{F}\boldsymbol{v}_2=f(\dot{p}_2)$. $\therefore f$ 是单射.
+
+    $\because\forall\dot{q}\in\mathbb{A}',\exists!\boldsymbol{v}'\in V'$ 使得 $\dot{q}=\dot{o}'+\boldsymbol{v}'$. $\because\mathcal{F}$ 是满射, $\therefore\exists\boldsymbol{v}\in\mathbb{A}$ 使得 $\mathcal{F}\boldsymbol{v}=\boldsymbol{v}'$. $\therefore\exists\dot{p}=\dot{o}+\boldsymbol{v}\in\mathbb{A}$ 使得 $f(\dot{p})=\dot{q}$. $\therefore f$ 是满射.
+\end{proof}
+\begin{theorem}[书上的定理 3]
+    $\mathbb{A}$ 的子空间 $\varPi=\dot{p}+U$ 是仿射空间.
+\end{theorem}
+\begin{proof}
+    $\because\forall\dot{q}=\dot{p}+\boldsymbol{u}\in\varPi,\boldsymbol{v},\boldsymbol{w}\in U,\dot{p}+\boldsymbol{u}+\boldsymbol{0}=\dot{p}+\boldsymbol{u},(\dot{p}+\boldsymbol{u}+\boldsymbol{v})+\boldsymbol{w}=\dot{p}+\boldsymbol{u}+(\boldsymbol{v}+\boldsymbol{w})$, $\forall\dot{p}+\boldsymbol{u},\dot{p}+\boldsymbol{v}\in\varPi,\exists!\boldsymbol{v}-\boldsymbol{u}\in U$ 使得 $\dot{p}+\boldsymbol{v}-\dot{p}+\boldsymbol{u}=\boldsymbol{v}-\boldsymbol{u}$,
+
+    \[\begin{array}{rcl}
+        \varPi\times V & \to & \varPi \\
+        (\dot{p}+\boldsymbol{u},\boldsymbol{v}) & \to & \dot{p}+\boldsymbol{u}+\boldsymbol{v} \\
+    \end{array}\]
+    满足公理 (i), (ii).
+\end{proof}
+书上的定理 4 ($\Leftarrow$) 用到了下面的定理.
+\begin{theorem}\label{t1.4}
+    $\mathbb{A}$ 的子集 $\varPi$ 是仿射子空间当且仅当 $T=\{\overrightarrow{pq}|\dot{p},\dot{q}\in\varPi\}$ 是 $V$ 的子空间.
+\end{theorem}
+\begin{proof}
+    设 $\dot{o}\in\varPi$, $U=\{\overrightarrow{op}|\dot{p}\in\varPi\}$, 则 $U\subset T$.
+
+    $\because\forall\overrightarrow{pq}\in T,\overrightarrow{pq}=\overrightarrow{oq}-\overrightarrow{op}\in U$, $\therefore T=U$.
+    
+    $\because\varPi=\dot{o}+U=\dot{o}+T$, $\therefore T$ 是 $V$ 的子空间当且仅当 $\varPi$ 是 $\mathbb{A}$ 的仿射子空间.
+\end{proof}
+设 $M$ 是 $\mathbb{A}$ 的子集, $\varPi\supset M$ 是 $\mathbb{A}$ 的平面. 设 $\varPi=\dot{p}+U$, 则 $\forall\dot{q},\dot{r}\in M,\dot{q},\dot{r}\in\varPi\Rightarrow\overrightarrow{qr}\in U$. $\therefore U\supset U_M=\left<\overrightarrow{qr}|\dot{q},\dot{r}\in M\right>$. $\therefore\varPi_M=\dot{p}+U_M$ 是包含 $M$ 的平面中最小的. 称 $\varPi_M$ 为 $M$ 的\textbf{仿射包络}.
+
+设 $\dot{p}\in M$, 与定理 \ref{t1.4} 的证明类似, 得 $\varPi_M=\dot{p}+\left<\overrightarrow{pq}|\dot{q}\in M\right>$.
+
+用仿射包络改写书上的定义 6.
+\begin{definition}[书上的定义 6]
+    称 $\mathbb{A}$ 中的点 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ \textbf{处于一般位置}当且仅当 $\varPi_{\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}}$ 的维数为 $m$.
+\end{definition}
+\begin{theorem}
+    $\mathbb{A}$ 中的点 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置当且仅当 $\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关.
+\end{theorem}
+\begin{proof}
+    有
+    \[\varPi_{\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}}=\dot{p}_0+\left<\overrightarrow{p_0q}|\dot{q}\in\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}\right>=\dot{p}_0+\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>.\]
+
+    $\therefore\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置 $\Leftrightarrow\dim\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>=m\Leftrightarrow\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关.
+\end{proof}
+与线性包络类似, 有
+\begin{theorem}
+    设 $\mathbb{A}$ 中的点集 $M=\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}\subset\mathbb{A}$, 则
+    \[\varPi_M=\left\{\sum\limits_{i=0}^m\alpha_i\dot{p}_i\bigg|\alpha_i\in K,\sum\limits_{i=0}^m\alpha_i=1\right\}.\]
+
+    特别地, 如果 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, 则 $\varPi_M$ 中的元素表示为 $\sum\limits_{i=0}^m\alpha_i\dot{p}_i$ 的方式唯一.
+\end{theorem}
+\begin{proof}
+    设 $U_M=\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>$, 则
+    \[U_M=\left\{\sum\limits_{i=1}^m\alpha_i\overrightarrow{p_0p_i}\bigg|\alpha_i\in K\right\},\quad\varPi_M=\dot{p}_0+U_m=\left\{\dot{p}_0+\sum\limits_{i=1}^m\alpha_i\overrightarrow{p_0p_i}\bigg|\alpha_i\in K\right\}.\]
+    
+    令 $\alpha_0=1-\sum\limits_{i=1}^m\alpha_i$, 则 $\sum\limits_{i=0}^m\alpha_i=1$.
+
+    在书上定义 $8^\#$ 的式子中以 $\dot{p}_0$ 代 $\dot{p}$ 得
+    \[\sum\limits_{i=0}^m\alpha_i\dot{p}_i=\dot{p}_0+\sum\limits_{i=0}^m\alpha_i\overrightarrow{p_0p_i}=\dot{p}_0+\sum\limits_{i=1}^m\alpha_i\overrightarrow{p_0p_i}.\]
+
+    如果 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, 则 $U_M$ 线性无关. $\therefore\sum\limits_{i=1}^m\alpha_i\overrightarrow{p_0p_i}=\boldsymbol{0}\Rightarrow\alpha_i=0\ (i=1,2,\cdots,n)$.
+
+    $\therefore$ 设 $\sum\limits_{i=0}^m\alpha_i\dot{p}_i=\sum\limits_{i=0}^m\beta_i\dot{p}_i$, 则
+    \begin{align*}
+        & \dot{p}_0+\sum\limits_{i=1}^m\alpha_i\overrightarrow{p_0p_i}=\dot{p}_0+\sum\limits_{i=1}^m\beta_i\overrightarrow{p_0p_i} \\
+        \Rightarrow\ & \sum\limits_{i=1}^m(\alpha_i-\beta_i)\overrightarrow{p_0p_i}=0 \\
+        \Rightarrow\ & \alpha_i=\beta_i\quad(i=1,2,\cdots,m).
+    \end{align*}
+
+    $\because\alpha_0=1-\sum\limits_{i=1}^m\alpha_i,\alpha_0=1-\sum\limits_{i=1}^m\alpha_i$, $\therefore\alpha_0=\beta_0$.
+\end{proof}
+下面的例子可以说明将处于一般位置的 $n+1$ 个点称为``重心坐标''的原因.
+\begin{example}
+    考虑仿射空间 $(\mathbb{A},\mathbb{R}^2)$ 中处于一般位置的三个点 $\dot{p},\dot{q},\dot{r}$ 构成的三角形. 三角形的重心为 $\dfrac{1}{3}\dot{p}+\dfrac{1}{3}\dot{q}+\dfrac{1}{3}\dot{r}$, 边 $\dot{p},\dot{q}$ 的重心为 $\dfrac{1}{2}\dot{p}+\dfrac{1}{2}\dot{q}$.
+\end{example}
+可以将线性空间与仿射空间的概念做比较, 如表 \ref{tb1}.
+\begin{table}\caption{线性空间与仿射空间的概念}\label{tb1}
+    \begin{center}
+        \begin{tabular}{c|c}
+            线性空间 & 仿射空间 \\
+            \hline
+            子空间 & 平面 \\
+            基 & (重心)坐标系 \\
+            线性组合 & 重心组合 \\
+            线性无关 & 处于一般位置 \\
+            线性包络 & 仿射包络 \\
+        \end{tabular}
+    \end{center}
+\end{table}
+\begin{theorem}[书上的命题 2 (ii)]\label{t1.7}
+    设 $(\mathbb{A}',V')$ 是仿射空间, 点 $\dot{p}_1,\cdots,\dot{p}_n$ 给出 $\mathbb{A}$ 的一个重心坐标系. 那么, 对 $\forall\dot{p}'_1,\cdots,\dot{p}'_n\in\mathbb{A}'$, $\exists!$ 仿射映射 $f$ 使得 $f(\dot{p}_i)=\dot{p}_i'\ (i=0,1,2,\cdots,n)$.
+\end{theorem}
+\begin{proof}
+    $\because\dot{p}_0,\cdots,\dot{p}_n$ 是 $\mathbb{A}$ 的一个重心坐标系, $\therefore\forall\dot{p}\in\mathbb{A}$ 都有分解式 $\dot{p}=\sum\limits_{i=0}^n\alpha_i\dot{p}_i$. $\therefore$ 映射
+    \[f:\begin{array}{rcl}
+        \mathbb{A} & \to & \mathbb{A}' \\
+        \sum\limits_{i=1}^n\alpha_i\dot{p}_i & \to & \sum\limits_{i=1}^n\alpha_i\dot{p}_i' \\
+    \end{array}\]
+    是确切定义的, 且满足 $f(\dot{p}_i)=\dot{p}_i',\ i=0,1,2,\cdots,n$.
+    
+    $\because\dot{p}_0,\cdots,\dot{p}_n$ 是 $\mathbb{A}$ 的一个重心坐标系, $\therefore\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关. 设 $\boldsymbol{v}=\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}$, 则
+    \[\dot{p}+\boldsymbol{v}=\sum\limits_{i=0}^n\alpha_i\dot{p}_i+\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}.\]
+
+    设 $\beta_0=\alpha_0-\sum\limits_{i=1}^n\lambda_i,\beta_j=\alpha_j+\lambda_j,\ j=1,2,\cdots,n$, 则 $\sum\limits_{i=0}^n\beta_i=1$,
+    \begin{align*}
+        \sum\limits_{i=0}^n\beta_i\dot{p}_i & =\dot{p}_0+\sum\limits_{i=0}^n\beta_i(\dot{p}_i-\dot{p}_0) \\
+        & =\dot{p}_0+\left(\alpha_0-\sum\limits_{i=1}^n\lambda_i\right)(\dot{p}_0-\dot{p}_0)+\sum\limits_{i=1}^n(\alpha_i+\lambda_i)(\dot{p}_i-\dot{p}_0) \\
+        & =\dot{p}_0+\sum\limits_{i=1}^n\alpha_i(\dot{p}_i-\dot{p}_0)+\sum\limits_{i=1}^n\lambda_i(\dot{p}_i-\dot{p}_0) \\
+        & =\alpha_0\dot{p}_0+\sum\limits_{i=1}^n\alpha_i(\dot{p}_0+\overrightarrow{p_0p_i})+\sum\limits_{i=1}^n\lambda_i(\dot{p}_i-\dot{p}_0) \\
+        & =\sum\limits_{i=0}^n\alpha_i\dot{p}_i+\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}=\dot{p}+\boldsymbol{v}.
+    \end{align*}
+
+    与上式类似, 有
+    \[f(\dot{p}+\boldsymbol{v})=\sum\limits_{i=0}^n\beta_i\dot{p}_i'=\sum\limits_{i=0}^n\alpha_i\dot{p}_i'+\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0'p_i'}=f(\dot{p})+\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0'p_i'}.\]
+
+    容易验证
+    \[Df:\begin{array}{rcl}
+        V & \to & V' \\
+        \sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i} & \to & \sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0'p_i'} \\
+    \end{array}\]
+    是线性映射, $\therefore f$ 是仿射映射.
+
+    设仿射映射 $g:\mathbb{A}\to\mathbb{A}'$ 满足 $g(\dot{p}_i)=\dot{p}_i',\ i=0,1,2,\cdots,n$. 则 $Dg(\overrightarrow{p_0p_i})=\overrightarrow{p_0'p_i'},\ i=0,1,2,\cdots,n$.
+
+    $\because\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 是 $V$ 的一个基, 第 2 章笔记的定理 1.1 得 $Dg=Df$. $\therefore$
+    \[f(\dot{p}+\boldsymbol{v})=\sum\limits_{i=0}^n\alpha_i\dot{p}_i'+Df(\boldsymbol{v})=\sum\limits_{i=0}^n\alpha_i\dot{p}_i'+Dg(\boldsymbol{v})=g(\dot{p}+\boldsymbol{v}).\qedhere\]
+\end{proof}
+书上定理 5 的证明省略了下面的定理.
+\begin{theorem}
+    设点 $\dot{p}_0$ 是线性方程组
+    \begin{equation}\label{eq1.1}
+        f_1(\dot{p})=0,\quad f_2(\dot{p})=0,\quad \cdots,\quad f_m(\dot{p})=0
+    \end{equation}
+    的解, 则方程组 \ref{eq1.1} 的解集为 $\dot{p}_0+U$, 其中 $U$ 是方程组
+    \[Df_1\boldsymbol{x}=0,\quad Df_2\boldsymbol{x}=0,\quad \cdots,\quad Df_m\boldsymbol{x}=0\]
+    的解空间.
+\end{theorem}
+\begin{proof}
+    设 $\boldsymbol{x}\in U$, 则
+    \[f_i(\dot{p}+\boldsymbol{x})=f_i(\dot{p})+Df_i\boldsymbol{x}=0,\quad i=1,2,\cdots,m.\]
+
+    $\therefore\dot{p}+\boldsymbol{x}$ 是方程组 \ref{eq1.1} 的解.
+
+    反过来, 如果 $\dot{p}_1$ 是方程组 \ref{eq1.1} 的解, 则
+    \[0=f_i(\dot{p}_1)=f_i(\dot{p}_0+\overrightarrow{p_0p_1})=f_i(\dot{p}_0)+Df\overrightarrow{p_0p_1}=Df\overrightarrow{p_0p_1}.\]
+
+    $\therefore\overrightarrow{p_0p_1}\in U$.
+\end{proof}
+\begin{theorem}[书上定理 5 的后半部分]
+    一个平面 $\varPi=\dot{p}_0+U\subset\mathbb{A}$ 是某个线性方程组的解空间.
+\end{theorem}
+\begin{proof}
+    由书上第 1 章第 3 节的定理 4(ii), $U$ 是某个齐次线性方程组
+    \[\phi_i(\boldsymbol{x})=0,\quad i=1,2,\cdots,m\]
+    的解空间.
+
+    在 $\mathbb{A}$ 上取一点 $\dot{o}$ (在不在 $\varPi$ 上都可以). 设仿射函数 $f_i$ 满足 $Df_i=\phi_i,f_i(\dot{o})=-\phi_i(\overrightarrow{op_0})$, 则
+    \[f_i(\dot{p}_0)=f_i(\dot{o})+\phi_i(\overrightarrow{op_0})=0.\]
+
+    $\therefore\dot{p}_0$ 是方程组 \ref{eq1.1} 的解.
+\end{proof}
+下面是书上定义 9 的另一个表述.
+\begin{definition}
+    平面 $\dot{p}_1+U_1,\dot{p}_2+U_2$ \textbf{平行}当且仅当 $U_1\subseteq U_2$ 或 $U_2\subseteq U_1$(这里强调了 $U_1=U_2$ 的情形).
+\end{definition}
+\section{Euclid 空间(对应第 2 节)}
+在这节中, 不加说明的话, $\mathbb{E}$ 一律为与域 $K$ 上的 $n$ 维 Euclid 空间 $V$ 相伴的仿射空间.
+
+书上 P161 的最后一段可以总结为
+\begin{theorem}
+    设 $\varPi=\dot{o}+U\in\mathbb{E}$, $\dot{p}$ 是 $\varPi$ 外一点, 则 $\dot{p}$ 在 $\varPi$ 上的垂直线 $\dot{p}\dot{q}$ 存在且唯一.
+\end{theorem}
+\begin{proof}
+    看书上的图 7. $\because V=U\oplus U^\perp$, $\therefore\overrightarrow{op}$ 有分解式 $\overrightarrow{op}=\boldsymbol{x}+\boldsymbol{v}$, 其中 $\boldsymbol{x}\in U,\boldsymbol{v}\in U^\perp$.
+
+    令 $\dot{q}=\dot{o}+\boldsymbol{x}$, 则 $\overrightarrow{pq}=\overrightarrow{oq}-\overrightarrow{op}=\boldsymbol{x}-(\boldsymbol{x}+\boldsymbol{v})=-\boldsymbol{v}\in U^\perp$.
+
+    $\therefore\forall\boldsymbol{u}\in U,\overrightarrow{pq}\perp\boldsymbol{u}$. $\therefore\forall\dot{r},\dot{s}\in\varPi,\overrightarrow{pq}\perp\overrightarrow{rs}$. $\therefore\dot{p}$ 在 $\varPi$ 上的垂直线 $\dot{p}\dot{q}$ 存在.
+
+    对 $\forall\dot{r}\in\varPi$, 有
+    \[\rho(\dot{p},\dot{r})^2=(\overrightarrow{pr}|\overrightarrow{pr})=(\overrightarrow{pq}+\overrightarrow{qr}|\overrightarrow{pq}+\overrightarrow{qr}).\]
+
+    $\because\varPi_{\dot{p},\dot{q}}\perp\varPi$, $\therefore\overrightarrow{pq}\perp\overrightarrow{qr}$, $\therefore$
+    \[(\overrightarrow{pq}+\overrightarrow{qr}|\overrightarrow{pq}+\overrightarrow{qr})=(\overrightarrow{pq}|\overrightarrow{pq})+(\overrightarrow{qr}|\overrightarrow{qr})\]
+    
+    假设 $\dot{r}\neq\dot{q}$ 且 $\dot{p}\dot{r}$ 是 $\dot{p}$ 在 $\varPi$ 上的垂直线, 则 $(\overrightarrow{qr}|\overrightarrow{qr})>0$,
+    \[(\overrightarrow{pq}+\overrightarrow{qr}|\overrightarrow{pq}+\overrightarrow{qr})\geq(\overrightarrow{pq}|\overrightarrow{pq})=\rho(\overrightarrow{pq})^2.\]
+
+    $\therefore\rho(\overrightarrow{pr})>\rho(\overrightarrow{pq})$.
+
+    $\because\dot{r}$ 和 $\dot{p}$ 的定义没有区别, $\therefore$ 可以将 $\dot{r}$ 和 $\dot{p}$ 交换位置, 得 $\rho(\overrightarrow{pq})>\rho(\overrightarrow{pr})$, 与 $\rho(\overrightarrow{pr})>\rho(\overrightarrow{pq})$ 矛盾.
+\end{proof}
+下面是书上定理 3 的推广.
+\begin{theorem}
+    对平面 $\varPi=\dot{q}+U,\varPi'=\dot{q}'+U'\in\mathbb{E}$, $\varPi$ 与 $\varPi'$ 的公垂线全体 $S$ 与 $U\cap U'$ 间可以建立双射.
+\end{theorem}
+\begin{proof}
+    由书上的引理 2, $\exists\dot{p}\in\varPhi,\dot{p}'\in\varPhi'$ 满足 $\dot{p}\dot{p}'$ 是 $\varPhi,\varPhi'$ 的公垂线. 对 $\boldsymbol{u}\in U\cap U'$, 有 $\dot{p}+\boldsymbol{u}\in\varPi,\dot{p}'+\boldsymbol{u}\in\varPi'$,
+    \[\overrightarrow{(\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u})}=\overrightarrow{(\dot{p}+\boldsymbol{u})\dot{p}}+\overrightarrow{pp'}+\overrightarrow{\dot{p}'(\dot{p}'+\boldsymbol{u})}=-\boldsymbol{v}+\overrightarrow{pp'}+\boldsymbol{v}=\overrightarrow{pp'}.\]
+
+    $\therefore(\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u})$ 是 $\varPi$ 与 $\varPi'$ 的公垂线. $\therefore$
+    \[\phi:\begin{array}{rcl}
+        U\cap U' & \to & S \\
+        \boldsymbol{u} & \to & (\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u}) \\
+    \end{array}\]
+    是确切定义的.
+
+    设 $\dot{r}=\dot{p}+\boldsymbol{u}\in\varPi,\dot{r}'=\dot{p}'+\boldsymbol{u}'\in\varPi'$ 满足 $\dot{r}\dot{r}'\in S$, 则 $\|\overrightarrow{rr'}\|=\|\overrightarrow{pp'}\|$.
+    \[\overrightarrow{rr'}=\overrightarrow{rp}+\overrightarrow{pp'}+\overrightarrow{p'r'}=-\boldsymbol{u}+\overrightarrow{pp'}+\boldsymbol{u}'=\overrightarrow{pp'}+\boldsymbol{u}'-\boldsymbol{u}.\]
+
+    $\because\overrightarrow{pp'}\in(U+U')^\perp$, $\therefore\overrightarrow{pp'}\perp(\boldsymbol{u}'-\boldsymbol{u})$, $\therefore$
+    \[\|\overrightarrow{rr'}\|^2=\|\overrightarrow{pp'}\|^2+\|\boldsymbol{u}-\boldsymbol{u}'\|^2.\]
+
+    $\because\|\overrightarrow{rr'}\|=\|\overrightarrow{pp'}\|$, $\therefore\boldsymbol{u}=\boldsymbol{u}'\in U\cap U'$. $\therefore\phi$ 是满射.
+
+    $\because\dot{r}=\dot{p}$ 当且仅当 $\boldsymbol{v}=\boldsymbol{0}$, $\therefore\phi$ 是单射.
+\end{proof}
+设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 是 $V$ 的一个向量组(线性相关性不作要求), $\dot{o}\in\mathbb{A},\dot{p}_i=\dot{o}+\boldsymbol{e}_i,\ i=1,2,\cdots,m$, 则线段 $\dot{o}\dot{p}_1,\dot{o}\dot{p}_2,\cdots,\dot{o}\dot{p}_m$ 围成一个平行六面体
+\[\Delta=\{\dot{o}+t_1\overrightarrow{op_1}+t_2\overrightarrow{op_2}+\cdots+t_m\overrightarrow{op_m}|0\leq t_i\leq1\}.\]
+
+2 维的 $U$ 对应的平行六面体实际上是平行四边形, 高维的 $U$ 对应的平行六面体不止有 6 个面, 但是还是将其称为``六面体'', 就像仿射平面不一定是 2 维的一样.
+
+设 $\Delta$ 的体积为 $S_\Delta$, 约定: 如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 线性相关, 则 $S_\Delta=0$. 沿用前面的记号, 有下面的定理:
+\begin{theorem}\label{t2.3}
+    设
+    \[G=\begin{pmatrix}
+        (\boldsymbol{e}_1|\boldsymbol{e}_1) & \cdots & (\boldsymbol{e}_1|\boldsymbol{e}_m) \\
+        \vdots & \ddots & \vdots \\
+        (\boldsymbol{e}_m|\boldsymbol{e}_1) & \cdots & (\boldsymbol{e}_m|\boldsymbol{e}_m) \\
+    \end{pmatrix},\]
+
+    则
+    \[S^2_\Delta=\det G.\]
+\end{theorem}
+\begin{proof}
+    如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 线性相关, 设 $\boldsymbol{e}_m=\alpha_1\boldsymbol{e}_1+\alpha_2\boldsymbol{e}_2+\cdots+\alpha_{m-1}\boldsymbol{e}_{m-1}$, 则
+    \[(\boldsymbol{e}_m|\boldsymbol{e}_j)=\sum\limits_{i=1}^{m-1}\alpha_i(\boldsymbol{e}_i|\boldsymbol{e}_j).\]
+    
+    $\therefore$ 矩阵 $G$ 的第 $m$ 行是前 $m-1$ 行的线性组合. $\therefore\det G=0$.
+
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 线性无关, $\boldsymbol{f}_1,\boldsymbol{f}_2,\cdots,\boldsymbol{f}_m$ 是 $\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m\right>$ 的标准正交基, 有
+    \[\boldsymbol{e}_j=\sum\limits_{i=1}^ma_{ij}\boldsymbol{f}_i,\]
+
+    由 [BAI] 第 3 章第 1 节第 1 小节得
+    \[S_\Delta=\pm\begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1m} \\
+        a_{21} & a_{22} & \cdots & a_{2m} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mm} \\
+    \end{vmatrix}.\]
+
+    $\because(\boldsymbol{f}_i|\boldsymbol{f}_j)=\delta_{ij}$, $\therefore$
+    \[(\boldsymbol{e}_k|\boldsymbol{e}_l)=\left(\sum\limits_{i=1}^ma_{ik}\boldsymbol{f}_i\bigg|\sum\limits_{i=1}^ma_{jl}\boldsymbol{f}_j\right)=\sum\limits_{i=1}^ma_{ik}a_{il}.\]
+
+    $\therefore G=A{}^tA$, 其中 $A=(a_{ij})$.
+
+    $\therefore\det G=(\det A)^2=S_\Delta^2$.
+\end{proof}
+\section{仿射几何(对应第 3 节)}
+在这节中, 不加说明的话, $\mathbb{A}$ 一律为与域 $K$ 上的 $n$ 维线性空间 $V$ 相伴的仿射空间, $\mathbb{E}$ 一律为与域 $K$ 上的 $n$ 维 Euclid 空间 $V$ 相伴的仿射空间.
+\subsection{仿射群}
+首先考察 $K$ 上的仿射空间 $\mathbb{A}$ 的仿射变换
+\[\phi_{\alpha,\beta}:\begin{array}{rcl}
+    \mathbb{A} & \to & \mathbb{A} \\
+    \dot{o}+x & \to & (\dot{o}+\beta)+\alpha x \\
+\end{array}.\]
+
+$\because\mathbb{A}$ 与 $K$ 可以等同起来(见这章的开头), $\therefore$ 可以将 $\dot{o}+y\ (y\in K)$ 与 $y$ 等同起来.
+
+当 $\alpha=0$ 时 $\forall x\in K,\phi_{\alpha,\beta}(x)=\beta$. 考察
+\[\operatorname{Aff}(K)=\{\phi_{\alpha,\beta}|\alpha\in K\backslash\{0\},\beta\in K\}.\]
+
+$\because$ 对 $\phi_{\alpha,\beta},\phi_{\sigma,\tau}\in\operatorname{Aff}(K)$,
+\[\phi_{\alpha,\beta}\phi_{\sigma,\tau}(x)=\phi_{\alpha,\beta}(\sigma x+\tau)=\alpha(\sigma x+\tau)+\beta=\alpha\sigma x+\alpha\tau+\beta,\]
+
+$\therefore\phi_{\alpha,\beta}\phi_{\sigma,\tau}=\phi_{\alpha\sigma,\alpha\tau+\beta}\in\operatorname{Aff}(K)$.
+
+$\because\phi_{1,0}=e,\forall\phi_{\alpha,\beta}\in\operatorname{Aff}(K),\exists\phi_{\alpha^{-1},-\alpha^{-1}\beta}\in\operatorname{Aff}(K)$ 使得 $\phi_{\alpha,\beta}\phi_{\alpha^{-1},-\alpha^{-1}\beta}=\phi_{\alpha^{-1},-\alpha^{-1}\beta}\phi_{\alpha,\beta}=\phi_{1,0}$, $\therefore\operatorname{Aff}(K)$ 是群.
+
+考察 $\operatorname{Aff}(K)$ 的子集 $\{\phi_{1,\beta}|\beta\in K\}$. 有
+\[\phi_{1,\beta}\phi_{1,\gamma}=\phi_{1,\beta+\gamma}.\]
+
+$\therefore\{\phi_{1,\beta}|\beta\in K\}$ 是 $\operatorname{Aff}(K)$ 的子群, 且同构于 $K^+$. 设
+
+\[\xi:\begin{array}{rcl}
+    K & \to & \operatorname{Aff}(K) \\
+    \beta & \to & \phi_{1,\beta} \\
+\end{array},\]
+\[\eta:\begin{array}{rcl}
+    \operatorname{Aff}(K) & \to & K\backslash\{0\} \\
+    \phi_{\alpha,\beta} & \to & \alpha \\
+\end{array}.\]
+
+容易验证 $\operatorname{Im}\xi=\ker\eta$. 这时称 $\xi$ 与 $\eta$ \textbf{正合}.
+\begin{definition}
+    设集合 $A_1,A_2,\cdots,A_s$, $A_i$ 与 $A_{i+1}$ 间可以建立映射 $\xi_i\ (i=1,2,\cdots,s-1)$. 如果 $\xi_i$ 与 $\xi_{i+1}\ (i=1,2,\cdots,s-2)$ 正合, 则称映射列
+    \[A_1\xrightarrow{\xi_1}A_2\xrightarrow{\xi_2}\cdots\xrightarrow{\xi_{s-1}}A_s\]
+    为\textbf{正合列}(exact sequence).
+\end{definition}
+由上面的定义,
+\[\{0\}\to K\xrightarrow{\xi}\operatorname{Aff}(K)\xrightarrow{\eta}K\backslash\{0\}\to\{1\}\]
+是正合列. 上式最左边的 $\{0\}$ 说明 $\ker\xi=\{0\},\xi$ 是单射, 最右边的 $\{1\}$ 说明 $\operatorname{Im}\eta=K\backslash\{0\},\eta$ 是满射. 通常把 $\{0\},\{1\}$ 简写为 $0,1$.
+
+一般地, 设
+\[f:\begin{array}{rcl}
+    \mathbb{A} & \to & \mathbb{A} \\
+    \dot{p}+\boldsymbol{v} & \to & f(\dot{p})+Df\boldsymbol{v} \\
+\end{array}.\]
+
+有
+\begin{lemma}\label{l3.1}
+    $f$ 可逆当且仅当 $Df$ 可逆.
+\end{lemma}
+\begin{proof}
+    ($\Rightarrow$) 如果 $f$ 可逆, 则
+    \[f^{-1}(f(\dot{p})+Df\boldsymbol{v})=\dot{p}+D(f^{-1})Df\boldsymbol{v}=\dot{p}+\boldsymbol{v},\]
+
+    $\therefore Df$ 可逆, $D(f^{-1})=(Df)^{-1}$.
+
+    ($\Leftarrow$) 如果 $Df$ 可逆, 设 $g(f(\dot{p})+\boldsymbol{v})=\dot{p}+(Df)^{-1}\boldsymbol{v}$, 则
+    \[g(f(\dot{p}+\boldsymbol{v}))=g(f(\dot{p})+Df\boldsymbol{v})=\dot{p}+(Df)^{-1}Df\boldsymbol{v}=\dot{p}+\boldsymbol{v}.\]
+
+    $\therefore f$ 可逆, $f^{-1}=g$.
+\end{proof}
+考察可逆的仿射变换全体 $\operatorname{Aff}(\mathbb{A})$. 设 $f,g\in\operatorname{Aff}(\mathbb{A})$, 由引理 \ref{l3.1} 的证明过程得
+\[fg:\dot{p}+\boldsymbol{v}\to f(g(\dot{p}))+DfDg\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A}),\quad f^{-1}:\dot{p}+\boldsymbol{v}\to f^{-1}(\dot{p})+Df^{-1}\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A}),\]
+
+$\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\dot{p}+\boldsymbol{v}$ 满足 $De=\mathcal{E}$. 从上式可以看出,
+\[D:\begin{array}{rcl}
+    \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V) \\
+    f & \to & Df \\
+\end{array}\]
+是群同态.
+
+对 $\forall\mathcal{F}\in\operatorname{GL}(V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{p}+\boldsymbol{v})=f(\dot{p})+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\operatorname{GL}(V)$, 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$. $\therefore D$ 是满同态. 有
+\begin{lemma}
+    $\ker D$ 是 $\mathbb{A}$ 上的平移变换全体 $T$.
+\end{lemma}
+\begin{proof}
+    设 $f\in\ker D$, 则 $Df=\mathcal{E},f$ 具有形式 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+\boldsymbol{v}$. 设 $\boldsymbol{u}=\overrightarrow{pf(p)}$, 则 $\forall\dot{q}\in\mathbb{A}$,
+    \[f(\dot{q})=f(\dot{p}+\overrightarrow{pq})=f(\dot{p})+\overrightarrow{pq}=\dot{p}+\overrightarrow{pf(p)}+\overrightarrow{pq}=\dot{p}+\boldsymbol{u}+\overrightarrow{pq}=\dot{q}+\boldsymbol{u}.\]
+
+    $\therefore f=t_{\boldsymbol{u}}\in T$.
+
+    反之, $t_{\boldsymbol{u}}\in T$ 满足 $\forall\dot{p}\in\mathbb{A}$,
+    \[t_{\boldsymbol{u}}(\dot{p})=\dot{p}+\boldsymbol{u},\quad Dt_{\boldsymbol{u}}=\mathcal{E}.\]
+
+    $\therefore t_{\boldsymbol{u}}\in\ker D$.
+\end{proof}
+有下面的正合列
+\begin{equation}\label{eq3.1}
+    e\to T\xrightarrow{\xi}\operatorname{Aff}(\mathbb{A})\xrightarrow{\eta}\operatorname{GL}(V)\to\mathcal{E},
+\end{equation}
+
+其中 $\xi$ 是恒等变换, $\eta=D$.
+
+设 $\operatorname{Aff}(\mathbb{A})$ 中保持点 $\dot{o}$ 不变的变换全体为 $G_{\dot{o}}$, 则
+\begin{lemma}\label{l3.3}
+    $\eta|_{G_{\dot{o}}}$ 是同构.
+\end{lemma}
+\begin{proof}
+    前面证明过 $\eta=D$ 是 $\operatorname{Aff}(\mathcal{A})$ 上的群同态. $\therefore\eta|_{G_{\dot{o}}}$ 是群同态.
+
+    对 $\forall\mathcal{F}\in\operatorname{GL}(V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{o}+\boldsymbol{v})=\dot{o}+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\operatorname{GL}(V)$, 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$. $\because f(\dot{o})=\dot{o}$, $\therefore f\in G_{\dot{o}}$. $\therefore \eta|_{G_{\dot{o}}}$ 是满同态.
+    
+    $\because\forall f\in\ker\eta|_{G_{\dot{o}}},Df=\mathcal{E}$,
+    \[f(\dot{o}+\boldsymbol{v})=\dot{o}+\boldsymbol{v}\Rightarrow f=e.\]
+
+    $\therefore\ker\eta|_{G_{\dot{o}}}=\{e\}$. $\therefore\eta|_{G_{\dot{o}}}$ 是同构.
+\end{proof}
+\begin{theorem}[书上的定理 2 的加强命题]\label{t3.1}
+    $\forall f\in\operatorname{Aff}(\mathbb{A})$, $\exists!t_{\boldsymbol{a}}\in T,g\in G_{\dot{o}}$ 使得 $f=t_{\boldsymbol{a}}g$.
+\end{theorem}
+\begin{proof}
+    (存在性) 设 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+Df\boldsymbol{v}$. $\because f\in\operatorname{Aff}(\mathbb{A})$, 由引理 \ref{l3.1} 得 $Df\in\operatorname{GL}(V)$. 由引理 \ref{l3.3} 得 $\eta|_{G_{\dot{o}}}$ 是双射, $\therefore\exists g\in G_{\dot{o}}$ 使得 $g(\dot{o}+\boldsymbol{v})=\dot{o}+Df\boldsymbol{v}$.
+
+    令 $\boldsymbol{a}=\overrightarrow{of(o)}$, 则
+    \begin{align*}
+        t_{\boldsymbol{a}}g(\dot{p}+\boldsymbol{v}) & =t_{\boldsymbol{a}}g(\dot{o}+\overrightarrow{op}+\boldsymbol{v}) \\
+        & =t_{\boldsymbol{a}}(\dot{o}+Df\overrightarrow{op}+Df\boldsymbol{v}) \\
+        & =\dot{o}+\overrightarrow{of(o)}+\overrightarrow{f(o)f(p)}+Df\boldsymbol{v} \\
+        & =f(\dot{p})+Df\boldsymbol{v}.
+    \end{align*}
+
+    $\therefore\forall\dot{p}+\boldsymbol{v}\in\mathbb{A},f(\dot{p}+\boldsymbol{v})=t_{\boldsymbol{a}}g(\dot{p}+\boldsymbol{v})$. $\therefore f=t_{\boldsymbol{a}}g$.
+
+    (唯一性) 设 $g\in G_{\dot{o}}$ 满足 $\exists t_{\boldsymbol{a}}\in T$ 使得 $f=t_{\boldsymbol{a}}g$. 则对 $\boldsymbol{v}\neq\boldsymbol{u}\in V$,
+    \[f(\dot{o}+\boldsymbol{v})=t_{\boldsymbol{a}}g(\dot{o}+\boldsymbol{v})=t_{\boldsymbol{a}}(\dot{o}+Dg\boldsymbol{v})=\dot{o}+Dg\boldsymbol{v}+\boldsymbol{a}=\dot{o}+Df\boldsymbol{v},\]
+
+    $\therefore\boldsymbol{a}=Df\boldsymbol{v}-Dg\boldsymbol{v}$. 同理得 $\boldsymbol{a}=Df\boldsymbol{u}-Dg\boldsymbol{u}$. $\therefore(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$.
+
+    $\because f,g\in\operatorname{Aff}(\mathbb{A}),\therefore Df,Dg\in\operatorname{GL}(V)$. 假设 $Df\neq Dg$, 则 $Df-Dg\in\operatorname{GL}(V)$, $\therefore\ker(Df-Dg)=\{\boldsymbol{0}\}$, 与 $\boldsymbol{u}-\boldsymbol{v}\neq\boldsymbol{0}$ 但 $(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$ 矛盾. $\therefore Dg=Df$.
+
+    设 $f=t_{\boldsymbol{b}}g$, 则 $f=t_{\boldsymbol{b}-\boldsymbol{a}}t_{\boldsymbol{a}}g$, 其中 $\boldsymbol{a}=\overrightarrow{of(o)}$. 由存在性的证明得 $f=t_{\boldsymbol{a}}g$, $\therefore f=t_{\boldsymbol{b}-\boldsymbol{a}}f$. $\therefore\boldsymbol{b}=\boldsymbol{a}$.
+\end{proof}
+\begin{theorem}\label{t3.2}
+    $T$ 是 $\operatorname{Aff}(\mathbb{A})$ 的正规子群, 即 $\forall f\in\operatorname{Aff}(\mathbb{A}),t_{\boldsymbol{v}}\in T$, 有 $ft_{\boldsymbol{v}}f^{-1}\in T$.
+\end{theorem}
+\begin{proof}
+    对 $\forall h\in G_{\dot{o}},t_{\boldsymbol{v}}\in T,\dot{p}\in\mathbb{A}$, 有
+    \begin{align*}
+        ht_{\boldsymbol{v}}h^{-1}(\dot{p}) & =ht_{\boldsymbol{v}}h^{-1}(\dot{o}+\overrightarrow{op}) \\
+        & =ht_{\boldsymbol{v}}(\dot{o}+Dh^{-1}\overrightarrow{op}) \\
+        & =h(\dot{o}+Dh^{-1}\overrightarrow{op}+\boldsymbol{v}) \\
+        & =\dot{o}+\overrightarrow{op}+Dh\boldsymbol{v} \\
+        & =\dot{p}+Dh\boldsymbol{v},
+    \end{align*}
+
+    $\therefore ht_{\boldsymbol{v}}h^{-1}=t_{Dh\boldsymbol{v}}\in T$.
+
+    由定理 \ref{t3.1} 得 $\forall f\in\operatorname{Aff}(\mathbb{A}),\exists g\in G_{\dot{o}},t_{\boldsymbol{u}}\in T$ 使得 $f=t_{\boldsymbol{u}}g$. $\therefore$
+    \[ft_{\boldsymbol{v}}f^{-1}=t_{\boldsymbol{u}}gt_{\boldsymbol{v}}(t_{\boldsymbol{u}}g)^{-1}=t_{\boldsymbol{u}}gt_{\boldsymbol{v}}g^{-1}t_{\boldsymbol{u}}^{-1}=t_{\boldsymbol{u}}t_{Dg\boldsymbol{v}}t_{\boldsymbol{u}}^{-1}\in T.\qedhere\]
+\end{proof}
+定理 \ref{t3.1} 说明映射
+\[\begin{array}{rcl}
+    \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V)\times V \\
+    f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
+\end{array}\]
+是双射. 如果定义形式上的运算
+\[(\mathcal{F}_1,\boldsymbol{v}_1)(\mathcal{F}_2,\boldsymbol{v}_2)=(\mathcal{F}_1\mathcal{F}_2,\boldsymbol{v}_1+\mathcal{F}_1\boldsymbol{v}_2),\]
+
+则
+\begin{theorem}\label{t3.3}
+    \[\phi:\begin{array}{rcl}
+        \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V)\times V \\
+        f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
+    \end{array}\]
+    是同构.
+\end{theorem}
+\begin{proof}
+    前面证明了 $\phi$ 是双射.
+
+    设 $f_1=t_{\boldsymbol{v}_1}g_1,f_2=t_{\boldsymbol{v}_2}g_2$, 则
+    \[f_1f_2=t_{\boldsymbol{v}_1}g_1t_{\boldsymbol{v}_2}g_2.\]
+
+    由定理 \ref{t3.2} 的证明得 $t_{Dg_1\boldsymbol{v}_2}=g_1t_{\boldsymbol{v}_2}g_1^{-1}\Rightarrow t_{\boldsymbol{v}_2}=g_1^{-1}t_{Dg_1\boldsymbol{v}_2}g_1=g_1^{-1}t_{Df_1\boldsymbol{v}_2}g_1$, $\therefore$
+    \[t_{\boldsymbol{v}_1}g_1t_{\boldsymbol{v}_2}g_2=t_{\boldsymbol{v}_1}g_1g_1^{-1}t_{Df_1\boldsymbol{v}_2}g_1g_2=t_{\boldsymbol{v}_1+Df_1\boldsymbol{v}_2}g_1g_2.\]
+
+    $\therefore\phi(f_1f_2)=(Df_1Df_2,\boldsymbol{v}_1+Df_1\boldsymbol{v}_2)=\phi(f_1)\phi(f_2)$.
+\end{proof}
+\subsection{运动群}
+把正合列 (\ref{eq3.1}) 限制在群 $\operatorname{Iso}(\mathbb{E})$ 上, 有
+\[e\to T\xrightarrow{\xi}\operatorname{Iso}(\mathbb{E})\xrightarrow{\eta}O(V)\to\mathcal{E},\]
+
+其中 $\xi$ 是恒等变换, $\eta=D$.
+
+补充书上定理 3 中提到的几个命题的证明.
+\begin{theorem}
+    平移 $t_{\boldsymbol{v}}$ 是运动.
+\end{theorem}
+\begin{proof}
+    $\forall\dot{p},\dot{q}\in\mathbb{A}$, 有
+    \[\rho(\dot{p},\dot{q})=\rho(\dot{p}+\boldsymbol{v},\dot{q}+\boldsymbol{v})=\rho(t_{\boldsymbol{v}}(\dot{p}),t_{\boldsymbol{v}}(\dot{q})).\qedhere\]
+\end{proof}
+\begin{theorem}
+    沿用书上定理 3 的记号. $\forall\lambda\in K$, 有 $\mathcal{G}(\lambda\boldsymbol{x})=\lambda\mathcal{G}\boldsymbol{x}$.
+\end{theorem}
+\begin{proof}
+    考虑 $\|\mathcal{G}(\lambda\boldsymbol{x})-\lambda\mathcal{G}\boldsymbol{x}\|$. 有
+    \begin{align*}
+        \|\mathcal{G}(\lambda\boldsymbol{x})-\lambda\mathcal{G}\boldsymbol{x}\|^2 & =\|\mathcal{G}(\lambda\boldsymbol{x})\|^2+\|\lambda\mathcal{G}\boldsymbol{x}\|^2-2(\mathcal{G}(\lambda\boldsymbol{x})|\lambda\mathcal{G}\boldsymbol{x}) \\
+        & =\|\lambda\boldsymbol{x}\|^2+\|\lambda\boldsymbol{x}\|^2-2\lambda(\mathcal{G}(\lambda\boldsymbol{x})|\mathcal{G}\boldsymbol{x}) \\
+        & =2\|\lambda\boldsymbol{x}\|^2-2\lambda(\mathcal{G}(\lambda\boldsymbol{x})|\mathcal{G}\boldsymbol{x}) \\
+        & =2\|\lambda\boldsymbol{x}\|^2-2\lambda(\lambda\boldsymbol{x}|\boldsymbol{x}) \\
+        & =2\|\lambda\boldsymbol{x}\|^2-2(\lambda\boldsymbol{x}|\lambda\boldsymbol{x})=0.
+    \end{align*}
+
+    $\therefore\mathcal{G}(\lambda\boldsymbol{x})-\lambda\mathcal{G}\boldsymbol{x}=\boldsymbol{0}$.
+\end{proof}
+考察 Euclid 空间 $\mathbb{R}^n$. 由书上的定理 3 得 $\operatorname{Iso}(\mathbb{R}^n)=\{t_{B}A|B\in\mathbb{R}^n,A\in O(\mathbb{R}^n)\}$. $\therefore f\in\operatorname{Iso}(\mathbb{R}^n)\Rightarrow f(X)=AX+B$.
+
+书上第 3 小节的讨论可以认为是在 $\mathbb{R}^n$ 上进行的. $\because$ 任一 $n$ 维 Euclid 空间都与 $\mathbb{R}^n$ 同构, $\therefore$ 不难将这些讨论推广到一般的 Euclid 空间.
+\subsection{群与几何}
+Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距离不变. 类似地, 一般的仿射变换也可以用几何不变量来刻画: 仿射空间 $\mathbb{A}$ 上的变换 $f$ 是仿射变换当且仅当 $f$ 保持直线不变(由书上第 1 节的定理 4 得 $f$ 保持任一仿射子空间不变), 且保持共线的点的比例不变.
+\begin{theorem}[书上的定理 9]
+    设 $f:\mathbb{A}\to\mathbb{A}$ 是双射, 那么 $f\in\operatorname{Aff}(\mathbb{A})\Leftrightarrow\forall\dot{p},\dot{q}\in\mathbb{A},f(\varPi_{\dot{p},\dot{q}})=\varPi_{f(\dot{p}),f(\dot{q})}$.
+\end{theorem}
+\begin{proof}
+    ($\Rightarrow$) 设 $U$ 是 $V$ 的子空间, 有 $f(\dot{p}+U)=f(\dot{p})+Df(U)$. 取 $\dim U=1$ 得.
+
+    ($\Leftarrow$) $\mathbb{A}$ 上的点 $\dot{p},\dot{q},\dot{r}$ 共线当且仅当 $\exists\lambda\in K,\overrightarrow{pr}=\lambda\overrightarrow{pq}$. $\because f(\dot{p}),f(\dot{q}),f(\dot{r})$ 共线, $\therefore$
+    \[\overrightarrow{pr}=\lambda\overrightarrow{pq}\Rightarrow\overrightarrow{f(p)f(r)}=\lambda\overrightarrow{f(p)f(q)}.\]
+
+    设 $f(\dot{p}+\boldsymbol{x})=f(\dot{p})+\mathcal{F}\boldsymbol{x}$, 则 $\mathcal{F}\overrightarrow{pq}=\overrightarrow{f(p)f(q)}$. $\because\overrightarrow{p(p+\lambda\boldsymbol{v})}=\lambda\overrightarrow{p(p+v)}$, $\therefore$
+    \[\mathcal{F}\lambda\boldsymbol{v}=\overrightarrow{f(\dot{p})f(\dot{p}+\lambda\boldsymbol{v})}=\lambda\overrightarrow{f(\dot{p})f(\dot{p}+\boldsymbol{v})}=\lambda\mathcal{F}\boldsymbol{v}.\]
+
+    对 $\boldsymbol{u},\boldsymbol{v}\in V$, 设 $\dot{p}+\boldsymbol{u}=\dot{q},\dot{p}+\boldsymbol{u}+\boldsymbol{v}=\dot{q}+\boldsymbol{v}=\dot{r}$, 则 $\overrightarrow{pq}=\boldsymbol{u},\overrightarrow{pr}=\boldsymbol{u}+\boldsymbol{v}$. 有
+    \[\mathcal{F}(\boldsymbol{u}+\boldsymbol{v})=\overrightarrow{f(\dot{p})f(\dot{r})}=\overrightarrow{f(\dot{p})f(\dot{q})}+\overrightarrow{f(\dot{q})f(\dot{r})}=\mathcal{F}\boldsymbol{u}+\mathcal{F}\boldsymbol{v}.\]
+
+    $\therefore\mathcal{F}\in\operatorname{GL}(V)$. 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$.
+\end{proof}
+当 $K=\mathbb{R},\dim\mathbb{A}\geq2$ 时, \cite[p41]{geometry} 证明了: 上述定理有更符合几何直观的加强命题:
+\begin{theorem}
+    仿射空间 $\mathbb{A}$ 上的变换 $f$ 是仿射变换当且仅当 $f$ 保持直线不变.
+\end{theorem}
+下面是书上定理 8 的另一种证明方法.
+\begin{theorem}[书上的定理 8]\label{t3.8}
+    在仿射几何中, $(\mathbb{A},V)$ 的任意两个处于一般位置的点组
+    \[\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\},\quad\{\dot{q}_1,\dot{q}_2,\cdots,\dot{q}_m\},\quad0\leq m\leq n\]
+    在考虑顺序的情况下是可叠和的.
+\end{theorem}
+\begin{proof}
+    将 $\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\},\{\dot{q}_1,\dot{q}_2,\cdots,\dot{q}_m\}$ 分别扩充为 $(\mathbb{A},V)$ 的两个处于一般位置的点组
+    \[\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\},\quad\{\dot{q}_1,\dot{q}_2,\cdots,\dot{q}_n\}.\]
+
+    由定理 \ref{t1.7} 得 $\exists!$ 仿射映射 $f,g,e$ 使得 $e(\dot{p}_i)=\dot{p}_i,f(\dot{p}_i)=\dot{q}_i,g(\dot{q}_i)=\dot{p}_i\ (i=0,1,2,\cdots,n)$.
+
+    $\because fg(\dot{p}_i)=gf(\dot{p}_i)=\dot{p}_i$, $\therefore fg=gf=e$. $\therefore f\in\operatorname{Aff}(\mathbb{A})$.
+\end{proof}
+\subsection{Euclid 空间中的仿射变换}
+考察平行六面体
+\[\Delta=\{\dot{o}+t_1\overrightarrow{op_1}+t_2\overrightarrow{op_2}+\cdots+t_m\overrightarrow{op_m}|0\leq t_i\leq1\}\in\mathbb{E}\]
+的体积. 设 $\boldsymbol{e}_i=\overrightarrow{op}_i$, $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 是 $\mathbb{E}$ 的一个标准正交基, 且
+\[(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A,\]
+
+则 $\Delta$ 的体积 $S_\Delta=|\det A|$.
+
+设 $f:\dot{o}+\boldsymbol{v}\to f(\dot{o})+Df\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A})$, $Df$ 在基 $(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)$ 下的矩阵为 $B$, 则
+\[f(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=f((\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A)=f(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A=(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)BA.\]
+
+$\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这与多元微积分中的 Jacobi 行列式有关.
+
+设有另一个平行六面体 $\Delta'$, 则 $S_{f(\Delta')}=|\det B|S_{\Delta'}$, $\therefore\dfrac{S_{\Delta}}{S_{\Delta'}}=\dfrac{f(S_{\Delta})}{f(S_{\Delta'})}$. 这样我们就证明了:
+\begin{theorem}
+    在仿射变换下, 平行六面体的体积比不变.
+\end{theorem}
+\begin{theorem}[书上的定理 11]
+    设 $f\in\operatorname{Aff}(\mathbb{E})$, 则 $f$ 是一些如下变换的乘积:
+
+    (1) 平移;
+    
+    (2) 关于某个超平面的反射;
+
+    (3) 关于某个 $2$ 维平面的旋转;
+
+    (4) 沿某个方向的伸缩变换.
+\end{theorem}
+\begin{proof}
+    由定理 \ref{t3.1} 得 $\exists!t_{\boldsymbol{a}}\in T,g\in G_{\dot{o}}$ 使得 $f=t_{\boldsymbol{a}}g$.
+
+    由书上第 3 章第 3 节的定理 15, $\exists!$ 正定算子 $\mathcal{P}$, 正交算子 $\mathcal{Q}$ 使得 $Dg=\mathcal{PQ}$. 由书上第 3 章第 3 节的定理 10, $\mathcal{Q}$ 在 $\mathbb{E}$ 的某个基下的矩阵为
+    \begin{align*}
+        A & =\begin{pmatrix}
+                E_r \\
+                & -E_s \\
+                && \cos\phi_1 & -\sin\phi_1 \\
+                && \sin\phi_1 & \cos\phi_1 \\
+                &&&& \cos\phi_2 & -\sin\phi_2 \\
+                &&&& \sin\phi_2 & \cos\phi_2 \\
+                &&&&& \ddots & \ddots \\
+                &&&&&& \cos\phi_t & -\sin\phi_t \\
+                &&&&&& \sin\phi_t & \cos\phi_t \\
+            \end{pmatrix} \\
+        & =\begin{pmatrix}
+            E_r \\
+            & -1 \\
+            && E_{n-r-1} \\
+        \end{pmatrix}\begin{pmatrix}
+            E_{r+1} \\
+            & -1 \\
+            && E_{n-r-2} \\
+        \end{pmatrix}\cdots\begin{pmatrix}
+            E_{r+s-1} \\
+            & -1 \\
+            && E_{n-r-s} \\
+        \end{pmatrix} \\
+        & \quad\cdot\begin{pmatrix}
+            E_{r+s} \\
+            & \cos\phi_1 & -\sin\phi_1 \\
+            & \sin\phi_1 & \cos\phi_1 \\
+            &&& I_{n-r-s-2}
+        \end{pmatrix}\begin{pmatrix}
+            E_{r+s+2} \\
+            & \cos\phi_2 & -\sin\phi_2 \\
+            & \sin\phi_2 & \cos\phi_2 \\
+            &&& I_{n-r-s-4}
+        \end{pmatrix}\cdots \\
+        & \quad\cdot\begin{pmatrix}
+            E_{n-2} \\
+            & \cos\phi_t & -\sin\phi_t \\
+            & \sin\phi_t & \cos\phi_t \\
+        \end{pmatrix}.
+    \end{align*}
+    $\therefore\mathcal{Q}$ 对应的变换只有 (2) (3) 两种.
+
+    由第 3 章笔记的定理 3.11 得 $\mathcal{P}$ 在某个基下的矩阵为
+    \begin{align*}
+        B & =\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n) \\
+        & =\operatorname{diag}(\lambda_1,1,\cdots,1)\operatorname{diag}(1,\lambda_2,\cdots,1)\cdots\operatorname{diag}(1,1,\cdots,\lambda_n).
+    \end{align*}
+    $\therefore\mathcal{P}$ 对应的变换只有 (4).
+\end{proof}
+\begin{note}
+    $\mathcal{P},\mathcal{Q}$ 不一定能同时(拟)对角化, 即定理中描述的变换不一定沿相同的轴.
+\end{note}
+\subsection{凸集}
+书上的定义 3 有点问题.
+\begin{definition}[书上的定义 3]
+    称形如
+    \[\left\{\sum\limits_{i=1}^m\lambda_i\dot{p}_i\Bigg|\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\in\mathbb{A}\text{处于一般位置},\lambda_i>0,\sum\limits_{i=1}^m\lambda_i=1\right\}\]
+    的集合为\textbf{(开)单纯形}(simplex), 记为 $\Delta(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$. 称
+    \[\left\{\sum\limits_{i=1}^m\lambda_i\dot{p}_i\Bigg|\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\in\mathbb{A}\text{处于一般位置},\lambda_i\geq0,\sum\limits_{i=1}^m\lambda_i=1\right\}\]
+    的集合为\textbf{闭单纯形}(closed simplex), 记为 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$. 称 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m$ 为 $\Delta(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 或 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 的\textbf{顶点}.
+\end{definition}
+书上忽略了处于一般位置的条件. 在拓扑中不处于处于一般位置的点按上述规则构成的图形可能会非常复杂.
+\begin{theorem}[书上定理 12 后半部分的加强命题]
+    两个单纯形 $\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$ 在仿射几何中是可叠合的当且仅当 $m=m'$.
+\end{theorem}
+\begin{proof}
+    ($\Rightarrow$) 假设 $m>m'$. 则 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}'$ 可以扩充为 $m+1$ 个处于一般位置的点组 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_m'$.
+    
+    $\because\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$ 在仿射几何中是可叠合的, $\therefore\exists f\in\operatorname{Aff}(\mathbb{A})$ 使得
+    \begin{equation}\label{eq3.2}
+        f(\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))=\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}').
+    \end{equation}
+
+    % $\because\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, $\therefore\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}$ 线性无关. $\therefore\dfrac{1}{3}\overrightarrow{p_0p_1},\dfrac{1}{3}\overrightarrow{p_0p_2},\cdots,\dfrac{1}{3}\overrightarrow{p_0p_m}$ 线性无关. $\therefore$
+    % \[\dot{p}_0+\sum\limits_{i=1}^m\dfrac{1}{3}\overrightarrow{p_0p_i},\dot{p}_0+\dfrac{2}{3}\overrightarrow{p_0p_1}+\sum\limits_{i=2}^m\dfrac{1}{3}\overrightarrow{p_0p_i},\cdots,\dot{p}_0+\sum\limits_{i=2}^m\dfrac{1}{3}\overrightarrow{p_0p_i}\]
+    % 处于一般位置
+
+    由书上第 1 节的命题 2(i) 得
+    \[f\left(\sum\limits_{i=1}^m\lambda_i\dot{p}_i\right)=\sum\limits_{i=1}^m\lambda_if(\dot{p}_i),\quad\lambda_i\geq0,\quad\sum\limits_{i=1}^m\lambda_i=1.\]
+
+    $\because\sum\limits_{i=1}^m\lambda_i\dot{p}_i\in\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)$, $\therefore\sum\limits_{i=m'+1}^m\lambda_if(\dot{p}_i)\in\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\subset A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
+
+    特别地, $f(\dot{p}_i)\in A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\Rightarrow f(A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))\in A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
+    
+    $\therefore\dim f(A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))\leq\dim A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
+
+    $\because\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, $\therefore\dim A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)=m>m'$. $\therefore Df$ 退化, 与 $f\in\operatorname{Aff}(\mathbb{A})$ 矛盾.
+
+    ($\Leftarrow$) 由定理 \ref{t3.8} 得 $\exists f\in\operatorname{Aff}(\mathbb{A})$ 使得 $f(\dot{p}_i)=\dot{p}_i'$. 由式 (\ref{eq3.2}) 得
+    \[f(\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))=\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\qedhere\]
+\end{proof}
+书上的命题 1 证明的图画错了.
+\begin{theorem}[书上的命题 1 的后半部分]
+    设 $M$ 是凸集, $\dot{p}\in\mathbb{A}\backslash M$, 则 $\bigcup\limits_{q\in M}\dot{p}\dot{q}$ 是凸集.
+\end{theorem}
+\begin{proof}
+    设 $\dot{q}_1,\dot{q}_2\in M$.
+
+    (a) 如果 $\dot{p},\dot{q}_1,\dot{q}_2$ 处于一般位置, 如图 1, $\forall\dot{r}_1\in\dot{p}\dot{q}_1,\dot{r}_2\in\dot{p}\dot{q}_2,\forall\dot{r}\in\dot{r}_1\dot{r}_2,\exists\dot{q}\in\dot{q}_1\dot{q}_2$ 使得 $\dot{r}\in\dot{p}\dot{q}$.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw [fill] (1,2) circle [radius=0.04];
+            \node [above] at (1,2) {$\dot{p}$};
+            \draw [fill] (0,0) circle [radius=0.04];
+            \node [left] at (0,0) {$\dot{q}_1$};
+            \draw [fill] (4,0) circle [radius=0.04];
+            \node [right] at (4,0) {$\dot{q}_2$};
+            \draw [fill] (.5,1) circle [radius=0.04];
+            \node [left] at (.5,1) {$\dot{r}_1$};
+            \draw [fill] (2.5,1) circle [radius=0.04];
+            \node [above right] at (2.5,1) {$\dot{r}_2$};
+            \draw [fill] (1.5,1) circle [radius=0.04];
+            \node [above right] at (1.5,1) {$\dot{r}$};
+            \draw [fill] (2,0) circle [radius=0.04];
+            \node [above right] at (2,0) {$\dot{q}$};
+            \draw [thick] (0,0) -- (1,2);
+            \draw [thick] (0,0) -- (4,0);
+            \draw [thick] (1,2) -- (4,0);
+            \draw [thick] (1,2) -- (2,0);
+            \draw [thick] (.5,1) -- (2.5,1);
+            \node [below] at (2,-.5) {图1};
+        \end{tikzpicture}
+    \end{center}
+
+    $\because\dot{q}_1,\dot{q}_2\in M$, $\therefore\dot{q}_1\dot{q}_2\in M\Rightarrow\dot{q}\in M$. $\therefore\dot{r}\in\bigcup\limits_{q\in M}\dot{p}\dot{q}$.
+
+    (b) 如果 $\dot{p},\dot{q}_1,\dot{q}_2$ 处于一般位置, 如图 2 或图 3, 则 $\forall\dot{r}_1\in\dot{p}\dot{q}_1,\dot{r}_2\in\dot{p}\dot{q}_2,\dot{r}_1\dot{r}_2\subset\dot{p}\dot{q}_1\cup\dot{p}\dot{q}_2$.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw [fill] (2,0) circle [radius=0.04];
+            \node [above] at (2,0) {$\dot{p}$};
+            \draw [fill] (0,0) circle [radius=0.04];
+            \node [left] at (0,0) {$\dot{q}_1$};
+            \draw [fill] (4,0) circle [radius=0.04];
+            \node [right] at (4,0) {$\dot{q}_2$};
+            \draw [fill] (1,0) circle [radius=0.04];
+            \node [above] at (1,0) {$\dot{r}_1$};
+            \draw [fill] (3,0) circle [radius=0.04];
+            \node [above] at (3,0) {$\dot{r}_2$};
+            \draw [thick] (0,0) -- (4,0);
+            \node [below] at (2,-.5) {图2};
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \draw [fill] (0,0) circle [radius=0.04];
+            \node [left] at (0,0) {$\dot{p}$};
+            \draw [fill] (2,0) circle [radius=0.04];
+            \node [above] at (2,0) {$\dot{q}_1$};
+            \draw [fill] (4,0) circle [radius=0.04];
+            \node [right] at (4,0) {$\dot{q}_2$};
+            \draw [fill] (1,0) circle [radius=0.04];
+            \node [above] at (1,0) {$\dot{r}_1$};
+            \draw [fill] (3,0) circle [radius=0.04];
+            \node [above] at (3,0) {$\dot{r}_2$};
+            \draw [thick] (0,0) -- (4,0);
+            \node [below] at (2,-.5) {图3};
+        \end{tikzpicture}
+    \end{center}
+
+    $\therefore\bigcup\limits_{q\in M}\dot{p}\dot{q}$ 是凸集.
+\end{proof}
+更多关于几何的内容可以参考 \cite{geometry}.
+\section{指数有限度量空间(对应第 4 节)}
+研究一下由二次型
+\[t^2-x_1^2-x_2^2-x_3^2\]
+导出的曲面
+\begin{equation}\label{eq4.1}
+    \begin{cases}
+        t^2-x_1^2-x_2^2-x_3^2=c>0, \\
+        t>0. \\
+    \end{cases}
+\end{equation}
+
+$\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $\therefore\boldsymbol{L}_+$ 中的变换 保持曲面 (\ref{eq4.1}) 不变. $\because$
+\[P_{\boldsymbol{x}}=\begin{pmatrix}
+    t-x_3 & x_2-ix_1 \\
+    x_2+ix_1 & t+x_3 \\
+\end{pmatrix}\]
+的特征值为 $t\pm\sqrt{x_1^2+x_2^2+x_3^2}$, $\therefore P_{\boldsymbol{x}}$ 正定当且仅当 $\boldsymbol{x}$ 在曲面 (\ref{eq4.1}) 上.
+
+特别地, 
+\[\Lambda^3:\begin{cases}
+    t^2-x_1^2-x_2^2-x_3^2=1, \\
+    t>0. \\
+\end{cases}\]
+连同运动群 $\boldsymbol{L}^+$ 给出\textbf{双曲几何}的模型.
+\begin{theorem}
+    $\boldsymbol{L}_+$ 在空间 $\Lambda^3$ 上的作用是\textbf{可迁的}, 即 $\forall\boldsymbol{p},\boldsymbol{q}\in\Lambda^3,\exists g\in\boldsymbol{L}^+$ 使得 $g\boldsymbol{p}=\boldsymbol{q}$.
+\end{theorem}
+\begin{proof}
+    $\because\forall\boldsymbol{u}=(t,x_1,x_2,x_3)\in\Lambda^3,P_{\boldsymbol{u}}$ 正定, $\therefore\exists A\in\operatorname{SL}_2(\mathbb{C})$ 使得
+    \[P_{\boldsymbol{u}}=A\begin{pmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{pmatrix}A^*.\]
+
+    $\therefore\exists B,C\in\operatorname{SL}_2(\mathbb{C})$ 使得 $P_{\boldsymbol{p}}=\Gamma_B(E),P_{\boldsymbol{q}}=\Gamma_C(E)$.
+
+    $\therefore P_{\boldsymbol{p}}=\Gamma_B\Gamma_{C^{-1}}(P_{\boldsymbol{q}})=\Gamma_{BC^{-1}}(P_{\boldsymbol{q}})$.
+\end{proof}
+下面的定理说明了 $\boldsymbol{L}_+$ 与 $O(1,3)$ 之间的关系.
+\begin{theorem}
+    令
+    \[P=\operatorname{diag}(1,-1,-1,-1),\quad T=\operatorname{diag}(-1,1,1,1),\]
+
+    则
+    \[O(1,3)=\boldsymbol{L}_+\cup P\boldsymbol{L}_+\cup T\boldsymbol{L}_+\cup PT\boldsymbol{L}_+.\]
+\end{theorem}
+\section{第 4 章习题}
+\subsection{习题 4.1}
+\begin{exercise}[1.1]
+    验证: 平面 $\varPi'=\dot{p}+U',\varPi''=\dot{q}+U''$ 至少有一个公共点当且仅当 $\overrightarrow{pq}\in U'+U''$.
+\end{exercise}
+下面是不用书上的定理 4 的推论的构造性证明.
+\begin{proof}
+    ($\Rightarrow$) 设 $\dot{r}\in\varPi'\cap\varPi''$, 则 $\overrightarrow{rp}\in U',\overrightarrow{rq}\in U''$, $\therefore\overrightarrow{pq}=\overrightarrow{rq}-\overrightarrow{rp}\in U'+U''$.
+
+    ($\Leftarrow$) 设 $\overrightarrow{pq}=\boldsymbol{u}'+\boldsymbol{u}''$, 其中 $\boldsymbol{u}'\in U',\boldsymbol{u}''\in U''$, 则 $\dot{p}+\boldsymbol{u}'+\boldsymbol{u}''=\dot{q}\Rightarrow\dot{p}+\boldsymbol{u}'=\dot{q}-\boldsymbol{u}''$.
+
+    设 $\dot{r}=\dot{p}+\boldsymbol{u}'=\dot{q}-\boldsymbol{u}''$, 则 $\dot{r}\in\varPi'\cap\varPi''$.
+\end{proof}
+\begin{exercise}[1.2]
+    设 $\mathbb{A}$ 是 $n$ 维仿射空间, $\varPi_1,\varPi_2,\cdots,\varPi_m\subset\mathbb{A}$ 是直线且满足 $A(\varPi_1,\varPi_2,\cdots,\varPi_m)=\mathbb{A}$. 在什么情况下 $m$ 取到极小值?
+\end{exercise}
+\begin{solution}
+    % 由书上的式 (12) 得当 $\varPi_1,\varPi_2,\cdots,\varPi_k$ 两两偏斜时 $\dim A(\varPi_1,\varPi_2,\cdots,\varPi_k)$ 取极大值.
+    
+    % $\therefore$ 当 $A(\varPi_1,\varPi_2,\cdots,\varPi_m)=\mathbb{A}$ 且 $\varPi_1,\varPi_2,\cdots,\varPi_k$ 两两偏斜时 $m$ 取极小值.
+
+    当 $\varPi_1,\varPi_2,\cdots,\varPi_k$ 两两不相交时, 由书上的式 (12) 得
+    \begin{align*}
+        \dim A(\varPi_1,\varPi_2,\cdots,\varPi_k) & =\dim A(\varPi_1)+\dim A(\varPi_2,\cdots,\varPi_k)+1 \\
+        & =\dim A(\varPi_1)+(\dim A(\varPi_2)+\dim A(\varPi_3,\cdots,\varPi_k)+1)+1 \\
+        & =\dim A(\varPi_1)+\dim A(\varPi_2)+\dim A(\varPi_3,\cdots,\varPi_k)+2 \\
+        & =\cdots \\
+        & =\sum\limits_{i=1}^k\dim A(\varPi_i)+k-1.
+    \end{align*}
+
+    $\therefore$ 当直线 $\varPi_1,\varPi_2,\cdots,\varPi_k$ 两两偏斜时有 $\dim A(\varPi_1,\varPi_2,\cdots,\varPi_k)=2k-1$. $m$ 在如下情况下取到极小值:
+
+    (a) $\dim\mathbb{A}=2m-1,\varPi_1,\varPi_2,\cdots,\varPi_k$ 两两偏斜;
+
+    (b) $\dim\mathbb{A}=2m,\varPi_1,\varPi_2,\cdots,\varPi_{k-1}$ 两两偏斜, $\varPi_k$ 与 $\varPi_{k-1}$ 平行或相交.
+\end{solution}
+\begin{exercise}[1.3]
+    设 $(\mathbb{A},V)$ 是 $n$ 维仿射空间, $(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)$ 是 $\mathbb{A}$ 的坐标系, 而 $\dot{p}_1',\dot{p}_2',\cdots,\dot{p}_n'\in\mathbb{A}'$, 其中 $\mathbb{A}'$ 是 $n$ 维仿射空间. 证明: $\exists!$ 仿射映射 $f:\mathbb{A}\to\mathbb{A}'$ 使得 $f(\dot{p}_i)=\dot{p}_i',i=0,1,2,\cdots,n$.
+\end{exercise}
+\begin{proof}
+    $\because(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)$ 是 $n$ 维仿射空间 $\mathbb{A}$ 的坐标系, $\therefore\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n$ 给出 $\mathbb{A}$ 的一个重心坐标系. 由定理 \ref{t1.7} 得.
+\end{proof}
+\begin{exercise}[1.4]
+    证明: 点 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\in\mathbb{A}$ 的有限多个重心组合的重心组合仍然是点 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\in\mathbb{A}$ 的重心组合.
+\end{exercise}
+\begin{proof}
+    设
+    \[\dot{p}_i'=\sum\limits_{j=1}^na_{ij}\dot{p}_j,\quad a_{ij}\in K,\quad\sum\limits_{j=1}^na_{ij}=1,\quad i=1,2,\cdots,n.\]
+
+    将上面第一个式子写成矩阵乘积的形式:
+    \[\dot{p}_i'=(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)\begin{pmatrix}
+        a_{i1} \\
+        a_{i2} \\
+        \vdots \\
+        a_{in} \\
+    \end{pmatrix},\]
+
+    则 $[a_1,a_2,\cdots,a_n]$ 是 [BAI] 第 2 章习题 3.4 的概率列向量.
+
+    进一步地, 有
+    \[(\dot{p}_1',\dot{p}_2',\cdots,\dot{p}_n')=(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)A,\]
+
+    其中 $A=(a_{ij})$ 是 [BAI] 第 2 章习题 3.4 的 Markov 矩阵. 设
+    \[\dot{p}=(\dot{p}_1',\dot{p}_2',\cdots,\dot{p}_n')\begin{pmatrix}
+        b_1 \\
+        b_2 \\
+        \vdots \\
+        b_n \\
+    \end{pmatrix},\quad\sum\limits_{j=1}^nb_i=1,\]
+
+    则
+    \[\dot{p}=(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)A\begin{pmatrix}
+        b_1 \\
+        b_2 \\
+        \vdots \\
+        b_n \\
+    \end{pmatrix}.\]
+
+    由 [BAI] 第 2 章习题 3.4(a) 得 $[c_1,c_2,\cdots,c_n]=A[b_1,b_2,\cdots,b_n]$ 满足 $\sum\limits_{j=1}^nc_i=1$. $\therefore\dot{p}$ 是点 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\in\mathbb{A}$ 的重心组合.
+\end{proof}
+\begin{exercise}[1.5]
+    证明: 保持 $\mathbb{A}$ 中的点的重心组合不变的映射 $f:\mathbb{A}\to\mathbb{A}$ 是仿射变换.
+\end{exercise}
+\begin{proof}
+    有
+    \[f\left(\sum\limits_{i=1}^n\alpha_i\dot{p}_i\right)=\sum\limits_{i=1}^n\alpha_if(\dot{p}_i).\]
+
+    在定理 \ref{t1.7} 中令 $\mathbb{A}'=\mathbb{A}$, 得 $f$ 是仿射变换.
+\end{proof}
+\begin{exercise}[1.6]
+    利用重心坐标证明: 三角形的三条中线相交于一点.
+\end{exercise}
+\begin{proof}
+    考虑 $(\mathbb{A},\mathbb{R}^2)$ 上的三角形, 其端点 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 处于一般位置. $\therefore\dot{p}_1,\dot{p}_2,\dot{p}_3$ 构成 $\mathbb{A}$ 上的重心坐标系. 点 $\dot{p}_2,\dot{p}_3$ 的中点在坐标系 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 下的坐标为 $\left(0,\dfrac{1}{2},\dfrac{1}{2}\right)$, 过点 $\dot{p}_1$ 的中线 $\varPi_1$ 上的点在坐标系 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 下的坐标为
+    \[\lambda_1\left(0,\dfrac{1}{2},\dfrac{1}{2}\right)+(1-\lambda_1)(1,0,0),\quad\lambda_1\in K.\]
+
+    类似地, 过点 $\dot{p}_2$ 的中线 $\varPi_2$ 上的点在坐标系 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 下的坐标为
+    \[\lambda_2\left(\dfrac{1}{2},0,\dfrac{1}{2}\right)+(1-\lambda_2)(0,1,0),\quad\lambda_2\in K,\]
+
+    过点 $\dot{p}_3$ 的中线 $\varPi_3$ 上的点在坐标系 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 下的坐标为
+    \[\lambda_3\left(\dfrac{1}{2},\dfrac{1}{2},0\right)+(1-\lambda_3)(0,0,1),\quad\lambda_3\in K.\]
+
+    $\therefore\varPi_1\cap\varPi_2$ 上的点在坐标系 $\dot{p}_1,\dot{p}_2,\dot{p}_3$ 下的坐标 $(x_1,x_2,x_3)$ 满足
+    \[\begin{cases}
+        \lambda_1\left(0,\dfrac{1}{2},\dfrac{1}{2}\right)+(1-\lambda_1)(1,0,0)=(x_1,x_2,x_3), \\[8pt]
+        \lambda_2\left(\dfrac{1}{2},0,\dfrac{1}{2}\right)+(1-\lambda_2)(0,1,0)=(x_1,x_2,x_3). \\
+    \end{cases}\Rightarrow\begin{cases}
+        x_1=1-\lambda_1, \\[8pt]
+        x_2=\dfrac{1}{2}\lambda_1, \\[8pt]
+        x_3=\dfrac{1}{2}\lambda_1, \\[8pt]
+        x_2=1-\lambda_2, \\[8pt]
+        x_1=\dfrac{1}{2}\lambda_2, \\[8pt]
+        x_3=\dfrac{1}{2}\lambda_2. \\[8pt]
+    \end{cases}\]
+    
+    解得 $x_1=x_2=x_3=\dfrac{1}{3}$.
+
+    $\because$
+    \[(x_1,x_2,x_3)=\dfrac{2}{3}\left(\dfrac{1}{2},\dfrac{1}{2},0\right)+\left(1-\dfrac{2}{3}\right)(0,0,1),\]
+
+    $\therefore(x_1,x_2,x_3)\in\varPi_3$.
+\end{proof}
+\subsection{习题 4.2}
+为了避免混乱, 下面将点的坐标用行向量表示, 将向量的坐标用列向量表示, 没有其他的特殊含义.
+\begin{exercise}[2.1]
+    给定 $(\mathbb{A},\mathbb{R}^4)$ 的坐标系 $\{\dot{o};[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]\}$. 求出 $\mathbb{A}$ 上的点 $\dot{p}=(2,1,-3,4)$ 到平面
+    \[\varPi:\begin{cases}
+        2x_1-4x_2-8x_3+13x_4=0, \\
+        x_1+x_2-x_3+2x_4=0 \\
+    \end{cases}\]
+    的距离.
+\end{exercise}
+\begin{solution}
+    $\dot{q}=\left(-\dfrac{5}{2},\dfrac{7}{2},0,0\right)\in\varPi,\overrightarrow{qp}=[2,1,-3,4]-\left[-\dfrac{5}{2},\dfrac{7}{2},0,0\right]=\left[\dfrac{9}{2},-\dfrac{5}{2},-3,4\right]$.
+    
+    考察方程组
+    \[\begin{cases}
+        2x_1-4x_2-8x_3+13x_4=0, \\
+        x_1+x_2-x_3+2x_4=0 \\
+    \end{cases}\]
+    的解空间 $U$.
+    
+    $U$ 的一个基为 $\boldsymbol{e}_1=[2,-1,1,0],\boldsymbol{e}_2=\left[-\dfrac{7}{2},\dfrac{3}{2},0,1\right]$.
+
+    设 $\dot{r}$ 满足 $\varPi_{\dot{p},\dot{r}}\perp\varPi$, 由书上的定理 2, $\overrightarrow{pr}=\boldsymbol{x}-\overrightarrow{qp}$, 其中 $\boldsymbol{x}=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2$,
+    \[x_1=\dfrac{\begin{vmatrix}
+        (\boldsymbol{e}_1|\overrightarrow{qp}) & (\boldsymbol{e}_1|\boldsymbol{e}_2) \\
+        (\boldsymbol{e}_2|\overrightarrow{qp}) & (\boldsymbol{e}_2|\boldsymbol{e}_2) \\
+    \end{vmatrix}}{\begin{vmatrix}
+        (\boldsymbol{e}_1|\boldsymbol{e}_1) & (\boldsymbol{e}_1|\boldsymbol{e}_2) \\
+        (\boldsymbol{e}_2|\boldsymbol{e}_1) & (\boldsymbol{e}_2|\boldsymbol{e}_2) \\
+    \end{vmatrix}}=\dfrac{\begin{vmatrix}
+        \dfrac{17}{2} & -\dfrac{17}{2} \\[8pt]
+        -\dfrac{31}{2} & \dfrac{31}{2} \\
+    \end{vmatrix}}{\begin{vmatrix}
+        6 & -\dfrac{17}{2} \\[8pt]
+        -\dfrac{17}{2} & \dfrac{31}{2} \\
+    \end{vmatrix}}=0,\]
+    \[x_2=\dfrac{\begin{vmatrix}
+        (\boldsymbol{e}_1|\boldsymbol{e}_1) & (\boldsymbol{e}_1|\overrightarrow{qp}) \\
+        (\boldsymbol{e}_2|\boldsymbol{e}_1) & (\boldsymbol{e}_2|\overrightarrow{qp}) \\
+    \end{vmatrix}}{\begin{vmatrix}
+        (\boldsymbol{e}_1|\boldsymbol{e}_1) & (\boldsymbol{e}_1|\boldsymbol{e}_2) \\
+        (\boldsymbol{e}_2|\boldsymbol{e}_1) & (\boldsymbol{e}_2|\boldsymbol{e}_2) \\
+    \end{vmatrix}}=\dfrac{\begin{vmatrix}
+        6 & \dfrac{17}{2} \\[8pt]
+        -\dfrac{17}{2} & -\dfrac{31}{2} \\
+    \end{vmatrix}}{\begin{vmatrix}
+        6 & -\dfrac{17}{2} \\[8pt]
+        -\dfrac{17}{2} & \dfrac{31}{2} \\
+    \end{vmatrix}}=-1.\]
+
+    $\therefore$
+    \[\overrightarrow{pr}=-\boldsymbol{e}_2-\overrightarrow{qp}=-\left[-\dfrac{7}{2},\dfrac{3}{2},0,1\right]-\left[\dfrac{9}{2},-\dfrac{5}{2},-3,4\right]=[-1,1,3,-5],\]
+    \[\dot{p}\dot{r}=\|\overrightarrow{pr}\|=6.\]
+\end{solution}
+\begin{exercise}[2.2]
+    给定 $(\mathbb{A},\mathbb{R}^5)$ 的坐标系 $\{\dot{o};[1,0,0,0,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,1,0],[0,0,0,0,1]\}$. 求出平面
+    \[\varPi_1:\begin{cases}
+        x_1+x_3+x_4-2x_5-2=0, \\
+        x_2+x_3-x_4-x_5-3=0, \\
+        x_1-x_2+2x_3-x_5-3=0 \\
+    \end{cases}\]
+
+    和平面
+    \[\varPi_2:(1,-2,5,8,2)+\left<[0,1,2,1,2],[2,1,2,-1,1]\right>\]
+
+    的一条公垂线以及两平面之间的距离 $d$.
+\end{exercise}
+\begin{solution}
+    $\varPi_2$ 中的点 $\dot{p}_2$ 有分解式
+    \[\dot{p}_2=(1,-2,5,8,2)+b_1[0,1,2,1,2]+b_2[2,1,2,-1,1],\quad b_1,b_2\in\mathbb{R}.\]
+
+    $(0,1,2,0,0)\in\varPi_1$. 考察方程组
+    \[\begin{cases}
+        x_1+x_3+x_4-2x_5=0, \\
+        x_2+x_3-x_4-x_5=0, \\
+        x_1-x_2+2x_3-x_5=0 \\
+    \end{cases}\]
+    的解空间 $U$. $U$ 的一个基为 $[-2,0,1,1,0],[2,1,0,0,1]$. $\therefore\varPi_1$ 中的点 $\dot{p}_1$ 有分解式
+    \[\dot{p}_1=(0,1,2,0,0)+a_1[-2,0,1,1,0]+a_2[2,1,0,0,1],\quad a_1,a_2\in\mathbb{R}.\]
+
+    $U\cap\left<[0,1,2,1,2],[2,1,2,-1,1]\right>$ 的补空间中的向量 $Y$ 满足
+    \[\begin{pmatrix}
+        -2 & 0 & 1 & 1 & 0 \\
+        2 & 1 & 0 & 0 & 1 \\
+        0 & 1 & 2 & 1 & 2 \\
+        2 & 1 & 2 & -1 & 1 \\
+    \end{pmatrix}Y=0,\]
+
+    上式的解空间的一个基为 $\left[-\dfrac{3}{2},2,-1,-2,1\right]$.
+
+    设 $\dot{p}_1\dot{p}_2$ 是平面 $\varPi_1,\varPi_2$ 的公垂线, 则 $\overrightarrow{p_1p_2}=\lambda\left[-\dfrac{3}{2},2,-1,-2,1\right],\ \lambda\in\mathbb{R}$.
+
+    另一方面,
+    \begin{align*}
+        \overrightarrow{p_1p_2} & =\dot{p}_2-\dot{p}_1 \\
+        & =(1,-2,5,8,2)+b_1\begin{pmatrix}
+            0 \\
+            1 \\
+            2 \\
+            1 \\
+            2 \\
+        \end{pmatrix}+b_2\begin{pmatrix}
+            2 \\
+            1 \\
+            2 \\
+            -1 \\
+            1 \\
+        \end{pmatrix}-((0,1,2,0,0)+a_1\begin{pmatrix}
+            -2 \\
+            0 \\
+            1 \\
+            1 \\
+            0 \\
+        \end{pmatrix}+a_2\begin{pmatrix}
+            2 \\
+            1 \\
+            0 \\
+            0 \\
+            1 \\
+        \end{pmatrix}) \\
+        & =\begin{pmatrix}
+            1 \\
+            -3 \\
+            3 \\
+            8 \\
+            2 \\
+        \end{pmatrix}+b_1\begin{pmatrix}
+            0 \\
+            1 \\
+            2 \\
+            1 \\
+            2 \\
+        \end{pmatrix}+b_2\begin{pmatrix}
+            2 \\
+            1 \\
+            2 \\
+            -1 \\
+            1 \\
+        \end{pmatrix}-a_1\begin{pmatrix}
+            -2 \\
+            0 \\
+            1 \\
+            1 \\
+            0 \\
+        \end{pmatrix}-a_2\begin{pmatrix}
+            2 \\
+            1 \\
+            0 \\
+            0 \\
+            1 \\
+        \end{pmatrix} \\
+        & =\begin{pmatrix}
+            1 \\
+            -3 \\
+            3 \\
+            8 \\
+            2 \\
+        \end{pmatrix}+b_1\begin{pmatrix}
+            0 \\
+            1 \\
+            2 \\
+            1 \\
+            2 \\
+        \end{pmatrix}+b_2\begin{pmatrix}
+            2 \\
+            1 \\
+            2 \\
+            -1 \\
+            1 \\
+        \end{pmatrix}+a_1\begin{pmatrix}
+            2 \\
+            0 \\
+            -1 \\
+            -1 \\
+            0 \\
+        \end{pmatrix}+a_2\begin{pmatrix}
+            -2 \\
+            -1 \\
+            0 \\
+            0 \\
+            -1 \\
+        \end{pmatrix},
+    \end{align*}
+
+    $\therefore\dot{p}_1,\dot{p}_2$ 满足方程组
+    \[\begin{pmatrix}
+        0 & 2  & 2  & -2 & \dfrac{3}{2} \\
+        1 & 1  & 0  & -1 & -2 \\
+        2 & 2  & -1 & 0  & 1 \\
+        1 & -1 & -1 & 0  & 2 \\
+        2 & 1  & 0  & -1 & -1 \\
+    \end{pmatrix}\begin{pmatrix}
+        b_1 \\
+        b_2 \\
+        a_1 \\
+        a_2 \\
+        \lambda \\
+    \end{pmatrix}=\begin{pmatrix}
+        -1 \\
+        3 \\
+        -3 \\
+        -8 \\
+        -2 \\
+    \end{pmatrix}.\]
+
+    解得
+    \[\begin{cases}
+        a_1=-1, \\
+        a_2=0, \\
+        b_1=-3, \\
+        b_2=2, \\
+        \lambda=-2.
+    \end{cases}\]
+
+    $\therefore$
+    \[\dot{p}_1=(0,1,2,0,0)-[-2,0,1,1,0]=(2,1,1,-1,0),\]
+    \[\dot{p}_2=(1,-2,5,8,2)-3[0,1,2,1,2]+2[2,1,2,-1,1]=(5,-3,3,3,-2),\]
+    \[\overrightarrow{p_1p_2}=-2\left[-\dfrac{3}{2},2,-1,-2,1\right]=[3,-4,2,4,-2],\quad d=\|\overrightarrow{p_1p_2}\|=7.\]
+\end{solution}
+\begin{exercise}[2.3]
+    沿用定理 \ref{t2.3} 的记号, 证明:
+    \[S^2_\Delta=\|\overrightarrow{op_1}\|^2\cdot l_1\cdot l_2\cdots l_{m-1},\]
+    
+    其中 $l_k$ 是点 $\dot{p}_{k+1}$ 到仿射包络 $A(\dot{o},\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_k)$ 的垂直线的长度.
+\end{exercise}
+\begin{proof}
+    设 $\boldsymbol{e}_i=\overrightarrow{op_i}\ (i=1,2,\cdots,m)$. 对 $m$ 用数学归纳法. 当 $m=2$ 时有
+    \begin{align*}
+        \begin{vmatrix}
+            (\boldsymbol{e}_1|\boldsymbol{e}_1) & (\boldsymbol{e}_1|\boldsymbol{e}_2) \\
+            (\boldsymbol{e}_2|\boldsymbol{e}_1) & (\boldsymbol{e}_2|\boldsymbol{e}_2) \\
+        \end{vmatrix} & =\|\boldsymbol{e}_1\|^2\|\boldsymbol{e}_2\|^2-(\boldsymbol{e}_1|\boldsymbol{e}_2)^2 \\
+        & =\|\boldsymbol{e}_1\|^2\left(\|\boldsymbol{e}_2\|^2-\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{\|\boldsymbol{e}_1\|^2}\right) \\
+        & =\|\boldsymbol{e}_1\|^2\left(\|\boldsymbol{e}_2\|^2+\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{\|\boldsymbol{e}_1\|^2}-\dfrac{2(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{\|\boldsymbol{e}_1\|^2}\right) \\
+        & =\|\boldsymbol{e}_1\|^2\left(\|\boldsymbol{e}_2\|^2+\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{(\boldsymbol{e}_1|\boldsymbol{e}_1)^2}\|\boldsymbol{e}_1\|^2-\dfrac{2(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{(\boldsymbol{e}_1|\boldsymbol{e}_1)}\right) \\
+        & =\|\boldsymbol{e}_1\|^2\left(\|\boldsymbol{e}_2\|^2+\left\|\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)}{(\boldsymbol{e}_1|\boldsymbol{e}_1)}\boldsymbol{e}_1\right\|^2-\dfrac{2(\boldsymbol{e}_1|\boldsymbol{e}_2)^2}{(\boldsymbol{e}_1|\boldsymbol{e}_1)}\right) \\
+        & =\|\boldsymbol{e}_1\|^2\left\|\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)}{(\boldsymbol{e}_1|\boldsymbol{e}_1)}\boldsymbol{e}_1-\boldsymbol{e}_2\right\|^2.
+    \end{align*}
+    
+    设 $\overrightarrow{p_2q}=\dfrac{(\boldsymbol{e}_1|\boldsymbol{e}_2)}{(\boldsymbol{e}_1|\boldsymbol{e}_1)}\boldsymbol{e}_1-\boldsymbol{e}_2=\dfrac{(\overrightarrow{op_1}|\overrightarrow{op_2})}{(\overrightarrow{op_1}|\overrightarrow{op_1})}\overrightarrow{op_1}-\overrightarrow{op_2}$, 由书上的定理 2, $\dot{q}\in\varPi_{\dot{o},\dot{p}_1},\varPi_{\dot{p}_2,\dot{q}}\perp\varPi_{\dot{o},\dot{p}_1}$. $\therefore l_1=\|\overrightarrow{p_2q}\|^2$. 由定理 \ref{t2.3}, 当 $m=2$ 时命题成立.
+
+    假设命题对 $\dot{o},\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_{m-1}$ 成立. 设
+    \[G_{(m)}=\begin{pmatrix}
+        (\boldsymbol{e}_1|\boldsymbol{e}_1) & \cdots & (\boldsymbol{e}_1|\boldsymbol{e}_m) \\
+        \vdots & \ddots & \vdots \\
+        (\boldsymbol{e}_m|\boldsymbol{e}_1) & \cdots & (\boldsymbol{e}_m|\boldsymbol{e}_m) \\
+    \end{pmatrix}.\]
+    
+    由定理 \ref{t2.3}, 有
+    \begin{align*}
+        \det G_{(m)} & =\sum\limits_{i=1}^m(-1)^{m+i}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i} \\
+        & =\|\boldsymbol{e}_m\|^2\det G_{(m-1)}+\sum\limits_{i=1}^{m-1}(-1)^{m+i}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i},
+    \end{align*}
+
+    其中 $G_{m,i}$ 是 $G_{(m)}$ 去掉第 $m$ 行第 $i$ 列的矩阵.
+    
+    设 $G_{m,i}'\ (i=1,2,\cdots,m-1)$ 是将 $G_{(m-1)}$ 的第 $i$ 列替换为 $[(\boldsymbol{e}_1|\boldsymbol{e}_m),(\boldsymbol{e}_2|\boldsymbol{e}_m),\cdots,(\boldsymbol{e}_m|\boldsymbol{e}_m)]$ 得到的矩阵, 则 $\det G_{m,i}'=(-1)^{m-1-i}\det G_{m,i}$,
+    \begin{align*}
+        \sum\limits_{i=1}^{m-1}(-1)^{m+i}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i} & =\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)(-1)^{m-i}\det G_{m,i} \\
+        & =-\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i}' \\
+        & =-\det G_{(m-1)}\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\dfrac{\det G_{m,i}'}{\det G_{(m-1)}}.
+    \end{align*}
+
+    $\therefore$
+    \begin{align*}
+        \det G_{(m)} & =\|\boldsymbol{e}_m\|^2\det G_{(m-1)}-\det G_{(m-1)}\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\dfrac{\det G_{m,i}'}{\det G_{(m-1)}} \\
+        & =\det G_{(m-1)}\left(\|\boldsymbol{e}_m\|^2-\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\dfrac{\det G_{m,i}'}{\det G_{(m-1)}}\right) \\
+        & =\det G_{(m-1)}\left(\|\boldsymbol{e}_m\|^2+\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\dfrac{\det G_{m,i}'}{\det G_{(m-1)}}-\sum\limits_{i=1}^{m-1}2(\boldsymbol{e}_m|\boldsymbol{e}_i)\dfrac{\det G_{m,i}'}{\det G_{(m-1)}}\right) \\
+    \end{align*}
+\end{proof}
+\subsection{习题 4.3}
+% 先证明一个引理.
+% \begin{lemma}
+%     设 $V$ 是 $1$ 维线性空间, 零元为 $0$, 则
+%     $\operatorname{GL}(V)\simeq V\backslash\{0\}$.
+% \end{lemma}
+% \begin{proof}
+    
+% \end{proof}
+\begin{exercise}[3.1]
+    设 $p$ 是素数 $\mathbb{F}_p$ 是 $p$ 元域, 定义纯量乘法为 $\mathbb{F}_p$ 上的乘法, 容易验证 $\mathbb{F}_p$ 是线性空间. 设 $A_1(\mathbb{F}_p)$ 为 $\mathbb{F}_p$ 上仿射直线的自同构群.
+
+    (1) 求 $|A_1(\mathbb{F}_p)|$. (2) $A_1(\mathbb{F}_p)$ 同构于什么群?
+\end{exercise}
+\begin{solution}
+    (2) 由定理 \ref{t3.3} 得 $A_1(\mathbb{F}_p)\simeq\operatorname{GL}(\mathbb{F}_p)\times\mathbb{F}_p$.
+
+    (1) 由第 2 章笔记的定理 1.1 得
+    \[\begin{array}{rcl}
+        \mathcal{L}(\mathbb{F}_p) & \to & \mathbb{F}_p \\
+        f & \to & f(1) \\
+    \end{array}\]
+    是同构. $\therefore|\mathcal{L}(\mathbb{F}_p)|=p$.
+
+    设 $f:1\mapsto0\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,f(a)=f(a\cdot 1)=af(1)=0$, $\therefore f\notin\operatorname{GL}(\mathbb{F}_p)$.
+
+    设 $f:1\mapsto b\neq0\in\mathcal{L}(\mathbb{F}_p)$. 令 $g:b\mapsto 1\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,fg(a)=f(g(a\cdot 1))=f(a\cdot g(1))=af(g(1))=a$, $\therefore$
+    \[\begin{array}{rcl}
+        \operatorname{GL}(\mathbb{F}_p) & \to & \mathbb{F}_p\backslash\{0\} \\
+        f & \to & f(1) \\
+    \end{array}\]
+    是双射. $\therefore|\operatorname{GL}(\mathbb{F}_p)|=p-1,|A_1(\mathbb{F}_p)|=|\operatorname{GL}(\mathbb{F}_p)||\mathbb{F}_p|=p(p-1)$.
+\end{solution}
+\begin{exercise}[3.2]
+    Euclid 平面上的一个固有运动 $f$ 满足
+    \[Df=\dfrac{1}{\sqrt{2}}\begin{pmatrix}
+        1 & -1 \\
+        1 & 1 \\
+    \end{pmatrix},\quad f(\dot{o})=[1,1],\]
+
+    试给出 $f$ 的几何描述.
+\end{exercise}
+\begin{solution}
+    解关于 $X$ 的方程
+    \[DfX+f(\dot{o})=0,\]
+
+    得 $X=[-\sqrt{2},0]$. $\because$
+    \[Df=\begin{pmatrix}
+        \cos\dfrac{\pi}{4} & -\sin\dfrac{\pi}{4} \\[8pt]
+        \sin\dfrac{\pi}{4} & \cos\dfrac{\pi}{4} \\
+    \end{pmatrix},\]
+
+    $\therefore f$ 是绕 $[-\sqrt{2},0]$ 的旋转.
+\end{solution}
+\begin{exercise}[3.3]
+    试对 $4$ 维 Euclid 空间 $\mathbb{E}$ 中的固有运动分类.
+\end{exercise}
+\begin{solution}
+    $V$ 中的正交矩阵可以化为下列情形:
+    \[\operatorname{diag}(1,1,1,1),\quad\operatorname{diag}(1,1,1,-1),\quad\begin{pmatrix}
+        \cos\phi & -\sin\phi \\
+        \sin\phi & \cos\phi \\
+        && 1 \\
+        &&& 1 \\
+    \end{pmatrix},\]
+    \[\begin{pmatrix}
+        \cos\phi & -\sin\phi \\
+        \sin\phi & \cos\phi \\
+        && 1 \\
+        &&& -1 \\
+    \end{pmatrix},\quad\begin{pmatrix}
+        \cos\phi & -\sin\phi \\
+        \sin\phi & \cos\phi \\
+        && \cos\phi & -\sin\phi \\
+        && \sin\phi & \cos\phi \\
+    \end{pmatrix},\]
+
+    分别对应 $\operatorname{Iso}(\mathbb{E})$ 的平移, 在一个维度上的反射, 在一 $2$ 维平面 $\varPi$ 上平移的同时绕 $\varPi$ 旋转, 在一 $2$ 维平面 $\varPi$ 上反射加平移的同时绕 $\varPi$ 旋转, 同时绕两个平面旋转.
+\end{solution}
+\begin{exercise}[补充题 1]
+    设 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\in\mathbb{A}$ 处于一般位置. 设
+    \[\dot{q}_i=\dfrac{1}{m}(\dot{p}_0+\dot{p}_1+\cdots+\widehat{\dot{p}_i}+\cdots+\dot{p}_m)\quad (i=0,1,\cdots,m),\]
+
+    证明: $\dot{p}_i\dot{q}_i$ 交于一点.
+\end{exercise}
+\begin{proof}
+    $\dot{p}_i\dot{q}_i$ 上的点 $\dot{r}_i$ 有分解式
+    \[\dot{r}_i=\lambda\dot{q}_i+(1-\lambda)\dot{p}_i=\dfrac{\lambda}{m}(\dot{p}_0+\dot{p}_1+\cdots+\widehat{\dot{p}_i}+\cdots+\dot{p}_m)+(1-\lambda)\dot{p}_i\quad(0\leq\lambda\leq1).\]
+
+    令 $\lambda=\dfrac{m}{m+1}$, 得
+    \[\dot{r}_i=\dfrac{1}{m+1}(\dot{p}_0+\dot{p}_1+\cdots+\dot{p}_m),\quad i=1,2,\cdots,m.\]
+
+    $\therefore\dfrac{1}{m+1}(\dot{p}_0+\dot{p}_1+\cdots+\dot{p}_m)\in\dot{p}_i\dot{q}_i$. $\therefore\dot{p}_i\dot{q}_i$ 交于一点 $\dfrac{1}{m+1}(\dot{p}_0+\dot{p}_1+\cdots+\dot{p}_m)$.
+\end{proof}
+\begin{exercise}[补充题 2]
+    设 $\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\in\mathbb{A}$,
+    \[A=\left\{\sum\limits_{i=1}^m\lambda_i\dot{p}_i\Bigg|\lambda_i\geq0,\sum\limits_{i=1}^m\lambda_i=1\right\}\]
+    
+    证明: (1) $A$ 是凸集. (2) $A$ 是一些单纯形的并. (3) $A=C(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)$.
+\end{exercise}
+\begin{proof}
+    (1) 设 $\dot{q}_1=\sum\limits_{i=1}^m\lambda_i\dot{p}_i,\dot{q}_2=\sum\limits_{i=1}^m\mu_i\dot{p}_i\in A$, 则 $\dot{q}_1\dot{q}_2$ 上的点 $\dot{r}$ 具有分解式 $\dot{r}=\nu\dot{q}_1+(1-\nu)\dot{q}_2\ (0\leq\nu\leq1)$. $\therefore$
+    \[\dot{r}=\nu\sum\limits_{i=1}^m\lambda_i\dot{p}_i+(1-\nu)\sum\limits_{i=1}^m\mu_i\dot{p}_i=\sum\limits_{i=1}^m(\nu\lambda_i+(1-\nu)\mu_i)\dot{p}_i.\]
+
+    $\because\lambda_i\geq0,\mu_i\geq0,\therefore\nu\lambda_i+(1-\nu)\mu_i\geq0$.
+
+    $\because\sum\limits_{i=1}^m\lambda_i=\sum\limits_{i=1}^m\mu_i=1$, $\therefore$
+    \[\sum\limits_{i=1}^m(\nu\lambda_i+(1-\nu)\mu_i)=\nu\sum\limits_{i=1}^m\lambda_i+(1-\nu)\sum\limits_{i=1}^m\mu_i=1.\]
+
+    $\therefore\dot{r}\in A$. $\therefore A$ 是凸集.
+
+    (3) 由 (1) 得 $A$ 是凸集. $\because\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\}\subset A$, $\therefore A\supset C(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)$.
+
+    证明 $A\subset C$, 只需证明: $\forall$ 凸集 $B\supset\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\},A\subset B$.
+
+    对 $m$ 用数学归纳法. $m=1$ 时有 $A=C(\dot{p}_0,\dot{p}_1)$, 由定义得. 假设对 $\forall$ 凸集 $B\supset\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_{m-1}\}$, 有
+    \[\left\{\sum\limits_{i=1}^{m-1}\lambda_i\dot{p}_i\Bigg|\lambda_i\geq0,\sum\limits_{i=1}^{m-1}\lambda_i=1\right\}\subset B.\]
+
+    $\forall\dot{q}=\sum\limits_{i=1}^m\mu_i\dot{p}_i\ \left(\lambda_i\geq0,\sum\limits_{i=1}^m\lambda_i=1\right)$, 有
+    \[\dot{q}=\mu_m\dot{p}_m+(1-\mu_m)\sum\limits_{i=1}^{m-1}\dfrac{\mu_i}{1-\mu_m}\dot{p}_i.\]
+
+    $\because$
+    \[\sum\limits_{i=1}^{m-1}\dfrac{\mu_i}{1-\mu_m}=\dfrac{1}{1-\mu_m}\sum\limits_{i=1}^{m-1}\mu_i=\dfrac{1-\mu_i}{1-\mu_i}=1,\]
+
+    $\therefore\forall$ 凸集 $B\supset\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}\supset\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_{m-1}\}$,
+    \[\sum\limits_{i=1}^{m-1}\dfrac{\mu_i}{1-\mu_m}\dot{p}_i\in\left\{\sum\limits_{i=1}^{m-1}\lambda_i\dot{p}_i\Bigg|\lambda_i\geq0,\sum\limits_{i=1}^{m-1}\lambda_i=1\right\}\subset B.\]
+
+    $\because\dot{p}_m\in B$, $\therefore\sum\limits_{i=1}^{m-1}\dfrac{\mu_i}{1-\mu_m}\dot{p}_i$ 与 $\dot{p}_m$ 的连线上的点 $\dot{q}\in B$. $\therefore A\subset B$.
+\end{proof}
+\subsection{习题 4.4}
+\begin{exercise}[4.1]
+    讨论 $\mathcal{F}\in\boldsymbol{L}_1$ 作用的第二种可能性.
+\end{exercise}
+\begin{solution}
+    有
+    \[\begin{cases}
+        \mathcal{F}(\boldsymbol{e}_0+\boldsymbol{e}_1)=\alpha(\boldsymbol{e}_0-\boldsymbol{e}_1), \\
+        \mathcal{F}(\boldsymbol{e}_0-\boldsymbol{e}_1)=\beta(\boldsymbol{e}_0+\boldsymbol{e}_1) \\
+    \end{cases}\Rightarrow\begin{cases}
+        \mathcal{F}\boldsymbol{e}_0=\dfrac{\alpha+\beta}{2}\boldsymbol{e}_0-\dfrac{\alpha-\beta}{2}\boldsymbol{e}_1, \\[8pt]
+        \mathcal{F}\boldsymbol{e}_1=\dfrac{\alpha-\beta}{2}\boldsymbol{e}_0-\dfrac{\alpha+\beta}{2}\boldsymbol{e}_1. \\
+    \end{cases}\]
+
+    $\therefore$
+    \[\det\mathcal{F}=\begin{vmatrix}
+        \dfrac{\alpha+\beta}{2} & -\dfrac{\alpha-\beta}{2} \\[8pt]
+        \dfrac{\alpha-\beta}{2} & -\dfrac{\alpha+\beta}{2} \\
+    \end{vmatrix}=-\left(\dfrac{\alpha+\beta}{2}\right)^2+\left(\dfrac{\alpha-\beta}{2}\right)^2=-\alpha\beta.\]
+
+    若 $\mathcal{F}$ 是固有的 Lorentz 变换, 则 $\det\mathcal{F}=-\alpha\beta=1$.
+    
+    令 $\beta=-\dfrac{1}{\alpha}$, 则 $\mathcal{F}$ 的矩阵为
+    \[F=\begin{pmatrix}
+        \dfrac{\alpha-\alpha^{-1}}{2} & -\dfrac{\alpha+\alpha^{-1}}{2} \\[8pt]
+        \dfrac{\alpha+\alpha^{-1}}{2} & -\dfrac{\alpha-\alpha^{-1}}{2} \\
+    \end{pmatrix}.\]
+
+    令 $v=\dfrac{\alpha^{-1}-\alpha}{\alpha^{-1}+\alpha}$, 则 $\dfrac{\alpha-\alpha^{-1}}{2}=\dfrac{-v}{\sqrt{1-v^2}},\dfrac{\alpha+\alpha^{-1}}{2}=\dfrac{1}{\sqrt{1-v^2}}$,
+    \[F=\begin{pmatrix}
+        \dfrac{-v}{\sqrt{1-v^2}} & -\dfrac{1}{\sqrt{1-v^2}} \\[8pt]
+        \dfrac{1}{\sqrt{1-v^2}} & \dfrac{v}{\sqrt{1-v^2}} \\
+    \end{pmatrix}.\]
+
+    $\therefore$ 有
+    \[t'=\dfrac{-vt-x}{\sqrt{1-v^2}},\quad x'=\dfrac{t+vx}{\sqrt{1-v^2}}.\]
+
+    如果把 $t$ 看成时间, 则上式表明时间可以逆向流动. $\therefore$ 这样的变换在生活中是不存在的.
+\end{solution}
+\begin{exercise}[4.2]
+    证明: 对于第 4 小节中定义的线性算子 $\Gamma_A$, 有 $\det\Gamma_A=1$.
+\end{exercise}
+\begin{proof}
+    这里用纯代数方法证明, 因此比较繁琐. 设
+    \[S=\{B\in\operatorname{GL}_2(\mathbb{C})|B^*=B\},\]
+    
+    则
+    \[E_{(1)}=\begin{pmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{pmatrix},\quad E_{(2)}=\begin{pmatrix}
+        -1 & 0 \\
+        0 & 1 \\
+    \end{pmatrix},\quad E_{(3)}=\begin{pmatrix}
+        0 & 1 \\
+        1 & 0 \\
+    \end{pmatrix},\quad E_{(4)}=\begin{pmatrix}
+        0 & -i \\
+        i & 0 \\
+    \end{pmatrix}\]
+    是 $S$ 的一个基. 设
+    \[A=\begin{pmatrix}
+        \alpha & \beta \\
+        \gamma & \delta \\
+    \end{pmatrix}\in\operatorname{SL}_n(\mathbb{C}).\]
+
+    $\because$
+    \begin{align*}
+        AE_{(1)}A^* & =\begin{pmatrix}
+            |\alpha|^2+|\beta|^2 & \alpha\bar{\gamma}+\beta\bar{\delta} \\
+            \gamma\bar{\alpha}+\delta\bar{\beta} & |\gamma|^2+|\delta|^2 \\
+        \end{pmatrix} \\
+        & =\dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2}E_{(2)} \\
+        & \quad+\dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
+    \end{align*}
+    \begin{align*}
+        AE_{(2)}A^* & =\begin{pmatrix}
+            -|\alpha|^2+|\beta|^2 & -\alpha\bar{\gamma}+\beta\bar{\delta} \\
+            -\gamma\bar{\alpha}+\delta\bar{\beta} & -|\gamma|^2+|\delta|^2 \\
+        \end{pmatrix} \\
+        & =\dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2}E_{(2)} \\
+        & \quad+\dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
+    \end{align*}
+    \begin{align*}
+        AE_{(3)}A^* & =\begin{pmatrix}
+            \beta\bar{\alpha}+\alpha\bar{\beta} & \beta\bar{\gamma}+\alpha\bar{\delta} \\
+            \delta\bar{\alpha}+\gamma\bar{\beta} & \delta\bar{\gamma}+\gamma\bar{\delta} \\
+        \end{pmatrix} \\
+        & =\dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2}E_{(2)} \\
+        & \quad+\dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i}E_{(4)},
+    \end{align*}
+    \begin{align*}
+        AE_{(4)}A^* & =\begin{pmatrix}
+            i\beta\bar{\alpha}-i\alpha\bar{\beta} & i\beta\bar{\gamma}-i\alpha\bar{\delta} \\
+            i\delta\bar{\alpha}-i\gamma\bar{\beta} & i\delta\bar{\gamma}-i\gamma\bar{\delta} \\
+        \end{pmatrix} \\
+        & =\dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2}E_{(2)} \\
+        & \quad+\dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2}E_{(4)},
+    \end{align*}
+
+    $\therefore$
+    \[\Gamma_A:\begin{array}{rcl}
+        S & \to & S \\
+        P_{\boldsymbol{x}} & \to & AP_{\boldsymbol{x}}A^* \\
+    \end{array}\]
+
+    在基 $E_{(1)},E_{(2)},E_{(3)},E_{(4)}$ 下的矩阵为
+    \[\begin{pmatrix}
+        \dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2} & \dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2} & \dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2} & \dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2} \\[8pt]
+        \dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2} & \dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2} & \dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2} & \dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2} \\[8pt]
+        \dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2} & \dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2} \\[8pt]
+        \dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2} \\[8pt]
+    \end{pmatrix}.\]
+
+    进行 II 型初等列变换得
+    \[F=\begin{pmatrix}
+        \dfrac{|\alpha|^2+|\gamma|^2}{2} & |\beta|^2+|\delta|^2 & \dfrac{\alpha\bar{\beta}+\gamma\bar{\delta}}{2} & i\beta\bar{\alpha}+i\delta\bar{\gamma} \\[8pt]
+        \dfrac{|\gamma|^2-|\alpha|^2}{2} & |\delta|^2-|\beta|^2 & \dfrac{\gamma\bar{\delta}-\alpha\bar{\beta}}{2} & i\delta\bar{\gamma}-i\beta\bar{\alpha} \\[8pt]
+        \dfrac{\alpha\bar{\gamma}+\gamma\bar{\alpha}}{2} & \beta\bar{\delta}+\delta\bar{\beta} & \dfrac{\alpha\bar{\delta}+\gamma\bar{\beta}}{2} & i\beta\bar{\gamma}+i\delta\bar{\alpha} \\[8pt]
+        \dfrac{\gamma\bar{\alpha}-\alpha\bar{\gamma}}{2i} & \dfrac{\delta\bar{\beta}-\beta\bar{\delta}}{i} & \dfrac{\gamma\bar{\beta}-\alpha\bar{\delta}}{2i} & \delta\bar{\alpha}-\beta\bar{\gamma} \\[8pt]
+    \end{pmatrix}.\]
+
+    进行 III 型初等变换得
+    \begin{align*}
+        \det F & =\dfrac{1}{4}\begin{vmatrix}
+            |\alpha|^2+|\gamma|^2 & |\beta|^2+|\delta|^2 & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+            |\gamma|^2-|\alpha|^2 & |\delta|^2-|\beta|^2 & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+        \end{vmatrix} \\
+        & =\dfrac{1}{4}\begin{vmatrix}
+            \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+            \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+        \end{vmatrix}.
+    \end{align*}
+
+    进行 II 型初等行变换得
+    \begin{align*}
+        \begin{vmatrix}
+            \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+            \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+        \end{vmatrix} & =\begin{vmatrix}
+            \alpha\bar{\alpha} & \beta\bar{\beta} & \alpha\bar{\beta} & \beta\bar{\alpha} \\
+            2\gamma\bar{\gamma} & 2\delta\bar{\delta} & 2\gamma\bar{\delta} & 2\delta\bar{\gamma} \\
+            \alpha\bar{\gamma} & \beta\bar{\delta} & \alpha\bar{\delta} & \beta\bar{\gamma} \\
+            2\gamma\bar{\alpha} & 2\delta\bar{\beta} & 2\gamma\bar{\beta} & 2\delta\bar{\alpha} \\
+        \end{vmatrix} \\
+        & =4(\beta\gamma-\alpha\delta)^2(\bar{\beta}\bar{\gamma}-\bar{\alpha}\bar{\delta})^2 \\
+        & =4(\beta\gamma-\alpha\delta)^2\overline{\beta\gamma-\alpha\delta}^2=4.
+    \end{align*}
+
+    $\therefore\det\Gamma_A=1$.
+\end{proof}
+\begin{note}
+    最后的行列式的化简是用 Mathematica 算的, 代码如下:
+    \begin{verbatim}
+Det[{{a Conjugate[a], b Conjugate[b], a Conjugate[b], b Conjugate[a]},
+     {c Conjugate[c], d Conjugate[d], c Conjugate[d], d Conjugate[c]},
+     {a Conjugate[c], b Conjugate[d], a Conjugate[d], b Conjugate[c]},
+     {c Conjugate[a], d Conjugate[b], c Conjugate[b], d Conjugate[a]}}]
+    // Simplify
+    \end{verbatim}
+\end{note}
+\begin{thebibliography}{99}
+    \bibitem{geometry} Michele Audin. \textit{Geometry}. Springer-Verlag Berlin Heidelberg, 2003.
+\end{thebibliography}
+\end{document}

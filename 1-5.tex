@@ -1,0 +1,2073 @@
+% TODO:
+% 多元多项式的推论(保持整环性质)
+% 习题 3.5
+% 看第 3 节的性质 1(4) 的注释以及性质后面的注释
+% 例 3.7(1)
+% 引理 4.2 和之后的习题. 引理 4.2 需要补充添加 \phi':X\to g(X) 保持素性的条件
+% 有空的话可以改一下最后一节的label的编号
+
+\documentclass[UTF8]{ctexart}
+\usepackage{lecturenote}
+
+\title{第5章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{复数(对应教材5.1节)}
+\subsection{二次扩域的矩阵表示}
+设 $P$ 是域, $d\in P$. 类比复数的矩阵表示, 考虑
+\[P_d=\left\{\begin{pmatrix}
+    a & db \\
+    -db & a \\
+\end{pmatrix}\Bigg|a,b\in P\right\}.\]
+
+有
+\[\begin{pmatrix}
+    a & db \\
+    -db & a \\
+\end{pmatrix}+\begin{pmatrix}
+    a' & db' \\
+    -db' & a' \\
+\end{pmatrix}=\begin{pmatrix}
+    a+a' & d(b+b') \\
+    -d(b+b') & a+a' \\
+\end{pmatrix},\]
+\[-\begin{pmatrix}
+    a & db \\
+    -db & a \\
+\end{pmatrix}=\begin{pmatrix}
+    -a & d(-b) \\
+    -d(-b) & -a \\
+\end{pmatrix},\]
+\[\begin{pmatrix}
+    a & db \\
+    -db & a \\
+\end{pmatrix}\begin{pmatrix}
+    a' & db' \\
+    -db' & a' \\
+\end{pmatrix}=\begin{pmatrix}
+    aa'-d^2bb' & d(ab'+a'b) \\
+    -d(ab'+a'b) & aa'-d^2bb' \\
+\end{pmatrix}.\]
+
+$\therefore P_d$ 是 $M_2(P)$ 的子环.
+
+$\because$
+\[\begin{vmatrix}
+    a & db \\
+    -db & a \\
+\end{vmatrix}=a^2+d^2b^2\geq0\]
+(当且仅当 $a=b=0$ 时取等号), $\therefore P_d$ 中的非零元素可逆. $\therefore P_d$ 是域.
+
+容易验证% $P_d$ 与 $P[d]$
+\[\phi:\begin{array}{rcl}
+    P[d] & \to & P_d \\
+    a+b\sqrt{d}\ (a,b\in P) & \mapsto & \begin{pmatrix}
+        a & db \\
+        -db & a \\
+    \end{pmatrix} \\
+\end{array}\]
+是同构.
+\subsection{补充一些定理的证明}
+\begin{theorem}
+    $1$ 的一个 $n$ 次方根 $\varepsilon_k$ 是本原的当且仅当 $k,n$ 互素.
+\end{theorem}
+\begin{proof}
+    假设 $d=\operatorname{gcd}(k,n)>1$, 由第1.9节第2小节的式 (2) 得 $\operatorname{lcm}(k,n)=\dfrac{kn}{d}=mn$, 其中 $m\in\mathbb{N}_+$.
+
+    $\therefore$
+    \[\varepsilon_k^{n/d}=(\varepsilon_1^k)^{n/d}=\varepsilon_1^{mn}=(\varepsilon_1^n)^m=1^m=1.\]
+
+    $\therefore\exists\dfrac{k}{d}<k,\varepsilon_k^{k/d}=1$, 与 $\varepsilon_k$ 是本原的矛盾.
+\end{proof}
+\begin{theorem}[书上的定理4]
+    $\mathbb{R}$ 上的任一 $2$ 维向量空间 $K$ 如果还是一个结合, 交换, 具有单位元 $1$ 且无平凡的零因子的环, 则 $K\simeq\mathbb{C}$.
+\end{theorem}
+\begin{proof}
+    前两句话跟书上的证明一样.
+
+    (下面要用 $K$ 的基 $1,e$ 表示 $i$ 在同构中的像 $j$. 假设已经知道 $e=a+bi$, 则 $i=\dfrac{e-a}{b}$. $\because|i|=1,\therefore$ 实际上只需要求 $a$ 的值. $\because$
+    \begin{align*}
+        e^2 & =a^2-b^2+2abi \\
+        & =-a^2-b^2+2a(a+bi) \\
+        & =-a^2-b^2+2ae,
+    \end{align*}
+
+    $\therefore e^2$ 的 $e$ 分量为 $2a$.)
+
+    $\because\{1,e\}$ 构成 $K$ 在 $\mathbb{R}$ 上的一个基, $\therefore\exists\alpha,\beta\in\mathbb{R}$ 使得 $e^2=\alpha\cdot1+2\beta\cdot e$.
+
+    设 $f=e-\beta$, 则
+    \begin{align*}
+        f^2 & =(e-\beta)^2 \\
+        & =e^2-2\beta e+\beta^2 \\
+        & =\alpha+\beta^2.
+    \end{align*}
+
+    假设 $f^2>0$, 则 $f\in\mathbb{R}\Rightarrow e=f+\beta\in\mathbb{R}$, 与 $e\in K\backslash\mathbb{R}$ 矛盾.
+
+    设 $\gamma=-f^2$, 则 $\gamma>0,\sqrt{\gamma}\in\mathbb{R}$.
+
+    设 $j=\dfrac{f}{\sqrt{\gamma}}$, 则 $j^2=-1$.
+
+    设 $M$ 为书上第2小节的式 (2) 定义的域, 映射
+    \[\sigma:\begin{array}{rcl}
+        K & \to & M \\[6pt]
+        a+bj\ (a,b\in\mathbb{R}) & \mapsto & \begin{pmatrix}
+            a & b \\
+            -b & a \\
+        \end{pmatrix} \\
+    \end{array}.\]
+
+    $\because e=f+\beta=\beta+\sqrt{\gamma}j,\therefore\{1,j\}$ 构成 $K$ 在 $\mathbb{R}$ 上的一个基. $\therefore\forall x\in K,\exists!(a,b)$ 使得
+    \[x=a+bj\Rightarrow\sigma(x)=\begin{pmatrix}
+            a & b \\
+            -b & a \\
+        \end{pmatrix}.\]
+
+    $\therefore\sigma$ 是确切定义的.
+
+    容易验证 $\sigma$ 是双射, 且 $\forall x,y\in K$,
+    \[\sigma(x+y)=\sigma(x)+\sigma(y),\]
+    \[\sigma(xy)=\sigma(x)\sigma(y).\]
+
+    $\therefore\sigma$ 是环同态.
+
+    $\because K$ 的乘法半群是 Abel 群, 由第4章笔记的定理2.1得 $K$ 是域. $\therefore$
+    \[\sigma:\begin{array}{rcl}
+        K & \to & \mathbb{C} \\
+        a+bj\ (a,b\in\mathbb{R}) & \to & a+bi \\
+    \end{array}.\]
+
+    是同构.
+\end{proof}
+\begin{note}
+    环同构与群同构有一点不同: 群同构要求像和原像都是群, 而环同构对像和原像的乘法半群没有要求. $\therefore$ 证明时没有考虑 $K$ 的乘法半群.
+\end{note}
+\subsection{一些例子}
+\begin{example}
+    设 $f$ 是不可约多项式, $f(a)=f(b)=0$, 则 $\mathbb{Q}(a)$ 与 $\mathbb{Q}(b)$ 不一定相等.
+
+    考虑 $x^4+2$ 的两个根 $\sqrt[4]{2},i\sqrt[4]{2}$.
+
+    $\because\mathbb{Q}(\sqrt[4]{2})\in\mathbb{R},i\in\mathbb{Q}(i\sqrt[4]{2}),\therefore\mathbb{Q}(\sqrt[4]{2})\neq\mathbb{Q}(i\sqrt[4]{2})$.
+
+    但是
+
+    \[\sigma:\begin{array}{rcl}
+        \mathbb{Q}(\sqrt[4]{2}) & \to & \mathbb{Q}(i\sqrt[4]{2}) \\
+        1 & \mapsto & 1 \\
+        \sqrt[4]{2} & \mapsto & i\sqrt[4]{2} \\
+    \end{array}.\]
+
+    是同构.
+\end{example}
+\section{多项式(对应教材5.2节)}
+\subsection{为什么要用序列表示多项式}
+在中学中, 一般认为多项式
+\begin{equation}\label{eq2.1}
+    a_0+a_1x+a_2x^2+\cdots+a_nx^n
+\end{equation}
+
+的运算与变量 $x\in\mathbb{R}$ 有关. 但是把 $x$ 看成矩阵或者是别的什么东西, 多项式的许多性质仍然成立.
+
+仅仅在形式上添加与 $a_i$ 不同(不属于相同的集合)的 $x$ 并且定义 $a$ 与 $x$ 的各种运算会使问题变得复杂. 因此在这里我们先不考虑 $x$, 只考虑多项式的运算, 之后才用构造同态的方法考虑多项式的"取值" $x$.
+
+回忆一下线性方程组
+\[\begin{cases}
+    a_{11}x_1+a_{12}x_1+\cdots+a_{1n}x_n=b_1 \\
+    a_{21}x_1+a_{22}x_1+\cdots+a_{2n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+a_{m2}x_1+\cdots+a_{mn}x_n=b_1 \\
+\end{cases}.\]
+
+我们不关心变量 $x_i$ 是什么(因为 $x_i$ 可以是任何东西), 只关心系数 $a_{ij},b_i$ 及其位置. 因此用矩阵
+\[\begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} & b_{1} \\
+    a_{21} & a_{22} & \cdots & a_{2n} & b_{2} \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn} & b_{m} \\
+\end{pmatrix}\]
+
+来表示线性方程组(实际上是给出了线性方程组到矩阵的一个双射).
+
+同样地, 我们不关心多项式 (\ref{eq2.1}) 中的变量 $x$, 只关心系数 $a_{i}$ 及其位置(\emph{多项式的本质是一种运算}, 运算的性质由系数及其位置决定). 因此可以用序列
+\[(a_1,a_2,\cdots,a_n)\in\mathbb{R}^n\]
+
+表示多项式 (\ref{eq2.1})(也是给出了一个双射).
+
+$\because n$ 不是确定的数, $\therefore$ 可以用序列
+\[(a_1,a_2,\cdots,a_n,0,\cdots,0,\cdots)\in\mathbb{R}^\infty,a_i\in A,i=1,2,\cdots,n,n\in\mathbb{N}\]
+
+表示 $A[X]$, 简写为 $(a_i)$.
+
+下面的两个例子可以说明序列表示的好处.
+\begin{example}
+    如果将环 $R$ 上的多项式看成是 $R$ 上的函数, 我们希望形式不同的多项式的值也不同, 即
+    \[(a_i)\neq(b_i)\Rightarrow\sum\limits_{i=0}^{n}a_ix^i\neq\sum\limits_{i=0}^{m}b_ix^i.\]
+
+    但是这与实际不符. 考虑 $\mathbb{Z}_2$ 上的多项式
+    \[f(x)=x^2+x.\]
+
+    容易验证 $f(0)=f(1)=0,f(x)=0$.
+
+    但是作为多项式的 $(0,1,1,0,\cdots)$ 和 $(0,0,\cdots)$ 是有差别的.
+\end{example}
+\begin{example}
+    设 $\phi$ 是 $\mathbb{R}^*$ 上的恒等映射, 定义
+    \[\phi^n:\begin{array}{rcl}
+        \mathbb{R}^* & \to & \mathbb{R}^* \\
+        a & \to & a^n \\
+    \end{array},\]
+
+    则
+    \[f:\begin{array}{rcl}
+        \mathbb{R}[X] & \to & \mathbb{R}[\phi] \\
+        \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i\phi^i \\
+    \end{array}\]
+
+    是同构.
+
+    如果将 $X$ 看成未知元的话, 很难想象如何把函数 "代入" 实数.
+\end{example}
+使用序列的问题是表示起来比较复杂, 所有要用一些方法来简化多项式的表示.
+\begin{example}
+    $\because$
+    \[(a,0,0,\cdots,0)(a_1,a_2,\cdots,a_n,\cdots)=(aa_1,aa_2,\cdots,aa_n,\cdots),\]
+
+    $\therefore$ 可以将 $a$ 与 $(a,0,0,\cdots)$ 等同, 这实际上是将 $R$ 与 $\{(a,0,0,\cdots)|a\in R\}\subset R[X]$ 等同.
+\end{example}
+此外, 将 $(0,1,0,0,\cdots)$ 记作 $X$ 也是简化表示的方法.
+\subsection{多元多项式}
+设 $R$ 是交换环. 书上通过在 $R[X]$ 上构造多项式来递归地定义多元多项式.
+
+一个直观(也很麻烦)的表示法是用嵌套的序列表示多元多项式, 这种表示法比较符合书上的定义.
+
+以 $2$ 元多项式为例. 按照 $R[X]$ 的定义, $\forall f\in R[X]$,
+\[f=(a_1,a_2,\cdots,a_n,0,0,\cdots),\]
+
+其中 $a_1,a_2,\cdots,a_n\in R$.
+
+$\therefore\forall g\in R[X,Y]$,
+\begin{align*}
+    g= & \ ((a_{11},a_{12},\cdots,a_{1n_1},0,\cdots),(a_{21},a_{22},\cdots,a_{2n_2},0,\cdots),\cdots, \\
+    & (a_{m1},a_{m2},\cdots,a_{mn_m},0,\cdots),(0,0,\cdots),(0,0,\cdots),\cdots), \\
+\end{align*}
+
+其中 $a_{ij}\in R$.
+
+用这个表示法可以解释为什么 $XY=YX$, 因为两者指的都是
+\[((0,0,\cdots),(0,1,0,0,\cdots),(0,0,\cdots),\cdots).\]
+
+事实上可以给出 $R[X_1,X_2,\cdots,X_n]$ 的更为形式化的定义.
+
+前面我们用序列来表示环 $R$ 上的多项式. 序列的更为形式化的表述是一个映射:
+\[f:\begin{array}{rcl}
+    \mathbb{N} & \to & R \\
+    n & \to & a_n \\
+\end{array}.\]
+
+$\therefore$ 可以给出 $R[X]$ 的更为形式化的定义:
+\[R[X]=\left\{f:\mathbb{N}\to R\Big||\mathbb{N}\backslash\ker f|<\infty\right\}.\]
+
+$R[X]$ 上的加法和乘法相应地定义如下: 对 $\forall f,g\in R[X],\forall u\in\mathbb{N}$, 
+\[(f+g)(u)=f(u)+g(u),\]
+\[(fg)(u)=\sum\limits_{\substack{v+w=u\\v,w\in\mathbb{N}}}f(v)g(w).\]
+
+类似地, (先不去管 $R[X_1,X_2,\cdots,X_n]$ 中的 $X_i$ 是什么意思, 把 $R[X_1,X_2,\cdots,X_n]$ 当成一个整体)定义:
+\[R[X_1,X_2,\cdots,X_n]=\left\{f:\mathbb{N}^n\to R\Big||\mathbb{N}^n\backslash\ker f|<\infty\right\}.\]
+
+$R[X_1,X_2,\cdots,X_n]$ 上的加法和乘法定义如下: 对 $\forall f,g\in R[X_1,X_2,\cdots,X_n],\forall u\in\mathbb{N}^n$, 
+\[(f+g)(u)=f(u)+g(u),\]
+\[(fg)(u)=\sum\limits_{\substack{v+w=u\\v,w\in\mathbb{N}^n}}f(v)g(w).\]
+
+$\because R$ 的加法群是 Abel 群, $\therefore R[X_1,X_2,\cdots,X_n]$ 的加法群也是 Abel 群.
+
+$\because\forall f,g,h\in R[X_1,X_2,\cdots,X_n],\forall u\in\mathbb{N}^n$,
+\begin{align*}
+    (f(gh))(u) & =\sum\limits_{\substack{v+w=u}}f(v)(gh)(w) \\
+    & =\sum\limits_{\substack{v+w=u}}f(v)\left(\sum\limits_{\substack{i+j=w}}g(i)h(j)\right) \\
+    & =\sum\limits_{\substack{v+i+j=u}}f(v)g(i)h(j) \\
+    & =\sum\limits_{\substack{w+j=u}}\left(\sum\limits_{\substack{v+i=w}}f(v)g(i)\right)h(j) \\
+    & =((fg)h)(u),
+\end{align*}
+
+$\therefore R[X_1,X_2,\cdots,X_n]$ 对乘法封闭.
+
+$\because\forall f,g,h\in R[X_1,X_2,\cdots,X_n],\forall u\in\mathbb{N}^n$,
+\begin{align*}
+    ((f+g)h)(u) & =\sum\limits_{\substack{v+w=u}}(f+g)(v)h(w) \\
+    & =\sum\limits_{\substack{v+w=u}}(f(v)+g(v))h(w) \\
+    & =\sum\limits_{\substack{v+w=u}}f(v)h(w)+\sum\limits_{\substack{v+w=u}}g(v)h(w) \\
+    & =fh(u)+gh(u) \\
+    & =(fh+gh)(u),
+\end{align*}
+
+$\therefore R[X_1,X_2,\cdots,X_n]$ 是环.
+
+$\forall a\in R$, 考虑映射
+\[f_a:\begin{array}{rcl}
+    \mathbb{N}^n & \to & R \\
+    0 & \mapsto & a \\
+    u & \mapsto & 0\ (u\in\mathbb{N}^n\backslash\{0\}) \\
+\end{array}.\]
+
+$\because$
+\begin{align*}
+    (f_a+f_b)(u) & =\begin{cases}
+                        a+b, & u=0 \\
+                        0, & \text{otherwise} \\
+                    \end{cases} \\
+    & =f_{a+b}(u),
+\end{align*}
+\begin{align*}
+    (f_af_b)(u) & =\sum\limits_{\substack{v+w=u\\v,w\in\mathbb{N}^n}}f_a(v)f_b(w) \\
+    & =\begin{cases}
+            ab, & u=0 \\
+            0, & \text{otherwise} \\
+        \end{cases} \\
+    & =f_{ab}(u).
+\end{align*}
+
+$\therefore$
+\[\phi:\begin{array}{rcl}
+    R & \to & R[X_1,X_2,\cdots,X_n] \\
+    a & \mapsto & f_a \\
+\end{array}\]
+
+是单同态. $\therefore R$ 可以看成是 $R[X_1,X_2,\cdots,X_n]$ 的一个子环.
+
+考虑 $\mathbb{N}^n\subset\mathbb{R}^n$ 中的向量
+\[0=(0,0,0,\cdots,0,0),\]
+\[e_1=(1,0,0,\cdots,0,0),\]
+\[e_2=(0,1,0,\cdots,0,0),\]
+\[\cdots,\]
+\[e_n=(0,0,0,\cdots,0,1)\]
+
+以及映射
+\[X_i:\begin{array}{rcl}
+    \mathbb{N}^n & \to & R \\
+    e_i & \mapsto & 1 \\
+    u & \mapsto & 0\ (u\in\mathbb{N}^n\backslash\{e_i\}) \\
+\end{array}.\]
+
+$\forall i,j\in\{1,2,\cdots,n\},$
+\[(X_i+X_j)(u)=\begin{cases}
+    1, & u=e_i\vee e_j \\
+    0, & \text{otherwise} \\
+\end{cases}.\]
+
+$\because$
+\[X_i(v)X_j(w)=\begin{cases}
+    1, & v=e_i\land w=e_j \\
+    0, & \text{otherwise} \\
+\end{cases},\]
+
+$\therefore$
+\[(X_iX_j)(u)=\sum\limits_{\substack{v+w=u\\v,w\in\mathbb{N}^n}}X_i(v)X_j(w)
+=\begin{cases}
+    1, & u=e_i+e_j \\
+    0, & \text{otherwise} \\
+\end{cases}.\]
+
+特别地,
+\[X_i^2(u)=\begin{cases}
+    1, & u=2e_i \\
+    0, & \text{otherwise} \\
+\end{cases}.\]
+
+经过有限次乘法运算(或者用数学归纳法), 可以得到:
+
+设 $w=(v_1,v_2,\cdots,v_n)\in\mathbb{N}^n$, 则
+\[(X_1^{v_1}X_2^{v_2}\cdots X_n^{v_n})(u)=\begin{cases}
+    1, & u=w \\
+    0, & \text{otherwise} \\
+\end{cases}.\]
+
+$\forall f\in R[X_1,X_2,\cdots,X_n],\because|\mathbb{N}^n\backslash\ker f|<\infty$, 不妨设
+\[f(u)=\begin{cases}
+    a_i, & u=w_i,i=1,2,\cdots,m \\
+    0, & \text{otherwise} \\
+\end{cases}.\]
+
+则
+\[f(u)=\left(\sum\limits_{i=1}^ma_iX^{w_i}\right)(u),\]
+
+其中对 $w_i=(v_1,v_2,\cdots,v_n),X^{w_i}=X_1^{v_1}X_2^{v_2}\cdots X_n^{v_n}$. 称形如 $X^w,w\in\mathbb{N}^n$ 的映射为\textbf{单项式}.
+
+这样我们就得到了多元多项式的一般的表示方法.
+\begin{proposition}
+    如果 $R$ 是整环, 则 $R[X_1,X_2,\cdots,X_n]$ 是整环.
+\end{proposition}
+\begin{proof}
+    % 设 $f,g\in R[X_1,X_2,\cdots,X_n]$. 则
+
+    % $f\neq0\Rightarrow\exists v_0\in\mathbb{N}^n,f(v_0)\neq0,g\neq0\Rightarrow\exists w_0\in\mathbb{N}^n,g(w_0)\neq0$.
+
+    % $\because R$ 是整环, $\therefore\forall a,b\in R,a,b\neq0\Rightarrow ab\neq0.\therefore f(v_0)g(w_0)\neq0$.
+
+    % $\therefore\exists u_0=v_0+w_0\in\mathbb{N}^n,$
+\end{proof}
+\subsection{多项式的字典序}
+由于齐次多项式中的每一项的次数都相同而不能合并, 在枚举多元多项式或者给多元多项式排序的时候不能像一元多项式那样用次数作为指标, 需要其他的方法.
+
+设 $u,v\in\mathbb{N}^n,u=(u_1,u_2,\cdots,u_n),v=(v_1,v_2,\cdots,v_n)$.
+
+对单项式 $X^u,X^v$, 称 $X^u$ (在字典序意义下\footnote{类比拼音文字(如英语)的字典对单词的排序.})\textbf{先于} $X^v$ (记作 $X^u\succ X^v$) 当且仅当 $\exists k\leq n,\forall i<k,u_i=v_i$, 而 $u_k>v_k$.
+
+若 $X^u\succ X^v$, 则 $\forall a,b\in R\backslash\{0\},aX^u\succ bX^v$.
+
+$\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
+\begin{example}
+    $X_1^2X_2\succ X_1X_2^7$, 但 $\deg X_1^2X_2<\deg X_1X_2^7$.
+\end{example}
+有下列命题:
+\begin{proposition}
+    \begin{itemize}
+        \item[(1)] $X^u\succ X^v\Rightarrow\forall w,X^uX^w\succ X^vX^w$.
+        \item[(2)] $X^u\succ X^v,X^v\succ X^w\Rightarrow X^u\succ X^w$.
+        \item[(3)] $X^u\succ X^v,X^w\succ X^z\Rightarrow X^uX^w\succ X^vX^z$.
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    设 $u=(u_1,u_2,\cdots,u_n),v=(v_1,v_2,\cdots,v_n),w=(w_1,w_2,\cdots,w_n),z=(z_1,z_2,\cdots,z_n)$.
+
+    (1) 由 $u_i-v_i=(u_i+w_i)-(v_i+w_i)$ 得.
+
+    (2) 设 $k$ 是 $u,v,w$ 中第一个不满足 $u_i=v_i=w_i$ 的下标, 则 $u_k\geq v_k\geq w_k$ 且至少有一个 "$\geq$" 不取等号, $\therefore u_k>w_k$.
+
+    (3) 由 (2) 得 $X^uX^w\succ X^vX^w\succ X^vX^z$.
+\end{proof}
+\subsection{多项式的"取值"}
+类比函数的取值. 给定函数 $f\in\mathbb{R}^\mathbb{R}$ 和 $a\in\mathbb{R}$, 称 $f(a)\in\mathbb{R}$ 为函数在点 $a$ 处的\textbf{取值}. 事实上我们对于 $\forall a\in\mathbb{R}$ 建立了一个映射
+\[\phi_a:\begin{array}{rcl}
+    \mathbb{R}^\mathbb{R} & \to & \mathbb{R} \\
+    f & \to & f(a) \\
+\end{array}.\]
+
+对于环 $R$ 上的多项式环 $R[X],\forall c\in R$, 可以构造映射
+\[\phi_c:\begin{array}{rcl}
+    R[X] & \to & R \\
+    \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_ic^i \\
+\end{array}.\]
+
+书上的定理2证明了对给定的 $c,\phi_c$ 是唯一的, 且 $\phi_c$ 是环同态.
+\begin{example}
+    考察 $\mathbb{R}[X,Y]$ 的取值
+    \[\phi_{a,b}:\begin{array}{rcl}
+        \mathbb{R}[X,Y] & \to & \mathbb{R} \\
+        f(x,y) & \to & f(a,b) \\
+    \end{array}\]
+
+    的理想 $\ker\phi_{a,b}$. 有 $X-a,Y-b\in\ker\phi_{a,b}$.
+
+    可以证明 $(a,b)\to\ker\phi_{a,b}$ 是双射, 即 $\mathbb{R}[X,Y]$ 的所有极大理想组成的集合与平面 $\mathbb{R}^2$ 同构.
+
+    更一般地, 对交换环 $R,R[X,Y]$ 的所有极大理想组成的集合与某个几何结构同构. 从这个例子可以看出交换环论是现代代数几何的基础.
+\end{example}
+\subsection{补充一些定理的证明}
+下面是书上定理3的另一种表述.
+\begin{theorem}[书上的定理3]\label{t2.1}
+    设 $R$ 是交换环, $\phi:R\to A$ 是环同态, 那么 $\forall t\in A,\exists!$ 环同态 $\phi_t:R[X]\to A$ 使得 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$.
+\end{theorem}
+\begin{thought}
+    如果 $\phi_t$ 存在, 由环同态的性质以及 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$ 得
+    \begin{equation}\label{eq2.2}
+        \phi_t\left(\sum\limits_{i=0}^{n}a_iX^i\right)=\sum\limits_{i=0}^{n}\phi(a_i)t^i.
+    \end{equation}
+
+    之后验证由式 (\ref{eq2.2}) 定义的 $\phi_t$ 是满足 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$ 的唯一的环同态.
+\end{thought}
+\begin{proof}
+    按照式 (\ref{eq2.2}) 定义 $\phi_t$, 容易验证 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t.\because$
+    \[\sum\limits_i\phi(a_i)t^i+\sum\limits_i\phi(b_i)t^i=\sum\limits_i(\phi(a_i)+\phi(b_i))t^i,\]
+    
+    $\therefore$
+    \[\sum\limits_i\phi(a_i)t^i+\sum\limits_i\phi(b_i)t^i=\sum\limits_i\phi(a_i+b_i)t^i,\]
+    
+    $\therefore$
+    \begin{align*}
+        \phi_t\left(\sum\limits_ia_iX^i\right)+\phi_t\left(\sum\limits_ib_iX^i\right) & =\phi_t\left(\sum\limits_i(a_i+b_i)X^i\right) \\
+        & =\phi_t\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
+    \end{align*}
+    \[\sum\limits_i\phi(a_i)t^i\sum\limits_j\phi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\phi(a_i)\phi(b_j)t^k\]
+    \[\Rightarrow\sum\limits_i\phi(a_i)t^i\sum\limits_j\phi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\phi(a_ib_j)t^k\]
+    
+    $\therefore$
+    \begin{align*}
+        \phi_t\left(\sum\limits_ia_iX^i\right)\phi_t\left(\sum\limits_jb_jX^j\right) & =\sum\limits_k\phi_t\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\phi_t\left(\sum\limits_k\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\phi_t\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
+    \end{align*}
+
+    $\therefore\phi_t$ 是环同态.
+
+    假设 $\exists$ 环同态 $\phi_t'\neq\phi_t$ 满足 $\forall a\in R,\phi_t'(a)=\phi(a),\phi_t'(X)=t$. $\because\phi'_t$ 是同态, $\therefore$
+    \begin{align*}
+        \phi_t'\left(\sum\limits_{i=0}^{n}a_iX^i\right) & =\sum\limits_{i=0}^{n}\phi_t'\left(a_iX^i\right) \\
+        & =\sum\limits_{i=0}^{n}\phi_t'(a_i)\phi_t'\left(X^i\right) \\
+        & =\sum\limits_{i=0}^{n}\phi_t'(a_i)(\phi_t'(X))^i \\
+        & =\sum\limits_{i=0}^{n}\phi(a_i)t^i,
+    \end{align*}
+
+    $\therefore\forall Y\in R[X],\phi_t'(Y)=\phi_t(Y)$, 与 $\phi_t'\neq\phi_t$ 矛盾. $\therefore\phi_t$ 是唯一确定的.
+\end{proof}
+\begin{theorem}
+    设 $P$ 是域, $f\in P[X]$ 是可逆元, 则 $f\in P$.
+\end{theorem}
+\begin{proof}
+    假设
+    \[f(X)=a_0+a_1X+\cdots+a_nX^n,\quad g(X)=b_0+b_1X+\cdots+b_mX^m,\quad a_i,b_j\in P,a_n,b_m\neq0,n\geq1\]
+    满足 $fg=1$.
+
+    $\because n\geq1,\therefore m+n\geq1,\therefore a_nb_m=0$, 与 $P$ 中没有零因子矛盾.
+\end{proof}
+\subsection{一些例子}
+\begin{example}\label{exp2.5}
+    称 $R$ 上的函数
+    \[f:\begin{array}{rcl}
+        R & \to & R \\
+        t & \to & \sum\limits_{i=0}^{n}a_it^i,\ a_i\in R \\
+    \end{array}\]
+
+    为 $R$ 上的\textbf{多项式函数}.
+
+    定义函数的加法和乘法为逐点相加和相乘. 当 $R$ 是整环且 $|R|=\infty$ 时, $R[X]$ 与 $R$ 上的多项式函数全体形成的环 $R_x$ 同构.
+\end{example}
+\begin{proof}
+    对 $F=\sum\limits_{i=0}^{n}a_iX^i\in R[X]$, 考虑映射
+    \[\xi_F:\begin{array}{rcl}
+        R & \to & R \\
+        x & \to & \sum\limits_{i=0}^{n}a_ix^i \\
+    \end{array}.\]
+
+    由多项式和多项式函数的定义, $\phi:F\to\xi_F$ 是 $R[X]$ 到 $R_x$ 的满射.
+
+    假设 $\phi(F)=0$ 而 $F\neq0$, 不妨设 $\deg F=n$.
+
+    $\because\phi(F)=0,\therefore\forall x\in R,\sum\limits_{i=0}^{n}a_ix^i=0$. 设 $t\in R$, 则
+    \[\sum\limits_{i=0}^{n}a_it^i=0\Rightarrow\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i=\sum\limits_{i=0}^{n}a_iX^i.\]
+
+    $\because$
+    \[X^i-t^i=(X-t)\sum\limits_{\substack{j+k=i-1\\j\geq0,k\geq0}}X^jt^k\quad(i=1,2,\cdots,n),\]
+
+    $\therefore$
+    \begin{equation}\label{eq2.3}
+        \sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i=(X-t)G,
+    \end{equation}
+
+    其中 $G\in R[X]$.
+
+    $\because R[X]$ 是整环,
+    \[\deg\left(\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i\right)=n,\]
+
+    $\therefore\deg G=n-1$.
+
+    设
+    \[G=\sum\limits_{i=0}^{n-1}b_iX^i,\ b_i\in R.\]
+
+    由式 (\ref{eq2.3}) 得
+    \[\phi\left(\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i\right)=\phi\left((X-t)G\right).\]
+
+    设 $t'\neq t$, 把 $t'$ 代入上式得
+    \[\sum\limits_{i=0}^{n}a_i(t')^i-\sum\limits_{i=0}^{n}a_it^i=(t'-t)\sum\limits_{i=0}^{n-1}b_i(t')^i.\]
+
+    $\because\phi(F)=0\Rightarrow\sum\limits_{i=0}^{n}a_it^i=0,\sum\limits_{i=0}^{n}a_i(t')^i=0,\therefore(t'-t)\sum\limits_{i=0}^{n-1}b_i(t')^i=0$.
+
+    $\because t'-t\neq0,R$ 是整环, $\therefore\sum\limits_{i=0}^{n-1}b_i(t')^i=0$.
+
+    与前面类似, 有
+    \[\sum\limits_{i=0}^{n-1}b_iX^i-\sum\limits_{i=0}^{n-1}b_i(t')^i=(X-t')H,\]
+
+    其中 $H\in R[X],\deg H=n-2$.
+
+    重复上述步骤, 得
+    \[F=c_n(X-t)(X-t')(X-t'')\cdots(X-t^{(n-1)}).\]
+
+    $\therefore$
+    \[\sum\limits_{i=0}^{n}a_ix^i=c_n(x-t)(x-t')(x-t'')\cdots(x-t^{(n-1)}).\]
+
+    当 $x\in R\backslash\{t,t',t'',\cdots,t^{(n-1)}\}$ 时 $\sum\limits_{i=0}^{n}a_ix^i\neq0$, 与 $\phi(F)=0$ 矛盾.
+
+    $\therefore\phi$ 是单射. $\therefore\phi$ 是双射.
+
+    $\because$
+
+    \[\sum\limits_ia_ix^i+\sum\limits_ib_ix^i=\sum\limits_i(a_i+b_i)x^i\Rightarrow\]
+    \begin{align*}
+        \phi\left(\sum\limits_ia_iX^i\right)+\phi\left(\sum\limits_ib_iX^i\right) & =\phi\left(\sum\limits_i(a_i+b_i)X^i\right) \\
+        & =\phi\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
+    \end{align*}
+    \[\sum\limits_ia_ix^i\sum\limits_jb_jx^j=\sum\limits_{i+j=k}a_ib_jx^k\Rightarrow\]
+    \begin{align*}
+        \phi\left(\sum\limits_ia_iX^i\right)\phi\left(\sum\limits_jb_jX^j\right) & =\phi\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\phi\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
+    \end{align*}
+
+    由第4章笔记的定理2.1得 $\phi$ 是同构.
+\end{proof}
+\begin{note}
+    这个定理有其他的证明方法:
+
+    (1) 给定 $R\backslash\{0,1\}$ 中的任一元素 $t$, 验证
+    \[\phi_t:\begin{array}{rcl}
+        R & \to & R_x \\
+        \sum\limits_{i=0}^{n}a_it^i & \to & \sum\limits_{i=0}^{n}a_ix^i \\
+    \end{array}\]
+
+    是环同态, 再利用书上的定理3.
+
+    (2) 利用多项式函数的根. 书上第6.1节的定理3给出了证明.
+\end{note}
+当 $R$ 只有有限个元素时例 \ref{exp2.5} 的结论不成立:
+\begin{example}
+    设 $R=\{\xi_1,\xi_2,\cdots,\xi_s\}$ 是环, 则 $R[X]$ 与 $R$ 上的多项式函数全体形成的环 $R_x$ 不同构.
+\end{example}
+\begin{proof}
+    考察 $R$ 上的多项式函数
+    \[f(x)=(x-\xi_1)(x-\xi_2)\cdots(x-\xi_s).\]
+
+    $\forall x\in R,f(x)$ 中总有一项为 $x-x,\therefore f(x)\equiv0$.
+
+    另一方面, $\because$
+    \[g(X)=(X-\xi_1)(X-\xi_2)\cdots(X-\xi_s)\in R[X]\]
+
+    的第 $s+1$ 项为 $1,\therefore g\neq0$.
+
+    设 $\sigma$ 是 $R[X]\to R_x$ 的同态, 则 $\sigma(g)=f$.
+    
+    $\therefore g\in\ker\sigma,\therefore\sigma$ 不是同构.
+
+    由书上的定理3, $\sigma$ 是 $R[X]\to R_x$ 的满足 $X\mapsto x$ 的唯一的同态, $\therefore R[X]$ 与 $R_x$ 不同构.
+\end{proof}
+书上p158的式 (5)
+\[\deg(fg)\leq\deg f+\deg g\]
+
+中严格的小于号是可以成立的.
+\begin{example}
+    设 $f,g\in\mathbb{Z}_6[X],f=1+2x,g=2+3x$, 则 $fg=2+x$, $\deg(fg)=\deg f=\deg g=1$.
+
+    可以证明 $1+X\in R[X]$ 的逆不存在, $\therefore R[X]$ 的子域都是 $R$ 的子域, 但这不意味着从 $R[X]$ 不能构造出 $R$ 的扩域.
+\end{example}
+\begin{example}
+    考察由等价关系 $\sim$ 确定的商集 $\pi_\sim(\mathbb{R}[X])$, 其中 $\forall f,g\in\mathbb{R}[X],f\sim g\Leftrightarrow(X^2+1)|(f-g)$.
+
+    定义等价类的加法和乘法为其代表元的加法和乘法, 用与书上p133第1段相同的方法可以验证 $\pi_\sim(\mathbb{R}[X])$ 是环.
+
+    $\because(X^2+1)|(X^2+1),\therefore X^2+1\in\overline{0},\therefore\overline{X^2+1}=\overline{0},\therefore\overline{X^2}=\overline{-1}$. 定义
+    \[\phi:\begin{array}{rcl}
+        \pi_\sim(\mathbb{R}[X]) & \to & \mathbb{C} \\[6pt]
+        \overline{aX+b} & \mapsto & ai+b\ (a,b\in\mathbb{R}) \\
+    \end{array}.\]
+
+    $\because\mathbb{R}$ 是整环, $\therefore\forall f\in\mathbb{R}[X],\exists!g\in\mathbb{R}[X],a,b\in\mathbb{R}$ 满足
+    \[f=(X^2+1)g+aX+b.\]
+
+    $\therefore f\in aX+b,\therefore\overline{f}=\overline{aX+b}$.
+
+    $\therefore\forall f\in\mathbb{R}[X],\exists! a+bi\in\mathbb{C},\phi(\overline{f})=a+bi$. $\therefore\phi$ 是确切定义的.
+
+    由 $\phi$ 的定义得 $\phi$ 是双射.
+
+    $\forall f,g\in\pi_\sim(\mathbb{R}[X])$, 设 $\overline{f}=\overline{aX+b},\overline{g}=\overline{cX+d}$,
+
+    则 $\exists p,q\in R[X]$ 满足
+    \[f=(X^2+1)p+aX+b,\quad g=(X^2+1)q+cX+d.\]
+
+    $\therefore$
+    \[f+g=(X^2+1)(p+q)+(a+c)X+(b+d),\]
+    \begin{align*}
+        fg & =(X^2+1)^2pq+(X^2+1)(p(cX+d)+q(aX+b))+acX^2+(a+c)X+bd \\
+        & =(X^2+1)k+ac(X^2+1)-ac+(a+c)X+bd \\
+        & =(X^2+1)k'+(a+c)X+(bd-ac),
+    \end{align*}
+
+    其中 $k,k'\in\mathbb{R}[X].\therefore$
+    \[\overline{f}+\overline{g}=\overline{(a+c)X+(b+d)},\]
+    \[\overline{f}\overline{g}=\overline{(a+c)X+(bd-ac)}.\]
+
+    $\therefore$
+    \begin{align*}
+        \phi(\overline{f}+\overline{g}) & =\phi(\overline{(a+c)X+(b+d)}) \\
+        & =(a+c)i+(b+d) \\
+        & =(a+bi)+(c+di) \\
+        & =\phi(\overline{f})+\phi(\overline{g}),
+    \end{align*}
+    \begin{align*}
+        \phi(\overline{fg}) & =\overline{(a+c)X+(bd-ac)} \\
+        & =(a+c)i+(bd-ac) \\
+        & =(a+bi)(c+di) \\
+        & =\phi(\overline{f})\phi(\overline{g}),
+    \end{align*}
+
+    $\therefore\phi$ 是同构.
+\end{example}
+\section{多项式环中的因式分解(对应教材5.3节)}
+在这一节中, 如果没有说明, 一律认为 $R$ 是整环.
+\subsection{唯一因子分解环}
+对唯一因子分解的唯一性可以有另一种表述:
+\begin{definition}
+    设 $R$ 是唯一因子分解环, $a\in R$, 如果
+    \[a=up_1p_2\cdots p_r=vq_1q_2\cdots q_s,\]
+
+    其中 $u,v\in R$ 是可逆元, $p_1,p_2,\cdots,p_r,q_1,q_2,\cdots,q_s\in R$ 是素元, 则 $r=s$ 且 $\exists\sigma\in S_n$ 使得 $p_i=u_iq_{\sigma(i)}$, 其中 $u_i\in R$ 是可逆元, $i=1,2,\cdots,r$.
+\end{definition}
+\begin{example}
+    $\mathbb{Z}$ 是唯一因子分解环, 对 $105\in\mathbb{Z}$, 有分解式
+    \[105=3\cdot 5\cdot 7=(-7)\cdot(-5)\cdot 3.\]
+
+    设 $p_1=3,p_2=5,p_3=7,q_1=(-7),q_2=(-5),q_3=3,\sigma=(13)$, 则 $p_1=-q_{\sigma(1)},p_2=-q_{\sigma(2)},p_3=q_{\sigma(3)}$.
+\end{example}
+下面是一个有素因子分解但分解没有唯一性的例子, 作为书上例1的补充.
+\begin{example}\label{exp3.2}
+    考虑 $R=\mathbb{Z}[\sqrt{-7}]=\{a+b\sqrt{-7}|a,b\in\mathbb{Z}\}$.
+
+    由书上5.1节的例1\footnote{那个例子中的 $R=\mathbb{Q}[\sqrt{d}]$, 但这里完全可以照搬那里的证明}得
+    \begin{equation}\label{eq3.1}
+        \begin{array}{rcl}
+            R & \to & R \\
+            a+b\sqrt{-7} & \to & a-b\sqrt{-7}
+        \end{array}
+    \end{equation}
+
+    是环同构. 有($N$ 为范数, 定义见书上5.1节的例1)
+    \[N(a+b\sqrt{-7})=a^2+7b^2\quad(a,b\in\mathbb{Z}),\]
+    \begin{equation}\label{eq3.2}
+        N(\alpha\beta)=N(\alpha)N(\beta)\quad(\forall\alpha,\beta\in R).
+    \end{equation}
+
+    $\therefore$ 若 $\alpha\in R$ 可逆, 则
+    \[N(\alpha)N(\alpha^{-1})=N(\alpha\alpha^{-1})=N(1)=1.\]
+
+    $\because N(\alpha),N(\alpha^{-1})\in\mathbb{N}_+,\therefore N(\alpha)=1,\therefore\alpha=\pm1$.
+
+    $\therefore R$ 中的可逆元只有 $\pm1$.
+
+    若 $\alpha=a+b\sqrt{-7}$ 不可逆, 则 $a^2\geq4$ (当且仅当 $a=2$ 时取等号)或 $b\neq0.\because$
+    \[b\neq0\Rightarrow N(\alpha)\geq7b^2\geq7,\]
+    \[a^2\geq4\Rightarrow N(\alpha)\geq a^2\geq4.\]
+
+    $\therefore$ 若 $\alpha$ 不可逆, 则 $N(\alpha)\geq4$ (当且仅当 $\alpha=\pm2$ 时取等号).
+
+    对于 $\alpha\in R,\alpha\neq0$, 如果 $\alpha$ 是素元, 则 $\alpha=\alpha$ 就是素因子分解. 如果 $\alpha$ 不是素元, 则 $\alpha=\beta\gamma$, 其中 $\beta,\gamma$ 不可逆, 如果 $\beta,\gamma$ 都是素元, 那么 $\alpha=\beta\gamma$ 是素因子分解. 如果 $\beta$ 不是素元, 则可以对 $\beta$ 重复上述分解. 最终可以得到如下分解式:
+    \begin{equation}\label{eq3.3}
+        \alpha=u\alpha_1\alpha_2\cdots\alpha_r,
+    \end{equation}
+
+    其中 $\alpha_1,\alpha_2,\cdots,\alpha_r$ 都是素元.
+
+    由式 (\ref{eq3.2}) 得
+    \[N(\alpha)=N(\alpha_1)N(\alpha_2)\cdots N(\alpha_r).\]
+
+    $\because N(\alpha),N(\alpha_1),N(\alpha_2),\cdots,N(\alpha_r)$ 有界, $\therefore r<\infty$.
+
+    $\therefore\forall\alpha\in R,\alpha\neq0,\alpha$ 能分解为有限个素元 $\alpha_1,\alpha_2,\cdots,\alpha_r$ 与可逆元 $u$ 的乘积.
+
+    设
+    \[\gamma=16=2\cdot2\cdot2\cdot2=(3+\sqrt{-7})(3-\sqrt{-7}).\]
+
+    显然 $2$ 与 $3+\sqrt{-7},3-\sqrt{-7}$ 不相等. 下面只需证明它们都是素元.
+
+    假设 $2=\alpha\beta$, 其中 $\alpha,\beta$ 不可逆, 则
+    \[N(2)=N(\alpha)N(\beta)\geq4\cdot4=16,\]
+
+    与 $N(2)=4$ 矛盾. $\therefore 2$ 是素元.
+    
+    假设 $3+\sqrt{-7}=\alpha\beta$, 其中 $\alpha,\beta$ 不可逆, 则
+    \[16=N(3+\sqrt{-7})=N(\alpha)N(\beta)\geq4\cdot4=16,\]
+
+    $\therefore N(\alpha)N(\beta)=16$.
+
+    $\because\alpha,\beta$ 不可逆, $\therefore N(\alpha)\geq4,N(\beta)\geq4,\therefore N(\alpha)=N(\beta)=4,\alpha,\beta=\pm2$.
+
+    $\therefore3+\sqrt{-7}=\alpha\beta=\pm4$, 矛盾. $\therefore3+\sqrt{-7}$ 是素元.
+
+    $\because$ 映射 (\ref{eq3.1}) 是同构, $\therefore$ 若 $3-\sqrt{-7}=\alpha\beta$, 其中 $\alpha,\beta$ 不可逆, 则
+    \[3+\sqrt{-7}=f^{-1}(\alpha\beta)=f^{-1}(\alpha)f^{-1}(\beta).\]
+
+    $\because\alpha,\beta$ 不可逆, $\therefore N(\alpha),N(\beta)\geq4,\therefore$
+    \begin{align*}
+        N(f^{-1}(\alpha)) & =f^{-1}(\alpha)\alpha \\
+        & =N(\alpha)\geq4,
+    \end{align*}
+    \[N(f^{-1}(\beta))\geq4.\]
+
+    $\therefore f^{-1}(\alpha),f^{-1}(\beta)\neq\pm1,f^{-1}(\alpha),f^{-1}(\beta)$ 不可逆.
+
+    $\therefore3+\sqrt{-7}$ 可以分解为两个不可逆元的乘积, 与 $3+\sqrt{-7}$ 是素元矛盾. $\therefore3-\sqrt{-7}$ 是素元.
+\end{example}
+\begin{note}
+    (1) 在 $\mathbb{Z}[\sqrt{-11}]$ 中有分解式
+    \[36=2\cdot2\cdot3\cdot3=(5+\sqrt{-11})(5-\sqrt{-11}).\]
+
+    可以用类似的方法证明 $\mathbb{Z}[\sqrt{-11}]$ 的素因子分解没有唯一性.
+    
+    (2) 判断整环中元素的素性一般需要找一个合适的映射作为指标. 二次扩域中范数就是一个很好的指标, 在第 \ref{ex3.6} 题中将幂级数的级作为指标.
+
+    (3) 下面介绍得到式 (\ref{eq3.3}) 的另一种方法, 类似于定理 \ref{t3.2}.
+
+    设
+    \[\alpha_1\alpha_2\cdots\alpha_s\]
+    是 $\alpha$ 的任一分解式, 其中 $\alpha_1,\alpha_2,\cdots,\alpha_s$ 都是不可逆元.
+
+    由式 (\ref{eq3.2}) 得
+    \[N(\alpha)=N(\alpha_1)N(\alpha_2)\cdots N(\alpha_s).\]
+
+    $\because N(\alpha)$ 有上界, $N(\alpha_i)\geq4,\therefore N(\alpha)\geq 4^s,s$ 有上界.
+
+    $\therefore\exists\alpha$ 的一个分解式, 该分解式具有最大的因子个数 $s$, 就是 $\alpha$ 的素因子分解(因为如果该分解式中的元素还能分解, 则可以得到因子个数 $>s$ 的分解式, 与最大的因子个数为 $s$ 矛盾).
+\end{note}
+\subsection{环中元素的 gcd 和 lcm}
+书上用性质 (iv) 递归地定义多个元素的 $\gcd$ 会比较麻烦. 事实上多个元素的 $\gcd$ 可以直接定义如下:
+\begin{definition}
+    设 $A\subset R$, 定义 $\gcd(A)$ 为满足下列性质的 $d\in R$:
+    \begin{enumerate}
+        \item $\forall a\in A,d|a$,
+        \item 若 $\exists d'$ 满足 $\forall a\in A,d'|a$, 则 $d'|d$.
+    \end{enumerate}
+\end{definition}
+下面的几个性质(实际上是几个反例)可以澄清一些似是而非的问题.
+\begin{property}
+    (1) 环 $R$ 中元素的 $\gcd$ 和 $\operatorname{lcm}$ 不一定存在.
+
+    (2) 对 $a,b\in R$, $\gcd(a,b)$ 存在, $\operatorname{lcm}(a,b)$ 不一定存在.
+
+    (3) 对 $a,b\in R$, 若 $\operatorname{lcm}(a,b)$ 存在, 则 $\gcd(a,b)$ 存在.
+
+    (4) $\forall a,b\in R$, $\operatorname{lcm}(a,b)$ 存在, 但 $R$ 中元素不一定有素因子分解.
+\end{property}
+\begin{proof}
+    (1) 在 $\mathbb{Z}[\sqrt{-3}]$ 中, 有
+    \[4=2\cdot2=(1+\sqrt{-3})(1-\sqrt{-3}).\]
+
+    考察
+    \[a=4,\quad b=2(1+\sqrt{-3}),\quad a,b\in\mathbb{Z}[\sqrt{-11}],\]
+
+    有 $2|a,2|b,(1+\sqrt{-3})|a,(1+\sqrt{-3})|b$.
+
+    假设 $d=\gcd(a,b)$ 存在, 则 $2|d,(1+\sqrt{-3})|d$. $\therefore d=\operatorname{lcm}(2,1+\sqrt{-3})$.
+
+    $\because 2,1+\sqrt{-3}$ 是素元(考察其范数, 具体证明过程类似于例 \ref{exp3.2}), 由书上的整除性判别法(P166)得
+    \[d=\operatorname{lcm}(2,1+\sqrt{-3})=2(1+\sqrt{-3})=b,\]
+
+    与 $b\nmid a$ 矛盾.
+
+    假设 $m=\operatorname{lcm}(2,1+\sqrt{-3})$ 存在.
+
+    $\because 2|a,(1+\sqrt{-3})|a,\therefore m|a$. $\because 2|b,(1+\sqrt{-3})|b,\therefore m|b$.
+
+    $\therefore m=\gcd(a,b)$, 与 $\gcd(a,b)$ 不存在矛盾.
+
+    (2) $\because 2,1+\sqrt{-3}\in\mathbb{Z}[\sqrt{-3}]$ 是素元, $\therefore\gcd(2,1+\sqrt{-3})=1$. 但是 (1) 证明了 $\operatorname{lcm}(2,1+\sqrt{-3})$ 不存在.
+
+    (3) 证明与书上定理 2(b) 相同. 需要注意的是书上定理 2(b) 的证明对 $\gcd(a,b)$ 的存在性没有要求.
+
+    (4) 设 $R$ 是 $\mathbb{Q}$ 添加 $X^{2^{-n}}\ (n=0,1,2,\cdots)$ 得到的环(类似于扩域).
+
+    $\forall f,g\in R,\exists n$ 使得 $f,g\in R'=\mathbb{Q}[X,X^{1/2},X^{1/4},\cdots,X^{2^{-n}}]$.
+
+    令 $Y=X^{2^{-n}}$, 则 $R'=\mathbb{Q}[Y]$.
+
+    $\because\mathbb{Q}[Y]$ 是 Euclid 环, 由书上的定理3得 $\forall a,b\in R',\gcd(a,b)$ 和 $\operatorname{lcm}(a,b)$ 存在.
+
+    $\therefore$ 在 $R'$ 上 $\gcd(f,g)$ 和 $\operatorname{lcm}(f,g)$ 存在.
+
+    % 补充证明: 在 $R$ 上 $\gcd(f,g)$ 和 $\operatorname{lcm}(f,g)$ 存在.
+
+    $\because$
+    \[1-X=(1+X^{1/2})(1-X^{1/2})=(1+X^{1/2})(1+X^{1/4})(1-X^{1/4})=\cdots,\]
+
+    $\therefore 1-X\in R$ 没有素因子分解.
+\end{proof}
+\begin{note}
+    (4)的证明中引入了一类特别的环, 可以用来说明: 环中可以有无限可分的不可逆元素.
+\end{note}
+\begin{example}
+    设 $X$ 是变元, $R$ 是 $\mathbb{R}$ 添加 $X^{3^{-n}}\ (n=1,2,\cdots)$ 得到的环, 则 $R$ 中的元素 $f$ 具有 $f=g(X^{3^{-k}})$ 的形式, 其中 $k\in\mathbb{N},g$ 是多项式.
+
+    比如说 $g=1+Y^3+Y^6+Y,k=2$, 把 $Y=X^{1/3^2}=X^{1/9}$ 代入 $g$ 得 $f=1+X^{1/3}+X^{2/3}+X^{1/9}$.
+
+    有 $X,X^{1/3},X^{1/9},\cdots\in R$ 是 $R$ 的不可逆元素, 且
+    \[X=(X^{1/3})^3=(X^{1/9})^9=\cdots.\]
+\end{example}
+\subsection{Euclid 环}
+% 补充证明: 若 $R$ 中的任意元素 $a,b,\gcd(a,b)$ 都存在, 则 $\operatorname{lcm}(a,b)$ 也存在.
+% 只有证明了这个定理书上的定理 3 才没有逻辑漏洞
+% 如果不能直接证明, 可以用定理 4 证明 $\operatorname{lcm}(a,b)$ 存在.
+\begin{theorem}[书上的定理3]
+    (1) 在 Euclid 环 $R$ 中, 任意两个元素 $a,b$ 都有 $\gcd$ 和 $\operatorname{lcm}$.
+
+    (2) $a,b\in R$ 互素当且仅当 $\exists u,v\in R$,
+    \[au+bv=1.\]
+\end{theorem}
+\begin{proof}
+    (1) 由 Euclid 算法(P167), $\forall a,b\in R,\gcd(a,b)$ 存在.
+
+    设 $d=\gcd(a,b),a=a'd,b=b'd$. 则 $a'ab=a'^2b'd^2,b'ab=a'b'^2d^2$.
+
+    $\therefore\gcd(a'ab,b'ab)=a'b'd$ 是 $a,b$ 的公倍元.
+
+    (2) ($\Rightarrow$) 比较书上的式 (6)(7) 得.
+
+    ($\Leftarrow$) 设 $a=a'x,b=b'x$, 则 $a'xu+b'xv=1$, $\therefore x|1,x$ 是可逆元.
+
+    $\therefore\forall a,b$ 的公因子都是可逆元, $\therefore a,b$ 互素.
+\end{proof}
+\begin{theorem}[书上的引理]\label{t3.2}
+    Euclid 环 $R$ 是有因子分解的环.
+\end{theorem}
+\begin{proof}
+    第1段和第2段前两句话与书上一样.
+
+    当 $r=0$ 时有
+    \[b=qa=qbc\Rightarrow qc=1,\]
+
+    $\therefore c$ 是可逆元, 与 $a,b$ 不相伴矛盾. $\therefore r\neq0$. 有
+    \[r=b-qbc=b(1-qc).\]
+
+    由 (E1) 得
+    \[\delta(b)\leq\delta(b(1-qc))=\delta(r)<\delta(a),\]
+    
+    与 $\delta(b)=\delta(a)$ 矛盾.
+
+    设 $a_1a_2\cdots a_n$ 是 $a$ 的任一分解, 其中所有的 $a_i$ 都不可逆.
+
+    由 (E1), $\delta(1)\leq\delta(1\cdot a_n)=\delta(a_n)$. 假设 $\delta(1)=\delta(a_n)$.
+
+    由 (E2), $\exists s,t\in R$,
+    \[1=sa_n+t,\quad\delta(t)<\delta(a_n)\vee t=0.\]
+
+    $\because a_n$ 不可逆, $\therefore t\neq0,\delta(t)<\delta(a_n)$.
+
+    $\therefore$
+    \[\delta(1)\leq\delta(1-sa_n)=\delta(t)<\delta(a_n).\]
+
+    $\because\forall k$ 满足 $0<k<n,a_{k+1}a_{k+2}\cdots a_n$ 中所有的 $a_i$ 都不可逆, $\therefore a_{k+2}a_{k+3}\cdots a_n$ 是 $a_{k+1}a_{k+2}\cdots a_n$ 的真因子, $\therefore$
+    \[\delta(a_{k+1}a_{k+2}\cdots a_n)>\delta(a_{k+2}a_{k+3}\cdots a_n).\]
+
+    $\therefore$
+    \[\delta(a)=\delta(a_1a_2\cdots a_n)>\delta(a_2a_3\cdots a_n)>\cdots>\delta(a_n)>\delta(1)\geq0.\]
+
+    $\because\operatorname{Im}\delta=\mathbb{N},\therefore n\leq\delta(a)$.
+
+    之后与书上相同.
+\end{proof}
+下面是 Euclid 环的几个例子.
+\begin{example}
+    $\mathbb{Z}$ 是 Euclid 环. 取 $\delta(a)=|a|$.
+\end{example}
+\begin{example}
+    设 $P$ 是域, 则 $P[X]$ 是 Euclid 环. 取 $\delta(f)=\deg f$.
+
+    $\because\deg 0=-\infty$, 从中可以看出为什么 $\delta$ 的定义域不包括 $0$.
+\end{example}
+\begin{example}
+    称 $\mathbb{Z}[\sqrt{-1}]$ 为\textbf{Gauss 整环}. Gauss 整环是 Euclid 环.
+
+    $\mathbb{Z}$ 上的素数在 Gauss 整环中不一定是素数, 比如 $2$ 有分解式
+    \[2=(1+\sqrt{-1})(1-\sqrt{-1}).\]
+\end{example}
+\subsection{既约多项式}
+这里定义既约多项式为 $R[X]$ 中次数 $>0$ 的素元.
+
+例如: 考虑 $3,3X+1\in\mathbb{Z}[X]$, 按书上的定义, $3,3X+1$ 都是既约多项式, 而 $3$ 不是我们考虑的重点.
+\begin{theorem}[书上推论的推广]\label{t3.3}
+    多项式 $f$ 在 $\mathbb{Q}[X]$ 上是可分解的 $\Leftrightarrow f$ 在 $\mathbb{Z}[X]$ 上是可分解的. 
+\end{theorem}
+\begin{proof}
+    ($\Leftarrow$) 由 $\mathbb{Z}[X]$ 是 $\mathbb{Q}[X]$ 的子环得.
+
+    ($\Rightarrow$) 设 $f=gh$, 其中 $f\in\mathbb{Z}[X],g,h\in\mathbb{Q}[X]$.
+
+    取 $a,b\in\mathbb{Z}$ 使得 $ag,bh\in\mathbb{Z}[X]$.
+
+    $\therefore abf=ag\cdot bh$.
+
+    设 $c=ab,A=ag,B=bh$, 则 $cf=AB$. 由 Gauss 引理(P170),
+    \[cd(f)=d(cf)\approx d(A)d(B).\]
+
+    $\because\mathbb{Z}[X]$ 中的可逆元只有 $\pm1,\therefore$
+    \[cd(f)=\pm d(A)d(B).\]
+
+    $\therefore$
+    \[cf=d(A)d(B)A_0B_0=\pm cd(f)A_0B_0.\]
+
+    $\therefore$
+    \[f=\pm d(f)A_0B_0\]
+
+    是 $f$ 在 $\mathbb{Z}[X]$ 上的分解式.
+\end{proof}
+从下面的定理可以比较方便地判断整系数 $3$ 次多项式的既约性.
+\begin{theorem}\label{t3.4}
+    设 $f(X)=a_0X^n+\cdots+a_{n-1}X+a_n\in\mathbb{Z}[X],\dfrac{q}{p}\ (\gcd(p,q)=1)$ 是 $f$ 的根, 则 $p|a_0,q|a_n$.
+\end{theorem}
+\begin{proof}
+    $\because\dfrac{q}{p}$ 是 $f$ 的根, $\therefore f(X)$ 有线性因子 $pX-q,\therefore f$ 具有
+    \[f(X)=(pX-q)(b_0X^{n-1}+\cdots+b_{n-2}X+b_{n-1}),\quad b_i\in\mathbb{Z}\]
+    的形式.
+
+    $\therefore a=pb_0,a_n=-qb_{n-1},\therefore p|a_0,q|a_n$.
+\end{proof}
+\begin{example}
+    设
+    \[f(X)=X^3+2X^2+3X+19.\]
+
+    假设 $\dfrac{q}{p}\ (\gcd(p,q)=1)$ 是 $f$ 的一个根. 由定理 \ref{t3.4} 得 $p|1,q|19$. $\therefore p=1$.
+
+    $\because19$ 是素数, $\therefore q=\pm1,\pm19$.
+
+    代入验证得 $\pm1,\pm19$ 都不是 $f$ 的根, 与 $\dfrac{q}{p}\ (\gcd(p,q)=1)$ 是 $f$ 的一个根矛盾. $\therefore f$ 是既约的.
+\end{example}
+与判断一个数是否是素数类似, $\mathbb{Z}[X]$ 上高次数的既约多项式的判别直到今天仍然是非常困难的问题.
+\begin{lemma}\label{l3.1}
+    在 $\mathbb{Z}[X]$ 上成立的分解式
+    \begin{equation}\label{eq3.4}
+        f(X)=g(X)h(X).
+    \end{equation}
+
+    在 $\mathbb{Z}_p[X]$ 上也成立.
+\end{lemma}
+\begin{proof}
+    $\because$
+    \[a+b=c\Rightarrow\bar{a}+\bar{b}=\bar{c},\quad ab=c\Rightarrow\bar{a}\bar{b}=\bar{c},\]
+
+    而 $g(X)h(X)$ 的系数是由 $g(X),h(X)$ 的系数经过有限次相加和相乘得到, $\therefore$ 式 (\ref{eq3.5}) 两边的系数在 $\mathbb{Z}_p[X]$ 上也相等.
+\end{proof}
+\begin{theorem}[Eisenstein 判别法的推广]
+    设
+    \[f(X)=a_0+a_1X+\cdots+a_nX^n\in\mathbb{Z}[X],\]
+
+    $p$ 是素数, 满足
+    \[p|a_0,p|a_1,\cdots,p|a_{n-1},p\nmid a_n,p^2\nmid a_0,\]
+    
+    则 $f(X)$ 在 $\mathbb{Q}[X]$ 上是既约的.
+\end{theorem}
+\begin{proof}
+    假设 $\exists$
+    \[g(X)=b_0+b_1X+\cdots+b_sX^s\in\mathbb{Z}[X],\]
+    \[h(X)=c_0+c_1X+\cdots+c_tX^t\in\mathbb{Z}[X]\]
+    
+    满足
+    \begin{equation}\label{eq3.5}
+        f(X)=g(X)h(X).
+    \end{equation}
+
+    由引理 \ref{l3.1}, 式 (\ref{eq3.5}) 在 $\mathbb{Z}_p[X]$ 上也成立.
+    
+    $\because p|a_0,p|a_1,\cdots,p|a_{n-1},p\nmid a_n,\therefore$ (\ref{eq3.5}) 在 $\mathbb{Z}_p[X]$ 上 $\Rightarrow$
+    \[a_nX^n=(b_0+b_1X+\cdots+b_sX^s)(c_0+c_1X+\cdots+c_tX^t),\quad s+t=1.\]
+
+    比较上式两边, 得上式右边的低次项 $=0$.
+
+    $\therefore p|b_0,p|b_1,\cdots,p|b_{s-1},p|c_0,p|c_1,\cdots,p|c_{t-1}$.
+
+    $\therefore p^2|b_0c_0=a_0$, 与 $p^2\nmid a_0$ 矛盾.
+\end{proof}
+$\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适用于很少的情况.
+\begin{lemma}\label{l3.2}
+    设 $x\in\mathbb{N}$, 则 $3|x$ 当且仅当 $x$ 的十进制数码 $a_0,a_1,\cdots,a_n$ 满足 $3|(a_0+a_1+\cdots+a_n)$. 特别地, $\forall n\in\mathbb{N}_+,3\nmid(3^n-1)$.
+\end{lemma}
+\begin{proof}
+    有
+    \[x=a_0+10a_1+100a_2+\cdots+10^na_n.\]
+
+    $\because\forall k\in\mathbb{N}$,
+    \[10^k-1=\underbrace{999\cdots9}_{k-1\text{个}9},\]
+
+    $\therefore\forall k\in\mathbb{N},3|(10^k-1).\therefore3|\sum\limits_{k=0}^n(10^k-1)a_k$,
+    \begin{align*}
+        3|x & \Leftrightarrow3\bigg|\left(x-\sum\limits_{k=0}^n(10^k-1)a_k\right) \\
+        & \Leftrightarrow3|(a_0+a_1+\cdots+a_n).
+    \end{align*}
+
+    $\forall n\in\mathbb{N}_+$, 设 $3^n$ 的所有十进制数码之和为 $s$, 则 $3^n-1$ 的所有十进制数码之和为 $s-1$.
+    
+    $\because3|3^n\Rightarrow3|s\Rightarrow3\nmid(s-1),\therefore3\nmid(3^n-1)$.
+\end{proof}
+\begin{example}
+    证明:
+    \[(1)\ f(X)=X^{105}-3\quad(2)\ f(X)=X^{105}-9\]
+
+    是 $\mathbb{Z}[X]$ 上的既约多项式.
+\end{example}
+\begin{proof}
+    (1) 考察
+    \begin{align*}
+        f(X-3) & =\sum\limits_{i=0}^{105}\dbinom{105}{i}X^{105-i}3^i-3 \\
+        & =X^{105}+105\cdot3X^{104}+\cdots+105\cdot3^{104}X+3^{105}-3.
+    \end{align*}
+
+    $\because3|(3^{105}-3)$, 由引理 \ref{l3.2} 得 $3\nmid(3^{104}-1)\Rightarrow3^2\nmid(3^{105}-3)$, 由 Eisenstein 判别法得 $f$ 是既约的.
+
+    (2) 设 $\xi_1,\xi_2,\cdots,\xi_{105}$ 是 $X^{105}-1$ 的根, $a=\sqrt[105]{9}$. $f$ 在 $\mathbb{C}$ 上有分解式
+    \[f(X)=(X-a\xi_1)(X-a\xi_2)\cdots(X-a\xi_{105}).\]
+
+    假设 $f=gh$, 其中 $g,h\in\mathbb{Z}[X]$ 是不可逆元, 则
+    \[g(X)=(X-a\xi_{i_1})(X-a\xi_{i_2})\cdots(X-a\xi_{i_m}),\quad1\leq i_1<i_2<\cdots<i_n\leq105.\]
+
+    $\therefore$
+    \[|g(0)|=|a\xi_{i_1}a\xi_{i_2}\cdots a\xi_{i_m}|=a^m=9^{m/105}.\]
+
+    $\because\forall m$ 满足 $1\leq m\leq105,9^{m/105}\notin\mathbb{Z},\therefore$ 不存在不可逆的 $g,h\in\mathbb{Z}[X]$ 使得 $f=gh$.
+\end{proof}
+\begin{note}
+    用 (2) 的证明方法可以证明: 所有形如 $X^a-b=0$ 的多项式都是 $\mathbb{Z}[X]$ 上的既约多项式.
+\end{note}
+\begin{example}
+    证明:
+    \[f(X)=(X-a_1)(X-a_2)\cdots(X-a_n)-1,\]
+    是 $\mathbb{Z}[X]$ 上的既约多项式, 其中 $a_1,a_2,\cdots,a_n$ 为互不相同的整数.
+\end{example}
+\begin{proof}
+    假设 $f=gh$, 其中 $g,h\in\mathbb{Z}[X]$ 是不可逆元. $\therefore\forall i=1,2,\cdots,n,f(a_i)=g(a_i)h(a_i)=-1$.
+
+    $\because g,h\in\mathbb{Z}[X],\therefore g(a_i),h(a_i)\in\mathbb{Z},\therefore g(a_i)=-h(a_i)=\pm 1,g(a_i)+h(a_i)=0$.
+
+    $\therefore g+h$ 有 $n$ 个根 $a_1,a_2,\cdots,a_n$.
+
+    $\because\deg(g+h)\leq\max\{\deg g,\deg h\}\leq\deg f=n$, 由书上第 6.1 节定理 2 的推论得 $g+h=0$.
+
+    $\therefore f=gh=-h^2,\therefore\forall x\in\mathbb{R},f(x)\leq0$.
+
+    另一方面, 取足够大的 $x>0$ 总可以使得 $f(x)>0$, 矛盾.
+\end{proof}
+\section{分式域(对应教材5.3节)}
+补充几个定理的证明.
+\begin{theorem}\label{t4.1}
+    当 $A$ 是域时, $Q(A)\simeq A$.
+\end{theorem}
+\begin{proof}
+    考虑映射
+    \[\phi:\begin{array}{rcl}
+        Q(A) & \to & A \\[3pt]
+        [a,b] & \to & ab^{-1}
+    \end{array}.\]
+
+    $\because$ 若 $ac=bd$, 则 $ab^{-1}=add^{-1}b^{-1}=bcd^{-1}b^{-1}=cd^{-1},\therefore\phi$ 是确切定义的.
+
+    由 $\phi$ 的定义得 $\phi$ 是双射.
+
+    $\because$
+    \begin{align*}
+        \phi([a,b]+[c,d]) & =\phi([ad+bc,bd]) \\
+        & =(ad+bc)(bd)^{-1} \\
+        & =adb^{-1}d^{-1}+bcb^{-1}d^{-1} \\
+        & =ab^{-1}+cd^{-1} \\
+        & =\phi([a,b])+\phi([c,d]),
+    \end{align*}
+    
+    \begin{align*}
+        \phi([a,b][c,d]) & =\phi([ac,bd]) \\
+        & =ac(bd)^{-1} \\
+        & =ab^{-1}cd^{-1} \\
+        & =\phi([a,b])\phi([c,d]),
+    \end{align*}
+
+    $\therefore\phi$ 是同构.
+\end{proof}
+\section{第5章习题}
+\subsection{习题5.1}
+\begin{exercise}[1.1]
+    找出使 $z^2+(1+i)z$ 为纯虚数的所有模为 $1$ 的复数 $z$.
+\end{exercise}
+\begin{solution}
+    设 $z=e^{i\theta}=\cos\theta+i\sin\theta$ 是满足 $z^2+(1+i)z$ 为纯虚数的复数, 则
+    \begin{align*}
+        z^2+(1+i)z & =e^{i(2\theta)}+\sqrt{2}e^{i(\theta+\pi/2)} \\
+        & =\cos(2\theta)+i\sin(2\theta)+\sqrt{2}\left(\cos\left(\theta+\dfrac{\pi}{2}\right)+i\sin\left(\theta+\dfrac{\pi}{2}\right)\right),
+    \end{align*}
+    \begin{align*}
+        \operatorname{Re}(z^2+(1+i)z) & =\cos(2\theta)+\sqrt{2}\cos\left(\theta+\dfrac{\pi}{2}\right) \\
+        & =\cos(2\theta)+\cos\theta-\sin\theta \\
+        & =\cos^2\theta-\sin^2\theta+\cos\theta-\sin\theta=0.
+    \end{align*}
+    
+    $\therefore z=x+iy$ 满足
+    \[\begin{cases}
+        x^2-y^2+x-y=0, \\
+        x^2+y^2=1.
+    \end{cases}\]
+
+    $\because$
+    \[x^2-y^2+x-y=\left(x-\dfrac{1}{2}\right)^2-\left(y-\dfrac{1}{2}\right)^2,\]
+
+    $\therefore x^2-y^2+x-y=0$ 是双曲线
+    \[\left(x-\dfrac{1}{2}\right)^2-\left(y-\dfrac{1}{2}\right)^2=k\quad(k>0)\]
+
+    的渐近线, 即直线 $y=x$ 与 $x+y=1$.
+
+    直线 $y=x$ 与 $x+y=1$ 与 $x^2+y^2=1$ 的交点为 $\left(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right),(-1,0),\left(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right),(0,-1)$.
+
+    文件夹里的 \verb|1-5-5.1.ggb| 画出了曲线 $x^2-y^2+x-y=0,x^2+y^2=1$ 以及它们的交点.
+\end{solution}
+\begin{exercise}[1.2]
+    设复数 $\delta$ 满足 $\delta^4=-1$, 域 $\mathbb{R}(\delta)$ 由 $\mathbb{R}$ 添加 $\delta$ 得到. 证明 $\mathbb{R}(\delta)=\mathbb{C}$.
+\end{exercise}
+\begin{proof}
+    $\because$
+
+    \[\delta_k=\cos\dfrac{\pi+2\pi k}{4}+i\sin\dfrac{\pi+2\pi k}{4}\quad(k=1,2,3,4),\]
+
+    $\therefore$
+
+    \[i=\dfrac{\delta_k-\cos\dfrac{\pi+2\pi k}{4}}{\sin\dfrac{\pi+2\pi k}{4}}\in\mathbb{R}(\delta_k)\quad(k=1,2,3,4),\]
+
+    $\therefore\mathbb{R}(\delta)\supset\mathbb{C}$.
+
+    $\because\delta\in\mathbb{C},\therefore\mathbb{R}(\delta)\subset\mathbb{C},\therefore\mathbb{R}(\delta)=\mathbb{C}$.
+\end{proof}
+\begin{exercise}[1.3]\label{ex1.3}
+    设 $A,B\in M_n(\mathbb{R})$. 证明: $\overline{\det(A+iB)}=\det(A-iB)$.
+\end{exercise}
+\begin{proof}
+    由定理1得映射 $z\to\overline{z}$ 是 $\mathbb{C}$ 的一个自同构.
+
+    $\therefore\forall z_1,z_2\in\mathbb{C}$,
+    \[\overline{z_1+z_2}=\overline{z_1}+\overline{z_2},\]
+    \[\overline{z_1\cdot z_2}=\overline{z_1}\cdot\overline{z_2}.\]
+
+    $\because$ 对 $C=(c_{ij})\in M_n(\mathbb{C}),\det C$ 可以由 $c_{ij}$ 经过有限次 $+,\cdot$ 两种运算得到, $\therefore\det\overline{C}=\overline{\det C}$, 其中 $\overline{C}=(\overline{c_{ij}})$.
+
+    令 $C=A+iB$ 即得.
+\end{proof}
+\begin{exercise}[1.4]\label{ex1.4}
+    设 $A,B\in M_n(\mathbb{R})$,
+    \[C=\begin{pmatrix}
+        A & -B \\
+        B & A
+    \end{pmatrix}\in M_{2n}(\mathbb{R}).\]
+
+    证明:
+    \[\det C=|\det(A+iB)|^2.\]
+\end{exercise}
+\begin{proof}
+    由第3章的补充题3得
+    \[\begin{vmatrix}
+        A & -B \\
+        B & A
+    \end{vmatrix}=|(A-iB)(A+iB)|=\det(A-iB)\det(A+iB).\]
+
+    由第 \ref{ex1.3} 题得
+    \[\det(A-iB)=\overline{\det(A+iB)}.\]
+
+    $\therefore$
+    \[\begin{vmatrix}
+        A & -B \\
+        B & A
+    \end{vmatrix}=\overline{\det(A+iB)}\det(A+iB)=|\det(A+iB)|^2.\]
+\end{proof}
+\begin{exercise}
+    带有复系数 $d_{kl}=a_{kl}+ib_{kl}$ 和未知数 $z_i=x_i+iy_i$ 的齐次线性方程组
+    \begin{equation}\label{eq4.1}
+        \begin{cases}
+            d_{11}z_1+d_{12}z_2+\cdots+d_{1n}z_n=0, \\
+            d_{21}z_1+d_{22}z_2+\cdots+d_{2n}z_n=0, \\
+            \cdots, \\
+            d_{n1}z_1+d_{n2}z_2+\cdots+d_{nn}z_n=0 \\
+        \end{cases}
+    \end{equation}
+
+    有非平凡解, 当且仅当 $\det(d_{kl})=a+ib=0$. 这个条件引出了关于实数 $a_{kl},b_{kl}$ 的两个方程 $a=0,b=0$.
+
+    另一方面, 方程组 (\ref{eq4.1}) 可以写成带有 $2n$ 个实未知数 $x_i,y_i$ 的 $2n$ 个齐次线性方程组, 该方程组的非平凡解存在当且仅当一个 $2n$ 阶行列式 $=0$, 这仅由一个关于 $a_{kl},b_{kl}$ 的方程给出. 试解释这一现象.
+\end{exercise}
+\begin{solution}
+    $\because$
+    \[d_{kl}z_l=(a_{kl}+ib_{kl})(x_l+iy_l)=(a_{kl}x_l-b_{kl}y_l)+i(b_{kl}x_l+a_{kl}y_l),\]
+
+    $\therefore$ 方程组 (\ref{eq4.1}) 可以写成
+    \[\begin{cases}
+        a_{11}x_1-b_{11}y_1+a_{12}x_2-b_{12}y_2+\cdots+a_{1n}x_n-b_{1n}y_n=0, \\
+        a_{21}x_1-b_{21}y_1+a_{22}x_2-b_{22}y_2+\cdots+a_{2n}x_n-b_{2n}y_n=0, \\
+        \cdots, \\
+        a_{n1}x_1-b_{n1}y_1+a_{n2}x_2-b_{n2}y_2+\cdots+a_{nn}x_n-b_{nn}y_n=0, \\
+        b_{11}x_1+a_{11}y_1+b_{12}x_2+a_{12}y_2+\cdots+b_{1n}x_n+a_{1n}y_n=0, \\
+        b_{21}x_1+a_{21}y_1+b_{22}x_2+a_{22}y_2+\cdots+b_{2n}x_n+a_{2n}y_n=0, \\
+        \cdots, \\
+        b_{n1}x_1+a_{n1}y_1+b_{n2}x_2+a_{n2}y_2+\cdots+b_{nn}x_n+a_{nn}y_n=0. \\
+    \end{cases}\]
+    \[\Rightarrow\begin{cases}
+        a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n-b_{11}y_1-b_{12}y_2-\cdots-b_{1n}y_n=0, \\
+        a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n-b_{21}y_1-b_{22}y_2-\cdots-b_{2n}y_n=0, \\
+        a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n-b_{n1}y_1-b_{n2}y_2-\cdots-b_{nn}y_n=0, \\
+        b_{11}x_1+b_{12}x_2+\cdots+b_{1n}x_n+a_{11}y_1+a_{12}y_2+\cdots+a_{1n}y_n=0, \\
+        b_{21}x_1+b_{22}x_2+\cdots+b_{2n}x_n+a_{21}y_1+a_{22}y_2+\cdots+a_{2n}y_n=0, \\
+        b_{n1}x_1+b_{n2}x_2+\cdots+b_{nn}x_n+a_{n1}y_1+a_{n2}y_2+\cdots+a_{nn}y_n=0. \\
+    \end{cases}\]
+    \begin{equation}\label{eq4.2}
+        \Rightarrow\begin{cases}
+            a_{11}y_1+a_{12}y_2+\cdots+a_{1n}y_n+b_{11}x_1+b_{12}x_2+\cdots+b_{1n}x_n=0,  \\
+            a_{21}y_1+a_{22}y_2+\cdots+a_{2n}y_n+b_{21}x_1+b_{22}x_2+\cdots+b_{2n}x_n=0,  \\
+            a_{n1}y_1+a_{n2}y_2+\cdots+a_{nn}y_n+b_{n1}x_1+b_{n2}x_2+\cdots+b_{nn}x_n=0,  \\
+            -b_{11}y_1-b_{12}y_2-\cdots-b_{1n}y_n+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=0, \\
+            -b_{21}y_1-b_{22}y_2-\cdots-b_{2n}y_n+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=0, \\
+            -b_{n1}y_1-b_{n2}y_2-\cdots-b_{nn}y_n+a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=0. \\
+        \end{cases}
+    \end{equation}
+    设 $A=(a_{ij}),B=(b_{ij})$, 则方程组 (\ref{eq4.2}) 有非平凡解当且仅当
+    \[\det C=\det\begin{pmatrix}
+        A & B \\
+        -B & A \\
+    \end{pmatrix}\neq0.\]
+
+    由第 \ref{ex1.4} 题得
+    \[\det C=|\det(A+iB)|^2=|\det(d_{kl})|^2.\]
+
+    $\therefore\det C\neq0$ 当且仅当 $\det(d_{kl})\neq0$.
+\end{solution}
+\begin{exercise}[1.6]
+    找出 $\mathbb{Q}(\sqrt{d})$ 所有的保持有理数不变的自同构.
+\end{exercise}
+\begin{solution}
+    设 $\phi$ 是 $\mathbb{Q}(\sqrt{d})\to\mathbb{Q}(\sqrt{d})$ 保持有理数不变的同态, 且 $\phi(\sqrt{d})=m+n\sqrt{d}$, 则 $\forall a,b\in\mathbb{Q}(\sqrt{d})$,
+    \begin{align*}
+        \phi(a+b\sqrt{d}) & =\phi(a)+\phi(b\sqrt{d}) \\
+        & =a+\phi(b)\phi(\sqrt{d}) \\
+        & =a+b\phi(\sqrt{d}) \\
+        & =a+bm+bn\sqrt{d}.
+    \end{align*}
+
+    容易看出 $\phi$ 是单射.
+
+    若 $n=0$, 则 $\operatorname{Im}\phi=\mathbb{Q},\phi$ 不是 $\mathbb{Q}(\sqrt{d})$ 的自同构.
+
+    若 $n\neq0$, $\because\phi\left(-\dfrac{m}{n}+\dfrac{\sqrt{d}}{n}\right)=\sqrt{d},\therefore\sqrt{d}\in\operatorname{Im}\phi$.
+
+    $\therefore\mathbb{Q}(\sqrt{d})\subset\operatorname{Im}\phi.\therefore\mathbb{Q}(\sqrt{d})=\operatorname{Im}\phi$.
+
+    $\therefore\phi$ 是双射. $\therefore\phi$ 是同构.
+
+    $\because\phi$ 是同构, $\therefore$
+    \begin{align*}
+        \phi(a+d) & =\phi(a+\sqrt{d}\cdot\sqrt{d}) \\
+        & =\phi(a)+\phi(\sqrt{d})\phi(\sqrt{d}) \\
+        & =a+(m+n\sqrt{d})^2 \\
+        & =a+m^2+n^2d+2mn\sqrt{d}.
+    \end{align*}
+
+    $\because\phi$ 保持有理数不变, $\therefore m=0,n^2=1,n=\pm1$.
+\end{solution}
+\begin{exercise}[1.7]
+    当 $n>1$ 时, 求 $1$ 的所有 $n$ 次方根的和.
+\end{exercise}
+\begin{solution}
+    \[\varepsilon_k=\cos\dfrac{2\pi k}{n}+i\sin\dfrac{2\pi k}{n},\]
+    \begin{align*}
+        \sum\limits_{k=1}^{n}\varepsilon_k & =\sum\limits_{k=1}^{n}\left(\cos\dfrac{2\pi k}{n}+i\sin\dfrac{2\pi k}{n}\right) \\
+        & =\sum\limits_{k=1}^{n}\dfrac{2\cos\dfrac{2\pi k}{n}\sin\dfrac{\pi}{n}+2i\sin\dfrac{2\pi k}{n}\sin\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}} \\
+        & =\sum\limits_{k=1}^{n}\dfrac{\sin\left(\dfrac{2\pi k}{n}+\dfrac{\pi}{n}\right)-\sin\left(\dfrac{2\pi k}{n}-\dfrac{\pi}{n}\right)}{2\sin\dfrac{\pi}{n}}+i\sum\limits_{k=1}^{n}\dfrac{\cos\left(\dfrac{2\pi k}{n}-\dfrac{\pi}{n}\right)-\cos\left(\dfrac{2\pi k}{n}+\dfrac{\pi}{n}\right)}{2\sin\dfrac{\pi}{n}} \\
+        & =\dfrac{\sin\left(2\pi+\dfrac{\pi}{n}\right)-\sin\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}}-i\dfrac{\cos\left(2\pi+\dfrac{\pi}{n}\right)-\cos\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}} \\
+        & =0.
+    \end{align*}
+\end{solution}
+\begin{note}
+    (1) 这题用 Eular 公式计算更简便.
+
+    (2) 这个结论可以直观地得到: 将 $1$ 的所有 $n$ 次方根按辐角从小到大的顺序首尾相连可以组成一个正 $n$ 边形, 如图1.
+    \begin{center}
+        \begin{tikzpicture}[scale=2]
+            \node [above left] at (0,0) {$O$};
+            \node [above left] at (2,0) {$\operatorname{Re}$};
+            \node [above left] at (0,2) {$\operatorname{Im}$};
+            \draw [->] (-2,0) -- (2,0);
+            \draw [->] (0,-1) -- (0,2);
+            \foreach \n/\t/\u in
+            {1/0/1,.309/.951/2,-.809/.588/3,-.809/-.588/4,.309/-.951/5}
+            {\draw [cyan,thick,->] (0,0) -- (\n,\t);
+            \node [above left,cyan] at (\n,\t) {$\varepsilon_\u$};}
+            \draw [red,thick,->] (1,0) -- (1.309,.951);
+            \node [right,red] at (1.309,.951) {$\varepsilon_2$};
+            \draw [red,thick,->] (1.309,.951) -- (.5,1.539);
+            \node [above,red] at (.5,1.539) {$\varepsilon_3$};
+            \draw [red,thick,->] (.5,1.539) -- (-.309,.951);
+            \node [above left,red] at (-.309,.951) {$\varepsilon_4$};
+            \draw [red,thick,->] (-.309,.951) -- (0,0);
+            \node [below right,red] at (0,0) {$\varepsilon_5$};
+            \node [below] at (0,-1) {图1};
+        \end{tikzpicture}
+    \end{center}
+\end{note}
+\begin{exercise}[1.8]
+    证明 $\zeta=\dfrac{2+i}{2-i}$ 不是 $1$ 的根, 尽管 $|\zeta|=1$.
+\end{exercise}
+\begin{proof}
+    假设 $\zeta^n=1$, 则
+    \begin{align*}
+        & (2-i)^n=(2+i)^n \\
+        \Rightarrow & (2-i)^n=(2-i+2i)^n \\
+        \Rightarrow & (2-i)^n=(2-i)^n+(2i)^n+\sum\limits_{k=1}^{n-1}(2-i)^k(2i)^{n-k} \\
+        \Rightarrow & (2i)^n=-(2-i)\sum\limits_{k=1}^{n-1}(2-i)^{k-1}(2i)^{n-k}.
+    \end{align*}
+
+    设 $a+bi=-\sum\limits_{k=1}^{n-1}(2-i)^{k-1}(2i)^{n-k}$, 则
+    \begin{align*}
+        & (2-i)(a+bi)=(2i)^n \\
+        \Rightarrow & |2-i||a+bi|=|2i|^n \\
+        \Rightarrow & |2-i|^2|a+bi|^2=|2i|^{2n} \\
+        \Rightarrow & 5(a^2+b^2)=2^{2n}, \\
+    \end{align*}
+
+    与 $5\nmid2^{2n}$ 矛盾.
+\end{proof}
+第1.10题在第3章的补充题2那里做过了.
+\subsection{习题5.2}
+\begin{exercise}[2.1]
+    多项式 $f(X)=X^5+3X^4+X^3+4X^2-3X-1,g(X)=X^2+X+1$ 可以看作环 $\mathbb{Z}[X]$ 中的多项式或者环 $\mathbb{Z}_5[X]$ 中的多项式. 证明: 在第一种情况下 $f(X)$ 不被 $g(X)$ 整除, 而在第二种情况下 $f(X)$ 被 $g(X)$ 整除. 与之相反的情况不可能出现.
+\end{exercise}
+\begin{proof}
+    $\because$
+    \[X^5+3X^4+X^3+4X^2-3X-1=(X^3+2X^2-2X+4)(X^2+X+1)-5X-5,\]
+
+    $\therefore$ 在 $\mathbb{Z}[X]$ 中 $f(X)$ 不被 $g(X)$ 整除, 而在 $\mathbb{Z}_5[X]$ 中 $f(X)$ 被 $g(X)$ 整除.
+
+    $\because$ 若 $f,g$ 在 $\mathbb{Z}_5$ 中满足 $f=qg+r$, 其中 $\deg r<\deg g,r\neq0$, 则在 $\mathbb{Z}$ 中有
+    \begin{align*}
+        f & =(q+5q')(g+5g')+r+5r' \\
+        & =gq+5qg'+5gq'+25g'q'+r+5r' & (q',g',r'\in\mathbb{Z}[X],\deg r<\deg g,r\neq0)
+    \end{align*}
+
+    $\therefore$ 若在 $\mathbb{Z}_5$ 中 $f(X)$ 不被 $g(X)$ 整除, 则在 $\mathbb{Z}$ 中 $f(X)$ 也不被 $g(X)$ 整除.
+\end{proof}
+\begin{exercise}[2.2]
+    证明: 如果 $F$ 是域, 则环 $F[X]$ 的保持 $F$ 不变的所有自同构组成的群 $G_1$ 同构于 $F[X]$ 上的变换群 $G_2=\{X\mapsto aX+b|a,b\in F,a\neq0\}$.
+\end{exercise}
+\begin{proof}
+    容易验证
+    \[\phi:\begin{array}{rcl}
+        F & \to & F[X] \\
+        a & \to & a=(a,0,0,\cdots) \\
+    \end{array}\]
+
+    是环同态. 由定理 \ref{t2.1} 的证明得 $\forall t\in F[X]$,
+    \[\phi_t:\begin{array}{rcl}
+        F[X] & \to & F[X] \\
+        \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_it^i \\
+    \end{array}\]
+
+    是 $F[X]$ 的保持 $F$ 不变的自同态, 而且是唯一的将 $X$ 映成 $t$ 的自同态.
+
+    $\because F$ 是域, $\therefore F$ 是整环, $\therefore$
+    \[\deg\sum\limits_{i=0}^{n}a_it^i=\deg a_nt^n=n\deg t.\]
+
+    $\therefore\forall f\in F[X]$,
+    \[\deg\phi_t(f)=\deg f\deg t.\]
+
+    若 $\deg t\neq1$, 则
+    \[\{\deg f|f\in\operatorname{Im}\phi_t\}=(\deg t)\ \mathbb{Z}\neq\mathbb{Z}=\{\deg f|f\in F[X]\},\]
+
+    $\therefore\operatorname{Im}\phi_t\neq F[X],\phi_t$ 不是同构.
+
+    取逆否命题即为: 若 $\phi_t:F[X]\to F[X]$ 是保持 $F$ 不变的同构, 则 $\deg t=1$, 即 $t=aX+b\Rightarrow\phi_t(X)=aX+b$, 其中 $a,b\in F,a\neq0.\therefore$
+    \[\sigma:\begin{array}{rcl}
+        G_1 & \to & G_2 \\
+        \phi_t & \to & X\mapsto t \\
+    \end{array}\]
+
+    是确切定义的.
+
+    $\because\phi_t$ 是唯一的将 $X$ 映成 $t$ 的自同态, $\therefore\sigma(\phi_{t_1})=\sigma(\phi_{t_2})\Rightarrow t_1=t_2\Rightarrow\phi_{t_1}=\phi_{t_2},\therefore\sigma$ 是单射.
+
+    $\forall\tau:X\mapsto aX+b$, 其中 $a,b\in F,a\neq0$, 令 $g=aX+b\in F[X]$, 则
+    \[\phi_g:\begin{array}{rcl}
+        F[X] & \to & F[X] \\
+        \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i(aX+b)^i \\
+    \end{array}\]
+
+    是单同态. 下面证明 $\phi_g$ 是满同态, 即 $\operatorname{Im}\phi_g\supset F[X]$.
+
+    只需证明 $\forall f\in F[X],\exists h\in F[X]$ 使得 $f=\phi_g(h)$.
+
+    用数学归纳法. (a) 当 $\deg f=0$ 或 $-\infty$ 时有 $f=\phi_g(f)$.
+
+    (b) 设 $\forall f$ 满足 $\deg f\leq k,\exists h$ 使得 $f=\phi_g(h)$.
+
+    则 $\forall\psi(X)=\sum\limits_{i=0}^{k+1}a_iX^i\in F[X]\ (a_i\in F,i=1,2,\cdots,k+1,a_{k+1}\neq0)$, 有
+    \begin{align*}
+        \psi(X) & =a_{k+1}X^{k+1}+\sum\limits_{i=0}^{k}a_iX^i \\
+        & =\dfrac{a_{k+1}}{a^{k+1}}(aX+b)^{k+1}+\sum\limits_{i=0}^{k}c_iX^i & (c_i\in F,i=1,2,\cdots,k+1).
+    \end{align*}
+
+    $\because\deg\sum\limits_{i=0}^{k}c_iX^i\leq k,\therefore\exists p(X)\in F[X]$ 使得 $\sum\limits_{i=0}^{k}c_iX^i=\phi_g(p(X))$.
+
+    $\therefore\exists q(X)=p(X)+\dfrac{a_{k+1}}{a^{k+1}}X^{k+1}\in F(X)$ 使得 $\psi(X)=\phi_g(q(X))$.
+
+    $\therefore\phi_g$ 是自同构.
+
+    $\therefore\forall\tau\in G_2,\exists\phi_g\in G_1,\tau=\sigma(\phi_g).\therefore\sigma$ 是满射.
+
+    $\therefore\sigma$ 是恒等映射, $\therefore\sigma$ 是同构.
+\end{proof}
+\begin{exercise}
+    证明多项式 $f\in F[X_1,\cdots,X_n]$ 是一个 $m$ 次形式, 当且仅当 $f(TX_1,\cdots,TX_n)=T^mf(X_1,\cdots,X_n)$, 其中 $T$ 是与 $X_1,\cdots,X_n$ 不同的变元.
+\end{exercise}
+\begin{proof}
+    考察单项式 $f(X_1,X_2,\cdots,X_n)=a_uX^{u_1}_1X^{u_2}_2\cdots X^{u_2}_n\ (\deg f=m)$. 有
+    \begin{align*}
+        f(TX_1,TX_2,\cdots,TX_n) & =a_u(TX)^{u_1}_1(TX)^{u_2}_2\cdots (TX)^{u_2}_n \\
+        & =a_uT^{u_1}_1T^{u_2}_2\cdots T^{u_2}_nX^{u_1}_1X^{u_2}_2\cdots X^{u_2}_n \\
+        & =T^mf(X_1,X_2,\cdots,X_n).
+    \end{align*}
+
+    $\because f$ 一个 $m$ 次形式当且仅当 $f$ 是 $\deg=m$ 的单项式 $f_1,f_2,\cdots,f_s$ 之和, $\therefore$
+    \begin{align*}
+        f(TX_1,TX_2,\cdots,TX_n) & =\sum\limits_{k=1}^sf_k(TX_1,TX_2,\cdots,TX_n) \\
+        & =\sum\limits_{k=1}^sf_kT^mf_k(X_1,X_2,\cdots,X_n) \\
+        & =T^mf(X_1,X_2,\cdots,X_n).\qedhere
+    \end{align*}
+\end{proof}
+\begin{exercise}[2.4]
+    证明: 全次数为 $m$ 的 $n$ 变元单项式的个数为 $\dbinom{m+n-1}{m}$.
+\end{exercise}
+\begin{proof}
+    设全次数为 $m$ 的 $n$ 变元单项式全体为 $P_{mn}$, $A_{mn}=\{(i_1,i_2,\cdots,i_n)|i_1+i_2+\cdots+i_n=m\}\subset\mathbb{N}^n$. 容易验证
+    \[\sigma:\begin{array}{rcl}
+        P_{mn} & \to & A_{mn} \\
+        X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n} & \to & (i_1,i_2,\cdots,i_n) \\
+    \end{array}\]
+
+    是双射.
+
+    $\therefore$ 全次数为 $m$ 的 $n$ 变元单项式的个数为 $|A_{mn}|$.
+
+    在 $A_{mn}$ 上建立等价关系 $\sim$: $\forall x,y\in A_{mn},x\sim y\Leftrightarrow x$ 与 $y$ 有相同个数的分量为 $0$.
+
+    设 $\pi_\sim(A_{mn})=\{A_{(1)},A_{(2)},\cdots,A_{(n)}\}$, 其中 $A_{(i)}$ 中的元素有 $i$ 个非零分量, 则 $|A_{mn}|=\sum\limits_{i=1}^nA_{(i)}$.
+
+    考察 $|A_{(i)}|$. 将 $m$ 分解为 $i$ 个正整数 $m_1,m_2,\cdots,m_i$ 相加(类似于用 $i-1$ 个隔板将 $m$ 个相同元素分隔开), 一共有 $\dbinom{m-1}{i-1}$ 种分法. 将 $m_1,m_2,\cdots,m_i$ 分配给 $n$ 个分量, 一共有 $\dbinom{n}{i}$ 种分法.
+
+    $\therefore$
+    \[|A_{(i)}|=\dbinom{m-1}{i-1}\dbinom{n}{i}=\dbinom{n}{i}\dbinom{m-1}{m-i}.\]
+
+    $\because$ 当 $a>b$ 时 $\dbinom{b}{a}=0,\therefore$
+    \[\sum\limits_{i=1}^n\dbinom{n}{i}\dbinom{m-1}{m-i}=\sum\limits_{i=0}^n\dbinom{n}{i}\dbinom{m-1}{m-i}.\]
+
+    由第 \ref{ex2.6}(a) 题得
+    \[\sum\limits_{i=0}^n\dbinom{n}{i}\dbinom{m-1}{m-i}=\dbinom{m+n-1}{m}.\]
+
+    $\therefore$
+    \[\sum\limits_{i=1}^nA_{(i)}=\sum\limits_{i=1}^n\dbinom{n}{i}\dbinom{m-1}{m-i}=\dbinom{m+n-1}{m}.\qedhere\]
+\end{proof}
+\begin{exercise}[2.5]\label{ex2.5}
+    考察由变元 $X$ 的\textbf{形式幂级数} $f(x)=\sum\limits_{i\geq0}a_iX^i$ 组成(或者由序列 $(a_0,a_1,\cdots,a_n,\cdots)$ 组成)的集合 $A[[X]]$, 其中 $a_i\in A,A$ 是交换环, 可能有无限多个 $a_i\neq0$. $A[[X]]$ 中的形式幂级数的运算与多项式的运算遵循相同的法则:
+    \[\sum a_iX^i+\sum b_iX^i=\sum(a_i+b_i)X^i,\]
+    \[\sum a_iX^i\sum b_jX^j=\sum c_kX^k,c_k=\sum\limits_{i+j=k}a_ib_j.\]
+
+    (1) 证明集合 $A[[X]]$ 是交换环, 单位元为 $1=(1,0,0,\cdots)$.
+
+    (2) 设 $f=\sum\limits_{i\geq0}a_iX^i\in A[[X]]$, 称使 $a_n\neq0$ 的最小下标 $n$ 为 $f$ 的\textbf{级}, 记作 $\omega(f)$. 规定 $\omega(0)=+\infty$. 证明:
+
+    (i) $\omega(f+g)\geq\min\{\omega(f),\omega(g)\}$; (ii) $\omega(fg)\geq\omega(f)+\omega(g)$; (iii) 如果 $A$ 是整环, 则 $\omega(fg)=\omega(f)+\omega(g),A[[X]]$ 也是整环.
+    
+    (3) 证明: $A[X]$ 是 $A[[X]]$ 的一个子环.
+\end{exercise}
+\begin{proof}
+    (1) 容易证明 $A[[X]]$ 对加法和乘法封闭, 加法和乘法是交换的. $\forall f=\sum a_iX^i\in A[[X]],\exists! g=\sum-a_iX^i\in A[[X]],f+g=0.\therefore A[[X]]$ 的加法群是 Abel 群.
+
+    $\because\forall f=\sum a_iX^i\in A[[X]]$
+    \begin{align*}
+        f\cdot(1,0,0,\cdots) & =\sum\limits_kX^k\sum\limits_{i=k}a_i \\
+        & =\sum\limits_ka_kX^k \\
+        & =f,
+    \end{align*}
+
+    $\therefore A[[X]]$ 的单位元为 $1=(1,0,0,\cdots)$.
+
+    (2) 设 $f=\sum_{i\geq m}a_iX^i,g=\sum_{j\geq n}b_jX^j,\omega(f)\leq\omega(g)$.
+    
+    (i) 若 $f,g\neq0,\because$
+    \[f+g=a_mX^n+\cdots+(a_n+b_n)X^n+\cdots,\]
+
+    $\therefore$
+    \[\omega(f+g)\geq\min\{\omega(f),\omega(g)\}\]
+
+    (当且仅当 $m=n$ 且 $a_n=-b_n$ 时取不等号).
+
+    若 $f=g=0$, 则 $f+g=0$,
+    \[\omega(f+g)=+\infty=\min\{\omega(f),\omega(g)\}.\]
+
+    (ii) 若 $f,g\neq0,\because$
+    \begin{equation}\label{eq4.3}
+        fg=a_mb_nX^{m+n}+(a_mb_{n+1}+a_{m+1}b_n)X^{m+n+1}+\cdots,
+    \end{equation}
+
+    $\therefore$
+    \[\omega(f+g)\geq\omega(f)+\omega(g).\]
+
+    若 $f=0$ 或 $g=0$, 则 $fg=0$, $\omega(fg)=+\infty=\omega(f)+\omega(g)$.
+
+    (iii) $\because A$ 是整环, 则在式 (\ref{eq4.3}) 中有
+    \[a_m\neq0,b_n\neq0\Rightarrow a_mb_n\neq0,\]
+
+    $\therefore$
+    \[\omega(f+g)=\omega(f)+\omega(g).\]
+
+    特别地, 若 $f,g\neq0$, 则 $\omega(f),\omega(g)<+\infty,\therefore\omega(f+g)=\omega(f)+\omega(g)<+\infty$.
+
+    $\therefore A[[X]]$ 中的任意两个非零元素的乘积非零. $\therefore A[[X]]$ 是整环.
+
+    (3) $\because\forall f\in A[X],f=(a_0,a_1,\cdots,a_n,0,0,\cdots)\in A[[X]],\therefore A[X]$ 是 $A[[X]]$ 的一个子环.
+\end{proof}
+\begin{exercise}[2.6]\label{ex2.6}
+    (a) 证明:
+    \[\sum\limits_{i=0}^p\dbinom{m}{i}\dbinom{n}{p-i}=\dbinom{m+n}{p}.\]
+
+    (b) 在带有二元运算的集合中, 可以在 $n$ 个元素的乘积 $a_1a_2\cdots a_n$ 之间安插括号, 求出所有可能的安插方式的数目 $l_n$.
+\end{exercise}
+\begin{proof}
+    (a) 当 $p>m+n$ 时, 原式右边 $=0$. 当 $i>m$ 时 $\dbinom{m}{i}=0$, 当 $i\leq m$ 时有 $p-i>m+n-i\geq m+n-m=n,\dbinom{n}{p-i}=0,\therefore$ 原式左边 $=0$.
+
+    当 $p\leq m+n$ 时, 考虑 $\mathbb{Z}[X]$ 上的等式
+    \[(1+X)^m(1+X)^n=(1+X)^{m+n}.\]
+
+    由二项公式
+    \[(1+X)^n=\sum\limits_{i=0}^n\dbinom{n}{i}X^i\]
+
+    得
+    \begin{align*}
+        & \left(\sum\limits_{i=0}^n\dbinom{m}{i}X^i\right)\left(\sum\limits_{j=0}^n\dbinom{n}{j}X^j\right)=\sum\limits_{i=0}^{m+n}\dbinom{m+n}{i}X^i \\
+        \Rightarrow & \sum\limits_{k=0}^{m+n}\sum\limits_{i+j=k}\dbinom{m}{i}\dbinom{n}{j}X^k=\sum\limits_{k=0}^{m+n}\dbinom{m+n}{k}X^k. \\
+    \end{align*}
+
+    上式的次数为 $p$ 的项相等, 即
+    \begin{align*}
+        & \sum\limits_{i+j=p}\dbinom{m}{i}\dbinom{n}{j}=\dbinom{m+n}{p} \\
+        \Rightarrow & \sum\limits_{i=0}^p\dbinom{m}{i}\dbinom{n}{p-i}=\dbinom{m+n}{p}. \\
+    \end{align*}
+
+    (b) 为了得到 $l_n$ 的一个递推公式, 将 $a_1a_2\cdots a_n$ 的前 $k$ 个元素和后 $n-k$ 个元素分别放在不同的括号里:
+    \[(a_1a_2\cdots a_k)(a_{k+1}a_{k+2}\cdots a_n),\]
+
+    其中 $k$ 取遍 $1,2,\cdots,n-1$.
+
+    在第一个括号中的元素间安插括号, 有 $l_k$ 种情况, 在第二个括号中的元素间安插括号, 有 $l_{n-k}$ 种情况. 对于给定的 $k$, 一共有 $l_kl_{n-k}$ 种情况. $\therefore$
+    \[l_n=\sum\limits_{k=1}^{n-1}l_kl_{n-k}.\]
+
+    考虑
+    \[l(X)=\sum\limits_{n\geq1}l_nX^n=X+X^2+2X^3+\cdots,\]
+
+    有
+    \begin{align*}
+        l(X)^2 & =\sum\limits_{n\geq1}\sum\limits_{i+j=n}l_il_jX^n \\
+        & =\sum\limits_{n\geq2}\sum\limits_{k=1}^{n-1}l_kl_{n-k}X^n \\
+        & =\sum\limits_{n\geq2}l_nX^n=l(X)-X. \\
+    \end{align*}
+
+    解得
+    \[l(X)=\dfrac{1\pm\sqrt{1-4X}}{2}.\]
+
+    $\because l_n>0,\therefore$
+    \[l(X)=\dfrac{1-\sqrt{1-4X}}{2}.\]
+
+    将 $l(X)$ 展开成幂级数(这里省略了幂级数收敛性和唯一性的讨论):
+    \begin{align*}
+        1-2l(X) & =(1-4X)^{1/2} \\
+        & =1+\sum\limits_{n\geq1}\dfrac{\dfrac{1}{2}\left(-\dfrac{1}{2}\right)\left(-\dfrac{3}{2}\right)\cdots\left(\dfrac{3-2n}{2}\right)}{n!}(-4X)^n \\
+        & =1+\sum\limits_{n\geq1}(-1)^{n-1}\dfrac{\dfrac{1}{2}\cdot\dfrac{1}{2}\cdot\dfrac{3}{2}\cdots\dfrac{2n-3}{2}}{n!}(-4X)^n \\
+        & =1-\sum\limits_{n\geq1}\dfrac{2^n(2n-3)!!}{n!}X^n \\
+        & =1-\sum\limits_{n\geq1}\dfrac{2^n(n-1)!(2n-3)!!}{n!(n-1)!}X^n \\
+        & =1-\sum\limits_{n\geq1}\dfrac{2(2n-2)!!(2n-3)!!}{n!(n-1)!}X^n \\
+        & =1-\sum\limits_{n\geq1}\dfrac{2(2n-2)!}{n!(n-1)!}X^n \\
+        & =1-\sum\limits_{n\geq1}\dfrac{2}{n}\binom{2n-2}{n-1}X^n,
+    \end{align*}
+    \[l_n=\dfrac{1}{n}\binom{2n-2}{n-1}.\qedhere\]
+\end{proof}
+\begin{note}
+    $l_n=C_{n-1}$, 其中 $C_n$ 是 Catalan 数.
+\end{note}
+\subsection{习题5.3}
+证明第 \ref{ex3.1} 题需要证明一个引理. 第 \ref{ex3.1} 题和引理 \ref{l4.1} 中的 $\mathbb{Z}$ 一律指整数加群.
+\begin{lemma}\label{l4.1}
+    $\forall m,n,n|m\Leftrightarrow m\mathbb{Z}$ 是 $n\mathbb{Z}$ 的子群.
+\end{lemma}
+\begin{proof}
+    $m\mathbb{Z}$ 是 $n\mathbb{Z}$ 的子群 $\Leftrightarrow\forall x\in m\mathbb{Z},x\in n\mathbb{Z}$.
+
+    $\Leftrightarrow m\in n\mathbb{Z}$
+
+    $\Leftrightarrow\exists a\in\mathbb{Z}$ 使得 $m=na$
+
+    $\Leftrightarrow n|m$.
+\end{proof}
+\begin{exercise}[3.1]\label{ex3.1}
+    证明:
+    \[(1)\ n\mathbb{Z}+m\mathbb{Z}=\mathbb{Z}\cdot\gcd(m,n),\]
+    \[(2)\ n\mathbb{Z}\cap m\mathbb{Z}=\mathbb{Z}\cdot\operatorname{lcm}(m,n).\]
+\end{exercise}
+\begin{proof}
+    (1) $\because n\mathbb{Z}+m\mathbb{Z}$ 对加法封闭, 且 $0\in n\mathbb{Z}+m\mathbb{Z}$, $\therefore n\mathbb{Z}+m\mathbb{Z}$ 是 $\mathbb{Z}$ 的一个子群.
+    
+    $\therefore\exists k\in\mathbb{Z},n\mathbb{Z}+m\mathbb{Z}=k\mathbb{Z}$.
+
+    $\because k\in k\mathbb{Z}=n\mathbb{Z}+m\mathbb{Z},\therefore\exists u,v$ 使得 $k=mu+nv$.
+
+    $\because\forall x=am+bn,a,b\in\mathbb{Z}\Rightarrow x\in k\mathbb{Z}=n\mathbb{Z}+m\mathbb{Z}$, 令 $n=0$ 得 $\forall x=am,a\in\mathbb{Z}\Rightarrow x\in k\mathbb{Z}$, $\therefore n\mathbb{Z}$ 是 $k\mathbb{Z}$ 的一个子群. 同理得 $m\mathbb{Z}$ 是 $k\mathbb{Z}$ 的一个子群.
+
+    由引理 \ref{l4.1}, $k|m,k|n$.
+
+    $\because\forall q$,
+    \[q|m,q|n\Rightarrow q|mu,q|nv\Rightarrow q|(mu+nv)\Rightarrow q|k,\]
+
+    $\therefore k=\gcd(m,n)$.
+
+    (2)
+    \begin{align*}
+        x\in n\mathbb{Z}\cap m\mathbb{Z} & \Leftrightarrow n|x,m|x \\
+        & \Leftrightarrow\operatorname{lcm}(m,n)|x \\
+        & \Leftrightarrow x\in\operatorname{lcm}(m,n)\mathbb{Z}.
+    \end{align*}
+\end{proof}
+\begin{exercise}[3.3]
+    环 $\mathbb{Z}_8[X]$ 是唯一因子分解环吗?
+\end{exercise}
+\begin{solution}
+    在 $\mathbb{Z}_8[X]$ 中有
+    \[8X^6-4X^4+1=-4X^4+1.\]
+
+    $\because$
+    \[-4X^4+1=-(2X+1)(2X-1),\]
+    \[8X^6-4X^4+1=(2X^2-1)(4X^4+2X^2-1),\]
+
+    而 $2X+1,2X-1,2X^2-1$ 是素元且互不相同.
+
+    $\therefore\mathbb{Z}_8[X]$ 不是唯一因子分解环.
+\end{solution}
+\begin{note}
+    这题的分解式是我用 Mathematica 找到的. 代码如下:
+    \begin{verbatim}
+    Array[Factor[8 #1 x^#2 - 4 x^2 + 1] &, {4, 5}, {1, 3}] // MatrixForm
+    \end{verbatim}
+\end{note}
+证明下面一题需要证明一个引理.
+\begin{lemma}\label{l4.2}
+    设 $R$ 是整环, $f,g\in R[X]$. 若 $f(X)$ 是可分解的, 则 $f\circ g(X)$ 也是可分解的.
+\end{lemma}
+\begin{proof}
+    由书上5.2节的定理3得
+    \[\phi:\begin{array}{rcl}
+        R[X] & \to & R[X] \\
+        a\in R & \to & a \\
+        X & \to & g(X) \\
+    \end{array}\]
+    是自同态.
+
+    设不可逆元 $p,q\in R[X]$ 满足
+    \[f(X)=p(X)q(X).\]
+
+    则
+    \[\phi(f(X))=\phi(p(X)q(X))=\phi(p(X))\phi(q(X)),\]
+
+    即
+    \[f(g(X))=p(g(X))q(g(X)).\]
+
+    上式给出了 $f\circ g(X)$ 的一个分解式.
+\end{proof}
+\begin{note}
+    $\because X+1\in\mathbb{Z}[X]$, 由引理 \ref{l4.2} 得 $f(X)\in\mathbb{Z}[X]$ 是可分解的 $\Leftrightarrow f(X+1)$ 是可分解的. 书上的例2用了这个结论.
+\end{note}
+\begin{exercise}[3.4]
+    当 $5\leq n\leq 12$ 时, 将 $\mathbb{Z}[X]$ 中的多项式 $X^n-1$ 分解为素因子的乘积.
+\end{exercise}
+\begin{solution}
+    由书上的例 2 得对素数 $p$,
+    \[f_p(X)=1+X+X^2+\cdots+X^{p-1}\]
+
+    在 $\mathbb{Q}[X]$ 上是既约的.
+
+    由定理 \ref{t3.3} 得 $f_p$ 在 $\mathbb{Z}[X]$ 上是既约的.
+
+    $\because-X\in\mathbb{Z}[X]$, 由引理 \ref{l4.2} 得 $f(X)\in\mathbb{Z}[X]$ 是可分解的 $\Leftrightarrow f(-X)$ 是可分解的.
+
+    $\therefore$
+    \[f_p'(X)=1-X+X^2-X^3\cdots+(-1)^{p-1}X^{p-1}\]
+    在 $\mathbb{Z}[X]$ 上是既约的.
+
+    $\therefore$ 当 $n=p,p$ 为 $>2$ 的素数时, $X^n-1$ 可以分解为 $(X-1)f_p$, $X^n+1$ 可以分解为 $(X+1)f_p'$:
+    \begin{align*}
+        X^3\mp1 & =(X\mp1)(X^2\pm X+1), \\
+        X^5\mp1 & =(X\mp1)(X^4\pm X^3+X^2\pm X+1), \\
+        X^7\mp1 & =(X\mp1)(X^6\pm X^5+X^4\pm X^3+X^2\pm X+1), \\
+        X^{11}\mp1 & =(X\mp1)(X^{10}\pm X^9+\cdots+X^2\pm X+1).
+    \end{align*}
+
+    当 $n=2p,p$ 为素数时, $X^n-1$ 可以分解为 $(X^p-1)(X^p+1)$, 再继续分解为 $(X-1)(X+1)f_pf_p'$:
+    \begin{align*}
+        X^6-1 & =(X^3-1)(X^3+1) \\
+        & =(X-1)(X^2+X+1)(X+1)(X^2-X+1), \\
+        X^{10}-1 & =(X^5-1)(X^5+1) \\
+        & =(X-1)(X^4+X^3+X^2+X+1)(X+1)(X^4-X^3+X^2-X+1), \\
+    \end{align*}
+
+    $\because X^2\in\mathbb{Z}[X]$, 由引理 \ref{l4.2} 得 $f(X)\in\mathbb{Z}[X]$ 是可分解的 $\Leftrightarrow f(X^k)$ 是可分解的.
+
+    $\therefore X^4-X^2+1=(X^2)^2-X^2+1,X^6+X^3+1=(X^3)^2+X^3+1,X^4+1=(X^2)^2+1$ 是既约多项式.
+
+    $\because X^6=(X^2)^3,X^9=(X^3)^3,\therefore$
+    \begin{align*}
+        X^6+1 & =(X^2+1)(X^4-X^2+1), \\
+        X^8-1 & =(X-1)(X+1)(X^2+1)(X^4+1) \\
+        X^9-1 & =(X^3-1)(X^6+X^3+1) \\
+        & =(X-1)(X^2+X+1)(X^6+X^3+1)
+    \end{align*}
+    是素因子分解. $\therefore$
+    \begin{align*}
+        X^{12}-1 & =(X^6+1)(X^6-1) \\
+        & =(X^4-X^2+1)(X^2+1)(X^2+X+1)(X^2-X+1)(X+1)(X-1)
+    \end{align*}
+    是素因子分解.
+\end{solution}
+\begin{exercise}[3.5]
+    证明: (1) 齐次多项式
+    \[f(X,Y)=a_0X^n+a_1X^{n-1}Y+\cdots+a_{n-1}XY^{n-1}+a_nY^n\in\mathbb{Q}[X,Y]\]
+    的既约多项式也是齐次的.
+    
+    (2) $f(X,Y)$ 是既约的当且仅当 $f(x,1)=a_0X^n+a_1X^{n-1}+\cdots+a_{n-1}X+a_n\in\mathbb{Q}[X]$ 是既约的.
+\end{exercise}
+\begin{proof}
+    (1) 假设 $f=gh$, 其中 $g,h$ 不是齐次的.
+
+    设 $g=g_1+g_2$, 其中 $g_1$ 为 $g$ 中所有的 $\deg g$ 次单项式之和, $h=h_1+h_2$, 其中 $h_1$ 为 $h$ 中所有的 $\deg h$ 次单项式之和. 则
+    \[f=g_1h_1+g_2h_1+g_1h_2+g_2h_2.\]
+
+    $\because\mathbb{Q}[X,Y]$ 是整环, $\therefore\deg(g_ih_j)=\deg g_i\deg h_j$.
+    
+    $\because\deg g_1>\deg g_2,\therefore\deg(g_1h_1)>\deg(g_2h_1)$. 同理 $\deg(g_1h_1)>\deg(g_1h_2),\deg(g_1h_2)>\deg(g_2h_2)$.
+
+    $\therefore f$ 不是齐次的, 与 $f$ 是齐次的矛盾.
+
+    (2) 由书上5.3节的定理2, 映射
+    \[\phi:\begin{array}{rcl}
+        \mathbb{Q}[X,Y] & \to & \mathbb{Q}[X] \\
+        f(X,Y) & \to & f(X,1)
+    \end{array}\]
+
+    是同态.
+
+    $\therefore$ 若 $f(X,Y)=g(X,Y)h(X,Y)$, 则
+    \begin{align*}
+        f(X,1) & =\phi(f(X,Y)) \\
+        & =\phi(g(X,Y)h(X,Y)) \\
+        & =\phi(g(X,Y))\phi(h(X,Y)) \\
+        & =g(X,1)h(X,1).
+    \end{align*}
+
+    ($\Leftarrow$) 其逆否命题为: 若 $f(X,Y)$ 不是既约的, 则 $f(X,1)$ 不是既约的. 由
+    \[f(X,Y)=g(X,Y)h(X,Y)\Rightarrow f(X,1)=g(X,1)h(X,1)\quad(g,h\neq0)\]
+    得.
+    
+    ($\Rightarrow$) $\forall f(X,1)\in\mathbb{Q}[X],f(X,1)$ 具有如下形式:
+    \begin{equation}\label{eq4.4}
+        f(X,1)=a_0+a_1X+\cdots+a_nX^n\quad n\in\mathbb{N}.
+    \end{equation}
+
+    若齐次多项式 $f\in\mathbb{Q}[X,Y]$ 是既约的, 则 $f$ 具有如下形式:
+    \begin{equation}\label{eq4.5}
+        f(X,Y)=a_0Y^n+a_1XY^{n-1}+\cdots+a_{n-1}X^{n-1}Y+a_nX^n\quad n\in\mathbb{N}.
+    \end{equation}
+
+    否则 $f(X,Y)$ 中有因子 $X$ 或 $Y$, 与 $f$ 是既约的矛盾.
+
+    设 $A$ 是具有式 (\ref{eq4.5}) 的形式的齐次多项式组成的集合,
+    \[\phi':\begin{array}{rcl}
+        A & \to & \mathbb{Q}[X] \\
+        f(X,Y) & \to & f(X,1)
+    \end{array}.\]
+
+    对比式 (\ref{eq4.4}) 和式 (\ref{eq4.5}) 得 $\phi'$ 是双射.
+
+    $\because$
+    \[\left(\sum\limits_{i=0}^ma_iX^iY^{m-i}\right)\left(\sum\limits_{j=0}^nb_jX^jY^{n-j}\right)=\sum\limits_{k=0}^{m+n}\left(\sum\limits_{i+j=k}a_ib_j\right)X^kY^{m+n-k},\]
+    \[\left(\sum\limits_{i=0}^ma_iX^i\right)\left(\sum\limits_{j=0}^nb_jX^j\right)=\sum\limits_{k=0}^{m+n}\left(\sum\limits_{i+j=k}a_ib_j\right)X^k,\]
+
+    $\therefore\phi'$ 满足 $\forall f,g\in A,\phi'(fg)=\phi'(f)\phi'(g)$.
+
+    $\because f$ 是既约的, $\therefore\forall g,h\in A$,
+    \begin{equation}\label{eq4.6}
+        f(X,Y)\neq g(X,Y)h(X,Y).
+    \end{equation}
+    
+    假设 $f(X,1)$ 不是既约的, 则 $\exists g'(X,1),h'(X,1)\in\mathbb{Q}[X]$ 使得 $f(X,1)=g'(X,1)h'(X,1)$.
+
+    $\because\phi$ 是满射, $\therefore\forall r(X,1)\in\mathbb{Q}[X],\exists r(X,Y)\in\mathbb{Q}[X]$ 使得 $r(X,1)=\phi(r(X,Y))$.
+
+    $\therefore\exists g'(X,Y),h'(X,Y)\in A$ 使得 $g'(X,1)=\phi(g'(X,Y)),h'(X,1)=\phi(h'(X,Y))$.
+
+    $\therefore\phi(f(X,Y))=\phi(g'(X,Y))\phi(h'(X,Y))=\phi(g'(X,Y)h'(X,Y))$.
+
+    $\because\phi'$ 是单射, $\therefore f(X,Y)=g'(X,Y)h'(X,Y)$, 与式 (\ref{eq4.6}) 矛盾.
+\end{proof}
+\begin{note}
+    不能直接说 (2) 的 ($\Rightarrow$) 中的 $\phi'$ 是同构, 因为 $A$ 不是域.
+\end{note}
+\begin{exercise}[3.6]\label{ex3.6}
+    设 $P$ 是一个域, 考察 $P[[X]]$ (定义见第 \ref{ex2.5} 题). 证明:
+
+    (1) 设 $f\in P[[X]].\omega(f)=0\Leftrightarrow\exists g\in P[[X]]$ 使得 $fg=1$.
+
+    (2) 精确到相伴, $X$ 是 $P[[X]]$ 中唯一的素元.
+
+    (3) 环 $P[[X]]$ 是唯一因子分解整环.
+\end{exercise}
+\begin{proof}
+    (1) ($\Leftarrow$) 假设 $\exists g\in P[[X]]$ 使得 $fg=1$, 但 $\omega(f)>0$.
+
+    $\because P$ 是整环, 由第 \ref{ex2.5} 题的 (2)(iii) 得 $\omega(fg)=\omega(f)+\omega(g)\geq\omega(f)>0$, 与 $fg=1,\omega(fg)=0$ 矛盾.
+
+    ($\Rightarrow$) 设
+    \[f(X)=a_0+a_1X+a_2X^2+a_3X^3+\cdots,\]
+
+    由 $f(X)$ 可以确定
+    \[\begin{cases}
+        a_0a_0'=0, \\
+        a_1a_0'+a_0a_1'=0, \\
+        a_2a_0'+a_1a_1'+a_0a_2'=0, \\
+        \cdots \\
+        \sum\limits_{i+j=n}a_ia_j'=0, \\
+        \cdots \\
+    \end{cases}.\]
+
+    $\forall n$, 从上式的前 $n$ 个方程可以解出 $a'_0,a'_1,\cdots,a'_n$.
+
+    由 $P[[X]]$ 的乘法法则得 $\exists g\in P[[X]]$,
+    \[g(X)=a_0'+a_1'X+a_2'X^2+a_3'X^3+\cdots\]
+    满足 $fg=1$.
+
+    (2) $\forall f\in P[[X]]$, 若 $\omega(f)=k$, 则 $f$ 有分解式
+    \[f(X)=X^k(a_0+a_1X+a_2X^2+a_3X^3+\cdots).\]
+
+    $\because a_0+a_1X+a_2X^2+a_3X^3+\cdots$ 可逆, $\therefore f$ 与 $X^k$ 相伴.
+
+    由 (1) 得 $\forall k\geq1,X^k$ 不可逆.
+
+    $\because\forall k>1,X^k=X\cdots X^{k-1},\therefore X^k$ 不是素元.
+
+    假设 $\exists\alpha,\beta\in P[[X]]$ 使得 $X=\alpha\beta$. 则
+    \[1=\omega(X)=\omega(\alpha\beta)=\omega(\alpha)+\omega(\beta).\]
+
+    $\because\forall g\in P[[X]],\omega(g)\in\mathbb{N},\therefore\omega(\alpha),\omega(\beta)$ 中有一个为 $0$, 另一个为 $1$. $\therefore\alpha,\beta$ 中有一个($\omega=0$ 的那个)为可逆元.
+
+    $\therefore X$ 不能分解为两个不可逆元的乘积. $\therefore X$ 是素元.
+
+    (3) 假设 $f\in P[[X]]$ 有两个分解式
+    \[f=up_1p_2\cdots p_m=vq_1q_2\cdots q_m,\]
+
+    其中 $u,v$ 是可逆元, $p_i,q_i$ 是素元.
+
+    $\because$ 精确到相伴, $X$ 是 $P[[X]]$ 中唯一的素元, $\therefore$ 只需证明 $n=m$. 上式 $\Rightarrow$
+    \[f=uX^n=vX^m.\]
+
+    $\therefore$
+    \[\omega(f)=\omega(uX^n)=\omega(vX^m).\]
+
+    $\because u,v$ 是可逆元, $\therefore\omega(u)=\omega(v)=0$,
+    \[\omega(uX^n)=\omega(vX^m)\Rightarrow\omega(X^n)=\omega(X^m)\Rightarrow n=m.\qedhere\]
+\end{proof}
+\subsection{习题5.4}
+\begin{exercise}[4.1]
+    考虑 $\mathbb{R}$ 上的形式幂级数环 $\mathbb{R}[[X]]$ 的分式域 $\mathbb{R}((X))$. 证明: $\mathbb{R}[[X]]$ 中的元素形如 $\phi(X)=\dfrac{f(X)}{X^m}$, 其中 $f(X)\in\mathbb{R}[[X]],m<\infty$.
+\end{exercise}
+\begin{proof}
+    $\forall\phi\in\mathbb{R}((X)),\exists f_1\in\mathbb{R}[[X]],g_1\in\mathbb{R}[[X]]\backslash\{0\},\phi=\dfrac{f_1}{g_1}$.
+
+    由第 \ref{ex3.6} 题 (2) 得
+    \[\phi(X)=\dfrac{X^{\omega(f_1)}f_2(X)}{X^{\omega(g_1)}g_2(X)},\]
+
+    其中 $f_2,g_2\in\mathbb{R}[[X]]$ 是可逆元. $\therefore$
+    \[\phi(X)=\dfrac{X^{\omega(f_1)}f_2(X)g^{-1}_2(X)}{X^{\omega(g_1)}}=\dfrac{h(X)}{X^{\omega(g_1)}},\]
+
+    其中 $h(X)\in\mathbb{R}[[X]]$.
+
+    $\because g_1\neq0,\therefore\omega(g_1)<\infty$.
+\end{proof}
+\begin{exercise}[4.2]
+    设数列 $a_0,a_1,a_2,\cdots$ 从第 $k$ 项开始是周期的. 证明幂级数
+    \[f(X)=a_0+a_1X+a_2X^2+\cdots\]
+
+    可以写成 $\mathbb{R}(X)$ 中的有理函数.
+\end{exercise}
+\begin{proof}
+    设 $A$ 是 $\mathbb{R}[[X]]$ 中可逆元构成的集合, 则由第 \ref{ex3.6} 题 (1) 得 $\forall f\in A,\omega(f)=0$.
+
+    $\because\mathbb{R}[[X]]$ 是整环, $\therefore\omega(fg)=\omega(f)+\omega(g),A$ 对乘法封闭.
+
+    $\therefore(A,\cdot)$ 是 $(\mathbb{R}[[X]],\cdot)$ 的一个子群. $\therefore$
+    \[\phi:\begin{array}{rcl}
+        A & \to & \mathbb{R}((X)) \\
+        ab^{-1} & \to & \dfrac{a}{b}
+    \end{array}\]
+
+    是群同态, 证明过程与定理 \ref{t4.1} 类似.
+
+    严格来说, $f\in A$ ``可以写成'' $g\in\mathbb{R}(X)\subset\mathbb{R}((X))$ 指的是 $\phi(f)=g$.
+
+    \begin{align*}
+        f(X)= & \ a_0+a_1X+\cdots+a_{k-1}X^{k-1}+a_0X^k+a_1X^{k+1}+\cdots+a_0X^{2k}+a_1X^{2k+1}+\cdots \\
+        = & \ a_0+a_1X+\cdots+a_{k-1}X^{k-1}+X^k(a_0+a_1X+\cdots+a_{k-1}X^{k-1}) \\
+        & +X^{2k}(a_0+a_1X+\cdots+a_{k-1}X^{k-1})+\cdots \\
+        = & \ (a_0+a_1X+\cdots+a_{k-1}X^{k-1})(1+X+X^2+\cdots) \\
+        = & \ (a_0+a_1X+\cdots+a_{k-1}X^{k-1})(1-X)^{-1}.
+    \end{align*}
+
+    $\therefore\phi(f)=\dfrac{a_0+a_1X+\cdots+a_{k-1}X^{k-1}}{1-X}\in\mathbb{R}(X)$.
+\end{proof}
+\begin{exercise}[4.3]\label{ex4.3}
+    设 $P$ 是域, $p\in P[X]$ 是素元, 证明: 形如 $f/p^n,n\geq1$ 的最简分式及其线性组合的集合 $P_1(X)$ 是环 $P_0(X)$ 的一个子环.
+\end{exercise}
+\begin{proof}
+    由书上定理 3 证明的步骤 3 及其逆过程(最简分式的和可以唯一地表示为真准素分式 $a/p^n$, 这个命题是显然的)得 $P_1(X)=\{a/p^n|\deg a\leq\deg p^n,n\geq1\}$.
+
+    由书上定理 2 后面的注记得 $P_0(X)$ 是环.
+
+    设 $a=\dfrac{f}{p^m},b=\dfrac{g}{p^n}\in P_1(X)\ (m>n)$, 则
+    \[a+b=\dfrac{f+gp^{m-n}}{p^m},\quad ab=\dfrac{fg}{p^{m+n}}.\]
+
+    $\because\deg f<\deg p^m=m\deg p,\deg g<\deg p^n=n\deg p,\therefore$
+    \begin{align*}
+        \deg(f+gp^{m-n}) & \leq\max\{\deg f,\deg(gp^{m-n})\} \\
+        & <\max\{m\deg p,\deg(gp^{m-n})\} \\
+        & =\max\{m\deg p,\deg g+(m-n)\deg p\} \\
+        & <\max\{m\deg p,n\deg p+(m-n)\deg p\} \\
+        & =m\deg p \\
+        & =\deg p^m,
+    \end{align*}
+    \[\deg(fg)=\deg f+\deg g<m\deg p+n\deg p=\deg p^{m+n},\]
+
+    $\therefore a+b\in P_1(X),ab\in P_1(X)$, 即 $P_1(X)$ 对加法和乘法封闭.
+
+    $\because\forall a\in P_1(X),-a\in P_1(X),\therefore P_1(X)$ 是环 $P_0(X)$ 的一个子环.
+\end{proof}
+\begin{exercise}[4.4]
+    证明
+    \[\dfrac{a_1X+b_1}{X^2+1}+\dfrac{a_2X+b_2}{(X^2+1)^2}+\cdots,\quad a_i,b_i\in\mathbb{Z}_3\]
+
+    组成 $\mathbb{Z}_3[X]$ 的子环 $R$, 带有无穷降链
+    \[R=R_1\supset R_2\supset\cdots\supset R_N\supset\cdots,\]
+
+    其中子环 $R_N$ 由分式 $\dfrac{aX+b}{(X^2+1)^n},n\geq N$ 张成.
+\end{exercise}
+\begin{proof}
+    $\because\mathbb{Z}_3$ 是域, 由第 \ref{ex4.3} 题得 $R$ 是环.
+
+    $\forall f\in R$, 设 $r(f)$ 为 $f$ 的第一项的分母的次数, 则 $f\in R_N\Leftrightarrow r(f)\geq n$.
+
+    设 $a,b\in R_N,r(a)=m,r(b)=q$, $a,b$ 的第一项分别为
+    \[\dfrac{aX+b}{(X^2+1)^m},\quad\dfrac{a'X+b'}{(X^2+1)^q}.\]
+
+    若 $m>q$, 则 $a+b$ 的第一项为 $b$ 的第一项, $\therefore r(a+b)=q$. 若 $r(a)=r(b)$, 
+    则 $a+b$ 的第一项(如果 $(a+a')(b+b')\neq0$ 的话)为 $\dfrac{(a+a')X+b+b'}{(X^2+1)^m},r(a+b)\geq m$.
+
+    $\therefore r(a+b)\geq\min\{r(a),r(b)\}\geq n.\therefore a+b\in R_N$.
+
+    $ab$ 的第一项为
+    \begin{align*}
+        \dfrac{(aX+b)(a'X+b')}{(X^2+1)^{m+q}} & =\dfrac{aa'X^2+(ab'+ba')X+bb'}{(X^2+1)^{m+q}} \\
+        & =\dfrac{aa'(X^2+1)+(ab'+ba')X+bb'-aa'}{(X^2+1)^{m+q}} \\
+        & =\dfrac{aa'}{(X^2+1)^{m+q-1}}+\dfrac{(ab'+ba')X+bb'-aa'}{(X^2+1)^{m+q}},
+    \end{align*}
+
+    $\therefore r(ab)=m+q-1$.
+
+    $\because m\geq n,q\geq n,\therefore r(ab)\geq2n-1\geq n.\therefore ab\in R_N$, 即 $R_N$ 对加法和乘法封闭.
+
+    $\because\forall f\in R_N,-f\in R_N,\therefore R_N$ 是环 $R$ 的一个子环.
+\end{proof}
+\end{document}

@@ -1,0 +1,2051 @@
+% TODO:
+% 定理 3.8 的 (3)
+% 极化分解的定理中的注脚
+% 习题 3.8
+% 习题 4.3
+
+\documentclass{ctexart}
+\usepackage{lecturenote}
+\title{第3章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{Euclid 向量空间(对应第 1 节)}
+在这节中, 不加说明的话, $V$ 一律为域 $K$ 上的 $n$ 维 Euclid 空间.
+\subsection{正交基}
+举几个 Euclid 空间中正交基的例子.
+\begin{example}
+    设 $C_2(a,b)$ 是 $[a,b]$ 上连续函数全体, 定义
+    \[(f|g)=\int_a^bf(x)g(x)\mathrm{d}x,\quad b>a\]
+
+    $\because$ 当 $i\neq j$ 时
+    \[(\sin ix|\sin jx)=(\cos ix|\cos jx)=0,\]
+
+    $\therefore\sin ix$ 或 $\cos ix$ 是 $C_2(a,b)$ 的正交基.
+\end{example}
+证明书上定理 4 的推论需要证明一个引理.
+\begin{lemma}\label{l1.1}
+    全不为 $0$ 的正交向量组 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_m$ 线性无关.
+\end{lemma}
+\begin{proof}
+    设 $\alpha_1\boldsymbol{u}_1+\alpha_2\boldsymbol{u}_2+\cdots+\alpha_m\boldsymbol{u}_m=\boldsymbol{0}$, 则
+    \[(\boldsymbol{u}_i|\alpha_1\boldsymbol{u}_1+\alpha_2\boldsymbol{u}_2+\cdots+\alpha_m\boldsymbol{u}_m)=(\boldsymbol{u}_i|\boldsymbol{0})=0.\]
+
+    另一方面,
+    \[(\boldsymbol{u}_i|\alpha_1\boldsymbol{u}_1+\alpha_2\boldsymbol{u}_2+\cdots+\alpha_m\boldsymbol{u}_m)=\alpha_i(\boldsymbol{u}_i|\boldsymbol{u}_i),\]
+    
+    $\because(\boldsymbol{u}_i|\boldsymbol{u}_i)\neq0$, $\therefore\alpha_i=0$.
+\end{proof}
+\begin{theorem}[书上定理 4 的推论]
+    $V$ 中任一标准正交向量组 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 可以扩充为标准正交基.
+\end{theorem}
+\begin{proof}
+    由引理 \ref{l1.1}, $\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$ 线性无关, $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 可以扩充为 $V$ 的一个基
+    \[\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m,\boldsymbol{u}_{m+1},\cdots,\boldsymbol{u}_n.\]
+    
+    用书上定理 4 的构造方法可以找到 $V$ 的一个标准正交基
+    \[\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m,\boldsymbol{e}_{m+1},\cdots,\boldsymbol{e}_n.\qedhere\]
+\end{proof}
+\begin{theorem}[书上的定理 5(2)]
+    设 $U\subset V$ 是子空间, 则 $U^{\perp\perp}=U$.
+\end{theorem}
+\begin{proof}
+    $U^{\perp\perp}=\{\boldsymbol{y}|\forall\boldsymbol{x}\in U^\perp,\boldsymbol{y}\perp\boldsymbol{x}\}$.
+    
+    $\because\forall\boldsymbol{z}\in U,\forall\boldsymbol{x}\in U^\perp,\boldsymbol{x}\perp\boldsymbol{z}$, $\therefore\forall\boldsymbol{z}\in U,\boldsymbol{z}\in U^{\perp\perp}$. $\therefore U\subset U^{\perp\perp}$.
+
+    $\therefore U$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 也是 $U^{\perp\perp}$ 中的线性无关向量组.
+
+    由书上的定理 5(1) 得 $V=U\oplus U^\perp=U^\perp\oplus U^{\perp\perp}$, $\therefore\dim V=\dim U+\dim U^\perp=\dim U^\perp+\dim U^{\perp\perp}$. $\therefore\dim U=\dim U^{\perp\perp}=m$.
+
+    $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 是 $U^{\perp\perp}$ 的一个基.
+
+    $\therefore U^{\perp\perp}=U$.
+\end{proof}
+\subsection{正交矩阵}
+下面研究正交基之间的转换. 将基和坐标用行向量或者列向量表示仅仅是为了方便, 并不涉及问题的本质.
+
+设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 和 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 是 $V$ 的两个标准正交基, 且
+\[(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A.\]
+
+设 $\boldsymbol{x},\boldsymbol{y}$ 在 $(\boldsymbol{e}_i)$ 下的坐标分别为 $[x_1,x_2,\cdots,x_n],[y_1,y_2,\cdots,y_n]$ (在一些地方会用行向量来表示, 下同), 在 $(\boldsymbol{e}_i')$ 下的坐标分别为 $[x_1',x_2',\cdots,x_n'],[y_1',y_2',\cdots,y_n']$, 则
+\[(\boldsymbol{x}|\boldsymbol{y})=(x_1,x_2,\cdots,x_n)\begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    \vdots \\
+    y_n \\
+\end{pmatrix}=(x_1',x_2',\cdots,x_n')\begin{pmatrix}
+    y_1' \\
+    y_2' \\
+    \vdots \\
+    y_n' \\
+\end{pmatrix},\]
+
+$\because$
+\[(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')\begin{pmatrix}
+    x_1' \\
+    x_2' \\
+    \vdots \\
+    x_n' \\
+\end{pmatrix}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A\begin{pmatrix}
+    x_1' \\
+    x_2' \\
+    \vdots \\
+    x_n' \\
+\end{pmatrix},\]
+
+$\therefore$
+\[\begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \\
+\end{pmatrix}=A\begin{pmatrix}
+    x_1' \\
+    x_2' \\
+    \vdots \\
+    x_n' \\
+\end{pmatrix}\Rightarrow(x_1,x_2,\cdots,x_n)=(x'_1,x'_2,\cdots,x'_n){}^tA.\]
+
+同理得 $[y_1,y_2,\cdots,y_n]=A[y'_1,y'_2,\cdots,y'_n]$. $\therefore$
+\[(x_1',x_2',\cdots,x_n')\begin{pmatrix}
+    y_1' \\
+    y_2' \\
+    \vdots \\
+    y_n' \\
+\end{pmatrix}=(x_1,x_2,\cdots,x_n)\begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    \vdots \\
+    y_n \\
+\end{pmatrix}=(x'_1,x'_2,\cdots,x'_n){}^tAA\begin{pmatrix}
+    y_1' \\
+    y_2' \\
+    \vdots \\
+    y_n' \\
+\end{pmatrix}.\]
+
+取 $\boldsymbol{x},\boldsymbol{y}=\boldsymbol{e}_i'$ 得 ${}^tAA=E$. 称满足 ${}^tAA=E$ 的矩阵为\textbf{正交矩阵}. 有:
+\begin{theorem}\label{t1.3}
+    $M_n(\mathbb{R})$ 上的正交矩阵全体(记作 $O(n)$)是一个群.
+\end{theorem}
+\begin{proof}
+    设 $A,B\in O(n)$, 则 ${}^tAA=E,{}^tBB=E$. $\therefore{}^t(AB)\cdot AB={}^tB{}^tAAB={}^tBB=E$. $\therefore AB\in O(n)$.
+
+    $\because{}^tAA=E$ 两边转置得 $A{}^tA=E$, $\therefore A^{-1}={}^tA\in O(n)$.
+\end{proof}
+若 $A\in O(n)$, 则 ${}^tAA=E\Rightarrow(\det A)^2=1,\det A=\pm1$. $\pm1$ 都可以取到, 比如:
+\[\begin{pmatrix}
+    -1 & 0 \\
+    0 & 1 \\
+\end{pmatrix}\in O(2),\quad\begin{vmatrix}
+    -1 & 0 \\
+    0 & 1 \\
+\end{vmatrix}=-1.\]
+可以定义\textbf{特殊正交群}
+\[SO(n):=\{A\in O(n)|\det A=1\}.\]
+
+以后会更深入地研究 $O(n)$ 和 $SO(n)$.
+\begin{theorem}[书上的定理 8]
+    $V$ 上两个标准正交基之间的转换矩阵全体 $G$ 与 $O(n)$ 相等.
+\end{theorem}
+\begin{proof}
+    由之前的讨论得 $G\subset O(n)$.
+
+    设 $A=(a_{ij})\in O(n),\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个标准正交基,
+    \[(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A.\]
+
+    有
+    \[\boldsymbol{v}_j=\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i.\]
+
+    $\because$
+    \begin{align*}
+        (\boldsymbol{v}_j,\boldsymbol{v}_k) & =\left(\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i\bigg|\sum\limits_{l=1}^na_{lk}\boldsymbol{e}_l\right) \\
+        & =\sum\limits_{i=1}^na_{ij}\left(\boldsymbol{e}_i\bigg|\sum\limits_{l=1}^na_{lk}\boldsymbol{e}_l\right) \\
+        & =\sum\limits_{i=1}^na_{ij}a_{ik}\left(\boldsymbol{e}_i|\boldsymbol{e}_i\right) \\
+        & =\sum\limits_{i=1}^na_{ij}a_{ik}.
+    \end{align*}
+
+    $\because{}^tAA=E$, $\therefore\sum\limits_{i=1}^na_{ij}a_{ik}=\delta_{jk}$, $\therefore\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 是 $V$ 的一个标准正交基. $\therefore A\in G,G\supset O(n)$.
+\end{proof}
+设 $X=[x_1,x_2,\cdots,x_n],Y=[y_1,y_2,\cdots,y_n]\in\mathbb{R}^n$, 则在 $\mathbb{R}^n$ 的正交基
+\[[1,0,\cdots,0],[0,1,0,\cdots,0],\cdots,[0,\cdots,0,1]\]
+下有
+\[(X|Y)=(x_1,x_2,\cdots,x_n)\begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    \vdots \\
+    y_n \\
+\end{pmatrix}={}^tXY.\]
+
+将正交矩阵 $A=(a_{ij})$ 看成是 $\mathbb{R}^n$ 中列向量组成的矩阵:
+\[A=(A^{(1)},A^{(2)},\cdots,A^{(n)}),\quad{}^tA=\begin{pmatrix}
+    {}^t(A^{(1)}) \\
+    {}^t(A^{(2)}) \\
+    \vdots \\
+    {}^t(A^{(n)}) \\
+\end{pmatrix}.\]
+
+$\therefore$
+\[{}^tAA=(b_{ij}),\quad b_{ij}={}^tA^{(i)}A^{(j)}=(A^{(i)}|A^{(j)}).\]
+
+$\because{}^tAA=E$, $\therefore(A^{(i)}|A^{(j)})=\delta_{ij}$, $\therefore A^{(1)},A^{(2)},\cdots,A^{(n)}$ 是 $\mathbb{R}^n$ 的标准正交基.
+
+由定理\ref{t1.3}
+\[{}^tA=({}^t(A_{(1)}),{}^t(A_{(2)}),\cdots,{}^t(A_{(n)}))\]
+也是正交矩阵, $\therefore{}^t(A_{(1)}),{}^t(A_{(2)}),\cdots,{}^t(A_{(n)})$ 是 $\mathbb{R}^n$ 的标准正交基.
+\subsection{辛空间}
+设 $V=\mathbb{R}^{2m}$ 是辛空间, $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m}$ 是 $V$ 相对于
+\[J_0=\begin{pmatrix}
+    0 & -E_m \\
+    E_m & 0
+\end{pmatrix}\]
+的一个标准基(下面简称为: $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m}$ 是 $V$ 的一个标准基), 即对于
+\[\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m})X=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_{2m}\boldsymbol{e}_{2m},\quad\boldsymbol{y}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m})Y,\]
+
+有
+\[[\boldsymbol{x}|\boldsymbol{y}]={}^tXJ_0Y.\]
+
+设 $\mathcal{A}$ 是辛变换, $A$ 是 $\mathcal{A}$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m}$ 下的矩阵, 则
+\[(\mathcal{A}\boldsymbol{e}_1,\mathcal{A}\boldsymbol{e}_2,\cdots,\mathcal{A}\boldsymbol{e}_{2m})=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m})A,\]
+\begin{align*}
+    \mathcal{A}\boldsymbol{x} & =\mathcal{A}(x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_{2m}\boldsymbol{e}_{2m}) \\
+    & =x_1\mathcal{A}\boldsymbol{e}_1+x_2\mathcal{A}\boldsymbol{e}_2+\cdots+x_{2m}\mathcal{A}\boldsymbol{e}_{2m} \\
+    & =(\mathcal{A}\boldsymbol{e}_1,\mathcal{A}\boldsymbol{e}_2,\cdots,\mathcal{A}\boldsymbol{e}_{2m})X \\
+    & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m})AX,
+\end{align*}
+
+$\therefore$
+\[[\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y}]={}^t(AX)J_0(AY)={}^tX({}^tAJ_0A)Y.\]
+
+$\because\forall\boldsymbol{x},\boldsymbol{y},[\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}]$, 与正交矩阵的情形类似, 有 ${}^tAJ_0A=J_0$.
+\begin{theorem}
+    $V$ 上的辛变换全体(记作 $\operatorname{Sp}(2m)$)是一个群.
+\end{theorem}
+\begin{proof}
+    设 $\mathcal{A},\mathcal{B}\in\operatorname{Sp}(2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
+    \[[\mathcal{AB}\boldsymbol{x}|\mathcal{AB}\boldsymbol{y}]=[\mathcal{A}(\mathcal{B}\boldsymbol{x})|\mathcal{A}(\mathcal{B}\boldsymbol{y})]=[\mathcal{B}\boldsymbol{x}|\mathcal{B}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}],\]
+    \[[\mathcal{A}^{-1}\boldsymbol{x}|\mathcal{A}^{-1}\boldsymbol{y}]=[\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{x})|\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{y})]=[\boldsymbol{x}|\boldsymbol{y}].\]
+\end{proof}
+\section{Hermite 向量空间(对应第 2 节)}
+\subsection{Hermite 矩阵}
+书上的定义 1 中 $\bar{\alpha}$ 不一定为 $\alpha$ 的复共轭, $\alpha\to\bar{\alpha}$ 可以是一个阶为 $2$ 的自同构. 比如
+\begin{example}
+    设二次扩域 $\mathbb{Q}[\sqrt{2}]$,
+    \[\sigma:\begin{array}{rcl}
+        \mathbb{Q}[\sqrt{2}] & \to & \mathbb{Q}[\sqrt{2}] \\
+        \alpha+\beta\sqrt{2} & \to & \alpha-\beta\sqrt{2} \\
+    \end{array}\]
+    是一个阶为 $2$ 的自同构(即 $\sigma^2=1$). 可以在 $\mathbb{Q}[\sqrt{2}]$ 上的空间上定义半双线性型.
+\end{example}
+严格地说, 半双线性应该称为``$3/2$ 线性'', 因为其对第一个变量线性, 对第二个变量半线性.
+
+将 Euclid 空间的性质形式地推广到 $\mathbb{C}$ 上的线性空间 $V$ 上时会出现一些问题. 设
+\[f:\begin{array}{rcl}
+    V\times V & \to & \mathbb{C} \\
+    (\boldsymbol{x},\boldsymbol{y}) & \to & \sum\limits_{i=1}^nx_iy_i \\
+\end{array},\]
+
+对应的二次型为
+\[q(\boldsymbol{x})=f(\boldsymbol{x},\boldsymbol{x})=\sum\limits_{i=1}^nx_i^2.\]
+
+$q(\boldsymbol{x})$ 可能 $\notin\mathbb{R}_+$, 这样 $\sqrt{q(\boldsymbol{x})}$ 就失去了作为度量的意义.
+
+类比复数的模的表示方法:
+\[|x+iy|=\sqrt{(x+iy)(x-iy)},\]
+
+可以构造一个半双线性型
+\[\|\boldsymbol{x}\|=\sum\limits_ix_i\overline{x_i}\]
+作为 $\mathbb{C}$ 上的线性空间 $V$ 的度量.
+
+设 $V$ 是 $\mathbb{C}$ 上的 $n$ 维线性空间, $(\boldsymbol{e}_i)$ 是 $V$ 的一个基, $\boldsymbol{x}=(\boldsymbol{e}_i)X=\sum\limits_{i=1}^nx_i\boldsymbol{e}_i,\boldsymbol{y}=(\boldsymbol{e}_i)Y=\sum\limits_{i=1}^ny_i\boldsymbol{e}_i$, 半双线性型
+\[f(\boldsymbol{x},\boldsymbol{y})={}^tXF\overline{Y},\]
+
+其中 $F$ 是 $f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵, $\overline{Y}=[\overline{y_1},\cdots,\overline{y_n}]$. 有
+\[\overline{f(\boldsymbol{y},\boldsymbol{x})}=\overline{{}^tYF\overline{X}}={}^t\bar{Y}\bar{F}X.\]
+
+如果 $f$ 是 Hermite 型, 则
+\[{}^tXF\overline{Y}=f(\boldsymbol{x},\boldsymbol{y})=\overline{f(\boldsymbol{y},\boldsymbol{x})}={}^t\bar{Y}\bar{F}X.\]
+
+$\overline{f(\boldsymbol{y},\boldsymbol{x})}={}^t\bar{Y}\bar{F}X$ 是 $1\times 1$ 矩阵, $\therefore$
+\[{}^t\bar{Y}\bar{F}X={}^t({}^t\bar{Y}\bar{F}X)={}^tX{}^t\bar{F}\bar{Y}.\]
+
+$\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ 为 \textbf{Hermite 矩阵}.
+
+在 $F$ 为实矩阵的情形下有 $F={}^tF$.
+
+设 $(\boldsymbol{v}_i)$ 是 $V$ 的另一个基, 且
+\[(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A,\]
+
+则 $\boldsymbol{x},\boldsymbol{y}$ 在 $(\boldsymbol{v}_i)$ 下的坐标 $X',Y'$ 满足
+\[X=AX',\quad Y=AY'.\]
+
+设 $G$ 为 $f$ 在基 $(\boldsymbol{v}_i)$ 下的矩阵, 则
+\[f(\boldsymbol{x},\boldsymbol{y})={}^tX'G\overline{Y'}={}^tX'({}^tAF\bar{A})\overline{Y'}.\]
+
+与 $f(\boldsymbol{x},\boldsymbol{y})={}^tX'G\overline{Y'}$ 比较, 得
+\begin{equation}\label{eq2.1}
+    G={}^tAF\overline{A}.
+\end{equation}
+\subsection{Hermite 空间上的度量}
+在这节以及之后的小节中, 不加说明的话, $V$ 表示域 $\mathbb{C}$ 上的 Hermite 空间.
+
+设 $\boldsymbol{x},\boldsymbol{y}\in\mathbb{R}^n$, 由二次型的性质得
+\[(\boldsymbol{x}|\boldsymbol{y})=\dfrac{1}{2}(\|\boldsymbol{x}+\boldsymbol{y}\|^2-\|\boldsymbol{x}\|^2-\|\boldsymbol{y}\|^2).\]
+
+我们希望在 $V$ 上也有类似的性质. 但
+\begin{equation}\label{eq2.2}
+    \begin{aligned}
+        \|\boldsymbol{x}+\boldsymbol{y}\|^2 & =(\boldsymbol{x}+\boldsymbol{y}|\boldsymbol{x}+\boldsymbol{y}) \\
+        & =\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2+(\boldsymbol{x}|\boldsymbol{y})+(\boldsymbol{y}|\boldsymbol{x}) \\
+        & =\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2+(\boldsymbol{x}|\boldsymbol{y})+\overline{(\boldsymbol{x}|\boldsymbol{y})}. 
+    \end{aligned}
+\end{equation}
+
+上式只能得到 $(\boldsymbol{x}|\boldsymbol{y})$ 的实部的表达式. 考虑
+\begin{align*}
+    \|\boldsymbol{x}+i\boldsymbol{y}\|^2 & =(\boldsymbol{x}+i\boldsymbol{y}|\boldsymbol{x}+i\boldsymbol{y}) \\
+    & =\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2+(\boldsymbol{x}|i\boldsymbol{y})+(i\boldsymbol{y}|\boldsymbol{x}) \\
+    & =\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2-i(\boldsymbol{x}|\boldsymbol{y})+i(\boldsymbol{y}|\boldsymbol{x}).
+\end{align*}
+
+上式两边乘 $i$ 得
+\[i\|\boldsymbol{x}+i\boldsymbol{y}\|^2=i\|\boldsymbol{x}\|^2+i\|\boldsymbol{y}\|^2+(\boldsymbol{x}|\boldsymbol{y})-\overline{(\boldsymbol{x}|\boldsymbol{y})}.\]
+
+两边加式 (\ref{eq2.2}) 两边得
+\begin{equation}\label{eq2.3}
+    \|\boldsymbol{x}+\boldsymbol{y}\|^2+i\|\boldsymbol{x}+i\boldsymbol{y}\|^2=(1+i)(\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2)+2(\boldsymbol{x}|\boldsymbol{y}).
+\end{equation}
+
+如果照搬书上第 1 节的定理 1 来证明 Cauchy 不等式的话, 设 $\lambda\in\mathbb{R}\Rightarrow\overline{\lambda}=\lambda$, 有
+\[(\lambda\boldsymbol{x}+\boldsymbol{y}|\lambda\boldsymbol{x}+\boldsymbol{y})=\lambda^2\|\boldsymbol{x}\|+\lambda((\boldsymbol{x}|\boldsymbol{y})+\overline{(\boldsymbol{x}|\boldsymbol{y})})+\|\boldsymbol{y}\|^2.\]
+
+我们遇到了与前面一样的问题, 即只能得到 $(\boldsymbol{x}|\boldsymbol{y})$ 的实部的表达式. 解决方法也类似.
+\begin{theorem}[Cauchy 不等式]
+    设 $\boldsymbol{x},\boldsymbol{y}\in V$, 则
+    \[|(\boldsymbol{x}|\boldsymbol{y})|\leq\|\boldsymbol{x}\|\|\boldsymbol{y}\|.\]
+\end{theorem}
+\begin{proof}
+    设 $(\boldsymbol{x}|\boldsymbol{y})=|(\boldsymbol{x}|\boldsymbol{y})|e^{i\phi},t=se^{-i\phi},s\in\mathbb{R}$ 是变元. 则 
+    \begin{align*}
+        (t\boldsymbol{x}+\boldsymbol{y}|t\boldsymbol{x}+\boldsymbol{y}) & =(t\boldsymbol{x}|t\boldsymbol{x})+(t\boldsymbol{x}|\boldsymbol{y})+(\boldsymbol{y}|t\boldsymbol{x})+\|\boldsymbol{y}\|^2 \\
+        & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+t(\boldsymbol{x}|\boldsymbol{y})+\bar{t}(\boldsymbol{y}|\boldsymbol{x})+\|\boldsymbol{y}\|^2 \\
+        & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+t(\boldsymbol{x}|\boldsymbol{y})+\bar{t}\overline{(\boldsymbol{x}|\boldsymbol{y})}+\|\boldsymbol{y}\|^2 \\
+        & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+se^{-i\phi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{i\phi}+se^{i\phi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{-i\phi}+\|\boldsymbol{y}\|^2 \\
+        & =s^2+2s|(\boldsymbol{x}|\boldsymbol{y})|+\|\boldsymbol{y}\|^2.
+    \end{align*}
+
+    $\therefore$
+    \[s^2+2s|(\boldsymbol{x}|\boldsymbol{y})|+\|\boldsymbol{y}\|^2\geq0.\]
+
+    由书上第 1 节的定理 1 得.
+\end{proof}
+\subsection{半线性函数和映射}
+像书上第 1 节的定理 7 一样, 对于给定的 $\boldsymbol{v}\in V$, 定义
+\[\phi_{\boldsymbol{v}}:\begin{array}{rcl}
+    V & \to & \mathbb{R} \\
+    \boldsymbol{x} & \to & (\boldsymbol{v}|\boldsymbol{x}) \\
+\end{array}.\]
+
+与 Euclid 空间中不同, $\phi_{\boldsymbol{v}}$ 不是线性函数, 对 $\boldsymbol{x},\boldsymbol{y}\in V,\alpha,\beta\in\mathbb{C}$, 有
+\[\phi_{\boldsymbol{v}}(\alpha\boldsymbol{x}+\beta\boldsymbol{y})=\bar{\alpha}\phi_{\boldsymbol{v}}(\boldsymbol{x})+\bar{\beta}\phi_{\boldsymbol{v}}(\boldsymbol{y}).\]
+
+称 $\phi_{\boldsymbol{v}}$ 是\textbf{半线性的}.
+
+设 $\underline{V}$ 为 $V\to\mathbb{R}$ 的半线性函数全体, 有
+\begin{theorem}\label{t2.2}
+    \[\sigma:\begin{array}{rcl}
+        V & \to & \underline{V} \\
+        \boldsymbol{v} & \to & \phi_{\boldsymbol{v}} \\
+    \end{array}\]
+
+    是线性空间的同构.
+\end{theorem}
+\begin{proof}
+    设 $\boldsymbol{u},\boldsymbol{v}\in V,\alpha,\beta\in\mathbb{C},\forall\boldsymbol{x}\in V$,
+    \begin{align*}
+        (\sigma(\alpha\boldsymbol{u}+\beta\boldsymbol{v}))(\boldsymbol{x}) & =(\alpha\boldsymbol{u}+\beta\boldsymbol{v}|\boldsymbol{x}) \\
+        & =\alpha(\boldsymbol{u}|\boldsymbol{x})+\beta(\boldsymbol{v}|\boldsymbol{x}) \\
+        & =\alpha\sigma(\boldsymbol{u})(\boldsymbol{x})+\beta\sigma(\boldsymbol{v})(\boldsymbol{x}),
+    \end{align*}
+
+    $\therefore$
+    \[\sigma(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\sigma(\boldsymbol{u})+\beta\sigma(\boldsymbol{v}).\]
+
+    若 $\boldsymbol{v}\in\ker\sigma$, 则 $\phi_{\boldsymbol{v}}=\boldsymbol{0}\Rightarrow\forall\boldsymbol{x},\phi_{\boldsymbol{v}}(\boldsymbol{x})=\boldsymbol{0}$, $\therefore\phi_{\boldsymbol{v}}(\boldsymbol{v})=(\boldsymbol{v}|\boldsymbol{v})=\boldsymbol{0}$, $\therefore\boldsymbol{v}=\boldsymbol{0}$. $\therefore\sigma$ 是单射.
+
+    设 $\phi\in\underline{V}$, $(\boldsymbol{e}_i)$ 是 $V$ 的一个标准正交基, 考虑
+    \[\boldsymbol{v}=\phi(\boldsymbol{e}_1)\boldsymbol{e}_1+\phi(\boldsymbol{e}_2)\boldsymbol{e}_2+\cdots+\phi(\boldsymbol{e}_n)\boldsymbol{e}_n.\]
+
+    $\forall\boldsymbol{x}=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_n\boldsymbol{e}_n$,
+    \[(\boldsymbol{v}|\boldsymbol{x})=(\phi(\boldsymbol{e}_1)\boldsymbol{e}_1+\cdots+\phi(\boldsymbol{e}_n)\boldsymbol{e}_n|\boldsymbol{x})=\sum\limits_{i=1}^n\phi(\boldsymbol{e}_i)\overline{x_i}.\]
+
+    $\because\phi$ 是线性函数, $\therefore$
+    \[\sum\limits_{i=1}^n\phi(\boldsymbol{e}_i)\overline{x_i}=\phi\left(\sum\limits_{i=1}^n\overline{x_i}\boldsymbol{e}_i\right)=\phi(\boldsymbol{x}).\]
+
+    $\therefore\exists\boldsymbol{v}$ 使得 $\sigma(\boldsymbol{v})=\phi$. $\therefore\sigma$ 是满射. $\therefore\sigma$ 是同构.
+\end{proof}
+对于 $\boldsymbol{v}\in V$, 也可以定义与之对应的线性函数:
+\[\psi_{\boldsymbol{v}}:\begin{array}{rcl}
+    V & \to & \mathbb{R} \\
+    \boldsymbol{x} & \to & (\boldsymbol{x}|\boldsymbol{v}) \\
+\end{array}.\]
+
+但是
+\[\tau:\begin{array}{rcl}
+    V & \to & V^* \\
+    \boldsymbol{v} & \to & \psi_{\boldsymbol{v}} \\
+\end{array}\]
+
+是双射(证明与书上第 1 节的定理 7 一样, 也可以仿照定理 \ref{t2.2} 不用对偶基直接证明)而不是同构. 有
+\[\tau(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\bar{\alpha}\tau(\boldsymbol{u})+\bar{\beta}\tau(\boldsymbol{v}).\]
+\subsection{酉群}
+书上定理 2(i) 的正确表述应该是:
+\begin{theorem}
+    $n$ 阶酉矩阵全体构成一个群, 称为\textbf{酉群}, 记作 $U(n)$.
+\end{theorem}
+\begin{proof}
+    设 $A,B\in U(n)$. 由书上的式 (8) 后面的说明得 $AB\in U(n)$. 由
+    \[AA^{-1}=E\Rightarrow(A^{-1})^*A^*=E\]
+    得 $(A^*)^{-1}=(A^{-1})^*$. $\therefore$
+    \[(A^{-1})^*A^{-1}=(A^*)^{-1}A^{-1}=(A^*A)^{-1}=E^{-1}=E.\]
+
+    $\therefore A^{-1}\in U(n).\therefore U(n)$ 是 $\operatorname{GL}_n(\mathbb{C})$ 的子群.
+\end{proof}
+\section{纯量积空间上的线性算子(对应第 3 节)}
+在这节中, 不加说明的话, $V$ 一律为域 $K$ 上的 $n$ 维纯量积空间($K=\mathbb{R}$ 则为 Euclid 空间, $K=\mathbb{C}$ 则为 Hermite 空间).
+\subsection{线性算子与 $\theta$ 线性型之间的关系}
+我们想要找到 $\mathcal{L}(V)$ 与 $V$ 上的 $\theta$ 线性型($\theta=2$ 为双线性型, $\theta=3/2$ 为半双线性型)全体 $\mathcal{L}_\theta(V,K)$ 之间的联系.
+
+设 $\mathcal{A}\in\mathcal{L}(V)$, 定义
+\[f_{\mathcal{A}}:\begin{array}{rcl}
+    V\times V & \to & K \\
+    (\boldsymbol{x},\boldsymbol{y}) & \to & (\mathcal{A}\boldsymbol{x}|\boldsymbol{y}) \\
+\end{array}.\]
+
+则有
+\begin{theorem}\label{t3.1}
+    \[\phi:\begin{array}{rcl}
+        \mathcal{L}(V) & \to & \mathcal{L}_\theta(V,K) \\
+        \mathcal{A} & \to & f_\mathcal{A} \\
+    \end{array}\]
+    是双射.
+\end{theorem}
+\begin{proof}
+    设 $\mathcal{A},\mathcal{B}\in\mathcal{L}(V)$ 满足 $f_\mathcal{A}=f_\mathcal{B}$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V$,
+    \[((\mathcal{A}-\mathcal{B})\boldsymbol{x}|\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})-(\mathcal{B}\boldsymbol{x}|\boldsymbol{y})=0.\]
+
+    取 $\boldsymbol{y}=(\mathcal{A}-\mathcal{B})\boldsymbol{x}$, 则 $(\boldsymbol{y}|\boldsymbol{y})=0$, $\therefore\forall\boldsymbol{x},(\mathcal{A}-\mathcal{B})\boldsymbol{x}=\boldsymbol{y}=0$. $\therefore\mathcal{A}=\mathcal{B}$. $\therefore\phi$ 是单射.
+
+    设 $(\boldsymbol{e}_i)$ 是 $V$ 的标准正交基, $\boldsymbol{x}=x_1\boldsymbol{e}_1+\cdots+x_n\boldsymbol{e}_n=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)X,\boldsymbol{y}=y_1\boldsymbol{e}_1+\cdots+y_n\boldsymbol{e}_n=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)Y$, 则
+    \[(\boldsymbol{x}|\boldsymbol{y})={}^tX\overline{Y}.\]
+
+    设 $f\in\mathcal{L}_\theta(V,K)$, $f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $F$, 则
+    \begin{equation}\label{eq3.1}
+        f(\boldsymbol{x},\boldsymbol{y})={}^tXF\overline{Y}.
+    \end{equation}
+
+    令 $X'={}^t({}^tXF)={}^tFX$, 则
+    \[f(\boldsymbol{x},\boldsymbol{y})={}^tX'\overline{Y}=(\boldsymbol{x}'|\boldsymbol{y}),\]
+
+    其中 $\boldsymbol{x}'=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)X'=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n){}^tFX$. $\therefore\exists\mathcal{A}_f:\boldsymbol{x}\to\boldsymbol{x}'$ 使得
+    \begin{equation}\label{eq3.2}
+        f(\boldsymbol{x},\boldsymbol{y})=(\boldsymbol{x}'|\boldsymbol{y})=(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y}).
+    \end{equation}
+
+    $\because\forall\alpha,\beta\in K,\boldsymbol{x}_1=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)X_1,\boldsymbol{x}_2=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)X_2$,
+    \begin{align*}
+        \mathcal{A}_f(\alpha\boldsymbol{x}_1+\beta\boldsymbol{x}_2) & =(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n){}^tF(\alpha X_1+\beta X_2) \\
+        & =\alpha(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n){}^tFX_1+\beta(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n){}^tFX_2 \\
+        & =\alpha\mathcal{A}_f\boldsymbol{x}_1+\beta\mathcal{A}_f\boldsymbol{x}_2,
+    \end{align*}
+
+    $\therefore\mathcal{A}_f\in\mathcal{L}(V)$. $\therefore\mathcal{A}_f$ 是满射.
+\end{proof}
+\begin{note}
+    (1) $\mathcal{A}_f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 ${}^tF$, 即 $\mathcal{A}\boldsymbol{e}_i=\sum\limits_{j=1}^nf_{ij}\boldsymbol{e}_j$.
+
+    这与一般的情况, 即 $\mathcal{A}\boldsymbol{e}_j=\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i$, 不一样.
+
+    (2) 实际上可以在证明 $\phi$ 是线性的(见定理 \ref{t3.2})之后用 $\dim\mathcal{L}(V)=\dim\mathcal{L}_\theta(V,K)=n^2$ 直接得到 $\phi$ 是双射.
+
+    (3) 这个证明实际上说明了: 定理 \ref{t3.2} 中的映射 $\psi$ 是确切定义的. 这个定理的另一种证明方法是证明 $\psi$ 是 $\phi$ 的逆映射, 具体的方法见定理 \ref{t3.2}.
+
+    (4) 在式 (\ref{eq3.1}) 中令 $\boldsymbol{y}'=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)\overline{F}Y$, 则有
+    \[f(\boldsymbol{x},\boldsymbol{y})={}^tX\overline{\overline{F}Y}=(\boldsymbol{x}|\boldsymbol{y}').\]
+
+    与定理 \ref{t3.1} 类似, 可以证明 $\mathcal{A}^*_f:\boldsymbol{y}\to\boldsymbol{y}'$ 是线性映射, $\therefore$ 映射
+    \[\begin{array}{rcl}
+        \mathcal{L}_\theta(V,K) & \to & \mathcal{L}(V) \\
+        f & \to & \mathcal{A}^*_f \\
+    \end{array}\]
+    是确切定义的. $\mathcal{A}^*_f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $\overline{F}$.
+\end{note}
+进一步地, 有
+\begin{theorem}\label{t3.2}
+    \[\phi:\begin{array}{rcl}
+        \mathcal{L}(V) & \to & \mathcal{L}_\theta(V,K) \\
+        \mathcal{A} & \to & f_\mathcal{A} \\
+    \end{array}\]
+    是同构, 其逆为
+    \[\psi:\begin{array}{rcl}
+        \mathcal{L}_\theta(V,K) & \to & \mathcal{L}(V) \\
+        f & \to & \mathcal{A}_f \\
+    \end{array}.\]
+\end{theorem}
+\begin{proof}
+    $\because\forall\mathcal{A},\mathcal{B}\in\mathcal{L}(V),\boldsymbol{x},\boldsymbol{y}\in V,\alpha,\beta\in K$,
+    \[((\alpha\mathcal{A}+\beta\mathcal{B})\boldsymbol{x}|\boldsymbol{y})=\alpha(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})+\beta(\mathcal{B}\boldsymbol{x}|\boldsymbol{y}),\]
+    
+    $\therefore$
+    \[f_{\alpha\mathcal{A}+\beta\mathcal{B}}(\boldsymbol{x},\boldsymbol{y})=\alpha f_{\mathcal{A}}(\boldsymbol{x},\boldsymbol{y})+\beta f_{\mathcal{B}}(\boldsymbol{x},\boldsymbol{y}).\]
+
+    $\therefore\phi$ 是线性的. $\therefore\phi$ 是同构.
+
+    $\because\forall f,g\in\mathcal{L}_\theta(V,K),\alpha,\beta\in K,\boldsymbol{x},\boldsymbol{y}\in V$,
+    \begin{align*}
+        (\mathcal{A}_{\alpha f+\beta g}\boldsymbol{x}|\boldsymbol{y}) & =(\alpha f+\beta g)(\boldsymbol{x},\boldsymbol{y}) \\
+        & =\alpha f(\boldsymbol{x},\boldsymbol{y})+\beta g(\boldsymbol{x},\boldsymbol{y}) \\
+        & =\alpha(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y})+\beta(\mathcal{A}_g\boldsymbol{x}|\boldsymbol{y}) \\
+        & =((\alpha\mathcal{A}_f+\beta\mathcal{A}_g)\boldsymbol{x}|\boldsymbol{y}),
+    \end{align*}
+
+    $\therefore\phi(\mathcal{A}_{\alpha f+\beta g})=\phi(\alpha\mathcal{A}_f+\beta\mathcal{A}_g)$. 由定理 \ref{t3.1} 得 $\phi$ 是单射, $\therefore\mathcal{A}_{\alpha f+\beta g}=\alpha\mathcal{A}_f+\beta\mathcal{A}_g$.
+
+    $\therefore\psi$ 是线性的.
+
+    $\because\forall\mathcal{A}\in\mathcal{L}(V),f(\boldsymbol{x},\boldsymbol{y})\in(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})\in\mathcal{L}_\theta(V,K),\therefore\psi$ 是满射. $\therefore\dim\operatorname{Im}\psi=\dim\mathcal{L}(V)=n^2$.
+
+    $\because\dim\ker\psi+\dim\operatorname{Im}\psi=\dim\mathcal{L}_\theta(V,K)=n^2,\therefore\ker\psi=\{\boldsymbol{0}\}$. $\therefore\psi$ 是双射. $\therefore\psi$ 是同构.
+
+    考察 $\psi\circ\phi$. $\forall\mathcal{A}\in\mathcal{L}(V)$, 设 $\phi(\mathcal{A})=f$, 则由 $\phi$ 的定义得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\psi(f)=\mathcal{A}_f$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y})$.
+    
+    $\therefore\phi(\mathcal{A})=\phi(\mathcal{A}_f)$. 由定理 \ref{t3.1} 得 $\phi$ 是单射, $\therefore\mathcal{A}=\mathcal{A}_f$. $\therefore\psi\circ\phi$ 是 $\mathcal{L}(V)$ 上的恒等映射.
+    
+    考察 $\phi\circ\psi$. $\forall f\in\mathcal{L}_\theta(V,K)$, 设 $\psi(f)=\mathcal{A}$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\phi(\mathcal{A})=f_\mathcal{A}$, 则由 $\phi$ 的定义得
+    \[f_\mathcal{A}(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=f(\boldsymbol{x},\boldsymbol{y}).\]
+    
+    $\because$ 上式对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, $\therefore f=f_\mathcal{A}$. $\therefore\phi\circ\psi$ 是 $\mathcal{L}_\theta(V,K)$ 上的恒等映射. $\therefore\phi=\psi^{-1}$.
+\end{proof}
+\begin{theorem}
+    \[\sigma:\begin{array}{rcl}
+        \mathcal{L}_\theta(V,K) & \to & \mathcal{L}(V) \\
+        f & \to & \mathcal{A}^*_f \\
+    \end{array}\]
+    是双射(但不一定是同构).
+\end{theorem}
+\begin{proof}
+    证明 $\sigma$ 是满射与定理 \ref{t3.2} 证明 $\psi$ 是满射类似.
+
+    设 $f,g\in\mathcal{L}_\theta(V,K)$ 满足 $\mathcal{A}^*_f=\mathcal{A}^*_g$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V$,
+    \[f(\boldsymbol{x},\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*_f\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*_g\boldsymbol{y})=g(\boldsymbol{x},\boldsymbol{y}).\]
+
+    $\therefore f=g$. $\therefore\sigma$ 是单射.
+
+    当 $K=\mathbb{C}$ 时 $\sigma$ 具有半线性, $\therefore\sigma$ 不是同构.
+\end{proof}
+下面的交换图表示了各个线性空间之间的关系:
+\[\begin{CD}
+    \mathcal{L}(V) @>\phi>> \mathcal{L}_\theta(V,K) @>\sigma>> \mathcal{L}(V) @>\psi>> \mathcal{L}_\theta(V,K) \\
+    @VVV @VVV @VVV @VVV \\
+    M_n(K) @>\eta>> M_n(K) @>\xi>> M_n(K) @>\eta>> M_n(K)
+\end{CD}\]
+
+其中 $\xi:A\to\overline{A}$ 不一定是 $M_n(K)$ 的自同构, $\eta:A\to{}^tA$ 是 $M_n(K)$ 的自同构.
+
+从交换图中可以看出:
+\begin{corollary}\label{c3.1}
+    $\forall\mathcal{A}\in\mathcal{L}(V),\exists!\mathcal{A}^*\in\mathcal{L}(V)$ 使得
+    \begin{equation}\label{eq3.3}
+        (\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y}).
+    \end{equation}
+
+    称 $\mathcal{A}^*$ 为 $\mathcal{A}$ 的\textbf{伴随算子}.
+\end{corollary}
+\begin{proof}
+    $\because\sigma\circ\phi$ 是 $\mathcal{L}(V)$ 上的单射, 且有
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=\phi(\mathcal{A})(\boldsymbol{x},\boldsymbol{y})=(\boldsymbol{x}|\sigma\circ\phi(\mathcal{A})\boldsymbol{y}),\]
+
+    $\therefore\forall\mathcal{A}\in\mathcal{L}(V),\exists!\mathcal{A}^*=\sigma\circ\phi(\mathcal{A})\in\mathcal{L}(V)$ 使得 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})$.
+\end{proof}
+此外, $\sigma\circ\phi$ 对应到矩阵上就是 $\xi\circ\eta:A\to A^*={}^t\overline{A}$, 这并不能体现推论 \ref{c3.1} 描述的算子与纯量积之间的关系. 所以用空间和算子来表述是很有必要的.
+
+伴随算子有一些性质:
+\begin{property}
+    \[(1)\ (\mathcal{A}+\mathcal{B})^*=\mathcal{A}^*+\mathcal{B}^*,\quad(2)\ (\alpha\mathcal{A})^*=\overline{\alpha}\mathcal{A}^*,\quad(3)\ (\mathcal{A}\mathcal{B})^*=\mathcal{A}^*\mathcal{B}^*,\quad(4)\ \mathcal{A}^{**}=\mathcal{A}.\]
+\end{property}
+\begin{proof}
+    用定义式 \ref{eq3.3} 验证. (1)(2) 从 $(*|*)$ 的 $\theta$ 线性性可以看出.
+
+    (3) $\because$
+    \[(\boldsymbol{x}|(\mathcal{A}\mathcal{B})^*\boldsymbol{y})=(\mathcal{A}\mathcal{B}\boldsymbol{x}|\boldsymbol{y})=(\mathcal{A}(\mathcal{B}\boldsymbol{x})|\boldsymbol{y})=(\mathcal{B}\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=(\boldsymbol{x}|\mathcal{B}^*(\mathcal{A}^*\boldsymbol{y}))=(\boldsymbol{x}|\mathcal{B}^*\mathcal{A}^*\boldsymbol{y})\]
+
+    对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, 用与定理 \ref{t3.1} 证明 $\phi$ 是单射类似的方法得 $(\mathcal{A}\mathcal{B})^*=\mathcal{B}^*\mathcal{A}^*$.
+
+    (4) $\because$
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=(\mathcal{A}^{**}\boldsymbol{x}|\boldsymbol{y}),\]
+
+    设 $\phi$ 的定义与定理 \ref{t3.1} 相同, 则 $\phi(\mathcal{A})=\phi(\mathcal{A}^{**})$. $\because\phi$ 是单射, $\therefore\mathcal{A}^{**}=\mathcal{A}$.
+\end{proof}
+\subsection{Hermite 算子}
+下面的定理说明, 线性算子及与之对应的 $\theta$ 型(包括与之对应的矩阵)的 Hermite 性是统一的.
+\begin{theorem}
+    设 $\mathcal{A}\in\mathcal{L}(V)$ 是 Hermite 的当且仅当 $f_\mathcal{A}$ 是 Hermite 型.
+\end{theorem}
+\begin{proof}
+    $\mathcal{A}$ 是 Hermite 的 $\Leftrightarrow$
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}\boldsymbol{y})=\overline{(\mathcal{A}\boldsymbol{y}|\boldsymbol{x})}.\]
+
+    $\Leftrightarrow$
+    \[f_\mathcal{A}(\boldsymbol{x},\boldsymbol{y})=\overline{f_\mathcal{A}(\boldsymbol{y},\boldsymbol{x})}.\]
+
+    $\Leftrightarrow f_\mathcal{A}$ 是 Hermite 型.
+\end{proof}
+下面是书上的定理 6 的另一种表述.
+\begin{theorem}[书上的定理 6]\label{t3.5}
+    设 $\mathcal{A}\in\mathcal{L}(V)$ 是 Hermite 算子, 则 $\exists V$ 的标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 使得 $\mathcal{A}$ 在上述基下的矩阵为实对角矩阵.
+\end{theorem}
+\begin{proof}
+    对 $\dim V$ 用数学归纳法. $\dim V=1$ 时 $\mathcal{A}$ 在任一基下的矩阵都是对角矩阵. 由书上的引理 1 得 $\dim V=1$ 时 $\mathcal{A}$ 在任一基下的矩阵都是实对角矩阵.
+
+    设当 $\dim V=n-1$ 时命题成立, 当 $\dim V=n$ 时, 由书上的引理 1,2 得 $\operatorname{Spec}\mathcal{A}\neq\varnothing$. 设 $\lambda_1\in\operatorname{Spec}\mathcal{A},\boldsymbol{e}$ 是 $\mathcal{A}$ 属于特征值 $\lambda_1\in\mathbb{R}$ 的特征向量. 设 $\boldsymbol{e}_1=\dfrac{\boldsymbol{e}}{\|\boldsymbol{e}\|}$, 则 $\mathcal{A}\boldsymbol{e}_1=\lambda_1\boldsymbol{e}_1$, $V=\left<\boldsymbol{e}_1\right>+\left<\boldsymbol{e}_1\right>^\perp$, 其中 $\dim\left<\boldsymbol{e}_1\right>^\perp=n-1$.
+
+    $\because\left<\boldsymbol{e}_1\right>$ 是 $\mathcal{A}$ 的不变子空间, 由书上的引理 3 得 $\left<\boldsymbol{e}_1\right>^\perp$ 也是 $\mathcal{A}$ 的不变子空间. $\therefore\operatorname{Im}\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}=\left<\boldsymbol{e}_1\right>^\perp$. $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 $\left<\boldsymbol{e}_1\right>^\perp$ 上的算子.
+
+    $\because$ 若 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}\boldsymbol{y})$ 对 $\forall\boldsymbol{x},\boldsymbol{y}\in V$ 都成立, 则对 $\forall\boldsymbol{x},\boldsymbol{y}\in\left<\boldsymbol{e}_1\right>^\perp\subset V$ 也成立, $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 Hermite 算子.
+
+    由归纳假定, $\exists\left<\boldsymbol{e}_1\right>^\perp$ 的标准正交基 $\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n$ 使得 $\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 在基 $\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n$ 下的矩阵是实对角矩阵, 即 $\exists\lambda_i\in\mathbb{R}$ 使得 $\mathcal{A}\boldsymbol{e}_i=\lambda_i\boldsymbol{e}_i$.
+
+    $\because\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n\in\left<\boldsymbol{e}_1\right>^\perp$, $\therefore\boldsymbol{e}_1$ 与 $\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n$ 正交. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的标准正交基, 而且 $\mathcal{A}\boldsymbol{e}_i=\lambda_i\boldsymbol{e}_i$. $\therefore\mathcal{A}$ 在上述基下的矩阵为实对角矩阵.
+\end{proof}
+设 $V$ 上的 Hermite 算子 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为实对角矩阵 $\Lambda$, $(\boldsymbol{v}_i)$ 是 $V$ 的另一个标准正交基, $\mathcal{A}$ 在基 $(\boldsymbol{v}_i)$ 下的矩阵为 $A$, 则 $A$ 是 Hermite 矩阵. 有
+\[(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)B,\]
+
+其中 $B$ 是酉矩阵(作为 Hermite 空间中标准正交基的变换矩阵, 见书上第 2.4 节). 设
+\begin{align*}
+    (\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A & =\mathcal{A}(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n) \\
+    & =\mathcal{A}(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)B \\
+    & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)\Lambda B \\
+    & =(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)B^{-1}\Lambda B.
+\end{align*}
+
+$\therefore A=B^{-1}\Lambda B\Rightarrow B^{-1}AB=\Lambda$.
+
+上面的讨论可以总结为:
+\begin{corollary}\label{c3.2}
+    Hermite 矩阵 $A$ 可以化为 $B^{-1}\Lambda B$ 的形式, 其中 $B$ 是酉矩阵, $\Lambda$ 是实对角矩阵. 特别地, 对称矩阵 $A$ 可以化为 $B^{-1}\Lambda B$ 的形式, 其中 $B$ 是正交矩阵, $\Lambda$ 是对角矩阵.
+\end{corollary}
+\subsection{保距算子}
+日常生活中经常会遇到长度不变的变换(称这样的变换\textbf{具有刚性}), 因此我们很自然地想要研究不改变度量的算子.
+\begin{definition}
+    称 $\mathcal{A}\in\mathcal{L}(V)$ 是\textbf{保距算子}, 如果 $\forall\boldsymbol{x},\|\mathcal{A}\boldsymbol{x}\|=\|\boldsymbol{x}\|$.
+\end{definition}
+对于保距算子 $\mathcal{A}$, 有 $\|\mathcal{A}\boldsymbol{x}-\mathcal{A}\boldsymbol{y}\|=\|\mathcal{A}(\boldsymbol{x}-\boldsymbol{y})\|=\|\boldsymbol{x}-\boldsymbol{y}\|$. 这解释了``保距''的含义.
+
+由式 (\ref{eq2.3}) 得
+\[2(\boldsymbol{x}|\boldsymbol{y})=\|\boldsymbol{x}+\boldsymbol{y}\|^2+i\|\boldsymbol{x}+i\boldsymbol{y}\|^2-(1+i)(\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2).\]
+
+$\therefore$
+\begin{align*}
+    2(\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y}) & =\|\mathcal{A}\boldsymbol{x}+\mathcal{A}\boldsymbol{y}\|^2+i\|\mathcal{A}\boldsymbol{x}+i\mathcal{A}\boldsymbol{y}\|^2-(1+i)(\|\mathcal{A}\boldsymbol{x}\|^2+\|\mathcal{A}\boldsymbol{y}\|^2) \\
+    & =\|\mathcal{A}(\boldsymbol{x}+\boldsymbol{y})\|^2+i\|\mathcal{A}(\boldsymbol{x}+i\boldsymbol{y})\|^2-(1+i)(\|\mathcal{A}\boldsymbol{x}\|^2+\|\mathcal{A}\boldsymbol{y}\|^2) \\
+    & =\|\boldsymbol{x}+\boldsymbol{y}\|^2+i\|\boldsymbol{x}+i\boldsymbol{y}\|^2-(1+i)(\|\boldsymbol{x}\|^2+\|\boldsymbol{y}\|^2) \\
+    & =2(\boldsymbol{x}|\boldsymbol{y}).
+\end{align*}
+
+$\therefore\forall\boldsymbol{x},\boldsymbol{y}\in V$,
+\begin{align*}
+    \|\mathcal{A}\boldsymbol{x}\|=\|\boldsymbol{x}\| & \Rightarrow(\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y})=(\boldsymbol{x}|\boldsymbol{y}) \\
+    & \Rightarrow(\boldsymbol{x}|\mathcal{A}^*\mathcal{A}\boldsymbol{y})=(\boldsymbol{x}|\mathcal{E}\boldsymbol{y}).
+\end{align*}
+
+用与定理 \ref{t3.1} 证明 $\phi$ 是单射类似的方法得
+\begin{equation}\label{eq3.4}
+    \mathcal{A}^*\mathcal{A}=\mathcal{E}.
+\end{equation}
+
+反过来, 从式 (\ref{eq3.4}) 可以推出 $\mathcal{A}$ 是保距的:
+\[\|\mathcal{A}\boldsymbol{x}\|=(\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{x})=(\boldsymbol{x}|\mathcal{A}^*\mathcal{A}\boldsymbol{x})(\boldsymbol{x}|\mathcal{E}\boldsymbol{x})=(\boldsymbol{x}|\boldsymbol{x})=\|\boldsymbol{x}\|.\]
+
+$\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保距的.
+
+保距算子 $\mathcal{A}$ 在标准正交基下的矩阵为酉矩阵, 所以保距算子也称为\textbf{酉算子}. 有
+\begin{theorem}
+    $V$ 上的全体酉算子构成一个群.
+\end{theorem}
+\begin{proof}
+    设 $\mathcal{A},\mathcal{B}$ 是酉算子, 则 $\forall\boldsymbol{x}\in V$,
+    \[\|\mathcal{AB}\boldsymbol{x}\|=\|\mathcal{B}\boldsymbol{x}\|=\|\boldsymbol{x}\|.\]
+
+    $\therefore\mathcal{AB}$ 是酉算子.
+
+    $\because\mathcal{A}$ 是酉算子, $\therefore\mathcal{A}^*\mathcal{A}=\mathcal{A}\mathcal{A}^*=\mathcal{E}$, 而
+    \[\|\mathcal{A}^*\boldsymbol{x}\|=(\mathcal{A}^*\boldsymbol{x}|\mathcal{A}^*\boldsymbol{x})=(\boldsymbol{x}|\mathcal{A}^{**}\mathcal{A}^*\boldsymbol{x})=(\boldsymbol{x}|\mathcal{A}\mathcal{A}^*\boldsymbol{x})=\|\boldsymbol{x}\|,\]
+    
+    $\therefore\mathcal{A}^{-1}=\mathcal{A}^*$ 是酉算子.
+\end{proof}
+下面是书上引理 5 的另一种证明方法.
+\begin{lemma}[书上的引理 5]\label{l3.1}
+    设 $\mathcal{A}$ 是酉算子, $U\subset V$ 是 $\mathcal{A}$ 的不变子空间, 那么 $U^\perp$ 也是 $\mathcal{A}$ 不变的.
+\end{lemma}
+\begin{proof}
+    $\because\mathcal{A}$ 是酉算子, $\therefore$
+    \[U=\mathcal{E}U=\mathcal{A}^*\mathcal{A}U=\mathcal{A}^*(\mathcal{A}U).\]
+
+    $\because\mathcal{A}U=U$, $\therefore\mathcal{A}^*(\mathcal{A}U)=\mathcal{A}^*U$. $\therefore U$ 是 $\mathcal{A}^*$ 不变的.
+
+    对 $\boldsymbol{x}\in U^\perp,\forall\boldsymbol{y}\in U$, 有 $\mathcal{A}^*\boldsymbol{y}\in U$,
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=0.\]
+
+    $\therefore\mathcal{A}\boldsymbol{x}\in U^\perp$.
+\end{proof}
+类比推论 \ref{c3.2}, 由书上的定理 9 得
+\begin{corollary}\label{c3.3}
+    酉矩阵 $A$ 可以化为 $B^{-1}\Lambda B$ 的形式, 其中 $B$ 是酉矩阵, $\Lambda$ 是实对角矩阵. 特别地, 正交矩阵 $A$ 可以化为 $B^{-1}\Lambda B$ 的形式, 其中 $B$ 是正交矩阵, $\Lambda$ 是对角矩阵.
+\end{corollary}
+这个推论实际上给出了酉群 $U(n)$ 中的元素在 $U(n)$ 中的对角化, 这在一般的矩阵群中是做不到的.
+\begin{example}
+    考虑
+    \[A=\begin{pmatrix}
+        0 & 1 \\
+        -1 & 0 \\
+    \end{pmatrix}\in\operatorname{GL}_2(\mathbb{R}).\]
+    
+    $\because\chi_A(t)=t^2+1$, $\therefore A$ 不能在域 $\mathbb{R}$ 上对角化. $\therefore A$ 不能写成
+    \[B^{-1}\operatorname{diag}(\lambda_1,\lambda_2)B,\quad \operatorname{diag}(\lambda_1,\lambda_2),B\in\operatorname{GL}_2(\mathbb{R})\]
+
+    的形式.
+\end{example}
+\subsection{正规算子}
+证明书上的定理 11 需要先证明两个引理.
+\begin{lemma}\label{l3.2}
+    设 $\mathcal{A}$ 是正规算子, $\lambda$ 是 $\mathcal{A}$ 的特征值, 则 $V^\lambda$ 是 $\mathcal{A}^*$ 不变的.
+\end{lemma}
+\begin{proof}[借助矩阵的证明]
+    $\forall\boldsymbol{x},\boldsymbol{y}\in V^\lambda$,
+    \[\left(\mathcal{A}|_{V^\lambda}\boldsymbol{x}\Big|\boldsymbol{y}\right)=\left(\boldsymbol{x}\Big|\mathcal{A}^*|_{V^\lambda}\boldsymbol{y}\right),\]
+
+    $\therefore$ 在 $V^\lambda$ 上有 $(\mathcal{A}|_{V^\lambda})^*=\mathcal{A}^*|_{V^\lambda}$.
+
+    $\because\mathcal{A}|_{V^\lambda}$ 在 $V^\lambda$ 的任一基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda=\operatorname{diag}(\lambda,\cdots,\lambda)$, $\therefore\mathcal{A}^*|_{V^\lambda}=(\mathcal{A}|_{V^\lambda})^*$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda^*=\operatorname{diag}(\overline{\lambda},\cdots,\overline{\lambda})$. $\therefore$
+    \[\mathcal{A}^*V_\lambda=\{\overline{\lambda}\boldsymbol{x}|\boldsymbol{x}\in V^\lambda\}\subset V_\lambda.\qedhere\]
+\end{proof}
+\begin{proof}[不借助矩阵的证明]
+    设 $\boldsymbol{v}\in V^\lambda$, 则 $(\mathcal{A}-\lambda\mathcal{E})\boldsymbol{v}=\boldsymbol{0}$. 有
+    \[((\mathcal{A}-\lambda\mathcal{E})^*\boldsymbol{v}|(\mathcal{A}-\lambda\mathcal{E})^*\boldsymbol{v})=(\boldsymbol{v}|(\mathcal{A}-\lambda\mathcal{E})(\mathcal{A}-\lambda\mathcal{E})^*\boldsymbol{v}).\]
+
+    $\because(\mathcal{A}-\lambda\mathcal{E})^*=\mathcal{A}^*-\overline{\lambda}\mathcal{E}$, $\therefore$
+    \begin{align*}
+        (\mathcal{A}-\lambda\mathcal{E})(\mathcal{A}-\lambda\mathcal{E})^* & =(\mathcal{A}-\lambda\mathcal{E})(\mathcal{A}^*-\overline{\lambda}\mathcal{E}) \\
+        & =\mathcal{AA}^*-\lambda(\mathcal{A}+\mathcal{A}^*)+\lambda\overline{\lambda}\mathcal{E} \\
+        & =\mathcal{A}^*\mathcal{A}-\lambda(\mathcal{A}+\mathcal{A}^*)+\lambda\overline{\lambda}\mathcal{E} \\
+        & =(\mathcal{A}-\lambda\mathcal{E})^*(\mathcal{A}-\lambda\mathcal{E}).
+    \end{align*}
+
+    $\therefore$
+    \[(\boldsymbol{v}|(\mathcal{A}-\lambda\mathcal{E})(\mathcal{A}-\lambda\mathcal{E})^*\boldsymbol{v})=(\boldsymbol{v}|(\mathcal{A}-\lambda\mathcal{E})^*(\mathcal{A}-\lambda\mathcal{E})\boldsymbol{v}).\]
+
+    $\because(\mathcal{A}-\lambda\mathcal{E})\boldsymbol{v}=\boldsymbol{0}$, $\therefore$
+    \[(\boldsymbol{v}|(\mathcal{A}-\lambda\mathcal{E})^*(\mathcal{A}-\lambda\mathcal{E})\boldsymbol{v})=(\boldsymbol{v}|\boldsymbol{0})=0.\]
+
+    $\therefore\|(\mathcal{A}^*-\overline{\lambda}\mathcal{E})\boldsymbol{v}\|=\|(\mathcal{A}-\lambda\mathcal{E})^*\boldsymbol{v}\|=0$, $\therefore\mathcal{A}^*\boldsymbol{v}=\overline{\lambda}\boldsymbol{v}$.
+\end{proof}
+下面这个引理的条件和结论都比引理 \ref{l3.1} 弱.
+\begin{lemma}\label{l3.3}
+    设 $\mathcal{A}$ 是正规算子, $\lambda$ 是 $\mathcal{A}$ 的特征值, 那么 $(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, 也是 $\mathcal{A}^*$ 不变的.
+\end{lemma}
+\begin{proof}
+    对 $\boldsymbol{x}\in(V^\lambda)^\perp,\forall\boldsymbol{y}\in V^\lambda$, 有
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=0.\]
+    
+    由引理 \ref{l3.2} 得 $V^\lambda$ 是 $\mathcal{A}^*$ 不变的. $\therefore\mathcal{A}^*\boldsymbol{y}\in V^\lambda$, $\therefore(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的.
+
+    令 $\mathcal{B}=\mathcal{A}^*$, 则 $\mathcal{B}^*=\mathcal{A}^{**}=\mathcal{A}$, $\therefore V^\lambda$ 是 $\mathcal{B}^*$ 不变的. 重复上述过程得 $(V^\lambda)^\perp$ 是 $\mathcal{B}$ 不变的. $\therefore(V^\lambda)^\perp$ 是 $\mathcal{A}^*$ 不变的.
+\end{proof}
+建议对照定理 \ref{t3.5} 来看下面的定理.
+\begin{theorem}[书上的定理 11]\label{t3.7}
+    $\mathcal{A}\in\mathcal{L}(V)$ 是正规算子当且仅当 $\mathcal{A}$ 在 $V$ 的某个标准正交基 $(\boldsymbol{e}_i)$ 下的矩阵是对角的.
+\end{theorem}
+\begin{proof}
+    ($\Leftarrow$) 设 $\mathcal{A}$ 在 $V$ 的某个标准正交基下的矩阵是 $A$, 则 $\mathcal{A}^*$ 在相同的基下的矩阵为 $A^*=\overline{A}$.
+    
+    $\because A\overline{A}=\overline{A}A$, $\therefore$
+    \[\mathcal{A}\mathcal{A}^*(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A\overline{A}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)\overline{A}A=\mathcal{A}^*\mathcal{A}(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n).\]
+
+    $\because(\boldsymbol{e}_i)$ 是 $V$ 的一个基, $\therefore\forall\boldsymbol{x}\in V,\mathcal{A}\mathcal{A}^*\boldsymbol{x}=\mathcal{A}^*\mathcal{A}\boldsymbol{x}$. $\therefore\mathcal{A}\mathcal{A}^*=\mathcal{A}^*\mathcal{A}$.
+
+    ($\Rightarrow$) 对 $\dim V$ 用数学归纳法. $\dim V=1$ 时 $\mathcal{A}$ 在任一基下的矩阵都是对角矩阵.
+
+    设当 $\dim V<n$ 时命题成立, 当 $\dim V=n$ 时, 设 $\lambda$ 是 $\mathcal{A}$ 的一个特征值(由 $V$ 是 Hermite 空间得 $\mathcal{A}$ 存在特征值 $\lambda$), 有
+    \[V=V^\lambda\oplus(V^\lambda)^\perp.\]
+
+    设 $\dim V^\lambda=s$, 则 $\dim(V^\lambda)^\perp=n-s<n$.
+
+    在 $V^\lambda$ 上任取一个标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$, 都有 $\mathcal{A}\boldsymbol{e}_i=\lambda\boldsymbol{e}_i\ (i=1,2,\cdots,s)$.
+
+    由引理 \ref{l3.3} 得 $(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, 也是 $\mathcal{A}^*$ 不变的.
+
+    $\because(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, $\therefore\operatorname{Im}\mathcal{A}|_{(V^\lambda)^\perp}\subset\operatorname{Im}\mathcal{A}\subset(V^\lambda)^\perp$, $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子. 同理得 $\mathcal{A}^*|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子.
+
+    由引理 \ref{l3.2} 借助矩阵的证明得 $(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}^*|_{(V^\lambda)^\perp}$. $\therefore$
+    \[\mathcal{A}|_{(V^\lambda)^\perp}(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}|_{(V^\lambda)^\perp}\mathcal{A}^*|_{(V^\lambda)^\perp}=\mathcal{A}^*|_{(V^\lambda)^\perp}\mathcal{A}|_{(V^\lambda)^\perp}=(\mathcal{A}|_{(V^\lambda)^\perp})^*\mathcal{A}|_{(V^\lambda)^\perp}.\]
+
+    $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的正规算子. 由归纳假定, $\exists(V^\lambda)^\perp$ 的一个标准基 $\boldsymbol{e}_{s+1},\boldsymbol{e}_{s+2},\cdots,\boldsymbol{e}_n$ 使得 $\mathcal{A}\boldsymbol{e}_i=\lambda_i\boldsymbol{e}_i\ (i=s+1,s+2,\cdots,n)$.
+
+    $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s\in V^\lambda,\boldsymbol{e}_{s+1},\boldsymbol{e}_{s+2},\cdots,\boldsymbol{e}_n\in(V^\lambda)^\perp$, $\therefore\forall i,j$ 满足 $1\leq i<j\leq n,\boldsymbol{e}_i\perp\boldsymbol{e}_j$.
+
+    $\because V=V^\lambda\oplus(V^\lambda)^\perp$, $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 是 $V$ 的一个标准正交基, 且 $\mathcal{A}$ 在 $V$ 的某个标准正交基 $(\boldsymbol{e}_i)$ 下的矩阵是对角的.
+\end{proof}
+\begin{note}
+    $\mathcal{A}$ 只在 $V$ 的标准正交基下可对角化, 而不是任意的基.
+
+    设矩阵 $A$ 可对角化, 即 $\exists B\in\operatorname{GL}_n(\mathbb{R})$ 使得 $A=B^{-1}\Lambda B$, 其中 $\Lambda$ 是对角矩阵. 则 $A^*=B^*\Lambda^*(B^{-1})^*$, $AA^*=B^{-1}\Lambda BB^*\Lambda^*(B^{-1})^*$, $A^*A=B^*\Lambda^*(B^{-1})^*B^{-1}\Lambda B$.
+
+    如果 $AA^*=A^*A$, 则 $B^*=B^{-1}$, $\therefore B$ 是酉矩阵. 在一般的基下这不一定成立.
+\end{note}
+\begin{lemma}\label{l3.4}
+    设 $\mathcal{A}$ 是域 $K$ 上向量空间 $V$ 上的线性算子. 如果 $\mathcal{A}$ 均可对角化, 那么
+    \[V=\bigoplus\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda.\]
+\end{lemma}
+\begin{proof}
+    由书上第 2 章第 3 节的引理 1 得 $\sum\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda$ 是直和.
+
+    由书上第 2 章第 3 节的定理 6 的证明过程得 $V=\sum\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda$.
+\end{proof}
+\begin{theorem}[书上的定理 12 的前 3 个命题]\label{t3.8}
+    设 $\mathcal{A}\in\mathcal{L}(V)$ 是正规算子, $\lambda_1,\lambda_2,\cdots,\lambda_m$ 是 $\mathcal{A}$ 所有的互不相同的特征值, 则 $\exists$ 相互正交的投影算子 $\mathcal{P}_1,\mathcal{P}_2,\cdots,\mathcal{P}_m$ 使得:
+
+    (1) $\mathcal{P}_1,\mathcal{P}_2,\cdots,\mathcal{P}_m$ 是完全正交组;
+
+    (2) $\mathcal{A}$ 有分解式 $\sum\limits_{i=1}^m\lambda_i\mathcal{P}_i=\mathcal{A}$, 称为 $\mathcal{A}$ 的\textbf{谱分解式};
+
+    (3) (2) 中的分解式是唯一的.
+\end{theorem}
+\begin{proof}
+    $\because\mathcal{A}$ 是正规算子, 由定理 \ref{t3.7} 得 $\mathcal{A}$ 可以对角化, 由引理 \ref{l3.4} 得
+    \[V=\bigoplus\limits_{i=1}^mV^{\lambda_i}.\]
+
+    $\therefore\forall\boldsymbol{x}\in V,\exists$ 唯一的分解式
+    \[\boldsymbol{x}=\sum\limits_{j=1}^m\boldsymbol{x}_j,\quad\boldsymbol{x}_j\in V^{\lambda_j}.\]
+
+    $\therefore$
+    \[\mathcal{P}_i:\begin{array}{rcl}
+        V & \to & V^{\lambda_i} \\
+        \sum\limits_{j=1}^m\boldsymbol{x}_j\ (\boldsymbol{x}_j\in V^{\lambda_j}) & \to & \boldsymbol{x}_i \\
+    \end{array}\]
+    是确切定义的.
+
+    (1) 容易验证 $\mathcal{P}_i\mathcal{P}_j=\delta_{ij}\mathcal{P}_i,\sum\limits_{i=1}^m\mathcal{P}_i=\mathcal{E}$.
+
+    (2) 设 $\boldsymbol{v}\in V$, 则 $\mathcal{P}_i\boldsymbol{v}\in V^{\lambda_i}$. $\therefore\mathcal{A}\mathcal{P}_i\boldsymbol{v}=\lambda_i\mathcal{P}_i\boldsymbol{v}$. $\therefore$
+    \[\mathcal{A}\boldsymbol{v}=\mathcal{AE}\boldsymbol{v}=\mathcal{A}\sum\limits_{i=1}^m\mathcal{P}_i\boldsymbol{v}=\sum\limits_{i=1}^m\mathcal{A}\mathcal{P}_i\boldsymbol{v}=\sum\limits_{i=1}^m\lambda_i\mathcal{P}_i\boldsymbol{v}.\]
+
+    上式对 $\forall\boldsymbol{v}$ 都成立, $\therefore\mathcal{A}=\sum\limits_{i=1}^m\lambda_i\mathcal{P}_i\boldsymbol{v}$.
+
+    (3) 假设 $\mathcal{A}$ 还有分解式
+    \[\mathcal{A}=\sum\limits_{i=1}^r\mu_i\mathcal{Q}_i,\]
+
+    其中 $\mathcal{Q}_1,\mathcal{Q}_2,\cdots,\mathcal{Q}_r$ 是完全正交组. 设 $U_i=\operatorname{Im}\mathcal{Q}_i$, 由书上第 2 章第 3 节的定理 1 得
+    \begin{equation}\label{eq3.5}
+        V=U_1\oplus U_2\oplus\cdots\oplus U_r.
+    \end{equation}
+
+    对 $\boldsymbol{v}\in U_i\backslash\{\boldsymbol{0}\},\exists\boldsymbol{u}\in V$ 使得 $\boldsymbol{v}=\mathcal{Q}_i\boldsymbol{u}$. $\therefore$
+    \[\mathcal{A}\boldsymbol{v}=\mathcal{AQ}_i\boldsymbol{u}=\sum\limits_{j=1}^r\mu_j\mathcal{Q}_j{Q}_i\boldsymbol{u}.\]
+
+    $\because\mathcal{Q}_1,\mathcal{Q}_2,\cdots,\mathcal{Q}_r$ 是完全正交组, $\therefore\mathcal{Q}_j{Q}_i=\delta_{ij}\mathcal{Q}_i$. $\therefore$
+    \[\sum\limits_{j=1}^r\mu_j\mathcal{Q}_j{Q}_i\boldsymbol{u}=\mu_i{Q}_i\boldsymbol{u}=\mu_i\boldsymbol{v}.\]
+
+    $\therefore\mu_i\in\operatorname{Spec}(\mathcal{A}),U_i\subset V^{\mu_i}$. $\therefore\{\mu_1,\mu_2,\cdots,\mu_r\}\subset\operatorname{Spec}(\mathcal{A})$.
+
+    假设 $\exists i\neq j$ 使得 $\mu_i=\mu_j$, 则 
+
+    设 $\lambda\in\operatorname{Spec}(\mathcal{A})$, 对应的特征向量为 $\boldsymbol{v}$, 有分解式
+    \[\boldsymbol{v}=\boldsymbol{v}_1+\boldsymbol{v}_2+\cdots+\boldsymbol{v}_r,\quad\boldsymbol{v}_i\in U_i,\]
+
+    则
+    \[\sum\limits_{i=1}^r\lambda\boldsymbol{v}_i=\lambda\boldsymbol{v}=\mathcal{A}\boldsymbol{v}=\mathcal{A}\sum\limits_{i=1}^r\boldsymbol{v}_i=\sum\limits_{i=1}^r\mathcal{A}\boldsymbol{v}_i=\sum\limits_{i=1}^r\mu_i\boldsymbol{v}_i.\]
+
+    $\therefore$
+    \[\sum\limits_{i=1}^r(\lambda-\mu_i)\boldsymbol{v}_i=\boldsymbol{0}.\]
+
+    由式 (\ref{eq3.5}) 得 $\forall i,(\lambda-\mu_i)\boldsymbol{v}_i=\boldsymbol{0}$. $\because\sum\limits_{i=1}^r\boldsymbol{v}_i=\boldsymbol{v}\neq\boldsymbol{0},\therefore\exists j$ 使得 $\boldsymbol{v}_j\neq\boldsymbol{0}\Rightarrow\lambda=\mu_j$. $\therefore\operatorname{Spec}(\mathcal{A})\subset\{\mu_1,\mu_2,\cdots,\mu_r\}$. $\therefore\operatorname{Spec}(\mathcal{A})=\{\lambda_1,\lambda_2,\cdots,\lambda_m\}=\{\mu_1,\mu_2,\cdots,\mu_r\}$.
+
+    % $\because\forall i\neq j,\mu_i\neq\mu_j,\lambda_i\neq\lambda_j,\therefore\exists$ 双射 $f:\{\mu_1,\mu_2,\cdots,\mu_r\}\to\{\lambda_1,\lambda_2,\cdots,\lambda_m\}$. $\therefore$
+    % \[\mathcal{A}=\sum\limits_{i=1}\mu_i\mathcal{P}_{f(i)}\]
+\end{proof}
+\subsection{正定算子}
+设 $V$ 是 $n$ 维 Hermite 空间, 给定 $V$ 的一个标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$\footnote{这个条件也许可以减弱为任意的基, 就像实的正定矩阵一样, 只要这么定义满足定理\ref{t3.10}.}, 在 $M_n(\mathbb{C})$ 中定义\textbf{正定矩阵}:
+\begin{definition}\label{d3.2}
+    设 $A\in M_n(\mathbb{C})$. 如果 $\exists V$ 上的正定算子 $\mathcal{A}$ 使得 $\mathcal{A}$ 在标准正交基 $(\boldsymbol{e}_i)$ 下的矩阵为 $A$, 则称 $A$ 为正定矩阵.
+\end{definition}
+在 $M_n(\mathbb{R})$ 中的正定/负定/半正定矩阵也可以用上述方式定义, 这与用二次型定义的正定矩阵是一致的.
+
+设 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)X\in V$, 则
+\[\mathcal{A}\boldsymbol{x}=\mathcal{A}(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)X=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)AX,\]
+\[(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})=(AX)^*X=X^*A^*X.\]
+
+$\because\mathcal{A}$ 是 Hermite 的, $\therefore A^*=A$, $\therefore X^*A^*X=X^*AX$.
+
+$\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsymbol{x}=\boldsymbol{0}$ 时取等号), $\therefore X^*AX\geq0$ (当且仅当 $X=0$ 时取等号).
+
+反过来, 如果 Hermite 矩阵 $A$ 满足 $\forall X\in\mathbb{C}^n,X^*AX\geq0$ (当且仅当 $X=0$ 时取等号), 则在基 $(\boldsymbol{e}_i)$ 下与 $A$ 对应的 Hermite 算子 $\mathcal{A}$ 也满足 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsymbol{x}=\boldsymbol{0}$ 时取等号), $\therefore\mathcal{A}$ 是正定算子.
+
+这样我们就证明了:
+\begin{theorem}\label{t3.9}
+    矩阵 $A$ 是正定矩阵当且仅当 $A$ 是 Hermite 矩阵且 $\forall X\in\mathbb{C}^n,X^*AX\geq0$ (当且仅当 $X=0$ 时取等号).
+\end{theorem}
+下面的定理说明: 定义 \ref{d3.2} 是合理的.
+\begin{theorem}\label{t3.10}
+    如果 $A$ 在基 $(\boldsymbol{e}_i)$ 下是正定矩阵, 则在 $V$ 的任一标准正交基下与 $A$ 对应的算子都是正定算子.
+\end{theorem}
+\begin{proof}
+    设 $\boldsymbol{e}'_1,\boldsymbol{e}'_2,\cdots,\boldsymbol{e}'_n$ 是 $V$ 的另一个标准正交基, 有
+    \[(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{e}'_1,\boldsymbol{e}'_2,\cdots,\boldsymbol{e}'_n)C,\]
+
+    其中 $C$ 是酉矩阵.
+
+    假设正定算子 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵和非正定的 Hermite 算子 $\mathcal{B}$ 在基 $(\boldsymbol{e}_i')$ 下的矩阵都是 $A$. $\because$
+    \begin{align*}
+        \mathcal{B}(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n) & =\mathcal{B}(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')C \\
+        & =(\boldsymbol{e}'_1,\boldsymbol{e}'_2,\cdots,\boldsymbol{e}'_n)AC \\
+        & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)C^{-1}AC,
+    \end{align*}
+
+    $\therefore\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $C^{-1}AC$ 不是正定矩阵. 由定理 \ref{t3.9} 得 $\exists X\neq0$ 使得 $X^*C^{-1}ACX\leq0$.
+
+    $\because C$ 是酉矩阵, $\therefore X^*C^{-1}=X^*C^*=(CX)^*$. $\therefore\exists X\neq0$ 使得 $X^*AX\leq0$.
+
+    另一方面, $\because A$ 是正定矩阵, 由定理 \ref{t3.9} 得 $X^*AX>0$, 与 $X^*AX\leq0$ 矛盾.
+\end{proof}
+书上 P120 前面的部分可以总结为以下的定理:
+\begin{theorem}\label{t3.11}
+    设 $\mathcal{A}$ 是 Hermite 矩阵, 则 $\mathcal{A}$ 正定当且仅当 $\mathcal{A}$ 的特征值全 $>0$.
+\end{theorem}
+\begin{proof}
+    设 $\mathcal{A}$ 对应的二次型为 $f_\mathcal{A}$. $\because\mathcal{A}$ 是 Hermite 矩阵, 由定理 \ref{t3.5} 得 $\exists V$ 的一个标准正交基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为对角矩阵 $\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\in\operatorname{Spec}(A)$.
+
+    ($\Rightarrow$) $\because f_\mathcal{A}(\boldsymbol{e}_i)=(\mathcal{A}\boldsymbol{e}_i|\boldsymbol{e}_i)=(\lambda\boldsymbol{e}_i|\boldsymbol{e}_i)=\lambda(\boldsymbol{e}_i|\boldsymbol{e}_i)>0$, $\therefore\lambda_i>0$.
+
+    ($\Leftarrow$) 设 $\boldsymbol{x}=\sum\limits_{i=1}^nx_i\boldsymbol{e}_i$, 则
+    \begin{align*}
+        f_\mathcal{A}(\boldsymbol{x})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{x}) & =\left(\sum\limits_{i=1}^nx_i\mathcal{A}\boldsymbol{e}_i\Bigg|\sum\limits_{i=1}^nx_i\boldsymbol{e}_i\right) \\
+        & =\left(\sum\limits_{i=1}^nx_i\lambda_i\boldsymbol{e}_i\Bigg|\sum\limits_{i=1}^nx_i\boldsymbol{e}_i\right) \\
+        & =\sum\limits_{i=1}^nx_i\lambda_i\left(\boldsymbol{e}_i\Bigg|\sum\limits_{j=1}^nx_j\boldsymbol{e}_j\right) \\
+        & =\sum\limits_{i=1}^nx_i\lambda_i\left(\boldsymbol{e}_i|x_i\boldsymbol{e}_i\right) \\
+        & =\sum\limits_{i=1}^nx_i\overline{x}_i\lambda_i.
+    \end{align*}
+
+    $\because\sum\limits_{i=1}^nx_i\overline{x}_i\lambda_i\geq0$ (当且仅当 $\prod\limits_{i=1}^nx_i=0$ 时取等号). 由书上的定义 6, $\mathcal{A}$ 是正定的.
+\end{proof}
+沿用定理证明中的记号. $\because\lambda_i>0$, $\therefore$ 有算子 $\mathcal{B}$, 其在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $\operatorname{diag}(\sqrt{\lambda_1},\sqrt{\lambda_2},\cdots,\sqrt{\lambda_n})$. 容易验证: (1) $\mathcal{B}$ 正定; (2) $\mathcal{B}^2=\mathcal{A}$. 这相当于证明了下面的定理中 $\mathcal{B}$ 的存在性:
+\begin{theorem}[书上的命题 1]
+    设 $\mathcal{A}$ 是正定算子, 则 $\exists!$ 正定算子 $\mathcal{B}$ 使得 $\mathcal{A}=\mathcal{B}^2$.
+\end{theorem}
+\begin{proof}
+    存在性前面讨论过了. 设 $\mathcal{C}$ 是正定的, 且 $\mathcal{C}^2=\mathcal{B}^2$.
+
+    设 $\mathcal{B}$ 全部的特征值为 $\lambda_1,\lambda_2,\cdots,\lambda_m$, $\mathcal{C}$ 全部的特征值为 $\mu_1,\mu_2,\cdots,\mu_s$, 由定理 \ref{t3.8} (2) 得 $\mathcal{B}=\sum\limits_{i=1}^m\lambda_i\mathcal{P}_i,\mathcal{C}=\sum\limits_{i=1}^s\mu_i\mathcal{P}_i'$, 其中 $\mathcal{P}_i,\mathcal{P}_i'$ 分别是 $\mathcal{B},\mathcal{C}$ 的投影算子.
+
+    $\because\mathcal{P}_i\mathcal{P}_j=\delta_{ij}\mathcal{P}_i$, $\therefore$
+    \[\mathcal{B}^2=\left(\sum\limits_{i=1}^s\mu_i\mathcal{P}_i\right)^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^s\mu_i\mu_j\mathcal{P}_i\mathcal{P}_j=\sum\limits_{i=1}^s\mu_i^2\mathcal{P}_i,\quad\mathcal{C}^2=\sum\limits_{i=1}^s\mu_i^2\mathcal{P}_i',\]
+
+    $\therefore$
+    \[\sum\limits_{i=1}^s\mu_i^2\mathcal{P}_i'=\mathcal{C}^2=\mathcal{B}^2=\sum\limits_{i=1}^m\lambda_i^2\mathcal{P}_i.\]
+
+    由定理 \ref{t3.8} (3) 得对 $\mu_j,\exists i$ 使得 $\mu_j^2=\lambda_i^2,\mathcal{P}_j'=\mathcal{P}_i$. 由定理 \ref{t3.11} 得 $\lambda_i,\mu_i>0$. $\therefore\mu_j=\lambda_i$. $\therefore\mathcal{C}=\mathcal{B}$.
+\end{proof}
+在半正定或者负定的情形下, 可以照搬上述所有定理的证明, 得到类似的结论.
+\subsection{极化分解}
+对于退化的线性算子, 也有类似于书上定理 15 的分解.
+\begin{theorem}
+    设 $\mathcal{A}\in\mathcal{L}(V)$ 是退化的, 则 $\exists$ 分解式
+    \[\mathcal{A}=\mathcal{PQ},\]
+
+    其中 $\mathcal{P}$ 是半正定算子, $\mathcal{Q}$ 是酉算子. 上式不是唯一的分解式.
+\end{theorem}
+\begin{proof}
+    (a) 若 $\mathcal{A}$ 在 $V$ 的一个基 $(\boldsymbol{e}_i)$ 下的矩阵为 $J_n(0)$, 则 $\exists$ 半正定算子 $\mathcal{P}$ 和酉算子 $\mathcal{Q}$ 使得 $\mathcal{P},\mathcal{Q}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵分别为
+    \[P=\begin{pmatrix}
+        1 \\
+        & 1 \\
+        && \ddots \\
+        &&& 1 \\
+        &&&& 0 \\
+    \end{pmatrix},\quad Q=\begin{pmatrix}
+        & 1 \\
+        && 1 \\
+        &&& \ddots \\
+        &&&& 1 \\
+        1 \\
+    \end{pmatrix}.\]
+
+    $\because PQ=J_n(0)$, $\therefore\mathcal{A}=\mathcal{PQ}$.
+
+    $\because\exists$ 半正定算子 $\mathcal{P}'$ 和酉算子 $\mathcal{Q}'$ 使得 $\mathcal{P}',\mathcal{Q}'$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵
+    \[P'=\begin{pmatrix}
+        0 \\
+        & 1 \\
+        && \ddots \\
+        &&& 1 \\
+        &&&& 1 \\
+    \end{pmatrix},\quad Q'=\begin{pmatrix}
+        1 \\
+        &&&& 1 \\
+        &&& 1 \\
+        && \cdots \\
+        & 1
+    \end{pmatrix}\]
+    满足 $P'Q'=J_n(0)$, $\therefore\mathcal{A}$ 的极化分解不是唯一的.
+
+    (b) 一般的情形. 设 $\mathcal{A}$ 在 $V$ 的一个基 $(\boldsymbol{e}_i)$ 下的矩阵为 Jordan 标准型
+    \[A=\begin{pmatrix}
+        J_{m_1}(\lambda_1) \\
+        & J_{m_2}(\lambda_2) \\
+        && \ddots \\
+        &&& J_{m_s}(\lambda_s) \\
+    \end{pmatrix}.\]
+
+    若 $\lambda_i\neq0$, 则 $J_{m_i}(\lambda_i)$ 非退化, 由书上的定理 15 得 $J_{m_i}(\lambda_i)$ 有唯一的极化分解式 $J_{m_i}(\lambda_i)=P_iQ_i$. 若 $\lambda_i=0$, 由 (a) 得 $J_{m_i}(\lambda_i)$ 有极化分解式 $J_{m_i}(0)=P_iQ_i$. $\therefore A$ 有分解式
+    \begin{equation}\label{eq3.6}
+        A=\begin{pmatrix}
+            P_1 \\
+            & P_2 \\
+            && \ddots \\
+            &&& P_s \\
+        \end{pmatrix}\begin{pmatrix}
+            Q_1 \\
+            & Q_2 \\
+            && \ddots \\
+            &&& Q_s \\
+        \end{pmatrix},
+    \end{equation}
+
+    其中 $P_i$ 的特征值 $\geq0$ (由定理 \ref{t3.11} 在半正定情形下的推广得半正定算子的特征值 $\geq0$), $Q_i$ 是酉矩阵.
+
+    $\because P_i$ 的特征值 $\geq0$, $\therefore$ 多项式 $\det(tE-P_i)$ 的根 $\geq0$. $\therefore$ 多项式
+    \[\begin{vmatrix}
+        tE-P_1 \\
+        & tE-P_2 \\
+        && \ddots \\
+        &&& tE-P_s \\
+    \end{vmatrix}=\det(tE-P_1)\det(tE-P_2)\cdots\det(tE-P_n)\]
+    的根 $\geq0$.
+
+    由定理 \ref{t3.11} 在半正定情形下的推广得
+    \[\begin{pmatrix}
+        P_1 \\
+        & P_2 \\
+        && \ddots \\
+        &&& P_s \\
+    \end{pmatrix}\]
+    是某个半正定算子 $\mathcal{P}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵.
+
+    $\because$
+    \[\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}^*=\begin{pmatrix}
+        Q_1^* \\
+        & Q_2^* \\
+        && \ddots \\
+        &&& Q_s^* \\
+    \end{pmatrix},\]
+
+    $\therefore$
+    \[\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}^*=\begin{pmatrix}
+        Q_1Q_1^* \\
+        & Q_2Q_2^* \\
+        && \ddots \\
+        &&& Q_sQ_s^* \\
+    \end{pmatrix}.\]
+
+    $\because Q_i$ 是酉矩阵, $\therefore$
+    \[\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}^*=E,\]
+
+    同理得
+    \[\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}^*\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}=E.\]
+
+    $\therefore$
+    \[\begin{pmatrix}
+        Q_1 \\
+        & Q_2 \\
+        && \ddots \\
+        &&& Q_s \\
+    \end{pmatrix}\]
+
+    是某个酉算子 $\mathcal{Q}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵. $\therefore\mathcal{A}=\mathcal{PQ}$ 是极化分解. 由 (a) 得分解式 (\ref{eq3.6}) 不是唯一的, $\therefore$ 极化分解不是唯一的.
+\end{proof}
+\section{复化与实化(对应第 4 节)}
+\subsection{复结构}
+我们在之前已经接触过复结构了.
+\begin{example}
+    $\because$
+    \[\begin{pmatrix}
+        0 & 1 \\
+        -1 & 0 \\
+    \end{pmatrix}^2=-E,\]
+
+    $\therefore$ [BAI] 第 5 章第 1.1 节实际上给出了一个复结构与 $\mathbb{C}$ 之间的同构:
+    \[\begin{array}{rcl}
+        \mathbb{C} & \to & \left\{\left.\begin{pmatrix}
+            a & b \\
+            -b & a \\
+        \end{pmatrix}\right|a,b\in\mathbb{R}\right\} \\
+        i & \to & \begin{pmatrix}
+            0 & 1 \\
+            -1 & 0 \\
+        \end{pmatrix} \\
+    \end{array}.\]
+\end{example}
+把书上的命题 1 拆成几个定理.
+\begin{theorem}\label{t4.1}
+    如果 $V$ 有复结构 $(V,\mathcal{J})$, 则 $\exists\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m\in V$ 使得 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m$ 是 $V$ 的一个基.
+\end{theorem}
+\begin{proof}
+    设 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k,\mathcal{J}\boldsymbol{e}_k$ ($k$ 可以等于 $0$) 线性无关.
+    
+    令 $V_k=\left<\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k,\mathcal{J}\boldsymbol{e}_k\right>$, 规定 $V_0=\{\boldsymbol{0}\}$. 设
+    \[\boldsymbol{v}=\lambda_1\boldsymbol{e}_1+\lambda_1'\mathcal{J}\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\lambda_2'\mathcal{J}\boldsymbol{e}_2+\cdots+\lambda_k\boldsymbol{e}_k+\lambda_k'\mathcal{J}\boldsymbol{e}_k\in V_k,\]
+
+    则
+    \begin{align*}
+        \mathcal{J}\boldsymbol{v} & =\lambda_1\mathcal{J}\boldsymbol{e}_1+\lambda_1'\mathcal{J}^2\boldsymbol{e}_1+\lambda_2\mathcal{J}\boldsymbol{e}_2+\lambda_2'\mathcal{J}^2\boldsymbol{e}_2+\cdots+\lambda_k\mathcal{J}\boldsymbol{e}_k+\lambda_k'\mathcal{J}^2\boldsymbol{e}_k \\
+        & =\lambda_1\mathcal{J}\boldsymbol{e}_1-\lambda_1'\boldsymbol{e}_1+\lambda_2\mathcal{J}\boldsymbol{e}_2-\lambda_2'\boldsymbol{e}_2+\cdots+\lambda_k\mathcal{J}\boldsymbol{e}_k-\lambda_k'\boldsymbol{e}_k \\
+        & \in V_k.
+    \end{align*}
+
+    取 $\boldsymbol{e}_{k+1}\in V\backslash V_k$, 假设 $\mathcal{J}\boldsymbol{e}_{k+1}=\alpha\boldsymbol{e}_{k+1}+\boldsymbol{v}_k$, 其中 $\boldsymbol{v}_k\in V_k$, 则
+    \[-\boldsymbol{e}_{k+1}=-\mathcal{J}(\mathcal{J}\boldsymbol{e}_{k+1})=\alpha\mathcal{J}\boldsymbol{e}_{k+1}+\mathcal{J}\boldsymbol{v}_k\Rightarrow\alpha\boldsymbol{e}_{k+1}=-\alpha^2\mathcal{J}\boldsymbol{e}_{k+1}-\alpha\mathcal{J}\boldsymbol{v}_k,\]
+    
+    $\therefore$
+    \[\mathcal{J}\boldsymbol{e}_{k+1}=-\alpha^2\mathcal{J}\boldsymbol{e}_{k+1}-\alpha\mathcal{J}\boldsymbol{v}_k+\boldsymbol{v}_k\Rightarrow(1+\alpha^2)\mathcal{J}\boldsymbol{e}_{k+1}=-\alpha\mathcal{J}\boldsymbol{v}_k+\boldsymbol{v}_k.\]
+
+    $\because\mathcal{J}\boldsymbol{v}_k\in V_k,\therefore(1+\alpha^2)\mathcal{J}\boldsymbol{e}_{k+1}=-\alpha\mathcal{J}\boldsymbol{v}_k+\boldsymbol{v}_k\in V_k$. $\therefore\boldsymbol{e}_{k+1}=-\mathcal{J}(\mathcal{J}\boldsymbol{e}_{k+1})\in V_k$, 与 $\boldsymbol{e}_{k+1}\notin V_k$ 矛盾. $\therefore\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k,\mathcal{J}\boldsymbol{e}_k$ 线性无关.
+
+    重复上述步骤, 得
+    \[V=\left<\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m\right>\]
+    且 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m$ 线性无关.
+\end{proof}
+容易验证 $\mathcal{J}$ 在基 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m$ 下的矩阵是书上例 1 中的辛矩阵.
+\begin{theorem}
+    沿用定理 \ref{t4.1} 的符号, 则 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 是 $\widetilde{V}$ 的一个基.
+\end{theorem}
+\begin{proof}
+    $\because$ 在集合意义下有 $V=\widetilde{V}$, $\therefore\forall\boldsymbol{v}\in\widetilde{V},\boldsymbol{v}\in V$. 由定理 \ref{t4.1} 得 $\exists\lambda_1,\lambda_1',\cdots,\lambda_m,\lambda_m'\in\mathbb{R}$ 使得
+    \[\boldsymbol{v}=\lambda_1\boldsymbol{e}_1+\lambda_1'\mathcal{J}\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\lambda_2'\mathcal{J}\boldsymbol{e}_2+\cdots+\lambda_m\boldsymbol{e}_m+\lambda_m'\mathcal{J}\boldsymbol{e}_m.\]
+
+    $\because\lambda_1,\lambda_1',\cdots,\lambda_m,\lambda_m'\in\mathbb{C}$, $\therefore$ 上式也是 $\widetilde{V}$ 上的分解式. $\therefore$
+    \[\widetilde{V}=\left<\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m\right>.\]
+
+    $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 在 $V$ 上是线性无关的, $\therefore$
+    \[\lambda_1\boldsymbol{e}_1+\lambda_1'\mathcal{J}\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\lambda_2'\mathcal{J}\boldsymbol{e}_2+\cdots+\lambda_m\boldsymbol{e}_m+\lambda_m'\mathcal{J}\boldsymbol{e}_m=\boldsymbol{0}\Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.\]
+
+    $\therefore$ 在 $\widetilde{V}$ 上有
+    \[(\lambda_1+i\lambda_1')\boldsymbol{e}_1+(\lambda_2+i\lambda_2')\boldsymbol{e}_2+\cdots+(\lambda_m+i\lambda_m')\boldsymbol{e}_m=\boldsymbol{0}\Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.\]
+
+    $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 在 $\widetilde{V}$ 上线性无关.
+
+    $\because$ 在 $\widetilde{V}$ 上有 $\mathcal{J}\boldsymbol{e}_i=i\boldsymbol{e}_i$, $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_i$ 在 $\widetilde{V}$ 上线性相关.
+
+    $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 是 $\widetilde{V}$ 的一个基.
+\end{proof}
+$\because\mathcal{J}^2=-\mathcal{E}\Rightarrow$ 对 $\forall$ 非退化的 $\mathcal{A},(\mathcal{A}^{-1}\mathcal{J}\mathcal{A})^2=-\mathcal{A}^{-1}\mathcal{E}\mathcal{A}=-\mathcal{E}$, $\therefore$ 复结构不是唯一的.
+\subsection{实化}
+设 $V$ 是复空间, $V=\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\right>$, 在 $V_\mathbb{R}$ 上定义线性算子
+\[\mathcal{J}:\begin{array}{rcl}
+    V_\mathbb{R} & \to & V_\mathbb{R} \\
+    \boldsymbol{e}_i & \to & i\boldsymbol{e}_i \\
+\end{array},\]
+
+则 $\mathcal{J}$ 在 $V_\mathbb{R}$ 的基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,i\boldsymbol{e}_2,\cdots,i\boldsymbol{e}_n$ 下的矩阵为
+\[\begin{pmatrix}
+    0 & E_n \\
+    -E_n & 0
+\end{pmatrix}.\]
+
+$\because\mathcal{J}^2=-\mathcal{E}$, $\therefore(V_\mathbb{R},\mathcal{J})$ 是复结构. 有 $\widetilde{V_\mathbb{R}}=V$.
+
+设 $\mathcal{A}\in\mathcal{L}(V)$. 对 $\boldsymbol{x}\in V$, 有
+\[\mathcal{A}(i\boldsymbol{e}_i)=i\mathcal{A}\boldsymbol{e}_i.\]
+
+$\because\widetilde{V_\mathbb{R}}=V$, $\therefore$ 在 $V_\mathbb{R}$ 上可以定义算子 $\mathcal{A}_\mathbb{R}$, 其对应关系与 $\mathcal{A}$ 相同. 有
+\[\mathcal{A}_\mathbb{R}\boldsymbol{J}\boldsymbol{e}_i=\boldsymbol{J}\mathcal{A}_\mathbb{R}\boldsymbol{e}_i.\]
+
+$\therefore\mathcal{A}_\mathbb{R}\boldsymbol{J}=\boldsymbol{J}\mathcal{A}_\mathbb{R}$.
+
+设 $\mathcal{A}_\mathbb{R}$ 在 $V_\mathbb{R}$ 的基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,i\boldsymbol{e}_2,\cdots,i\boldsymbol{e}_n$ 下的矩阵为
+\[\begin{pmatrix}
+    A_1 & A_2 \\
+    A_3 & A_4
+\end{pmatrix},\]
+
+其中 $A_1,A_2,A_3,A_4$ 是 $n\times n$ 矩阵. 有
+\[\begin{pmatrix}
+    A_1 & A_2 \\
+    A_3 & A_4
+\end{pmatrix}\begin{pmatrix}
+    0 & E_n \\
+    -E_n & 0
+\end{pmatrix}=\begin{pmatrix}
+    0 & E_n \\
+    -E_n & 0
+\end{pmatrix}\begin{pmatrix}
+    A_1 & A_2 \\
+    A_3 & A_4
+\end{pmatrix}\]
+\[\Rightarrow\begin{pmatrix}
+    -A_2 & A_1 \\
+    -A_4 & A_3
+\end{pmatrix}=\begin{pmatrix}
+    A_3 & A_4 \\
+    -A_1 & -A_2
+\end{pmatrix}.\]
+
+$\therefore A_1=A_4,A_2=-A_3$. $\therefore\mathcal{A}_\mathbb{R}$ 在 $V_\mathbb{R}$ 的基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,i\boldsymbol{e}_2,\cdots,i\boldsymbol{e}_n$ 下的矩阵具有
+\[\begin{pmatrix}
+    A_1 & A_2 \\
+    -A_2 & A_1
+\end{pmatrix}\]
+的形式.  % 这个形式与复分析中的全纯函数很像, 也许两者之间有一些联系
+
+$\therefore\{\mathcal{A}_\mathbb{R}|\mathcal{A}\in\mathcal{L}(V)\}$ 的维数为 $n^2+n^2=2n^2$, 这小于 $\dim\mathcal{L}(V_\mathbb{R})=(2n)^2$.
+\subsection{复化-实化-复化}
+设 $V$ 是实空间, $\mathcal{J}\in\mathcal{L}(V)$ 满足 $\mathcal{J}^2=-\mathcal{E}$, 则 $\mathcal{J}$ 的特征值为 $\pm i$. 我们希望用 $\mathcal{J}^\mathbb{C}$ 来刻画 $V^\mathbb{C}$ 的结构.
+
+设 $V^{1,0}=\{\boldsymbol{u}\in V^\mathbb{C}|\mathcal{J}^\mathbb{C}\boldsymbol{u}=i\boldsymbol{u}\},V^{0,1}=\{\boldsymbol{u}\in V^\mathbb{C}|\mathcal{J}^\mathbb{C}\boldsymbol{u}=-i\boldsymbol{u}\}$, 则 $V^\mathbb{C}=V^{1,0}+V^{0,1}$.
+
+代数几何中的 Hodge 分解跟这里的分解使用了类似的方法.
+\section{正交多项式(对应第 5 节)}
+考虑一个几何问题: 找到平面外一点到平面的最短路径, 用代数的方法表述就是内积空间 $V$ 上的点 $\boldsymbol{v}$ 到子空间 $U$ 的最短路径.
+\begin{center}
+    \tdplotsetmaincoords{70}{110}
+    \begin{tikzpicture}[tdplot_main_coords]
+    \draw (0,0,0) -- (4,0,0) -- (4,6,0);
+    \draw (0,0,0) -- (0,6,0) -- (4,6,0) node[anchor=south east]{$U$};
+    \draw (2.2,3.2,0) -- (2.2,3.2,.2) -- (2,3,.2);
+    \draw [thick] (2,3,0) -- (2,3,2) node[anchor=north west]{$\boldsymbol{v}$};
+    \draw [fill] (2,3,2) circle [radius=0.05];
+    \draw [fill] (2,3,0) circle [radius=0.05];
+    \end{tikzpicture}
+
+    图 1
+\end{center}
+
+我们希望在 $U$ 上找一点 $\boldsymbol{u}$ 使得 $\|\boldsymbol{v}-\boldsymbol{u}\|$ 最小.
+
+$\because V=U\oplus U^\perp$, $\therefore\boldsymbol{v}$ 有分解式 $\boldsymbol{v}=\boldsymbol{v}_0+\boldsymbol{v}_1$, 其中 $\boldsymbol{v}_0\in U,\boldsymbol{v}_1\in U^\perp$. 有
+\begin{theorem}\label{t5.1}
+    $\forall\boldsymbol{u}\in U,\|\boldsymbol{v}-\boldsymbol{v}_0\|\leq\|\boldsymbol{v}-\boldsymbol{u}\|$.
+\end{theorem}
+\begin{proof}
+    $\|\boldsymbol{v}-\boldsymbol{u}\|=\|\boldsymbol{v}_0-\boldsymbol{u}+\boldsymbol{v}_1\|$. $\because\boldsymbol{v}_0-\boldsymbol{u}\in U,\boldsymbol{v}_1\in U^\perp$, $\therefore(\boldsymbol{v}_0-\boldsymbol{u})\perp\boldsymbol{v}_1$. $\therefore$
+
+    \begin{align*}
+        \|\boldsymbol{v}_0-\boldsymbol{u}+\boldsymbol{v}_1\|^2 & =\|\boldsymbol{v}_0-\boldsymbol{u}\|^2+\|\boldsymbol{v}_1\|^2 \\
+        & \geq\|\boldsymbol{v}_1\|^2,
+    \end{align*}
+    (当且仅当 $\boldsymbol{u}=\boldsymbol{v}_0$ 时取等号)
+\end{proof}
+下面来求 $\boldsymbol{v}_0$.
+
+设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $U$ 的一个基, 则 $\boldsymbol{v}_0=\lambda_1\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\cdots+\lambda_n\boldsymbol{e}_n$. $\therefore(\boldsymbol{v}-\boldsymbol{v}_0|\boldsymbol{e}_i)=0$.
+
+$\because\boldsymbol{v}-\boldsymbol{v}_0=\boldsymbol{v}_1\in U^\perp$, $\therefore$
+\[(\boldsymbol{v}-\boldsymbol{v}_0|\boldsymbol{e}_j)=(\boldsymbol{v}|\boldsymbol{e}_j)-(\boldsymbol{v}_0|\boldsymbol{e}_j)=(\boldsymbol{v}|\boldsymbol{e}_j)-\sum\limits_{i=1}^n\lambda_i(\boldsymbol{e}_i|\boldsymbol{e}_j).\]
+
+$\therefore$ 有以 $\lambda_i$ 为变量的方程组
+\begin{equation}\label{eq5.1}
+    \sum\limits_{i=1}^n\lambda_i(\boldsymbol{e}_i|\boldsymbol{e}_j)=(\boldsymbol{v}|\boldsymbol{e}_j)\quad j=1,2,\cdots,n.
+\end{equation}
+
+设方程组 (\ref{eq5.1}) 的系数矩阵为 $A=(a_{ij})$, 则 $a_{ij}=(\boldsymbol{e}_i|\boldsymbol{e}_j)$.
+
+如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $U$ 的一个正交基, 则 $A$ 是对角矩阵, $\therefore$ 方程组 (\ref{eq5.1}) 有唯一解.
+
+如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 不是正交的, 设 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 是 $U$ 的一个标准正交基, 且 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B$, 则
+\[(\boldsymbol{e}_i|\boldsymbol{e}_j)=\left((\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B^{(i)}\Big|(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B^{(j)}\right)={}^tB^{(i)}B^{(j)}.\]
+
+$\therefore$
+\[A=\begin{pmatrix}
+    {}^tB^{(1)} \\
+    {}^tB^{(2)} \\
+    \cdots \\
+    {}^tB^{(n)} \\
+\end{pmatrix}(B^{(1)},B^{(2)},\cdots,B^{(n)})={}^tBB.\]
+
+$\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\ref{eq5.1}) 有唯一解.
+
+许多的问题都可以归结为点到子空间的距离问题.
+\begin{example}\label{exa5.1}
+    考虑无解的 $n$ 元 $m$ 个方程的实系数方程组 $AX=B$.
+    
+    设 $A$ 的第 $i$ 列为 $A^{(i)}$, 则 $A^{(1)},A^{(2)},\cdots,A^{(n)},B\in\mathbb{R}^m$.
+    
+    方程组无解当且仅当 $B\notin\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+    
+    不妨设 $A$ 的秩为 $n$, 则 $A^{(1)},A^{(2)},\cdots,A^{(n)}$ 是 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$ 的一个基.
+
+    在 $\mathbb{R}^m$ 上引进内积 $(X|Y)={}^tXY$. 解与方程组 (\ref{eq5.1}) 类似的方程组
+    \[\sum\limits_{i=1}^nx_i{}^tA^{(i)}A^{(j)}={}^tBA^{(j)}\quad j=1,2,\cdots,n.\]
+    
+    得到的解 $X_0=[x_1,x_2,\cdots,x_n]$ 不是 $AX=B$ 的解, 但满足 $\left\|x_1A^{(1)}+x_1A^{(2)}+\cdots+x_1A^{(n)}-B\right\|$ 最小. 称 $X_0$ 为方程 $AX=B$ 的\textbf{最小二乘解}(平方后是各个分量的平方和, 所以称为最小二乘).
+\end{example}
+\begin{example}
+    考虑 $[a,b]$ 上的实变量连续函数全体 $C_2(a,b)$, 引进内积:
+    \[(f|g)=\int_a^bf(t)\overline{g(t)}\mathrm{d}t.\]
+    
+    设 $\phi_1,\phi_2,\cdots,\phi_m$ 是 $C_2(a,b)$ 的标准正交函数组, $f\in C_2(a,b)$ 有分解式 $f=\sum\limits_{i=1}^mc_i\phi_i,\quad c_i\in\mathbb{C}$, 则 $c_i=(f_i|\phi_i)$. 这个结论可以推广到无限项的标准正交函数组.
+
+    对于一般的 $f\in C_2(a,b)$, 由定理 \ref{t5.1} 得当 $c_i=(f_i|\phi_i)$ 时 $\left\|f-\sum\limits_{i=1}^mc_i\phi_i\right\|$ 取最小值.
+
+    书上 P132 把当 $c_i=(f_i|\phi_i)$ 时的 $\left\|f-\sum\limits_{i=1}^mc_i\phi_i\right\|$ 计算出来了.
+
+    有时候会用下式定义内积:
+    \[(f|g)=\int_a^b\lambda(t)f(t)\overline{g(t)}\mathrm{d}t,\quad\lambda\in C_2(a,b).\]
+
+    Chebyshev 和 Hermite 研究过上述内积空间.
+\end{example}
+\section{第 3 章习题}
+\subsection{习题 3.1}
+\begin{exercise}[1.1]
+    设 $P_3$ 是 $\mathbb{R}$ 上次数 $<3$ 的多项式全体, 对于 $(f|g)=\int_{-1}^1f(t)g(t)\mathrm{d}t$ 给出的纯量基, 向量 $1$ 和 $t$ 是正交的. 找出:
+
+    (1) 子空间 $\left<1,t\right>^\perp$;
+
+    (2) $P_3$ 的一个标准正交基.
+\end{exercise}
+\begin{solution}
+    (1) $\because\dim P_3=3,\dim\left<1,t\right>=2$, $\therefore\dim\left<1,t\right>^\perp=1$.
+
+    设 $t^2+at+b,\ a,b\in\mathbb{R}$ 是 $\left<1,t\right>^\perp$ 的一个基, 则
+    \[(1|t^2+at+b)=\int_{-1}^1(t^2+at+b)\mathrm{d}t=0,\quad b=-\dfrac{1}{3}.\]
+    \[(t|t^2+at+b)=\int_{-1}^1t(t^2+at+b)\mathrm{d}t=0,\quad a=0.\]
+
+    $\therefore\left<1,t\right>^\perp=\left<t^2-\dfrac{1}{3}\right>$.
+
+    (2) $1,t,t^2-\dfrac{1}{3}$ 是 $P_3$ 的一个标准正交基.
+\end{solution}
+\begin{exercise}[1.2]
+    设 $(V,(*|*))$ 是 $3$ 维 Euclid 向量空间, 对 $\forall\boldsymbol{x}=[x_1,x_2,x_3]\in V,\|\boldsymbol{x}\|^2=(\boldsymbol{x}|\boldsymbol{x})=3x_1^2+2x_2^2+x_3^2-4x_1x_2-2x_1x_3+2x_2x_3$.
+
+    (1) 验证 $\|\boldsymbol{x}\|^2$ 是正定的;
+
+    (2) 求 $\boldsymbol{x}=[1,1,1],\boldsymbol{y}=[2,2,1]$ 间的夹角 $\alpha$;
+
+    (3) 设 $\boldsymbol{x}=[1,1,1]$, 求 $\boldsymbol{x}^\perp=\left<\boldsymbol{x}\right>^\perp$.
+\end{exercise}
+\begin{solution}
+    (1) $\because$
+    \[\begin{vmatrix}
+        3 & -2 \\
+        -2 & 2 \\
+    \end{vmatrix}=2>0,\quad\begin{vmatrix}
+        3 & -2 & -1 \\
+        -2 & 2 & 1 \\
+        -1 & 1 & 1 \\
+    \end{vmatrix}=1>0,\]
+
+    $\therefore\|\boldsymbol{x}\|^2$ 是正定的.
+
+    (2) $\because$
+    \begin{align*}
+        \|\boldsymbol{x}\|^2 & =3x_1^2+2x_2^2+x_3^2-4x_1x_2-2x_1x_3+2x_2x_3 \\
+        & =x_3^2-2x_1x_3+2x_2x_3+3x_1^2+2x_2^2-4x_1x_2 \\
+        & =(x_3^2+x_1^2+x_2^2-2x_1x_3+2x_2x_3-2x_1x_2)-x_1^2-x_2^2+2x_1x_2+3x_1^2+2x_2^2-4x_1x_2 \\
+        & =(x_1-x_3-x_2)^2+2x_1^2+x_2^2-2x_1x_2 \\
+        & =(x_1-x_3-x_2)^2+(x_2^2-2x_1x_2+x_1^2)-x_1^2+2x_1^2 \\
+        & =(x_1-x_2-x_3)^2+(x_1-x_2)^2+x_1^2,
+    \end{align*}
+
+    $\therefore[1,-1,-1],[1,-1,0],[1,0,0]$ 是 $V$ 的标准正交基.
+    
+    $\boldsymbol{x},\boldsymbol{y}$ 在上述基下的坐标分别为 $[x_1',x_2',x_3']=[-1,0,1],[y_1',y_2',y_3']=[-1,0,2]$, 有
+    \[\|\boldsymbol{x}\|^2=x_1'^2+x_2'^2+x_3'^2=2,\]
+    \[\|\boldsymbol{y}\|^2=y_1'^2+y_2'^2+y_3'^2=5,\]
+    \[(\boldsymbol{x}|\boldsymbol{y})=x_1'y_1'+x_2'y_2'+x_3'y_3'=3.\]
+
+    $\therefore\cos\alpha=\dfrac{(\boldsymbol{x}|\boldsymbol{y})}{\|\boldsymbol{x}\|\|\boldsymbol{y}\|}=\dfrac{3}{\sqrt{10}}$.
+
+    (3) 设 $\mathcal{y}=[y_1,y_2,y_3]\perp\boldsymbol{x}$, 则
+    \[(\boldsymbol{y}|\boldsymbol{x})=-(y_1-y_2-y_3)+y_1=y_2+y_3=0.\]
+
+    $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
+\end{solution}
+\begin{exercise}[1.3]\label{ex1.3}
+    证明: $\forall A=(a_{ij})\in\operatorname{GL}_n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
+\end{exercise}
+\begin{proof}
+    考察 $A$ 的列空间 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+    
+    $\because A$ 非退化, $\therefore A^{(1)},A^{(2)},\cdots,A^{(n)}$ 线性无关, 是 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$ 的一个基.
+
+    用书上定理 4 的正交化方法求 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$ 的一个标准正交基 $B^{(1)},B^{(2)},\cdots,B^{(n)}$:
+    \[B^{(1)}=\dfrac{A^{(1)}}{\|A^{(1)}\|}=\lambda_{11}A^{(1)}\ (\lambda_{11}\neq0),\quad B^{(2)}=\dfrac{A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}}{\|A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}\|}=\lambda_{12}A^{(1)}+\lambda_{22}A^{(2)}\ (\lambda_{22}\neq0),\]
+    \[B^{(3)}=\dfrac{A^{(3)}-(B^{(1)}|A^{(3)})B^{(1)}-(B^{(2)}|A^{(3)})B^{(2)}}{\|A^{(3)}-(B^{(1)}|A^{(3)})B^{(1)}-(B^{(2)}|A^{(3)})B^{(2)}\|}=\lambda_{13}A^{(1)}+\lambda_{23}A^{(2)}+\lambda_{33}A^{(3)}\ (\lambda_{33}\neq0),\]
+    \[\cdots,\]
+    \[B^{(n)}=\lambda_{1n}A^{(1)}+\lambda_{2n}A^{(2)}+\cdots+\lambda_{nn}A^{(n)}\ (\lambda_{nn}\neq0).\]
+
+    $\therefore$
+    \[B=A\begin{pmatrix}
+        \lambda_{11} & \lambda_{12} & \cdots & \lambda_{1n} \\
+        0 & \lambda_{22} & \cdots & \lambda_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \lambda_{nn} \\
+    \end{pmatrix}\quad(\lambda_{ii}\neq0).\]
+
+    由 [BAI] 第 4 章笔记的补充题 1 得
+    \[C=\begin{pmatrix}
+        \lambda_{11} & \lambda_{12} & \cdots & \lambda_{1n} \\
+        0 & \lambda_{22} & \cdots & \lambda_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \lambda_{nn} \\
+    \end{pmatrix}^{-1}\]
+    是上三角矩阵.
+
+    $\because A=BC,\therefore\det A=\det B\det C$. $\because\det B=\pm1,\therefore\pm\det A=\det C$.
+\end{proof}
+\begin{exercise}[1.5, 包含 1.4 的一部分命题]
+    设 $A$ 是斜对称矩阵, $\det(E\pm A)\neq0$, 验证: $(E-A)^{-1}(E+A),(E+A)^{-1}(E-A)\in SO(n)$.
+\end{exercise}
+\begin{proof}
+    以验证 $(E-A)^{-1}(E+A)\in SO(n)$ 为例, 另一个类似. 有
+    \[{}^t((E-A)^{-1}(E+A))={}^t(E+A){}^t((E-A)^{-1}).\]
+
+    由 [BAI] 第 2 章笔记的定理 2.1 得
+    \[{}^t(E+A){}^t((E-A)^{-1})={}^t(E+A)({}^t(E-A))^{-1}.\]
+
+    $\because A$ 是斜对称矩阵, $\therefore{}^tA=-A$. $\therefore$
+    \[{}^t(E+A)({}^t(E-A))^{-1}=(E-A)(E+A)^{-1}.\]
+
+    $\therefore$
+    \[{}^t((E-A)^{-1}(E+A))(E-A)^{-1}(E+A)=(E-A)(E+A)^{-1}(E-A)^{-1}(E+A).\]
+
+    $\because$
+    \[(E+A)(E-A)=E-A^2=(E-A)(E+A),\]
+
+    $\therefore$
+    \[(E-A)(E+A)^{-1}=(E+A)^{-1}(E-A),\]
+    \[(E-A)(E+A)^{-1}(E-A)^{-1}(E+A)=(E+A)^{-1}(E-A)(E-A)^{-1}(E+A)=E.\]
+
+    $\therefore(E-A)^{-1}(E+A)\in O(n)$.
+
+    $\because\det(E+A)=\det{}^t(E-A)=\det(E-A)$, $\therefore\det(E-A)^{-1}(E+A)=1$. $\therefore(E-A)^{-1}(E+A)\in SO(n)$.
+\end{proof}
+\begin{exercise}[1.6]
+    设 $A\in O(n)$ 的特征多项式为 $\chi_A(t)$, 证明:
+    \[t^n\chi_A(1/t)=\pm\chi_A(t).\]
+\end{exercise}
+\begin{proof}
+    $\because A\in O(n)$, $\therefore{}^tAA=E,\det A=\pm1$. $\therefore$
+    \begin{align*}
+        \chi_A(t) & =\det(tE-A) \\
+        & =\det(t{}^tAA-A) \\
+        & =\det A\det(t{}^tA-E) \\
+        & =\pm t^n\det\left({}^tA-\dfrac{1}{t}E\right) \\
+        & =\pm t^n\det\left(\dfrac{1}{t}E-{}^tA\right) \\
+        & =\pm t^n\det{}^t\left(\dfrac{1}{t}E-A\right) \\
+        & =\pm t^n\det\left(\dfrac{1}{t}E-A\right) \\
+        & =\pm t^n\chi_A(1/t).\qedhere
+    \end{align*}
+\end{proof}
+\begin{exercise}[1.7]\label{ex1.7}
+    设 $A=[A_{(1)},A_{(2)},\cdots,A_{(n)}]$ 是由相互正交的行排成的矩阵, 证明:
+    \[|\det A|=\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\]
+\end{exercise}
+\begin{thought}
+    等式左边出现的 $|\det A|$ 通常意味着等式两边要平方.
+    
+    等式右边平方后出现 $(A_{(i)}|A_{(i)})=A_{(i)}{}^tA_{(i)}$, 可以将其与 $A{}^tA$, 进而与等式左边平方后出现的 $\det A{}^tA$ 联系起来.
+\end{thought}
+\begin{proof}
+    $\because{}^tA=({}^tA_{(1)},{}^tA_{(2)},\cdots,{}^tA_{(n)})$, $\therefore$
+    \begin{align*}
+        A{}^tA & =\begin{pmatrix}
+            A_{(1)} \\
+            A_{(2)} \\
+            \cdots \\
+            A_{(n)} \\
+        \end{pmatrix}({}^tA_{(1)},{}^tA_{(2)},\cdots,{}^tA_{(n)}) \\
+        & =\begin{pmatrix}
+            A_{(1)}{}^tA_{(1)} & A_{(1)}{}^tA_{(2)} & \cdots & A_{(1)}{}^tA_{(n)} \\
+            A_{(2)}{}^tA_{(1)} & A_{(2)}{}^tA_{(2)} & \cdots & A_{(2)}{}^tA_{(n)} \\
+            \vdots  & \vdots  & \ddots & \vdots \\
+            A_{(n)}{}^tA_{(1)} & A_{(n)}{}^tA_{(2)} & \cdots & A_{(n)}{}^tA_{(n)} \\
+        \end{pmatrix} \\
+        & =\begin{pmatrix}
+            (A_{(1)}|A_{(1)}) & (A_{(1)}|A_{(2)}) & \cdots & (A_{(1)}|A_{(n)}) \\
+            (A_{(2)}|A_{(1)}) & (A_{(2)}|A_{(2)}) & \cdots & (A_{(2)}|A_{(n)}) \\
+            \vdots  & \vdots  & \ddots & \vdots \\
+            (A_{(n)}|A_{(1)}) & (A_{(n)}|A_{(2)}) & \cdots & (A_{(n)}|A_{(n)}) \\
+        \end{pmatrix} \\
+        & =\operatorname{diag}(\|A_{(1)}\|^2,\|A_{(2)}\|^2,\cdots,\|A_{(n)}\|^2).
+    \end{align*}
+
+    $\therefore$
+    \[(\det A)^2=\det A{}^tA=\|A_{(1)}\|^2\cdot\|A_{(2)}\|^2\cdots\|A_{(n)}\|^2.\]
+
+    $\therefore$
+    \[|\det A|=\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\qedhere\]
+\end{proof}
+\begin{exercise}
+    设 $A\in M_n(\mathbb{R})$, 证明 Hadamard 不等式:
+    \[|\det A|\leq\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\]
+\end{exercise}
+\begin{proof}
+    如果 $A$ 退化, 则 $|\det A|=0$, 由不等式右边 $\geq0$ 得不等式成立. 下面设 $A$ 非退化.
+
+    由第 \ref{ex1.3} 题得(下面沿用第 \ref{ex1.3} 题的证明过程中用到的符号)
+    \[|\det A|=\begin{vmatrix}
+        \lambda_{11} & \lambda_{12} & \cdots & \lambda_{1n} \\
+        0 & \lambda_{22} & \cdots & \lambda_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \lambda_{nn} \\
+    \end{vmatrix}^{-1}=\dfrac{1}{\prod\limits_{i=1}^n\lambda_{ii}}.\]
+
+    由第 \ref{ex1.3} 题的证明过程得
+    \[\lambda_{jj}=\dfrac{1}{\left\|A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}\right\|}.\]
+
+    $\because(B^{(i)})$ 是标准正交基, $\therefore$ 设 $A^{(j)}$ 在基 $(B^{(i)})$ 下有分解式
+    \[A^{(j)}=\mu_{1j}B^{(1)}+\mu_{2j}B^{(2)}+\cdots+\mu_{nj}B^{(n)},\]
+
+    则
+    \[(B^{(i)}|A^{(j)})=\left(B^{(i)}\bigg|\sum\limits_{k=1}^n\mu_{kj}B^{(k)}\right)=\mu_{ij}.\]
+
+    $\therefore$
+    \[A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}=\sum\limits_{i=j}^n(B^{(i)}|A^{(j)})B^{(i)}=\sum\limits_{i=j}^n\mu_{ij}B^{(i)}.\]
+
+    $\therefore$
+    \[\left\|A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}\right\|=\sum\limits_{i=j}^n\mu_{ij}^2\leq\sum\limits_{i=1}^n\mu_{ij}^2=\|A^{(j)}\|.\]
+
+    $\therefore$
+    \[|\det A|=\dfrac{1}{\prod\limits_{i=1}^n\lambda_{ii}}\leq\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\qedhere\]
+\end{proof}
+\subsection{习题 3.2}
+\begin{exercise}[补充题 1]
+    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $\forall X\in\mathbb{C}^n,{}^tXA\overline{X}\in\mathbb{R}$, 则 $A$ 是 Hermite 矩阵.
+\end{exercise}
+\begin{proof}
+    $\because{}^tXA\overline{X}\in\mathbb{R},\therefore$
+    \[{}^tXA\overline{X}=\overline{{}^tXA\overline{X}}={}^t\bar{X}\bar{A}X.\]
+
+    $\because{}^t\bar{X}\bar{A}X$ 是 $1\times1$ 矩阵, $\therefore$
+    \[{}^t\bar{X}\bar{A}X={}^t({}^t\bar{X}\bar{A}X)={}^tX{}^t\bar{A}\bar{X}.\]
+
+    $\therefore{}^t\bar{A}=A$. $\therefore A$ 是 Hermite 矩阵.
+\end{proof}
+\begin{exercise}[补充题 2]
+    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in\operatorname{GL}_n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
+\end{exercise}
+\begin{proof}
+    ($\Rightarrow$) 由书上的定义 2, $V$ 是 Hermite 空间. $\therefore V$ 中有标准正交基 $(\boldsymbol{e}_i)$ 使得 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $E$.
+
+    由式 (\ref{eq2.1}) 得 $\exists Q\in\operatorname{GL}_n(\mathbb{C})$ 使得 $A={}^tQE\overline{Q}={}^tQ\overline{Q}$. 设 $P=\overline{Q}\in\operatorname{GL}_n(\mathbb{C})$, 则 $A=P^*P$.
+
+    ($\Leftarrow$) 设 $Q=\overline{P}\in\operatorname{GL}_n(\mathbb{C})$, 则 $A={}^tQ\overline{Q}$. $\therefore\forall X\in\mathbb{C}^n$,
+    \[{}^tXA\overline{X}={}^tX{}^tQ\overline{Q}\overline{X}={}^t(QX)\overline{QX}.\]
+
+    设 $QX=[y_1,y_2,\cdots,y_n]\in\mathbb{C}^n$, 则
+    \begin{align*}
+        {}^t(QX)\overline{QX} & =y_1\overline{y_1}+y_2\overline{y_2}+\cdots+y_n\overline{y_n} \\
+        & =|y_1|^2+|y_2|^2+\cdots+|y_n|^2\geq0,
+    \end{align*}
+    (当且仅当 $QX=0$ 时取等号. $\because Q\in\operatorname{GL}_n(\mathbb{C})$, $\therefore$ 当且仅当 $X=0$ 时取等号.)
+
+    $\therefore A$ 是正定的.
+\end{proof}
+\begin{exercise}[补充题 3]
+    在 $\mathbb{C}^2$ 上定义 $(\boldsymbol{x}|\boldsymbol{y})=x_1y_1+ix_1y_2-ix_2y_1+ix_2y_2$. $(*|*)$ 是否为 Hermite 型?
+\end{exercise}
+\begin{solution}
+    $\because(*|*)$ 是双线性型, 且
+    \[\overline{(\boldsymbol{x}|\boldsymbol{y})}=\bar{x}_1\bar{y}_1-i\bar{x}_1\bar{y}_2+i\bar{x}_2\bar{y}_1-i\bar{x}_2\bar{y}_2\]
+
+    不一定 $=(\boldsymbol{y}|\boldsymbol{x})$, $\therefore(*|*)$ 不是 Hermite 型.
+\end{solution}
+\subsection{习题 3.3}
+\begin{exercise}
+    证明: 任一相似于 $B=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\overline{\lambda}_i=1,\lambda_1\lambda_2\cdots\lambda_n=1$ 的酉矩阵 $A\in U(n)$ 都有分解式 $A=XYX^{-1}Y^{-1}$, 其中 $X,Y$ 是酉矩阵.
+\end{exercise}
+\begin{proof}
+    由推论 \ref{c3.3} 得 $A$ 有分解式 $A=C^{-1}BC$, 其中 $C\in U(n)$. 考虑矩阵
+    \[X=\begin{pmatrix}
+        0 & 0 & \cdots & 0 & 1 \\
+        1 & 0 & \cdots & 0 & 0 \\
+        0 & 1 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & 0 \\
+    \end{pmatrix},\quad Y=\begin{pmatrix}
+        0 & \alpha_1 & 0 & \cdots & 0 \\
+        0 & 0 & \alpha_2 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & \alpha_{n-1} \\
+        1 & 0 & 0 & \cdots & 0 \\
+    \end{pmatrix},\]
+
+    其中 $\alpha_i$ 待定, $\alpha_i\overline{\alpha}_i=1$, 容易验证 $X^*X=Y^*Y=E$, $\therefore X,Y\in U(n)$. 有
+    \[XY=\begin{pmatrix}
+        1 & 0 & 0 & \cdots & 0 \\
+        0 & \alpha_1 & 0 & \cdots & 0 \\
+        0 & 0 & \alpha_2 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & \alpha_{n-1} \\
+    \end{pmatrix},\quad YX=\begin{pmatrix}
+        \alpha_1 & 0 & \cdots & 0 & 0 \\
+        0 & \alpha_2 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & \alpha_{n-1} & 0 \\
+        0 & 0 & \cdots & 0 & 1 \\
+    \end{pmatrix}.\]
+
+    $\therefore$
+    \[XYX^{-1}Y^{-1}=XY(YX)^{-1}=\begin{pmatrix}
+        \dfrac{1}{\alpha_1} & 0 & 0 & \cdots & 0 & 0 \\
+        0 & \dfrac{\alpha_1}{\alpha_2} & 0 & \cdots & 0 & 0 \\
+        0 & 0 & \dfrac{\alpha_2}{\alpha_3} & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & 0 & \cdots & \dfrac{\alpha_{n-2}}{\alpha_{n-1}} & 0 \\
+        0 & 0 & 0 & \cdots & 0 & \alpha_{n-1} \\
+    \end{pmatrix}.\]
+
+    令 $B=XYX^{-1}Y^{-1}$, 有
+    \[\begin{cases}
+        \lambda_1=\dfrac{1}{\alpha_1}, \\[8pt]
+        \lambda_2=\dfrac{\alpha_1}{\alpha_2}, \\
+        \cdots \\
+        \lambda_{n-1}=\dfrac{\alpha_{n-2}}{\alpha_{n-1}}, \\
+        \lambda_n=\alpha_{n-1}, \\
+    \end{cases}\Rightarrow\begin{cases}
+        \alpha_1=\dfrac{1}{\lambda_1}, \\[8pt]
+        \alpha_2=\dfrac{1}{\lambda_1\lambda_2}, \\
+        \cdots \\
+        \alpha_{n-1}=\dfrac{1}{\lambda_1\lambda_2\cdots\lambda_{n-1}}=\lambda_n. \\
+    \end{cases}\]
+
+    $\because B=XYX^{-1}Y^{-1}$, $\therefore$
+    \begin{align*}
+        A & =C^{-1}BC \\
+        & =C^{-1}XYX^{-1}Y^{-1}C \\
+        & =C^{-1}XCC^{-1}YCC^{-1}X^{-1}CC^{-1}Y^{-1}C \\
+        & =(C^{-1}XC)(C^{-1}YC)(C^{-1}XC)^{-1}(C^{-1}YC)^{-1}.
+    \end{align*}
+
+    $\because C,X,Y\in U(n)$, $\therefore C^{-1}XC,C^{-1}YC\in U(n)$. $\therefore A$ 有 $U(n)$ 上的分解式
+    \[A=(C^{-1}XC)(C^{-1}YC)(C^{-1}XC)^{-1}(C^{-1}YC)^{-1}.\qedhere\]
+\end{proof}
+\begin{exercise}[3.2]
+    称形如
+    \[J_n=\begin{pmatrix}
+        a_1 & -b_1 \\
+        -c_1 & a_2 & -b_2 \\
+        & -c_2 & a_3 & -b_3 \\
+        && \ddots & \ddots & \ddots \\
+        &&& -c_{n-2} & a_{n-1} & -b_{n-1} \\
+        &&&& -c_{n-1} & a_n \\
+    \end{pmatrix},\quad b_ic_i>0,\quad1\leq i\leq n-1\]
+    的实矩阵为($n$ 阶) Jacobi 矩阵. 证明: $\operatorname{Spec}(J_n)\subset\mathbb{R}$, 且 $\operatorname{Spec}(J_n)$ 是单的.
+\end{exercise}
+\begin{proof}
+    $J_n$ 的特征多项式 $\chi_{J_n}(t)=\det(tE-J_n)$. 按最后一行展开, 得
+    \begin{align*}
+        \det(tE-J_n) & =(t-a_n)\det(tE-J_{n-1})-c_{n-1}\begin{vmatrix}
+            t-a_1 & b_1 \\
+            c_1 & t-a_2 & b_2 \\
+            & \ddots & \ddots & \ddots \\
+            && c_{n-4} & t-a_{n-3} & b_{n-3} \\
+            &&& c_{n-3} & t-a_{n-2} \\
+            &&&& c_{n-2} & b_{n-1} \\
+        \end{vmatrix} \\
+        & =(t-a_n)\det(tE-J_{n-1})-c_{n-1}b_{n-1}\det(tE-J_{n-2}).
+    \end{align*}
+
+    考虑矩阵
+    \[J_n'=\begin{pmatrix}
+        a_1 & -\sqrt{b_1c_1} \\
+        -\sqrt{b_1c_1} & a_2 & -\sqrt{b_2c_2} \\
+        & -\sqrt{b_2c_2} & a_3 & -\sqrt{b_3c_3} \\
+        && \ddots & \ddots & \ddots \\
+        &&& -\sqrt{b_{n-2}c_{n-2}} & a_{n-1} & -\sqrt{b_{n-1}c_{n-1}} \\
+        &&&& -\sqrt{b_{n-1}c_{n-1}} & a_n \\
+    \end{pmatrix}.\]
+
+    $\because b_ic_i>0,\therefore\sqrt{b_ic_i}\in\mathbb{R}$. $\therefore J_n$ 是实对称矩阵.
+
+    按最后一行展开, 得
+    \[\det(tE-J_n')=(t-a_n)\det(tE-J_{n-1}')-c_{n-1}b_{n-1}\det(tE-J_{n-2}').\]
+
+    $\because\det(tE-J_1)=\det(tE-J_1'),\det(tE-J_2)=\det(tE-J_2')=(t-a_1)(t-a_2)-b_1c_1$, 由数学归纳法得 $\det(tE-J_n)=\det(tE-J_n')$. $\therefore\chi_{J_n}(t)=\chi_{J_n'}(t)$.
+
+    $\because J_n'$ 是 Hermite 矩阵, $\therefore\operatorname{Spec}(J_n)\subset\mathbb{R}$.
+    
+    设 $\lambda$ 是 $J_n'$ 的特征值, 对 $\forall X=[x_1,x_2,\cdots,x_n]\in V^\lambda$, 有 $(J_n'-\lambda E)X=0$, 即
+    \[\begin{cases}
+        (a_1-\lambda)x_1-\sqrt{b_1c_1}x_2=0, \\
+        -\sqrt{b_1c_1}x_1+(a_2-\lambda)x_2-\sqrt{b_2c_2}x_3=0, \\
+        \cdots \\
+        -\sqrt{b_{n-1}c_{n-1}}x_{n-1}+(a_n-\lambda)x_n=0.
+    \end{cases}\]
+    \[\Rightarrow\begin{cases}
+        x_2=\dfrac{(a_1-\lambda)}{\sqrt{b_1c_1}}x_1=d_2x_1, \\[8pt]
+        x_3=\dfrac{-\sqrt{b_1c_1}x_1+(a_2-\lambda)x_2}{\sqrt{b_2c_2}}=\left(-\sqrt{\dfrac{b_1c_1}{b_2c_2}}+\dfrac{(a_1-\lambda)}{\sqrt{b_1c_1b_2c_2}}\right)x_1=d_3x_1, \\
+        \cdots \\
+        x_n=d_nx_1,
+    \end{cases}\]
+
+    其中 $d_2,d_3,\cdots,d_n\in\mathbb{R}$. 令 $d_1=1$, 则 $X=x_1[d_1,d_2,\cdots,d_n]$. $\therefore\dim V^\lambda=1$. $\therefore\lambda$ 的几何重数为 $1$.
+
+    由推论 \ref{c3.2} 得 $J_n'$ 可以对角化. 由书上第 2 章第 3 节的定理 6 得 $J_n'$ 的任一特征值的几何重数等于代数重数. $\therefore\lambda$ 是 $\chi_{J_n}(t)=\chi_{J_n'}(t)$ 的单根. $\therefore\chi_{J_n}(t)$ 的任一特征值是单的. $\therefore\operatorname{Spec}J_n$ 是单的.
+\end{proof}
+\begin{exercise}[3.3]
+    将书上的定理 13 的条件改成 ``$\mathcal{A}$ 是 Hermite 算子, $\mathcal{B}$ 是酉算子'', 结论是否成立?
+\end{exercise}
+\begin{proof}
+    $\because$ 定理 13 中用到的唯一的 Hermite 算子或者酉算子 $\mathcal{A},\mathcal{B}$ 的性质只有: 对 $\mathcal{A},\mathcal{B}$ 不变的子空间 $U$, $U^\perp$ 是 $\mathcal{A},\mathcal{B}$ 不变的(见书上的引理 3 和引理 5), 这与 $\mathcal{A},\mathcal{B}$ 的类型无关, $\therefore$ 结论成立.
+\end{proof}
+\begin{exercise}[3.4]\label{ex3.4}
+    设 $\mathcal{A},\mathcal{B}$ 是域 $K$ 上向量空间 $V$ 上两个可交换的线性算子. 证明: 如果 $\mathcal{A},\mathcal{B}$ 均可对角化, 那么 $\exists V$ 的基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A},\mathcal{B}$ 在这个基下的矩阵都是对角矩阵.
+\end{exercise}
+\begin{proof}
+    由引理 \ref{l3.4} 得
+    \[V=\bigoplus\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda.\]
+
+    设 $\lambda\in\operatorname{Spec}\mathcal{A}$. 由书上的引理 6 (注意到引理的证明用到的唯一一个复空间的性质是 $\mathcal{A},\mathcal{B}$ 均可对角化)得 $V^\lambda$ 是 $\mathcal{B}$ 的不变子空间. $\therefore\mathcal{B}|_{V^\lambda}$ 是 $V^\lambda$ 上的算子.
+    
+    $\because\mathcal{B}$ 可对角化, $\therefore\mathcal{B}|_{V^\lambda}$ 可对角化. $\therefore\exists V^\lambda$ 的一个基 $\boldsymbol{e}^\lambda_1,\boldsymbol{e}^\lambda_2,\cdots,\boldsymbol{e}^\lambda_{m_\lambda}$ 使得 $\mathcal{B}\boldsymbol{e}^\lambda_i=\mathcal{B}|_{V^\lambda}\boldsymbol{e}^\lambda_i=\mu^\lambda_i\boldsymbol{e}^\lambda_i,\mu^\lambda_i\in K$.
+
+    $\because V=\bigoplus\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda$, $\therefore$ 对 $\forall\lambda\in\operatorname{Spec}\mathcal{A}$ 求出 $\boldsymbol{e}^\lambda_1,\boldsymbol{e}^\lambda_2,\cdots,\boldsymbol{e}^\lambda_{m_\lambda}$, 合并得到 $V$ 的一个基 $(\boldsymbol{e}_i)$.
+
+    $\because\mathcal{A}\boldsymbol{e}^\lambda_i=\lambda\boldsymbol{e}^\lambda_i,\mathcal{B}\boldsymbol{e}^\lambda_i=\mu^\lambda_i\boldsymbol{e}^\lambda_i$, $\therefore\mathcal{A},\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵都是对角矩阵.
+\end{proof}
+\begin{exercise}[3.5]
+    证明: 如果 $\mathcal{A},\mathcal{B}\in\mathcal{L}(V)$ 都是正定算子且 $\mathcal{AB}=\mathcal{BA}$, 那么 $\mathcal{AB}$ 也是正定的.
+\end{exercise}
+\begin{proof}
+    $\because\mathcal{A},\mathcal{B}$ 正定, $\therefore\mathcal{A},\mathcal{B}$ 是 Hermite 的. 由书上的定理 3 得 $\mathcal{AB}$ 是 Hermite 的.
+
+    $\because\mathcal{A},\mathcal{B}$ 正定, 由定理 \ref{t3.5} 得 $\mathcal{A},\mathcal{B}$ 可对角化. 由第 \ref{ex3.4} 题得 $\exists V$ 的标准正交基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A},\mathcal{B}$ 在这个基下的矩阵 $A,B$ 由 $\mathcal{A},\mathcal{B}$ 的特征值构成.
+    
+    由定理 \ref{t3.11} 得 $\mathcal{A},\mathcal{B}$ 的特征值 $>0$, $\therefore\mathcal{AB}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $AB=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$ 满足 $\lambda_i>0$. 由定理 \ref{t3.11} 得 $\mathcal{AB}$ 是正定的.
+\end{proof}
+\begin{exercise}[3.6]
+    设 $A\in M_n(\mathbb{R})$ 是斜对称矩阵, 证明: (1) $A^2$ 是对称的负定矩阵.
+
+    (2) 如果 $\det(\lambda E-A)=0$, 则 $\operatorname{Re}\lambda=0$.
+\end{exercise}
+\begin{proof}
+    (1) $\because{}^t(A^2)={}^tA{}^tA=(-A)(-A)=A^2$, $\therefore A^2$ 是对称矩阵.
+    
+    $\because{}^tA=-A$, $\therefore\forall X\in\mathbb{R}^n$, 有
+    \[{}^tXA^2X=-{}^tX{}^tAAX=-{}^t(AX)AX\leq0,\]
+
+    与定理 \ref{t3.9} 类似, 可以证明: $A^2$ 是负定矩阵.
+
+    (2) $A^2\in M_n(\mathbb{C})$ 是 Hermite 矩阵, 也是负定矩阵. 与定理 \ref{t3.11} 类似, 可以证明: $A^2$ 的特征值全 $\in\mathbb{R}_-$.
+
+    假设 $\det(\lambda E-A)=0$ 但 $\operatorname{Re}\lambda=0$. 设 $\lambda=a+bi\ (a\neq0)$. $\because$
+    \begin{align*}
+        (\det(tE-A))^2 & =\det(tE-A)\det({}^t(tE-A)) \\
+        & =\det(tE-A)\det(tE-{}^tA) \\
+        & =\det(tE-A)\det(tE+A) \\
+        & =\det((tE-A)(tE+A)) \\
+        & =\det(t^2E-A^2),
+    \end{align*}
+
+    $\therefore\det(\lambda^2E-A^2)=0$, $\therefore A^2$ 有一个特征值为 $\lambda^2=a^2-b^2+2abi$.
+
+    $\because\lambda^2\in\mathbb{R},\therefore 2ab=0$. $\because a\neq0,\therefore b=0$. $\therefore\lambda^2=a^2>0$, 与 $A^2$ 的特征值 $<0$ 矛盾.
+\end{proof}
+\begin{exercise}[3.9]\label{ex3.9}
+    证明: $n$ 维复向量空间 $V$ 上的任意一族可交换的线性算子
+    \[\mathfrak{G}=\{\mathcal{A}_i\in\mathcal{L}(V),i\in I|\mathcal{A}_i\mathcal{A}_j=\mathcal{A}_j\mathcal{A}_i,\forall i,j\in I\}\]
+    有共同的特征向量.
+\end{exercise}
+\begin{proof}
+    (a) 若 $|I|<\infty$, 则对 $|I|$ 用数学归纳法. $|I|=2$ 的情形由书上的引理 6 得. 假设任意一族有 $s-1$ 个元素的可交换的线性算子都有共同的特征向量, 考察可交换的线性算子族 $\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_s$.
+
+    记 $V^\lambda_i$ 为 $\mathcal{A}_i$ 与 $\lambda$ 相伴的特征子空间. 由归纳假定, $\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_{s-1}$ 有共同的特征向量 $\boldsymbol{v}$. 设 $\mathcal{A}_i\boldsymbol{v}=\lambda_i\boldsymbol{v},U=\bigcap\limits_{i=1}^{s-1}V^{\lambda_i}_i$.
+    
+    $\because\boldsymbol{v}\in U$, $\therefore\dim U>0$. 设 $\boldsymbol{x}\in U\backslash\{0\}$, 则 $\forall i=1,2,\cdots,s-1$,
+    \[\mathcal{A}_i(\mathcal{A}_s\boldsymbol{x})=\mathcal{A}_i\mathcal{A}_s\boldsymbol{x}=\mathcal{A}_s\mathcal{A}_i\boldsymbol{x}=\mathcal{A}_s(\mathcal{A}_i\boldsymbol{x}).\]
+    
+    $\because\boldsymbol{x}\in V^{\lambda_i}_i$, $\therefore$
+    \[\mathcal{A}_s(\mathcal{A}_i\boldsymbol{x})=\mathcal{A}_s\lambda_i\boldsymbol{x}=\lambda_i(\mathcal{A}_s\boldsymbol{x}).\]
+
+    $\therefore\forall i=1,2,\cdots,s-1,\mathcal{A}_s\boldsymbol{x}\in V^{\lambda_i}_i\Rightarrow\mathcal{A}_s\boldsymbol{x}\in U$.
+
+    $\therefore U$ 是 $\mathcal{A}_s\boldsymbol{x}$ 的不变子空间. $\therefore\mathcal{A}_s|_U$ 是 $U$ 上的算子.
+
+    设 $\boldsymbol{y}$ 是 $\mathcal{A}_s|_U$ 的特征向量, 则 $\boldsymbol{y}$ 是 $\mathcal{A}_s$ 的特征向量. $\because\boldsymbol{y}\in U$, $\therefore\forall i=1,2,\cdots,s-1,\boldsymbol{y}$ 是 $\mathcal{A}_i$ 的特征向量.
+
+    $\therefore\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_s$ 有共同的特征向量.
+
+    (b) 若 $|I|=\infty$, 可以按如下方法构造线性无关的算子组 $\mathcal{A}_1,\cdots,\mathcal{A}_r\in\mathfrak{G}\ (r\leq n^2)$ 使得 $\mathfrak{G}\subset\left<\mathcal{A}_1,\cdots,\mathcal{A}_r\right>$:
+
+    取 $\mathcal{A}_1\in\mathfrak{G}$. 如果 $\forall\mathcal{A}\in\mathfrak{G},\mathcal{A}\in\left<\mathcal{A}_1\right>$, 则 $\mathcal{A}_1$ 为要求的算子组, 否则取 $\mathcal{A}_i\in\mathfrak{G}\backslash\left<\mathcal{A}_1\right>$. $\because\mathcal{A}_2\notin\left<\mathcal{A}_1\right>$, $\therefore\mathcal{A}_1,\mathcal{A}_2$ 线性无关.
+    
+    如果 $\forall\mathcal{A}\in\mathfrak{G},\mathcal{A}\in\left<\mathcal{A}_1,\mathcal{A}_2\right>$, 则 $\mathcal{A}_1,\mathcal{A}_2$ 为要求的算子组, 否则取 $\mathcal{A}_3\in\mathfrak{G}\backslash\left<\mathcal{A}_1,\mathcal{A}_2\right>$. $\because\mathcal{A}_3\notin\left<\mathcal{A}_1,\mathcal{A}_2\right>$, $\therefore\mathcal{A}_1,\mathcal{A}_2,\mathcal{A}_3$ 线性无关.
+    
+    重复上述过程即得.
+    
+    假设 $r>n^2$, 则 $\exists\mathcal{L}(V)$ 的子空间 $U=\left<\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_r\right>$ 满足 $\dim U=r>n^2$, 与 $\dim\mathcal{L}(V)=n^2$ 矛盾. $\therefore r\leq n^2$.
+
+    由 (a) 得 $\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_r$ 有共同的特征向量 $\boldsymbol{v}$. 设 $\mathcal{A}_i\boldsymbol{v}=\lambda_i\boldsymbol{v}$.
+
+    对 $\forall\mathcal{A}\in\mathfrak{G}\subset\left<\mathcal{A}_1,\mathcal{A}_2,\cdots,\mathcal{A}_r\right>,\mathcal{A}$ 有分解式
+    \[\mathcal{A}=\mu_1\mathcal{A}_1+\mu_2\mathcal{A}_2+\cdots+\mu_r\mathcal{A}_r,\]
+
+    则
+    \begin{align*}
+        \mathcal{A}\boldsymbol{v} & =\mu_1\mathcal{A}_1\boldsymbol{v}+\mu_2\mathcal{A}_2\boldsymbol{v}+\cdots+\mu_r\mathcal{A}_r\boldsymbol{v} \\
+        & =\mu_1\lambda_1\boldsymbol{v}+\mu_2\lambda_2\boldsymbol{v}+\cdots+\mu_r\lambda_r\boldsymbol{v} \\
+        & =(\mu_1\lambda_1+\mu_2\lambda_2+\cdots+\mu_r\lambda_r)\boldsymbol{v}.
+    \end{align*}
+
+    $\therefore\boldsymbol{v}$ 是 $\mathcal{A}$ 的特征向量.
+\end{proof}
+\begin{exercise}[3.10]
+    设
+    \[\mathfrak{G}=\{A_i\in M_n(\mathbb{C}),i\in I|A_iA_j=A_jA_i,\forall i,j\in I\},\]
+
+    证明: (1) $\exists C\in\operatorname{GL}_n(\mathbb{C})$ 使得
+    \[C^{-1}\mathfrak{G}C=\{C^{-1}A_iC|i\in I\}\]
+    是由上三角矩阵组成的.
+
+    (2) $C^{-1}\mathfrak{G}C$ 中的元素是可交换的.
+\end{exercise}
+\begin{proof}
+    (1) 对矩阵的阶数 $n$ 用数学归纳法. $1$ 阶矩阵都是上三角矩阵. 假设命题对 $n-1$ 阶矩阵构成的 $\mathfrak{G}'$ 成立. 由第 \ref{ex3.9} 题得 $\mathfrak{G}$ 中的矩阵有共同的特征向量 $X=[x_1,x_2,\cdots,x_n]\neq0$. 设 $C\in\operatorname{GL}_n(\mathbb{C})$ 是第 $1$ 列为 $X$ 的矩阵, 则 $\forall i\in I$,
+    \[C^{-1}A_iC=\begin{pmatrix}
+        \lambda_i & * \\
+        0 & B_i \\
+    \end{pmatrix},\]
+
+    其中 $\lambda_i\in\mathbb{C},B_i$ 是 $n-1\times n-1$ 矩阵, $*$ 表示无关紧要的量(下同). 对 $\forall i,j\in I$, 有
+    \[C^{-1}A_iCC^{-1}A_jC=\begin{pmatrix}
+        \lambda_i\lambda_j & * \\
+        0 & B_iB_j \\
+    \end{pmatrix},\quad C^{-1}A_jCCA_iC^{-1}=\begin{pmatrix}
+        \lambda_i\lambda_j & * \\
+        0 & B_jB_i \\
+    \end{pmatrix}.\]
+
+    $\because A_iA_j=A_jA_i$, $\therefore$
+    \[C^{-1}A_iCC^{-1}A_jC=C^{-1}A_iA_jC=C^{-1}A_jA_iC=C^{-1}A_jCC^{-1}A_iC,\]
+
+    $\therefore B_iB_j=B_jB_i$.
+
+    设 $\mathfrak{H}=\{B_i|i\in I\}$. $\because\forall i,j\in I,B_iB_j=B_jB_i$, 由归纳假定, $\exists D\in M_{n-1}(\mathbb{C})$ 使得 $D^{-1}\mathfrak{H}D$ 由上三角矩阵组成. 设
+    \[F=\begin{pmatrix}
+        1 & * \\
+        0 & D \\
+    \end{pmatrix}\in\operatorname{GL}_n(\mathbb{C}),\]
+
+    则 $\forall i$,
+    \[(CF)^{-1}A_iCF=F^{-1}C^{-1}A_iCF=\begin{pmatrix}
+        \lambda_i & * \\
+        0 & D^{-1}B_iD \\
+    \end{pmatrix}\]
+    是上三角矩阵.
+
+    $\therefore\exists(CF)\in\operatorname{GL}_n(\mathbb{C})$ 使得
+    \[(CF)^{-1}\mathfrak{G}CF=\{C^{-1}A_iC|i\in I\}\]
+    是由上三角矩阵组成的.
+
+    (2) $\forall A',B'\in C\mathfrak{G}C^{-1},\exists A,B\in\mathfrak{G}$ 使得 $A'=C^{-1}AC,B'=C^{-1}BC$.
+    
+    $\because AB=BA$, $\therefore(C^{-1}AC)(C^{-1}BC)=(C^{-1}BC)(C^{-1}AC)\Rightarrow A'B'=B'A'$. $\therefore C\mathfrak{G}C^{-1}$ 中的元素是可交换的.
+\end{proof}
+\begin{exercise}[补充题 4]
+    设 $V,U$ 分别是 $m,n$ 维 Hermite 向量空间, 证明: 对秩为 $r\ (r\leq\min\{m,n\})$ 的线性映射 $\mathcal{A}:V\to U$, $\exists V$ 的标准正交基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_m$ 和 $U$ 的标准正交基 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_n$ 使得 $\mathcal{A}$ 在基 $(\boldsymbol{v}_i)$ 和 $(\boldsymbol{u}_i)$ 下的矩阵为
+    \[\begin{pmatrix}
+        \Sigma & 0 \\
+        0 & 0 \\
+    \end{pmatrix},\quad\Sigma=\operatorname{diag}(\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\]
+\end{exercise}
+\begin{proof}
+    $\because\mathcal{A}^*\mathcal{A}$ 是 Hermite 算子, 由定理 \ref{t3.5} 得 $\exists V$ 的标准正交基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_m$ 使得 $\mathcal{A}^*\mathcal{A}$ 在上述基下的矩阵为实对角矩阵 $\Lambda$.
+
+    假设 $\exists\boldsymbol{x}\in V,\mathcal{A}\boldsymbol{x}\neq\boldsymbol{0}$ 且 $\mathcal{A}^*\mathcal{A}\boldsymbol{x}=\boldsymbol{0}$, 则 $\forall\boldsymbol{y}\in U,(\mathcal{A}^*\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=0$.
+
+    取 $\boldsymbol{y}=\boldsymbol{x}$, 则 $(\mathcal{A}^*\mathcal{A}\boldsymbol{x}|\boldsymbol{x})=0\Rightarrow(\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{x})=0\Rightarrow\mathcal{A}\boldsymbol{x}=\boldsymbol{0}$, 与 $\mathcal{A}\boldsymbol{x}\in\ker\mathcal{A}^*\backslash\{\boldsymbol{0}\}$ 矛盾.
+    
+    $\therefore\forall\boldsymbol{x}\in V,\mathcal{A}^*\mathcal{A}\boldsymbol{x}=\boldsymbol{0}\Rightarrow\mathcal{A}\boldsymbol{x}=\boldsymbol{0}$. $\therefore\ker\mathcal{A}\supset\ker\mathcal{A}^*\mathcal{A}$.
+
+    $\because\ker\mathcal{A}\subset\ker\mathcal{A}^*\mathcal{A}$, $\therefore\ker\mathcal{A}=\ker\mathcal{A}^*\mathcal{A}$. $\therefore\operatorname{rank}\mathcal{A}^*\mathcal{A}=\operatorname{rank}\mathcal{A}=r$. $\therefore\Lambda$ 的对角线上有 $r$ 个非零元素.
+
+    设 $\lambda$ 是 $\mathcal{A}^*\mathcal{A}$ 的特征值, $\boldsymbol{v}$ 是对应的特征向量, 则
+    \[\|\mathcal{A}\boldsymbol{v}\|^2=\boldsymbol{v}^*\mathcal{A}^*\mathcal{A}\boldsymbol{v}=\boldsymbol{v}^*(\lambda\boldsymbol{v})=\lambda\|\boldsymbol{v}\|^2,\quad\lambda=\dfrac{\|\mathcal{A}\boldsymbol{v}\|^2}{\|\boldsymbol{v}\|^2}\geq0.\]
+
+    不妨设
+    \[\mathcal{A}\boldsymbol{v}_i=\lambda_i\boldsymbol{v}_i,\quad\sigma_i=\sqrt{\lambda_i}>0,\quad i=1,2,\cdots,r,\]
+    \[\mathcal{A}\boldsymbol{v}_i=\boldsymbol{0},\quad i=r+1,r+2,\cdots,n.\]
+
+    令
+    \[\boldsymbol{u}_i=\dfrac{1}{\sigma_i}\mathcal{A}\boldsymbol{v}_i,\quad i=1,2,\cdots,r,\]
+
+    则对 $1\leq i,j\leq r$,
+    \[(\boldsymbol{u}_i|\boldsymbol{u}_j)=\dfrac{1}{\sigma_i\sigma_j}(\mathcal{A}\boldsymbol{v}_i|\mathcal{A}\boldsymbol{v}_j)=\dfrac{1}{\sigma_i\sigma_j}(\mathcal{A}^*\mathcal{A}\boldsymbol{v}_i|\boldsymbol{v}_j)=\dfrac{1}{\sigma_i\sigma_j}(\lambda_i\boldsymbol{v}_i|\boldsymbol{v}_j)=\dfrac{\sigma_i^2}{\sigma_i\sigma_j}(\boldsymbol{v}_i|\boldsymbol{v}_j)=\delta_{ij}.\]
+
+    $\therefore(\boldsymbol{u}_i)$ 是
+    \[\left<\boldsymbol{u}_i|i=1,2,\cdots,r\right>=\left<\mathcal{A}\boldsymbol{v}_i|i=1,2,\cdots,r\right>=\mathcal{A}(\left<\boldsymbol{v}_i|i=1,2,\cdots,r\right>)\]
+    的标准正交基.
+
+    设 $W=\mathcal{A}(\left<\boldsymbol{v}_i|i=r+1,\cdots,n\right>)$. $\because\forall\boldsymbol{w}\in W,i=1,\cdots,r$,
+    \[(\boldsymbol{w}|\boldsymbol{u}_i)=\left(\sum\limits_{j=r+1}^na_j\mathcal{A}\boldsymbol{v}_j\Bigg|\dfrac{1}{\sigma_i}\mathcal{A}\boldsymbol{v}_i\right)=\sum\limits_{j=r+1}^n\dfrac{a_j}{\sigma_i}(\mathcal{A}\boldsymbol{v}_j|\mathcal{A}\boldsymbol{v}_i)=\sum\limits_{j=r+1}^n\dfrac{a_j}{\sigma_i}(\mathcal{A}^*\mathcal{A}\boldsymbol{v}_j|\boldsymbol{u}_i)=0,\]
+
+    $\therefore W=(\mathcal{A}(\left<\boldsymbol{v}_i|i=1,2,\cdots,r\right>))^\perp$. $\therefore$ 从 $W$ 中选取标准正交基 $\boldsymbol{u}_{r+1},\cdots,\boldsymbol{u}_n$, 则 $\boldsymbol{u}_1,\cdots,\boldsymbol{u}_n$ 是 $U$ 的标准正交基.
+
+    $\mathcal{A}$ 在基 $(\boldsymbol{v}_i)$ 和 $(\boldsymbol{u}_i)$ 下的矩阵为
+    \[\begin{pmatrix}
+        \Sigma & 0 \\
+        0 & 0 \\
+    \end{pmatrix},\quad\Sigma=\operatorname{diag}(\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\qedhere\]
+\end{proof}
+\begin{note}
+    特别地, 当 $V=\mathbb{R}^m,U=\mathbb{R}^n$ 时, 选取适当的标准正交基, 使得
+    \[A=B\begin{pmatrix}
+        \Sigma & 0 \\
+        0 & 0 \\
+    \end{pmatrix}{}^tC,\quad\Sigma=\operatorname{diag}(\sigma_1,\sigma_2,\cdots,\sigma_r),\quad \sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0,\]
+
+    上式称为 $A$ 的\textbf{奇异值分解}.
+\end{note}
+\subsection{习题3.4}
+\begin{exercise}[4.1]
+    证明: Euclid 空间 $V$ 上没有特征向量的正交算子 $\mathcal{A}$ 是某个与 $V$ 相关联的 $m$ 维复向量空间 $U$ 上的某个酉算子 $\mathcal{B}$ 的实化算子.
+\end{exercise}
+\begin{proof}
+    由书上第 3 章的定理 10 得 $\exists V$ 的一个标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{2m}$, $\mathcal{A}$ 在这个基下的矩阵是
+    \[\begin{pmatrix}
+        a_1 & -b_1 \\
+        b_1 & a_1 \\
+        && a_2 & -b_2 \\
+        && b_2 & a_2 \\
+        &&& \ddots & \ddots \\
+        &&&& a_m & -b_m \\
+        &&&& b_m & a_m \\
+    \end{pmatrix}.\]
+
+    $\therefore\mathcal{A}$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_{2m-1},\boldsymbol{e}_2,\boldsymbol{e}_4,\cdots,\boldsymbol{e}_{2m}$ 下的矩阵为
+    \[\begin{pmatrix}
+        A & -B \\
+        B & A \\
+    \end{pmatrix},\]
+
+    其中 $A=\operatorname{diag}(a_1,a_2,\cdots,a_m),B=\operatorname{diag}(b_1,b_2,\cdots,b_m)$. 由书上的命题 2 得 $\mathcal{A}\in\mathcal{L}(U)_\mathbb{R}$.
+\end{proof}
+\begin{exercise}[4.2]
+    证明书上的命题 3: 设 $\mathcal{A}\in\mathcal{L}(U),\mathcal{A}_\mathbb{R}$ 是 $\mathcal{A}$ 的实化算子, 则 $\det\mathcal{A}_\mathbb{R}=|\det\mathcal{A}|^2$.
+\end{exercise}
+\begin{proof}
+    由书上第 3.4 节的定理 1, $\exists U$ 的基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在 $(\boldsymbol{e}_i)$ 下的矩阵 $A$ 是上三角矩阵. 设
+    \[A=\begin{pmatrix}
+        \lambda_1+i\mu_1 \\
+        & \lambda_2+i\mu_2 && * \\
+        && \ddots \\
+        &&& \lambda_n+i\mu_n \\
+    \end{pmatrix},\]
+
+    则 $\mathcal{A}_\mathbb{R}\boldsymbol{e}_j=\mathcal{A}\boldsymbol{e}_j=(\lambda_j+i\mu_j)\boldsymbol{e}_j+\boldsymbol{v}_j$, $\mathcal{A}_\mathbb{R}(i\boldsymbol{e}_j)=i\mathcal{A}\boldsymbol{e}_j=(-\mu_j+i\lambda_j)\boldsymbol{e}_j+\boldsymbol{u}_j$, 其中 $\boldsymbol{v}_j,\boldsymbol{u}_j\in\left<\boldsymbol{e}_1,i\boldsymbol{e}_1,\cdots,\boldsymbol{e}_{j-1},i\boldsymbol{e}_{j-1}\right>$.
+    
+    $\therefore\mathcal{A}_\mathbb{R}$ 在基 $\boldsymbol{e}_1,i\boldsymbol{e}_1,\boldsymbol{e}_2,i\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_n$ 下的矩阵为
+    \[A_\mathbb{R}=\begin{pmatrix}
+        \lambda_1 & \mu_1 \\
+        -\mu_1 & \lambda_1 \\
+        && \lambda_2 & \mu_2 && * \\
+        && -\mu_2 & \lambda_2 \\
+        &&& \ddots & \ddots \\
+        &&&& \lambda_2 & \mu_2 \\
+        &&&& -\mu_2 & \lambda_2 \\
+    \end{pmatrix}.\]
+
+    $\therefore$
+    \[\det A_\mathbb{R}=\prod\limits_{i=1}^n\begin{vmatrix}
+        \lambda_i & \mu_i \\
+        -\mu_i & \lambda_i \\
+    \end{vmatrix}=\prod\limits_{i=1}^n(\lambda_i^2+\mu_i^2).\]
+
+    另一方面,
+    \[|\det\mathcal{A}|=\left|\prod\limits_{j=1}^n\lambda_j+i\mu_j\right|=\prod\limits_{j=1}^n\sqrt{\lambda_j^2+\mu_j^2},\]
+
+    $\therefore\det\mathcal{A}_\mathbb{R}=|\det\mathcal{A}|^2$.
+\end{proof}
+\begin{exercise}[4.4]
+    设 $V$ 是 $m$ 维 Euclid 空间, $V^\mathbb{C}$ 是它的复化空间, $\mathcal{A}$ 是 $V^\mathbb{C}$ 上的线性算子, 由 $\forall\boldsymbol{u},\boldsymbol{v},\mathcal{A}(\boldsymbol{u}+i\boldsymbol{v})=\boldsymbol{u}-i\boldsymbol{v}$ 定义. $\mathcal{A}_\mathbb{R}$ 是 $(V^\mathbb{C})_\mathbb{R}$ 上的线性算子吗? 如果是, $\mathcal{A}_\mathbb{R}$ 是否是对称, 正交, 幂等的?
+\end{exercise}
+\begin{proof}
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, 则 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,\cdots,i\boldsymbol{e}_2,i\boldsymbol{e}_n$ 是 $(V^\mathbb{C})_\mathbb{R}$ 的一个基.
+
+    $\because\mathcal{A}_\mathbb{R}\boldsymbol{e}_i=\mathcal{A}\boldsymbol{e}_i=\boldsymbol{e}_i,\mathcal{A}_\mathbb{R}i\boldsymbol{e}_i=\mathcal{A}i\boldsymbol{e}_i=-i\boldsymbol{e}_i$, $\therefore\mathcal{A}_\mathbb{R}$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,\cdots,i\boldsymbol{e}_2,i\boldsymbol{e}_n$ 下的矩阵为
+    \[A=\begin{pmatrix}
+        E_m & 0 \\
+        0 & -E_m \\
+    \end{pmatrix}.\]
+
+    容易验证 $A$ 是对称, 正交, 幂等的.
+\end{proof}
+\subsection{习题 3.5}
+\begin{table}[htbp!]
+    \centering
+    \begin{tabular}{c|cc}
+        年份编号 & $u$ & $v$ \\
+        \hline
+        1 & $1.6$ & $1.2$ \\
+        2 & $1.4$ & $1.7$ \\
+        3 & $1.8$ & $2.0$ \\
+    \end{tabular}
+    \caption{收入和支出(单位:亿元)}\label{tb1}
+\end{table}
+\begin{exercise}[补充题 5]
+    某公司统计了其 3 年内的收入 $u$ 和支出 $v$, 如表 \ref{tb1}.
+    
+    假设 $u=a+bv,(a,b\in\mathbb{R})$, 求 $a,b$ 的最小二乘解.
+\end{exercise}
+\begin{solution}
+    问题等价于解方程
+    \[\begin{cases}
+        1a+1.2b=1.6, \\
+        1a+1.7b=1.4, \\
+        1a+2.0b=1.8. \\
+    \end{cases}\]
+
+    $\because\det\dbinom{1\quad1.2}{1\quad1.7}\neq0$, $\therefore$ 方程组的秩为 $2$. 由例 \ref{exa5.1} 得方程组
+    \[\begin{cases}
+        (1,1,1)[1,1,1]\tilde{a}+(1.2,1.7,2.0)[1,1,1]\tilde{b}=(1.6,1.4,1.8)[1,1,1] \\
+        (1,1,1)[1.2,1.7,2.0]\tilde{a}+(1.2,1.7,2.0)[1.2,1.7,2.0]\tilde{b}=(1.6,1.4,1.8)[1.2,1.7,2.0] \\
+    \end{cases}\]
+    的解为 $a,b$ 的最小二乘解. 解得 $\tilde{a}=\dfrac{13}{10},\tilde{b}=\dfrac{9}{49}$.
+\end{solution}
+\end{document}

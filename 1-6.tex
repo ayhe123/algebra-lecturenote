@@ -1,0 +1,1364 @@
+% TODO:
+% 习题1.11题目最后一句话, $X^5-X-1$ 在 $\mathbb{Z}_3$ 上是既约的
+% 检查 Crammer 的拼写
+% 第 2.2 节补充证明
+% 习题 2.1
+% 习题 4.14 Sturm 组性质 iv
+
+\documentclass[UTF8]{ctexart}
+\usepackage{lecturenote}
+
+\title{第6章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{根的一般性质(对应教材6.1节)}
+\subsection{导子}
+$\operatorname{Der}(R)$ 具有一些特别的性质.
+\begin{example}
+    若 $D_1,D_2\in\operatorname{Der}(R)$, 则 $D_1D_2\notin\operatorname{Der}(R)$, 但 $[D_1,D_2]=D_1D_2-D_2D_1\in\operatorname{Der}(R)$.
+
+    这一性质类似于 $\{A\in M_n(\mathbb{R}|\operatorname{tr}A=0\}$. 有
+    \[\begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+    \end{pmatrix}\begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+    \end{pmatrix}=\begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+    \end{pmatrix},\]
+    \[\begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+    \end{pmatrix}\begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+    \end{pmatrix}-\begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+    \end{pmatrix}\begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+    \end{pmatrix}=\begin{pmatrix}
+        1 & 0 \\
+        0 & -1 \\
+    \end{pmatrix}.\]
+\end{example}
+\subsection{Vieta 公式}
+设 $A$ 是域 $P$ 的子域. Vieta 公式说明, 尽管 $f\in A[X]$ 在 $P$ 中的根可能 $\notin A$, 但是根经过适当的运算后得到的元素可能 $\in A$. 有时会用适当的多项式运算来判断根的性质.
+\begin{example}
+    $X^2-X-1=0$ 的根 $\notin\mathbb{Q}$, 但 $c_1+c_2=1,c_1c_2=-1$.
+\end{example}
+\subsection{一些定理的证明}
+≈引入分式域证明书上的定理 2.
+\begin{theorem}[书上的定理 2]\label{t1.2b}
+    设 $A$ 是整环, $f\neq0$ 是 $A[X]$ 中的多项式, $c_1,c_2,\cdots,c_r\in A$ 分别是 $f$ 的 $k_1,k_2,\cdots,k_r$ 重根, 则
+    \[f(X)=(X-c_1)^{k_1}\cdots(X-c_r)^{k_r}g(X),\]
+
+    其中 $g(X)\in A[X],g(c_i)\neq0,i=1,2,\cdots,r$.
+\end{theorem}
+\begin{proof}
+    $\because c_1,c_2,\cdots,c_r\in A$ 分别是 $f$ 的 $k_1,k_2,\cdots,k_r$ 重根, $\therefore(X-c_1)^{k_1},\cdots,(X-c_r)^{k_r}$ 是 $f$ 的因子, 而 $(X-c_1)^{k_1+m},\cdots,(X-c_r)^{k_r+m}\ (m=1,2,\cdots)$ 不是 $f$ 的因子.
+
+    由书上第 5.4 节的定理 1 得 $A\hookrightarrow Q(A)=P$, $\therefore A[X]\hookrightarrow P[X]$.
+
+    $\because P$ 是域, 由书上第 5.3 节定理 4 的推论得 $P[X]$ 是唯一因子分解环.
+
+    $\therefore f$ 有素因子分解
+    \[f(X)=(X-c_1)^{k_1}\cdots(X-c_r)^{k_r}p_1^{q_1}(X)p_2^{q_2}(X)\cdots p_s^{q_s}(X).\]
+
+    令 $g(X)=p_1^{q_1}(X)p_2^{q_2}(X)\cdots p_s^{q_s}(X)$, 则 $g(c_i)\neq0,i=1,2,\cdots,r$.
+\end{proof}
+上述定理对于非整环不一定成立. 事实上非整环上的元素可以有无穷多个不同的素因子分解.
+\begin{example}
+    在 $\mathbb{Z}_8$ 上有 $4^2=4+4=0$.
+
+    设 $B=\{(a_1,a_2,\cdots)|a_i\in\mathbb{Z}_8\}$, 定义 $B$ 上的运算:
+    \[(a_i)+(b_i)=(a_i+b_i),\quad(a_i)(b_i)=(a_ib_i).\]
+
+    对 $a,\in\mathbb{Z}_8,i\in\mathbb{N}_+$, 定义
+    \[\xi_{ia}:=(0,0,\cdots,0,a,0,\cdots),\]
+
+    即 $\xi_{ia}$ 的第 $i$ 个分量为 $a$, 其余为 $0$. 则 $2\xi_{i,4}=\xi_{i,4}^2=0$.
+
+    $\therefore$ 在 $B[X]$ 上有
+    \[(X-\xi_{i,4})^2=X^2-2\xi_{i,4}+\xi_{i,4}^2=X^2.\]
+
+    $\because$ 上式对 $\forall i\in\mathbb{N}_+$ 都成立, $\therefore X^2$ 有无穷多个不同的分解式
+    \[X^2=(X-\xi_{14})^2=(X-\xi_{24})^2=\cdots.\]
+\end{example}
+书上的推论 1 可以直接证明:
+\begin{theorem}[书上的推论 1]
+    设 $A$ 是整环, $\operatorname{char}A=0$, $c\in A$ 是 $f(X)\in A[X]$ 的 $k$ 重根 $\Leftrightarrow$
+    \[f(c)=f'(c)=\cdots=f^{(k-1)}(c)=0,\quad f^{(k)}(c)\neq0.\]
+\end{theorem}
+\begin{proof}
+    ($\Rightarrow$) 由书上的定理 \ref{t1.2b} 得
+    \[f(X)=(X-c)^kg(X),\quad g(X)\in A[X],g(c)\neq0.\]
+
+    由 Leibniz 公式 (P183 的式 (8')) 得
+    \[f^{(i)}(X)=\sum\limits_{j=0}^i\dbinom{i}{j}((X-c)^k)^{(j)}g^{(i-j)}(X).\]
+
+    $\because\operatorname{char}A=0,\therefore\forall j\leq k$,
+    \[((X-c)^k)^{(j)}(X)=k(k-1)\cdots(k-j+1)(X-c)^{k-j}\neq0,\]
+
+    $\therefore$
+    \[f^{(j)}(X)=k(k-1)\cdots(k-j+1)(X-c)^{k-j}g(X)+a(X-c)^2g'(X)+\cdots+(X-c)^kg^{(j)}(X),\]
+
+    其中 $a\in A$.
+    $\therefore\forall j\leq k-1,(X-c)|f^{(j)}(X)\Rightarrow f^{(j)}(c)=0$.
+
+    特别地,
+    \[f^{(k-1)}(X)=k!(X-c)g(X)+b(X-c)^2g'(X)+\cdots+(X-c)^kg^{(k-1)}(X),\]
+
+    其中 $b\in A$. $\because$
+    \[f^{(k)}(X)=(f^{(k-1)})'(X)=k!g(X)+(X-c)h(X),\]
+
+    把 $X=c$ 代入得
+    \[f^{(k)}(c)=k!g(c)\neq0.\]
+
+    ($\Leftarrow$) 设 $f(X)=(X-c)^mg(X),g(X)\in A[X],g(c)\neq0$. 由 ($\Rightarrow$),
+    \[f(c)=f'(c)=\cdots=f^{(m-1)}(c)=0,\quad f^{(m)}(c)\neq0.\]
+
+    $\therefore k=m$.
+\end{proof}
+\begin{theorem}[书上的推论 2]
+    设 $P$ 是域, $f=p_1^{n_1}p_2^{n_2}\cdots p_r^{n_r}\in P[X]$ 是素因子分解, 则有
+    \[\gcd(f,f')=p_1^{n_1-1}p_2^{n_2-1}\cdots p_r^{n_r-1}.\]
+\end{theorem}
+\begin{proof}
+    $\forall i=1,2,\cdots,r$ 设 $f=p_i^{n_i}g_i$, 其中 $\gcd(p_i,g_i)=1$. 则
+    \begin{align*}
+        f' & =n_ip_i^{n_i-1}p'_ig_i+p_i^{n_i}g'_i \\
+        & =p_i^{n_i-1}(n_ip'_ig_i+p_ig'_i).
+    \end{align*}
+
+    $\because p_i$ 是素因子, 由第 \ref{ex1.6} 题得 $\gcd(p_i,p_i')=1$.
+
+    $\because\gcd(p_i,g_i)=1,\gcd(p_i,n_i)=1$ ($n_i\in P$), $P[X]$ 是 Euclid 环, 由 5.3 节定理 3 的推论得 $\gcd(p_i,n_ig_ip_i')=1$.
+
+    假设 $p_i|(n_ip'_ig_i+p_ig'_i)$, 则 $p_i|(n_ip'_ig_i+p_ig'_i-p_ig_i)=n_ip'_ig_i$, 与 $p_i\nmid n_ip'_ig_i$ 矛盾. $\therefore p_i\nmid(n_ip'_ig_i+p_ig'_i)$.
+
+    $\therefore p_i^{n_i}|f,p_i^{n_i-1}|f',p_i^{n_i}\nmid f'$.
+
+    $\therefore$
+    \[\gcd(f,f')=p_1^{n_1-1}p_2^{n_2-1}\cdots p_r^{n_r-1}.\qedhere\]
+\end{proof}
+利用 Vieta 公式可以解与根相关的问题.
+\begin{example}
+    设多项式 $X^3+aX^2+bX+c$ 的根为 $x_1,x_2,x_3$, 求一个根为 $y_1=x_1+x_2,y_2=x_2+x_3,y_3=x_1+x_3$ 的三次多项式.
+\end{example}
+\begin{solution}
+    设 $X^3+a'X^2+b'X+c'$ 为要求的多项式. 由 Vieta 公式,
+    \[-a'=y_1+y_2+y_3=2(x_1+x_2+x_3)=-2a,\]
+    \[b'=y_1y_2+y_3y_2+y_3y_1=g_1(x_1,x_2,x_3)=g_2(a,b,c),\]
+    \[-c'=y_1y_2y_3=h_1(x_1,x_2,x_3)=h_2(a,b,c),\]
+
+    其中 $g_i,h_i$ 是多项式.
+\end{solution}
+\section{对称多项式(对应教材6.2节)}
+\subsection{不变量理论}
+可以将对称函数的概念推广, 将定义(P189)中 ``$\forall\pi\in S_n,\pi\circ f=f$'' 改成 $\forall\pi\in A\subset S_n,\pi\circ f=f$. 19世纪末发展起来的\textbf{不变量理论}研究满足上述条件的 $f$. 不变量理论的大多数问题都已经被 Hilbert 解决, 所以在很长一段时间内没有多大的发展.
+\subsection{一些定理的证明}
+\begin{theorem}
+    整环 $A$ 上全体 $n$ 元对称多项式构成的环 $R_A$ 是 $A[X_1,X_2,\cdots,X_n]$ 的子环.
+\end{theorem}
+\begin{proof}
+    若 $f$ 是对称多项式, 则
+    \[\pi\circ f=f\Rightarrow\pi\circ(-f)=-f.\]
+
+    $\therefore f\in R_A\Rightarrow-f\in R_A$.
+
+    $\because\forall\pi\in S_n$,
+    \[\pi\circ(f+g)=\pi\circ f+\pi\circ g,\quad\pi\circ(fg)=(\pi\circ f)(\pi\circ g),\]
+
+    $\therefore\forall f,g\in R_A$,
+    \[\pi\circ(f+g)=\pi\circ f+\pi\circ g=f+g,\]
+    \[\pi\circ(fg)=(\pi\circ f)(\pi\circ g)=fg,\]
+
+    $\therefore R_A$ 对加法和乘法封闭. $\therefore R_A$ 是 $A[X_1,X_2,\cdots,X_n]$ 的子环.
+\end{proof}
+\begin{theorem}[书上的引理 1]
+    设 $h=h_1h_2\cdots h_k,h_i\in A[X_1,X_2,\cdots,X_n]$, 则
+    \[\operatorname{FT}(h)=\operatorname{FT}(h_1)\operatorname{FT}(h_2)\cdots\operatorname{FT}(h_k).\]
+\end{theorem}
+\begin{proof}
+    对 $k$ 用数学归纳法. 当 $k=2$ 时设
+    \[h_1=\operatorname{FT}(h_1)+p_1,\quad h_2=\operatorname{FT}(h_2)+p_2,\]
+
+    其中 $\operatorname{FT}(h_i)\succ p_i$($\succ$ 的记号见第 5 章笔记的 2.3 节). 则
+    \[h=\operatorname{FT}(h_1)\operatorname{FT}(h_2)+\operatorname{FT}(h_1)p_2+\operatorname{FT}(h_2)p_1+p_1p_2.\]
+
+    设
+    \[\operatorname{FT}(h_1)=a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n},\quad\operatorname{FT}(h_2)=a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n},\]
+    \[b_1X_1^{k_1}X_2^{k_2}\cdots X_n^{k_n},\quad b_2X_1^{l_1}X_2^{l_2}\cdots X_n^{l_n}\]
+
+    分别出现在 $p_1,p_2$ 中.
+
+    由第 5 章笔记的命题 2 得
+    \[a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n}\cdot a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n}\succ a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n}\cdot b_2X_1^{l_1}X_2^{l_2}\cdots X_n^{l_n},\]
+    \[a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n}\cdot a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n}\succ b_1X_1^{k_1}X_2^{k_2}\cdots X_n^{k_n}\cdot a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n},\]
+    \[a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n}\cdot a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n}\succ b_1X_1^{k_1}X_2^{k_2}\cdots X_n^{k_n}\cdot b_2X_1^{l_1}X_2^{l_2}\cdots X_n^{l_n},\]
+
+    $\therefore$
+    \[\operatorname{FT}(h)=\operatorname{FT}(h_1)\operatorname{FT}(h_2).\]
+
+    假设当 $k-1$ 时成立, 则由 $h=h_1(h_2h_3\cdots h_k)$ 得
+    \begin{align*}
+        \operatorname{FT}(h) & =\operatorname{FT}(h_1)\operatorname{FT}(h_2h_3\cdots h_k) \\
+        & =\operatorname{FT}(h_1)\operatorname{FT}(h_2)\cdots\operatorname{FT}(h_k).\qedhere
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    书上定理 1 中 $f,g$ 都是整系数的. 进一步, $g$ 的系数都是 $f$ 的系数的线性组合.
+\end{theorem}
+\begin{proof}
+    定理 1 的证明给出了以下递推式:
+    \[\begin{cases}
+        f_{(1)}(X_1,X_2,\cdots,X_n)=f(X_1,X_2,\cdots,X_n)-a\mathbf{s}_1^{i_1-i_2}\mathbf{s}_2^{i_2-i_3}\cdots\mathbf{s}_n^{i_n}, \\
+        f_{(2)}(X_1,X_2,\cdots,X_n)=f_{(1)}(X_1,X_2,\cdots,X_n)-b\mathbf{s}_1^{j_1-j_2}\mathbf{s}_2^{j_2-j_3}\cdots\mathbf{s}_n^{j_n}, \\
+        \cdots, \\
+    \end{cases}\]
+
+    其中 $a$ 是 $f$ 的系数, $b$ 是 $f_{(1)}$ 的系数, $\cdots$.
+
+    $\because\mathbf{s}_1^{i_1-i_2}\mathbf{s}_2^{i_2-i_3}\cdots\mathbf{s}_n^{i_n}$ 是整系数的, $\therefore f_{(1)}$ 是整系数的, 且 $f_{(1)}$ 的系数是 $f$ 的系数的线性组合.
+
+    $\therefore f_{(2)}$ 是整系数的, 且 $f_{(2)}$ 的系数是 $f_{(1)}$ 的系数的线性组合, 自然也是 $f$ 的系数的线性组合.
+
+    递推下去即得 $f_{(i)}$ 的系数是 $f$ 的系数的线性组合.
+
+    $\because g=\sum\limits_{i}f_{(i)},\therefore g$ 的系数是 $f$ 的系数的线性组合.
+\end{proof}
+\begin{lemma}\label{l2.1}
+    设 $g=g_1+\cdots+g_s\in A[X_1,\cdots,X_n]$, 则 $\operatorname{FT}(g)=\max\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+\end{lemma}
+\begin{proof}
+    假设 $\operatorname{FT}(g)\notin\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$, 设 $\operatorname{FT}(g)$ 在 $g_i$ 中, 则 $\operatorname{FT}(g_i)\succ\operatorname{FT}(g)$, 与 $\forall g$ 中的单项式 $f,\operatorname{FT}(g)\succ f$ 矛盾.
+
+    $\therefore\operatorname{FT}(g)\in\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+
+    $\because\forall g_i,\operatorname{FT}(g)$ 是 $g$ 中的单项式 $\Rightarrow\operatorname{FT}(g)\succ\operatorname{FT}(g_i)$,
+    
+    $\therefore\operatorname{FT}(g)=\max\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+\end{proof}
+\begin{theorem}
+    书上定理 1 中的 $g$ 是唯一的.
+\end{theorem}
+\begin{proof}
+    设 $R_1$ 为 $A$ 上的 $n$ 元对称多项式, $R_2$ 为 $A$ 上单调的 $n$ 元单项式. 考虑映射
+    \[\phi:\begin{array}{rcl}
+        A[Y_1,Y_2,\cdots,Y_n] & \to & R_1 \\
+        g(Y_1,Y_2,\cdots,Y_n) & \to & f=g(\mathbf{s}_1,\mathbf{s}_2,\cdots,\mathbf{s}_n) \\
+    \end{array},\]
+
+    由 $\phi$ 的构造得 $\phi$ 是同态. 由书上的定理 1 证明的第 3 部分得 $\forall f\in R_1,\exists f\in A[Y_1,Y_2,\cdots,Y_n]$ 使得 $f=\phi(g).\therefore\phi$ 是满射.
+    
+    $\therefore g$ 的唯一性等价于 $\phi$ 是同构.
+    
+    $\because\phi$ 是同态, $\therefore\forall g\in\ker\phi$, 设 $g=g_1+g_2+\cdots+g_s$, 其中 $g_1,g_2,\cdots,g_s$ 是单项式, 则 $\phi(g)=\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s)$,
+    \begin{align*}
+        \phi(g)=0 & \Rightarrow\operatorname{FT}(\phi(g))=0 \\
+        & \Rightarrow\operatorname{FT}(\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s))=0.
+    \end{align*}
+
+    由引理 \ref{l2.1},
+    \[\max\{\operatorname{FT}(\phi(g_1)),\operatorname{FT}(\phi(g_2)),\cdots,\operatorname{FT}(\phi(g_s))\}=0.\]
+
+    $\therefore\forall i,\operatorname{FT}(\phi(g_i))=0$.
+
+    设 $aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n$ 是 $g$ 的一个单项式. 则
+    \begin{align*}
+        \operatorname{FT}(\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n)) & =aX_1^{k_1}(X_1X_2)^{k_2}\cdots(X_1,X_2,\cdots,X_n)^{k_n} \\
+        & =aX_1^{k_1+k_2+\cdots+k_n}X_2^{k_2+k_3+\cdots+k_n}\cdots X_n^{k_n}.
+    \end{align*}
+
+    $\therefore\operatorname{FT}(\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n))=0\Rightarrow a=0\Rightarrow aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n=0$.
+
+    $\therefore\forall i,g_i=0.\therefore g=g_1+g_2+\cdots+g_s=0$.
+
+    $\therefore\phi$ 是单射, $\therefore\phi$ 是同构.
+\end{proof}
+\begin{note}
+    类比下面这个例子可以理解为什么一个环能与自己的真子环建立同构. 考察映射
+    \[\phi:\begin{array}{rcl}
+        \mathbb{N} & \to & N=\{a|a=2k,k\in\mathbb{N}\} \\
+        a & \to & 2a \\
+    \end{array}.\]
+
+    容易验证 $\phi$ 是双射. 这样我们就在 $\mathbb{N}$ 与 $\mathbb{N}$ 的真子集间建立了双射.
+\end{note}
+\subsection{待定系数法}
+可以给出 $S(v)$ 的形式化的定义:
+\begin{definition}
+    设 $v$ 是 $n$ 元单项式($v$ 通常为单调的, 但不单调的 $v$ 也不会影响定义), $N_v=\{\sigma\circ v|\sigma\in S_n\}$,
+    
+    则
+    \[S(v):=\sum_{u\in N_v}u.\]
+\end{definition}
+注意这样定义的 $S(v)\neq\sum\limits_{\sigma\in S_n}\sigma\circ v$. 比如说 $v=X_1^2,\sigma_1=(2\ 3),\sigma_2=(3\ 4)$, 有 $\sigma_1\circ v=\sigma_2\circ v=v,\therefore$ 在 $S(v)$ 中只有一项为 $v$, 但在 $\sum\limits_{\sigma\in S_n}\sigma\circ v$ 中至少有两项为 $v$.
+\begin{theorem}
+    $S(v)$ 是对称的.
+\end{theorem}
+\begin{proof}
+    $\forall\pi\in S_n$,
+    \[\pi\circ S(v)=\sum_{u\in N_v}\pi\circ u.\]
+
+    考虑映射
+    \[L_\pi:\begin{array}{rcl}
+        N_v & \to & N_v \\
+        u & \to & \pi\circ u \\
+    \end{array}\]
+
+    $\forall u\in N_v,\exists\sigma\in S_n$ 使得 $u=\sigma\circ v\Rightarrow\pi\circ u=(\pi\sigma)\circ u$.
+
+    $\because\pi\sigma\in S_n,\therefore\forall u\in N_v,L_\pi(u)\in N_v,\therefore L_\pi$ 是确切定义的.
+
+    $\because\forall u'\in N_v,\exists u=\pi^{-1}\circ u$ 使得 $L_\pi(u)=u',\therefore L_\pi$ 是满射.
+
+    $\because|N_v|<\infty$, 由书上 1.5 节的定理 3 得 $L_\pi$ 是双射.
+    
+    由第 4 章笔记的例 3.1 的证明类似, 有:
+    \begin{align*}
+        \sum_{u\in N_v}\pi\circ u & =\sum_{L_\pi(u)\in N_v}L_\pi(u) \\
+        & =\sum_{u\in N_v}u=S(v).\qedhere
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    如果 $v$ 是单调的, 那么 $\operatorname{FT}(S(v))=v$.
+\end{theorem}
+\begin{proof}
+    假设 $\operatorname{FT}(S(v))=u\neq v$, 由书上的引理 2 得 $u$ 单调.
+
+    $\because\exists\sigma\in S_n\backslash\{e\},u=\sigma\circ v,\therefore$ 若 $v$ 单调, 则 $u$ 不单调. 与 $u$ 单调矛盾.
+\end{proof}
+设 $v$ 是单调的, 构造以 $v$ 为首项的对称多项式 $g_v$(书上 P192 式(6)), 容易验证 $g_v,S(v)$ 是齐次的且 $\deg g_v=\deg S(v),\therefore r_1=S(v)-g_v$ 是对称, 齐次的, 且 $\deg r_1=\deg(S(v)-g_v)$.
+
+% 设 $\operatorname{FT}(r_1)=u$, 构造以 $u$ 为首项的对称多项式 $g_u$(书上 P192 式(6)), 容易验证 $g_u$ 是齐次的且 $\deg g_u=\deg r_1,\therefore r_2=r_1-g_u$ 是对称, 齐次的, 且 $\deg r_2=\deg r=\deg(S(v)-g_v)$.
+
+% 重复上述步骤, 可以得到一列多项式
+% \begin{equation}\label{eq2.1}
+%     r_0=S(v),r_1,r_2,\cdots,r_n,\cdots
+% \end{equation}
+% 满足
+% \[r_n=r_{n-1}-g_{\operatorname{FT}(r_{n-1})},\quad\operatorname{FT}(r_{n-1})\succ\operatorname{FT}(r_n).\]
+
+% $\because|S(v)|<\infty,\therefore$ 序列 (\ref{eq2.1}) 一定在某项 $m$ 终止, 这时 $\exists u_m$ 使得 $r_m=g_{u_m}$.
+
+% $\therefore$
+% 补充证明: 书上的(7)式是所有对称, 齐 $m$ 次的多项式的线性组合
+
+$v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
+\begin{example}
+    把 $S(X_1^3X_2)\ (n\geq4)$ 表成对称多项式的多项式.
+\end{example}
+\begin{solution}
+    $M_v$ 和 $g_\omega$ 如表 \ref{tb1}. $S(X_1^3X_2)$ 有
+    \[S(X_1^3X_2)=\mathbf{s}_1^2\mathbf{s}_2+a_1\mathbf{s}_2^2+a_2\mathbf{s}_1\mathbf{s}_3+a_3\mathbf{s}_4\]
+    的形式.
+
+    当 $X_1=X_2=1,X_i=0\ (i\geq3)$ 时 $S(X_1^3X_2)=X_1^3X_2+X_2^3X_1=2,\mathbf{s}_1=2,\mathbf{s}_2=1,\mathbf{s}_k=0\ (k\geq3)$.
+
+    当 $X_1=X_2=X_3=1,X_i=0\ (i\geq4)$ 时 $S(X_1^3X_2)=X_1^3X_2+X_2^3X_1+X_1^3X_3+X_3^3X_1+X_3^3X_2+X_2^3X_3=6,\mathbf{s}_1=3,\mathbf{s}_2=3,\mathbf{s}_3=1,\mathbf{s}_k=0\ (k\geq4)$.
+
+    当 $X_1=X_2=X_3=X_4=1,X_i=0\ (i\geq5)$ 时 $S(X_1^3X_2)=4\cdot3=12,\mathbf{s}_1=\dbinom{4}{1}=4,\mathbf{s}_2=\dbinom{4}{2}=6,\mathbf{s}_3=\dbinom{4}{3}=4,\mathbf{s}_4=\dbinom{4}{4}=1,\mathbf{s}_k=0\ (k\geq5).\therefore$
+    \[\begin{cases}
+        2=2^2+a_1 \\
+        6=3^2\cdot3+a_1\cdot3^2+a_2\cdot3\cdot1 \\
+        12=4^2\cdot6+a_1\cdot6^2+a_2\cdot4\cdot4+a_3 \\
+    \end{cases}\]
+
+    解得
+    \[\begin{cases}
+        a_1=-2, \\
+        a_2=-1, \\
+        a_3=4, \\
+    \end{cases}\]
+
+    $\therefore$
+    \[S(X_1^3X_2)=\mathbf{s}_1^2\mathbf{s}_2-2\mathbf{s}_2^2-\mathbf{s}_1\mathbf{s}_3+4\mathbf{s}_4\]
+    \begin{table}\caption{$M_v$ 和 $g_\omega$}\label{tb1}
+        \begin{center}
+            \begin{tabular}{c|ccc}
+                $M_v$      & $X_1^2X_2^2$ & $X_1^2X_2X_3$ & $X_1X_2X_3X_4$ \\
+                \hline
+                $g_\omega$ & $\mathbf{s}_2^2$ & $\mathbf{s}_1\mathbf{s}_3$ & $\mathbf{s}_4$ \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+\end{solution}
+\subsection{结式}
+书上结式定义那里排版得不太对. 准确的排版应该是
+\[\operatorname{Res}(f,g)\begin{vmatrix}
+    a_0 & a_1 & \cdots & a_{n-1} & a_n \\
+    & a_0 & a_1 & \cdots & a_{n-1} & a_n \\
+    && \ddots & \ddots & \ddots & \ddots & \ddots \\
+    &&& a_0 & a_1 & \cdots & a_{n-1} & a_n \\
+    b_0 & b_1 & \cdots & b_{m-1} & b_m \\
+    & b_0 & b_1 & \cdots & b_{m-1} & b_m \\
+    && \ddots & \ddots & \ddots & \ddots & \ddots \\
+    &&& b_0 & b_1 & \cdots & b_{m-1} & b_m \\
+\end{vmatrix}.\]
+
+行列式的对角线为 $a_0,\cdots,a_0,b_m,\cdots,b_m$.
+
+在证明结式的性质 R2 的时候, 有
+\[\operatorname{Res}(f,g-Y)\begin{vmatrix}
+    a_0 & a_1 & \cdots & a_n & a_n \\
+    & a_0 & a_1 & \cdots & a_n & a_n \\
+    && \ddots & \ddots & \ddots & \ddots & \ddots \\
+    &&& a_0 & a_1 & \cdots & a_n & a_n \\
+    b_0 & b_1 & \cdots & b_{m-1} & b_m-Y \\
+    & b_0 & b_1 & \cdots & b_{m-1} & b_m-Y \\
+    && \ddots & \ddots & \ddots & \ddots & \ddots \\
+    &&& b_0 & b_1 & \cdots & b_{m-1} & b_m-Y \\
+\end{vmatrix}.\]
+
+行列式中主对角线对应的一项为 $(-1)^na^mY^n$.
+
+将 $\operatorname{Res}(f,g-Y)$ 看成是 $Y$ 的多项式, 则其常数项为 $\operatorname{Res}(f,g).\therefore$ 书上有
+\[\operatorname{Res}(f,g-Y)=(-1)^na^mY^n+\cdots+\operatorname{Res}(f,g)\]
+这个式子.
+\section{代数基本定理(对应教材6.3节)}
+\begin{theorem}[书上的例子的推广]
+    设 $f,g\in\mathbb{C}[X],S_c(f)=\{x\in\mathbb{C}|f(x)=c\}$. 若 $a\neq b,S_a(f)=S_a(g),S_b(f)=S_b(g)$, 则 $f=g$.
+\end{theorem}
+\begin{proof}
+    $\because S_a(f)\cap S_b(f)=\varnothing,\therefore$ 只需证明 $|S_a(f)\cap S_b(f)|\geq n+1\ (n=\max\{\deg f,\deg g\})$, 由第 6.1 节定理 2 的推论得 $f=g$.
+
+    不妨设 $\deg f=n$. 由书上的定理 1, $f-a,f-b$ 具有分解式
+    \[f(X)-a=a_0(X-\alpha_1)^{s_1}(X-\alpha_2)^{s_2}\cdots(X-\alpha_\nu)^{s_\nu},\]
+    \[f(X)-b=b_0(X-\beta_1)^{t_1}(X-\beta_2)^{t_2}\cdots(X-\beta_\mu)^{t_\mu},\]
+
+    其中
+    \[\sum\limits_{i=1}^\nu s_i=n=\sum\limits_{i=1}^\mu t_i,\quad\mu+\nu=|S_a(f)\cap S_b(f)|.\]
+    
+    由第 6.1 节的定理 5, $(X-\alpha_i)^{s_i-1}|(f(X)-a)'=f'(X),(X-\beta_i)^{t_i-1}|(f(X)-b)'=f'(X)$.
+
+    $\therefore$
+    \[f'(X)=(X-\alpha_1)^{s_1-1}\cdots(X-\alpha_\nu)^{s_\nu-1}(X-\beta_1)^{t_1}\cdots(X-\beta_\mu)^{t_\mu-1}h(X),\]
+
+    $\therefore$
+    \[\deg f'\geq\sum\limits_{i=1}^\nu(s_i-1)+\sum\limits_{i=1}^\mu(t_i-1)=2n-(\nu+\mu).\]
+
+    $\because\deg f'=n-1,\therefore\nu+\mu\geq n+1$.
+\end{proof}
+\section{实系数多项式(对应教材6.4节)}
+下面证明书上第 1 小节提到的一个结论.
+\begin{theorem}
+    设 $f=X^n+a_1X^{n-1}+\cdots+a_n\in\mathbb{R}[X]$. 如果 $f$ 有虚根 $c$ (即 $c\in\mathbb{C}\backslash\mathbb{R}$), 那么 $\bar{c}$ 也是 $f$ 的根.
+\end{theorem}
+\begin{proof}
+    $\because c\to\bar{c}$ 是 $\mathbb{C}$ 上的自同构, $\therefore\forall a,b\in\mathbb{C}$, 有
+    \[\overline{a+b}=\bar{a}+\bar{b},\quad\overline{ab}=\bar{a}\bar{b}.\]
+
+    $\because f(c)=c^n+a_1c^{n-1}+\cdots+a_n,\therefore\overline{f(c)}=\bar{c}^n+\overline{a_1}\bar{c}^{n-1}+\cdots+\overline{a_n}$.
+
+    $\because f\in\mathbb{R}[X],\therefore a_i\in\mathbb{R},\therefore\overline{f(c)}=\bar{c}^n+a_1\bar{c}^{n-1}+\cdots+a_n=f(\bar{c})$.
+
+    $\because c$ 是 $f$ 的根, $\therefore \overline{f(c)}=f(c)=0,\therefore\bar{c}$ 是 $f$ 的根.
+\end{proof}
+
+利用 Sturm 定理可以写出计算多项式在任一区间内实根个数的程序. 下面这个 Mathematica 程序可以计算 $f(X)=X^3+3X-1$ 在区间 $[-10,10]$ 内实根的个数(不计重数):
+\begin{verbatim}
+f = X^3 + 3 X - 1;
+lb = -10;
+ub = 10;
+changeNum[list_] := 
+    Select[list, # != 0 &] // Positive // Boole // Differences // Abs // Total;
+sturm = {f, D[f, X]};
+While[! NumberQ[sturm[[-1]]], 
+    sturm = Append[sturm, -PolynomialRemainder[sturm[[-2]], sturm[[-1]], X]]];
+changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
+\end{verbatim}
+其中 \verb|changeNum[list_]| 函数用于计算列表 \verb|list| 的变号数.
+\section{第6章习题}
+\begin{exercise}[1.1]
+    $p$ 元域上的多项式函数是整环吗?
+\end{exercise}
+\begin{solution}
+    不是. 考察域 $\mathbb{Z}_3$ 上的多项式函数 $f(x)=x^2-1,g(x)=x$, 有 $f(x)\neq0,g(x)\neq0,f(x)g(x)=x^3-x$.
+
+    $\because\forall a\in\mathbb{Z}_3,a^3=a,\therefore f(x)g(x)=0$. $\therefore f,g$ 是非平凡的零因子.
+\end{solution}
+\begin{exercise}[1.2]
+    设 $P$ 是无限域. 证明:
+    
+    (1) $\forall f\in P[X_1,X_2,\cdots,X_n]\backslash\{0\},\exists a_1,a_2,\cdots,a_n\in P$ 使得 $f(a_1,a_2,\cdots,a_n)\neq0$.
+
+    (2) $P[X_1,X_2,\cdots,X_n]$ 与 $P$ 上 $n$ 元多项式函数环同构.
+\end{exercise}
+\begin{proof}
+    (1) 用数学归纳法. $n=1$ 的情况由书上定理 3 的证明得. 假设当 $n=k$ 时成立. 设 $f\in P[X_1,X_2,\cdots,X_{k+1}]\backslash\{0\}$, 则 $f$ 可以写成
+    \[f(X_1,X_2,\cdots,X_{k+1})=g_0(X_1,X_2,\cdots,X_k)+g_1(X_1,X_2,\cdots,X_k)X_{k+1}+\cdots+g_s(X_1,X_2,\cdots,X_k)X^s_{k+1}\]
+    的形式, 其中 $g_0,g_1,\cdots,g_s\in P[X_1,X_2,\cdots,X_k]$ 且至少有一个为非零多项式. 不妨设 $g_t\neq0$.
+
+    由归纳假定, $\exists a_1,a_2,\cdots,a_k\in P$ 使得 $g_t(a_1,a_2,\cdots,a_k)\neq0.\therefore$
+    \[f(a_1,a_2,\cdots,a_k,X_{k+1})=b_0+b_1X_{k+1}+\cdots+b_sX^s_{k+1},\quad b_i=g_i(a_1,a_2,\cdots,a_k)\]
+    为一元非零多项式.
+
+    由书上定理 3 的证明得 $\exists a_{k+1}\in P,f(a_1,a_2,\cdots,a_k,a_{k+1})\neq0$.
+
+    (2) 设
+    \[\phi:\begin{array}{rcl}
+        P[X_1,X_2,\cdots,X_n] & \to & (\underbrace{P\times P\times\cdots\times P}_{n\text{个}P})^P \\
+        f(X_1,X_2,\cdots,X_n) & \to & f(x_1,x_2,\cdots,x_n) \\
+    \end{array}.\]
+
+    与第 5 章笔记的例 2.6 类似, 可以证明 $\phi$ 是满同态.
+
+    由 (1) 得 $\ker\phi=\{0\},\therefore\phi$ 是同构.
+\end{proof}
+\begin{exercise}[1.6]\label{ex1.6}
+    设 $f$ 是域 $P$ 上的既约多项式, 且 $\operatorname{char}P=0$. 证明 $\gcd(f,f')=1$, 其中 $f'$ 是 $f$ 的导数.
+\end{exercise}
+\begin{proof}
+    $\because f$ 是域 $P$ 上的既约多项式, $\therefore\deg f\geq1$.
+
+    $\because\operatorname{char}P=0,\therefore\forall n\in\mathbb{N}_+,a_n\in P,na_n\neq0.\therefore\forall g\in P[X],\deg g\geq1\Rightarrow g'\neq0.\therefore f'\neq0$.
+
+    (a) 若 $\deg f=1$, 设 $f(X)=aX+b\ (a,b\in P)$, 则 $f'(X)=a$ 是可逆元. $\therefore$ 在相伴的意义下有 $\gcd(f,f')=f'=1$.
+
+    (b) 若 $\deg f\geq2$, 由书上的式 (6) 以及 $f'\neq0$ 得 $\deg f'=\deg f-1$.
+    
+    设 $f=qh_1,f'=qh_2,q,h_1,h_2\in P[X].\because P[X]$ 是整环, $\therefore$
+    \[\deg f=\deg q+\deg h_1,\quad\deg f'=\deg q+\deg h_2.\]
+
+    $\because f$ 是既约的, $\therefore q$ 可逆或 $h_1$ 可逆. 由第 5 章笔记的定理 2.2 得
+    \[\deg q=0\vee\deg h_1=0.\]
+
+    假设 $\deg h_1=0$, 则 $\deg q=\deg f-\deg h_1=\deg f.\therefore\deg f'=\deg q+\deg h_2\geq\deg q=\deg f$, 与 $\deg f'=\deg f-1$ 矛盾.
+
+    $\therefore\forall q$ 使得 $f=qh_1,f'=qh_2,\deg q=0.\therefore$ 在相伴的意义下有 $\gcd(f,f')=f'=1$.
+\end{proof}
+\begin{exercise}[1.7]
+    证明:
+    
+    (1) 若 $f(X)$ 是特征 $0$ 的域 $P$ 上的多项式, 则 $f'=0\Rightarrow f$ 是某个常数.
+    
+    (2) 若 $f(X)$ 是特征 $p>0$ 的域 $P$ 上的多项式, 则 $f'=0\Rightarrow f(X)=g(X^p)$(其中 $g$ 是另外的某个多项式).
+\end{exercise}
+\begin{proof}
+    证明逆否命题.
+
+    (1) 设 $f$ 是特征 $0$ 的域 $P$ 上的多项式且 $f$ 不是常数, 则 $f$ 的首项为 $aX^n,n\geq1$. 由书上的式 (6), $f'$ 的首项为 $naX^{n-1}.\because\operatorname{char}P=0,\therefore\forall n\geq1,a\in P,na\neq0,\therefore f'\neq0$.
+
+    (2) 若 $f$ 是特征 $p>0$ 的域 $P$ 上的多项式且 $f(X)\neq g(X^p)$(其中 $g$ 是另外的某个多项式), 则 $f$ 中有一项 $aX^n$, 其中 $p\nmid n$. 由书上的式 (6), $f'$ 的首项为 $naX^{n-1}$.
+    
+    $\because\operatorname{char}P=p,\therefore\forall k,a$ 满足 $k\nmid n,a\in P,ka\neq0,\therefore f'\neq0$.
+\end{proof}
+\begin{exercise}[1.10]
+    (1) 证明多项式
+    \begin{equation}\label{eq5.1}
+        X^n+a_1X^{n-1}+\cdots+a_n\in\mathbb{Z}_2[X]
+    \end{equation}
+
+    没有线性因子, 当且仅当
+    \[a_n(1+\sum a_i)\neq0.\]
+
+    (2) 当 $n\leq3$ 时, $\mathbb{Z}_2[X]$ 上的全部既约多项式为
+    \[X,\ X+1,\ X^2+X+1,\ X^3+X+1,\ X^3+X^2+1.\]
+
+    写出 $\mathbb{Z}_2$ 上所有的 $4$ 次和 $5$ 次既约多项式.
+\end{exercise}
+\begin{proof}
+    (1) 证明否命题: 多项式 (\ref{eq5.1}) 有线性因子, 当且仅当
+    \begin{equation}\label{eq5.2}
+        a_n(1+\sum a_i)=0.
+    \end{equation}
+    
+    成立.
+
+    ($\Rightarrow$) 设
+    \[f(X)=X^{n-1}+b_2X^{n-2}+\cdots+b_n\in\mathbb{Z}_2[X],\]
+
+    则
+    \[(X-c)f(X)=X^n+(b_2-c)X^{n-1}+(b_3-b_2c)X^{n-2}+\cdots+(b_n-b_{n-1}c)X-b_nc.\]
+
+    将上式与式 (\ref{eq5.1}) 对比, 得
+    \[\begin{cases}
+        a_1=b_2-c, \\
+        a_2=b_3-b_2c, \\
+        \cdots \\
+        a_{n-1}=b_n-b_{n-1}c, \\
+        a_n=-b_nc, \\
+    \end{cases}\]
+
+    $\therefore$ 若 $c=0$, 则 $a_n=0$. 若 $c\neq0$, 则
+    \[1+\sum\limits_{k=1}^na_k=(1+c)\sum\limits_{k=2}^nb_k=0\cdot\sum\limits_{k=2}^nb_k=0.\]
+
+    $\therefore\forall c$, 式 (\ref{eq5.2}) 成立.
+
+    ($\Leftarrow$) 若 $a_n=0$, 则式 (\ref{eq5.1}) 有线性因子 $X$. 若 $a_n\neq0$, 由式 (\ref{eq5.2}) 得
+    \[1+\sum\limits_{k=1}^na_k=0.\]
+
+    由综合除法(表 \ref{tb2}), 式 (\ref{eq5.2}) 有线性因子 $X+1$.
+    \begin{table}\caption{式 (\ref{eq5.2})$/(X+1)$}\label{tb2}
+        \begin{center}
+            \begin{tabular}{c|ccccc}
+                $x+1$             & $1$ & $a_1$   & $a_2$         & $\cdots$ & $a_n$ \\
+                                  &     & $1$     & $1+a_1$       & $\cdots$ & $a_n$ \\
+                \cline{2-6}
+                \multicolumn{2}{r}{$1$} & $1+a_1$ & $1+a_1+a_2$   & $\cdots$ & $1+\sum\limits_{k=1}^na_k$
+                \end{tabular}
+        \end{center}
+    \end{table}
+
+    (2) 满足 $a_n(1+\sum a_i)\neq0$ 的 4 次多项式为
+    \[X^4+X^3+X^2+X+1,\ X^4+X^3+1,\ X^4+X^2+1,\ X^4+X+1.\]
+
+    $\because$
+    \[X^4+X^2+1=(X^2+X+1)^2,\]
+
+    $\therefore\mathbb{Z}_2$ 上所有的 $4$ 次既约多项式为
+    \[X^4+X^3+X^2+X+1,\ X^4+X^3+1,\ X^4+X+1.\]
+
+    满足 $a_n(1+\sum a_i)\neq0$ 的 4 次多项式为
+    \[X^5+X^3+X^2+X+1,\ X^5+X^4+X^2+X+1,\ X^5+X^4+X^3+X+1,\]
+    \[X^5+X^4+X^3+X^2+1,\ X^5+X+1,\ X^5+X^2+1,\ X^5+X^3+1,\ X^5+X^4+1.\]
+
+    $\because$
+    \[X^5+X^4+1=(X^2+X+1)(X^3+X+1),\]
+    \[X^5+X+1=(X^2+X+1)(X^3+X^2+1),\]
+
+    $\therefore\mathbb{Z}_2$ 上所有的 $4$ 次既约多项式为
+    \[X^5+X^3+X^2+X+1,\ X^5+X^4+X^2+X+1,\ X^5+X^4+X^3+X+1,\]
+    \[X^5+X^4+X^3+X^2+1,\ X^5+X^2+1,\ X^5+X^3+1.\]
+\end{proof}
+\begin{exercise}[1.11]
+    根据同余式
+    \[X^5-X-1=(X^2+X+1)(X^3+X^2+1)\ (\operatorname{mod}2)\]
+    证明多项式 $X^5-X-1$ 在 $\mathbb{Q}$ 上的既约性.
+\end{exercise}
+\begin{proof}
+    假设 $X^5-X-1$ 在 $\mathbb{Q}$ 上不是既约的, 则 $\exists f,g\in\mathbb{Z}[X]$ 使得
+    \[f(X)g(X)=X^5-X-1.\]
+
+    由第 5 章笔记的引理 3.1, 上式在 $\mathbb{Z}_2$ 上也成立.
+    
+    $\because$ 在 $\mathbb{Z}[X]$ 上有
+    \[(X^2+X+1)(X^3+X^2+1)=X^5+2X^4+2X^3+2X^2+X+1\neq f(X)g(X),\]
+
+    $\therefore f(X),g(X)$ 与 $X^2+X+1,X^3+X^2+1$ 不全相同.
+
+    $\therefore X^5-X-1$ 在 $\mathbb{Z}_2$ 上有不同的分解式
+    \[X^5-X-1=(X^2+X+1)(X^3+X^2+1)=f(X)g(X),\]
+
+    与 $\mathbb{Z}_2[X]$ 是唯一因子分解环矛盾.
+\end{proof}
+\begin{exercise}[2.1]
+    设 $p$ 是奇数, 证明:
+    \[\sum\limits_{i=1}^{p-1}i^m=\begin{cases}
+        -1\ (\operatorname{mod}p) & (p-1)|m, \\
+        0\ (\operatorname{mod}p) & (p-1)\nmid m. \\
+    \end{cases}\]
+\end{exercise}
+\begin{proof}
+    若 $m<p-1$, 则 $(p-1)\nmid m$.
+\end{proof}
+\begin{exercise}
+    证明: 当 $k\leq n$ 时有
+    \[\mathbf{p}=\begin{vmatrix}
+        \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        2\mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+        3\mathbf{s}_3 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        (k-1)\mathbf{s}_{k-1} & \mathbf{s}_{k-2} & \mathbf{s}_{k-3} & \mathbf{s}_{k-4} & \cdots & 1 \\
+        k\mathbf{s}_k & \mathbf{s}_{k-1} & \mathbf{s}_{k-2} & \mathbf{s}_{k-3} & \cdots & \mathbf{s}_1 \\
+    \end{vmatrix},\]
+    \[\mathbf{s}_k=\dfrac{1}{k!}\begin{vmatrix}
+        \mathbf{p}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        \mathbf{p}_2 & \mathbf{p}_1 & 2 & 0 & \cdots & 0 \\
+        \mathbf{p}_3 & \mathbf{p}_2 & \mathbf{p}_1 & 3 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \mathbf{p}_{k-4} & \cdots & k-1 \\
+        \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
+    \end{vmatrix}.\]
+\end{exercise}
+\begin{proof}
+    由 Newton 公式(书上的式 (8) (9)),
+    \begin{equation}\label{eq5.3}
+        \begin{cases}
+            \mathbf{p}_1-\mathbf{s}_1=0, \\
+            \mathbf{p}_2-\mathbf{p}_1\mathbf{s}_1+2\mathbf{s}_2=0, \\
+            \mathbf{p}_3-\mathbf{p}_2\mathbf{s}_1+\mathbf{p}_1\mathbf{s}_2-3\mathbf{s}_3=0, \\
+            \cdots \\
+            \mathbf{p}_k-\mathbf{p}_{k-1}\mathbf{s}_1+\cdots+(-1)^{k-1}\mathbf{p}_1\mathbf{s}_{k-1}+(-1)^kk\mathbf{s}_k=0. \\
+        \end{cases}
+    \end{equation}
+
+    将方程组 (\ref{eq5.3}) 看成以 $\mathbf{p}_1,\mathbf{p}_2,\cdots,\mathbf{p}_k$ 为变量的方程组:
+    \[\begin{pmatrix}
+        1 & 0 & 0 & \cdots & 0 & 0 \\
+        -\mathbf{s}_1 & 1 & 0 & \cdots & 0 & 0 \\
+        \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & \cdots & -\mathbf{s}_1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        \mathbf{p}_1 \\
+        \mathbf{p}_2 \\
+        \mathbf{p}_3 \\
+        \vdots \\
+        \mathbf{p}_k \\
+    \end{pmatrix}=\begin{pmatrix}
+        \mathbf{s}_1 \\
+        -2\mathbf{s}_2 \\
+        3\mathbf{s}_3 \\
+        \vdots \\
+        (-1)^{k+1}k\mathbf{s}_k \\
+    \end{pmatrix}.\]
+
+    由 Crammer 法则,
+    \begin{align*}
+        \mathbf{p}_k & =\dfrac{\begin{vmatrix}
+            1 & 0 & 0 & \cdots & 0 & \mathbf{s}_1 \\
+            -\mathbf{s}_1 & 1 & 0 & \cdots & 0 & -2\mathbf{s}_2 \\
+            \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 & 3\mathbf{s}_2 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & \cdots & -\mathbf{s}_1 & (-1)^{k+1}k\mathbf{s}_k \\
+        \end{vmatrix}}{\begin{vmatrix}
+            1 & 0 & 0 & \cdots & 0 & 0 \\
+            -\mathbf{s}_1 & 1 & 0 & \cdots & 0 & 0 \\
+            \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & \cdots & -\mathbf{s}_1 & 1 \\
+        \end{vmatrix}} \\
+        & =\begin{vmatrix}
+            1 & 0 & 0 & \cdots & 0 & \mathbf{s}_1 \\
+            -\mathbf{s}_1 & 1 & 0 & \cdots & 0 & -2\mathbf{s}_2 \\
+            \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 & 3\mathbf{s}_2 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & \cdots & -\mathbf{s}_1 & (-1)^{k+1}k\mathbf{s}_k \\
+        \end{vmatrix}.
+    \end{align*}
+
+    第 $i$ 列与第 $i-1$ 列交换 ($i$ 按顺序从 $k$ 到 $2$), 得
+    \[\mathbf{p}_k=(-1)^{k-1}\begin{vmatrix}
+        \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+        -2\mathbf{s}_2 & -\mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        3\mathbf{s}_2 & \mathbf{s}_2 & -\mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+        -4\mathbf{s}_3 & -\mathbf{s}_3 & \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        (-1)^{k+1}k\mathbf{s}_k & (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & \cdots & -\mathbf{s}_1 \\
+    \end{vmatrix}.\]
+
+    第 $2$ 行乘 $-1$ 得
+    \[\mathbf{p}_k=(-1)^{k-2}\begin{vmatrix}
+        \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+        2\mathbf{s}_2 & \mathbf{s}_1 & -1 & 0 & 0 & \cdots & 0 \\
+        3\mathbf{s}_2 & \mathbf{s}_2 & -\mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+        -4\mathbf{s}_3 & -\mathbf{s}_3 & \mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        (-1)^k(k-1)\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & (-1)^{k-5}\mathbf{s}_{k-5} & \cdots & 1 \\
+        (-1)^{k+1}k\mathbf{s}_k & (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & \cdots & -\mathbf{s}_1 \\
+    \end{vmatrix}.\]
+
+    第 $2$ 列乘 $-1$ 得
+    \begin{align*}
+        \mathbf{p}_k & =(-1)^{k-3}\begin{vmatrix}
+            \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+            2\mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+            3\mathbf{s}_2 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+            -4\mathbf{s}_3 & -\mathbf{s}_3 & -\mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            (-1)^k(k-1)\mathbf{s}_{k-1} & (-1)^{k-2}\mathbf{s}_{k-2} & (-1)^{k-4}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & (-1)^{k-5}\mathbf{s}_{k-5} & \cdots & 1 \\
+            (-1)^{k+1}k\mathbf{s}_k & (-1)^{k-1}\mathbf{s}_{k-1} & (-1)^{k-3}\mathbf{s}_{k-2} & (-1)^{k-3}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & \cdots & -\mathbf{s}_1 \\
+            \end{vmatrix} \\
+        & =(-1)^{k+1}\begin{vmatrix}
+            \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+            2\mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+            3\mathbf{s}_2 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+            -4\mathbf{s}_3 & -\mathbf{s}_3 & -\mathbf{s}_2 & -\mathbf{s}_1 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            (-1)^k(k-1)\mathbf{s}_{k-1} & (-1)^k\mathbf{s}_{k-2} & (-1)^k\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & (-1)^{k-5}\mathbf{s}_{k-5} & \cdots & 1 \\
+            (-1)^{k+1}k\mathbf{s}_k & (-1)^{k+1}\mathbf{s}_{k-1} & (-1)^{k+1}\mathbf{s}_{k-2} & (-1)^{k+1}\mathbf{s}_{k-3} & (-1)^{k-4}\mathbf{s}_{k-4} & \cdots & -\mathbf{s}_1 \\
+        \end{vmatrix}.
+    \end{align*}
+    
+    第 $2i$ 行乘 $-1$, 第 $2i$ 列再乘 $-1\ (i=2,3,\cdots,\lfloor (k-1)/2\rfloor)$ 得
+    \begin{align*}
+        \mathbf{p}_k & =(-1)^{k+1}\begin{vmatrix}
+            \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+            2\mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+            3\mathbf{s}_2 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+            4\mathbf{s}_3 & \mathbf{s}_3 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            (k-1)\mathbf{s}_{k-1} & \mathbf{s}_{k-2} & \mathbf{s}_{k-3} & \mathbf{s}_{k-4} & \mathbf{s}_{k-5} & \cdots & 1 \\
+            (-1)^{k+1}k\mathbf{s}_k & (-1)^{k+1}\mathbf{s}_{k-1} & (-1)^{k+1}\mathbf{s}_{k-2} & (-1)^{k+1}\mathbf{s}_{k-3} & (-1)^{k+1}\mathbf{s}_{k+1} & \cdots & (-1)^{k+1}\mathbf{s}_1 \\
+        \end{vmatrix} \\
+        & =\begin{vmatrix}
+            \mathbf{s}_1 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+            2\mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
+            3\mathbf{s}_2 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & 0 & \cdots & 0 \\
+            4\mathbf{s}_3 & \mathbf{s}_3 & \mathbf{s}_2 & \mathbf{s}_1 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            (k-1)\mathbf{s}_{k-1} & \mathbf{s}_{k-2} & \mathbf{s}_{k-3} & \mathbf{s}_{k-4} & \mathbf{s}_{k-5} & \cdots & 1 \\
+            k\mathbf{s}_k & \mathbf{s}_{k-1} & \mathbf{s}_{k-2} & \mathbf{s}_{k-3} & \mathbf{s}_{k+1} & \cdots & \mathbf{s}_1 \\
+        \end{vmatrix}.
+    \end{align*}
+
+    将方程组 (\ref{eq5.3}) 看成以 $\mathbf{s}_1,\mathbf{s}_2,\cdots,\mathbf{s}_k$ 为变量的方程组:
+    \[\begin{pmatrix}
+        -1 & 0 & 0 & \cdots & 0 & 0 \\
+        -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & 0 \\
+        -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & (-1)^kk \\
+    \end{pmatrix}\begin{pmatrix}
+        \mathbf{s}_1 \\
+        \mathbf{s}_2 \\
+        \mathbf{s}_3 \\
+        \vdots \\
+        \mathbf{s}_k \\
+    \end{pmatrix}=\begin{pmatrix}
+        -\mathbf{p}_1 \\
+        -\mathbf{p}_2 \\
+        -\mathbf{p}_3 \\
+        \vdots \\
+        -\mathbf{p}_k \\
+    \end{pmatrix}.\]
+
+    由 Crammer 法则,
+    \begin{align*}
+        \mathbf{s}_k & =\dfrac{\begin{vmatrix}
+            -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
+            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
+            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
+        \end{vmatrix}}{\begin{vmatrix}
+            -1 & 0 & 0 & \cdots & 0 & 0 \\
+            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & 0 \\
+            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & (-1)^kk \\
+        \end{vmatrix}} \\
+        & =\dfrac{(-1)^{(1+k)k/2}}{k!}\begin{vmatrix}
+            -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
+            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
+            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
+        \end{vmatrix}
+    \end{align*}
+
+    第 $i$ 列与第 $i-1$ 列交换 ($i$ 按顺序从 $k$ 到 $2$), 得
+    \[\mathbf{s}_k=\dfrac{(-1)^{(1+k)k/2+k-1}}{k!}\begin{vmatrix}
+        -\mathbf{p}_1 & -1 & 0 & 0 & \cdots & 0 \\
+        -\mathbf{p}_2 & -\mathbf{p}_1 & 2 & 0 & \cdots & 0 \\
+        -\mathbf{p}_3 & -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        -\mathbf{p}_{k-1} & -\mathbf{p}_{k-2} & \mathbf{p}_{k-3} & -\mathbf{p}_{k-4} & \cdots & (-1)^{k-1}(k-1) \\
+        -\mathbf{p}_k & -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 \\
+    \end{vmatrix}.\]
+
+    第 $1,2i\ (i=1,2,\cdots,\lfloor k/2\rfloor)$ 列乘 $-1$, 得
+    \[\mathbf{s}_k=\dfrac{(-1)^{(1+k)k/2+k+\lfloor k/2\rfloor}}{k!}\begin{vmatrix}
+        \mathbf{p}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        \mathbf{p}_2 & \mathbf{p}_1 & 2 & 0 & \cdots & 0 \\
+        \mathbf{p}_3 & \mathbf{p}_2 & \mathbf{p}_1 & 3 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \mathbf{p}_{k-4} & \cdots & k-1 \\
+        \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
+    \end{vmatrix}.\]
+
+    若 $k$ 为偶数, 设 $k=2l$, 则
+    \[\dfrac{(1+k)k}{2}+k+\left\lfloor\dfrac{k}{2}\right\rfloor=(1+2l)l+2l+l=4l+2l^2,\]
+
+    $\therefore$
+    \[\mathbf{s}_k=\dfrac{1}{k!}\begin{vmatrix}
+        \mathbf{p}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        \mathbf{p}_2 & \mathbf{p}_1 & 2 & 0 & \cdots & 0 \\
+        \mathbf{p}_3 & \mathbf{p}_2 & \mathbf{p}_1 & 3 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \mathbf{p}_{k-4} & \cdots & k-1 \\
+        \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
+    \end{vmatrix}.\]
+
+
+    若 $k$ 为奇数, 设 $k=2l+1$, 则
+    \begin{align*}
+        \dfrac{(1+k)k}{2}+k+\left\lfloor\dfrac{k}{2}\right\rfloor & =\dfrac{(2l+2)(2l+1)}{2}+2l+1+\left\lfloor\dfrac{2l+1}{2}\right\rfloor \\
+        & =(l+1)(2l+1)+2l+1+l \\
+        & =2l^2+6l+2,
+    \end{align*}
+
+    $\therefore$
+    \[\mathbf{s}_k=\dfrac{1}{k!}\begin{vmatrix}
+        \mathbf{p}_1 & 1 & 0 & 0 & \cdots & 0 \\
+        \mathbf{p}_2 & \mathbf{p}_1 & 2 & 0 & \cdots & 0 \\
+        \mathbf{p}_3 & \mathbf{p}_2 & \mathbf{p}_1 & 3 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \mathbf{p}_{k-4} & \cdots & k-1 \\
+        \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
+    \end{vmatrix}.\qedhere\]
+\end{proof}
+\begin{exercise}[2.3]
+    设 $c_1,c_2,c_3$ 是多项式 $X^3-X+1$ 的三个复根. 证明: 扩域 $\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})=\mathbb{Q}$.
+\end{exercise}
+\begin{proof}
+    $\because X_1^{99}+X_2^{99}+X_3^{99}$ 是对称多项式, $X^3-X+1\in\mathbb{Q}[X]$, 由书上定理 1 的推论得 $c_1^{99}+c_2^{99}+c_3^{99}\in\mathbb{Q}.\therefore\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})\subset\mathbb{Q}$.
+
+    $\because\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})\supset\mathbb{Q},\therefore\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})=\mathbb{Q}$.
+\end{proof}
+\begin{exercise}[2.4]
+    设 $P$ 是特征 $\neq2$ 的域, $\Delta_n=\prod\limits_{j\leq i}(X_i-X_j)$, 证明 $\forall$ 斜对称多项式 $f\in P[X_1,\cdots,X_n]$ 形如 $f=\Delta_n\cdot g$, 其中 $g$ 是对称多项式.
+\end{exercise}
+\begin{proof}
+    $\forall j<i$, 设 $\sigma=(i\ j)\in S_n$, 则 $\varepsilon_\sigma=-1$.
+
+    设 $f_i,(\sigma\circ f)_i$ 为 $\in P[X_1,\cdots,X_{i-1},X_{i+1},\cdots,X_n]$ 上的多项式, $f_i(X_i)=f(X_1,\cdots,X_n),(\sigma\circ f)_i(X_i)=(\sigma\circ f)(X_1,\cdots,X_n)$, 则
+    \begin{align*}
+        (\sigma\circ f)_i(X_j) & =(\sigma\circ f)(X_1,\cdots,X_{j-1},X_j,X_{j+1},\cdots,X_{i-1},X_j,X_{i+1},\cdots,X_n) \\
+        & =f(X_1,\cdots,X_{j-1},X_j,X_{j+1},\cdots,X_{i-1},X_j,X_{i+1},\cdots,X_n),
+    \end{align*}
+
+    另一方面, $\because f$ 是斜对称多项式, $\therefore$
+    \[(\sigma\circ f)(X_1,\cdots,X_n)=\varepsilon_\sigma f(X_1,\cdots,X_n)=-f(X_1,\cdots,X_n),\]
+
+    $\therefore$
+    \[(\sigma\circ f)_i(X)=-f_i(X).\]
+
+    令 $X=X_j$ 得
+    \[f_i(X_j)=-f_i(X_j)\Rightarrow2f_i(X_j)=0.\]
+
+    $\because P$ 的特征 $\neq2,\therefore f_i(X_j)=0$.
+
+    $\therefore f_i$ 有因子 $X-X_j,\therefore f(X_1,\cdots,X_n)=f_i(X_i)$ 有因子 $X_i-X_j$.
+
+    $\therefore\forall j<i,f$ 有因子 $X_i-X_j.\therefore f$ 有分解式 $f=\Delta_n\cdot g$.
+
+    假设 $g$ 不是对称多项式, 即 $\exists\tau\in S_n,(\tau\circ g)(X_1,\cdots,X_n)\neq g(X_1,\cdots,X_n)$.
+
+    $\because\Delta_n$ 是斜对称的, $\therefore$,
+    \[(\tau\circ\Delta_n)(X_1,\cdots,X_n)=\varepsilon_\tau\Delta_n(X_1,\cdots,X_n),\]
+    \begin{align*}
+        (\tau\circ f)(X_1,\cdots,X_n) & =(\tau\circ(\Delta_n\cdot g))(X_1,\cdots,X_n) \\
+        & =(\tau\circ\Delta_n)(X_1,\cdots,X_n)(\tau\circ g)(X_1,\cdots,X_n) \\
+        & =\Delta_n(X_1,\cdots,X_n)(\tau\circ g)(X_1,\cdots,X_n) \\
+        & \neq\Delta_n(X_1,\cdots,X_n)g(X_1,\cdots,X_n) \\
+        & =f(X_1,\cdots,X_n).
+    \end{align*}
+    
+    另一方面, $\because f$ 是斜对称的, $\therefore\forall\pi\in S_n$,
+    \[(\pi\circ f)(X_1,\cdots,X_n)=\varepsilon_\pi f(X_1,\cdots,X_n),\]
+
+    与 $(\tau\circ f)(X_1,\cdots,X_n)=f(X_1,\cdots,X_n)$ 矛盾.
+
+    $\therefore g$ 是对称多项式.
+\end{proof}
+\begin{exercise}[2.5]\label{ex2.5}
+    设 $f,g,h\in P[X]$. 证明:
+    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\]
+\end{exercise}
+\begin{proof}
+    由分裂域的存在性, $\exists F\supset P,f,g,h$ 有分解式
+    \[f(X)=a_0(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_m),\]
+    \[g(X)=b_0(X-\beta_1)(X-\beta_2)\cdots(X-\beta_s),\]
+    \[h(X)=c_0(X-\gamma_1)(X-\gamma_2)\cdots(X-\gamma_t).\]
+
+    则
+    \[f(X)g(X)=a_0b_0(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_m)(X-\beta_1)(X-\beta_2)\cdots(X-\beta_s).\]
+
+    由结式的性质 R2,
+    \[\operatorname{Res}(f,h)=a_0^tc_0^m\prod\limits_{i,j}(\alpha_i-\gamma_j),\quad\operatorname{Res}(g,h)=b_0^tc_0^s\prod\limits_{i,j}(\beta_i-\gamma_j),\]
+    
+    \[\operatorname{Res}(fg,h)=(a_0b_0)^tc_0^{s+t}\left(\prod\limits_{i,j}(\beta_i-\gamma_j)\right)\left(\prod\limits_{i,j}(\alpha_i-\gamma_j)\right),\]
+
+    $\therefore$
+    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\qedhere\]
+\end{proof}
+\begin{exercise}[2.6]
+    证明:
+    \[D(fg)=D(f)D(g)\operatorname{Res}^2(f,g).\]
+\end{exercise}
+\begin{proof}
+    设在 $f,g$ 的分裂域中有
+    \[f(X)=a_0X^n+a_1X^{n-1}+\cdots+a_n=a_0(X-\alpha_1)\cdots(X-\alpha_n),\]
+    \[g(X)=b_0X^m+b_1X^{m-1}+\cdots+b_m=b_0(X-\beta_1)\cdots(X-\beta_m).\]
+
+    由第 \ref{ex2.5} 题得
+    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\]
+
+    由结式的性质 R3 得
+    \begin{align*}
+        D(fg) & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(fg,(fg)') \\
+        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(fg,f'g+fg') \\
+        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g+fg')\operatorname{Res}(g,f'g+fg').
+    \end{align*}
+
+    由结式的性质 R2 得
+    \[\operatorname{Res}(f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g+fg')(\alpha_i).\]
+
+    $\because f(\alpha_i)=0,\therefore f(\alpha_i)g'(\alpha_i)=0,\therefore$
+    \[\operatorname{Res}(f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g)(\alpha_i)=\operatorname{Res}(f,f'g).\]
+
+    同理得
+    \[\operatorname{Res}(g,f'g+fg')=\operatorname{Res}(g,fg').\]
+
+    $\therefore$
+    \begin{align*}
+        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g+fg')\operatorname{Res}(g,f'g+fg') \\
+        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g)\operatorname{Res}(g,fg').
+    \end{align*}
+
+    由结式的性质 R2 (或者交换结式的各行)得
+    \[\operatorname{Res}(f,g)=(-1)^{mn}\operatorname{Res}(f,g).\]
+
+    $\therefore$
+    \begin{align*}
+        \operatorname{Res}(h,fg) & =(-1)^{mn}\operatorname{Res}(fg,h) \\
+        & =(-1)^{mn}\operatorname{Res}(f,h)\operatorname{Res}(g,h) \\
+        & =(-1)^{mn}((-1)^{mn}\operatorname{Res}(h,f))((-1)^{mn}\operatorname{Res}(h,g)) \\
+        & =(-1)^{mn}\operatorname{Res}(h,f)\operatorname{Res}(h,g).
+    \end{align*}
+
+    $\therefore$
+    \begin{align*}
+        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g)\operatorname{Res}(g,f'g) \\
+        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0(-1)^{mn}\operatorname{Res}(f,f')\operatorname{Res}(f,g)(-1)^{mn}\operatorname{Res}(g,f)\operatorname{Res}(g,g') \\
+        =\  & (-1)^{(m^2+mn-m+mn+n^2-n)/2+mn}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(f,g)((-1)^{mn}\operatorname{Res}(g,f))\operatorname{Res}(g,g') \\
+        =\  & (-1)^{(m^2-m+n^2-n)/2+2mn}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(f,g)\operatorname{Res}(f,g)\operatorname{Res}(g,g') \\
+        =\  & (-1)^{(m^2-m+n^2-n)/2}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(g,g')\operatorname{Res}^2(f,g) \\
+        =\  & (-1)^{(m^2-m)/2}a_0\operatorname{Res}(f,f')(-1)^{(n^2-n)/2}b_0\operatorname{Res}(g,g')\operatorname{Res}^2(f,g) \\
+        =\  & D(f)D(g)\operatorname{Res}^2(f,g).\qedhere
+    \end{align*}
+\end{proof}
+\begin{exercise}[2.7]\label{ex2.7}
+    求解 $\operatorname{Res}(f(X),X-a)$.
+\end{exercise}
+\begin{solution}
+    \[\operatorname{Res}(f(X),X-a)=\begin{vmatrix}
+        a_0 & a_1 & \cdots & a_{n-1} & a_n \\
+        1 & -a \\
+        & 1 & -a \\
+        && \ddots & \ddots \\
+        &&& 1 & -a \\
+    \end{vmatrix}.\]
+
+    设
+    \[f_k=\begin{vmatrix}
+        a_0 & a_1 & \cdots & a_{k-1} & a_k \\
+        1 & -a \\
+        & 1 & -a \\
+        && \ddots & \ddots \\
+        &&& 1 & -a \\
+    \end{vmatrix}\quad(k=1,2,\cdots,n),\]
+
+    则
+    \[\begin{cases}
+        f_1=-aa_0-a_1, \\
+        f_k=(-1)^ka_k-af_{k-1}. \\
+    \end{cases}\]
+
+    $\therefore$
+    \[\operatorname{Res}(f(X),X-a)=f_n=\sum\limits_{i=0}^n(-a)^{n-i}(-1)^ia_i.\]
+\end{solution}
+\begin{exercise}[2.8]\label{ex2.8}
+    求解 $D(X^n+a)$.
+\end{exercise}
+\begin{solution}
+    \[\operatorname{Res}(X^n-a,(X^n-a)')=\begin{vmatrix}
+        1 & 0 & 0 & \cdots & 0 & a \\
+        & 1 & 0 & 0 & \cdots & 0 & a \\
+        && \ddots & \ddots & \ddots & \ddots & \ddots & \ddots \\
+        &&& 1 & 0 & 0 & \cdots & 0 & a \\
+        n \\
+        & n \\
+        && n \\
+        &&& \ddots \\
+        &&&& n & 0 & \cdots & 0 \\
+    \end{vmatrix},\]
+
+    其中前 $n-1$ 行为 $1,0,\cdots,0,a$, 后 $n$ 行为 $0,\cdots,0,n,0,\cdots,0$.
+
+    按第 $i$ 列展开($i=n+1,n+2,\cdots,{2n-1}$), 得
+    \begin{align*}
+        \operatorname{Res}(X^n-a,(X^n-a)') & =a(-1)^{n+1+1}a(-1)^{n+2+2}\cdots a(-1)^{n+(n-1)+(n-1)}\begin{vmatrix}
+            n \\
+            & n \\
+            && \ddots \\
+            &&& n \\
+        \end{vmatrix} \\
+        & =a^{n-1}(-1)^{n(n-1)}\begin{vmatrix}
+            n \\
+            & n \\
+            && \ddots \\
+            &&& n \\
+        \end{vmatrix} \\
+        & =a^{n-1}n^n(-1)^{n(n-1)} \\
+        & =a^{n-1}n^n.
+    \end{align*}
+
+    由结式的性质 R3 得
+    \[D(X^n-a)=(-1)^{n(n-1)/2}\operatorname{Res}(X^n-a,(X^n-a)')=(-1)^{n(n-1)/2}a^{n-1}n^n.\]
+\end{solution}
+\begin{exercise}[2.9]
+    设 $f(x)=X^{n-1}+X^{n-2}+\cdots+1$, 求解 $D(f)$.
+\end{exercise}
+\begin{solution}
+    $\because$
+    \[X^n-1=f(X)(X-1),\]
+
+    $\therefore$
+    \[D(X^n-1)=D(f)D(X-1)\operatorname{Res}^2(f(X),X-1).\]
+
+    $\because$ 多项式 $X-1$ 只有一个根, $\therefore D(X-1)=1$.
+
+    由第 \ref{ex2.7},\ref{ex2.8} 题得
+
+    \[\operatorname{Res}^2(f(X),X-1)=\left(\sum\limits_{i=0}^n(-1)^{n-i}(-1)^i\cdot1\right)^2=n^2,\]
+    \[D(X^n-1)=(-1)^{n(n-1)/2}(-1)^{n-1}n^n.\]
+
+    $\therefore$
+    \begin{align*}
+        D(f) & =(-1)^{n(n-1)/2}(-1)^{n-1}n^{n-2} \\
+        & =(-1)^{n(n-1)/2+2(n-1)/2}n^{n-2} \\
+        & =(-1)^{(n+2)(n-1)/2}n^{n-2}.
+    \end{align*}
+\end{solution}
+\begin{exercise}[4.1]\label{ex4.1}
+    设 $f(X)=a_0X^n+a_1X^{n-1}+\cdots+a_n$ 是一个 $n$ 次实系数多项式. 证明: 如果知道了 $f(X),X^nf(1/X),f(-X),X^nf(-1/X)$ 的正根的一个上界, 就得出了 $f(X)$ 的正根和负根的上界和下界.
+\end{exercise}
+\begin{proof}
+    定义 $S_+(f):=\{x\in\mathbb{R}_+|f(x)=0\},S_-(f):=\{x\in\mathbb{R}_-|f(x)=0\}$. 有
+    \[S_+(fg)=S_+(f)\cup S_+(g),\quad S_-(fg)=S_-(f)\cup S_-(g).\]
+
+    $\because S_+(X^n)=\varnothing,\therefore S_+(X^nf(1/X))=S_+(f(1/X))$.
+
+    容易验证
+    \[\phi:\begin{array}{rcl}
+        S_+(f(X)) & \to & S_+(f(1/X)) \\
+        c & \to & \dfrac{1}{c} \\
+    \end{array}\]
+    
+    是单射. $\because|S_+(f(X))|<\infty,\therefore\phi$ 是双射. $\therefore\phi^{-1}$ 是双射.
+
+    $\because\phi^{-1}$ 是满射, $\therefore\forall c'\in S_+(f(X)),\exists c\in S_+(f(1/X))$ 使得 $c'=\phi^{-1}(c)$.
+
+    若 $a$ 是 $S_+(f(1/X))$ 的一个上界, 则 $a\geq c\Rightarrow\dfrac{1}{a}\leq\dfrac{1}{c}=\phi^{-1}(c)=c'.\therefore\dfrac{1}{a}$ 是 $S_+(f(X))$ 的一个下界.
+
+    容易验证
+    \[\psi:\begin{array}{rcl}
+        S_-(f(X)) & \to & S_+(f(-X)) \\
+        c & \to & -c \\
+    \end{array}\]
+    
+    是单射. $\because|S_-(f(X))|<\infty,\therefore\psi$ 是双射. $\therefore\psi^{-1}$ 是双射.
+
+    $\because\psi^{-1}$ 是满射, $\therefore\forall c'\in S_-(f(X)),\exists c\in S_+(f(-X))$ 使得 $c'=\psi^{-1}(c)$.
+
+    若 $a$ 是 $S_+(f(-X))$ 的一个上界, 则 $a\geq c\Rightarrow-a\leq-c=\phi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个下界. 若 $a$ 是 $S_+(f(-X))$ 的一个下界, 则 $a\leq c\Rightarrow-a\geq-c=\phi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个上界.
+
+    $\because S_-(X^n)=\varnothing,\therefore S_-(X^nf(-1/X))=S_-(f(-1/X))$.
+
+    与前面类似, 容易验证
+    \[\begin{array}{rcl}
+        S_+(f(-X)) & \to & S_+(f(-1/X)) \\
+        c & \to & \dfrac{1}{c} \\
+    \end{array}\]
+
+    是双射, 若 $a$ 是 $S_+(f(-1/X))$ 的一个上界, 则 $\dfrac{1}{a}$ 是 $S_+(f(-X))$ 的一个下界, $\therefore-\dfrac{1}{a}$ 是 $S_-(f(X))$ 的一个上界.
+\end{proof}
+\begin{exercise}[4.3]\label{ex4.3}
+    设 $P$ 是零特征域, $a\in P$. 证明: 任一 $n$ 次多项式 $f(X)=a_0+a_1X+\cdots+a_nX^n\in P[X]$ 满足 Taylor 公式
+    \[f(X)=f(a)+f'(a)(X-a)+\dfrac{1}{2!}f''(a)(X-a)^2+\cdots+\dfrac{1}{n!}f^{(n)}(a)(X-a)^n.\]
+\end{exercise}
+\begin{proof}
+    先用数学归纳法证明: $\forall f\in P[X]\backslash\{0\},f$ 可以表示为
+    \[f(X)=b_0+b_1(X-a)+b_2(X-a)^2+\cdots+b_n(X-a)^n\]
+
+    的形式. 当 $\deg f=0$ 时显然成立. 假设当 $\deg f\leq k$ 时成立, $\forall k+1$ 次多项式 $g\in P[X]$,
+    \[g(X)=a_0+a_1X+\cdots+a_kX^k+a_{k+1}X^{k+1}=a_{k+1}(X-a)^{k+1}+r(X),\]
+
+    其中 $\deg r\leq k.\therefore r$ 可以表示为
+    \[r(X)=b_0+b_1(X-a)+b_2(X-a)^2+\cdots+b_k(X-a)^k\]
+
+    的形式. $\therefore g$ 可以表示为
+    \[g(X)=b_0+b_1(X-a)+b_2(X-a)^2+\cdots+b_k(X-a)^k+a_{k+1}(X-a)^{k+1}\]
+
+    的形式.
+
+    设
+    \[f(X)=b_0+b_1(X-a)+b_2(X-a)^2+\cdots+b_n(X-a)^n.\]
+
+    上式两边求 $k$ 次导得
+    \[f^{(k)}(X)=k!b_k+\dfrac{(k+1)!}{1!}b_{k+1}(X-a)+b_{k+2}(X-a)^2+\cdots+\dfrac{n!}{(n-k)!}b_n(X-a)^{n-k}.\]
+    
+    把 $X=a$ 代入得 $f^{(k)}(a)=k!b_k,\therefore b_k=\dfrac{f^{(k)}(a)}{k!}$.
+\end{proof}
+\begin{exercise}[4.4]
+    证明: 若 $n$ 次实多项式 $f(X)$ 的首项系数 $a_0>0$ 且 $f(a)>0,\cdots,f^{(n)}(a)>0$, 那么 $f(c)=0,c>0\Rightarrow c<a$.
+\end{exercise}
+\begin{proof}
+    假设 $f(c)=0,c\geq a$. 由第 \ref{ex4.3} 题得
+    \[f(c)=f(a)+f'(a)(c-a)+\dfrac{1}{2!}f''(a)(c-a)^2+\cdots+\dfrac{1}{n!}f^{(n)}(a)(c-a)^n.\]
+
+    $\because c>a\Rightarrow c-a>0,f(a)>0,f'(a)>0,\cdots,f^{(n)}(a)>0,\therefore f(c)>0$, 与 $f(c)=0$ 矛盾.
+
+    $\therefore f(c)=0,c>0\Rightarrow c<a$.
+\end{proof}
+\begin{exercise}
+    证明: 若 $w\neq0$, 则 $f(X)=X^5+uX^4+vX^3+w\in\mathbb{R}[X]$ 的根不全是实数.
+\end{exercise}
+\begin{proof}
+    设 $f$ 的复数根为 $c_1,c_2,\cdots,c_5.\because w\neq0,\therefore c_1,c_2,\cdots,c_5\neq0$.
+    
+    由第 \ref{ex4.1} 题得
+    \[g(X)=wX^5+vX^2+uX+1\in\mathbb{R}[X]\]
+
+    的复数根为 $\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}$.
+
+    假设 $c_1,c_2,\cdots,c_5\in\mathbb{R}$, 则 $\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}\in\mathbb{R},\therefore$
+    \[\mathrm{p}_2\left(\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}\right)=\dfrac{1}{c_1^2}+\dfrac{1}{c_2^2}+\cdots+\dfrac{1}{c_5^2}>0.\]    
+    
+    由 Vieta 公式(P186 式 (12)),
+    \[0=-\dfrac{0}{w}=\mathrm{s}_1\left(\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}\right),\]
+
+    \[0=-\dfrac{0}{w}=\mathrm{s}_2\left(\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}\right).\]
+
+    由 Newton 公式得
+    \[\mathrm{p}_2=\mathrm{s}_1^2-2\mathrm{s}_2.\]
+
+    $\therefore$
+    \[\mathrm{p}_2\left(\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}\right)=0,\]
+
+    与 $\dfrac{1}{c_1^2}+\dfrac{1}{c_2^2}+\cdots+\dfrac{1}{c_5^2}>0$ 矛盾.
+
+    $\therefore\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}$ 不全是实数. $\therefore c_1,c_2,\cdots,c_5$ 不全是实数.
+\end{proof}
+\begin{exercise}[4.13]
+    多项式 $f(z)=z^4+12z^2+5z-9$ 有多少个实根?
+\end{exercise}
+\begin{solution}
+    $\gcd(f,f')=1$. 令
+    \[f_0(z)=f(z),\quad f_1(z)=f'(z)=4z^3+24z+5.\]
+
+    $\because$
+    \[z^4+12z^2+5z-9=\dfrac{z}{4}(4z^3+24z+5)+6z^2+\dfrac{15}{4}z-9,\]
+
+    $\therefore$ 令 $f_2(z)=-6z^2-\dfrac{15}{4}z+9$.
+
+    $\because$
+    \[4z^3+24z+5=\left(-\dfrac{2z}{3}+\dfrac{5}{12}\right)(-6z^2-\dfrac{15}{4}z+9)+6z^2+\dfrac{505}{16}z+\dfrac{5}{4},\]
+
+    $\therefore$ 令 $f_3(z)=-\dfrac{505}{16}z-\dfrac{5}{4}$.
+
+    $\because$
+    \[-6z^2-\dfrac{15}{4}z+9=\left(\dfrac{5676}{51005} + \dfrac{96}{505}z\right)\left(-\dfrac{505}{16}z-\dfrac{5}{4}\right)+\dfrac{93228}{10201},\]
+
+    $\therefore$ 令 $f_4(z)=-\dfrac{93228}{10201}$.
+
+    取 $z^4+12z^2+5z-9,4z^3+24z+5,-24z^2-15z+36,-505z-20,-93228$ 为 Sturm 组. 在 $[-M,M]$ 上的符号如表 \ref{tb3}.
+
+    \begin{table}\caption{$f$ 的 Sturm 组的符号表}\label{tb3}
+        \begin{center}
+            \begin{tabular}{c|ccccc|c}
+                & $z^4+12z^2+5z-9$ & $4z^3+24z+5$ & $-24z^2-15z+36$ & $-505z-20$ & $-93228$ & $V$ \\
+                \hline
+                $z=-M$ & $+$ & $-$ & $-$ & $+$ & $-$ & $3$ \\
+                $z=M$  & $+$ & $+$ & $-$ & $-$ & $-$ & $1$ \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    $\therefore f(z)=z^4+12z^2+5z-9$ 有 $2$ 个实根.
+\end{solution}
+\begin{exercise}[4.14]
+    Legendre 多项式 $P_0(X)=1,P_1(X)=X,\cdots,P_n(X),\cdots$ 可由递推公式
+    \begin{equation}\label{eq5.4}
+        mP_m(X)-(2m-1)XP_{m-1}(X)+(m-1)P_{m-2}(X)=0
+    \end{equation}
+
+    定义. 证明:
+
+    (1) $P_n(1)=1,\ P_n(-1)=(-1)^n$;
+
+    (2) $\{P_n,P_{n-1},\cdots,P_0\}$ 是 $P_n(X)$ 在 $[-1,1]$ 上的 Sturm 组;
+
+    (3) $P_n(X)$ 在 $(-1,1)$ 上有 $n$ 个彼此相异的根.
+\end{exercise}
+\begin{proof}
+    (1) 用数学归纳法. $P_0(X)=1,P_1(X)=X$ 满足 $P_n(1)=1,\ P_n(-1)=(-1)^n$. 假设当 $n\leq k$ 时有 $P_n(1)=1,\ P_n(-1)=(-1)^n$, 则
+    \[(k+1)P_{k+1}(1)-(2k+1)P_k(1)+kP_{k-1}(1)=0,\]
+    \begin{align*}
+        P_{k+1}(1) & =\dfrac{(2k+1)P_k(1)-kP_{k-1}(1)}{k+1} \\
+        & =\dfrac{2k+1-k}{k+1},
+    \end{align*}
+    \[(k+1)P_{k+1}(-1)+(2k+1)P_k(-1)+kP_{k-1}(-1)=0,\]
+    \begin{align*}
+        P_{k+1}(-1) & =-\dfrac{(2k+1)P_k(-1)+kP_{k-1}(-1)}{k+1} \\
+        & =-\dfrac{2k+1-k}{k+1}(-1)^k \\
+        & =(-1)^{k+1},
+    \end{align*}
+
+    即 $P_{k+1}(1)=1,\ P_{k+1}(-1)=(-1)^{k+1}$.
+
+    (2) Sturm 组的性质 (i) 由 $P_0,P_1$ 的定义得. 性质 (ii) 由 (1) 得, 性质.
+
+    设 $P_{m-1}(c)=0$, 把 $c$ 代入式 (\ref{eq5.4}) 得
+    \[mP_m(c)+(m-1)P_{m-2}(c)=0.\]
+
+    由平均值不等式得
+    \[mP_m(c)(m-1)P_{m-2}(c)\leq\left(\dfrac{mP_m(c)+(m-1)P_{m-2}(c)}{2}\right)^2=0\]
+    (当且仅当 $mP_m(c)=(m-1)P_{m-2}(c)=0$ 时取等号).
+
+    假设 $mP_m(c)=(m-1)P_{m-2}(c)=0$, 则 $P_m(c)=P_{m-1}(c)=P_{m-2}(c)=0$. 由式 (\ref{eq5.4}) 得
+    \[(m-1)P_{m-1}(c)-(2m-3)cP_{m-2}(c)+(m-2)P_{m-3}(c)=0,\ P_{m-3}(c)=0;\]
+    \[(m-2)P_{m-2}(c)-(2m-5)cP_{m-3}(c)+(m-3)P_{m-4}(c)=0,\ P_{m-4}(c)=0;\]
+    \[\cdots\]
+    \[2P_2(c)-3cP_1(c)+P_0(c)=0,\ P_0(c)=0,\]
+
+    与 $P_0(c)=1$ 矛盾. $\therefore$
+    \[mP_m(c)(m-1)P_{m-2}(c)<0\Rightarrow P_m(c)P_{m-2}(c)<0.\]
+
+    (3) 由 (2) 得 $\{P_n,P_{n-1},\cdots,P_0\}$ 是 Sturm 组, 在 $[-1,1]$ 上的符号如表 \ref{tb4}.
+
+    \begin{table}\caption{Sturm 组的符号表}\label{tb4}
+        \begin{center}
+            \begin{tabular}{c|ccccc|c}
+                & $P_0$ & $P_1$ & $P_2$ & $\cdots$ & $P_n$ & $V$ \\
+                \hline
+                $z=-1$ & $1$ & $-1$ & $(-1)^2$ & $\cdots$ & $(-1)^n$ & $n$ \\
+                $z=1$  & $1$ & $1$ & $1$ & $1$ & $1$ & $0$ \\
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    $\therefore P_n$ 在 $(-1,1)$ 上有 $n$ 个彼此相异的根.
+\end{proof}
+\begin{exercise}[补充题1]
+    设 $f\in\mathbb{R}[X]$. 证明: 若 $D(f)<0$, 则 $f$ 有奇数对虚根.
+\end{exercise}
+\begin{proof}
+    证明逆否命题.
+
+    设 $a_1\pm b_1i,a_2\pm b_2i,\cdots,a_t\pm b_ti\ (a_i\in\mathbb{R}_+\cup\{0\},b_i\in\mathbb{R}_+)$ 是 $f$ 的虚根, $c_{t+1},c_{t+2},\cdots,c_s$ 是 $f$ 的实根. 则
+    \[D(f)=P_1P_2P_3P_4,\]
+
+    其中
+    \[P_1=\prod\limits_{t+1\leq j<i\leq s}(c_i-c_j)^2\geq0,\]
+    \begin{align*}
+        P_2 & =\prod\limits_{1\leq j<k\leq t}(a_k+b_ki-(a_j+b_ji))^2(a_k-b_ki-(a_j-b_ji))^2 \\
+        & =\prod\limits_{1\leq j<k\leq t}((a_k-a_j)+(b_k-b_j)i)^2((a_k-a_j)-(b_k-b_j)i)^2 \\
+        & =\prod\limits_{1\leq j<k\leq t}(((a_k-a_j)+(b_k-b_j)i)((a_k-a_j)-(b_k-b_j)i))^2 \\
+        & =\prod\limits_{1\leq j<k\leq t}((a_k-a_j)^2+(b_k-b_j)^2)^2\geq0,
+    \end{align*}
+    \begin{align*}
+        P_3 & =\prod\limits_{\substack{1\leq k\leq t<j\leq s}}(c_j-(a_k+b_ki))^2(c_j-(a_k-b_ki))^2 \\
+        & =\prod\limits_{\substack{1\leq k\leq t<j\leq s}}(((c_j-a_k)-b_ki)((c_j-a_k)+b_ki))^2 \\
+        & =\prod\limits_{\substack{1\leq k\leq t<j\leq s}}((c_j-a_k)^2+b_k^2)^2\geq0,
+    \end{align*}
+    \begin{align*}
+        P_4 & =\prod\limits_{j=1}^t((a_j+b_ji)-(a_j-b_ji))^2 \\
+        & =\prod\limits_{j=1}^t(2b_ji)^2=\prod\limits_{j=1}^t-4b_j^2=(-1)^t\prod\limits_{j=1}^t4b_j^2.
+    \end{align*}
+
+    $\because b_i\in\mathbb{R}_+,\therefore\prod\limits_{j=1}^t4b_j^2>0,\therefore$
+    \[D(f)=(-1)^tC,\quad C\in\mathbb{R}_+\cup\{0\}.\]
+
+    $\therefore$ 若 $f$ 有偶数对虚根或只有实根, 则 $t=2k,k\in\mathbb{N},D(f)\geq0$.
+\end{proof}
+\end{document}

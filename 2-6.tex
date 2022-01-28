@@ -1,0 +1,1193 @@
+% TODO:
+% 推论 1.1 的逆命题
+% 定理 1.3 将条件减弱为 $K$ 为一般的域
+% 第 1.4 节, 是否可以将 $(V^*)^p$ 与 $(V^p)^*$ 等同起来, 求坐标时应该用的是加法而不是乘法
+% 定理 3.3 补充证明: $W_p(V)$ 与多项式环在代数意义下同构
+% 习题 1.3 (2) 不知道要证明什么, 感觉需要用到张量积的定义
+% 习题 2.1 (2)
+
+\documentclass{ctexart}
+\usepackage{lecturenote}
+\title{第6章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{张量(对应第 1 节)}
+\subsection{关于记号的说明}
+这一章会用到许多记号, 合理使用记号有助于对概念和问题的理解.
+
+(1) 如果不加说明, 这章中的 $U,V$ 都是 $K$ 上的 $n$ 维向量空间.
+
+(2) 为了将带指标的数与向量分别开来, 数与向量的指标处于不同的位置, 比如
+\[\boldsymbol{x}=\sum\limits_i\alpha^i\boldsymbol{e}_i,\quad f=\sum\limits_i\alpha_ie^i.\]
+
+需要注意的是, 如果不加说明, 这章中的所有上标都是指标而不是幂.
+
+(3) Dirichlet 函数 (在其他地方写作 $\delta_{ij}$) 记为 $\delta_i^j$, 矩阵 $A$ 的 $i,j$ 元 (在其他地方写作 $a_{ij}$) 记为 $a_j^i$.
+
+(4) 用大写字母 $S,T$ (Tensor) 表示张量, 虽然书上都用了一般的函数符号.
+\subsection{共变和反变}
+要准确地描述共变和反变的概念需要引入\textbf{函子}的概念, 这里只是给读者一个模糊的印象.
+
+定义映射的乘法为复合. 设 $\phi:W\to V$ 是线性映射, 则对张量 $S:W^p\to K$, $S\phi:V^p\to K$. $S$ 与 $S\phi$ 分别是 $\phi$ 的定义域和陪域上的张量, 这时称 $f$ 是\textbf{共变}的.
+
+对 $f\in V^*$, 则 $f\phi\in W^*$. $\therefore$ 对张量 $T:(V^*)^q\to K$, $T\phi:(W^*)^q\to K$. $T$ 与 $T\phi$ 分别是 $\phi$ 的陪域和定义域上的张量, 这时称 $g$ 是\textbf{反变}的.
+
+当然这里的说明是不严格的, 比如说采用了不同的方法来处理 $V$ 和 $V^*$ 中的元素.
+\subsection{坐标}
+书上的定义 4 准确地说应该为:
+\begin{definition}
+    设 $T$ 是 $(p,q)$ 型张量, 称
+    \[\{T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}|1\leq j_1,j_2,\cdots,j_q,i_1,i_2,\cdots,i_p\leq n\}\]
+    为 $T$ 的\textbf{坐标}. 在不引起混乱的情况下简记为 $\{T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}\}$. 对给定的 $j_1,j_2,\cdots,j_q,i_1,i_2,\cdots,i_p$, 称 $T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}$ 为 $T$ 的一个\textbf{坐标分量}.
+\end{definition}
+坐标的上下标与基的上下标是交叉的:
+\[T=\sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}.\]
+
+下面是书上的定理 1 证明的一部分.
+\begin{theorem}\label{t1.1}
+    张量组 $\{e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}|1\leq j_1,j_2,\cdots,j_q,i_1,i_2,\cdots,i_p\leq n\}$ 线性无关.
+\end{theorem}
+\begin{proof}
+    有
+    \begin{align*}
+        e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}(\boldsymbol{e}_{i'_1},\cdots,\boldsymbol{e}_{i'_p},e^{j'_1},\cdots,e^{j'_q}) & =(e^{i_1},\boldsymbol{e}_{i'_1})\cdots(e^{i_p},\boldsymbol{e}_{i'_p})(\boldsymbol{e}_{j_q},e^{j'_q})\cdots(\boldsymbol{e}_{j_q},e^{j'_q}) \\
+        & =\delta_{i'_1}^{i_1}\cdots\delta_{i'_p}^{i_p}\delta_{j_1}^{j'_1}\cdots\delta_{j_q}^{j'_q},
+    \end{align*}
+
+    设
+    \[\sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}=0,\]
+
+    则 $\forall j'_1,j'_2,\cdots,j'_q,i'_1,i'_2,\cdots,i'_p\in\{1,2,\cdots,n\}$,
+    \begin{align*}
+        & \sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}(\boldsymbol{e}_{i'_1},\cdots,\boldsymbol{e}_{i'_p},e^{j'_1},\cdots,e^{j'_q}) \\
+        =\ & \sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}\delta_{i'_1}^{i_1}\cdots\delta_{i'_p}^{i_p}\delta_{j_1}^{j'_1}\cdots\delta_{j_q}^{j'_q} \\
+        =\ & T^{j'_1,j'_2,\cdots,j'_q}_{i'_1,i'_2,\cdots,i'_p}=0.
+    \end{align*}
+
+    由线性无关的定义得.
+\end{proof}
+\begin{theorem}[书上的定理 2]
+    设 $(\boldsymbol{e}_i),(\boldsymbol{e}'_i)$ 分别是 $V$ 的一个基, $(e^i),(e'^i)$ 分别是 $V^*$ 的一个基, $A=(a^i_j)$ 是 $(\boldsymbol{e}_i)$ 到 $(\boldsymbol{e}'_i)$ 的变换矩阵, $B=(b^i_j)=A^{-1}$, 张量 $T$ 在基 $e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}$ 下的坐标为
+    \[T=\sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q},\]
+
+
+    $T$ 在基 $e'^{i_1'}\otimes\cdots\otimes e'^{i_p'}\otimes\boldsymbol{e}'_{j_1'}\otimes\cdots\otimes\boldsymbol{e}'_{j_q'}$ 下的坐标为
+    \begin{equation}\label{eq1.1}
+        T=\sum\limits_{i',j'}T'^{j_1',j_2',\cdots,j_q'}_{i_1',i_2',\cdots,i_p'}e'^{i_1'}\otimes\cdots\otimes e'^{i_p'}\otimes\boldsymbol{e}'_{j_1'}\otimes\cdots\otimes\boldsymbol{e}'_{j_q'},
+    \end{equation}
+
+    则
+    \[T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}=\sum\limits_{i',j'}b^{i_1'\cdots i_p'}_{i_1\cdots i_p}T'^{j_1',j_2',\cdots,j_q'}_{i_1',i_2',\cdots,i_p'}a^{j_1\cdots j_q}_{j_1'\cdots j_q'},\]
+
+    其中
+    \[a^{j_1\cdots j_q}_{j_1'\cdots j_q'}=a^{j_1}_{j_1'}\cdots a^{j_q}_{j_q'},\quad b^{i_1'\cdots i_p'}_{i_1\cdots i_p}=b^{i_1'}_{i_1}\cdots b^{i_p'}_{i_p}.\]
+\end{theorem}
+\begin{proof}
+    由书上 P232 上半部分得
+    \[\boldsymbol{e}'_{j_s'}=\sum\limits_{k=1}^na_{j_s'}^k\boldsymbol{e}_k,\quad e'^{i_s'}=\sum\limits_{k=1}^nb_k^{i_s'}e^k,\quad s=1,2,\cdots,n.\]
+
+    $\therefore$
+    \begin{align*}
+        & \ e'^{i_1'}\otimes\cdots\otimes e'^{i_p'}\otimes\boldsymbol{e}'_{j_1'}\otimes\cdots\otimes\boldsymbol{e}'_{j_q'} \\
+        & =\left(\sum\limits_{k=1}^nb_k^{i_1'}e^k\right)\otimes\cdots\otimes\left(\sum\limits_{k=1}^nb_k^{i_p'}e^k\right)\otimes\left(\sum\limits_{k=1}^na_{j_1'}^k\boldsymbol{e}_k\right)\otimes\cdots\otimes\left(\sum\limits_{k=1}^na_{j_q'}^k\boldsymbol{e}_k\right).
+    \end{align*}
+
+    $\because$
+    \begin{align*}
+        & \ e'^{i_1'}\otimes\cdots\otimes e'^{i_p'}\otimes\boldsymbol{e}'_{j_1'}\otimes\cdots\otimes\boldsymbol{e}'_{j_q'}(\boldsymbol{e}_{i_1},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,e^{j_q}) \\
+        & =\left(\sum\limits_{k=1}^nb_k^{i_1'}(e^k,\boldsymbol{e}_{i_1})\right)\cdots\left(\sum\limits_{k=1}^nb_k^{i_p'}(e^k,\boldsymbol{e}_{i_p})\right)\left(\sum\limits_{k=1}^na_{j_1'}^k(\boldsymbol{e}_k,e^{j_1})\right)\cdots\left(\sum\limits_{k=1}^na_{j_q'}^k(\boldsymbol{e}_k,e^{j_q})\right) \\
+        & =b^{i_1'}_{i_1}\cdots b^{i_p'}_{i_p}a^{j_1}_{j_1'}\cdots a^{j_q}_{j_q'}=a^{j_1\cdots j_q}_{j_1'\cdots j_q'}b^{i_1'\cdots i_p'}_{i_1\cdots i_p},
+    \end{align*}
+
+    $\therefore$
+    \[e'^{i_1'}\otimes\cdots\otimes e'^{i_p'}\otimes\boldsymbol{e}'_{j_1'}\otimes\cdots\otimes\boldsymbol{e}'_{j_q'}=\sum\limits_{i,j}a^{j_1\cdots j_q}_{j_1'\cdots j_q'}b^{i_1'\cdots i_p'}_{i_1\cdots i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}.\]
+
+    由式 (\ref{eq1.1}) 得
+    \begin{align*}
+        T & =\sum\limits_{i',j'}T'^{j_1',j_2',\cdots,j_q'}_{i_1',i_2',\cdots,i_p'}\sum\limits_{i,j}a^{j_1\cdots j_q}_{j_1'\cdots j_q'}b^{i_1'\cdots i_p'}_{i_1\cdots i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q} \\
+        & =\sum\limits_{i,j}\sum\limits_{i',j'}b^{i_1'\cdots i_p'}_{i_1\cdots i_p}T'^{j_1',j_2',\cdots,j_q'}_{i_1',i_2',\cdots,i_p'}a^{j_1\cdots j_q}_{j_1'\cdots j_q'}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q}.\qedhere
+    \end{align*}
+\end{proof}
+上面的定理有一个简单的记法: $b^{i_1'\cdots i_p'}_{i_1\cdots i_p},T'^{j_1',j_2',\cdots,j_q'}_{i_1',i_2',\cdots,i_p'},a^{j_1\cdots j_q}_{j_1'\cdots j_q'}$ 的上标和下标看上去可以像分子和分母一样抵消.
+\subsection{用张量表示多线性映射}
+由书上 P227 得 $V$ 上的线性算子 $\mathcal{F}$ 可以与 $V$ 上的 $(1,1)$ 型张量 $f$ 等同起来. 设 $(\boldsymbol{e}_i)$ 是 $V$ 的一个基, $(e^j)$ 是 $V^*$ 中与 $(\boldsymbol{e}_i)$ 对偶的基(这节中的 $\boldsymbol{e}_i$ 和 $e^j$ 都这么定义), $\mathcal{F}\boldsymbol{e}_i=\sum\limits_ja_i^j\boldsymbol{e}_j$, 则
+\[f(\boldsymbol{e}_i,e^j)=(e^j,\mathcal{F}\boldsymbol{e}_i)=\left(e^j,\sum\limits_ka_i^k\boldsymbol{e}_k\right)=\sum\limits_ka_i^k(e^j,\boldsymbol{e}_k)=\sum\limits_ka_i^k\delta_{jk}=a_i^j.\]
+
+$\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
+\[\sum\limits_{i,j}a_i^je^i\otimes\boldsymbol{e}_j.\]
+
+一般地, 设 $\mathcal{F}:V^p\to V^q$, 我们希望能将 $\mathcal{F}$ 表示为一个张量. $\because$
+\[V^p=\bigoplus\limits_{i=1}^pV,\quad (V^*)^p=\bigoplus\limits_{i=1}^pV^*\]
+(这里的直和是外直和), $\therefore V^p,(V^*)^q$ 是线性空间. 有
+\begin{lemma}\label{l1.1}
+    $(V^p)^*\simeq(V^*)^p$.
+\end{lemma}
+\begin{proof}
+    设 $(e^j)$ 是 $V^*$ 的一个基. 定义线性函数
+    \[\varepsilon^{ij}:\begin{array}{rcl}
+        V^p & \to & K \\
+        (\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_n) & \to & e^j(\boldsymbol{x}_i) \\
+    \end{array}\]
+    以及线性映射
+    \[\phi:\begin{array}{rcll}
+        (V^p)^* & \to & (V^*)^p \\
+        \varepsilon^{ij} & \to & (0,\cdots,0,e^j(\text{第}i\text{个}),0,\cdots,0) & (i=1,2,\cdots,p) \\
+    \end{array}.\]
+
+    $\because\varepsilon^{ij},(0,\cdots,0,e^j(\text{第}i\text{个}),0,\cdots,0)$ 分别是 $(V^p)^*,(V^*)^q$ 的一个基, $\therefore\phi$ 是双射. $\therefore\phi$ 是同构.
+\end{proof}
+\begin{theorem}\label{t1.3}
+    $\tau:V^p\to V^q$ 与一个 $(p,q)$ 型张量 $T$ 可以等同起来.
+\end{theorem}
+\begin{proof}
+    将 $V^q$ 看成一个线性空间. 对 $\boldsymbol{v}\in V^p,f\in(V^q)^*,\tau:V^p\to V^q$, 等式
+    \begin{equation}\label{eq1.2}
+        T(\boldsymbol{v},f)=(f,\tau(\boldsymbol{v}))
+    \end{equation}
+    定义了一个映射 $T:V^p\times(V^q)^*\to k$. $\because\tau$ 是多线性映射, $\therefore\forall\alpha,\beta\in K,\boldsymbol{w}\in V^p,g\in V^q$,
+    \begin{align*}
+        T(\alpha\boldsymbol{v}+\beta\boldsymbol{w},f) & =(f,\tau(\alpha\boldsymbol{v}+\beta\boldsymbol{w})) \\
+        & =(f,\alpha\tau(\boldsymbol{v})+\beta\tau(\boldsymbol{w})) \\
+        & =\alpha(f,\tau(\boldsymbol{v}))+\beta(f,\tau(\boldsymbol{w})) \\
+        & =\alpha T(\boldsymbol{v},f)+\beta T(\boldsymbol{w},f),
+    \end{align*}
+    \[T(\boldsymbol{v},\alpha f+\beta g)=(\alpha f+\beta g,\tau(\boldsymbol{v}))=\alpha(f,\tau(\boldsymbol{v}))+\beta(g,\tau(\boldsymbol{v})),\]
+
+    $\therefore T$ 是多线性函数. 由引理 \ref{l1.1} 得 $T:V^p\times(V^*)^q\to K$. $\therefore T\in\mathbb{T}_p^q(V)$.
+
+    反过来, 对 $T\in\mathbb{T}_p^q(V)$, $T:V^p\times(V^q)^*\to K$, 可以按照式 (\ref{eq1.2}) 定义 $\tau:V^p\to V^q$. $\because\forall f\in(V^q)^*$,
+    \begin{align*}
+        (f,\tau(\alpha\boldsymbol{v}+\beta\boldsymbol{w})) & =T(\alpha\boldsymbol{v}+\beta\boldsymbol{w},f) \\
+        & =\alpha T(\boldsymbol{v},f)+\beta T(\boldsymbol{w},f) \\
+        & =\alpha(f,\tau(\boldsymbol{v}))+\beta(f,\tau(\boldsymbol{w})) \\
+        & =(f,\alpha\tau(\boldsymbol{v})+\beta\tau(\boldsymbol{w})),
+    \end{align*}
+
+    $\therefore\forall f\in(V^q)^*$,
+    \[\tau(\alpha\boldsymbol{v}+\beta\boldsymbol{w})(f)=(f,\tau(\alpha\boldsymbol{v}+\beta\boldsymbol{w}))=(f,\alpha\tau(\boldsymbol{v})+\beta\tau(\boldsymbol{w}))=(\alpha\tau(\boldsymbol{v})+\beta\tau(\boldsymbol{w}))(f).\]
+
+    $\therefore$
+    \[\tau(\alpha\boldsymbol{v}+\beta\boldsymbol{w})=\alpha\tau(\boldsymbol{v})+\beta\tau(\boldsymbol{w}).\]
+
+    $\therefore\tau$ 是多线性映射.
+\end{proof}
+由引理 \ref{l1.1}, $(V^q)^*=(V^*)^q$ 中的函数形如 $f=(f_1,\cdots,f_q)$, 有
+\[f(\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_q)=f_1(\boldsymbol{x}_1)\cdots f_q(\boldsymbol{x}_q)=(f_1,\boldsymbol{x}_1)\cdots(f_q,\boldsymbol{x}_q).\]
+
+设 $\tau:V^p\to V^q$ 满足
+\[\tau(\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_p})=\sum\limits_k(T_{i_1\cdots i_p}^{k_1}\boldsymbol{e}_{k_1},\cdots,T_{i_1\cdots i_p}^{k_q}\boldsymbol{e}_{k_q}),\quad T_{i_1\cdots i_p}^{k_1\cdots k_q}=T_{i_1\cdots i_p}^{k_1}\cdots T_{i_1\cdots i_p}^{k_q},\]
+
+则与 $\tau$ 对应的 $T$ 满足
+\begin{align*}
+    T(\boldsymbol{e}_{i_1},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,e^{j_q}) & =\left((e^{j_1},\cdots,e^{j_q}),\sum\limits_k(T_{i_1\cdots i_p}^{k_1}\boldsymbol{e}_{k_1},\cdots,T_{i_1\cdots i_p}^{k_q}\boldsymbol{e}_{k_q})\right) \\
+    & =\sum\limits_k((e^{j_1},\cdots,e^{j_q}),(T_{i_1\cdots i_p}^{k_1}\boldsymbol{e}_{k_1},\cdots,T_{i_1\cdots i_p}^{k_q}\boldsymbol{e}_{k_q})) \\
+    & =\sum\limits_k(e^{j_1},T_{i_1\cdots i_p}^{k_1}\boldsymbol{e}_{k_1})\cdots(e^{j_q},T_{i_1\cdots i_p}^{k_q}\boldsymbol{e}_{k_q}) \\
+    & =\sum\limits_kT_{i_1\cdots i_p}^{k_1\cdots k_q}(e^{j_1},\boldsymbol{e}_{k_1})\cdots(e^{j_q},\boldsymbol{e}_{k_q}) \\
+    & =\sum\limits_kT_{i_1\cdots i_p}^{k_1\cdots k_q}\delta_{k_1}^{j_1}\cdots\delta_{k_q}^{j_q} \\
+    & =T_{i_1\cdots i_p}^{j_1\cdots j_q}.
+\end{align*}
+\subsection{空间的张量积}
+这里对空间的张量积的定义与书上(定理 3)不同. 定义 \ref{d1.2} 比较直观, 而定义 \ref{d1.3} 更抽象也更一般, 但是两个定义都可以推出书上的定义.
+
+设 $T(V^*,W^*)$ 为 $V^*\times W^*\to K$ 的双线性型全体. 由第 1 章笔记的第 3.1 节得 $T(V^*,W^*)$ 构成一个向量空间.
+
+对 $\boldsymbol{v}\in V=V^{**},\boldsymbol{w}\in W=W^{**}$, 有 $\boldsymbol{v}\otimes\boldsymbol{w}:V^*\times W^*\to K$. 由书上的式 (6) 得 $\boldsymbol{v}\otimes\boldsymbol{w}$ 是双线性型, $\therefore\boldsymbol{v}\otimes\boldsymbol{w}\in T(V^*,W^*)$. $\therefore$
+\[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\subset T(V^*,W^*).\]
+
+有:
+\begin{theorem}\label{t1.4}
+    当 $K^p,p\in\mathbb{N}$ 是 Hermite 空间($\mathbb{R},\mathbb{C}$ 都满足这个条件), $V,W$ 都是有限维空间时, 有
+    \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>=T(V^*,W^*).\]
+\end{theorem}
+\begin{proof}
+    设 $e^1,e^2,\cdots,e^n$ 是 $V^*$ 的一个基, $e'^1,e'^2,\cdots,e'^m$ 是 $W^*$ 的一个基, 则 $\forall \phi\in T(V^*,W^*),\exists A\in M_{m,n}(K)$ 使得 $\forall f=\sum\limits_{i=1}^na_ie^i\in V^*,g=\sum\limits_{j=1}^mb_je'^j\in W^*$, 有
+    \[\phi(f,g)=(b_1,b_2,\cdots,b_m)A[a_1,a_2,\cdots,a_n].\]
+
+    由第 3 章笔记的补充题 4 得 $\exists$ 酉矩阵 $B\in U(m),C\in U(n)$ 使得
+    \[A=B\begin{pmatrix}
+        \Sigma & 0 \\
+        0 & 0 \\
+    \end{pmatrix}{}^tC,\quad\Sigma=\operatorname{diag}(\sigma_1,\sigma_2,\cdots,\sigma_r).\]
+    
+    $\because$
+    \[\begin{pmatrix}
+        \Sigma & 0 \\
+        0 & 0 \\
+    \end{pmatrix}=\sigma_1\begin{pmatrix}
+        1 \\
+        0 \\
+        \vdots \\
+        0 \\
+    \end{pmatrix}(1,0,\cdots,0)+\sigma_2\begin{pmatrix}
+        0 \\
+        1 \\
+        0 \\
+        \vdots \\
+        0 \\
+    \end{pmatrix}(0,1,0,\cdots,0)+\cdots+\sigma_r\begin{pmatrix}
+        0 \\
+        \vdots \\
+        0 \\
+        1 \\
+        \vdots \\
+        0
+    \end{pmatrix}(0,\cdots,1(\text{第}r\text{个}),\cdots,0),\]
+
+    $\therefore$
+    \begin{align*}
+        A & =\sigma_1B\begin{pmatrix}
+            1 \\
+            0 \\
+            \vdots \\
+            0 \\
+        \end{pmatrix}(1,0,\cdots,0){}^tC+\cdots+\sigma_rB\begin{pmatrix}
+            0 \\
+            \vdots \\
+            0 \\
+            1 \\
+            \vdots \\
+            0
+        \end{pmatrix}(0,\cdots,1(\text{第}r\text{个}),\cdots,0){}^tC \\
+        & =\sum\limits_{i=1}^r\sigma_iB^{(i)}{}^t(C^{(i)}).
+    \end{align*}
+
+    $\therefore$
+    \begin{align*}
+        \phi(f,g) & =(b_1,b_2,\cdots,b_m)\left(\sum\limits_{i=1}^r\sigma_iB^{(i)}{}^t(C^{(i)})\right)[a_1,a_2,\cdots,a_n] \\
+        & =\sum\limits_{i=1}^r\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)}\cdot{}^t((a_1,a_2,\cdots,a_n)C^{(i)}) \\
+        & =\sum\limits_{i=1}^r\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)}\cdot(a_1,a_2,\cdots,a_n)C^{(i)}.
+    \end{align*}
+
+    设 $(e^1,\cdots,e^n)$ 的对偶基为 $(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)$, $(e'^1,\cdots,e'^m)$ 的对偶基为 $(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_m')$. 令
+    \[\boldsymbol{v}_i=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)C^{(i)}\in V,\quad\boldsymbol{w}_i=(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_m')B^{(i)}\in W,\]
+    
+    有
+    \[\boldsymbol{v}_i(f)=(a_1,a_2,\cdots,a_n)C^{(i)},\quad\boldsymbol{w}_i(g)=\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)},\quad i=1,2,\cdots,r.\]
+
+    $\therefore\forall f\in V^*,g\in W^*$,
+    \[\phi(f,g)=\sum\limits_{i=1}^r\sigma_i\boldsymbol{v}_i(f)\boldsymbol{w}_i(g).\]
+
+    $\therefore$
+    \[\phi=\sum\limits_{i=1}^r\sigma_i\boldsymbol{v}_i\otimes\boldsymbol{w}_i\in\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>.\]
+
+    $\therefore$
+    \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\supset T(V^*,W^*).\qedhere\]
+\end{proof}
+
+设 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 是 $V$ 的一个基, $\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_m$ 是 $W$ 的一个基, 由定理 \ref{t1.4} 得
+\[T(V^*,W^*)=\left<\boldsymbol{v}_i\otimes\boldsymbol{w}_j|i=1,2,\cdots,n,j=1,2,\cdots,m\right>.\]
+
+与定理 \ref{t1.1} 类似, 得 $(\boldsymbol{v}_i\otimes\boldsymbol{w}_j)$ 线性无关. $\therefore(\boldsymbol{v}_i\otimes\boldsymbol{w}_j)$ 是 $T(V^*,W^*)$ 的一个基.
+
+如果 $\dim V=\infty$, 则 $V^{**}$ 不一定 $=V$. 对 $\boldsymbol{v}\in V$, 定义
+\[\phi_{\boldsymbol{v}}:\begin{array}{rcl}
+    V^* & \to & K \\
+    f & \to & f(\boldsymbol{v}) \\
+\end{array},\]
+
+则 $V'=\{\phi_{\boldsymbol{v}}|\boldsymbol{v}\in V\}$ 是 $V^{**}$ 的子空间. 定义
+\[\phi:\begin{array}{rcl}
+    V & \to & V' \\
+    \boldsymbol{v} & \to & \phi_{\boldsymbol{v}} \\
+\end{array}.\]
+
+$\because\boldsymbol{u}\neq\boldsymbol{v}\Rightarrow\phi_{\boldsymbol{u}}\neq\phi_{\boldsymbol{v}}$, $\therefore\phi$ 是单射.
+
+$\because\forall\alpha,\beta\in K,\boldsymbol{u},\boldsymbol{v}\in V,f\in V^*,f(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha f(\boldsymbol{u})+\beta f(\boldsymbol{v})$, $\therefore\phi(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\phi(\boldsymbol{u})+\beta\phi(\boldsymbol{v})$, $\therefore\phi$ 是单同态. $\therefore V\hookrightarrow V^{**}$.
+
+类似地, 定义 $\psi_{\boldsymbol{w}}:f\to f(\boldsymbol{w})\in W^{**},\psi:\boldsymbol{v}\to\psi_{\boldsymbol{v}},W'=\operatorname{Im}\psi$.
+
+容易验证, 当 $V,W$ 是有限维时, 有 $\phi_{\boldsymbol{v}}=\boldsymbol{v},\psi_{\boldsymbol{w}}=\boldsymbol{w}$. 自然地, 引出下面的定义:
+\begin{definition}\label{d1.2}
+    称 $V'\otimes W'=\left<\phi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\subseteq T(V^*,W^*)$ (最右边的包含符号当 $V,W$ 都为有限维时取等号) 为 $V$ 和 $W$ 的\textbf{张量积}, 记作 $V\otimes W$.
+\end{definition}
+考虑映射
+\[\tau:\begin{array}{rcl}
+    V\times W & \to & V\otimes W \\
+    (\boldsymbol{v},\boldsymbol{w}) & \to & \boldsymbol{v}\otimes\boldsymbol{w} \\
+\end{array}.\]
+
+下面的定理说明这里关于空间的张量积的定义可以推出书上的定义.
+\begin{theorem}\label{t1.5}
+    设 $I,J$ 是指标集, 如果 $\{\boldsymbol{v}_i|i\in I\}$ 线性无关, 则 $\forall\boldsymbol{w}_i\in W,\sum\limits_{i\in I}\tau(\boldsymbol{v}_i,\boldsymbol{w}_i)=0\Rightarrow\boldsymbol{w}_i=\boldsymbol{0}$. 如果 $\{\boldsymbol{w}_j|j\in J\}$ 线性无关, 则 $\forall\boldsymbol{v}_j\in V,\sum\limits_{j\in J}\tau(\boldsymbol{v}_j,\boldsymbol{w}_j)=0\Rightarrow\boldsymbol{v}_j=\boldsymbol{0}$.
+\end{theorem}
+\begin{proof}
+    只证明第一个命题, 第二个由对称性得.
+
+    对 $f\in W^*,\boldsymbol{v}\in V,\boldsymbol{w}\in W$, $\tau(\boldsymbol{v},\boldsymbol{w})(*,f)=\boldsymbol{w}(f)\cdot\boldsymbol{v}\in V^{**}=V$.
+
+    $\because\sum\limits_{i\in I}\tau(\boldsymbol{v}_i,\boldsymbol{w}_i)=0$, $\therefore\forall f\in W^*$,
+    \[\sum\limits_{i\in I}\tau(\boldsymbol{v}_i,\boldsymbol{w}_i)(*,f)=\sum\limits_{i\in I}\boldsymbol{w}_i(f)\cdot\boldsymbol{v}_i=\boldsymbol{0}.\]
+
+    $\because\{\boldsymbol{v}_i|i\in I\}$ 线性无关, $\therefore\forall f\in W^*,\boldsymbol{w}_i(f)=0$. $\therefore\boldsymbol{w}_i=\boldsymbol{0}$.
+\end{proof}
+\begin{definition}\label{d1.3}
+    设 $V,W,Z$ 是向量空间, $\tau:V\times W\to Z$ 是双线性映射, 如果对向量空间 $Y$ 和双线性映射 $\sigma:V\times W\to Y$, $\exists!$ 线性映射 $\xi:Z\to Y$ 使得 $\sigma=\xi\tau$. 用交换图表示, 就是
+    \begin{center}
+        \begin{tikzcd}
+            V\times W \arrow[rd, "\sigma"] \arrow[r, "\tau"] & Z \arrow[d, "\xi"] \\
+                                                             & Y
+        \end{tikzcd},
+    \end{center}
+    
+    则称 $(\tau,Z)$ 或 $Z$ 是 $V,W$ 的张量积.
+\end{definition}
+书上所说的 ``泛性'' 体现在 $\xi$ 的唯一性中:
+\begin{theorem}
+    如果 $(\tau',Z')$ 也是定义 \ref{d1.3} 中定义的 $V,W$ 的张量积, 则 $Z\simeq Z'$.
+\end{theorem}
+\begin{proof}
+    在定义 \ref{d1.3} 中以 $Z'$ 代 $Y$, 且对称地对 $Z'$, 以 $Z$ 代 $Y$, 有:
+    \begin{center}
+        \begin{tikzcd}[row sep=tiny]
+                                                             & Z \arrow[dd, near start,bend right=30, "\xi"] \\
+            U\times V \arrow[ur, "\tau"] \arrow[dr, "\tau'"] & \\
+                                                             & Z' \arrow[uu,bend right=30, "\xi'"]
+        \end{tikzcd},
+    \end{center}
+    
+    其中 $\tau,\tau'$ 是双线性映射, $\xi,\xi'$ 是线性映射. 有:
+    \[\tau'=\xi\tau,\quad\tau=\xi'\tau'\quad\Rightarrow\quad\tau=\xi'\xi\tau,\quad\tau'=\xi\xi'\tau'.\]
+
+    $\therefore$ 有
+    \begin{center}
+        \begin{tikzcd}
+            V\times W \arrow[rd, "\tau"] \arrow[r, "\tau"] & Z \arrow[d, "\xi'\xi"] \\
+                                                           & Z
+        \end{tikzcd}.
+    \end{center}
+    
+    在定义 \ref{d1.3} 中以 $Z$ 代 $Y$, 有
+    \begin{center}
+        \begin{tikzcd}
+            V\times W \arrow[rd, "\tau"] \arrow[r, "\tau"] & Z \arrow[d, "e"] \\
+                                                           & Z
+        \end{tikzcd},
+    \end{center}
+
+    其中 $e$ 是 $Z$ 上的恒等映射. $\therefore$ 由定义 \ref{d1.3} 得 $\xi'\xi=e$.
+
+    同理 $\xi\xi'$ 是 $Z'$ 上的恒等映射. 由 [BAI] 第 1 章第 5 节的定理 2 得 $\xi$ 是双射. $\because\xi$ 是线性映射, $Z,Z'$ 是线性空间, $\therefore\xi$ 是同构.
+\end{proof}
+可以看出, $\xi$ 的唯一性是很强的条件.
+\begin{theorem}\label{t1.7}
+    $Z=\left<\tau(\boldsymbol{v},\boldsymbol{w})|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>$.
+\end{theorem}
+\begin{proof}
+    假设 $Z_1=\left<\tau(\boldsymbol{v},\boldsymbol{w})|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\subsetneq Z$, 令 $Z_2$ 是 $Z_1$ 的补空间, 则 $Z_2\neq0$. 有
+    \begin{center}
+        \begin{tikzcd}
+            V\times W \arrow[rd, "\sigma"] \arrow[r, "\tau"] & Z_1 \arrow[d, "\xi_1"] & Z_2 \arrow[ld, "\xi_2"]  \\
+            & Y
+        \end{tikzcd},
+    \end{center}
+
+    其中 $\xi_1=\xi|_{Z_1},\xi_2=\xi|_{Z_2}$.
+    
+    令 $\eta:Z_2\to Y\neq\xi_2,\xi'=\eta\oplus\xi_1$, 即
+    \[\xi'(x)=\begin{cases}
+        \eta(x), & x\in Z_2, \\
+        \xi_1(x), & x\in Z_1, \\
+    \end{cases}\]
+
+    则 $\xi'\neq\xi,\sigma=\xi'\tau$, 与 $\exists!\xi:Z\to Y$ 使得 $\sigma=\xi\tau$ 矛盾.
+\end{proof}
+\begin{theorem}\label{t1.8}
+    设 $I,J$ 是指标集, $\{\boldsymbol{v}_i|i\in I\},\{\boldsymbol{w}_j|j\in J\}$ 分别是 $V,W$ 的一个基, 则 $\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 是 $Z$ 的一个基.
+\end{theorem}
+\begin{proof}
+    $\because\tau$ 是双线性映射, $\therefore$ 设 $\boldsymbol{v}=\sum\limits_{i\in I}a_i\boldsymbol{v}_i,\boldsymbol{w}=\sum\limits_{j\in J}b_j\boldsymbol{w}_j$, 则
+    \[\tau(\boldsymbol{v},\boldsymbol{w})=\sum\limits_{i\in I,j\in J}a_ib_j\tau(\boldsymbol{v}_i,\boldsymbol{w}_j).\]
+    
+    $\therefore$ 由定理 \ref{t1.7} 得
+    \[Z=\left<\tau(\boldsymbol{v},\boldsymbol{w})|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>=\left<\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\right>.\]
+
+    假设 $\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关, 即 $\exists$ 不全为 $0$ 的 $a_{ij},i\in I,j\in J$ 使得
+    \[\sum\limits_{i\in I,j\in J}a_{ij}\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)=0.\]
+
+    $\because\sigma=\xi\tau$, $\therefore\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)=\xi(\tau(\boldsymbol{v}_i,\boldsymbol{w}_j))$.
+
+    $\because\xi$ 是线性映射, $\therefore$
+    \[\sum\limits_{i\in I,j\in J}a_{ij}\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)=\sum\limits_{i\in I,j\in J}a_{ij}\xi(\tau(\boldsymbol{v}_i,\boldsymbol{w}_j))=\xi\left(\sum\limits_{i\in I,j\in J}a_{ij}\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)\right)=0.\]
+
+    $\therefore\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关.
+    
+    令 $Y=\left<\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>,\sigma(\boldsymbol{v},\boldsymbol{w})=\phi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}$, 其中 $\phi_{\boldsymbol{v}},\psi_{\boldsymbol{w}}$ 的定义见定义 \ref{d1.2}. 有
+    \begin{center}
+        \begin{tikzcd}
+            V\times W \arrow[rd, "\sigma"] \arrow[r, "\tau"] & Z \arrow[d, "\xi"] \\
+            & \left<\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>
+        \end{tikzcd}.
+    \end{center}
+
+    $\because\{\boldsymbol{v}_i|i\in I\},\{\boldsymbol{w}_j|j\in J\}$ 分别是 $V,W$ 的一个基, $\therefore\{\phi_{\boldsymbol{v}_i}|i\in I\},\{\psi_{\boldsymbol{w}_j}|j\in J\}$ 线性无关.
+    
+    $\therefore\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}=\{\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\}$ 线性无关, 与 $\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关矛盾.
+
+    $\therefore\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性无关. $\therefore\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 是 $Z$ 的一个基.
+\end{proof}
+\begin{corollary}
+    如果 $V=\{\boldsymbol{0}\}\vee W=\{\boldsymbol{0}\}$, 则 $Z=\{\boldsymbol{0}\}$.
+\end{corollary}
+\begin{proof}
+    不妨设 $V=\{\boldsymbol{0}\}$. $\because\tau$ 是双线性映射, $\therefore\forall j\in J,\tau(\boldsymbol{0},\boldsymbol{w}_j)=\boldsymbol{0}$. 由定理 \ref{t1.8} 得
+    \[Z=\left<\tau(\boldsymbol{0},\boldsymbol{w}_j)|j\in J\right>=\{\boldsymbol{0}\}.\qedhere\]
+\end{proof}
+\begin{corollary}
+    当 $\sigma$ 是双线性型时, 定义 \ref{d1.3} 定义的张量积满足定理 \ref{t1.5}.
+\end{corollary}
+\begin{proof}
+    只证明第一个命题, 第二个由对称性得.
+
+    将 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_k$ 扩充为 $V$ 的一个基 $\{\boldsymbol{v}_i|i\in I\}$, 设 $\{\boldsymbol{e}_j|j\in J\}$ 是 $W$ 的一个基, 则 $\forall\boldsymbol{w}_i=\sum\limits_{j\in J}a_{ij}\boldsymbol{e}_j\in W$,
+    \[\sum\limits_{i\in I}\tau(\boldsymbol{v}_i,\boldsymbol{w}_i)=\sum\limits_{j\in J}a_{ij}\tau(\boldsymbol{v}_i,\boldsymbol{e}_j).\]
+
+    由定理 \ref{t1.8} 得 $\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性无关, $\therefore$
+    \[\sum\limits_{i\in I}\tau(\boldsymbol{v}_i,\boldsymbol{w}_i)=0\Rightarrow a_{ij}=0\Rightarrow \boldsymbol{w}_i=0.\qedhere\]
+\end{proof}
+ \subsection{算子的张量积}
+设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, $\boldsymbol{f}_1,\boldsymbol{f}_2,\cdots,\boldsymbol{f}_m$ 是 $W$ 的一个基, $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $A=(\alpha_{i'i})$, $\mathcal{B}$ 在基 $(\boldsymbol{f}_j)$ 下的矩阵为 $B=(\beta_{j'j})$, 则在 $V\otimes W$ 的基
+\begin{equation}\label{eq1.3}
+    \{\boldsymbol{e}_i\otimes\boldsymbol{f}_j|i=1,2,\cdots,n,j=1,2,\cdots,m\}
+\end{equation}
+
+下有
+\[(\mathcal{A}\otimes\mathcal{B})(\boldsymbol{e}_i\otimes\boldsymbol{f}_j)=\left(\sum\limits_{i'=1}^n\alpha_{i'i}\boldsymbol{e}_{i'}\right)\otimes\left(\sum\limits_{j'=1}^m\beta_{j'j}\boldsymbol{f}_{j'}\right)=\sum\limits_{i',j'}\alpha_{i'i}\beta_{j'j}\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_{j'}.\]
+
+固定指标 $i$, 则
+\[(\mathcal{A}\otimes\mathcal{B})(\boldsymbol{e}_i\otimes\boldsymbol{f}_j)=\sum\limits_{i'=1}^n(\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_1,\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_2,\cdots,\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_m)\begin{pmatrix}
+    \alpha_{i'i}\beta_{1j} \\
+    \alpha_{i'i}\beta_{2j} \\
+    \vdots \\
+    \alpha_{i'i}\beta_{mj} \\
+\end{pmatrix}, j=1,2,\cdots,m.\]
+
+$\therefore$
+\[((\mathcal{A}\otimes\mathcal{B})(\boldsymbol{e}_i\otimes\boldsymbol{f}_j),\cdots,(\mathcal{A}\otimes\mathcal{B})(\boldsymbol{e}_i\otimes\boldsymbol{f}_j))=\sum\limits_{i'=1}^n(\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_1,\cdots,\boldsymbol{e}_{i'}\otimes\boldsymbol{f}_m)\alpha_{i'i}B,\]
+
+其中 $B=(\beta_{j'j})$.
+
+将基 (\ref{eq1.3}) 按照如下的方式排列:
+\[\boldsymbol{e}_1\otimes\boldsymbol{f}_1,\boldsymbol{e}_1\otimes\boldsymbol{f}_2,\cdots,\boldsymbol{e}_1\otimes\boldsymbol{f}_m,\boldsymbol{e}_2\otimes\boldsymbol{f}_1,\boldsymbol{e}_2\otimes\boldsymbol{f}_2,\cdots,\boldsymbol{e}_n\otimes\boldsymbol{f}_1,\boldsymbol{e}_n\otimes\boldsymbol{f}_2,\cdots,\boldsymbol{e}_n\otimes\boldsymbol{f}_m,\]
+
+则
+$\mathcal{A}\otimes\mathcal{B}$ 在基 (\ref{eq1.3}) 下的矩阵
+\[A\otimes B=\begin{pmatrix}
+    \alpha_{11}B & \alpha_{12}B & \cdots & \alpha_{1n}B \\
+    \alpha_{21}B & \alpha_{22}B & \cdots & \alpha_{2n}B \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \alpha_{n1}B & \alpha_{n2}B & \cdots & \alpha_{nn}B \\
+\end{pmatrix}.\]
+
+容易验证: $A\otimes B=(A\otimes E_m)(E_n\otimes B)$.
+\section{张量的卷积(对应第 2 节)}
+设 $\mathcal{A}\in\mathcal{L}(V)$. 用张量的语言来描述, 就是 $\mathcal{A}\in\mathbb{T}_1^1(V)$. 线性算子的迹是很重要的性质, 我们想得到 $\mathcal{A}$ 的迹在张量的语言下的形式.
+
+设 $T\in\mathbb{T}_1^1(V)$ 满足 $T(\boldsymbol{x},u)=(u,\mathcal{A}\boldsymbol{x})$, 则 $\operatorname{tr}\mathcal{A}=\sum\limits_{i=1}^nT(e^i,\boldsymbol{e}_i)$. 设 $T$ 在基 $\{e^i\otimes\boldsymbol{e}_j|1\leq i,j\leq n\}$ 下的坐标为 $T_i^j$, 则 $\operatorname{tr}\mathcal{A}=\sum\limits_{i=1}^nT_i^i$.
+
+设 ${T'}_{i'}^{j'}$ 是 $T$ 在另一个基下的坐标, 由第 1 节的定理 2 得
+\[\sum\limits_{i=1}^nT_i^i=\sum\limits_{i=1}^n\sum\limits_{i'=1}^nb_i^{i'}{T'}_{i'}^{i'}a_{i'}^i,\quad\sum\limits_{k=1}^na_i^kb_k^j=\delta_i^j,\]
+
+$\therefore$
+\[\sum\limits_{i=1}^nT_i^i=\sum\limits_{i'=1}^n{T'}_{i'}^{i'}\sum\limits_{i=1}^nb_i^{i'}a_{i'}^i=\sum\limits_{i'=1}^n{T'}_{i'}^{i'}\delta_{i'}^{i'}=\sum\limits_{i'=1}^n{T'}_{i'}^{i'},\]
+
+这验证了: $T$ 的迹与基的选取无关.
+
+$\operatorname{tr}$ 相当于一个映射: $\operatorname{tr}:\mathbb{T}_1^1(V)\to K=\mathbb{T}_0^0$. 一般地, 可以构造映射
+\[\operatorname{tr}_r^s:\begin{array}{rcl}
+    \mathbb{T}_p^q & \to & \mathbb{T}_{p-1}^{q-1} \\
+    T & \to & \overline{T} \\
+\end{array},\]
+
+其中
+\begin{align*}
+    & \overline{T}(\boldsymbol{e}_{i_1},\cdots,\hat{\boldsymbol{e}}_{i_s},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,\hat{e}^{j_r},\cdots,e^{j_q}) \\
+    & =\sum\limits_{j_r,i_s=1}^n(e^{j_r},\boldsymbol{e}_{i_s})T(\boldsymbol{e}_{i_1},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,e^{j_q}) \\
+    & =\sum\limits_{j_r,i_s=1}^n\delta_{i_s}^{j_r}T(\boldsymbol{e}_{i_1},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,e^{j_q}) \\
+    & =\sum\limits_{k=1}^nT(\boldsymbol{e}_{i_1},\cdots,\boldsymbol{e}_{i_{s-1}},\boldsymbol{e}_k,\boldsymbol{e}_{i_{s+1}},\cdots,\boldsymbol{e}_{i_p},e^{j_1},\cdots,e^{j_{s-1}},e^{k},e^{j_{s+1}},\cdots,e^{j_q}).
+\end{align*}
+
+设
+\[T=\sum\limits_{i,j}T^{j_1,j_2,\cdots,j_q}_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\boldsymbol{e}_{j_q},\]
+
+则
+\[\overline{T}=\sum\limits_{i,j}\overline{T}^{j_1,\cdots,\widehat{j_s},\cdots,j_q}_{i_1,\cdots,\widehat{i_r},\cdots,i_p}e^{i_1}\otimes\cdots\otimes\hat{e}^{i_r}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\hat{\boldsymbol{e}}_{j_s}\otimes\cdots\otimes\boldsymbol{e}_{j_q},\]
+\[\overline{T}^{j_1,\cdots,\widehat{j_s},\cdots,j_q}_{i_1,\cdots,\widehat{i_r},\cdots,i_p}=\sum\limits_{k=1}^nT^{j_1,\cdots,j_{s-1},k,j_{s+1},\cdots,j_q}_{i_1,\cdots,i_{r-1},k,i_{r+1},\cdots,i_p}\]
+
+称 $\operatorname{tr}_r^s$ 为\textbf{收缩映射}.
+
+举几个用张量的卷积表示运算的例子.
+\begin{example}
+    对线性算子 $\mathcal{A},\mathcal{B}\in\mathbb{T}_1^1,\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_2^2$, $\operatorname{tr}_i^j\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$.
+
+    设 $\mathcal{A},\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵分别为 $A=(a_j^i),B=(b_j^i)$, 将 $\mathcal{A},\mathcal{B}$ 写成张量的形式:
+    \[\mathcal{A}=\sum\limits_{i,k}a_i^ke^i\otimes\boldsymbol{e}_k,\quad\mathcal{B}=\sum\limits_{j,l}b_l^je^l\otimes\boldsymbol{e}_j,\]
+
+    则
+    \[\mathcal{A}\otimes\mathcal{B}=\sum a_i^kb_l^je^i\otimes e^l\otimes\boldsymbol{e}_k\otimes\boldsymbol{e}_j,\]
+    \[\operatorname{tr}_2^1\mathcal{A}\otimes\mathcal{B}=\sum S_i^je^i\otimes\boldsymbol{e}_j,\]
+
+    其中
+    \[S_i^j=\sum\limits_{k=1}^na_i^kb_k^j.\]
+
+    $\therefore\operatorname{tr}_2^1\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $BA$. 同理 $\operatorname{tr}_1^2\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $AB$.
+\end{example}
+\section{对称张量代数(对应第 2 节)}
+\subsection{对称张量}
+类似于对称多项式, 有:
+\begin{definition}
+    对 $T\in\mathbb{T}_p^0(V)$, 如果对 $\forall\sigma\in S_p$,
+    \[T(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_p)=T(\boldsymbol{v}_{\sigma(1)},\boldsymbol{v}_{\sigma(2)},\cdots,\boldsymbol{v}_{\sigma(p)}),\]
+
+    则称 $T$ 是对称的. 如果对 $\forall\sigma\in S_p$,
+    \[T(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_p)=\varepsilon_\sigma T(\boldsymbol{v}_{\sigma(1)},\boldsymbol{v}_{\sigma(2)},\cdots,\boldsymbol{v}_{\sigma(p)}),\]
+
+    其中 $\varepsilon_\sigma$ 是 $\sigma$ 的符号, 则称 $T$ 是斜对称的.
+\end{definition}
+
+类似地, 可以讨论 $T\in\mathbb{T}^q_0$ 的(斜)对称性(相当于在 $T\in\mathbb{T}_p^0$ 中以 $V^*$ 代 $V$, 所以只需要讨论 $T\in\mathbb{T}^0_p$ 的(斜)对称性), 但不能讨论 $T\in\mathbb{T}^q_p$ 的(斜)对称性, 因为不能确定置换是加在共变指标还是反变指标上.
+
+(斜)对称的双线性型其实是(斜)对称张量的一个特殊情况.
+
+类比从任一双线性型构造(斜)对称双线性型, 可以从任一 $T\in\mathbb{T}_p^0$ 构造(斜)对称张量. 定义算子
+\[f_\sigma:\begin{array}{rcl}
+    \mathbb{T}_p^0(V) & \to & \mathbb{T}_p^0(V) \\
+    T(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_p) & \to & T(\boldsymbol{v}_{\sigma(1)},\boldsymbol{v}_{\sigma(2)},\cdots,\boldsymbol{v}_{\sigma(p)}) \\
+\end{array},\]
+
+容易验证 $\{f_\sigma|\sigma\in S_p\}$ 是群, 与 $S_p$ 同构. 设
+\[S(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}f_\sigma T,\]
+
+则 $\forall\tau\in S_p$,
+\[f_\tau S(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}f_\tau f_\sigma T=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}f_{\tau\sigma}T.\]
+
+$\because S_p=\{\tau\sigma|\sigma\in S_p\}$, $\therefore$
+\[f_\tau S(T)=\dfrac{1}{p!}\sum\limits_{\tau\sigma\in S_p}f_{\tau\sigma} T=\dfrac{1}{p!}\sum\limits_{\pi\in S_p}f_\pi T=S(T).\]
+
+$\therefore S(T)$ 是对称的.
+
+如果 $T$ 是对称的, 则
+\[S(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}f_\sigma T=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}T=T.\]
+
+这也说明 $S^2=S$.
+
+称 $\mathbb{T}_p(V)$ 中的对称张量全体称为 $S_p(V)$, $\mathbb{T}^p(V)$ 中的对称张量全体称为 $S^p(V)$. $S^p(V)$ 是 $\mathbb{T}^p(V)$ 的一个子空间.
+
+对 $T\in\mathbb{T}_p(V)$, 设\textbf{齐次函数}
+\begin{equation}\label{eq3.1}
+    Q_T(\boldsymbol{x})=T(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}).
+\end{equation}
+
+$Q_T$ 被称为``齐次函数''的原因是: $\because T$ 是 $p$ 线性型, $\therefore$
+\[Q_T(t\boldsymbol{x})=T(\underbrace{t\boldsymbol{x},\cdots,t\boldsymbol{x}}_{p\text{个}t\boldsymbol{x}})=t^pT(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}})=t^pQ_T(\boldsymbol{x}).\]
+
+一般地, 按式 (\ref{eq3.1}) 定义的映射不是双射 (比如 $T_1(\boldsymbol{x}_1,\boldsymbol{x}_2)=2\boldsymbol{x}_1+3\boldsymbol{x}_2$ 和 $T_2(\boldsymbol{x}_1,\boldsymbol{x}_2)=3\boldsymbol{x}_1+2\boldsymbol{x}_2$ 对应同一个 $Q_T(\boldsymbol{x})=5\boldsymbol{x}$), 但是有
+\begin{theorem}[书上的定理 3]\label{t3.1}
+    $S_p(V)$ 同构于 $V$ 上的 $p$ 次齐次函数全体 (在这节中, 记 $W_p(V)$ 为 $V$ 上的 $p$ 次齐次函数全体).
+\end{theorem}
+\begin{proof}
+    定义
+    \[\sigma:\begin{array}{rcl}
+        S_p(V) & \rightarrow & W_p(V) \\
+        T & \rightarrow & Q_T \\
+    \end{array}.\]
+
+    其中 $Q_T$ 由式 (\ref{eq3.1}) 定义. 容易验证 $\sigma$ 是一个线性映射.
+
+    对 $\forall Q_T\in W_p(V)$, 有 $T\in\mathbb{T}_p(V)$,
+    \begin{align*}
+        \sigma(S(T))(\boldsymbol{x}) & =(S(T))(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}) \\
+        & =\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}T(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}) \\
+        & =\dfrac{1}{p!}p!T(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}) \\
+        & =Q_T(\boldsymbol{x}).
+    \end{align*}
+
+    $\therefore\forall Q_T\in W_p(V),\exists T'=S(T)\in S_p(V)$ 使得 $\sigma(T')=Q_T$. $\therefore\sigma$ 是满射.
+
+    $\forall T\in S_p(V)$, 有
+    \begin{align*}
+        T(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}) & =T(\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0})+T(\boldsymbol{0},\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0})+\cdots+T(\boldsymbol{0},\cdots,\boldsymbol{0},\boldsymbol{x}) \\
+        & =pT(\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0}) \\
+        & =pT(\boldsymbol{0},\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0}) \\
+        & =\cdots \\
+        & =pT(\boldsymbol{0},\cdots,\boldsymbol{0},\boldsymbol{x}).
+    \end{align*}
+
+    设对 $T_1,T_2\in S_p(V)$, 有 $\sigma(T_1)=\sigma(T_2)$, 则 $\forall\boldsymbol{x}$,
+    \[T_1(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}})=T_2(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}).\]
+
+    $\therefore\forall\boldsymbol{x}$, 有
+    \[T_1(\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0})=T_1(\boldsymbol{x},\boldsymbol{0},\cdots,\boldsymbol{0}),\cdots,T(\boldsymbol{0},\cdots,\boldsymbol{0},\boldsymbol{x})=T(\boldsymbol{0},\cdots,\boldsymbol{0},\boldsymbol{x}).\]
+    
+    令 $\boldsymbol{x}$ 取遍 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 得 $T_1=T_2$. $\therefore\sigma$ 是单射.
+\end{proof}
+
+进一步地, 有
+\begin{theorem}\label{t3.2}
+    $S_p(V)$ 同构于 $K$ 上的 $n$ 元 $p$ 次齐次多项式全体 $K[X_1,X_2,\cdots,X_n]_p$ 构成的向量空间.
+\end{theorem}
+\begin{proof}
+    由定理 \ref{t3.1} 得 $S_p(V)\simeq W_p(V)$. 下面证明 $W_p(V)\simeq K[X_1,X_2,\cdots,X_n]_p$.
+
+    由定理 \ref{t3.1} 得 $\forall Q\in W_p(V),\exists T\in S_p(V)$ 使得 $Q(\boldsymbol{x})=T(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{p\text{个}\boldsymbol{x}})$.
+
+    设 $T=\sum\limits_{i_1,i_2,\cdots,i_p}T_{i_1,i_2,\cdots,i_p}e^{i_1}\otimes e^{i_2}\otimes\cdots\otimes e^{i_p}$, 则
+    \[Q(\boldsymbol{x})=\sum\limits_{i_1,i_2,\cdots,i_p}T_{i_1,i_2,\cdots,i_p}e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x}).\]
+
+    $\because T\in S_p(V),\therefore\forall\sigma\in S_p,T_{i_1,i_2,\cdots,i_p}=T_{\sigma(i_1),\sigma(i_2),\cdots,\sigma(i_p)}$. $\therefore$
+    \[Q(\boldsymbol{x})=\sum\limits_{1\leq i_1\leq\cdots\leq i_p\leq n}\dfrac{p!}{c_1!c_2!\cdots c_q!}T_{i_1,i_2,\cdots,i_p}e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x}),\]
+
+    其中 $c_1,c_2,\cdots,c_q$ 是 $(\{i_1,i_2,\cdots,i_p\}/=)$ 的各个等价类中的元素个数, 比如 $i_1=1,i_2=1,i_3=2,i_4=3$, 则 $(\{i_1,i_2,i_3,i_4\}/=)=\{\{i_1,i_2\},\{i_3\},\{i_4\}\},c_1=2,c_2=1,c_3=1$. $\therefore$
+    \[W_p(V)\subset\left<f:\boldsymbol{x}\mapsto e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x})|1\leq i_1\leq\cdots\leq i_p\leq n\right>.\]
+
+    $\because T_{i_1,i_2,\cdots,i_p}\ (1\leq i_1\leq\cdots\leq i_p\leq n)$ 可以取 $K$ 中的任意元素, $\therefore$
+    \[W_p(V)\supset\left<f:\boldsymbol{x}\mapsto e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x})|1\leq i_1\leq\cdots\leq i_p\leq n\right>.\]
+
+    $\because\{f:\boldsymbol{x}\mapsto e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x})|1\leq i_1\leq\cdots\leq i_p\leq n\}$ 线性无关,
+    
+    $\therefore\{f:\boldsymbol{x}\mapsto e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x})|1\leq i_1\leq\cdots\leq i_p\leq n\}$ 是 $W_p(V)$ 的一个基.
+
+    定义线性映射
+    \[\tau:\begin{array}{rcl}
+        W_p(V) & \rightarrow & K[X_1,X_2,\cdots,X_n]_p \\
+        f:\boldsymbol{x}\mapsto e^{i_1}(\boldsymbol{x})e^{i_2}(\boldsymbol{x})\cdots e^{i_p}(\boldsymbol{x}) & \rightarrow & X_{i_1}X_{i_2}\cdots X_{i_p} \\
+    \end{array},\quad1\leq i_1\leq\cdots\leq i_p\leq n,\]
+
+    $\because\{X_{i_1}\cdots X_{i_p}|1\leq i_1\leq\cdots\leq i_p\leq n\}$ 是 $K[X_1,\cdots,X_n]_p$ 的一个基, $\therefore S_p(V)\simeq K[X_1,\cdots,X_n]_p$.
+\end{proof}
+\subsection{张量代数}
+由书上第 1 节的式 (4) 和 (6), 对 $T_1,T'_1\in\mathbb{T}_p(V),T_2,T'_2\in\mathbb{T}_q(V),\alpha\in K$, 有交换律
+\[T_1\otimes(T_2+T_2')=T_1\otimes T_2+T_1\otimes T_2',\quad (T_1+T_1')\otimes T_2=T_1\otimes T_2+T_1'\otimes T_2\]
+和系数的分配律
+\[k(T_1\otimes T_2)=(kT_1)\otimes T_2=T_1\otimes(kT_2).\]
+
+$\therefore$ 可以考虑由张量积和张量加法作为乘法和加法的环构成的代数. 令
+\[\mathbb{T}(V^*)=\mathbb{T}_0^0(V)\oplus\mathbb{T}_1^0(V)\oplus\mathbb{T}_2^0(V)\oplus\cdots.\]
+
+$\because\mathbb{T}_1^0(V)=V^*,\mathbb{T}_2^0=V^*\otimes V^*,\cdots$, $\therefore$ 自变量是 $V^*$. 上式可以写成
+\[\mathbb{T}(V^*)=K\oplus V^*\oplus V^*\otimes V^*\oplus V^*\otimes V^*\otimes V^*\oplus\cdots.\]
+
+容易验证 $\mathbb{T}(V^*)$ 是 $K$ 上的代数. 称这个代数为\textbf{共变张量代数}.
+
+类似地, 定义\textbf{反变张量代数}:
+\[\mathbb{T}(V)=\mathbb{T}_0^1(V)\oplus\mathbb{T}_0^1(V)\oplus\mathbb{T}_0^2(V)\oplus\cdots=K\oplus V\oplus V\otimes V\oplus V\otimes V\otimes V\oplus\cdots.\]
+
+上式可以简写为
+\[\mathbb{T}(V)=\bigoplus\limits_{i=0}^\infty V^{\otimes i},\quad V^{\otimes i}=\underbrace{V\otimes\cdots\otimes V}_{i\text{个}V}.\]
+
+两个空间 $U,V$ 的外直和 $U\oplus V$ 中的元素可以看成是 $U,V$ 中元素的序列 $(\boldsymbol{u},\boldsymbol{v})$. $\therefore\mathbb{T}(V)$ 中的元素可以看成是序列
+\[\{(f_0,f_1,f_2,\cdots)|f_i\in V^{\otimes i},i\in\mathbb{N}\},\]
+
+约定序列中只有有限项不为 $0$ (类似于多项式).
+
+类似于多项式的加法和乘法, 对 $f=(f_0,f_1,\cdots),g=(g_0,g_1,\cdots)\in\mathbb{T}(V)$, 定义
+\[\alpha f=(\alpha f_0,\alpha f_1,\cdots),\quad\forall\alpha\in K,\]
+\[f+g=(f_0+g_0,f_1+g_1,\cdots),\]
+\[f\cdot g=(h_0,h_1,\cdots),\quad h_k=\sum\limits_{i+j=k}f_i\otimes g_j.\]
+
+第 \ref{ex2.2} 题证明了 $\mathbb{T}(V)$ 是无零因子环.
+
+令
+\[S(V)=\bigoplus\limits_{i=0}^\infty S^i(V)\subset\mathbb{T}(V),\]
+
+对 $f=(f_0,f_1,\cdots),g=(g_0,g_1,\cdots)\in S(V)$, 定义 $\alpha f,f+g$ 与 $\mathbb{T}(V)$ 一致,
+\[f\cdot g=(h_0,h_1,\cdots),\quad h_k=\sum\limits_{i+j=k}S(f_i\otimes g_j).\]
+
+容易验证 $(S(V),+,\cdot)$ 是交换代数. 同理 $S(V^*)=\bigoplus\limits_{i=0}^\infty S_i(V)$ 也是交换代数.
+\begin{theorem}
+    $S(V)\simeq S(V^*)\simeq K[t_1,t_2,\cdots,t_n]$, 其中 $K[t_1,t_2,\cdots,t_n]$ 是 $K$ 上的 $n$ 元多项式环.
+\end{theorem}
+\begin{proof}
+    $\because V\simeq V^*$, $\therefore S(V)\simeq S(V^*)$.
+
+    由定理 \ref{t3.1}, \ref{t3.2} 得: 在线性空间意义下 $S_p(V)\simeq W_p(V)\simeq K[t_1,t_2,\cdots,t_n]_p$. $\therefore$
+    \[\sigma:\begin{array}{rcl}
+        S(V^*)=\bigoplus\limits_{i=0}^\infty S_i(V) & \rightarrow & \bigoplus\limits_{i=0}^\infty W_i(V) \\
+        (f_0,f_1,f_2,\cdots) & \rightarrow & (f_0,\boldsymbol{x}\mapsto f_1(\boldsymbol{x}),\boldsymbol{x}\mapsto f_2(\boldsymbol{x},\boldsymbol{x}),\cdots) \\
+    \end{array},\]
+    是线性空间的同构.
+
+    对 $\phi=(\phi_0,\phi_1,\cdots),\psi=(\psi_0,\psi_1,\cdots)\in\bigoplus\limits_{i=0}^\infty W_i(V),$ 定义
+    \[\phi\cdot\psi=(\eta_0,\eta_1,\cdots),\quad\eta_k:\boldsymbol{x}\mapsto\sum\limits_{i+j=k}\phi_i(\boldsymbol{x})\psi_j(\boldsymbol{x}).\]
+
+    设 $f=(f_0,f_1,f_2,\cdots),g=(g_0,g_1,g_2,\cdots)\in S(V^*),\phi=\sigma(f),\psi=\sigma(g),f\cdot g=(h_0,h_1,h_2,\cdots)$, 则 $\sigma(f\cdot g)$ 的第 $k$ 项为
+    \begin{align*}
+        \boldsymbol{x}\mapsto\sum\limits_{i+j=k}f_i(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{i\text{个}\boldsymbol{x}})g_j(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{j\text{个}\boldsymbol{x}}) & =\sum\limits_{i+j=k}(f_i\otimes g_j)(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{k\text{个}\boldsymbol{x}}) \\
+        & =\sum\limits_{i+j=k}S(f_i\otimes g_j)(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{k\text{个}\boldsymbol{x}}) \\
+        & =h_k(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{k\text{个}\boldsymbol{x}}).
+    \end{align*}
+
+    $\because\sigma$ 是线性空间的同构, $\therefore\sigma(f\cdot g)=\sigma(f)\cdot\sigma(g)$. $\therefore\sigma$ 是代数的同构.
+\end{proof}
+\section{外代数(对应第 3 节)}
+\subsection{斜对称张量}
+对 $T\in\mathbb{T}^p(V)$, 设
+\[A(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma T,\]
+
+则 $\forall\tau\in S_p$,
+\[f_\tau A(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\tau f_\sigma T=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\tau\varepsilon_{\tau\sigma}f_{\tau\sigma}T.\]
+
+$\because S_p=\{\tau\sigma|\sigma\in S_p\}$, $\therefore$
+\[f_\tau A(T)=\dfrac{1}{p!}\sum\limits_{\tau\sigma\in S_p}\varepsilon_\tau\varepsilon_{\tau\sigma}f_{\tau\sigma}T=\varepsilon_\tau\dfrac{1}{p!}\sum\limits_{\pi\in S_p}\varepsilon_\pi f_\pi T=\varepsilon_\tau A(T).\]
+
+$\therefore A(T)$ 是斜对称的.
+
+如果 $T$ 是斜对称的, 则
+\[A(T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\sigma(f_\sigma T)=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\sigma\varepsilon_\sigma T=\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}T=T,\]
+
+$\therefore A^2=A$.
+
+称 $\mathbb{T}_p(V)$ 中的斜对称张量全体称为 $\land_p(V)$, $\mathbb{T}^p(V)$ 中的斜对称张量全体称为 $\land^p(V)$. $\land^p(V)$ 是 $\mathbb{T}^p(V)$ 的一个子空间.
+\subsection{外代数}
+设
+\[\land(V)=K\oplus\land^1(V)\oplus\land^2(V)\oplus\cdots.\]
+
+对 $T_1\in\land^{p_1}(V),T_2\in\land^{p_2}(V)$, 定义
+\[T_1\land T_2=A(T_1\otimes T_2),\]
+
+则
+\begin{theorem}
+    $(\land(V),+,\land)$ 是结合代数, 称为\textbf{外代数}(exterior algebra).
+\end{theorem}
+\begin{proof}
+    由书上的定理 2 得 $\land$ 运算是结合的.
+
+    没说明的变量都 $\in K$. 设 $T_1,T_2\in\land^{p_1}(V)$, 有
+    \begin{align*}
+        A(\alpha T_1+\beta T_2) & =\dfrac{1}{p!}\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma(\alpha T_1+\beta T_2) \\
+        & =\dfrac{1}{p!}\left(\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma\alpha T_1+\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma\beta T_2\right) \\
+        & =\dfrac{1}{p!}\alpha\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma T_1+\dfrac{1}{p!}\beta\sum\limits_{\sigma\in S_p}\varepsilon_\sigma f_\sigma T_2 \\
+        & =\alpha A(T_1)+\beta A(T_2).
+    \end{align*}
+
+    $\therefore A$ 是线性的. 设 $T_3\in\land^{p_2}(V)$, 则
+    \begin{align*}
+        (\alpha T_1+\beta T_2)\land T_3 & =A((\alpha T_1+\beta T_2)\otimes T_3) \\
+        & =A(\alpha T_1\otimes T_3+\beta T_2\otimes T_3) \\
+        & =\alpha A(T_1\otimes T_3)+\beta A(T_2\otimes T_3) \\
+        & =\alpha (T_1\land T_3)+\beta (T_2\land T_3).
+    \end{align*}
+
+    设 $T_4\in\land^{p_2}(V)$, 对称地有
+    \[T_1\land(\alpha T_3+\beta T_4)=\alpha T_1\land T_3+\beta T_1\land T_4.\]
+    
+    $\therefore\land$ 运算有分配律.
+
+    $\because\alpha(T_1\otimes T_2)=(\alpha T_1)\otimes T_2=T_1\otimes(\alpha T_2)$, $\therefore$
+    \[a(T_1\land T_2)=aA(T_1\land T_2)=A(aT_1\land T_2)=(aT_1)\land T_2=T_1\land(aT_2),\]
+
+    $\therefore(\land(V),+,\land)$ 是结合代数.
+\end{proof}
+\begin{example}\label{exa4.1}
+    对 $\boldsymbol{x},\boldsymbol{y}\in\mathbb{T}^1(V),\boldsymbol{x}\land\boldsymbol{y}=\dfrac{1}{2}(\boldsymbol{x}\otimes\boldsymbol{y}-\boldsymbol{y}\otimes\boldsymbol{x})$. $\therefore$
+    \[\boldsymbol{x}\land\boldsymbol{y}=-\boldsymbol{y}\land\boldsymbol{x},\quad\boldsymbol{x}\land\boldsymbol{x}=\boldsymbol{0}.\]
+\end{example}
+书上的定理 3 需要用到下面的结论:
+\begin{theorem}\label{t4.2}
+    设
+    \[T=\boldsymbol{e}_{i_1}\land\boldsymbol{e}_{i_2}\land\cdots\land\boldsymbol{e}_{i_p},\quad1\leq i_1,i_2,\cdots,i_p\leq n,i_r=i_s,r<s,\]
+
+    则 $T=0$.
+\end{theorem}
+\begin{proof}
+    对 $p$ 用数学归纳法. 当 $p=1$ 时即为例 \ref{exa4.1} 的 $\boldsymbol{x}\land\boldsymbol{x}=\boldsymbol{0}$.
+
+    假设当 $p=k-1$ 时成立, 当 $p=k$ 时, 如果 $s<p$, 则
+    \[T=(\boldsymbol{e}_{i_1}\land\cdots\land\boldsymbol{e}_{i_s}\land\cdots\land\boldsymbol{e}_{i_{p-1}})\land\boldsymbol{e}_{i_p}=\boldsymbol{0}\land\boldsymbol{e}_{i_p}=\boldsymbol{0}.\]
+
+    如果 $s=p,r=p-1$, 则
+    \begin{align*}
+        T & =\boldsymbol{e}_{i_1}\land\cdots\land\boldsymbol{e}_{i_{p-2}}\land(\boldsymbol{e}_{i_r}\land\boldsymbol{e}_{i_s}) \\
+        & =\boldsymbol{e}_{i_1}\land\cdots\land\boldsymbol{e}_{i_{p-2}}\land\boldsymbol{0} \\
+        & =\boldsymbol{0}.
+    \end{align*}
+
+    如果 $s=p,r<p-1$, 由例 \ref{exa4.1} 得
+    \begin{align*}
+        T & =\boldsymbol{e}_{i_1}\land\cdots\land\boldsymbol{e}_{i_{p-1}}\land\boldsymbol{e}_{i_s} \\
+        & =-(\boldsymbol{e}_{i_1}\land\cdots\land\boldsymbol{e}_{i_s})\land\boldsymbol{e}_{i_{p-1}} \\
+        & =\boldsymbol{0}\land\boldsymbol{e}_{i_{p-1}}=\boldsymbol{0}.\qedhere
+    \end{align*}
+\end{proof}
+\begin{example}
+    对 $\forall\boldsymbol{x}\in V$, 可以构造线性映射
+    \[\xi_{\boldsymbol{x}}:\begin{array}{rcl}
+        \wedge^p(V) & \rightarrow & \wedge^{p+1}(V) \\
+        \eta & \rightarrow & \eta\wedge\boldsymbol{x} \\
+    \end{array}.\]
+
+    从而自然地产生了映射列
+    \[\wedge^0\to\wedge^1\to\wedge^2\to\cdots\to\wedge^n\to\{0\}.\]
+
+    特别地,
+    \[\begin{array}{rcl}
+        \wedge^{n-1}(V) & \rightarrow & \wedge^n(V)\simeq K \\
+        \eta & \rightarrow & \eta\wedge\boldsymbol{x} \\
+    \end{array}\]
+
+    是 $\wedge^{n-1}(V)$ 上的线性映射.
+\end{example}
+
+在定义行列式的时候需要考虑基的定向. 比如说 $2$ 维空间中的基 $(\boldsymbol{e}_1,\boldsymbol{e}_2),(\boldsymbol{e}_2,\boldsymbol{e}_1)$ 的定向相反, 这对应着 $\boldsymbol{e}_1\land\boldsymbol{e}_2=-\boldsymbol{e}_2\land\boldsymbol{e}_1$. 可以用外积来确定基的定向. 实际上, 有
+\begin{theorem}[书上的定理 5]\label{t4.3}
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基. 对 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n\in V$, 设 $\boldsymbol{v}_j=\sum\limits_{i}a_j^i\boldsymbol{e}_i$, 则
+    \[\boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n=\operatorname{det}(a_j^i)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n.\]
+\end{theorem}
+\begin{proof}
+    设
+    \[\boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n=\mathcal{D}(a_j^i)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n,\]
+
+    下面验证 $\mathcal{D}$ 满足行列式的 3 条公理.
+
+    $\because\forall\sigma\in S_n$,
+    \[\boldsymbol{v}_j=\sum\limits_{i=1}^na_j^i\boldsymbol{e}_i=\sum\limits_{i=1}^na_j^{\sigma(i)}\boldsymbol{e}_{\sigma(i)},\]
+
+    $\therefore$
+    \begin{align*}
+        \boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n & =\mathcal{D}(a_j^{\sigma(i)})\boldsymbol{e}_{\sigma(1)}\wedge\boldsymbol{e}_{\sigma(2)}\wedge\cdots\wedge\boldsymbol{e}_{\sigma(n)} \\
+        & =\mathcal{D}(a_j^{\sigma(i)})\varepsilon_{\sigma^{-1}}\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n \\
+        & =\varepsilon_{\sigma}\mathcal{D}(a_j^{\sigma(i)})\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n,
+    \end{align*}
+
+    $\therefore\mathcal{D}$ 对矩阵的行是斜对称的:
+    \[\mathcal{D}(a_j^i)=\varepsilon_{\sigma}\mathcal{D}(a_j^{\sigma(i)}).\]
+
+    设 $\boldsymbol{v}'=\sum\limits_{i}b^i\boldsymbol{e}_i,\boldsymbol{v}''=\sum\limits_{i}c^i\boldsymbol{e}_i$, 则
+    \begin{align*}
+        & \boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\alpha\boldsymbol{v}'\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\alpha\boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\boldsymbol{v}'\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\alpha\mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & b^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & b^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & b^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n,
+    \end{align*}
+    \begin{align*}
+        & \boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\beta\boldsymbol{v}''\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\beta\boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\boldsymbol{v}''\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\beta\mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & c^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & c^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & c^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n,
+    \end{align*}
+    \begin{align*}
+        & \boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge(\alpha\boldsymbol{v}'+\beta\boldsymbol{v}'')\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & \alpha b^1+\beta c^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & \alpha b^2+\beta c^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & \alpha b^n+\beta c^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n.
+    \end{align*}
+
+    $\because$
+    \begin{align*}
+        & \boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge(\alpha\boldsymbol{v}'+\beta\boldsymbol{v}'')\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n \\
+        & =\boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\alpha\boldsymbol{v}'\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n+\boldsymbol{v}_1\wedge\cdots\wedge\boldsymbol{v}_{k-1}\wedge\beta\boldsymbol{v}''\wedge\boldsymbol{v}_{k+1}\wedge\cdots\wedge\boldsymbol{v}_n,
+    \end{align*}
+
+    $\therefore\mathcal{D}$ 是多重线性的:
+    \begin{align*}
+        & \mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & \alpha b^1+\beta c^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & \alpha b^2+\beta c^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & \alpha b^n+\beta c^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right) \\
+        & =\alpha\mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & b^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & b^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & b^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right)+\beta\mathcal{D}\left(\begin{pmatrix}
+            a_1^1 & \cdots & a_{k-1}^1 & c^1 & a_{k+1}^1 & \cdots & a_n^1 \\
+            a_1^2 & \cdots & a_{k-1}^2 & c^2 & a_{k+1}^2 & \cdots & a_n^2 \\
+            \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            a_1^n & \cdots & a_{k-1}^n & c^n & a_{k+1}^n & \cdots & a_n^n \\
+        \end{pmatrix}\right). \\
+    \end{align*}
+
+    令 $\boldsymbol{v}_i=\boldsymbol{e}_i$, 得
+    \[\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n=\mathcal{D}(E)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n,\]
+
+    $\therefore\mathcal{D}(E)=1$.
+\end{proof}
+
+书上的定理 4 可以看成是定理 \ref{t4.3} 的一个推论.
+\begin{corollary}[书上的定理 4]\label{c4.1}
+    $\boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n\neq\boldsymbol{0}$ 当且仅当 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 线性无关.
+\end{corollary}
+\begin{proof}
+    由定理 \ref{t4.3} (沿用定理 \ref{t4.3} 的记号),
+    \[\boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n=\operatorname{det}(a_j^i)\boldsymbol{e}_1\wedge\boldsymbol{e}_2\wedge\cdots\wedge\boldsymbol{e}_n.\]
+
+    $\because\operatorname{det}(a_j^i)\neq0$ 当且仅当 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 线性无关, $\therefore\boldsymbol{v}_1\wedge\boldsymbol{v}_2\wedge\cdots\wedge\boldsymbol{v}_n\neq\boldsymbol{0}$ 当且仅当 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 线性无关.
+\end{proof}
+
+书上的定理 6 和定理 10 用到了推论 \ref{c4.1}.
+\begin{theorem}[书上定理 6 的后半部分]
+    若 $P\in\wedge^p(V)\backslash\{0\}$ 是可分解的, 则 $\dim\operatorname{Ann}P=p$.
+\end{theorem}
+\begin{proof}
+    $\because P$ 是可分解的, $\therefore\exists\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_p\in V$ 使得
+    \[P=\boldsymbol{a}_1\wedge\boldsymbol{a}_2\wedge\cdots\wedge\boldsymbol{a}_p.\]
+
+    $\because P\neq0$, 由推论 \ref{c4.1} 得 $\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_p$ 线性无关. $\therefore$
+    \[\dim\operatorname{Ann}P\geq\dim\left<\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_p\right>=p.\]
+
+    由定理 6 的前半部分得 $\dim\operatorname{Ann}P\leq p$. $\therefore\dim\operatorname{Ann}P=p$.
+\end{proof}
+
+书上的定理 10 从 (22) 式推出 $\boldsymbol{e}_1,\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$ 线性无关, 用的是推论 \ref{c4.1} 的逆否命题.
+\section{第 6 章习题}
+\subsection{习题 6.1}
+\begin{exercise}[1.1]
+    验证: $f(\boldsymbol{e}_i,e^j)=\delta_j^i\in\mathbb{T}_1^1$ 代表 $V$ 上的恒等映射.
+\end{exercise}
+\begin{proof}
+    $\because f(\boldsymbol{e}_i,e^j)\in\mathbb{T}_1^1$, $\therefore$ 对 $\forall\boldsymbol{e}_i\in V,\exists\mathcal{F}\boldsymbol{e}_i\in V$ 使得
+    \[(e^j,\mathcal{F}\boldsymbol{e}_i)=f(\boldsymbol{e}_i,e^j)=\delta_j^i=(e^j,\boldsymbol{e}_i).\]
+
+    $\therefore\forall f\in V^*,\forall i$,
+    \[\mathcal{F}\boldsymbol{e}_i(f)=(f,\mathcal{F}\boldsymbol{e}_i)=(f,\boldsymbol{e}_i)=\boldsymbol{e}_i(f).\]
+    
+    $\therefore\mathcal{F}\boldsymbol{e}_i=\boldsymbol{e}_i$ 对 $\forall\boldsymbol{e}_i$ 都成立. $\therefore\mathcal{F}\boldsymbol{v}=\boldsymbol{v}$ 对 $\forall\boldsymbol{v}\in V$ 都成立.
+\end{proof}
+\begin{exercise}[1.2]\label{ex1.2}
+    设 $V$ 是 $\mathbb{R}$ 上的 Euclid 空间, 双线性型 $(\boldsymbol{x}|\boldsymbol{y})=g(\boldsymbol{x},\boldsymbol{y})$ 给出 $V$ 的纯量积, $\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$ 是 $V$ 的一个基.
+
+    设 $g_{ij}=g(\boldsymbol{e}_i,\boldsymbol{e}_j)$, 称 $G_0=(g_{ij})$ 是 $V$ 的 ($(2,0)$ 型的) \textbf{度量张量}. 度量张量的分量是纯量积对于 $V$ 的一个基的 Gram 矩阵的元素.
+
+    设 $(e^i)$ 是 $V^*$ 的关于 $(\boldsymbol{e}_i)$ 的对偶基, 按照
+    \[g((\boldsymbol{u}|*),(\boldsymbol{v}|*))=g(\boldsymbol{u},\boldsymbol{v})\]
+    来定义 $V^*$ 上的双线性型 $g$, 设 $g^{ij}=g(e^i,e^j)$, 称 $G^0=(g^{ij})$ 是 $V$ 的 ($(0,2)$ 型的) 度量张量, $g_{ij}$ 和 $g^{ij}$ 是度量张量 $G$ 的\textbf{共变坐标}和\textbf{反变坐标}.
+
+    验证: $G^0G_0=E$, 即
+    \[\sum\limits_{j=1}^mg^{ij}g_{jk}=\delta_k^i.\]
+\end{exercise}
+\begin{proof}
+    设
+    \[e^i=\left(\sum\limits_{j=1}^na_i^j\boldsymbol{e}_j\Bigg|*\right)=\sum\limits_{j=1}^na_i^j(\boldsymbol{e}_j|*),\quad i=1,2,\cdots,n,\]
+
+    则
+    \[g^{ij}=g(e^i,e^j)=\left(\sum\limits_{s=1}^na_i^s\boldsymbol{e}_s\Bigg|\sum\limits_{t=1}^na_j^t\boldsymbol{e}_t\right)=\sum\limits_{s,t=1}^na_i^sa_j^t(\boldsymbol{e}_s|\boldsymbol{e}_t).\]
+    
+    $\because e^i(\boldsymbol{e}_k)=\delta^i_k$, $\therefore$
+    \[\sum\limits_{j=1}^na_i^j(\boldsymbol{e}_j|\boldsymbol{e}_k)=\delta^i_k,\quad i,k=1,2,\cdots,n.\]
+
+    $\therefore$
+    \begin{align*}
+        \sum\limits_{j=1}^ng^{ij}g_{jk} & =\sum\limits_{j,s,t=1}^na_i^sa_j^t(\boldsymbol{e}_s|\boldsymbol{e}_t)(\boldsymbol{e}_j|\boldsymbol{e}_k) \\
+        & =\sum\limits_{s,t=1}^na_i^s(\boldsymbol{e}_s|\boldsymbol{e}_t)\sum\limits_{j=1}^na_j^t(\boldsymbol{e}_j|\boldsymbol{e}_k) \\
+        & =\sum\limits_{s,t=1}^na_i^s(\boldsymbol{e}_s|\boldsymbol{e}_t)\delta^t_k \\
+        & =\sum\limits_{s=1}^na_i^s(\boldsymbol{e}_s|\boldsymbol{e}_k)=\delta^i_k.\qedhere
+    \end{align*}
+\end{proof}
+\begin{exercise}[1.3]
+    (1) 设 $V$ 是 $\mathbb{R}$ 上以 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 为基的线性空间, $V^\mathbb{C}$ 是它的复化空间. $\because\mathbb{C}$ 是 $\mathbb{R}$ 上的向量空间, $\{1,i\}$ 是 $\mathbb{C}$ 的一个基, $\therefore$ 可以构造 $\mathbb{R}$ 上的向量空间
+    \[U=\left<1\otimes\boldsymbol{e}_1,\cdots,1\otimes\boldsymbol{e}_n,i\otimes\boldsymbol{e}_1,\cdots,i\otimes\boldsymbol{e}_n\right>.\]
+
+    在 $U,V\oplus V$ 上分别引进复结构
+    \[\mathcal{J}:\begin{array}{rcl}
+        1\otimes\boldsymbol{e}_k & \mapsto & i\otimes\boldsymbol{e}_k \\
+        i\otimes\boldsymbol{e}_k & \mapsto & -1\otimes\boldsymbol{e}_k \\
+    \end{array},\quad\mathcal{J}'=(\boldsymbol{u},\boldsymbol{v})\mapsto(-\boldsymbol{v},\boldsymbol{u}),\]
+
+    并把 $\mathbb{C}\otimes_\mathbb{R}V$ 与 $\widetilde{\mathbb{C}\otimes_\mathbb{R}V}$ 等同起来(这两个空间作为集合是相等的, 但是前者是 $\mathbb{R}$ 上的 $2n$ 维线性空间, 后者是 $\mathbb{C}$ 上的 $n$ 维线性空间, 下文提到 $\mathbb{C}\otimes_\mathbb{R}V$ 的内容仅仅将其作为集合, 所以不会引起混乱).
+
+    定义实空间的同构
+    \[\sigma:\begin{array}{rcl}
+        \mathbb{C}\otimes_\mathbb{R}V & \to & V\oplus V \\
+        1\otimes\boldsymbol{e}_k & \mapsto & (\boldsymbol{e}_k,\boldsymbol{0}) \\
+        i\otimes\boldsymbol{e}_k & \mapsto & (\boldsymbol{0},\boldsymbol{e}_k) \\
+    \end{array}\]
+    
+    验证: $\sigma$ 是 $\mathbb{C}\otimes_\mathbb{R}V$ 到 $V^\mathbb{C}=\widetilde{V\oplus V}$ 的同构.
+
+    (2) 设域 $K$ 是域 $L$ 的子域, $V$ 是 $K$ 上的向量空间, 把 $L$ 看成是 $K$ 上的向量空间, 构造张量积 $L\otimes_KV$. 在其上引入纯量乘法
+    \[a(b\otimes\boldsymbol{x})=(ab)\otimes\boldsymbol{x},\quad a,b\in L,\boldsymbol{x}\in V,\]
+
+    验证: $L\otimes_KV$ 是 $L$ 上的向量空间.
+\end{exercise}
+\begin{proof}
+    (1) $\because\sigma$ 是实空间上的线性映射, $\therefore$ 对 $\boldsymbol{a},\boldsymbol{b}\in\mathbb{C}\otimes_\mathbb{R}V,a,b\in\mathbb{R}$, 有 $\sigma(\boldsymbol{a}+\boldsymbol{b})=\sigma(\boldsymbol{a})+\sigma(\boldsymbol{b}),\sigma(a\boldsymbol{a})=a\sigma(\boldsymbol{a})$. $\therefore$
+    \[\sigma(\mathcal{J}(1\otimes\boldsymbol{e}_k))=\sigma(i\otimes\boldsymbol{e}_k)=\mathcal{J}'\sigma(1\otimes\boldsymbol{e}_k),\]
+    \[\sigma(\mathcal{J}(i\otimes\boldsymbol{e}_k))=\sigma(-1\otimes\boldsymbol{e}_k)=-\sigma(1\otimes\boldsymbol{e}_k)=\mathcal{J}'\sigma(i\otimes\boldsymbol{e}_k),\]
+
+    $\forall a\otimes\boldsymbol{u}\in\mathbb{C}\otimes_\mathbb{R}V$, 设
+    \[a=\alpha+\beta i,\quad\boldsymbol{u}=\sum\limits_{j=1}^n\gamma_j\boldsymbol{e}_j,\quad\alpha,\beta,\gamma_j\in\mathbb{R},\]
+
+    则
+    \begin{align*}
+        \sigma(a\otimes\boldsymbol{u}) & =\sigma\left((\alpha+\beta i)\otimes\sum\limits_{j=1}^n\gamma_j\boldsymbol{e}_i\right) \\
+        & =\sigma\left(\alpha\sum\limits_{j=1}^n\gamma_j\cdot1\otimes\boldsymbol{e}_i+\beta\sum\limits_{j=1}^n\gamma_j\cdot i\otimes\boldsymbol{e}_i\right) \\
+        & =\alpha\sum\limits_{j=1}^n\gamma_j\sigma\left(1\otimes\boldsymbol{e}_i\right)+\beta\sum\limits_{j=1}^n\gamma_j\sigma\left(i\otimes\boldsymbol{e}_i\right),
+    \end{align*}
+    \begin{align*}
+        \sigma(\mathcal{J}(a\otimes\boldsymbol{u})) & =\sigma\left(\alpha\sum\limits_{j=1}^n\gamma_j\cdot\mathcal{J}(1\otimes\boldsymbol{e}_i)+\beta\sum\limits_{j=1}^n\gamma_j\cdot\mathcal{J}(i\otimes\boldsymbol{e}_i)\right) \\
+        & =\alpha\sum\limits_{j=1}^n\gamma_j\sigma(\mathcal{J}(1\otimes\boldsymbol{e}_i))+\beta\sum\limits_{j=1}^n\gamma_j\sigma(\mathcal{J}(i\otimes\boldsymbol{e}_i)) \\
+        & =\alpha\sum\limits_{j=1}^n\gamma_j\mathcal{J}'\sigma(1\otimes\boldsymbol{e}_i)+\beta\sum\limits_{j=1}^n\gamma_j\mathcal{J}'\sigma(i\otimes\boldsymbol{e}_i) \\
+        & =\mathcal{J}'\sigma(a\otimes\boldsymbol{u}).
+    \end{align*}
+
+    $\therefore\forall a\otimes\boldsymbol{u}\in\mathbb{C}\otimes_\mathbb{R}V,b=\alpha+\beta i\in\mathbb{C}\ (\alpha,\beta\in\mathbb{R})$,
+    \begin{align*}
+        \sigma(b\cdot a\otimes\boldsymbol{u}) & =\sigma(\alpha a\otimes\boldsymbol{u}+\beta\mathcal{J}(a\otimes\boldsymbol{u})) \\
+        & =\alpha\sigma(a\otimes\boldsymbol{u})+\beta\mathcal{J}'\sigma(a\otimes\boldsymbol{u}) \\
+        & =(\alpha\mathcal{E}+\beta\mathcal{J}')\sigma(a\otimes\boldsymbol{u}) \\
+        & =b\cdot\sigma(a\otimes\boldsymbol{u}).
+    \end{align*}
+
+    $\therefore\sigma$ 是复向量空间上的线性映射. $\therefore\sigma$ 是复向量空间上的同构.
+
+    (2) 只需验证与带有 $L\backslash K$ 中纯量的乘法相关的公理 (第 1 章第 1 节定义 1 的公理 7 $\sim$ 8, 公理 6 已经作为 $L\otimes_KV$ 上纯量乘法的定义了).
+
+    设 $\alpha,\beta,\gamma\in L,\boldsymbol{x},\boldsymbol{y}\in L\otimes_KV$.
+
+    $\because$
+    \[(\alpha+\beta)(\gamma\otimes\boldsymbol{x})=((\alpha+\beta)\gamma)\otimes\boldsymbol{x}=(\alpha\gamma+\beta\gamma)\otimes\boldsymbol{x}=\alpha\gamma\otimes\boldsymbol{x}+\beta\gamma\otimes\boldsymbol{x},\]
+
+    $\therefore$ 公理 7 成立.
+
+    $\because$
+    \[\alpha(\beta\otimes\boldsymbol{x}+\gamma\otimes\boldsymbol{y})=\alpha(\beta\otimes\boldsymbol{x})+\alpha(\gamma\otimes\boldsymbol{y})\]
+
+    $\therefore$ 公理 8 成立.
+\end{proof}
+\begin{exercise}[1.4]
+    设 $\dim V>1,\dim W>1$, 试说明, $\exists f\in V\otimes W,f$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
+\end{exercise}
+\begin{solution}
+    由定理 \ref{t1.4} 的证明得(沿用定理 \ref{t1.4} 证明的记号), 当 $r>2$ 时 $\phi$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
+    
+    事实上, 假设 $\phi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\phi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\operatorname{rank}A=1$, 与 $r>2$ 矛盾.
+\end{solution}
+\begin{exercise}[1.5]
+    设 $A,B$ 是可逆方阵, 试给出 $A\otimes B$ 的逆矩阵.
+\end{exercise}
+\begin{solution}
+    沿用书上式 (20) 的记号. 设 $A^{-1}=(c_{ij})$, 下面验证
+    \[(A\otimes B)^{-1}=(A^{-1})\otimes(B^{-1})=\begin{pmatrix}
+        c_{11}B^{-1} & c_{12}B^{-1} & \cdots & c_{1n}B^{-1} \\
+        c_{21}B^{-1} & c_{22}B^{-1} & \cdots & c_{2n}B^{-1} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c_{n1}B^{-1} & c_{n2}B^{-1} & \cdots & c_{nn}B^{-1} \\
+    \end{pmatrix}.\]
+
+    $(A\otimes B)((A^{-1})\otimes(B^{-1}))$ 的第 $(i-1)m+1,(i-1)m+2,\cdots,im$ 行和 $(j-1)m+1,(j-1)m+2,\cdots,jm$ 列的交点组成的矩阵为
+
+    \[\sum\limits_{k=1}^n\alpha_{ik}c_{kj}BB^{-1}=\left(\sum\limits_{k=1}^n\alpha_{ik}c_{kj}\right)E_m=\delta_{ij}E_m.\]
+
+    $\therefore$
+    \[(A\otimes B)((A^{-1})\otimes(B^{-1}))=\begin{pmatrix}
+        E_m \\
+        & E_m \\
+        && \ddots \\
+        &&& E_m \\
+    \end{pmatrix}.\]
+\end{solution}
+\begin{exercise}[1.6]
+    比较 $A\otimes B$ 与
+    \[C=B\otimes A=\begin{pmatrix}
+        \beta_{11}A & \beta_{12}A & \cdots & \beta_{1m}A \\
+        \beta_{21}A & \beta_{22}A & \cdots & \beta_{2m}A \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \beta_{m1}A & \beta_{m2}A & \cdots & \beta_{mm}A \\
+    \end{pmatrix}.\]
+\end{exercise}
+\begin{solution}
+    将基 (\ref{eq1.3}) 按照如下的方式排列:
+    \[\boldsymbol{e}_1\otimes\boldsymbol{f}_1,\boldsymbol{e}_2\otimes\boldsymbol{f}_1,\cdots,\boldsymbol{e}_n\otimes\boldsymbol{f}_1,\boldsymbol{e}_1\otimes\boldsymbol{f}_2,\boldsymbol{e}_2\otimes\boldsymbol{f}_2,\cdots,\boldsymbol{e}_1\otimes\boldsymbol{f}_m,\boldsymbol{e}_2\otimes\boldsymbol{f}_m,\cdots,\boldsymbol{e}_n\otimes\boldsymbol{f}_m,\]
+
+    则
+    $\mathcal{A}\otimes\mathcal{B}$ 在基 (\ref{eq1.3}) 下的矩阵是 $B\otimes A$.
+
+    可以直接验证: $\operatorname{tr}C=\operatorname{tr}A\cdot\operatorname{tr}B=\operatorname{tr}A\otimes B,\det C=\det((B\otimes E_n)(E_m\otimes A))=(\det A)^m(\det B)^n$.
+\end{solution}
+\subsection{习题 6.2}
+\begin{exercise}[2.1]
+    沿用第 \ref{ex1.2} 题的记号.
+
+    (1) 验证
+    \[\sum\limits_{k,l=1}^ng^{ik}g^{jl}g_{kl}=g^{ij},\quad\sum\limits_{k,l=1}^ng_{ik}g_{jl}g^{kl}=g_{ij}.\]
+
+    (2) 设 $\sum\limits_{i=1}^nx^ie^i$ 是 $\sum\limits_{i=1}^nx_i\boldsymbol{e}_i$ 的对偶向量, 验证
+    \[\sum\limits_{j=1}^ng^{ij}x_j=x^i.\]
+\end{exercise}
+\begin{proof}
+    (1) 由第 \ref{ex1.2} 题得
+    \[\sum\limits_{k,l=1}^ng^{ik}g^{jl}g_{kl}=\sum\limits_{k=1}^ng^{ik}\sum\limits_{l=1}^ng^{jl}g_{kl}=\sum\limits_{k=1}^ng^{ik}\delta^j_k=g^{ij},\]
+    \[\sum\limits_{k,l=1}^ng_{ik}g_{jl}g^{kl}=\sum\limits_{k=1}^ng_{ik}\sum\limits_{l=1}^ng_{jl}g^{kl}=\sum\limits_{k=1}^ng_{ik}\delta_j^k=g_{ij}.\qedhere\]
+\end{proof}
+\begin{exercise}[2.2]\label{ex2.2}
+    设 $\dim V>1$. 证明: $\mathbb{T}(V)$ 是一个无零因子环, $f$ 是 $\mathbb{T}(V)$ 中的可逆元当且仅当 $f\in K\backslash\{0\}$.
+\end{exercise}
+\begin{proof}
+    容易验证 $(\mathbb{T}(V),+)$ 是 Abel 群.
+
+    设 $f=(f_0,f_1,\cdots),g=(g_0,g_1,\cdots),h=(h_1,h_2,\cdots)\in\mathbb{T}(V)$. $\because$
+    \[\sum\limits_{i+j=k}f_i\otimes(g_j+h_j)=\sum\limits_{i+j=k}f_i\otimes g_j+\sum\limits_{i+j=k}f_i\otimes h_j,\]
+
+    $\therefore f\cdot(g+h)=f\cdot g+f\cdot h$. 同理, $(f+g)\cdot h=f\cdot h+g\cdot h$. $\because$
+    \begin{align*}
+        \sum\limits_{i+j=k}f_i\otimes\left(\sum\limits_{r+s=j}g_r\otimes h_s\right) & =\sum\limits_{i+j=k}\sum\limits_{r+s=j}f_i\otimes(g_r\otimes h_s) \\
+        & =\sum\limits_{i+r+s=k}(f_i\otimes g_r)\otimes h_s \\
+        & =\sum\limits_{t+s=k}\left(\sum\limits_{i+r=t}f_i\otimes g_r\right)\otimes h_s,
+    \end{align*}
+
+    $\therefore f\cdot(g\cdot h)=(f\cdot g)\cdot h$. $\therefore\mathbb{T}(V)$ 是环. $\mathbb{T}(V)$ 的单位元为 $1=(1,0,0,\cdots)$, 零元为 $0=(0,0,\cdots)$.
+
+    类似于多项式, 如果 $f\neq0$, 定义 $f$ 的次数 $\deg f$ 为 $f$ 的序列中不为 $0$ 的最高项的下标, $\deg 0=-\infty$, 容易验证
+    \[\deg(f+g)\leq\max\{\deg f,\deg g\},\quad\deg(f\cdot g)\leq\deg f+\deg g,\]
+
+    当 $f,g\neq0$ 时, $\deg(f\cdot g)=\deg f+\deg g$.
+
+    假设 $f,g\in\mathbb{T}(V)\backslash\{0\},f\cdot g=0$, 则 $\deg f+\deg g=-\infty$, 与 $f,g\neq0$ 矛盾. $\therefore\mathbb{T}(V)$ 是无零因子环.
+
+    $\because K$ 是域, $\therefore K\backslash\{0\}$ 中的元素都可逆.
+
+    反之, 设 $f\in\mathbb{T}(V)$ 是可逆元, $f\cdot g=1$, 则 $\deg f+\deg g=0$. $\therefore\deg f=\deg g=0\Rightarrow f,g\in K\backslash\{0\}$.
+\end{proof}
+\subsection{习题 6.3}
+\begin{exercise}[3.1]
+    设 $V=\mathbb{R}^n$ 由列向量 $A^{(1)},A^{(2)},\cdots,A^{(n)}$ 张成, $B$ 是任意的列向量, 证明:
+    
+    (1) 方程
+    \begin{equation}\label{eq5.1}
+        \sum\limits_k\lambda_kA^{(k)}=B
+    \end{equation}
+
+    的解 $\lambda_k$ 可以由式
+    \[(A^{(1)}\wedge A^{(2)}\wedge\cdots\wedge A^{(n)})\lambda_k=A^{(1)}\wedge\cdots\wedge A^{(k-1)}\wedge B\wedge A^{(k+1)}\wedge\cdots\wedge A^{(n)}\]
+
+    给出.
+
+    (2) 由 (1) 导出 Crammer 公式.
+\end{exercise}
+\begin{proof}
+    (1) 方程 (\ref{eq5.1}) 两边(在左边)外积 $A^{(1)}\wedge\cdots\wedge\widehat{A}^{(i)}\wedge\cdots\wedge A^{(n)}\ (i=1,2,\cdots,n)$, 由定理 \ref{t4.2} 得
+    \[\lambda_iA^{(1)}\wedge\cdots\wedge\widehat{A}^{(i)}\wedge\cdots\wedge A^{(n)}\wedge A^{(i)}=A^{(1)}\wedge\cdots\wedge\widehat{A}^{(i)}\wedge\cdots\wedge A^{(n)}\wedge B,\quad i=1,2,\cdots,n.\]
+
+    设 $\sigma=(i\ i+1\ \cdots\ n\ i)\in S_n$, 则
+    \[A^{(1)}\wedge\cdots\wedge\widehat{A}^{(i)}\wedge\cdots\wedge A^{(n)}\wedge A^{(i)}=\varepsilon_\sigma A^{(1)}\wedge\cdots\wedge A^{(n)},\]
+    \[A^{(1)}\wedge\cdots\wedge\widehat{A}^{(i)}\wedge\cdots\wedge A^{(n)}\wedge B=\varepsilon_\sigma A^{(1)}\wedge\cdots\wedge A^{(k-1)}\wedge B\wedge A^{(k+1)}\wedge\cdots\wedge A^{(n)}.\]
+
+    $\therefore$
+    \[\lambda_kA^{(1)}\wedge A^{(2)}\wedge\cdots\wedge A^{(n)}=A^{(1)}\wedge\cdots\wedge A^{(k-1)}\wedge B\wedge A^{(k+1)}\wedge\cdots\wedge A^{(n)},\quad i=1,2,\cdots,n.\]
+
+    (2) 由定理 \ref{t4.3}, 上式左边为 $\det A$, 右边为将 $A$ 的第 $i$ 列替换为 $B$ 得到的矩阵的行列式.
+\end{proof}
+\begin{exercise}[3.3]
+    设 $\mathcal{A}:V\to V$ 是一个线性算子. $\mathcal{A}$ 的\textbf{外} $p$ \textbf{次幂}
+    \[\wedge^p\mathcal{A}:\wedge^p(V)\to\wedge^p(V)\]
+    是一个斜对称的线性算子, 由可分解的 $p$ 向量定义:
+    \[\wedge^p\mathcal{A}(\boldsymbol{x}_1\wedge\cdots\wedge\boldsymbol{x}_p)=\mathcal{A}(\boldsymbol{x}_1)\wedge\cdots\wedge\mathcal{A}(\boldsymbol{x}_p).\]
+
+    固定 $V$ 的一个基, 可以研究 $\mathcal{A}$ 在这个基下的矩阵 $A$ 的外 $p$ 次幂 $\wedge^pA$. 证明:
+    \[\det\wedge^pA\cdot\det\wedge^{n-p}A=(\det A)^{\tbinom{n}{p}}.\]
+\end{exercise}
+\end{document}
