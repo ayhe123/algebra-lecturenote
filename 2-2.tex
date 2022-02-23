@@ -1105,7 +1105,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 求 $X$ 的逆矩阵比较麻烦, 所以一般化为 $AX=XJ_A$ 来求(但是还是很麻烦, 需要许多计算的技巧).
 \section{第2章习题}
 \subsection{习题2.1}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     把坐标列 $\boldsymbol{x}=[x_1,x_2,x_3,x_4]$ 写成矩阵 $X=\dbinom{x_1\ x_2}{x_3\ x_4}\in M_2(K)$ 的形式, 取一个固定的矩阵 $A=\dbinom{a_1\ a_2}{a_3\ a_4}\in M_2(K)$, 定义两个线性映射
     \[f_L:X\mapsto AX=\dbinom{x_1'\ x_2'}{x_3'\ x_4'},\quad f_R:X\mapsto XA=\dbinom{x_1''\ x_2''}{x_3''\ x_4''},\]
 
@@ -1147,7 +1148,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0   & 0   & a_2 & a_4 \\
     \end{pmatrix}.\]
 \end{solution}
-\begin{exercise}[1.2]\label{ex1.2}
+\begin{exercise}\label{ex1.2}
     (1) 设 $W=V/L$ 是 $V$ 的商空间, $f:V\to W$ 把每个向量 $\boldsymbol{x}\in V$ 映成陪集 $\bar{\boldsymbol{x}}$, 验证 $f$ 是线性映射.
 
     (2) 设 $P_n$ 为 $K[t]$ 中次数 $\leq n$ 的多项式, 验证
@@ -1194,7 +1195,9 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     \[f_C(XY)=C^{-1}XYC=C^{-1}XCC^{-1}YC=f_C(X)f_C(Y).\qedhere\]
 \end{proof}
 \subsection{习题2.2}
-\begin{exercise}[2.2]
+\stepcounter{exsection}
+\stepcounter{exercise}
+\begin{exercise}% 2.2
     证明: 如果 $A,B,C$ 分别是 $n\times p,p\times q,q\times n$ 的矩阵, 那么 $\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)$.
 \end{exercise}
 \begin{proof}
@@ -1212,7 +1215,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         & =\operatorname{tr}(B'A').\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[2.5]\label{ex2.5}
+\addtocounter{exercise}{2}
+\begin{exercise}\label{ex2.5}
     证明: 对 $V$ 上的任意线性算子 $\mathcal{A},\mathcal{B}$, 有
     \[\operatorname{rank}\mathcal{A}=\operatorname{rank}\mathcal{BA}+\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}).\]
 \end{exercise}
@@ -1233,7 +1237,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\therefore$
     \[\operatorname{rank}\mathcal{A}=\operatorname{rank}\mathcal{BA}+\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}).\qedhere\]
 \end{proof}
-\begin{exercise}[2.6]
+\begin{exercise}% 2.6
     证明: $\forall\mathcal{A},\mathcal{B},\mathcal{C}\in\mathcal{L}V$, 有
     \[\operatorname{rank}\mathcal{BA}+\operatorname{rank}\mathcal{AC}\leq\operatorname{rank}\mathcal{A}+\operatorname{rank}\mathcal{BAC}.\]
 \end{exercise}
@@ -1245,7 +1249,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\because\operatorname{Im}(\mathcal{AC})=A(\operatorname{Im}\mathcal{C})\subset\operatorname{Im}\mathcal{A},\ \therefore\operatorname{Im}(\mathcal{AC})\cap\ker\mathcal{B}\subset\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B},\ \therefore$
     \[\dim(\operatorname{Im}(\mathcal{AC})\cap\ker\mathcal{B})\leq\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B})\Rightarrow\operatorname{rank}\mathcal{AC}-\operatorname{rank}\mathcal{BAC}\leq\operatorname{rank}\mathcal{A}-\operatorname{rank}\mathcal{BA}.\qedhere\]
 \end{proof}
-\begin{exercise}[2.8]
+\stepcounter{exercise}
+\begin{exercise}% 2.8
     设 $A,B\in M_n(\mathbb{R})$. 证明: 如果 $\exists C\in \operatorname{GL}_n(\mathbb{C})$ 使得 $B=C^{-1}AC$, 则 $\exists D\in \operatorname{GL}_n(\mathbb{R})$ 使得 $B=D^{-1}AD$.
 \end{exercise}
 \begin{proof}
@@ -1263,7 +1268,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $\because C_{t_0}$ 可逆, $\therefore B=C_{t_0}^{-1}AC_{t_0}$.
 \end{proof}
-\begin{exercise}[2.9]
+\begin{exercise}% 2.9
     类似于书上的定义 2, 称 $f(t)$ 是线性算子 $\mathcal{A}$ 对于向量 $\boldsymbol{v}\in V$ 的\textbf{零化多项式}当且仅当 $f(\mathcal{A})\boldsymbol{v}=\boldsymbol{0}$. 称 $\mathcal{A}$ 对于 $\boldsymbol{v}$ 的零化多项式中次数最低者为 $\mathcal{A}$ 对于 $\boldsymbol{v}$ 的\textbf{极小多项式}, 记作 $\mu_{\mathcal{A},\boldsymbol{v}}(t)$. 设 $|K|=\infty$. 证明:
 
     (1) $\mu_{\mathcal{A},\boldsymbol{v}}(t)\neq\mathcal{O}\Rightarrow\mu_{\mathcal{A},\boldsymbol{v}}(t)|\mu_{\mathcal{A}}(t)$; (2) $\exists\boldsymbol{a}$ 使得 $\mu_{\mathcal{A},\boldsymbol{a}}(t)=\mu_{\mathcal{A}}(t)$.
@@ -1279,7 +1284,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     
     另一方面, $\deg r<\deg\mu_{\mathcal{A},\boldsymbol{v}}$, 这与极小多项式的定义矛盾. $\therefore r=\mathcal{O}$.
 \end{proof}
-\begin{exercise}[2.11]\label{ex2.11}
+\stepcounter{exercise}
+\begin{exercise}\label{ex2.11}
     设 $\operatorname{char}K=0,A\in M_n(K)$, 证明: 如果 $\operatorname{tr}A=0$, 则 $A$ 相似于主对角线上取零值的矩阵 $A'$.
 \end{exercise}
 \begin{proof}
@@ -1339,14 +1345,15 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     
     $\therefore A$ 相似于满足 $\exists j\neq 1$ 使得 $a'_{1j}=0$ 的矩阵 $A'=(a'_{ij})$. 问题归结为 (c) 的情形.
 \end{proof}
-\begin{exercise}[2.12]
+\begin{exercise}% 2.12
     将习题 \ref{ex2.11} 中的 ``$\operatorname{char}K=0$'' 这一条件去掉, 结论是否还成立?
 \end{exercise}
 \begin{solution}
     不成立. 考虑 $\operatorname{char}K=n$ 中的单位矩阵 $E\in M_n(K)$. $\because\operatorname{char}K=n$, $\therefore\operatorname{tr}A=n=0$. 另一方面, $\because\forall A\in\operatorname{GL}_n(K),A^{-1}EA=A^{-1}A=E,\therefore E$ 只与 $E$ 相似.
 \end{solution}
 \subsection{习题2.3}
-\begin{exercise}[3.1]
+\stepcounter{exsection}
+\begin{exercise}% 3.1
     设 $\{A_i|1\leq i\leq m-1\}$ 是正交的幂等矩阵组. 设 $A=A_1+A_2+\cdots+A_{m-1},A_m=E-A$, 证明: $A^2=A,AA_i=A_iA=A_i,1\leq i\leq m-1,\{A_i|1\leq i\leq m\}$ 是完全正交组.
 \end{exercise}
 \begin{proof}
@@ -1378,7 +1385,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $\therefore\{A_i|1\leq i\leq m\}$ 是完全正交组.
 \end{proof}
-\begin{exercise}[3.2]
+\begin{exercise}% 3.2
     设 $\mathcal{D}\in\mathcal{L}(M_n(K))$ 不恒等于 $\mathcal{O}$, 对 $\forall A,B\in M_n(K)$, 有
     \[\mathcal{D}(AB)=\mathcal{D}(A)\mathcal{D}(B).\]
 
@@ -1400,7 +1407,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{note}
     $f(A_1\cap A_2)=f(A_1)\cap f(A_2)$ 不一定成立. 比如: 对 $\mathbb{R}$ 上的函数 $f(x)=|x|$, 有 $f(\{1\}\cap\{-1\})=f(\varnothing)=\varnothing$, 但 $f(\{1\})\cap f(\{-1\})=\{1\}$.
 \end{note}
-\begin{exercise}[3.3]\label{ex3.3}
+\begin{exercise}\label{ex3.3}
     设 $\dim V=n,\mathcal{A}\in\mathcal{L}(V)$ 满足: 对某个 $p\in\mathbb{N}$ 有 $\operatorname{Im}\mathcal{A}^p=\operatorname{Im}\mathcal{A}^{p+1}$. 证明: $\ker\mathcal{A}^p,\operatorname{Im}\mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间, 且 $V=\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p$.
 \end{exercise}
 \begin{proof}
@@ -1435,7 +1442,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     由书上第 1 节的定理 4 得 $\dim(\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p)=\dim V$. $\therefore V=\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p$.
 \end{proof}
-\begin{exercise}[3.4]
+\begin{exercise}% 3.4
     证明: 如果 $n$ 维向量空间 $V$ 上的线性算子 $\mathcal{E},\mathcal{A},\mathcal{A}^2,\cdots,\mathcal{A}^{n-1}$ 是线性无关的, 那么 $\exists\boldsymbol{v}$ 使得
     \[V=\left<\boldsymbol{v},\mathcal{A}\boldsymbol{v},\cdots,\mathcal{A}^{n-1}\boldsymbol{v}\right>.\]
 \end{exercise}
@@ -1451,7 +1458,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $\therefore\boldsymbol{v},\mathcal{A}\boldsymbol{v},\mathcal{A}^2\boldsymbol{v},\cdots,\mathcal{A}^{n-1}\boldsymbol{v}$ 线性无关. $\therefore\boldsymbol{v},\mathcal{A}\boldsymbol{v},\mathcal{A}^2\boldsymbol{v},\cdots,\mathcal{A}^{n-1}\boldsymbol{v}$ 是 $V$ 的一个基.
 \end{proof}
-\begin{exercise}[3.6]
+\stepcounter{exercise}
+\begin{exercise}% 3.6
     证明: $\forall A,B\in M_n(\mathbb{R})$, 矩阵 $AB$ 和 $BA$ 的特征多项式相同.
 \end{exercise}
 \begin{proof}
@@ -1459,7 +1467,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     若 $A\notin\operatorname{GL}_n(\mathbb{R})$, 则 % 补充
 \end{proof}
-\begin{exercise}[3.7]
+\begin{exercise}% 3.7
     求循环矩阵
     \[A=\begin{pmatrix}
         a_0 & a_1 & a_2 \\
@@ -1511,7 +1519,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{note}
     矩阵 $C$ 是我用 Mathematica 找到的. 具体计算过程在 \verb|2-2-3.7.nb| 里面.
 \end{note}
-\begin{exercise}[3.9]
+\stepcounter{exercise}
+\begin{exercise}% 3.9
     设 $\operatorname{char}K\neq2,A,B\in M_n(K)$. 若 $\exists D=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1$ 使得 $B=DA$, 则记为 $B\sim A$.
 
     (1) 验证 $\sim$ 是一个等价关系.
@@ -1560,7 +1569,9 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\therefore\exists\operatorname{diag}(-1,1,\cdots,1)A\in S(A)$ 不以 $1$ 为特征值.
 \end{proof}
 \subsection{习题2.4}
-\begin{exercise}[4.2]
+\stepcounter{exsection}
+\stepcounter{exercise}
+\begin{exercise}% 4.2
     精确到相似, 矩阵
     \[A_1=\begin{pmatrix}
         J_2(0) \\
@@ -1731,7 +1742,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{note}
     除了第 (3) 题之外的题目都是在学完 Jordan 标准型之前写的, 所以没有用 Jordan 标准型来分解. 第 (3) 题用初等变换比较复杂, 当时没做出来.
 \end{note}
-\begin{exercise}[4.3]
+\begin{exercise}% 4.3
     设 $\chi_\mathcal{A}(t)=(t-3)^4(t+2)$.
 
     (1) 已知 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=2$, 求 $\mathcal{A}$ 的 Jordan 矩阵 $J(\mathcal{A})$.
@@ -1772,7 +1783,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0 & 0 & 0 & 0 & 3 \\
     \end{pmatrix}.\]
 \end{solution}
-\begin{exercise}[4.4]
+\begin{exercise}% 4.4
     (1) 验证: 矩阵
     \[A=\begin{pmatrix}
         6 & 2 & -2 \\
@@ -1812,7 +1823,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0 & 0 & 4 \\
     \end{pmatrix}.\]
 \end{solution}
-\begin{exercise}[4.6]
+\stepcounter{exercise}
+\begin{exercise}% 4.6
     证明: 矩阵 $A\in M_n(\mathbb{C})$ 相似于 $^tA$.
 \end{exercise}
 \begin{proof}
@@ -1824,7 +1836,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     
     $\therefore A$ 与 $^tA$ 具有相同的 Jordan 块, $\therefore J(A)=J({}^tA)$. $\therefore A\sim J(A)=J({}^tA)\sim{}^tA$.
 \end{proof}
-\begin{exercise}[4.7]
+\begin{exercise}% 4.7
     设矩阵 $A\in M_n(\mathbb{C})$, 证明: $A^N=E$ 当且仅当 $A$ 可以对角化且它的特征值都是 $N$ 次单位根.
 \end{exercise}
 \begin{proof}
@@ -1874,7 +1886,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     \end{pmatrix}\]
     得到矛盾.
 \end{proof}
-\begin{exercise}[4.10]
+\addtocounter{exercise}{2}
+\begin{exercise}% 4.10
     矩阵
     \[A=\begin{pmatrix}
         J_1(\lambda) \\
@@ -1925,13 +1938,14 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\therefore$
     \[s(t)=\dfrac{t^2-2\mu t+\lambda\mu}{\lambda-\mu},\quad n(t)=t-s(t).\]
 \end{solution}
-\begin{exercise}[4.12]
+\stepcounter{exercise}
+\begin{exercise}% 4.12
     对 $\forall k\in\mathbb{N}_+$, 计算 $(J_n(\lambda))^k$.
 \end{exercise}
 \begin{solution}
     见式 (\ref{eq4.1}).
 \end{solution}
-\begin{exercise}[4.13]
+\begin{exercise}% 4.13
     证明: 对 $\forall X,Y,Z\in M_2(K),[[X,Y]^2,Z]=0$, 其中 $[X,Y]=XY-YX$.
 \end{exercise}
 \begin{proof}

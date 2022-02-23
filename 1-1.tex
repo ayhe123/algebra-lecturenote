@@ -11,9 +11,9 @@
     (1) 映射 $f:X\to Y$ 是单射当且仅当 $\exists$ 满射 $g:Y\to X,gf=e_X$. (2) 映射 $f:X\to Y$ 是满射当且仅当 $\exists$ 单射 $g:Y\to X,fg=e_Y$.
 \end{theorem}
 \begin{proof}
-    "$\Leftarrow$" 由书上第2小节的引理得. 下面证明 "$\Rightarrow$".
-
-    (1) 设 $f$ 是单射, 定义映射
+    ($\Leftarrow$) 由书上第2小节的引理得.
+    
+    ($\Rightarrow$) (1) 设 $f$ 是单射, 定义映射
     \[g:\begin{array}{rcll}
     Y & \to & X \\
     f(x) & \mapsto & x & (\forall f(x)\in\operatorname{Im}f) \\
@@ -344,7 +344,8 @@ $\therefore\ker\phi_A$ 是方程 $AX=0$ 的解空间.
 $\therefore$
 \[\dim\ker\phi_A+\dim\operatorname{Im}\phi_A=n.\]
 \section{第1章习题}
-\begin{exercise}[5.1]
+\setcounter{exsection}{5}
+\begin{exercise}% 5.1
     设 $\Omega=\{+,-,++,+-,-+,--,+++,\cdots\}$ 是加号和减号的有限序列的集合, 而 $f:\Omega\to\Omega$ 是一个变换, 将元素 $\omega'=\omega_1\omega_2\cdots\omega_n\in\Omega$ 对应到 $\omega=\omega_1\dot{\omega_1}\omega_2\dot{\omega_2}\cdots\omega_n\dot{\omega_n}$, 其中
     \[\dot{\omega_k}=\begin{cases}
         -, & \omega_k=+, \\
@@ -375,7 +376,7 @@ $\therefore$
 
     对于第三种情况, $\omega_0$ 为 $baabb\cdots$, 也包含 $++$ 或 $--$.
 \end{proof}
-\begin{exercise}[5.2]
+\begin{exercise}% 5.2
     由法则 $n\to n^2$ 给出的映射 $f:\mathbb{N}\to\mathbb{N}$ 有右逆吗? 给出 $f$ 的两个左逆.
 \end{exercise}
 \begin{solution}
@@ -395,7 +396,7 @@ $\therefore$
         2, & \text{otherwise}. \\
     \end{cases}\]
 \end{solution}
-\begin{exercise}[5.3]
+\begin{exercise}% 5.3
     设 $f:X\to Y$ 是一个映射, 且 $S,T\subset X$, 证明:
     \[(1)f(S\cup T)=f(S)\cup f(T),\quad(2)f(S\cap T)\subset f(S)\cap f(T).\]
 \end{exercise}
@@ -420,7 +421,7 @@ $\therefore$
         & \Leftrightarrow y\in f(S\cup T).
     \end{align*}
 \end{proof}
-\begin{exercise}[5.4]
+\begin{exercise}% 5.4
     $S$ 的全体子集的集合记作
     \[\mathcal{P}(S)=\{T|T\subset S\}.\]
 
@@ -436,7 +437,7 @@ $\therefore$
 
     容易验证 $f$ 是单射, $\because\mathcal{P}(S)$ 包含 $S$ 的全部子集, $\therefore f$ 是满射. $\therefore|\mathcal{P}(S)|=|B|=2^n$.
 \end{solution}
-\begin{exercise}[5.5]
+\begin{exercise}% 5.5
     设 $f:X\to Y$ 是一个映射, 且对某个元素 $a\in X,b=f(a)$. 原像
     \[f^{-1}(b)=f^{-1}(f(a))=\{x|f(x)=f(a)\}\]
 
@@ -451,13 +452,14 @@ $\therefore$
 
     $\forall a\in X,a\in f^{-1}(f(a)),\therefore X$ 是纤维的并.
 \end{proof}
-\begin{exercise}[6.1]
+\stepcounter{exsection}
+\begin{exercise}% 6.1
     设 $\mathbb{R}^2/\sim$ 是图 8 (课本上的)给出的商集, $l$ 是与 $Ox$ 轴相交的任一直线, 试给出 $\mathbb{R}^2/\sim$ 的元素和 $l$ 的点之间的一一对应.
 \end{exercise}
 \begin{solution}
     $\mathbb{R}^2/\sim$ 的元素为直线 $l',l'$ 与 $l$ 的交点与 $l'$ 一一对应.
 \end{solution}
-\begin{exercise}[6.2]
+\begin{exercise}% 6.2
     证明 2 元, 3 元和 4 元集分别有 2,5 和 15 个不同的商集.
 \end{exercise}
 \begin{proof}
@@ -485,7 +487,8 @@ $\therefore$
 
     一共有 $1+\dbinom{4}{1}+\dbinom{4}{2}/2+\dbinom{4}{2}+1=15$ 个商集.
 \end{proof}
-\begin{exercise}[6.4]
+\stepcounter{exercise}
+\begin{exercise}% 6.4
     设 $\sim$ 是集合 $X$ 上的一个等价关系,且 $f:X\to Y$ 是一个映射, 使得
     \[x\sim x'\Rightarrow f(x)=f(x').\]
 
@@ -503,7 +506,10 @@ $\therefore$
 
     是 $\bar{f}$ 成为单射的条件.
 \end{proof}
-\begin{exercise}[8.2]
+\addtocounter{exsection}{1}
+\stepcounter{exsection}
+\stepcounter{exercise}
+\begin{exercise}% 8.2
     求置换 $(1\ 2\ 3\ 4\ 5)(6\ 7)(8)$ 和
     \[\pi=\begin{pmatrix}
         1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -524,7 +530,7 @@ $\therefore$
 
     $\therefore$ 置换 $\pi$ 的阶为 $15$.
 \end{solution}
-\begin{exercise}[8.3]
+\begin{exercise}% 8.3
     形如
     \[\pi=\pi_1\pi_2\cdots\pi_m,\quad l_k>1,\quad 1\leq k\leq m\]
     
@@ -543,7 +549,8 @@ $\therefore$
     \end{align*}
 \end{solution}
 \section{第2章习题}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     设 $V_1,V_2,V$ 是 $\mathbb{R}^n$ 中的线性包, 证明: 如果对于每一个向量 $X\in V$, 写法 $X=X_1+X_2$ 都唯一, 其中 $X_i\in V_i$, 则 $V=V_1+V_2$ 是直和.
 \end{exercise}
 \begin{proof}
@@ -556,7 +563,7 @@ $\therefore$
 
     与 $0\in V\Rightarrow$ 写法 $0=X_1+X_2$ 唯一矛盾.
 \end{proof}
-\begin{exercise}[1.2]
+\begin{exercise}% 1.2
     设 $V_1,V_2,V$ 是 $\mathbb{R}^n$ 中的线性包, 且 $V\subset V_1+V_2$. 等式 $V=V_1\cap V+V_2\cap V$ 一定成立吗? 证明在 $V_1\subset V$ 的情况下等式 $V=V_1\cap V+V_2\cap V$ 一定成立.
 \end{exercise}
 \begin{proof}
@@ -591,7 +598,8 @@ $\therefore$
 
     $\therefore V\subset V_1\cap V+V_2\cap V.$
 \end{proof}
-\begin{exercise}[1.5]
+\addtocounter{exercise}{2}
+\begin{exercise}% 1.5
     证明: $\mathbb{R}^n$ 中的向量组 $X_1,X_2,\cdots,X_n$ 张成 $\mathbb{R}^n$ 的充要条件是它们线性无关.
 \end{exercise}
 \begin{proof}
@@ -647,7 +655,8 @@ $\therefore$
 
     $\therefore(V_1+V_2)=<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>.$
 \end{proof}
-\begin{exercise}[1.7,有改动]\label{ex1.7}
+\stepcounter{exercise}
+\begin{exercise}[有改动]\label{ex1.7}
 设 $V_1$ 和 $V_2$ 都是 $\mathbb{R}^n$ 中的线性包,证明:
 
 $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2).$$
@@ -703,7 +712,9 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
         & =\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2).\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[2.4]
+\stepcounter{exsection}
+\setcounter{exercise}{3}
+\begin{exercise}% 2.4
     设两个矩阵
     \[A=\begin{pmatrix}
         \alpha_1 & \alpha_2 & \cdots & \alpha_n \\
@@ -734,7 +745,9 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     $\therefore\operatorname{rank}B=\operatorname{rank}A$.
 \end{solution}
-\begin{exercise}[3.4]
+\stepcounter{exsection}
+\setcounter{exercise}{3}
+\begin{exercise}% 3.4
     由 Markov 矩阵
     \[P=(p_{ij}),\quad p_{ij}\geq0,\quad\sum\limits_{j=1}^np_{ij}=1,\quad i=1,2,\cdots,n\]
     
@@ -768,7 +781,8 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     由 (a) 得 $PQ^{(i)}$ 是概率向量. $\therefore PQ$ 也是 Markov 的.
 \end{proof}
-\begin{exercise}[3.6]
+\stepcounter{exercise}
+\begin{exercise}% 3.6
     由 $S_n$ 中的 $n$ 阶循环确定的置换矩阵为
     \[P=\begin{pmatrix}
         0 & 0 & \cdots & 0 & 1 \\
@@ -789,7 +803,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     $\therefore P^n=E$.
 \end{solution}
-\begin{exercise}[3.7]
+\begin{exercise}% 3.7
     对于任意两个 $m\times n$ 矩阵 $A,B$, 证明
     \[\operatorname{rank}(A+B)\leq\operatorname{rank}A+\operatorname{rank}B.\]
 \end{exercise}
@@ -815,7 +829,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     $\therefore 0>2\operatorname{rank}B$, 与 $\operatorname{rank}B\geq0$ 矛盾.
 \end{proof}
-证明第 3.8 题需要证明两个引理.
+证明第 \ref{ex3.8} 题需要证明两个引理.
 \begin{lemma}\label{l4.2}
     是 $A$ 是 $m\times s$ 矩阵, $B$ 是 $s\times n$ 矩阵, $A$ 确定的线性映射为 $\phi_A$, $B$ 的列空间为 $V_c(B)$, 则
     \[\dim\phi_A(V_c(B))=\operatorname{rank}AB.\]
@@ -853,7 +867,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     $\therefore\phi(V_1+V_2)=\phi(V_1)+\phi(V_2)$.
 \end{proof}
-\begin{exercise}[3.8]\label{ex3.8}
+\begin{exercise}\label{ex3.8}
     对于任意 $m\times s$ 矩阵 $A$ 和 $s\times n$ 矩阵 $B$, 证明
     \[\operatorname{rank}A+\operatorname{rank}B-s\leq\operatorname{rank} AB.\]
 \end{exercise}
@@ -932,7 +946,8 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
         \Rightarrow & \operatorname{rank}A+\operatorname{rank}B-s\leq\operatorname{rank}AB.\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[3.14]
+\setcounter{exercise}{13}
+\begin{exercise}% 3.14
     设
     \[A=\begin{pmatrix}
         a & b \\
@@ -973,7 +988,8 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
         \end{pmatrix}.
     \end{align*}
 \end{solution}
-\begin{exercise}[3.16]
+\stepcounter{exercise}
+\begin{exercise}% 3.16
     证明: 若
     \[\begin{pmatrix}
         a & b \\
@@ -1042,7 +1058,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
     $\because\lambda\neq0,A^{(1)}\neq0,\therefore A^m=0\Rightarrow \mu^{m-1}=0\Rightarrow \mu=0\Rightarrow\cdots\Rightarrow A^2=0$.
 \end{proof}
-\begin{exercise}[3.17]
+\begin{exercise}% 3.17
     设 $m\times s$ 矩阵
     \[X=\begin{pmatrix}
         X_{11} & X_{12} & \cdots & X_{1k} \\
@@ -1134,7 +1150,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 \begin{note}
     把 $^{(ad)}Z$ 之类的矩阵换成矩阵单位, 可以用类似的方法推导矩阵的乘法公式.
 \end{note}
-\begin{exercise}[第 4 章的习题 3.9]
+\begin{exercisec}[第 4 章的习题 3.9]
     设 $A\in M_n(\mathbb{R}),B\in M_m(\mathbb{R})$ 可逆, $C$ 是任意的 $n\times m$ 矩阵, 证明
     \[\begin{pmatrix}
         A & C \\
@@ -1142,7 +1158,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
     \end{pmatrix}\]
 
     可逆, 并求其逆.
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     $\because$
     \[\begin{pmatrix}

@@ -378,7 +378,8 @@ $\therefore s_1=-s_2.\therefore$
 \end{proof}
 \section{第3章习题}
 \subsection{习题3.1}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     将函数
     \[\Delta:\begin{array}{rcl}
         \mathbb{R}^3 & \to & \mathbb{R} \\
@@ -398,7 +399,7 @@ $\therefore s_1=-s_2.\therefore$
 \begin{note}
     事实上我不太明白这题要写什么.
 \end{note}
-\begin{exercise}[1.2]
+\begin{exercise}% 1.2
     设 $A=(a_{ij}),A'=(a'_{ij})$ 是两个 $n\times n$ 矩阵, $\Delta,\Delta'$ 是它们的行列式. 在下列情况下比较 $\Delta,\Delta'$:
 
     (a) $a'_{ij}=2^{i-j}a_{ij}$;
@@ -427,7 +428,7 @@ $\therefore s_1=-s_2.\therefore$
 
     (c) 交换 $A'$ 的第 $j$ 行和第 $n+1-j$ 列 $(j=1,2,\cdots,\lfloor n/2\rfloor)$ 可以得到 (b) 中的 $A'$, 一共要交换 $\left\lfloor\dfrac{n}{2}\right\rfloor$ 次, $\therefore\det A'=(-1)^{\lfloor n/2\rfloor}((-1)^{\lfloor n/2\rfloor}\det A)=\det A$.
 \end{solution}
-\begin{exercise}[1.3]
+\begin{exercise}% 1.3
     证明:
     \[\begin{vmatrix}
     1 & 1 & 1 & \cdots & 1 & 1 \\
@@ -452,7 +453,8 @@ $\therefore s_1=-s_2.\therefore$
     由书上的命题 1 即得.
 \end{proof}
 \subsection{习题3.2}
-\begin{exercise}[2.1]
+\stepcounter{exsection}
+\begin{exercise}% 2.1
     整数 $1798,2139,3255,4867$ 可以被 $31$ 整除. 证明行列式
     \[\det A=\begin{vmatrix}
         1 & 7 & 9 & 8 \\
@@ -490,7 +492,7 @@ $\therefore s_1=-s_2.\therefore$
 
     是整数, $\therefore\det A$ 可以被 $31$ 整除.
 \end{proof}
-\begin{exercise}[2.2]
+\begin{exercise}% 2.2
     证明任一四阶斜对称行列式 $A=|a_{ij}|\ (a_{ij}\in\mathbb{Z})$ 是一个整数的平方.
 \end{exercise}
 \begin{proof}
@@ -586,7 +588,8 @@ $\therefore s_1=-s_2.\therefore$
 
     (2) 证明采用的枚举的方法不适用于更高阶的情形. 比如说 $T_6$ 中有形如 $(1\ 2\ 3)(4\ 5\ 6),(1\ 2)(3\ 4\ 5\ 6)$ 的置换, $n$ 越大, $T_n$ 越复杂.
 \end{note}
-\begin{exercise}[2.4]
+\stepcounter{exercise}
+\begin{exercise}% 2.4
     设
     \[\Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m)=\begin{vmatrix}
         M_{k_1}^n(x_1) \\
@@ -804,7 +807,7 @@ $\therefore s_1=-s_2.\therefore$
         = & \ \prod\limits_{1\leq j<i\leq m}(x_i-x_j)^{k_jk_i}.\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[2.5]
+\begin{exercise}% 2.5
     求
     \[B_n(s,t)=\begin{vmatrix}
         \dbinom{s}{t} & \dbinom{s}{t+1} & \cdots & \dbinom{s}{t+n-1} \\[10pt]
@@ -898,7 +901,7 @@ $\therefore s_1=-s_2.\therefore$
     $\therefore A_n(s,t)=A_1(s,t)=1$, 原式
     \[=\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s+2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t+2}{n}\cdots\dbinom{n}{n}}.\]
 \end{solution}
-\begin{exercise}[2.6]
+\begin{exercise}% 2.6
     设
     \[C_n(\lambda_1,\lambda_2,\cdots,\lambda_n)=\begin{pmatrix}
         \lambda_1 & 1 & 0 & \cdots & 0 & 0 & 0 \\
@@ -960,7 +963,8 @@ $\therefore s_1=-s_2.\therefore$
     由第 2 章第 3.3 节的例 3,
     \[\det C_n=\dfrac{1}{\sqrt{5}}\left(\left(\dfrac{1+\sqrt{5}}{2}\right)^{m-1}-\left(\dfrac{1-\sqrt{5}}{2}\right)^{m-1}\right).\qedhere\]
 \end{proof}
-\begin{exercise}[2.8]
+\stepcounter{exercise}
+\begin{exercise}% 2.8
     设 $A,B$ 是任一 $n$ 阶方阵. 证明
     \[\det\begin{pmatrix}
         A & B \\
@@ -1042,7 +1046,8 @@ $\therefore s_1=-s_2.\therefore$
 \end{proof}
 \subsection{习题3.3}
 不加说明的话矩阵一律指 $n$ 阶方阵.
-\begin{exercise}[3.1]
+\stepcounter{exsection}
+\begin{exercise}% 3.1
     证明:
     \[\begin{array}{ll}
         (1)\ (AB)^\vee=B^\vee A^\vee; & (2)\ ({}^tA)^\vee={}^t(A^\vee); \\
@@ -1150,7 +1155,7 @@ $\therefore s_1=-s_2.\therefore$
     \[\det A(A^\vee)^\vee=AA^\vee(A^\vee)^\vee=(\det\nolimits^{n-1}A)A,\]
     \[(A^\vee)^\vee=(\det A)^{n-2}A.\]
 \end{proof}
-\begin{exercise}[3.2]
+\begin{exercise}% 3.2
     用 $\operatorname{rank}A$ 表示 $\operatorname{rank}A^\vee$.
 \end{exercise}
 \begin{solution}
@@ -1174,7 +1179,8 @@ $\therefore s_1=-s_2.\therefore$
         0, & \operatorname{rank}A\leq n-2. \\
     \end{cases}\]
 \end{solution}
-\begin{exercise}[3.4]
+\stepcounter{exercise}
+\begin{exercise}% 3.4
     设
     \[A=\begin{pmatrix}
         a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -1207,7 +1213,7 @@ $\therefore s_1=-s_2.\therefore$
 
     由第 2.3 节第 8 小节的定理 7 得 $AX=0$ 的解空间 $V$ 的维数为 $1$. $\therefore V=\left<X_0\right>$.
 \end{proof}
-\begin{exercise}[3.5]
+\begin{exercise}% 3.5
     设 $A=(a_{ij})\in M_n(\mathbb{R})$, 且 $\forall i,j,(n-1)|a_{ij}|<|a_{ii}|$. 证明: $\det A=0$.
 \end{exercise}
 \begin{proof}
@@ -1224,7 +1230,7 @@ $\therefore s_1=-s_2.\therefore$
 
     即 $|a_{ii}|<|a_{ii}|$, 矛盾.
 \end{proof}
-\begin{exercise}[3.6]\label{ex3.6}
+\begin{exercise}\label{ex3.6}
     证明 Binet-Cauchy 定理: 设 $A=(a_{ij}),B=(b_{kl})$ 分别是 $n\times m,m\times n$ 矩阵, $C=AB$, 则
     \[\det C=\sum\limits_{1\leq j_1<\cdots<j_n\leq m}\begin{vmatrix}
         a_{1j_1} & a_{2j_1} & \cdots & a_{nj_1} \\
@@ -1337,7 +1343,7 @@ $\therefore s_1=-s_2.\therefore$
     \end{align*}
 \end{proof}
 
-证明第 3.8 题需要证明一个引理.
+证明第 \ref{ex3.8} 题需要证明一个引理.
 \begin{lemma}\label{l5.1}
     设 $k<n,U=\{j_1,j_2,\cdots,j_k\}\subset\{1,2,\cdots,n\},\{i_1,i_2,\cdots,i_{n-k}\}=\{1,2,\cdots,n\}\backslash U,j_1<j_2<\cdots<j_k,i_1<i_2<\cdots<i_{n-k}$. 则
     \begin{align*}
@@ -1374,7 +1380,8 @@ $\therefore s_1=-s_2.\therefore$
     $\therefore$
     \[\det A=(-1)^{T(U)}\det(A^{(j_1)},\cdots,A^{(j_k)},A^{(i_1)},\cdots,A^{(i_{n-k})}).\qedhere\]
 \end{proof}
-\begin{exercise}[3.8]
+\stepcounter{exercise}
+\begin{exercise}\label{ex3.8}
     给定矩阵 $A=(a_{ij})$ 的一个 $k$ 阶子式
     \[M\begin{pmatrix}
         i_1 & \cdots & i_k \\
@@ -1614,7 +1621,8 @@ $\therefore s_1=-s_2.\therefore$
         \end{pmatrix}.\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[3.10]
+\stepcounter{exercise}
+\begin{exercise}% 3.10
     证明: 若 $A,B,C,D\in M_n(\mathbb{R}),\det A\neq0$, 则
     \begin{align*}
         \det\begin{pmatrix}
@@ -1667,7 +1675,8 @@ $\therefore s_1=-s_2.\therefore$
         & =\det(DA-CB).\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[4.1]
+\stepcounter{exsection}
+\begin{exercise}% 4.1
     设 $f:\mathbb{R}\to\mathbb{R}$ 是满足 $f(0)=0$ 的任意函数. 证明满足下列性质的函数 $\mathcal{D}:M_n(\mathbb{R})\to\mathbb{R}$ 存在且唯一:
     \begin{enumerate}
         \item 如果 $A$ 有一列为 $0$, 则 $\mathcal{D}(A)=0$;
@@ -1718,7 +1727,7 @@ $\therefore s_1=-s_2.\therefore$
     \end{align*}
 \end{proof}
 \subsection{补充题}
-\begin{exercise}[补充题 1]
+\begin{exercisec}% 补充题 1
     设 $f_i\ (i=1,2,\cdots,n)$ 是次数 $\leq n-2$ 的多项式, $a_i\in\mathbb{R}_+$, 计算
     \[\begin{vmatrix}
         f_1(a_1) & f_1(a_2) & \cdots & f_1(a_n) \\
@@ -1726,7 +1735,7 @@ $\therefore s_1=-s_2.\therefore$
         \vdots & \vdots & \ddots & \vdots \\
         f_n(a_1) & f_n(a_2) & \cdots & f_n(a_n) \\
     \end{vmatrix}.\]
-\end{exercise}
+\end{exercisec}
 \begin{solution}
     先考虑 $n=2$ 的情形:
     \[\begin{vmatrix}
@@ -1772,7 +1781,7 @@ $\therefore s_1=-s_2.\therefore$
 
     $\therefore A$ 退化, $\det A=0$.
 \end{solution}
-\begin{exercise}[补充题 2]
+\begin{exercisec}% 补充题 2
     (1) 计算行列式
     \[\det A=\begin{vmatrix}
         1 & 2 & 3 & \cdots & {n-1} & n \\
@@ -1790,7 +1799,7 @@ $\therefore s_1=-s_2.\therefore$
         \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
         a_2 & a_3 & a_4 & \cdots & a_n & a_1 \\
     \end{vmatrix}.\]
-\end{exercise}
+\end{exercisec}
 \begin{solution}
     (1) $A$ 的第 $1$ 列加第 $2,3,\cdots,n$ 列, 得
     \[\det A=\begin{vmatrix}
@@ -1905,7 +1914,7 @@ $\therefore s_1=-s_2.\therefore$
 \begin{note}
     将 (1) 的结果代入 (2), 可以得到 $(-1)^{n-1}\dfrac{n^{n-1}(n+1)}{2}$ 的一个分解.
 \end{note}
-\begin{exercise}[补充题 3]
+\begin{exercisec}% 补充题 3
     设 $A,B\in M_n(\mathbb{R})$, $A,B$ 是交换的. 计算:
     \[(1)\det\begin{pmatrix}
         A & B \\
@@ -1914,7 +1923,7 @@ $\therefore s_1=-s_2.\therefore$
         A & -B \\
         B & A
     \end{pmatrix}.\]
-\end{exercise}
+\end{exercisec}
 \begin{solution}
     (1) $\because$
     \[\begin{pmatrix}

@@ -945,7 +945,8 @@ $\therefore A^2=A$.
 书上的定理 10 从 (22) 式推出 $\boldsymbol{e}_1,\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$ 线性无关, 用的是推论 \ref{c4.1} 的逆否命题.
 \section{第 6 章习题}
 \subsection{习题 6.1}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     验证: $f(\boldsymbol{e}_i,e^j)=\delta_j^i\in\mathbb{T}_1^1$ 代表 $V$ 上的恒等映射.
 \end{exercise}
 \begin{proof}
@@ -957,7 +958,7 @@ $\therefore A^2=A$.
     
     $\therefore\mathcal{F}\boldsymbol{e}_i=\boldsymbol{e}_i$ 对 $\forall\boldsymbol{e}_i$ 都成立. $\therefore\mathcal{F}\boldsymbol{v}=\boldsymbol{v}$ 对 $\forall\boldsymbol{v}\in V$ 都成立.
 \end{proof}
-\begin{exercise}[1.2]\label{ex1.2}
+\begin{exercise}\label{ex1.2}
     设 $V$ 是 $\mathbb{R}$ 上的 Euclid 空间, 双线性型 $(\boldsymbol{x}|\boldsymbol{y})=g(\boldsymbol{x},\boldsymbol{y})$ 给出 $V$ 的纯量积, $\boldsymbol{e}_1,\cdots,\boldsymbol{e}_m$ 是 $V$ 的一个基.
 
     设 $g_{ij}=g(\boldsymbol{e}_i,\boldsymbol{e}_j)$, 称 $G_0=(g_{ij})$ 是 $V$ 的 ($(2,0)$ 型的) \textbf{度量张量}. 度量张量的分量是纯量积对于 $V$ 的一个基的 Gram 矩阵的元素.
@@ -987,7 +988,7 @@ $\therefore A^2=A$.
         & =\sum\limits_{s=1}^na_i^s(\boldsymbol{e}_s|\boldsymbol{e}_k)=\delta^i_k.\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[1.3]
+\begin{exercise}% 1.3
     (1) 设 $V$ 是 $\mathbb{R}$ 上以 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 为基的线性空间, $V^\mathbb{C}$ 是它的复化空间. $\because\mathbb{C}$ 是 $\mathbb{R}$ 上的向量空间, $\{1,i\}$ 是 $\mathbb{C}$ 的一个基, $\therefore$ 可以构造 $\mathbb{R}$ 上的向量空间
     \[U=\left<1\otimes\boldsymbol{e}_1,\cdots,1\otimes\boldsymbol{e}_n,i\otimes\boldsymbol{e}_1,\cdots,i\otimes\boldsymbol{e}_n\right>.\]
 
@@ -1058,7 +1059,7 @@ $\therefore A^2=A$.
 
     $\therefore$ 公理 8 成立.
 \end{proof}
-\begin{exercise}[1.4]
+\begin{exercise}% 1.4
     设 $\dim V>1,\dim W>1$, 试说明, $\exists f\in V\otimes W,f$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
 \end{exercise}
 \begin{solution}
@@ -1066,7 +1067,7 @@ $\therefore A^2=A$.
     
     事实上, 假设 $\phi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\phi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\operatorname{rank}A=1$, 与 $r>2$ 矛盾.
 \end{solution}
-\begin{exercise}[1.5]
+\begin{exercise}% 1.5
     设 $A,B$ 是可逆方阵, 试给出 $A\otimes B$ 的逆矩阵.
 \end{exercise}
 \begin{solution}
@@ -1090,7 +1091,7 @@ $\therefore A^2=A$.
         &&& E_m \\
     \end{pmatrix}.\]
 \end{solution}
-\begin{exercise}[1.6]
+\begin{exercise}% 1.6
     比较 $A\otimes B$ 与
     \[C=B\otimes A=\begin{pmatrix}
         \beta_{11}A & \beta_{12}A & \cdots & \beta_{1m}A \\
@@ -1109,7 +1110,8 @@ $\therefore A^2=A$.
     可以直接验证: $\operatorname{tr}C=\operatorname{tr}A\cdot\operatorname{tr}B=\operatorname{tr}A\otimes B,\det C=\det((B\otimes E_n)(E_m\otimes A))=(\det A)^m(\det B)^n$.
 \end{solution}
 \subsection{习题 6.2}
-\begin{exercise}[2.1]
+\stepcounter{exsection}
+\begin{exercise}% 2.1
     沿用第 \ref{ex1.2} 题的记号.
 
     (1) 验证
@@ -1123,7 +1125,7 @@ $\therefore A^2=A$.
     \[\sum\limits_{k,l=1}^ng^{ik}g^{jl}g_{kl}=\sum\limits_{k=1}^ng^{ik}\sum\limits_{l=1}^ng^{jl}g_{kl}=\sum\limits_{k=1}^ng^{ik}\delta^j_k=g^{ij},\]
     \[\sum\limits_{k,l=1}^ng_{ik}g_{jl}g^{kl}=\sum\limits_{k=1}^ng_{ik}\sum\limits_{l=1}^ng_{jl}g^{kl}=\sum\limits_{k=1}^ng_{ik}\delta_j^k=g_{ij}.\qedhere\]
 \end{proof}
-\begin{exercise}[2.2]\label{ex2.2}
+\begin{exercise}\label{ex2.2}
     设 $\dim V>1$. 证明: $\mathbb{T}(V)$ 是一个无零因子环, $f$ 是 $\mathbb{T}(V)$ 中的可逆元当且仅当 $f\in K\backslash\{0\}$.
 \end{exercise}
 \begin{proof}
@@ -1153,7 +1155,8 @@ $\therefore A^2=A$.
     反之, 设 $f\in\mathbb{T}(V)$ 是可逆元, $f\cdot g=1$, 则 $\deg f+\deg g=0$. $\therefore\deg f=\deg g=0\Rightarrow f,g\in K\backslash\{0\}$.
 \end{proof}
 \subsection{习题 6.3}
-\begin{exercise}[3.1]
+\stepcounter{exsection}
+\begin{exercise}% 3.1
     设 $V=\mathbb{R}^n$ 由列向量 $A^{(1)},A^{(2)},\cdots,A^{(n)}$ 张成, $B$ 是任意的列向量, 证明:
     
     (1) 方程
@@ -1181,7 +1184,8 @@ $\therefore A^2=A$.
 
     (2) 由定理 \ref{t4.3}, 上式左边为 $\det A$, 右边为将 $A$ 的第 $i$ 列替换为 $B$ 得到的矩阵的行列式.
 \end{proof}
-\begin{exercise}[3.3]
+\stepcounter{exercise}
+\begin{exercise}% 3.3
     设 $\mathcal{A}:V\to V$ 是一个线性算子. $\mathcal{A}$ 的\textbf{外} $p$ \textbf{次幂}
     \[\wedge^p\mathcal{A}:\wedge^p(V)\to\wedge^p(V)\]
     是一个斜对称的线性算子, 由可分解的 $p$ 向量定义:

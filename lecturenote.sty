@@ -31,9 +31,15 @@
 \newtheorem{example}{例}[section]
 \newtheorem{property}{性质}[section]
 \newtheorem{exercise}{习题}
+\newtheorem{exercisec}{补充题}
 \newtheorem*{solution}{解}
 \newtheorem*{thought}{思路}
 \newtheorem*{note}{注}
+
+% 习题计数器
+\newcounter{exsection}[section]
+\numberwithin{exercise}{exsection}
+\renewcommand\theexercise{\theexsection.\arabic{exercise}}
 
 % mdframed 包裹定理环境
 \mdfsetup{%
@@ -47,4 +53,5 @@ backgroundcolor=black!15}
 \surroundwithmdframed{proposition}
 \surroundwithmdframed{property}
 \surroundwithmdframed{exercise}
+\surroundwithmdframed{exercisec}
 \surroundwithmdframed{verbatim}

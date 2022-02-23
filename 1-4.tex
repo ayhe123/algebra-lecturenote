@@ -1,6 +1,7 @@
 % TODO:
 % 2.5 例 1
 % 3.6 例 6 补充第1句话的证明
+% 习题 3.11 需要补充证明: 乘法群是循环群
 
 \documentclass{ctexart}
 \usepackage{lecturenote}
@@ -774,7 +775,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \end{example}
 \section{第4章习题}
 \subsection{习题 4.1}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     设代数结构 $(X,*)$ 满足 $\forall x,y\in X,(x*y)*y=y*(y*x)=x$, 证明算子 $*$ 是交换的.
 \end{exercise}
 \begin{proof}
@@ -809,7 +811,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\forall x,y,x*y=y*x$.
 \end{proof}
-\begin{exercise}[1.2]
+\begin{exercise}% 1.2
     证明集合
     \[M_n^0(\mathbb{R})=\left\{A=(a_{ij})\in M_n(\mathbb{R})\Bigg|\sum\limits_{j=1}^{n}a_{ij}=0,i=1,2,\cdots,n\right\}\]
 
@@ -839,7 +841,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore(M_n^0(\mathbb{R}),\cdot)$ 不构成幺半群.
 \end{proof}
-\begin{exercise}[1.3]
+\begin{exercise}% 1.3
     在乘法幺半群 $(M,\cdot)$ 中选出任一元素 $t$, 并引入新运算 $*:x*y=xty$. 证明: (1) $(M,*)$ 是一个半群; (2) $(M,*)$ 是幺半群当且仅当 $t$ 是可逆的, 这时它的单位元是 $t^{-1}$.
 \end{exercise}
 \begin{proof}
@@ -857,7 +859,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     ($\Leftarrow$) $\because t$ 可逆, $t^{-1}=e,\therefore\forall x\in M,xtt^{-1}=t^{-1}tx=x\Rightarrow x*t^{-1}=t^{-1}*x=x,\therefore(M,*)$ 是幺半群.
 \end{proof}
-\begin{exercise}[1.4]
+\begin{exercise}% 1.4
     证明集合 $\mathbb{Z}$ 关于运算 $\circ$ 构成一个交换幺半群, 其中 $\circ:n\circ m=n+m+nm=(1+n)(1+m)-1$. 求出 $(\mathbb{Z},\circ)$ 的单位元和所有可逆元.
 \end{exercise}
 \begin{proof}
@@ -887,7 +889,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore(\mathbb{Z},\circ)$ 的可逆元只有 $0$.
 \end{proof}
 \subsection{习题 4.2}
-\begin{exercise}[2.1]
+\stepcounter{exsection}
+\begin{exercise}% 2.1
     证明群 $G$ 的任一子群族 $\{H_i|i\in I\}$ 的交 $\bigcap\limits_{i\in I}H_i$ 是 $G$ 的一个子群.
 \end{exercise}
 \begin{proof}
@@ -901,7 +904,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because H_i$ 是 $G$ 的子群, $\therefore\forall i\in I,a^{-1}\in H_i.\therefore a^{-1}\in\bigcap\limits_{i\in I}H_i$.
 \end{proof}
-\begin{exercise}[2.2]\label{ex2.2}
+\begin{exercise}\label{ex2.2}
     设 $S$ 是群 $G$ 的子集, 证明: 当 $G=\left<S\right>$ 时, $\forall g\in G\backslash\{e\},g=t_1t_2\cdots t_n,n\in\mathbb{N}_+$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
 \end{exercise}
 \begin{proof}
@@ -927,7 +930,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\forall g\in G\backslash\{e\},g=t_1t_2\cdots t_n,n\in\mathbb{N}_+$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
 \end{proof}
-\begin{exercise}[2.3]
+\begin{exercise}% 2.3
     证明群 $G$ 中乘法可换的元素 $a,b$ 若有互素的阶 $s,t$, 则在 $G$ 中生成一个 $st$ 阶的循环子群: $\left<a,b\right>=\left<ab\right>$, 其中 $\left<a,b\right>=\{a^ib^j|0\leq i\leq s-1,0\leq j\leq t-1\}$.
 \end{exercise}
 \begin{proof}
@@ -950,7 +953,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\left<a,b\right>\subset\left<ab\right>$.
 \end{proof}
-\begin{exercise}[2.4]
+\begin{exercise}% 2.4
     设 $M=\left<S\right>$ 是由集合 $S$ 生成的幺半群. 如果 $\forall s\in S$ 在 $M$ 中可逆, 证明 $M$ 是一个群.
 \end{exercise}
 \begin{proof}
@@ -958,7 +961,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because M=\left<S\right>,\therefore M=S',\therefore M$ 是群.
 \end{proof}
-\begin{exercise}[2.5]
+\begin{exercise}% 2.5
     证明: 设 $G$ 是一个幺半群, 且任意 $a,b\in G$, 方程 $ax=b,ya=b$ 有唯一解, 则 $G$ 是一个群.
 \end{exercise}
 \begin{proof}
@@ -973,7 +976,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\forall a\in G,\exists!x_0\in G$ 使得 $ax_0=x_0a=1$. $\therefore G$ 是群.
 \end{proof}
-\begin{exercise}[2.7]
+\stepcounter{exercise}
+\begin{exercise}% 2.7
     群 $\mathrm{SL}_2(\mathbb{Z})$ 中包含有元素
     \[A=\begin{pmatrix}
         0 & 1 \\
@@ -1051,7 +1055,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     
     $\therefore$ Abel 群中的有限阶元的乘积还是有限阶的.
 \end{proof}
-\begin{exercise}[2.8]
+\begin{exercise}% 2.8
     证明: 若 $G$ 的阶 $|G|=2n$, 则 $G$ 中至少包含一个二阶元 $g\neq e$.
 \end{exercise}
 \begin{proof}
@@ -1084,7 +1088,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore|G|=|H_0\cup\{e\}|+|G\backslash(H_0\cup\{e\})|=2|H_0\cup\{e\}|+1$ 是奇数, 与 $|G|=2n$ 矛盾.
 \end{proof}
-\begin{exercise}[2.9]\label{ex2.9}
+\begin{exercise}\label{ex2.9}
     证明: $S_n=\left<(12),(13),\cdots,(1n)\right>$.
 \end{exercise}
 \begin{proof}
@@ -1092,7 +1096,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because\forall\sigma\in S_n,\sigma$ 都可以写成对换的乘积(特别地, $e=(12)(12)$), $\therefore S_n=\left<(12),(13),\cdots,(1n)\right>$.
 \end{proof}
-\begin{exercise}[2.10]\label{ex2.10}
+\begin{exercise}\label{ex2.10}
     证明: $S_n=\left<(12),(123\cdots n)\right>$.
 \end{exercise}
 \begin{proof}
@@ -1129,7 +1133,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $S_n\subset\left<(12),(123\cdots n)\right>$.
 \end{proof}
-\begin{exercise}[2.11]
+\begin{exercise}% 2.11
     证明交错群 $A_n(n\geq3)$ 是由 $3$ 循环生成的, 事实上,
     \[A_n=\left<(123),(124),\cdots,(12m)\right>.\]
 \end{exercise}
@@ -1209,7 +1213,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     与 $\pi^a=e$ 矛盾.
 \end{proof}
-\begin{exercise}[2.12]
+\begin{exercise}% 2.12
     证明循环 $\pi=(12\cdots n)\in S_n$ 的 $k$ 次方幂 $\pi^k$ 是 $d$ 个互不相交的循环的乘积, 每一个循环的长度为 $q=n/d$, 其中 $d=\operatorname{gcd}(n,k)$.
 \end{exercise}
 \begin{proof}
@@ -1256,7 +1260,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\pi^k$ 为长度为 $q$ 的不相交的循环的乘积.
 \end{proof}
-\begin{exercise}[2.13]
+\begin{exercise}% 2.13
     设 $\pi\in S_n$, 将 $\pi$ 分解成不相交的循环的乘积:
     \[\pi=\pi_1\pi_2\cdots\pi_s.\]
 
@@ -1271,7 +1275,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\pi$ 的阶等于这些循环的阶的最小公倍数.
 \end{proof}
-\begin{exercise}[2.14]
+\begin{exercise}% 2.14
     设 $A,B\in M_n(\mathbb{R})$ 且 $(AB)^m=E$ 对某个 $m\in\mathbb{Z}$ 成立, 证明: $(BA)^m=E$.
 \end{exercise}
 \begin{proof}
@@ -1302,7 +1306,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     假设 $a$ 是无限阶元, 则 $|\left<a\right>|=\infty,\therefore|G|=\infty$, 与 $G$ 是有限阶群矛盾.
 \end{proof}
-\begin{exercise}[2.15]\label{ex2.15}
+\begin{exercise}\label{ex2.15}
     设 $G$ 是一个有限(乘法)群, $H$ 是 $G$ 的一个非空子集, 如果 $H$ 关于 $G$ 的乘法封闭, 证明 $H$ 是一个子群.
 \end{exercise}
 \begin{proof}
@@ -1312,7 +1316,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because H$ 关于 $G$ 的乘法封闭, $\therefore1,a^{-1}\in H$.
 \end{proof}
-\begin{exercise}[2.16]
+\begin{exercise}% 2.16
     正整数的乘法群 $(\mathbb{Q}_+,\cdot)$ 有什么样的生成元集? $(\mathbb{Q}_+,\cdot)$ 中是否存在有限生成元集?
 \end{exercise}
 \begin{solution}
@@ -1335,7 +1339,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     与第 1.9 节的 Euclid 定理类似, $a_1a_2\cdots a_k+1\in\mathbb{Q}_+$ 不能写成 $a_1,a_2,\cdots,a_m$ 的乘积, 与 $(\mathbb{Q}_+,\cdot)=\left<a_1,a_2,\cdots,a_m\right>$ 矛盾.
 \end{solution}
-\begin{exercise}[2.17]
+\begin{exercise}% 2.17
     证明对于给定的阶数 $n$, 在同构的意义下仅有有限多个 $n$ 阶群. 记在同构的意义下的 $n$ 阶群的个数为 $\rho(n)$.
 \end{exercise}
 \begin{proof}
@@ -1363,7 +1367,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\forall a_1,a_2\in A,g(f(a_1a_2))=g(f(a_1)f(a_2))=g(f(a_1))g(f(a_2))$.
 \end{proof}
-\begin{exercise}[2.18]\label{ex2.18}
+\begin{exercise}\label{ex2.18}
     证明: 对每个有限群 $G$, 都存在 $G$ 到由 $G$ 的两个元素 $a,b$ 生成的子群 $\left<a,b\right>$ 的一个单同态.
 \end{exercise}
 \begin{proof}
@@ -1382,7 +1386,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{array}\]
 \end{proof}
 \subsection{习题 4.3}
-\begin{exercise}[3.1]
+\stepcounter{exsection}
+\begin{exercise}% 3.1
     证明集合 $\mathcal{P}(\Omega)$(其中 $\mathcal{P}(\Omega)$ 的定义见习题 1.5 的第 4 题)在运算
     \[A+B=(A\cup B)\backslash(A\cap B),\quad AB=A\cap B,\quad A,B\in\Omega\]
 
@@ -1450,7 +1455,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\mathcal{P}(\Omega)$ 是交换环.
 \end{proof}
-\begin{exercise}[3.2]
+\begin{exercise}% 3.2
     如果环 $R$ 中的任意元素 $x$ 满足方程 $x^2=x$, 证明该环是交换环. 若条件改为 $x^3=x$, 结论是否还成立?
 \end{exercise}
 \begin{thought}
@@ -1517,7 +1522,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore R$ 是交换的.
 \end{proof}
-\begin{exercise}[3.3]
+\begin{exercise}% 3.3
     证明: 域 $\mathbb{Q}(\sqrt{2})$ 和 $\mathbb{Q}(\sqrt{5})$ 不同构.
 \end{exercise}
 \begin{proof}
@@ -1532,7 +1537,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \begin{note}
     类似地, 设域 $\mathbb{Q}(\sqrt{2})$ 的自同构 $f$ 满足 $f(\sqrt{2})=a$, 则 $2=a^2\Rightarrow a=\pm\sqrt{2}$. $\therefore\mathbb{Q}(\sqrt{2})$ 的自同构只有两个.
 \end{note}
-\begin{exercise}[3.4]
+\begin{exercise}% 3.4
     证明交换环 $R$ 的满同态 $f$ 的像 $f(R)$ 仍是交换环.
 \end{exercise}
 \begin{proof}
@@ -1542,7 +1547,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore f(ab)=f(ba).\therefore f(a)f(b)=f(b)f(a)$, 即 $xy=yx$.
 \end{proof}
-\begin{exercise}[3.5]\label{ex3.5}
+\begin{exercise}\label{ex3.5}
     证明任一有限整环 $R$ 是一个域.
 \end{exercise}
 \begin{proof}
@@ -1567,7 +1572,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore R$ 是乘法群. $\therefore R$ 是域.
 \end{proof}
-\begin{exercise}[3.6]
+\begin{exercise}% 3.6
     设 $p$ 是素数, $R$ 是满足 $\forall x\in R,px=0$ 的有单位元的交换环. 证明:
     \[(x+y)^{p^m}=x^{p^m}+y^{p^m},\quad m=1,2,\cdots\]
 \end{exercise}
@@ -1598,7 +1603,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore$
     \[(x+y)^{p^{n+1}}=(x^{p^n})^p+(y^{p^n})^p=x^{p^{n+1}}+y^{p^{n+1}}.\qedhere\]
 \end{proof}
-\begin{exercise}[3.7]
+\begin{exercise}% 3.7
     设 $R$ 是含有 $5$ 个元素的环. 证明: 若 $R$ 没有非平凡的零因子, 则 $R$ 同构于 $\mathbb{Z}_5$.
 \end{exercise}
 \begin{proof}
@@ -1616,7 +1621,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     由例 \ref{exp3.6} 得 $R$ 同构于 $\mathbb{Z}_5$.
 \end{proof}
-\begin{exercise}[3.8]
+\begin{exercise}% 3.8
     环 $R$ 的非零元素 $x$ 称为\textbf{幂零的}, 若 $\exists n\in\mathbb{N},x^n=0$. 证明:
 
     (1) 若 $R$ 是任一有单位元的环, $x$ 是幂零元, 则 $1-x$ 是可逆元.
@@ -1652,7 +1657,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     与 $a<m$ 矛盾.
 \end{proof}
-\begin{exercise}[3.9]
+\begin{exercise}% 3.9
     若环 $R$ 有单位元, 且基数 $|R|=\infty$, 则 $R$ 中非零不可逆元素的个数不可能是一个有限整数.
 \end{exercise}
 \begin{proof}
@@ -1764,7 +1769,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     与 $|R|=\infty$ 矛盾.
 \end{proof}
-\begin{exercise}[3.10]
+\begin{exercise}% 3.10
     设 $R$ 是任一有单位元 $1$ 的环, $a,b,c\in R$, 证明:
     \[(1-ab)c=1=c(1-ab)\Rightarrow(1-ba)d=1=d(1-ba),\]
 
@@ -1793,7 +1798,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because c-cab-1=0,\therefore$
     \[1+ab+abcab=1+cab=c.\qedhere\]
 \end{proof}
-\begin{exercise}[3.11]
+\begin{exercise}% 3.11
     证明:
     \[F=\left\{\left.\begin{pmatrix}
         a & b \\
@@ -1802,7 +1807,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     是一个 $9$ 元域, $F$ 的乘法群是 $8$ 阶循环群.
 \end{exercise}
-\begin{proof}% 需要补充证明循环群
+\begin{proof}
     由第 5.1 节的式 (3) 得 $F$ 是环.
 
     $\because$ 在 $\mathbb{Z}_3$ 内有 $1^2=1,2^2=4=1$,
@@ -1844,7 +1849,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore F$ 是域.
 \end{proof}
-\begin{exercise}[3.12]
+\begin{exercise}% 3.12
     在本节最后的例2中构造的编码 $S_0$ 能否纠正两个错误?
 \end{exercise}
 \begin{solution}
@@ -1884,9 +1889,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{verbatim}
 \end{solution}
 \subsection{补充题}
-\begin{exercise}[补充题 1]
+\begin{exercisec}% 补充题 1
     证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\operatorname{GL}_n(K)$ 的子群.
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     $\because\forall$
     \[X=\begin{pmatrix}

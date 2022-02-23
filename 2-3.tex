@@ -1340,7 +1340,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 \end{example}
 \section{第 3 章习题}
 \subsection{习题 3.1}
-\begin{exercise}[1.1]
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     设 $P_3$ 是 $\mathbb{R}$ 上次数 $<3$ 的多项式全体, 对于 $(f|g)=\int_{-1}^1f(t)g(t)\mathrm{d}t$ 给出的纯量基, 向量 $1$ 和 $t$ 是正交的. 找出:
 
     (1) 子空间 $\left<1,t\right>^\perp$;
@@ -1358,7 +1359,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     (2) $1,t,t^2-\dfrac{1}{3}$ 是 $P_3$ 的一个标准正交基.
 \end{solution}
-\begin{exercise}[1.2]
+\begin{exercise}% 1.2
     设 $(V,(*|*))$ 是 $3$ 维 Euclid 向量空间, 对 $\forall\boldsymbol{x}=[x_1,x_2,x_3]\in V,\|\boldsymbol{x}\|^2=(\boldsymbol{x}|\boldsymbol{x})=3x_1^2+2x_2^2+x_3^2-4x_1x_2-2x_1x_3+2x_2x_3$.
 
     (1) 验证 $\|\boldsymbol{x}\|^2$ 是正定的;
@@ -1404,7 +1405,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
 \end{solution}
-\begin{exercise}[1.3]\label{ex1.3}
+\begin{exercise}\label{ex1.3}
     证明: $\forall A=(a_{ij})\in\operatorname{GL}_n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
 \end{exercise}
 \begin{proof}
@@ -1437,7 +1438,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because A=BC,\therefore\det A=\det B\det C$. $\because\det B=\pm1,\therefore\pm\det A=\det C$.
 \end{proof}
-\begin{exercise}[1.5, 包含 1.4 的一部分命题]
+\stepcounter{exercise}
+\begin{exercise}[包含 1.4 的一部分命题]% 1.5
     设 $A$ 是斜对称矩阵, $\det(E\pm A)\neq0$, 验证: $(E-A)^{-1}(E+A),(E+A)^{-1}(E-A)\in SO(n)$.
 \end{exercise}
 \begin{proof}
@@ -1464,7 +1466,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because\det(E+A)=\det{}^t(E-A)=\det(E-A)$, $\therefore\det(E-A)^{-1}(E+A)=1$. $\therefore(E-A)^{-1}(E+A)\in SO(n)$.
 \end{proof}
-\begin{exercise}[1.6]
+\begin{exercise}% 1.6
     设 $A\in O(n)$ 的特征多项式为 $\chi_A(t)$, 证明:
     \[t^n\chi_A(1/t)=\pm\chi_A(t).\]
 \end{exercise}
@@ -1481,7 +1483,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
         & =\pm t^n\chi_A(1/t).\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[1.7]\label{ex1.7}
+\begin{exercise}\label{ex1.7}
     设 $A=[A_{(1)},A_{(2)},\cdots,A_{(n)}]$ 是由相互正交的行排成的矩阵, 证明:
     \[|\det A|=\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\]
 \end{exercise}
@@ -1520,7 +1522,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\therefore$
     \[|\det A|=\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\qedhere\]
 \end{proof}
-\begin{exercise}
+\begin{exercise}% 1.8
     设 $A\in M_n(\mathbb{R})$, 证明 Hadamard 不等式:
     \[|\det A|\leq\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\]
 \end{exercise}
@@ -1554,9 +1556,10 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[|\det A|=\dfrac{1}{\prod\limits_{i=1}^n\lambda_{ii}}\leq\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\qedhere\]
 \end{proof}
 \subsection{习题 3.2}
-\begin{exercise}[补充题 1]
+\stepcounter{exsection}
+\begin{exercisec}% 补充题 1
     设 $A\in M_n(\mathbb{C})$. 证明: 如果 $\forall X\in\mathbb{C}^n,{}^tXA\overline{X}\in\mathbb{R}$, 则 $A$ 是 Hermite 矩阵.
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     $\because{}^tXA\overline{X}\in\mathbb{R},\therefore$
     \[{}^tXA\overline{X}=\overline{{}^tXA\overline{X}}={}^t\bar{X}\bar{A}X.\]
@@ -1566,9 +1569,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore{}^t\bar{A}=A$. $\therefore A$ 是 Hermite 矩阵.
 \end{proof}
-\begin{exercise}[补充题 2]
+\begin{exercisec}% 补充题 2
     设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in\operatorname{GL}_n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     ($\Rightarrow$) 由书上的定义 2, $V$ 是 Hermite 空间. $\therefore V$ 中有标准正交基 $(\boldsymbol{e}_i)$ 使得 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $E$.
 
@@ -1586,9 +1589,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore A$ 是正定的.
 \end{proof}
-\begin{exercise}[补充题 3]
+\begin{exercisec}% 补充题 3
     在 $\mathbb{C}^2$ 上定义 $(\boldsymbol{x}|\boldsymbol{y})=x_1y_1+ix_1y_2-ix_2y_1+ix_2y_2$. $(*|*)$ 是否为 Hermite 型?
-\end{exercise}
+\end{exercisec}
 \begin{solution}
     $\because(*|*)$ 是双线性型, 且
     \[\overline{(\boldsymbol{x}|\boldsymbol{y})}=\bar{x}_1\bar{y}_1-i\bar{x}_1\bar{y}_2+i\bar{x}_2\bar{y}_1-i\bar{x}_2\bar{y}_2\]
@@ -1596,7 +1599,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     不一定 $=(\boldsymbol{y}|\boldsymbol{x})$, $\therefore(*|*)$ 不是 Hermite 型.
 \end{solution}
 \subsection{习题 3.3}
-\begin{exercise}
+\stepcounter{exsection}
+\begin{exercise}% 3.1
     证明: 任一相似于 $B=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\overline{\lambda}_i=1,\lambda_1\lambda_2\cdots\lambda_n=1$ 的酉矩阵 $A\in U(n)$ 都有分解式 $A=XYX^{-1}Y^{-1}$, 其中 $X,Y$ 是酉矩阵.
 \end{exercise}
 \begin{proof}
@@ -1665,7 +1669,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\because C,X,Y\in U(n)$, $\therefore C^{-1}XC,C^{-1}YC\in U(n)$. $\therefore A$ 有 $U(n)$ 上的分解式
     \[A=(C^{-1}XC)(C^{-1}YC)(C^{-1}XC)^{-1}(C^{-1}YC)^{-1}.\qedhere\]
 \end{proof}
-\begin{exercise}[3.2]
+\begin{exercise}% 3.2
     称形如
     \[J_n=\begin{pmatrix}
         a_1 & -b_1 \\
@@ -1728,13 +1732,13 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     由推论 \ref{c3.2} 得 $J_n'$ 可以对角化. 由书上第 2 章第 3 节的定理 6 得 $J_n'$ 的任一特征值的几何重数等于代数重数. $\therefore\lambda$ 是 $\chi_{J_n}(t)=\chi_{J_n'}(t)$ 的单根. $\therefore\chi_{J_n}(t)$ 的任一特征值是单的. $\therefore\operatorname{Spec}J_n$ 是单的.
 \end{proof}
-\begin{exercise}[3.3]
+\begin{exercise}% 3.3
     将书上的定理 13 的条件改成 ``$\mathcal{A}$ 是 Hermite 算子, $\mathcal{B}$ 是酉算子'', 结论是否成立?
 \end{exercise}
 \begin{proof}
     $\because$ 定理 13 中用到的唯一的 Hermite 算子或者酉算子 $\mathcal{A},\mathcal{B}$ 的性质只有: 对 $\mathcal{A},\mathcal{B}$ 不变的子空间 $U$, $U^\perp$ 是 $\mathcal{A},\mathcal{B}$ 不变的(见书上的引理 3 和引理 5), 这与 $\mathcal{A},\mathcal{B}$ 的类型无关, $\therefore$ 结论成立.
 \end{proof}
-\begin{exercise}[3.4]\label{ex3.4}
+\begin{exercise}\label{ex3.4}
     设 $\mathcal{A},\mathcal{B}$ 是域 $K$ 上向量空间 $V$ 上两个可交换的线性算子. 证明: 如果 $\mathcal{A},\mathcal{B}$ 均可对角化, 那么 $\exists V$ 的基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A},\mathcal{B}$ 在这个基下的矩阵都是对角矩阵.
 \end{exercise}
 \begin{proof}
@@ -1749,7 +1753,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because\mathcal{A}\boldsymbol{e}^\lambda_i=\lambda\boldsymbol{e}^\lambda_i,\mathcal{B}\boldsymbol{e}^\lambda_i=\mu^\lambda_i\boldsymbol{e}^\lambda_i$, $\therefore\mathcal{A},\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵都是对角矩阵.
 \end{proof}
-\begin{exercise}[3.5]
+\begin{exercise}% 3.5
     证明: 如果 $\mathcal{A},\mathcal{B}\in\mathcal{L}(V)$ 都是正定算子且 $\mathcal{AB}=\mathcal{BA}$, 那么 $\mathcal{AB}$ 也是正定的.
 \end{exercise}
 \begin{proof}
@@ -1759,7 +1763,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     
     由定理 \ref{t3.11} 得 $\mathcal{A},\mathcal{B}$ 的特征值 $>0$, $\therefore\mathcal{AB}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $AB=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$ 满足 $\lambda_i>0$. 由定理 \ref{t3.11} 得 $\mathcal{AB}$ 是正定的.
 \end{proof}
-\begin{exercise}[3.6]
+\begin{exercise}% 3.6
     设 $A\in M_n(\mathbb{R})$ 是斜对称矩阵, 证明: (1) $A^2$ 是对称的负定矩阵.
 
     (2) 如果 $\det(\lambda E-A)=0$, 则 $\operatorname{Re}\lambda=0$.
@@ -1787,7 +1791,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because\lambda^2\in\mathbb{R},\therefore 2ab=0$. $\because a\neq0,\therefore b=0$. $\therefore\lambda^2=a^2>0$, 与 $A^2$ 的特征值 $<0$ 矛盾.
 \end{proof}
-\begin{exercise}[3.9]\label{ex3.9}
+\addtocounter{exercise}{2}
+\begin{exercise}\label{ex3.9}
     证明: $n$ 维复向量空间 $V$ 上的任意一族可交换的线性算子
     \[\mathfrak{G}=\{\mathcal{A}_i\in\mathcal{L}(V),i\in I|\mathcal{A}_i\mathcal{A}_j=\mathcal{A}_j\mathcal{A}_i,\forall i,j\in I\}\]
     有共同的特征向量.
@@ -1835,7 +1840,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore\boldsymbol{v}$ 是 $\mathcal{A}$ 的特征向量.
 \end{proof}
-\begin{exercise}[3.10]
+\begin{exercise}% 3.10
     设
     \[\mathfrak{G}=\{A_i\in M_n(\mathbb{C}),i\in I|A_iA_j=A_jA_i,\forall i,j\in I\},\]
 
@@ -1887,13 +1892,13 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     
     $\because AB=BA$, $\therefore(C^{-1}AC)(C^{-1}BC)=(C^{-1}BC)(C^{-1}AC)\Rightarrow A'B'=B'A'$. $\therefore C\mathfrak{G}C^{-1}$ 中的元素是可交换的.
 \end{proof}
-\begin{exercise}[补充题 4]
+\begin{exercisec}% 补充题 4
     设 $V,U$ 分别是 $m,n$ 维 Hermite 向量空间, 证明: 对秩为 $r\ (r\leq\min\{m,n\})$ 的线性映射 $\mathcal{A}:V\to U$, $\exists V$ 的标准正交基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_m$ 和 $U$ 的标准正交基 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_n$ 使得 $\mathcal{A}$ 在基 $(\boldsymbol{v}_i)$ 和 $(\boldsymbol{u}_i)$ 下的矩阵为
     \[\begin{pmatrix}
         \Sigma & 0 \\
         0 & 0 \\
     \end{pmatrix},\quad\Sigma=\operatorname{diag}(\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\]
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     $\because\mathcal{A}^*\mathcal{A}$ 是 Hermite 算子, 由定理 \ref{t3.5} 得 $\exists V$ 的标准正交基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_m$ 使得 $\mathcal{A}^*\mathcal{A}$ 在上述基下的矩阵为实对角矩阵 $\Lambda$.
 
@@ -1943,7 +1948,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     上式称为 $A$ 的\textbf{奇异值分解}.
 \end{note}
 \subsection{习题3.4}
-\begin{exercise}[4.1]
+\stepcounter{exsection}
+\begin{exercise}% 4.1
     证明: Euclid 空间 $V$ 上没有特征向量的正交算子 $\mathcal{A}$ 是某个与 $V$ 相关联的 $m$ 维复向量空间 $U$ 上的某个酉算子 $\mathcal{B}$ 的实化算子.
 \end{exercise}
 \begin{proof}
@@ -1966,7 +1972,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     其中 $A=\operatorname{diag}(a_1,a_2,\cdots,a_m),B=\operatorname{diag}(b_1,b_2,\cdots,b_m)$. 由书上的命题 2 得 $\mathcal{A}\in\mathcal{L}(U)_\mathbb{R}$.
 \end{proof}
-\begin{exercise}[4.2]
+\begin{exercise}% 4.2
     证明书上的命题 3: 设 $\mathcal{A}\in\mathcal{L}(U),\mathcal{A}_\mathbb{R}$ 是 $\mathcal{A}$ 的实化算子, 则 $\det\mathcal{A}_\mathbb{R}=|\det\mathcal{A}|^2$.
 \end{exercise}
 \begin{proof}
@@ -2002,7 +2008,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore\det\mathcal{A}_\mathbb{R}=|\det\mathcal{A}|^2$.
 \end{proof}
-\begin{exercise}[4.4]
+\stepcounter{exercise}
+\begin{exercise}% 4.4
     设 $V$ 是 $m$ 维 Euclid 空间, $V^\mathbb{C}$ 是它的复化空间, $\mathcal{A}$ 是 $V^\mathbb{C}$ 上的线性算子, 由 $\forall\boldsymbol{u},\boldsymbol{v},\mathcal{A}(\boldsymbol{u}+i\boldsymbol{v})=\boldsymbol{u}-i\boldsymbol{v}$ 定义. $\mathcal{A}_\mathbb{R}$ 是 $(V^\mathbb{C})_\mathbb{R}$ 上的线性算子吗? 如果是, $\mathcal{A}_\mathbb{R}$ 是否是对称, 正交, 幂等的?
 \end{exercise}
 \begin{proof}
@@ -2017,6 +2024,12 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     容易验证 $A$ 是对称, 正交, 幂等的.
 \end{proof}
 \subsection{习题 3.5}
+
+\begin{exercisec}% 补充题 5
+    某公司统计了其 3 年内的收入 $u$ 和支出 $v$, 如表 \ref{tb1}.
+    
+    假设 $u=a+bv,(a,b\in\mathbb{R})$, 求 $a,b$ 的最小二乘解.
+\end{exercisec}
 \begin{table}[htbp!]
     \centering
     \begin{tabular}{c|cc}
@@ -2028,11 +2041,6 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \end{tabular}
     \caption{收入和支出(单位:亿元)}\label{tb1}
 \end{table}
-\begin{exercise}[补充题 5]
-    某公司统计了其 3 年内的收入 $u$ 和支出 $v$, 如表 \ref{tb1}.
-    
-    假设 $u=a+bv,(a,b\in\mathbb{R})$, 求 $a,b$ 的最小二乘解.
-\end{exercise}
 \begin{solution}
     问题等价于解方程
     \[\begin{cases}

@@ -475,7 +475,9 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \end{verbatim}
 其中 \verb|changeNum[list_]| 函数用于计算列表 \verb|list| 的变号数.
 \section{第6章习题}
-\begin{exercise}[1.1]
+\subsection{习题 6.1}
+\stepcounter{exsection}
+\begin{exercise}% 1.1
     $p$ 元域上的多项式函数是整环吗?
 \end{exercise}
 \begin{solution}
@@ -483,7 +485,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\because\forall a\in\mathbb{Z}_3,a^3=a,\therefore f(x)g(x)=0$. $\therefore f,g$ 是非平凡的零因子.
 \end{solution}
-\begin{exercise}[1.2]
+\begin{exercise}% 1.2
     设 $P$ 是无限域. 证明:
     
     (1) $\forall f\in P[X_1,X_2,\cdots,X_n]\backslash\{0\},\exists a_1,a_2,\cdots,a_n\in P$ 使得 $f(a_1,a_2,\cdots,a_n)\neq0$.
@@ -511,7 +513,8 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     由 (1) 得 $\ker\phi=\{0\},\therefore\phi$ 是同构.
 \end{proof}
-\begin{exercise}[1.6]\label{ex1.6}
+\addtocounter{exercise}{3}
+\begin{exercise}\label{ex1.6}
     设 $f$ 是域 $P$ 上的既约多项式, 且 $\operatorname{char}P=0$. 证明 $\gcd(f,f')=1$, 其中 $f'$ 是 $f$ 的导数.
 \end{exercise}
 \begin{proof}
@@ -533,7 +536,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore\forall q$ 使得 $f=qh_1,f'=qh_2,\deg q=0.\therefore$ 在相伴的意义下有 $\gcd(f,f')=f'=1$.
 \end{proof}
-\begin{exercise}[1.7]
+\begin{exercise}% 1.7
     证明:
     
     (1) 若 $f(X)$ 是特征 $0$ 的域 $P$ 上的多项式, 则 $f'=0\Rightarrow f$ 是某个常数.
@@ -549,7 +552,8 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     
     $\because\operatorname{char}P=p,\therefore\forall k,a$ 满足 $k\nmid n,a\in P,ka\neq0,\therefore f'\neq0$.
 \end{proof}
-\begin{exercise}[1.10]
+\addtocounter{exercise}{2}
+\begin{exercise}% 1.10
     (1) 证明多项式
     \begin{equation}\label{eq5.1}
         X^n+a_1X^{n-1}+\cdots+a_n\in\mathbb{Z}_2[X]
@@ -627,7 +631,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[X^5+X^3+X^2+X+1,\ X^5+X^4+X^2+X+1,\ X^5+X^4+X^3+X+1,\]
     \[X^5+X^4+X^3+X^2+1,\ X^5+X^2+1,\ X^5+X^3+1.\]
 \end{proof}
-\begin{exercise}[1.11]
+\begin{exercise}% 1.11
     根据同余式
     \[X^5-X-1=(X^2+X+1)(X^3+X^2+1)\ (\operatorname{mod}2)\]
     证明多项式 $X^5-X-1$ 在 $\mathbb{Q}$ 上的既约性.
@@ -648,7 +652,9 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     与 $\mathbb{Z}_2[X]$ 是唯一因子分解环矛盾.
 \end{proof}
-\begin{exercise}[2.1]
+\subsection{习题 6.2}
+\stepcounter{exsection}
+\begin{exercise}% 2.1
     设 $p$ 是奇数, 证明:
     \[\sum\limits_{i=1}^{p-1}i^m=\begin{cases}
         -1\ (\operatorname{mod}p) & (p-1)|m, \\
@@ -656,9 +662,9 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \end{cases}\]
 \end{exercise}
 \begin{proof}
-    若 $m<p-1$, 则 $(p-1)\nmid m$.
+    %若 $m<p-1$, 则 $(p-1)\nmid m$.
 \end{proof}
-\begin{exercise}
+\begin{exercise}% 2.2
     证明: 当 $k\leq n$ 时有
     \[\mathbf{p}=\begin{vmatrix}
         \mathbf{s}_1 & 1 & 0 & 0 & \cdots & 0 \\
@@ -895,7 +901,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
         \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
     \end{vmatrix}.\qedhere\]
 \end{proof}
-\begin{exercise}[2.3]
+\begin{exercise}% 2.3
     设 $c_1,c_2,c_3$ 是多项式 $X^3-X+1$ 的三个复根. 证明: 扩域 $\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})=\mathbb{Q}$.
 \end{exercise}
 \begin{proof}
@@ -903,7 +909,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\because\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})\supset\mathbb{Q},\therefore\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})=\mathbb{Q}$.
 \end{proof}
-\begin{exercise}[2.4]
+\begin{exercise}% 2.4
     设 $P$ 是特征 $\neq2$ 的域, $\Delta_n=\prod\limits_{j\leq i}(X_i-X_j)$, 证明 $\forall$ 斜对称多项式 $f\in P[X_1,\cdots,X_n]$ 形如 $f=\Delta_n\cdot g$, 其中 $g$ 是对称多项式.
 \end{exercise}
 \begin{proof}
@@ -949,7 +955,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore g$ 是对称多项式.
 \end{proof}
-\begin{exercise}[2.5]\label{ex2.5}
+\begin{exercise}\label{ex2.5}
     设 $f,g,h\in P[X]$. 证明:
     \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\]
 \end{exercise}
@@ -970,7 +976,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     $\therefore$
     \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\qedhere\]
 \end{proof}
-\begin{exercise}[2.6]
+\begin{exercise}% 2.6
     证明:
     \[D(fg)=D(f)D(g)\operatorname{Res}^2(f,g).\]
 \end{exercise}
@@ -1026,7 +1032,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
         =\  & D(f)D(g)\operatorname{Res}^2(f,g).\qedhere
     \end{align*}
 \end{proof}
-\begin{exercise}[2.7]\label{ex2.7}
+\begin{exercise}\label{ex2.7}
     求解 $\operatorname{Res}(f(X),X-a)$.
 \end{exercise}
 \begin{solution}
@@ -1056,7 +1062,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     $\therefore$
     \[\operatorname{Res}(f(X),X-a)=f_n=\sum\limits_{i=0}^n(-a)^{n-i}(-1)^ia_i.\]
 \end{solution}
-\begin{exercise}[2.8]\label{ex2.8}
+\begin{exercise}\label{ex2.8}
     求解 $D(X^n+a)$.
 \end{exercise}
 \begin{solution}
@@ -1119,7 +1125,10 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
         & =(-1)^{(n+2)(n-1)/2}n^{n-2}.
     \end{align*}
 \end{solution}
-\begin{exercise}[4.1]\label{ex4.1}
+\subsection{习题 6.4}
+\addtocounter{exsection}{1}
+\stepcounter{exsection}
+\begin{exercise}\label{ex4.1}
     设 $f(X)=a_0X^n+a_1X^{n-1}+\cdots+a_n$ 是一个 $n$ 次实系数多项式. 证明: 如果知道了 $f(X),X^nf(1/X),f(-X),X^nf(-1/X)$ 的正根的一个上界, 就得出了 $f(X)$ 的正根和负根的上界和下界.
 \end{exercise}
 \begin{proof}
@@ -1162,7 +1171,8 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     是双射, 若 $a$ 是 $S_+(f(-1/X))$ 的一个上界, 则 $\dfrac{1}{a}$ 是 $S_+(f(-X))$ 的一个下界, $\therefore-\dfrac{1}{a}$ 是 $S_-(f(X))$ 的一个上界.
 \end{proof}
-\begin{exercise}[4.3]\label{ex4.3}
+\stepcounter{exercise}
+\begin{exercise}\label{ex4.3}
     设 $P$ 是零特征域, $a\in P$. 证明: 任一 $n$ 次多项式 $f(X)=a_0+a_1X+\cdots+a_nX^n\in P[X]$ 满足 Taylor 公式
     \[f(X)=f(a)+f'(a)(X-a)+\dfrac{1}{2!}f''(a)(X-a)^2+\cdots+\dfrac{1}{n!}f^{(n)}(a)(X-a)^n.\]
 \end{exercise}
@@ -1189,7 +1199,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     
     把 $X=a$ 代入得 $f^{(k)}(a)=k!b_k,\therefore b_k=\dfrac{f^{(k)}(a)}{k!}$.
 \end{proof}
-\begin{exercise}[4.4]
+\begin{exercise}% 4.4
     证明: 若 $n$ 次实多项式 $f(X)$ 的首项系数 $a_0>0$ 且 $f(a)>0,\cdots,f^{(n)}(a)>0$, 那么 $f(c)=0,c>0\Rightarrow c<a$.
 \end{exercise}
 \begin{proof}
@@ -1200,7 +1210,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore f(c)=0,c>0\Rightarrow c<a$.
 \end{proof}
-\begin{exercise}
+\begin{exercise}% 4.5
     证明: 若 $w\neq0$, 则 $f(X)=X^5+uX^4+vX^3+w\in\mathbb{R}[X]$ 的根不全是实数.
 \end{exercise}
 \begin{proof}
@@ -1229,7 +1239,8 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore\dfrac{1}{c_1},\dfrac{1}{c_2},\cdots,\dfrac{1}{c_5}$ 不全是实数. $\therefore c_1,c_2,\cdots,c_5$ 不全是实数.
 \end{proof}
-\begin{exercise}[4.13]
+\addtocounter{exercise}{7}
+\begin{exercise}% 4.13
     多项式 $f(z)=z^4+12z^2+5z-9$ 有多少个实根?
 \end{exercise}
 \begin{solution}
@@ -1266,7 +1277,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore f(z)=z^4+12z^2+5z-9$ 有 $2$ 个实根.
 \end{solution}
-\begin{exercise}[4.14]
+\begin{exercise}% 4.14
     Legendre 多项式 $P_0(X)=1,P_1(X)=X,\cdots,P_n(X),\cdots$ 可由递推公式
     \begin{equation}\label{eq5.4}
         mP_m(X)-(2m-1)XP_{m-1}(X)+(m-1)P_{m-2}(X)=0
@@ -1329,9 +1340,10 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\therefore P_n$ 在 $(-1,1)$ 上有 $n$ 个彼此相异的根.
 \end{proof}
-\begin{exercise}[补充题1]
+\subsection{补充题}
+\begin{exercisec}% 补充题1
     设 $f\in\mathbb{R}[X]$. 证明: 若 $D(f)<0$, 则 $f$ 有奇数对虚根.
-\end{exercise}
+\end{exercisec}
 \begin{proof}
     证明逆否命题.
 
