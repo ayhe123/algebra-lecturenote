@@ -14,10 +14,10 @@
 
 ## 使用方法
 
-在 [这里](https://github.com/ayhe123/algebra-lecturenote/releases) 下载我编译好的 PDF 文件。`release.zip` 文件里有：
+在 [这里](https://github.com/ayhe123/algebra-lecturenote/releases) 下载我编译好的 PDF 文件。文件包括：
 
-1. `无背景颜色` 和 `有背景颜色` 两个文件夹，里面是编译好的 PDF 文件。
-2.  `materials` 文件夹，里面有文中提到的 `.nb` 文件和 `.ggb` 文件。
+1. `no_bg.zip` 是编译好的 PDF 文件（无背景颜色），``with_bg.zip` 是编译好的 PDF 文件（有绿色的背景颜色）。
+2.  `materials.zip` 里面有文中提到的 `.nb` 文件和 `.ggb` 文件。
 
 如果你会使用 `LaTeX`, 可以自己编译，具体方法见“编译方法”一节。
 
