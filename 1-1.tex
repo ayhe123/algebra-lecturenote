@@ -1,5 +1,5 @@
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 
 \title{第1,2章笔记和习题}
 
@@ -71,11 +71,32 @@
 \end{proof}
 \subsection{置换(对应教材1.8节)}
 在这里补充证明几个定理.
+\begin{definition}
+    设映射 $f:X\to Y$, $X_0\subset X$, 称映射
+    \[\bar{f}:\begin{array}{rcl}
+        X_0 & \to & Y \\
+        x & \to & f(x) \\
+    \end{array}\]
+
+    为 $f$ 在 $X_0$ 上的\textbf{限制}, 记作 $f|_{X_0}$.
+\end{definition}
+\begin{lemma}\label{l1.1}
+    设有限集 $X$, $f:X\to Y$ 是单射, 则 $|\operatorname{Im}f|=|X|$.
+\end{lemma}
+\begin{proof}
+    对 $|X|$ 用数学归纳法. 当 $|X|=1$ 时, $\operatorname{Im}f=\{f(x)\},|\operatorname{Im}f|=1$.
+
+    假设对 $\forall$ 基数为 $n$ 的集合 $X$ 和 $X\to Y$ 的映射 $f$ 都有 $|\operatorname{Im}f|=|X|$. 对基数为 $n+1$ 的集合 $X$, 考虑 $X$ 的一个基数为 $n$ 的子集 $X_0$ 和 $f$ 在 $X_0$ 上的限制 $\bar{f}=f|_{X_0}$. 有 $f(X_0)=\operatorname{Im}\bar{f}$.
+
+    设 $X=\{x_0\}\cup X_0$, 则 $\operatorname{Im}f=\{f(x_0)\}\cup f(X_0)=\{f(x_0)\}\cup\operatorname{Im}\bar{f}$. $\therefore|\operatorname{Im}f|=|\operatorname{Im}\bar{f}|+1$.
+
+    由归纳假定, $|\operatorname{Im}\bar{f}|=|X_0|$. $\therefore|\operatorname{Im}f|=|X_0|+1=|X|$.
+\end{proof}
 \begin{theorem}
-    设 $X,Y$ 满足 $|X|=|Y|<\infty$, $f:X\to Y$ 是单射/满射, 则 $f$ 是双射.
+    设有限集 $X,Y$ 满足 $|X|=|Y|<\infty$, $f:X\to Y$ 是单射/满射, 则 $f$ 是双射.
 \end{theorem}
 \begin{proof}
-    设 $f$ 是单射, 则 $|\operatorname{Im}f|=|X|=|Y|.\because\operatorname{Im}f\subset Y,\therefore\operatorname{Im}f=Y$, 即 $f$ 是满射.
+    设 $f$ 是单射, 由引理 \ref{l1.1} 得 $|\operatorname{Im}f|=|X|=|Y|.\because\operatorname{Im}f\subset Y,\therefore\operatorname{Im}f=Y$, 即 $f$ 是满射.
 
     假设 $f$ 是满射而不是单射, 由 $f$ 是满射得 $\operatorname{Im}f=Y$, 由 $f$ 不是单射得 $|\operatorname{Im}f|<|X|=|Y|$, 与 $\operatorname{Im}f=Y$ 矛盾.
 \end{proof}
@@ -95,7 +116,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
 是满射不是单射(所有的奇数的像都是 $0$).
 
 从最简单的例子开始讨论置换. $\Omega$ 中所有元素不动的置换即恒等映射 $e$. $\because$ 不存在一个双射 $\sigma\in S_n$ 只改变 $\Omega$ 中 $1$ 个元素, $\therefore$ 考虑 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素.
-\begin{lemma}\label{l1.1}
+\begin{lemma}
     如果 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素, 那么 $\exists i,j\in\Omega,i\neq j$ 使得 $\sigma(i)=j,\sigma(j)=i,\forall k\in\Omega\backslash\{i,j\},\sigma(k)=k$.
 \end{lemma}
 \begin{proof}
@@ -144,7 +165,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
 我们希望能通过简单的置换了解复杂的置换. 下面我们像把整数分解为素数的乘积一样将置换分解为一些置换的乘积, 这就是书中的定理 1.
 
 为了证明书中的定理 1, 我们证明一个引理.
-\begin{lemma}\label{l1.2}
+\begin{lemma}\label{l1.3}
     无关的循环的乘积是交换的.
 \end{lemma}
 \begin{proof}
@@ -218,7 +239,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     $\because\forall p,p',q,q'$ 满足 $1\leq p,p'\leq k,1\leq q,q'\leq r,\sigma_p,\sigma_{p'},\tau_q,\tau_{q'}$ 不相交, $\therefore$ 设 $i$ 满足 $\sigma(i)\neq i$, 则 $\exists!a,b$ 满足 $1\leq a\leq k,1\leq b\leq r$, 有
     \[\sigma(i)=\sigma_a(i)=\tau_b(i)\neq i.\]
 
-    $\because\sigma_1,\sigma_2,\cdots,\sigma_k$ 不相交, 由引理 \ref{l1.2} 得
+    $\because\sigma_1,\sigma_2,\cdots,\sigma_k$ 不相交, 由引理 \ref{l1.3} 得
     \begin{align*}
         \sigma_{a}\sigma & =\sigma_{a}\sigma_1\sigma_2\cdots\sigma_{a-1}\sigma_{a}\sigma_{a+1}\cdots\sigma_k \\
         & =\sigma_{a}\sigma_1\sigma_2\cdots\sigma_{a-1}\sigma_{a+1}\cdots\sigma_k\sigma_{a} \\
