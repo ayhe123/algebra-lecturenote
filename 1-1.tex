@@ -7,6 +7,17 @@
 \maketitle
 \section{第1章笔记}
 \subsection{映射(对应教材1.5节)}
+规定两个映射相等当且仅当定义域, 值域和对应关系都相等的原因之一是为了严格地进行映射的复合.
+\begin{example}
+    考察映射 $f:\mathbb{R}\to\{-1,0,1\},g:\mathbb{R}\to\mathbb{N}$,
+    \[f(x)=g(x)=\begin{cases}
+        1, & x>0, \\
+        0, & x=0, \\
+        -1, & x<0. \\
+    \end{cases}\]
+
+    $f$ 可以与 $\{-1,0,1\}$ 上的映射 $h$ 复合, 但 $g$ 不能与 $h$ 复合, $\because h$ 在 $\mathbb{N}\backslash\{-1,0,1\}$ 上没有定义.
+\end{example}
 \begin{theorem}[书上第2小节的引理的推广]
     (1) 映射 $f:X\to Y$ 是单射当且仅当 $\exists$ 满射 $g:Y\to X,gf=e_X$. (2) 映射 $f:X\to Y$ 是满射当且仅当 $\exists$ 单射 $g:Y\to X,fg=e_Y$.
 \end{theorem}
@@ -26,7 +37,7 @@
 
     容易验证 $gf=e_X$(到这里就可以用引理得到 $g$ 是满射, 下面采用与引理不同的方法证明).
 
-    $\because f$ 是函数, $\therefore\forall x\in X,\exists y\in Y$ 使得 $y=f(x)$. $\therefore X\subset\operatorname{Im}g$.
+    $\because f$ 是映射, $\therefore\forall x\in X,\exists y\in Y$ 使得 $y=f(x)\Rightarrow x=g(y)$. $\therefore X\subset\operatorname{Im}g$.
 
     $\because g:Y\to X,\therefore\operatorname{Im}g\subset X.\therefore\operatorname{Im}g=X$, 即 $g$ 是满射.
 
@@ -42,7 +53,7 @@
 
     容易验证 $fg=e_Y$(到这里就可以用引理得到 $g$ 是单射, 下面采用与引理不同的方法证明).
 
-    $\because f$ 是函数, $\therefore\forall y,y'\in Y,y\neq y'\Rightarrow x_y\neq x_{y'}.\therefore g$ 是单射.
+    $\because f$ 是映射, $\therefore\forall y,y'\in Y,y\neq y'\Rightarrow x_y\neq x_{y'}.\therefore g$ 是单射.
 \end{proof}
 书上定理2的推论没有证明双射的合成是双射. 这里证明一下.
 \begin{theorem}[书上定理2推论的补充]
@@ -115,7 +126,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
 
 是满射不是单射(所有的奇数的像都是 $0$).
 
-从最简单的例子开始讨论置换. $\Omega$ 中所有元素不动的置换即恒等映射 $e$. $\because$ 不存在一个双射 $\sigma\in S_n$ 只改变 $\Omega$ 中 $1$ 个元素, $\therefore$ 考虑 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素.
+从最简单的例子开始讨论置换. $\Omega$ 中所有元素不动的置换即恒等映射 $e$. $\because$ 不存在一个双射 $\sigma\in S_n$ 只改变 $\Omega$ 中 $1$ 个元素, $\therefore$ 考虑只改变 $\Omega$ 中 $2$ 个元素的 $\sigma\in S_n$.
 \begin{lemma}
     如果 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素, 那么 $\exists i,j\in\Omega,i\neq j$ 使得 $\sigma(i)=j,\sigma(j)=i,\forall k\in\Omega\backslash\{i,j\},\sigma(k)=k$.
 \end{lemma}
@@ -130,19 +141,19 @@ n & \to & \dfrac{n+(-1)^nn}{4}
 
     与 $\sigma(i)=j\neq i$ 矛盾.
 
-    假设 $k\neq i$, 则 $\sigma(k)\neq k$, 否则
+    假设 $\sigma(k)=k$, 则
     \begin{align*}
         & \sigma(\sigma(j))=\sigma(k)=k=\sigma(j) \\
         \Rightarrow & \sigma^{-1}(\sigma(\sigma(j)))=\sigma^{-1}(\sigma(j)) \\
-        \Rightarrow & e(\sigma(j)))=e(j) \\
+        \Rightarrow & e(\sigma(j))=e(j) \\
         \Rightarrow & \sigma(j)=j,
     \end{align*}
+    
+    与 $\sigma(j)\neq j$ 矛盾. $\therefore\sigma(k)\neq k$.
+    
+    假设 $k\neq i$, 则 $\sigma$ 改变了 $\Omega$ 中至少 $3$ 个元素 $i,j,k$, 与 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素矛盾.
 
-    与 $\sigma(j)\neq j$ 矛盾.
-
-    $\therefore\sigma$ 改变了 $\Omega$ 中至少 $3$ 个元素, 与 $\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素矛盾.
-
-    $\therefore\sigma(j)=i$.
+    $\therefore\sigma(j)=k=i$.
 
     $\because\sigma\in S_n$ 只改变 $\Omega$ 中 $2$ 个元素, $\therefore\forall k\in\Omega\backslash\{i,j\},\sigma(k)=k.$
 \end{proof}
@@ -263,10 +274,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     \[\sigma_a=(i\ \sigma_a(i)\ \sigma_a^2(i)\cdots\sigma_a^{s-1}(i)).\]
 
     $\because\forall u\geq1,\sigma_a^u(i)=\tau_b^u(i),\therefore$
-    \begin{align*}
-        \tau_b & =(i\ \tau_b(i)\ \tau_b^2(i)\cdots\tau_b^{s-1}(i)) \\
-        & =(i\ \sigma_a(i)\ \sigma_a^2(i)\cdots\sigma_a^{s-1}(i))\sigma_a=\sigma_a.
-    \end{align*}
+    \[\tau_b=(i\ \tau_b(i)\ \tau_b^2(i)\cdots\tau_b^{s-1}(i))=(i\ \sigma_a(i)\ \sigma_a^2(i)\cdots\sigma_a^{s-1}(i))=\sigma_a.\]
 
     $\therefore\tau_b^{-1}=\sigma_a^{-1}$. 由式 (\ref{eq1.1}) 得
     \[\sigma_a^{-1}\sigma_1\sigma_2\cdots\sigma_k=\tau_b^{-1}\tau_1\tau_2\cdots\tau_r.\]
@@ -420,6 +428,8 @@ $\therefore$
 \begin{exercise}% 5.3
     设 $f:X\to Y$ 是一个映射, 且 $S,T\subset X$, 证明:
     \[(1)f(S\cup T)=f(S)\cup f(T),\quad(2)f(S\cap T)\subset f(S)\cap f(T).\]
+
+    举例说明 (2) 中的包含关系不能换成相等关系.
 \end{exercise}
 \begin{proof}
     (1)
@@ -429,7 +439,7 @@ $\therefore$
         & \Leftrightarrow\exists x((x\in S\land f(x)=y)\vee(x\in T\land f(x)=y)) \\
         & \Leftrightarrow\exists x(x\in S\land f(x)=y)\vee\exists x(x\in T\land f(x)=y) \\
         & \Leftrightarrow y\in f(S)\vee y\in f(T) \\
-        & \Leftrightarrow y\in f(S\cup T).
+        & \Leftrightarrow y\in f(S)\cup f(T).
     \end{align*}
 
     (2)
@@ -439,8 +449,16 @@ $\therefore$
         & \Leftrightarrow\exists x((x\in S\land f(x)=y)\land(x\in T\land f(x)=y)) \\
         & \Rightarrow\exists x(x\in S\land f(x)=y)\land\exists x(x\in T\land f(x)=y) \\
         & \Leftrightarrow y\in f(S)\land y\in f(T) \\
-        & \Leftrightarrow y\in f(S\cup T).
+        & \Leftrightarrow y\in f(S)\cap f(T).
     \end{align*}
+
+    考虑映射
+    \[f:\begin{array}{rcl}
+        \mathbb{N} & \to & \{1\} \\
+        x & \to & 1 \\
+    \end{array}\]
+
+    和 $S=\{1,2\},T=\{3,4\}$. 有 $f(S\cap T)=\varnothing,f(S)\cap f(T)=\{1\}$.
 \end{proof}
 \begin{exercise}% 5.4
     $S$ 的全体子集的集合记作
@@ -481,6 +499,21 @@ $\therefore$
     $\mathbb{R}^2/\sim$ 的元素为直线 $l',l'$ 与 $l$ 的交点与 $l'$ 一一对应.
 \end{solution}
 \begin{exercise}% 6.2
+    对 $\mathbb{R}^2$ 中的元素定义关系 $\sim$: $(a,b)\sim(c,d)$ 当且仅当 $a-c\in\mathbb{Z},b-d\in\mathbb{Z}$. 证明关系 $\sim$ 是 $\mathbb{R}^2$ 上的一个等价关系.
+\end{exercise}
+\begin{proof}
+    $\because a-a=b-b=0$, $\therefore(a,b)\sim(a,b)$.
+
+    $\because a-c\in\mathbb{Z}\Rightarrow c-a\in\mathbb{Z},b-d\in\mathbb{Z}\Rightarrow d-b\in\mathbb{Z}$, $\therefore(a,b)\sim(c,d)\Rightarrow(c,d)\sim(a,b)$.
+
+    $\because a-a'\in\mathbb{Z},a'-a''\in\mathbb{Z}\Rightarrow a-a''\in\mathbb{Z}$, $\therefore(a,b)\sim(a',b'),(a',b')\sim(a'',b'')\Rightarrow(a,b)\sim(a'',b'')$.
+
+    $\therefore\ \sim$ 是 $\mathbb{R}^2$ 上的一个等价关系.
+\end{proof}
+\begin{note}
+    $\because\forall\bar{x}\in\mathbb{R}^2/\sim,\exists x'\in[0,1]^2$ 使得 $x'\in\bar{x}$, $\therefore\mathbb{R}^2/\sim$ 可以与 $[0,1]^2$ 等同起来. 书上的图 11 给出了将 $[0,1]^2$ 变形为环面的方法: 将 $[0,1]^2$ 卷成一个柱面, 使得 $(0,0)$ 和 $(0,1)$ 重合, $(1,0)$ 和 $(1,1)$ 重合, 再将这个柱面变形为环面, 使得柱面的两个圆形边缘重合.
+\end{note}
+\begin{exercise}% 6.3
     证明 2 元, 3 元和 4 元集分别有 2,5 和 15 个不同的商集.
 \end{exercise}
 \begin{proof}
@@ -508,7 +541,6 @@ $\therefore$
 
     一共有 $1+\dbinom{4}{1}+\dbinom{4}{2}/2+\dbinom{4}{2}+1=15$ 个商集.
 \end{proof}
-\stepcounter{exercise}
 \begin{exercise}% 6.4
     设 $\sim$ 是集合 $X$ 上的一个等价关系,且 $f:X\to Y$ 是一个映射, 使得
     \[x\sim x'\Rightarrow f(x)=f(x').\]
@@ -518,11 +550,7 @@ $\therefore$
 \begin{proof}
     $\because\bar{x}'=\bar{x}\Rightarrow f(x')=f(x),\therefore\bar{f}$ 是有确切定义的.
 
-    $f$ 是单射 $\Leftrightarrow\forall\bar{x},\bar{x}'\in\pi_\sim(X)$, 若 $\bar{x}\neq\bar{x}'$, 则 $\bar{f}(\bar{x})\neq\bar{f}(\bar{x}')$
-
-    $\Leftrightarrow$ 若 $\bar{f}(\bar{x})=\bar{f}(\bar{x}')$, 则 $\bar{x}=\bar{x}'$.
-
-    $\therefore$
+    $\because\bar{f}$ 是单射 $\Leftrightarrow\forall\bar{x},\bar{x}'\in\pi_\sim(X)$, 若 $\bar{x}\neq\bar{x}'$, 则 $\bar{f}(\bar{x})\neq\bar{f}(\bar{x}')\Leftrightarrow$ 若 $\bar{f}(\bar{x})=\bar{f}(\bar{x}')$, 则 $\bar{x}=\bar{x}'$, $\therefore$
     \[x\sim x'\Leftrightarrow f(x)=f(x')\]
 
     是 $\bar{f}$ 成为单射的条件.
@@ -542,7 +570,7 @@ $\therefore$
 \begin{solution}
     对于 $m$ 元循环 $\sigma$, $\forall k\in\mathbb{N_+},\forall i\in\Omega,\sigma^{mk}(i)=i$.
 
-    $\therefore$ 将置换 $\sigma$ 分解为不相交的循环的乘积 $\sigma_1,\sigma_2,\cdots,\sigma_s$, $\sigma$ 的阶是 $\sigma_1,\sigma_2,\cdots,\sigma_s$ 的阶的最小公倍数.
+    $\therefore$ 将置换 $\sigma$ 分解为不相交的循环的乘积 $\sigma_1,\sigma_2,\cdots,\sigma_s$, 由习题 4.2 的第 2.13 题得 $\sigma$ 的阶是 $\sigma_1,\sigma_2,\cdots,\sigma_s$ 的阶的最小公倍数.
 
     $\therefore$ 置换 $(1\ 2\ 3\ 4\ 5)(6\ 7)(8)$ 的阶为 $10$.
 
@@ -569,6 +597,47 @@ $\therefore$
         & =(-1)^{n-m'-m}=(-1)^{d(\pi)}.
     \end{align*}
 \end{solution}
+\stepcounter{exsection}
+\begin{exercise}% 9.1
+    证明: 形如 $4k-1$ 的素数有无穷多个.
+\end{exercise}
+\begin{proof}
+    $\forall k_1,k_2\in\mathbb{Z}$, 有
+    \[(4k_1-1)(4k_2-1)=4(4k_1k_2-k_1-k_2)+1,\]
+    \[(4k_1+1)(4k_2-1)=4(4k_1k_2-k_1+k_2)-1,\]
+    \[(4k_1+1)(4k_2+1)=4(4k_1k_2+k_1+k_2)+1.\]
+
+    从上面最后一个式子可以得出: $\{4k+1|k\in\mathbb{Z}\}$ 对乘法封闭(即 $\{4k+1|k\in\mathbb{Z}\}$ 中元素的乘积仍然在 $\{4k+1|k\in\mathbb{Z}\}$ 中).
+
+    假设 $\{4k-1|k\in\mathbb{Z}\}$ 中只有有限个素数 $p_1,p_2,\cdots,p_n$.
+    
+    (a) 如果 $n$ 是偶数, 那么 $p_1p_2\cdots p_n\in\{4k+1|k\in\mathbb{Z}\},q=p_1p_2\cdots p_n+2\in\{4k-1|k\in\mathbb{Z}\}$.
+    
+    $\because p_1p_2\cdots p_n$ 不是偶数, $\therefore q$ 不是偶数.
+    
+    $\because2$ 不能被 $p_1,p_2,\cdots,p_n$ 整除, $\therefore q$ 不能被 $p_1,p_2,\cdots,p_n$ 整除.
+
+    $\because$ 每个 $\neq2$ 的素数都能被写成 $4k-1$ 或 $4k+1$ 的形式, $\therefore$ 如果 $q$ 不是素数, 那么 $q$ 是 $\{4k+1|k\in\mathbb{Z}\}$ 中的素数的乘积, 这与 $\{4k+1|k\in\mathbb{Z}\}$ 对乘法封闭矛盾. $\therefore q$ 是素数, 这与 $\{4k-1|k\in\mathbb{Z}\}$ 中只有有限个素数 $p_1,p_2,\cdots,p_n$ 矛盾.
+
+    (b) 如果 $n$ 是奇数, 那么 $p_1p_2\cdots p_n\in\{4k-1|k\in\mathbb{Z}\},p_1p_2\cdots p_n+4\in\{4k-1|k\in\mathbb{Z}\}$. 与 (a) 类似, 可以证明 $p_1p_2\cdots p_n+4$ 是素数, 这与 $\{4k-1|k\in\mathbb{Z}\}$ 中只有有限个素数 $p_1,p_2,\cdots,p_n$ 矛盾.
+\end{proof}
+\begin{note}
+    用相同的方法可以证明: 形如 $3k-1,6k-1$ 的素数有无穷多个.
+\end{note}
+\addtocounter{exercise}{2}
+\begin{exercise}% 9.4
+    证明: 若 $p$ 是素数, 则 $\forall n\in\mathbb{Z},p|(n^p-n)$.
+\end{exercise}
+\begin{proof}
+    用数学归纳法. 当 $n=1$ 时由 $p|0$ 得. 假设 $(n-1)^p-(n-1)=rp$, 则
+    \begin{align*}
+        n^p-n & =((n-1)+1)^p-1-(n-1) \\
+        & =\sum\limits_{k=1}^{p-1}\dbinom{p}{k}(n-1)^k+(n-1)^p+1-1-(n-1) \\
+        & =\sum\limits_{k=1}^{p-1}\dbinom{p}{k}(n-1)^k+rp.
+    \end{align*}
+
+    $\because p$ 整除 $\dbinom{p}{k}\ (k=1,2,\cdots,p-1)$, $\therefore p$ 整除 $n^p-n$.
+\end{proof}
 \begin{exercisec}[1.10]\label{exc1.10}
     如果方程组
     \begin{equation}\label{eq3.1}
@@ -754,6 +823,357 @@ $\therefore$
 
     解得 $a=1,b=3,c=4,f(x)=x^2+3x+4$.
 \end{solution}
+\begin{exercisec}[2.3.2, 2.3.5]
+    把下面的置换 $\sigma\in S_n$ 写成不相交的循环的乘积并确定这些置换的奇偶性:
+    \begin{align*}
+        (2)\quad & \begin{pmatrix}
+            1 & 2 & \cdots & k & k+1 & k+2 & \cdots & 2k \\
+            2 & 4 & \cdots & 2k & 1 & 3 & \cdots & 2k-1 \\
+        \end{pmatrix} \\
+        & \text{或} \begin{pmatrix}
+            1 & 2 & \cdots & k & k+1 & k+2 & \cdots & 2k+1 \\
+            2 & 4 & \cdots & 2k & 1 & 3 & \cdots & 2k+1 \\
+        \end{pmatrix} \\
+        (3)\quad & \begin{pmatrix}
+            1 & 2 & \cdots & k & k+1 & k+2 & \cdots & 2k \\
+            1 & 3 & \cdots & 2k-1 & 2 & 4 & \cdots & 2k \\
+        \end{pmatrix} \\
+        & \text{或} \begin{pmatrix}
+            1 & 2 & \cdots & k & k+1 & k+2 & \cdots & 2k-1 \\
+            1 & 3 & \cdots & 2k-1 & 2 & 4 & \cdots & 2k \\
+        \end{pmatrix} \\
+        (4)\quad & \begin{pmatrix}
+            1 & 2 & 3 & 4 & \cdots & n \\
+            n & 1 & n-1 & 2 & \cdots & \cdot \\
+        \end{pmatrix}
+    \end{align*}
+\end{exercisec}
+\begin{solution}
+    用补充题 \ref{ex2.3.4} 介绍的反序数来求置换的奇偶性, 可以不对置换进行分解就求出置换的符号.
+
+    (2) 把置换写成映射的形式:
+    \[\sigma(m)=\begin{cases}
+        2m, & m\leq k, \\
+        2(m-k)-1, & m>k. \\
+    \end{cases}\]
+
+    当 $1\leq i<j\leq k$ 时有 $\sigma(i)=2i<2j=\sigma(j)$. 当 $k+1\leq i<j\leq n$ 时有 $\sigma(i)=2(i-k)-1<2(j-k)-1=\sigma(j)$.
+
+    当 $1\leq i\leq k<j\leq n$ 时有
+    \[\sigma(i)>\sigma(j)\Leftrightarrow2i>2(j-k)-1\Leftrightarrow i+k+1/2>j.\]
+
+    $\therefore\sigma$ 的反序数为(注意 $\forall i,\{j|k<j<i+k+1/2\}\subset\{j|k<j\leq n\}$)
+    \[\sum\limits_{i=1}^k|\{j|k<j<i+k+1/2\}|=\sum\limits_{i=1}^k|\{j|k<j\leq i+k\}|=\sum\limits_{i=1}^ki=\dfrac{k(k+1)}{2}.\]
+
+    $\therefore$ 置换的符号为 $(-1)^{k(k+1)/2}$.
+
+    (3)
+    \[\sigma(m)=\begin{cases}
+        2m-1, & m\leq k, \\
+        2(m-k), & m>k. \\
+    \end{cases}\]
+
+    与 (2) 类似, 只需考虑 $1\leq i\leq k<j\leq n$ 时的情形. 有
+    \[\sigma(i)>\sigma(j)\Leftrightarrow2i-1>2(j-k)\Leftrightarrow i+k-1/2>j.\]
+
+    $\therefore\sigma$ 的反序数为
+    \[\sum\limits_{i=1}^k|\{j|k<j<i+k-1/2\}|=\sum\limits_{i=1}^k|\{j|k<j\leq i+k-1\}|=\sum\limits_{i=1}^k(i-1)=\dfrac{k(k-1)}{2}.\]
+
+    $\therefore$ 置换的符号为 $(-1)^{k(k-1)/2}$.
+
+    (4)
+    \[\sigma(m)=\begin{cases}
+        m/2, & 2|m, \\
+        n-(m-1)/2, & 2\nmid m. \\
+    \end{cases}\]
+    
+    当 $2|i,2|j$ 时有 $i<j\Rightarrow\sigma(i)<\sigma(j)$. 当 $2\nmid i,2\nmid j$ 时有 $i<j\Rightarrow\sigma(i)>\sigma(j)$.
+
+    $\because\forall i,j,i+j<2n+1\Rightarrow j/2<n-(i-1)/2$, $\therefore$ 当 $2\nmid i,2|j$ 时 $\sigma(j)=j/2<n-(i-1)/2=\sigma(i)$. $\therefore\sigma$ 的反序数为
+    \[|\{(i,j):2\nmid i,2\nmid j,i<j\}|+|\{(i,j):2\nmid i,2|j,i<j\}|=\dfrac{1}{2}\left\lfloor\dfrac{n+1}{2}\right\rfloor\left\lfloor\dfrac{n+1}{2}-1\right\rfloor+\dfrac{1}{2}\left\lfloor\dfrac{n}{2}\right\rfloor\left\lfloor\dfrac{n}{2}+1\right\rfloor.\]
+
+    置换的分解现在还没想出来. 下面的 Mathematica 代码可以生成输出这 3 题的循环的交互式程序. 循环以图的形式给出, 可以方便地看出有多少个不相交的循环.
+\begin{verbatim}
+rules[cycle_] := Thread[DirectedEdge[cycle, RotateLeft[cycle]]];
+permGraph[list_] := 
+ Graph[Flatten[rules /@ First[PermutationCycles[list]]], 
+  VertexLabels -> Placed["Name", Center], VertexSize -> 0.6]
+Manipulate[
+ permGraph[Join[Range[2, n, 2], Range[1, n, 2]]], {n, 2, 100, 1}](*第 2 题*)
+Manipulate[
+ permGraph[Join[Range[1, n, 2], Range[2, n, 2]]], {n, 2, 100, 1}](*第 3 题*)
+Manipulate[
+ permGraph[
+  Riffle[Reverse[Range[Floor[n/2] + 1, n]], Range[Floor[n/2]]]], {n, 
+  2, 100, 1}](*第 4 题*)
+\end{verbatim}
+\end{solution}
+
+证明下面一题需要先证明一个引理.
+\begin{lemma}\label{l3.1}
+    设 $\sigma_1=(i_1\ i_2\ \cdots\ i_k),\sigma_2=(j_1\ j_2\ \cdots\ j_l)$ 是不相交的循环, 则 $\tau^{-1}\sigma_1\tau,\tau^{-1}\sigma_2\tau$ 也不相交.
+\end{lemma}
+\begin{proof}
+    (1) 先考虑 $\tau$ 是对换的情形. 设 $\tau=(s_1\ s_2)$.
+    
+    (a) 如果 $\tau$ 与 $\sigma_1,\sigma_2$ 中的至少一个循环 (不妨设为 $\sigma_1$) 不相交, 那么 $\tau\sigma_1\tau^{-1}=\sigma_1\tau\tau^{-1}=\sigma_1$, 被 $\tau^{-1}\sigma_2\tau$ 改变的元素都属于 $\{s_1,s_2,j_1,j_2,\cdots,j_l\}$.
+    
+    $\because\{i_1,i_2,\cdots,i_k\}\cap\{s_1,s_2\}=\varnothing,\{i_1,i_2,\cdots,i_k\}\cap\{j_1,j_2,\cdots,j_l\}=\varnothing$, $\therefore$
+    \begin{align*}
+        & \{i_1,i_2,\cdots,i_k\}\cap\{s_1,s_2,j_1,j_2,\cdots,j_l\} \\
+        & =(\{i_1,i_2,\cdots,i_k\}\cap\{s_1,s_2\})\cup(\{i_1,i_2,\cdots,i_k\}\cap\{j_1,j_2,\cdots,j_l\}) \\
+        & =\varnothing\cup\varnothing=\varnothing.
+    \end{align*}
+
+    $\therefore\tau^{-1}\sigma_2\tau$ 与 $\tau\sigma_1\tau^{-1}=\sigma_1$ 不相交.
+
+    (b) 如果 $\tau$ 与 $\sigma_1,\sigma_2$ 都相交, 那么 $\tau$ 中有一个元素 $\in\{i_1,i_2,\cdots,i_k\}$, 另一个元素 $\in\{j_1,j_2,\cdots,j_l\}$. 不妨设 $s_1=i_1,s_2=j_1$. 有
+    \begin{align*}
+        \tau\sigma_1\tau^{-1} & =(i_1\ j_1)(i_1\ i_2)(i_2\ i_3)\cdots(i_{k-1}\ i_k)(i_1\ j_1) \\
+        & =(i_1\ j_1)(i_1\ i_2)(i_1\ j_1)(i_2\ i_3)\cdots(i_{k-1}\ i_k) \\
+        & =(j_1\ i_2)(i_2\ i_3)\cdots(i_{k-1}\ i_k) \\
+        & =(j_1\ i_2\ i_3\ \cdots\ i_k),
+    \end{align*}
+
+    类似地, $\tau\sigma_2\tau^{-1}=(i_1\ j_2\ j_3\ \cdots\ j_k)$.
+    
+    $\because\{j_1,i_2,i_3,\cdots,i_k\}\cap\{i_1,j_2,j_3,\cdots,j_l\}=\varnothing$, $\therefore\tau^{-1}\sigma_2\tau$ 与 $\tau\sigma_1\tau^{-1}=\sigma_1$ 不相交.
+
+    (2) 对于任意的循环 $\tau$, 由书上的定理 1 得 $\tau$ 是对换 $\tau_1,\tau_2,\cdots,\tau_t$ 的乘积:
+    \[\tau=\tau_1\tau_2\cdots\tau_t.\]
+
+    由 (1) 得 $\tau_t\sigma_1\tau_t^{-1}$ 与 $\tau_t\sigma_2\tau_t^{-1}$ 不相交, $\tau_{t-1}\tau_t\sigma_1\tau_t^{-1}\tau_{t-1}^{-1}$ 与 $\tau_{t-1}\tau_t\sigma_2\tau_t^{-1}\tau_{t-1}^{-1}$ 不相交, $\cdots$,
+    \[\tau\sigma_1\tau^{-1}=\tau_1\tau_2\cdots\tau_t\sigma_1\tau_t^{-1}\tau_{t-1}^{-1}\cdots\tau_1^{-1}\]
+    与
+    \[\tau\sigma_1\tau^{-1}=\tau_1\tau_2\cdots\tau_t\sigma_1\tau_t^{-1}\tau_{t-1}^{-1}\cdots\tau_1^{-1}\]
+    不相交.
+\end{proof}
+\begin{exercisec}[2.3.3]
+    设 $\sigma$ 是长度为 $k$ 的循环, 证明: 对于任意的 $\tau\in S_n$, 置换 $\tau\sigma\tau^{-1}$ 仍是长度为 $k$ 的循环.
+\end{exercisec}
+\begin{proof}
+    假设 $\tau\sigma\tau^{-1}$ 是 $s\ (s>1)$ 个不相交的循环的乘积:
+    \[\tau\sigma\tau^{-1}=\pi_1\pi_2\cdots\pi_s,\]
+
+    则
+    \begin{align*}
+        \sigma & =\tau^{-1}\pi_1\pi_2\cdots\pi_s\tau \\
+        & =(\tau^{-1}\pi_1\tau)(\tau^{-1}\pi_2\tau)\cdots(\tau^{-1}\pi_s\tau),
+    \end{align*}
+
+    由引理 \ref{l3.1} 得 $\tau^{-1}\pi_1\tau,\tau^{-1}\pi_2\tau,\cdots,\tau^{-1}\pi_s\tau$ 不相交, 这与 $\sigma$ 不能分解为 $s$ 个不相交的循环的乘积矛盾. $\therefore\tau\sigma\tau^{-1}$ 是循环.
+
+    $\because\sigma$ 的长度为 $k$, $\therefore\sigma^k=e$, 且 $\forall m<k$, $\sigma^m\neq e$. $\therefore$
+    \[(\tau\sigma\tau^{-1})^k=\tau\sigma^k\tau^{-1}=e,\]
+    \[(\tau\sigma\tau^{-1})^m=\tau\sigma^m\tau^{-1}\neq\tau\tau^{-1}=e.\]
+
+    $\therefore\tau\sigma\tau^{-1}$ 的长度为 $k$.
+\end{proof}
+\begin{exercisec}[2.3.4]\label{ex2.3.4}
+    设 $\sigma\in S_n$. 称整数对 $\left<i,j\right>$ 是 $\sigma$ 的一个\textbf{反序}, 如果 $1\leq i<j\leq n$ 且 $\sigma(i)>\sigma(j)$, 整数对 $\left<i,j\right>$ 是 $\sigma$ 的一个\textbf{顺序}, 如果 $1\leq i<j\leq n$ 且 $\sigma(i)<\sigma(j)$. 显然没有反序的置换是单位置换 $e$. 设 $i<j$, $\left<i,j\right>$ 是 $\sigma$ 的反序, 令对换 $\tau=(\sigma(i)\ \sigma(j)),\tau'=(i\ j)$. 证明:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $\left<i,j\right>$ 是 $\tau\sigma$ 的顺序, 也是 $\sigma\tau'$ 的顺序.
+        \item 如果 $\left<a,i\right>$ 和 $\left<a,j\right>$ 都是 $\sigma$ 的反序, 那么它们也都是 $\tau\sigma$ 的反序.
+        \item 如果 $\left<a,i\right>$ 和 $\left<a,j\right>$ 中只有一个是 $\sigma$ 的反序, 那么它们中也只有一个是 $\tau\sigma$ 的反序.
+        \item 如果 $\left<a,i\right>$ 和 $\left<a,j\right>$ 都是 $\sigma$ 的顺序, 那么它们也都是 $\tau\sigma$ 的顺序.
+        \item 如果 $\left<i,b\right>$ 和 $\left<j,b\right>$ 都是 $\sigma$ 的顺序, 那么它们也都是 $\tau\sigma$ 的顺序.
+        \item 如果 $\left<i,b\right>$ 和 $\left<j,b\right>$ 中只有一个是 $\sigma$ 的反序, 那么它们中也只有一个是 $\tau\sigma$ 的反序.
+        \item 如果 $\left<i,b\right>$ 和 $\left<j,b\right>$ 都是 $\sigma$ 的反序, 那么它们也都是 $\tau\sigma$ 的反序.
+        \item 如果 $\left<i,c\right>$ 和 $\left<c,j\right>$ 中只有一个是 $\sigma$ 的反序, 那么它们中也只有一个是 $\tau\sigma$ 的反序.
+        \item $\left<i,c\right>$ 和 $\left<c,j\right>$ 不可能都是 $\sigma$ 的顺序.
+        \item 如果 $\left<i,c\right>$ 和 $\left<c,j\right>$ 都是 $\sigma$ 的反序, 那么它们也都是 $\tau\sigma$ 的顺序.
+    \end{enumerate}
+\end{exercisec}
+\begin{proof}
+    (1) $\because\tau\sigma(i)=\tau((\sigma(i)))=\sigma(j),\tau\sigma(j)=\tau((\sigma(j)))=\sigma(i)$, $\therefore\tau\sigma(i)<\tau\sigma(j)$, 即 $\left<i,j\right>$ 是 $\tau\sigma$ 的顺序. 类似地, $\left<i,j\right>$ 是 $\sigma\tau'$ 的顺序.
+
+    (2) $\because\left<a,i\right>$ 和 $\left<a,j\right>$ 都是 $\sigma$ 的反序, $\therefore a<i,a<j,\sigma(a)>\sigma(i),\sigma(a)>\sigma(j)$.
+
+    $\because\tau\sigma(i)=\sigma(j),\tau\sigma(j)=\sigma(i),\tau\sigma(a)=\sigma(a)$, $\therefore\tau\sigma(a)>\tau\sigma(j)>\tau\sigma(i)$. $\therefore\left<a,i\right>$ 和 $\left<a,j\right>$ 都是 $\tau\sigma$ 的反序.
+
+    (3) 不妨设 $\left<a,i\right>$ 是 $\sigma$ 的顺序, $\left<a,j\right>$ 是 $\sigma$ 的反序, 则 $a<i,a<j,\sigma(a)<\sigma(i),\sigma(a)>\sigma(j)$. $\therefore\tau\sigma(a)>\sigma(j)=\tau\sigma(i),\tau\sigma(a)<\sigma(i)=\tau\sigma(j)$. $\therefore\left<a,i\right>$ 是 $\tau\sigma$ 的反序, $\left<a,j\right>$ 是 $\tau\sigma$ 的顺序.
+
+    (4) (5) (7) 与 (2) 类似. (6) 与 (3) 类似.
+
+    (8) 已知 $i<c<j$. 如果 $\left<i,c\right>$ 是 $\sigma$ 的顺序, $\left<c,j\right>$ 是 $\sigma$ 的反序, 那么 $\sigma(c)>\sigma(i),\sigma(c)>\sigma(j)$. $\therefore\tau\sigma(c)>\tau\sigma(j),\tau\sigma(c)>\tau\sigma(i)$, $\therefore\left<i,c\right>$ 是 $\tau\sigma$ 的顺序, $\left<c,j\right>$ 是 $\tau\sigma$ 的反序. 同理, 如果 $\left<i,c\right>$ 是 $\sigma$ 的反序, $\left<c,j\right>$ 是 $\sigma$ 的顺序, 那么 $\left<i,c\right>$ 是 $\tau\sigma$ 的反序, $\left<c,j\right>$ 是 $\tau\sigma$ 的顺序.
+
+    (9) 已知 $i<c<j$. 如果 $\left<i,c\right>$ 和 $\left<c,j\right>$ 都是 $\sigma$ 的顺序, 那么 $\sigma(i)<\sigma(c)<\sigma(j)$, 即 $\left<i,j\right>$ 是 $\sigma$ 的顺序, 与 $\left<i,j\right>$ 是 $\sigma$ 的反序矛盾.
+
+    (10) 已知 $i<c<j$. 如果 $\left<i,c\right>$ 和 $\left<c,j\right>$ 都是 $\sigma$ 的反序, 那么 $\sigma(j)<\sigma(c)<\sigma(i)$. $\therefore\tau\sigma(i)<\tau\sigma(c)<\tau\sigma(j)$, 即 $\left<i,c\right>$ 和 $\left<c,j\right>$ 都是 $\tau\sigma$ 的顺序.
+\end{proof}
+\begin{note}
+    由这题的结论得 $\tau\sigma$ 的反序的总数 (称为 $\tau\sigma$ 的\textbf{反序数}) 比 $\sigma$ 的反序数少一个奇数. 用数学归纳法容易证明存在对换 $\tau_1,\tau_2,\cdots,\tau_m$ 使得 $\tau_1\tau_2\cdots\tau_m\sigma=e$, 其中 $m$ 与 $\sigma$ 的反序数 $k$ 有相同的奇偶性. $\therefore\sigma$ 的符号 $\varepsilon_\sigma=(-1)^m=(-1)^k$.
+\end{note}
+\begin{exercisec}[2.4.5]
+    定义 $\mathbb{R}^2$ 上的二元关系 $\preceq$ 如下:
+    \[(a,b)\preceq(c,d)\Leftrightarrow(a<c)\vee(a=c\wedge b\leq d).\]
+
+    证明: 这个二元关系是 $\mathbb{R}$ 上的全序.
+\end{exercisec}
+\begin{proof}
+    $\because a=a\wedge b\leq b,\therefore(a,b)\preceq(a,b)$, 即 $\preceq$ 满足自反性.
+    
+    有
+    \begin{align*}
+        (a,b)\preceq(c,d) & \Leftrightarrow(a<c)\vee(a=c\wedge b\leq d) \\
+        & \Leftrightarrow(a<c\vee a=c)\wedge(a<c\vee b\leq d) \\
+        & \Leftrightarrow(a\leq c)\wedge(a<c\vee b\leq d) \\
+        & \Leftrightarrow(a\leq c\wedge a<c)\vee(a\leq c\wedge b\leq d) \\
+        & \Leftrightarrow(a<c)\vee(a\leq c\wedge b\leq d).
+    \end{align*}
+
+    $\therefore$
+    \begin{align*}
+        & (a,b)\preceq(c,d)\wedge(c,d)\preceq(a,b) \\
+        & \Rightarrow((a\leq c)\wedge(a<c\vee b\leq d))\wedge((c\leq a)\wedge(c<a\vee d\leq b)) \\
+        & \Rightarrow((a\leq c)\wedge(c\leq a))\wedge((a<c\vee b\leq d)\wedge(c<a\vee d\leq b)) \\
+        & \Rightarrow(a=c)\wedge((a<c\vee b\leq d)\wedge(c<a\vee d\leq b)) \\
+        & \Rightarrow((a=c)\wedge(a<c\vee b\leq d))\wedge((a=c)\wedge(c<a\vee d\leq b)) \\
+        & \Rightarrow((a=c\wedge a<c)\vee(a=c\wedge b\leq d))\wedge((a=c\wedge c<a)\vee(a=c\wedge d\leq b)) \\
+        & \Rightarrow(a=c\wedge b\leq d)\wedge(a=c\wedge d\leq b) \\
+        & \Rightarrow(a=c)\wedge(b\leq d)\wedge(d\leq b) \\
+        & \Rightarrow(a=c)\wedge(b=d),
+    \end{align*}
+
+    $\therefore\ \preceq$ 满足反对称性. $\because$
+    \begin{align*}
+        & (a,b)\preceq(a',b')\wedge(a',b')\preceq(a'',b'') \\
+        & \Rightarrow((a\leq a')\wedge(a<a'\vee b\leq b'))\wedge((a'\leq a'')\wedge(a'<a''\vee b'\leq b'')) \\
+        & \Rightarrow((a\leq a')\wedge(a'\leq a''))\wedge((a<a'\vee b\leq b')\wedge(a'<a''\vee b'\leq b'')) \\
+        & \Rightarrow(a\leq a'')\wedge((a<a'\wedge a'<a'')\vee (b\leq b'\wedge a'<a'')\vee(a<a'\wedge b'\leq b'')\vee(b\leq b'\wedge b'\leq b'')) \\
+        & \Rightarrow(a\leq a'')\wedge(((a<a'')\vee (b\leq b'\wedge a'<a''))\vee((a<a'\wedge b'\leq b'')\vee(b\leq b''))) \\
+        & \Rightarrow(a\leq a'')\wedge(a<a''\vee b\leq b'') \\
+        & \Rightarrow(a,b)\preceq(a'',b''),
+    \end{align*}
+
+    $\therefore\ \preceq$ 满足传递性. $\because$
+    \begin{align*}
+        & ((a,b)\leq(c,d))\vee((c,d)\leq(a,b)) \\
+        & \Rightarrow((a<c)\vee(a\leq c\wedge b\leq d))\vee((c<a)\vee(c\leq a\wedge d\leq b)) \\
+        & \Rightarrow((c<a)\vee(a\leq c\wedge b\leq d))\vee((a<c)\vee(c\leq a\wedge d\leq b)) \\
+        & \Rightarrow((c<a\vee a\leq c)\wedge(c<a\vee b\leq d))\vee((a<c\vee c\leq a)\wedge(a<c\vee d\leq b)) \\
+        & \Rightarrow(1\wedge(c<a\vee b\leq d))\vee(1\wedge(a<c\vee d\leq b)) \\
+        & \Rightarrow(c<a)\vee(b\leq d)\vee(a<c)\vee(d\leq b) \\
+        & \Rightarrow(c<a)\vee(a<c)\vee((b\leq d)\vee(d\leq b)) \\
+        & \Rightarrow(c<a)\vee(a<c)\vee1=1,
+    \end{align*}
+
+    $\therefore\ \preceq$ 是 $\mathbb{R}$ 上的全序.
+\end{proof}
+\begin{note}
+    考虑如下定义的 $\mathbb{R}^n\ (n\in\mathbb{N})$ 上的二元关系 $\preceq_n$:
+    \begin{equation}\label{eq3.5}
+        (a_1,\cdots,a_n)\preceq_n(b_1,\cdots,b_n)\Leftrightarrow\begin{cases}
+            (a_1<b_1)\vee(a_1=b_1\wedge((a_1,\cdots,a_{n-1})\preceq_{n-1}(b_1,\cdots,b_{n-1}))), & n>1, \\
+            a_1\leq b_1, & n=1.
+        \end{cases}
+    \end{equation}
+
+    在
+    \[(a_1,a_2)\preceq(b_1,b_2)\Leftrightarrow(a_1<b_1)\vee(a_1=b_1\wedge a_2\leq b_2).\]
+
+    中以 $(a_2,\cdots,a_n)$ 代 $a_2$, 以 $(b_2,\cdots,b_n)$ 代 $b_2$, 以 $\preceq_{n-1}$ 代 $\leq$, 注意到上式的证明中只用到了 ``$a_2\leq b_2$'' 中 ``$\leq$'' 的自反性, 反对称性和传递性, 可以归纳地证明: $\preceq_n$ 是全序.
+    
+    在第 5 章笔记中介绍的多项式字典序实际上是在 $\mathbb{N}$ 上按照式 \ref{eq3.5} 定义的 $\preceq_n$. $\therefore$ 用相同的方法可以证明: 多项式字典序是全序.
+\end{note}
+\begin{exercisec}[2.5.1(1)]
+    假设 $|X|=n\geq1$. 证明 $X$ 的 $k\ (k\geq1)$ 元子集的个数为 $\dbinom{n}{k}$.
+\end{exercisec}
+\begin{proof}
+    由 $\dbinom{n}{1}=n$ 得当 $k=1$ 时命题成立. 由
+    \[\dbinom{1}{k}=\dbinom{1}{1-k}=\begin{cases}
+        1, & k=1, \\
+        0, & k>1
+    \end{cases}\]
+    得当 $n=1$ 时命题成立.
+
+    设对 $1\leq s\leq n,1\leq t\leq k,s+t<n+k$, 任一 $s$ 元集合的 $t$ 元子集的个数为 $\dbinom{s}{t}$.
+    
+    考察 $n$ 元集合 $X$, 由归纳假定, $X$ 的前 $n-1$ 个元素构成的集合 $Y$ 有 $\dbinom{n-1}{k}$ 个 $k$ 元子集, $\dbinom{n-1}{k-1}$ 个 $k-1$ 元子集. $X$ 的 $k$ 元子集包括 $Y$ 的 $k$ 元子集以及 $Y$ 的 $k-1$ 元子集与 $X$ 的第 $n$ 个元素的并, $\therefore X$ 的 $k$ 元子集的个数为
+    \[\dbinom{n-1}{k}+\dbinom{n-1}{k-1}=\dbinom{n}{k}.\qedhere\]
+\end{proof}
+\begin{exercisec}[2.5.3]
+    令 $P[x]$ 是实系数多项式全体, 考虑映射
+    \[\mathcal{D}:\begin{array}{rcl}
+        P[x] & \to & P[x] \\
+        f & \to & f'=\dfrac{\mathrm{d}f}{\mathrm{d}x} \\
+    \end{array},\quad\mathcal{T}:\begin{array}{rcl}
+        P[x] & \to & P[x] \\
+        f & \to & xf \\
+    \end{array}.\]
+
+    证明: 对 $m,n\geq1$, 有
+    \begin{equation}\label{eq3.6}
+        \mathcal{D}^m\mathcal{T}^n=\sum\limits_{i=0}^{\min\{m,n\}}i!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i}
+    \end{equation}
+    (约定 $\mathcal{D}^0=\mathcal{T}^0=\mathcal{E}$).
+\end{exercisec}
+\begin{proof}
+    容易验证:
+    \begin{equation}\label{eq3.7}
+        \mathcal{DT}=\mathcal{TD}+\mathcal{E}.
+    \end{equation}
+
+    当 $n=1$ 时, 式 (\ref{eq3.6}) $\Rightarrow$
+    \begin{equation}\label{eq3.8}
+        \mathcal{D}^m\mathcal{T}=\mathcal{T}\mathcal{D}^m+m\mathcal{D}^{m-1}.
+    \end{equation}
+
+    先用数学归纳法证明式 (\ref{eq3.8}) 成立. 当 $m=1$ 时上式 (\ref{eq3.8}) 为式 (\ref{eq3.7}). 假设式
+    \[\mathcal{D}^{m-1}\mathcal{T}=\mathcal{T}\mathcal{D}^{m-1}+(m-1)\mathcal{D}^{m-2}\]
+
+    成立, 则由式 (\ref{eq3.7}) 得
+    \begin{align*}
+        \mathcal{D}^m\mathcal{T} & =\mathcal{D}\mathcal{D}^{m-1}\mathcal{T} \\
+        & =(\mathcal{DT})\mathcal{D}^{m-1}+(m-1)\mathcal{D}^{m-1} \\
+        & =(\mathcal{TD}+\mathcal{E})\mathcal{D}^{m-1}+(m-1)\mathcal{D}^{m-1} \\
+        & =\mathcal{T}\mathcal{D}^m+m\mathcal{D}^{m-1}.
+    \end{align*}
+
+    $\therefore$ 式 (\ref{eq3.8}) 对 $\forall m$ 成立.
+
+    对 $n$ 用数学归纳法证明: 式 (\ref{eq3.6}) 对 $\forall m,\forall n$ 成立. 当 $n=1$ 时由式 (\ref{eq3.8}) 对 $\forall m$ 成立得. 假设
+    \begin{align*}
+        \mathcal{D}^m\mathcal{T}^{n-1} & =\sum\limits_{i=0}^{\min\{m,n-1\}}i!\dbinom{m}{i}\dbinom{n-1}{i}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i} \\
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}i!\dfrac{m!}{i!(m-i)!}\dfrac{(n-1)!}{i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i} \\
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i}
+    \end{align*}
+    对 $\forall m$ 成立, 则由式 (\ref{eq3.8}) 得
+    \begin{align*}
+        \mathcal{D}^m\mathcal{T}^n & =\left(\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i}\right)\mathcal{T} \\
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}(\mathcal{D}^{m-i}\mathcal{T}) \\
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}(\mathcal{T}\mathcal{D}^{m-i}+(m-i)\mathcal{D}^{m-i-1}).
+    \end{align*}
+    
+    有
+    \begin{align*}
+        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}(\mathcal{T}\mathcal{D}^{m-i}+(m-i)\mathcal{D}^{m-i-1}) \\
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1}.
+    \end{align*}
+
+    当 $m>n-1$ 时, 有 $m\geq n>i$, $m-i>0$,
+    \begin{align*}
+        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & =\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i-1)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & =\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=1}^n\dfrac{m!(n-1)!}{(m-i)!(i-1)!(n-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\mathcal{T}^{n}\mathcal{D}^{m}+\mathcal{D}^{m-n}+\sum\limits_{i=1}^{n-1}\left(\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}+\dfrac{m!(n-1)!}{(m-i)!(i-1)!(n-i)!}\right)\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\mathcal{T}^{n}\mathcal{D}^{m}+\mathcal{D}^{m-n}+\sum\limits_{i=1}^{n-1}i!\dbinom{m}{i}\left(\dfrac{(n-1)!}{i!(n-1-i)!}+\dfrac{(n-1)!}{(i-1)!(n-1-(i-1))!}\right)\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\mathcal{T}^{n}\mathcal{D}^{m}+\mathcal{D}^{m-n}+\sum\limits_{i=1}^{n-1}i!\dbinom{m}{i}\left(\dbinom{n-1}{i}+\dbinom{n-1}{i-1}\right)\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\mathcal{T}^{n}\mathcal{D}^{m}+\mathcal{D}^{m-n}+\sum\limits_{i=1}^{n-1}i!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\sum\limits_{i=0}^ni!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i}=\sum\limits_{i=0}^{\min\{m,n\}}i!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i}.
+    \end{align*}
+
+    当 $m\leq n-1$ 时, 有 $m<n$,
+    \begin{align*}
+        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m-1}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m-1}\dfrac{m!(n-1)!}{(m-i-1)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m}\dfrac{m!(n-1)!}{(m-i)!i!(n-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\sum\limits_{i=0}^m\left(\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}+\dfrac{m!(n-1)!}{(m-i)!i!(n-i)!}\right)\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & =\sum\limits_{i=0}^mi!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i}=\sum\limits_{i=0}^{\min\{m,n\}}i!\dbinom{m}{i}\dbinom{n}{i}\mathcal{T}^{n-i}\mathcal{D}^{m-i}.\qedhere
+    \end{align*}
+\end{proof}
 \section{第2章习题}
 \stepcounter{exsection}
 \begin{exercise}% 1.1
@@ -970,7 +1390,6 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 \begin{proof}
     (a) 记
     \[PX=[y_1,y_2,\cdots,y_n],\]
-    $$$$
 
     由书上的式 (11) 得
     \[y_i=P_{(i)}X=\sum\limits_{j=1}^np_{ij}x_{j}\geq0,\]
