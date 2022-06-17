@@ -1,0 +1,724 @@
+\documentclass{ctexart}
+\usepackage[bgcolor]{lecturenote}
+
+\title{第2章笔记和习题}
+
+\begin{document}
+\maketitle
+\section{第2章笔记}
+补充证明一个定理.
+\begin{theorem}
+    若 $A$ 非退化, 则 ${}^t(A^{-1})=({}^tA)^{-1}$.
+\end{theorem}
+\begin{proof}
+    在 $AA^{-1}=E$ 两边转置得
+    \[{}^tA{}^t(A^{-1})=E\Rightarrow{}^t(A^{-1})=({}^tA)^{-1}.\]
+\end{proof}
+
+下面讨论一下线性映射的核与像.
+
+设矩阵 $A=(A^{(1)},A^{(2)},\cdots,A^{(n)})$ 对应的线性映射为 $\phi_A$.
+
+$\because\forall X=[x_1,x_2,\cdots,x_n]\in\mathbb{R}^n,\phi_A(X)=x_1A^{(1)}+x_2A^{(2)}+\cdots+x_nA^{(n)}\in\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$,
+
+$\therefore\operatorname{Im}\phi_A\subset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+
+$\because\forall Y\in\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>,\exists y_1,y_2,\cdots,y_n$ 使得 $Y=y_1A^{(1)}+y_2A^{(2)}+\cdots+y_nA^{(n)}$,
+
+$\therefore\exists Y_0=(y_1,y_2,\cdots,y_n)$ 使得 $\phi_A(Y_0)=Y$.
+
+$\therefore\operatorname{Im}\phi_A\supset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+
+$\therefore\operatorname{Im}\phi_A=\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>,\dim\operatorname{Im}\phi_A=\operatorname{rank}A$.
+
+上述讨论对于实际的计算也有帮助. 比如求 $\left<X_1,\cdots,X_n\right>$ 的维数, 只需要求矩阵 $(X_1,\cdots,X_n)$ 的秩, 而后者可以通过行或列变换得到.
+
+按照定义,
+\begin{align*}
+    \ker\phi_A & =\{X\in\mathbb{R}^n|\phi_A(X)=0\} \\
+    & =\{X\in\mathbb{R}^n|AX=0\}.
+\end{align*}
+
+$\therefore\ker\phi_A$ 是方程 $AX=0$ 的解空间.
+
+由第 3 节第 8 小节的定理 7 得
+\[\dim\ker\phi_A=n-\operatorname{rank}A.\]
+
+$\therefore$
+\[\dim\ker\phi_A+\dim\operatorname{Im}\phi_A=n.\]
+\section{第2章习题}
+\stepcounter{exsection}
+\begin{exercise}% 1.1
+    设 $V_1,V_2,V$ 是 $\mathbb{R}^n$ 中的线性包, 证明: 如果对于每一个向量 $X\in V$, 写法 $X=X_1+X_2$ 都唯一, 其中 $X_i\in V_i$, 则 $V=V_1+V_2$ 是直和.
+\end{exercise}
+\begin{proof}
+    假设 $\exists X_0\neq0,X_0\in V_1\cap V_2$.
+
+    $\because X_0\in V_1,\therefore-X_0\in V_1$. $\because X_0\in V_2,\therefore-X_0\in V_2$.
+
+    $\therefore0$ 有两种表示方式:
+    \[0=0+0,\quad0=X_0+(-X_0).\]
+
+    与 $0\in V\Rightarrow$ 写法 $0=X_1+X_2$ 唯一矛盾.
+\end{proof}
+\begin{exercise}% 1.2
+    设 $V_1,V_2,V$ 是 $\mathbb{R}^n$ 中的线性包, 且 $V\subset V_1+V_2$. 等式 $V=V_1\cap V+V_2\cap V$ 一定成立吗? 证明在 $V_1\subset V$ 的情况下等式 $V=V_1\cap V+V_2\cap V$ 一定成立.
+\end{exercise}
+\begin{proof}
+    $\because V_1\cap V\subset V,V_2\cap V\subset V$,
+
+    $\therefore\forall X_1\in V_1\cap V,X_2\in V_2\cap V,X_1\in V,X_2\in V\Rightarrow X_1+X_2\in V$.
+
+    $\therefore V\supset V_1\cap V+V_2\cap V$.
+
+    但是 $V=V_1\cap V+V_2\cap V$ 不一定成立. 考察 $\mathbb{R}^2$ 中的 $V_1=\left<(0,1)\right>,V_2=\left<(1,0)\right>,V=\left<(1,1)\right>$, 有
+    \[V_1\cap V=V_2\cap V=V_1\cap V+V_2\cap V=\{0\}\neq V.\]
+
+    前面已经证明了等式 $V\supset V_1\cap V+V_2\cap V$ 一定成立, 下面只需证明在 $V_1\subset V$ 的情况下有 $V\subset V_1\cap V+V_2\cap V$.
+
+    $\because V_1\subset V\Rightarrow V_1\cap V=V_1,\therefore V_1\cap V+V_2\cap V=V_1+V_2\cap V$.
+
+    $\because V\subset V_1+V_2,\therefore\forall X\in V,\exists X_1\in V_1,X_2\in V_2$ 使得
+    \begin{equation}\label{eq2.1}
+        X=X_1+X_2.
+    \end{equation}
+
+    假设 $X_2\notin V_2\cap V\Rightarrow X_2\in V_2\backslash V$.
+
+    $\because V_1\subset V,\therefore X_1\in V,\therefore-X_1\in V$.
+
+    在 (\ref{eq2.1}) 式两边加上 $-X_1$, 有
+    \[X+(-X_1)=X_1-X_1+X_2=X_2.\]
+
+    $\because X\in V,-X_1\in V,\therefore X+(-X_1)\in V$, 与 $X_2\in V_2\backslash V$ 矛盾.
+
+    $\therefore\forall X\in V,\exists X_1\in V_1=V_1\cap V,X_2\in V_2\cap V$, 使得 $X=X_1+X_2$.
+
+    $\therefore V\subset V_1\cap V+V_2\cap V.$
+\end{proof}
+\addtocounter{exercise}{2}
+\begin{exercise}% 1.5
+    证明: $\mathbb{R}^n$ 中的向量组 $X_1,X_2,\cdots,X_n$ 张成 $\mathbb{R}^n$ 的充要条件是它们线性无关.
+\end{exercise}
+\begin{proof}
+    (充分性) 设 $V=\left<X_1,X_2,\cdots,X_n\right>$. 假设 $V\neq\mathbb{R}^n$.
+
+    $\because\forall X\in V,X=\alpha_1X_1+\alpha_2X_2+\cdots+\alpha_nX_n\subset\mathbb{R}^n$, $\therefore V\subset\mathbb{R}^n$.
+
+    取 $X_{n+1}\in\mathbb{R}^n\backslash V$, 则 $X_1,X_2,\cdots,X_n,X_{n+1}$ 线性无关.
+
+    $\therefore\dim\left<X_1,X_2,\cdots,X_n\right>=n+1>n$, 与书上的定理 2 矛盾.
+
+    (必要性) 假设 $X_1,X_2,\cdots,X_n$ 线性相关.
+
+    由书上的定理 1(iii), $X_1,X_2,\cdots,X_n$ 中至少有一个向量是其余向量的线性组合.
+    
+    不妨设 $X_n$ 是 $X_1,X_2,\cdots,X_{n-1}$ 的线性组合.
+
+    若 $X_1,X_2,\cdots,X_{n-1}$ 线性相关, 则由书上的定理 1(iii), $X_1,X_2,\cdots,X_{n-1}$ 中至少有一个向量是其余向量的线性组合.
+
+    不妨设 $X_{n-1}$ 是 $X_1,X_2,\cdots,X_{n-2}$ 的线性组合, 则 $X_n,X_{n-1}$ 是 $X_1,X_2,\cdots,X_{n-2}$ 的线性组合.
+
+    重复上述步骤, 可以得到: $\exists r$ 满足 $1\leq r<n$, $X_1,X_2,\cdots,X_r$ 线性无关, $X_{r+1},X_{r+2},\cdots,X_n$ 是 $X_1,X_2,\cdots,X_r$ 的线性组合.
+
+    $\therefore\mathbb{R}^n=\left<X_1,X_2,\cdots,X_r\right>$.
+
+    $\therefore\dim\mathbb{R}^n=r<n$, 与 $\mathbb{R}^n=n$ 矛盾.
+\end{proof}
+证明第 1.7 题需要证明一个引理.
+\begin{lemma}\label{l2.1}
+    若 $V_1=<\alpha_1,\alpha_2,\cdots,\alpha_s>,V_2=<\beta_1,\beta_2,\cdots,\beta_t>$,
+    
+    则 $V_1+V_2=<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>$.
+\end{lemma}
+\begin{proof}
+    $\forall\alpha+\beta\in V_1+V_2$(不妨设 $\alpha\in V_1,\beta\in V_2$), 有
+    \[\alpha=l_1\alpha_1+l_2\alpha_2+\cdots+l_s\alpha_s,\quad\beta=k_1\beta_1+k_2\beta_2+\cdots+k_t\beta_t,\]
+    \[\alpha+\beta=l_1\alpha_1+l_2\alpha_2+\cdots+l_s\alpha_s+k_1\beta_1+k_2\beta_2+\cdots+k_t\beta_t.\]
+
+    $\therefore$
+    \[\alpha+\beta\in<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>.\]
+    
+    $\therefore$
+    \[(V_1+V_2)\subseteq<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>.\]
+
+    $\forall\gamma\in<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>$, 有
+    \[\gamma=l_1\alpha_1+l_2\alpha_2+\cdots+l_s\alpha_s+l_{s+1}\beta_1+l_{s+2}\beta_2+\cdots+l_{s+t}\beta_t.\]
+
+    令 $\alpha=l_1\alpha_1+l_2\alpha_2+\cdots+l_s\alpha_s,\beta=l_{s+1}\beta_1+l_{s+2}\beta_2+\cdots+l_{s+t}\beta_t$, 有
+    \begin{align*}
+        \alpha\in V_1\land\beta\in V_2\land\gamma=\alpha+\beta & \Rightarrow\gamma\in V_1+V_2 \\
+        & \Rightarrow(V_1+V_2)\supseteq<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>.
+    \end{align*}
+
+    $\therefore(V_1+V_2)=<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_t>.$
+\end{proof}
+\stepcounter{exercise}
+\begin{exercise}[有改动]\label{ex1.7}
+设 $V_1$ 和 $V_2$ 都是 $\mathbb{R}^n$ 中的线性包,证明:
+
+$$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2).$$
+\end{exercise}
+\begin{proof}
+    由书上定理 2 的证明过程得 $V_1\cap V_2$ 的一个基
+    \[\alpha_1,\alpha_2,\cdots,\alpha_s\]
+    可以扩充成 $V_1$ 的一个基
+    \[\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s}\]
+    和 $V_2$ 的一个基
+    \[\alpha_1,\alpha_2,\cdots,\alpha_s,\gamma_1,\gamma_2,\cdots,\gamma_{n-s}.\]
+
+    由引理 \ref{l2.1},
+    \begin{align*}
+        V_1+V_2 & =<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s}>+<\alpha_1,\alpha_2,\cdots,\alpha_s,\gamma_1,\gamma_2,\cdots,\gamma_{n-s}> \\
+        & =<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s},\alpha_1,\alpha_2,\cdots,\alpha_s,\gamma_1,\gamma_2,\cdots,\gamma_{n-s}> \\
+        & =<\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s},\gamma_1,\gamma_2,\cdots,\gamma_{n-s}>.
+    \end{align*}
+
+    设
+    \begin{equation}\label{eq2.2}
+        \sum\limits_{i=1}^sp_i\alpha_i+\sum\limits_{i=1}^{m-s}q_i\beta_i+\sum\limits_{i=1}^{n-s}r_i\gamma_i=0.
+    \end{equation}
+
+    则有
+    \[\sum\limits_{i=1}^sp_i\alpha_i+\sum\limits_{i=1}^{m-s}q_i\beta_i=\sum\limits_{i=1}^{n-s}(-r_i)\gamma_i.\]
+
+    设 $\zeta=(-r_1)\gamma_1+(-r_2)\gamma_2+\cdots+(-r_{n-s})\gamma_{n-s}\in V_2$. 由式 (\ref{eq2.2}) 得
+    \[\zeta=\sum\limits_{i=1}^sp_i\alpha_i+\sum\limits_{i=1}^{m-s}q_i\beta_i\in V_1.\]
+
+    $\therefore\zeta\in V_1\cap V_2$. 设 $\zeta=l_1\alpha_1+l_2\alpha_2+\cdots+l_s\alpha_s$. 则有
+    \[\sum\limits_{i=1}^sl_i\alpha_i=\sum\limits_{i=1}^{n-s}(-r_i)\gamma_i\Rightarrow\sum\limits_{i=1}^sl_i\alpha_i+\sum\limits_{i=1}^{n-s}r_i\gamma_i=0.\]
+
+    $\because\alpha_1,\alpha_2,\cdots,\alpha_s,\gamma_1,\gamma_2,\cdots,\gamma_{n-s}$ 是 $V_2$ 的一个基,
+
+    $\therefore l_1=l_2=\cdots=l_s=r_1=r_2=\cdots=r_{n-s}=0$.
+
+    把 $r_1=r_2=\cdots=r_{n-s}=0$ 代入式 (\ref{eq2.2}) 得
+    \[\sum\limits_{i=1}^sp_i\alpha_i+\sum\limits_{i=1}^{m-s}q_i\beta_i=0.\]
+
+    $\because\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s}$ 是 $V_1$ 的一个基,
+
+    $\therefore p_1=p_2=\cdots=p_s=q_1=q_2=\cdots=q_{m-s}=0$.
+
+    $\therefore$ 向量组 $\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s},\gamma_1,\gamma_2,\cdots,\gamma_{n-s}$ 线性无关.
+
+    $\therefore\alpha_1,\alpha_2,\cdots,\alpha_s,\beta_1,\beta_2,\cdots,\beta_{m-s},\gamma_1,\gamma_2,\cdots,\gamma_{n-s}$ 是 $V_1+V_2$ 的一个基.
+
+    $\therefore$
+    \begin{align*}
+        \mathrm{dim}(V_1+V_2) & =s+(m-s)+(n-s) \\
+        & =m+n-s \\
+        & =\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2).\qedhere
+    \end{align*}
+\end{proof}
+\stepcounter{exsection}
+\setcounter{exercise}{3}
+\begin{exercise}% 2.4
+    设两个矩阵
+    \[A=\begin{pmatrix}
+        \alpha_1 & \alpha_2 & \cdots & \alpha_n \\
+        \beta_1 &  \beta_2 & \cdots &  \beta_n
+    \end{pmatrix},\quad B=\begin{pmatrix}
+        \alpha_1 & \alpha_2 & \cdots & \alpha_n \\
+        \beta_1 &  \beta_2 & \cdots &  \beta_n \\
+        \gamma_1 & \gamma_2 & \cdots & \gamma_n
+    \end{pmatrix},\]
+
+    用平面上 $n$ 条直线组成的集合的几何性质给出 $A$ 和 $B$ 有相等秩的条件.
+\end{exercise}
+\begin{solution}
+    平面上 $n$ 条直线组成的集合为
+    \[\{\alpha_ix+\beta_iy=\gamma_i|\alpha_i,\beta_i,\gamma_i\in\mathbb{R},i=1,2,\cdots,n\}.\]
+
+    如果这 $n$ 条直线有公共点 $(p,q)$, 则
+    \[p\alpha_i+q\beta_i=\gamma_i\quad(i=1,2,\cdots,n).\]
+
+    $\therefore$
+    \[pB_{(1)}+qB_{(2)}=B_{(3)}.\]
+
+    $\therefore$
+    \begin{align*}
+        \left<B_{(1)},B_{(2)},B_{(3)}\right> & =\left<B_{(1)},B_{(2)}\right> \\
+        & =\left<A_{(1)},A_{(2)}\right>.
+    \end{align*}
+
+    $\therefore\operatorname{rank}B=\operatorname{rank}A$.
+\end{solution}
+\stepcounter{exsection}
+\setcounter{exercise}{3}
+\begin{exercise}% 3.4
+    由 Markov 矩阵
+    \[P=(p_{ij}),\quad p_{ij}\geq0,\quad\sum\limits_{j=1}^np_{ij}=1,\quad i=1,2,\cdots,n\]
+    
+    确定的线性变换 $\phi_P$ 通常作用于概率列向量
+    \[X=[x_1,\cdots,x_n],\quad x_i\geq0,\quad\sum\limits_{i=1}^nx_i=1.\]
+    
+    证明:
+    \begin{itemize}
+        \item[(a)] 矩阵 $P\in M_n(\mathbb{R})$ 是 Markov 的, 当且仅当对任一概率向量 $X$, 向量 $PX$ 仍然是概率向量.
+        \item[(b)] 如果 $P$ 是正的 Markov 矩阵($\forall i,j,p_{ij}>0$), 那么对任一概率向量 $X,PX$ 是正的概率向量.
+        \item[(c)] 如果矩阵 $P,Q$ 是 Markov 的, 那么矩阵 $A=PQ$ 也是 Markov 的.
+    \end{itemize}
+\end{exercise}
+\begin{proof}
+    (a) 记
+    \[PX=[y_1,y_2,\cdots,y_n],\]
+
+    由书上的式 (11) 得
+    \[y_i=P_{(i)}X=\sum\limits_{j=1}^np_{ij}x_{j}\geq0,\]
+    \begin{align*}
+        \sum\limits_{i=1}^ny_i & =\sum\limits_{i=1}^n\sum\limits_{j=1}^np_{ij}x_{j} \\
+        & =\sum\limits_{j=1}^nx_{j}\sum\limits_{i=1}^np_{ij} \\
+        & =\sum\limits_{j=1}^nx_{j}=1.
+    \end{align*}
+
+    (b) $\because x_i\geq0,\sum\limits_{i=1}^nx_i=1,\therefore\exists k$ 满足 $1\leq k\leq n$ 使得 $x_k>0.\therefore$
+    \[y_i=\sum\limits_{j=1}^np_{ij}x_{j}\geq p_{ik}x_k>0.\]
+
+    (c) $\because Q$ 是 Markov 的, $\therefore Q^{(i)}\ (i=1,2,\cdots,n)$ 是概率向量.
+
+    由 (a) 得 $PQ^{(i)}$ 是概率向量. $\therefore PQ$ 也是 Markov 的.
+\end{proof}
+\stepcounter{exercise}
+\begin{exercise}% 3.6
+    由 $S_n$ 中的 $n$ 阶循环确定的置换矩阵为
+    \[P=\begin{pmatrix}
+        0 & 0 & \cdots & 0 & 1 \\
+        1 & 0 & \cdots & 0 & 0 \\
+        0 & 1 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & 0 \\
+    \end{pmatrix}.\]
+
+    验证 $P^n=E$.
+\end{exercise}
+\begin{solution}
+    $\because PE^{(1)}=E^{(2)},PE^{(2)}=E^{(3)},\cdots,PE^{(n-1)}=E^{(n)},PE^{(n)}=E^{(1)},\therefore$
+    \[P^{n}E^{(1)}=P^{n-1}E^{(2)}=\cdots=PE^{(n)}=E^{(1)},\]
+    \[P^{n}E^{(2)}=P^{n-1}E^{(3)}=\cdots=PE^{(1)}=E^{(2)},\]
+    \[\cdots,\]
+    \[P^{n}E^{(n)}=P^{n-1}E^{(1)}=\cdots=PE^{(n-1)}=E^{(n)},\]
+
+    $\therefore P^n=E$.
+\end{solution}
+\begin{exercise}% 3.7
+    对于任意两个 $m\times n$ 矩阵 $A,B$, 证明
+    \[\operatorname{rank}(A+B)\leq\operatorname{rank}A+\operatorname{rank}B.\]
+\end{exercise}
+\begin{proof}
+    在等式
+    \begin{equation}
+        \sum\limits_{i=1}^n\lambda_iA^{(j)}=0
+    \end{equation}
+
+    两边乘一非零常数 $\mu$, 等式仍然成立. $\therefore$ 由式 $(3)$ 得
+    \[\sum\limits_{i=1}^n\mu\lambda_iA^{(j)}=0\Rightarrow\sum\limits_{i=1}^n\lambda_i(\mu A^{(j)})=0.\]
+
+    $\therefore$ 对向量组的每个向量乘一非零常数不改变向量组的线性相关性. $\therefore$
+    \[\operatorname{rank}(-B)=\operatorname{rank}B.\]
+
+    假设 $\operatorname{rank}(A+B)>\operatorname{rank}A+\operatorname{rank}B$, 则
+    \begin{align*}
+        \operatorname{rank}A & =\operatorname{rank}(A+B-B) \\
+        & >\operatorname{rank}(A+B)+\operatorname{rank}(-B) \\
+        & >\operatorname{rank}A+\operatorname{rank}B+\operatorname{rank}(-B) \\
+        & =\operatorname{rank}A+2\operatorname{rank}B.
+    \end{align*}
+
+    $\therefore 0>2\operatorname{rank}B$, 与 $\operatorname{rank}B\geq0$ 矛盾.
+\end{proof}
+证明第 \ref{ex3.8} 题需要证明两个引理.
+\begin{lemma}\label{l2.2}
+    是 $A$ 是 $m\times s$ 矩阵, $B$ 是 $s\times n$ 矩阵, $A$ 确定的线性映射为 $\phi_A$, $B$ 的列空间为 $V_c(B)$, 则
+    \[\dim\phi_A(V_c(B))=\operatorname{rank}AB.\]
+\end{lemma}
+\begin{proof}
+    设 $AB$ 的列空间为 $V_c(AB)$, 有
+    \[\dim V_c(AB)=\operatorname{rank}AB.\]
+
+    $\therefore$ 只需证明 $V_c(AB)=\phi_A(V_c(B))$.
+
+    $\because\phi_A(B^{(i)})=AB^{(i)}\ (i=1,2,\cdots,s),$
+
+    $\therefore V_c(AB)=\left<AB^{(1)},AB^{(2)},\cdots,AB^{(s)}\right>=\phi_A(V_c(B))$.
+\end{proof}
+\begin{lemma}\label{l2.3}
+    设 $\phi$ 是线性映射, $V_1,V_2$ 是线性包, 则
+    \[\phi(V_1+V_2)=\phi(V_1)+\phi(V_2).\]
+\end{lemma}
+\begin{proof}
+    $\forall Y'\in\phi(V_1+V_2),\exists Y\in V_1+V_2,\phi(Y)=Y'$.
+
+    $\because Y\in V_1+V_2,\therefore\exists X_1\in V_1,X_2\in V_2$ 使得 $Y=X_1+X_2$ (注意这样的 $X_1,X_2$ 不一定是唯一的, 不过这不影响证明, 下面的 $\exists X_1',X_2'$ 也一样). $\therefore$
+    \[Y'=\phi(Y)=\phi(X_1+X_2)=\phi(X_1)+\phi(X_2).\]
+
+    $\therefore\phi(V_1+V_2)\subset\phi(V_1)+\phi(V_2)$.
+
+    $\forall Y'\in\phi(V_1)+\phi(V_2),\exists X_1'\in\phi(V_1),X_2'\in\phi(V_2),Y'=X_1'+X_2'$.
+
+    $\because\exists X_1\in V_1,X_2\in V_2,\phi(X_1)=X_1',\phi(X_2)=X_2'$.
+
+    $\therefore\exists Y=X_1+X_2,Y\in V_1+V_2,$
+    \[\phi(Y)=\phi(X_1+X_2)=\phi(X_1)+\phi(X_2)=X_1'+X_2'=Y.\]
+
+    $\therefore\phi(V_1+V_2)\supset\phi(V_1)+\phi(V_2)$.
+
+    $\therefore\phi(V_1+V_2)=\phi(V_1)+\phi(V_2)$.
+\end{proof}
+\begin{exercise}\label{ex3.8}
+    对于任意 $m\times s$ 矩阵 $A$ 和 $s\times n$ 矩阵 $B$, 证明
+    \[\operatorname{rank}A+\operatorname{rank}B-s\leq\operatorname{rank} AB.\]
+\end{exercise}
+下面是比较容易想到的证明方法(至少是我自己想到的方法).
+\begin{thought}
+    首先我们需要处理不等式中看似与矩阵的秩无关的 $s$ (事实上, 对 $s$ 的不同处理方法会导出不同的证明, 比如说将 $s$ 看成是 $M_s(\mathbb{R})$ 中的单位矩阵的秩就可以得到一般的教科书上的利用分块矩阵的证明). 这里我们利用等式 $s=\dim\mathbb{R}^s$ 将不等式变为
+    \[\operatorname{rank}A+\operatorname{rank}B-\dim\mathbb{R}^s\leq\operatorname{rank} AB.\]
+
+    然后我们把矩阵的秩都转化为线性包的维数. 注意到:
+    \begin{enumerate}
+        \item $V_c(B)\subset\dim\mathbb{R}^s$,
+        \item 设 $A$ 确定的线性映射为 $\phi_A$, 则 $\operatorname{rank}A=\dim\phi_A(\mathbb{R}^s),V_c(AB)=\phi_A(V_c(B))$,
+    \end{enumerate}
+
+    将不等式变为
+    \begin{align*}
+        \dim\phi_A(\mathbb{R}^s)-\dim\phi_A(V_c(B)) & \leq\dim\mathbb{R}^s-\dim V_c(B) \\
+        & =\dim\mathbb{R}^s\backslash V_c(B).
+    \end{align*}
+
+    如果能证明
+    \[\dim\phi_A(\mathbb{R}^s)-\dim\phi_A(V_c(B))\leq\dim\phi_A(\mathbb{R}^s\backslash V_c(B)),\]
+
+    那么只需证明
+    \[\dim\phi_A(\mathbb{R}^s\backslash V_c(B))\leq\dim\mathbb{R}^s\backslash V_c(B).\]
+\end{thought}
+\begin{proof}
+    设 $A$ 确定的线性映射为 $\phi_A$, $V_c(B)\subset\dim\mathbb{R}^s$ 为 $B$ 的列空间.
+
+    令 $C$ 是满足 $V_c(C)+V_c(B)=\mathbb{R}^s$ 的矩阵(注意这样的 $C$ 不一定是唯一的, 不过这不影响证明). 由书上的定理 3 得
+    \[\operatorname{rank}AC\leq\operatorname{rank}C.\]
+
+    由引理 \ref{l2.2} 得
+    \[\operatorname{rank}AC=\dim\phi_A(V_c(C)),\]
+
+    $\therefore$
+    \begin{equation}\label{eq2.4}
+        \dim\phi_A(V_c(C))\leq\dim V_c(C).
+    \end{equation}
+
+    $\because V_c(C)+V_c(B)=\mathbb{R}^s$, 由引理 \ref{l2.3} 得
+    \[\phi_A(V_c(C))+\phi_A(V_c(B))=\phi_A(V_c(C)+V_c(B))=\phi_A(\mathbb{R}^s).\]
+
+    由习题 \ref{ex1.7} 得
+    \begin{align*}
+        \dim\phi_A(\mathbb{R}^s) & =\dim(\phi_A(V_c(C))+\phi_A(V_c(B))) \\
+        & =\dim\phi_A(V_c(C))+\dim\phi_A(V_c(B))-\dim(\phi_A(V_c(C))\cap\phi_A(V_c(B))) \\
+        & \leq\dim\phi_A(V_c(C))+\dim\phi_A(V_c(B)).
+    \end{align*}
+
+    由 (\ref{eq2.4}) 式得
+    \begin{equation}\label{eq2.5}
+        \dim\phi_A(\mathbb{R}^s)\leq\dim V_c(C)+\dim\phi_A(V_c(B)).
+    \end{equation}
+
+    由引理 \ref{l2.2} 得
+    \[\dim\phi_A(\mathbb{R}^s)=\operatorname{rank}AE=\operatorname{rank}A,\]
+    \[\dim\phi_A(V_c(B))=\operatorname{rank}AB,\]
+
+    代入 (\ref{eq2.5}) 式得
+    \begin{equation}
+        \operatorname{rank}A\leq\dim V_c(C)+\operatorname{rank}AB.
+    \end{equation}
+
+    由习题 \ref{ex1.7} 得
+    \begin{align*}
+        & V_c(C)+V_c(B)=\mathbb{R}^s \\
+        \Rightarrow & \dim (V_c(C)+V_c(B))=\dim\mathbb{R}^s \\
+        \Rightarrow & \dim V_c(C)+\dim V_c(B)\leq\dim\mathbb{R}^s \\
+        \Rightarrow & \dim V_c(C)\leq\dim\mathbb{R}^s-\dim V_c(B)=s-\operatorname{rank}B.
+    \end{align*}
+
+    代入 (\ref{eq2.5}) 式得
+    \begin{align*}
+        & \operatorname{rank}A\leq s-\operatorname{rank}B+\operatorname{rank}AB \\
+        \Rightarrow & \operatorname{rank}A+\operatorname{rank}B-s\leq\operatorname{rank}AB.\qedhere
+    \end{align*}
+\end{proof}
+\setcounter{exercise}{13}
+\begin{exercise}% 3.14
+    设
+    \[A=\begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}.\]
+    
+    利用关系 $A^2=(a+d)A-(ad-bc)E$ 求解 $A^{-1}$.
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        & A^2=(a+d)A-(ad-bc)E \\
+        \Rightarrow & A^2=(a+d)AE-(ad-bc)E \\
+        \Rightarrow & A^2+(-a-d)AE=-(ad-bc)E.
+    \end{align*}
+
+    由线性映射的性质(ii),
+    \[(-a-d)AE=A(-a-d)E=A\operatorname{diag}(-a-d,-a-d).\]
+
+    $\therefore$ 原式
+    \[\Rightarrow A^2+A\operatorname{diag}(-a-d,-a-d)=-(ad-bc)E.\]
+
+    由线性映射的性质(i), 原式
+    \[\Rightarrow A(A-(a+d)E)=-(ad-bc)E.\]
+
+    由线性映射的性质(ii), 原式
+    \[\Rightarrow A\left(-\dfrac{1}{ad-bc}A+\dfrac{a+d}{ad-bc}E\right)=E.\]
+
+    $\therefore$
+    \begin{align*}
+        A^{-1} & =\left(-\dfrac{1}{ad-bc}A+\dfrac{a+d}{ad-bc}E\right) \\
+        & =\begin{pmatrix}
+            -\dfrac{a}{ad-bc}+\dfrac{a+d}{ad-bc} & -\dfrac{b}{ad-bc} \\[8pt]
+            -\dfrac{c}{ad-bc} & -\dfrac{d}{ad-bc}+\dfrac{a+d}{ad-bc}
+        \end{pmatrix} \\
+        & =\begin{pmatrix}
+            \dfrac{d}{ad-bc} & -\dfrac{b}{ad-bc} \\[8pt]
+            -\dfrac{c}{ad-bc} & \dfrac{a}{ad-bc}
+        \end{pmatrix}.
+    \end{align*}
+\end{solution}
+\stepcounter{exercise}
+\begin{exercise}% 3.16
+    证明: 若
+    \[\begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}^m=0,\]
+
+    则
+    \[\begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}^2=0.\]
+\end{exercise}
+\begin{proof}
+    设
+    \[A=\begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}.\]
+
+    由第 \ref{ex3.8} 题和书上第 3 节的定理 3 得
+    \[\operatorname{rank}A+\operatorname{rank}A-2\leq\operatorname{rank}A^2\leq\operatorname{rank}A,\]
+
+    \[\operatorname{rank}A^2+\operatorname{rank}A-2\leq\operatorname{rank}A^3\leq\operatorname{rank}A^2,\]
+
+    \[\cdots,\]
+
+    \[\operatorname{rank}A^{n-1}+\operatorname{rank}A-2\leq\operatorname{rank}A^3\leq\operatorname{rank}A^{n-1},\]
+
+    假设 $\operatorname{rank}A=2$, 则 $\operatorname{rank}A^m=2$, 与 $A^m=0\Rightarrow\operatorname{rank}A^m=0$ 矛盾. $\therefore\operatorname{rank}A\leq 1$.
+
+    若 $A$ 有一列全为 $0$, 不妨设 $a=c=0$, 则
+    \[A^2=\begin{pmatrix}
+        0 & bd \\
+        0 & d^2
+    \end{pmatrix},\quad A^3=\begin{pmatrix}
+        0 & bd^2 \\
+        0 & d^3
+    \end{pmatrix},\quad\cdots,\quad A^m=\begin{pmatrix}
+        0 & bd^{m-1} \\
+        0 & d^m
+    \end{pmatrix}.\]
+
+    若 $A^m=0$, 则 $d=0,A^2=0$.
+
+    假设 $A$ 的两列都不全为 $0$. $\because\operatorname{rank}A\leq1,\therefore A^{(1)},A^{(2)}$ 线性相关.
+
+    设 $A^{(1)}=[a,c],A^{(2)}=\lambda A^{(1)}\ (\lambda\neq0)$, 则
+    \begin{align*}
+        A^2 & =(AA^{(1)},AA^{(2)}) \\
+        & =(AA^{(1)},\lambda AA^{(1)}) \\
+        & =((A^{(1)},A^{(2)})[a,c],\lambda(A^{(1)},A^{(2)})[a,c]) \\
+        & =(aA^{(1)}+cA^{(2)},\lambda(aA^{(1)}+cA^{(2)})) \\
+        & =((a+\lambda c)A^{(1)},\lambda(a+\lambda c)A^{(1)}) \\
+        & =(\mu A^{(1)},\lambda\mu A^{(1)}) \\
+        & =\mu A\quad\mu \in\mathbb{R},
+    \end{align*}
+    \begin{align*}
+        A^3 & =(A(A^2)^{(1)},A(A^2)^{(2)}) \\
+        & =(\mu AA^{(1)},\lambda\mu AA^{(1)}) \\
+        & =\mu(AA^{(1)},\lambda AA^{(1)}) \\
+        & =\mu(\mu A^{(1)},\lambda\mu A^{(1)}) \\
+        & =\mu^2 A,
+    \end{align*}
+    \[\cdots,\]
+    \[A^m=\mu^{m-1} A.\]
+
+    $\because\lambda\neq0,A^{(1)}\neq0,\therefore A^m=0\Rightarrow \mu^{m-1}=0\Rightarrow \mu=0\Rightarrow\cdots\Rightarrow A^2=0$.
+\end{proof}
+\begin{exercise}% 3.17
+    设 $m\times s$ 矩阵
+    \[X=\begin{pmatrix}
+        X_{11} & X_{12} & \cdots & X_{1k} \\
+        X_{21} & X_{22} & \cdots & X_{2k} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        X_{l1} & X_{l2} & \cdots & X_{lk}
+    \end{pmatrix}\]
+
+    的块 $X_{ij}$ 是 $m_i\times s_j$ 矩阵 $(m_1+m_2+\cdots+m_l=m,s_1+s_2+\cdots+s_k=s)$, $s\times n$ 矩阵
+    \[Y=\begin{pmatrix}
+        Y_{11} & Y_{12} & \cdots & Y_{1r} \\
+        Y_{21} & Y_{22} & \cdots & Y_{2r} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        Y_{k1} & Y_{k2} & \cdots & Y_{kr} \\
+    \end{pmatrix}\]
+
+    的块 $Y_{ij}$ 是 $s_i\times n_j$ 矩阵 $(n_1+n_2+\cdots+n_r=n)$, 则 $Z=XY$ 可以分块计算, 它的块
+
+    \[Z_{ij}=\sum\limits_{t=1}^kX_{it}Y_{tj}.\]
+\end{exercise}
+\begin{proof}
+    将 $X,Y,Z$ 分成下列矩阵的和:
+    \[X=\sum\limits_{i=1}^{l}\sum\limits_{j=1}^{k}{}^{(ij)}X,\]
+    \[Y=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{r}{}^{(ij)}Y,\]
+    \[Z=\sum\limits_{i=1}^{l}\sum\limits_{j=1}^{r}{}^{(ij)}Z,\]
+
+    其中 ${}^{(ij)}X$ 的块 ${}^{(ij)}X_{ij}=X_{ij}$, 其余块都是零矩阵, ${}^{(ij)}X_{ut}=X_{ut}$, ${}^{(ij)}Y$ 的块 ${}^{(ij)}Y_{ij}=Y_{ij}$, 其余块都是零矩阵, ${}^{(ij)}Z$ 的块 ${}^{(ij)}Z_{ij}=Z_{ij}$, 其余块都是零矩阵.
+
+    由矩阵乘法的分配律得
+    \[Z=XY=\sum\limits_{a=1}^{l}\sum\limits_{b=1}^{k}\sum\limits_{c=1}^{k}\sum\limits_{d=1}^{r}{}^{(ab)}X{}^{(cd)}Y.\]
+
+    考察 $b\neq c$ 的情况.
+
+    定义 $s_{(0)}=0,s_{(i)}=s_1+s_2+\cdots+s_i$ (对 $m,n$ 也有类似的定义), 则 ${}^{(ab)}X{}^{(cd)}Y$ 的每一列都可以看成是 ${}^{(ab)}X$ 的第 $s_{(c-1)}+1,s_{(c-1)}+2,\cdots,s_{(c)}$ 列的线性组合.
+
+    $\because b\neq c,\therefore{}^{(ab)}X$ 的第 $s_{(c-1)}+1,s_{(c-1)}+2,\cdots,s_{(c)}$ 列都是 $0$.
+
+    $\therefore b\neq c\Rightarrow{}^{(ab)}X{}^{(cd)}Y=0$,
+    \begin{align*}
+        Z & =\sum\limits_{a=1}^{l}\sum\limits_{b=1}^{k}\sum\limits_{d=1}^{r}{}^{(ab)}X{}^{(bd)}Y \\
+        & =\sum\limits_{a=1}^{l}\sum\limits_{d=1}^{r}\left(\sum\limits_{b=1}^{k}{}^{(ab)}X{}^{(bd)}Y\right),
+    \end{align*}
+    \[Z=\sum\limits_{a=1}^{l}\sum\limits_{d=1}^{r}{}^{(ad)}Z,\]
+
+    $\therefore$
+    \begin{equation}\label{eq2.7}
+        \sum\limits_{a=1}^{l}\sum\limits_{d=1}^{r}\left({}^{(ad)}Z-\sum\limits_{b=1}^{k}{}^{(ab)}X{}^{(bd)}Y\right)=0.
+    \end{equation}
+
+    考察 $^{(ad)}Z'=\sum\limits_{b=1}^{k}{}^{(ab)}X{}^{(bd)}Y$ 的块 $^{(ad)}Z'_{ij}$. 设 $i\neq a$, 则 $\sum\limits_{b=1}^{k}{}^{(ab)}X{}^{(bd)}Y$ 中的每一个 $^{(ab)}X$ 的第 $m_{(i-1)}+1,m_{(i-1)}+2,\cdots,m_{(i)}$ 行都为 $0$,
+
+    $\therefore{}^{(ad)}Z'$ 的第 $m_{(i-1)}+1,m_{(i-1)}+2,\cdots,m_{(i)}$ 行都为 $0$, $\therefore Z'_{ij}=0$.
+
+    同理, 若 $j\neq d$, 则 $Z'_{ij}=0$.
+
+    $\therefore{}^{(ad)}Z'$ 的块 $^{(ad)}Z'_{ij}$ 中除 $^{(ad)}Z'_{ad}$ 外都是零矩阵.
+
+    $\therefore{}^{(ad)}Z-{}^{(ad)}Z'$ 的块 $^{(ad)}Z_{ij}-^{(ad)}Z'_{ij}$ 中除 $^{(ad)}Z_{ad}-^{(ad)}Z'_{ad}$ 外都是零矩阵.
+
+    假设 $\exists$ 非空集合 $U$ 使得 $\forall (a,d)\in U,{}^{(ad)}Z'\neq{}^{(ad)}Z,\forall (a,d)\in[1,l]\times[1,r]\backslash U,{}^{(ad)}Z'={}^{(ad)}Z$.
+
+    $\because\forall (a,d)\in U,$
+    \[{}^{(ad)}Z'-{}^{(ad)}Z=\sum\limits_{i=s(a-1)}^{s(a)}\sum\limits_{j=s(d-1)}^{s(d)}\lambda_{ij}E_{ij},\]
+
+    其中 $E_{ij}$ 为矩阵单位, 定义见书上的定理 4, $\therefore$
+    \begin{align*}
+        {}^{(ad)}Z'-{}^{(ad)}Z\in & \left<E_{s(a-1)s(d-1)},E_{s(a-1),s(d-1)+1},\cdots,E_{s(a-1)s(d)}\right. \\
+        & E_{s(a-1)+1,s(d-1)},E_{s(a-1)+1,s(d-1)+1},\cdots,E_{s(a-1)+1,s(d)}, \\
+        & \cdots, \\
+        & \left.E_{s(a)s(d-1)},E_{s(a),s(d-1)+1},\cdots,E_{s(a),s(d)}\right>
+    \end{align*}
+    
+    $\therefore$ 集合 $\{{}^{(ad)}Z-{}^{(ad)}Z'|(a,d)\in U\}$ 线性无关.
+
+    由 (\ref{eq2.7}) 式,
+    \[\sum\limits_{a=1}^{l}\sum\limits_{d=1}^{r}({}^{(ad)}Z'-{}^{(ad)}Z)=\sum\limits_{(a,d)\in U}({}^{(ad)}Z'-{}^{(ad)}Z)=0,\]
+
+    即关于 $x$ 的方程
+    \[\sum\limits_{(a,d)\in U}x_{ad}({}^{(ad)}Z'-{}^{(ad)}Z)=0\]
+
+    有非零解 $\{x_{ad}=1|(a,d)\in U\}$, 与集合 $\{{}^{(ad)}Z-{}^{(ad)}Z'|(a,d)\in U\}$ 线性无关矛盾.
+
+    $\therefore{}^{(ad)}Z'={}^{(ad)}Z,$
+    \[^{(ij)}Z_{ij}=\sum\limits_{t=1}^k{}^{(it)}X_{it}{}^{(tj)}Y_{tj}.\]
+
+    $\therefore$
+    \[Z_{ij}=\sum\limits_{t=1}^kX_{it}Y_{tj}.\qedhere\]
+\end{proof}
+\begin{note}
+    把 $^{(ad)}Z$ 之类的矩阵换成矩阵单位, 可以用类似的方法推导矩阵的乘法公式.
+\end{note}
+\begin{exercisec}[第 4 章的习题 3.9]
+    设 $A\in M_n(\mathbb{R}),B\in M_m(\mathbb{R})$ 可逆, $C$ 是任意的 $n\times m$ 矩阵, 证明
+    \[\begin{pmatrix}
+        A & C \\
+        0 & B
+    \end{pmatrix}\]
+
+    可逆, 并求其逆.
+\end{exercisec}
+\begin{proof}
+    $\because$
+    \[\begin{pmatrix}
+        A^{-1} & 0 \\
+        0 & B^{-1}
+    \end{pmatrix}\begin{pmatrix}
+        A & C \\
+        0 & B
+    \end{pmatrix}=\begin{pmatrix}
+        E_n & A^{-1}C \\
+        0 & E_m
+    \end{pmatrix},\]
+
+    而矩阵
+    \[\begin{pmatrix}
+        E_n & A^{-1}C \\
+        0 & E_m
+    \end{pmatrix}\]
+
+    经过初等行变换可以得到 $E_{m+n}$, $\therefore$ 原矩阵可逆.
+
+    考察矩阵
+    \[\begin{pmatrix}
+        E_n & A^{-1}C \\
+        0 & E_m
+    \end{pmatrix}.\]
+
+    将其第 $2$ 行的 $-A^{-1}C$ 倍加到第 $1$ 行得到 $E_{m+n}$. 可以把初等变换写成左乘分块初等矩阵的形式:
+    \[\begin{pmatrix}
+        E_n & -A^{-1}C \\
+        0 & E_m
+    \end{pmatrix}\begin{pmatrix}
+        E_n & A^{-1}C \\
+        0 & E_m
+    \end{pmatrix}=E_{m+n}.\]
+
+    $\therefore$
+    \[\begin{pmatrix}
+        E_n & -A^{-1}C \\
+        0 & E_m
+    \end{pmatrix}\begin{pmatrix}
+        A^{-1} & 0 \\
+        0 & B^{-1}
+    \end{pmatrix}\begin{pmatrix}
+        A & C \\
+        0 & B
+    \end{pmatrix}=E_{m+n},\]
+    \begin{align*}
+        \begin{pmatrix}
+            A & C \\
+            0 & B
+        \end{pmatrix}^{-1}
+        & =\begin{pmatrix}
+                E_n & -A^{-1}C \\
+                0 & E_m
+            \end{pmatrix}\begin{pmatrix}
+                A^{-1} & 0 \\
+                0 & B^{-1}
+            \end{pmatrix} \\
+        & =\begin{pmatrix}
+            A^{-1} & -A^{-1}CB^{-1} \\
+            0 & B^{-1}
+        \end{pmatrix}.\qedhere
+    \end{align*}
+\end{proof}
+\end{document}
