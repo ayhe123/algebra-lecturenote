@@ -5,7 +5,7 @@
 % 习题 4.3
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 \title{第3章笔记和习题}
 
 \begin{document}
@@ -220,10 +220,10 @@ $\therefore$
 
 $\because\forall\boldsymbol{x},\boldsymbol{y},[\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}]$, 与正交矩阵的情形类似, 有 ${}^tAJ_0A=J_0$.
 \begin{theorem}
-    $V$ 上的辛变换全体(记作 $\operatorname{Sp}(2m)$)是一个群.
+    $V$ 上的辛变换全体(记作 $\spop (2m)$)是一个群.
 \end{theorem}
 \begin{proof}
-    设 $\mathcal{A},\mathcal{B}\in\operatorname{Sp}(2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
+    设 $\mathcal{A},\mathcal{B}\in\spop (2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
     \[[\mathcal{AB}\boldsymbol{x}|\mathcal{AB}\boldsymbol{y}]=[\mathcal{A}(\mathcal{B}\boldsymbol{x})|\mathcal{A}(\mathcal{B}\boldsymbol{y})]=[\mathcal{B}\boldsymbol{x}|\mathcal{B}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}],\]
     \[[\mathcal{A}^{-1}\boldsymbol{x}|\mathcal{A}^{-1}\boldsymbol{y}]=[\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{x})|\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{y})]=[\boldsymbol{x}|\boldsymbol{y}].\]
 \end{proof}
@@ -410,7 +410,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     得 $(A^*)^{-1}=(A^{-1})^*$. $\therefore$
     \[(A^{-1})^*A^{-1}=(A^*)^{-1}A^{-1}=(A^*A)^{-1}=E^{-1}=E.\]
 
-    $\therefore A^{-1}\in U(n).\therefore U(n)$ 是 $\operatorname{GL}_n(\mathbb{C})$ 的子群.
+    $\therefore A^{-1}\in U(n).\therefore U(n)$ 是 $\gl _n(\mathbb{C})$ 的子群.
 \end{proof}
 \section{纯量积空间上的线性算子(对应第 3 节)}
 在这节中, 不加说明的话, $V$ 一律为域 $K$ 上的 $n$ 维纯量积空间($K=\mathbb{R}$ 则为 Euclid 空间, $K=\mathbb{C}$ 则为 Hermite 空间).
@@ -514,9 +514,9 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
     $\therefore\psi$ 是线性的.
 
-    $\because\forall\mathcal{A}\in\mathcal{L}(V),f(\boldsymbol{x},\boldsymbol{y})\in(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})\in\mathcal{L}_\theta(V,K),\therefore\psi$ 是满射. $\therefore\dim\operatorname{Im}\psi=\dim\mathcal{L}(V)=n^2$.
+    $\because\forall\mathcal{A}\in\mathcal{L}(V),f(\boldsymbol{x},\boldsymbol{y})\in(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})\in\mathcal{L}_\theta(V,K),\therefore\psi$ 是满射. $\therefore\dim\im \psi=\dim\mathcal{L}(V)=n^2$.
 
-    $\because\dim\ker\psi+\dim\operatorname{Im}\psi=\dim\mathcal{L}_\theta(V,K)=n^2,\therefore\ker\psi=\{\boldsymbol{0}\}$. $\therefore\psi$ 是双射. $\therefore\psi$ 是同构.
+    $\because\dim\ker\psi+\dim\im \psi=\dim\mathcal{L}_\theta(V,K)=n^2,\therefore\ker\psi=\{\boldsymbol{0}\}$. $\therefore\psi$ 是双射. $\therefore\psi$ 是同构.
 
     考察 $\psi\circ\phi$. $\forall\mathcal{A}\in\mathcal{L}(V)$, 设 $\phi(\mathcal{A})=f$, 则由 $\phi$ 的定义得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\psi(f)=\mathcal{A}_f$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y})$.
     
@@ -610,7 +610,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
     设当 $\dim V=n-1$ 时命题成立, 当 $\dim V=n$ 时, 由书上的引理 1,2 得 $\operatorname{Spec}\mathcal{A}\neq\varnothing$. 设 $\lambda_1\in\operatorname{Spec}\mathcal{A},\boldsymbol{e}$ 是 $\mathcal{A}$ 属于特征值 $\lambda_1\in\mathbb{R}$ 的特征向量. 设 $\boldsymbol{e}_1=\dfrac{\boldsymbol{e}}{\|\boldsymbol{e}\|}$, 则 $\mathcal{A}\boldsymbol{e}_1=\lambda_1\boldsymbol{e}_1$, $V=\left<\boldsymbol{e}_1\right>+\left<\boldsymbol{e}_1\right>^\perp$, 其中 $\dim\left<\boldsymbol{e}_1\right>^\perp=n-1$.
 
-    $\because\left<\boldsymbol{e}_1\right>$ 是 $\mathcal{A}$ 的不变子空间, 由书上的引理 3 得 $\left<\boldsymbol{e}_1\right>^\perp$ 也是 $\mathcal{A}$ 的不变子空间. $\therefore\operatorname{Im}\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}=\left<\boldsymbol{e}_1\right>^\perp$. $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 $\left<\boldsymbol{e}_1\right>^\perp$ 上的算子.
+    $\because\left<\boldsymbol{e}_1\right>$ 是 $\mathcal{A}$ 的不变子空间, 由书上的引理 3 得 $\left<\boldsymbol{e}_1\right>^\perp$ 也是 $\mathcal{A}$ 的不变子空间. $\therefore\im \mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}=\left<\boldsymbol{e}_1\right>^\perp$. $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 $\left<\boldsymbol{e}_1\right>^\perp$ 上的算子.
 
     $\because$ 若 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}\boldsymbol{y})$ 对 $\forall\boldsymbol{x},\boldsymbol{y}\in V$ 都成立, 则对 $\forall\boldsymbol{x},\boldsymbol{y}\in\left<\boldsymbol{e}_1\right>^\perp\subset V$ 也成立, $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 Hermite 算子.
 
@@ -709,10 +709,10 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
     \[A=\begin{pmatrix}
         0 & 1 \\
         -1 & 0 \\
-    \end{pmatrix}\in\operatorname{GL}_2(\mathbb{R}).\]
+    \end{pmatrix}\in\gl _2(\mathbb{R}).\]
     
     $\because\chi_A(t)=t^2+1$, $\therefore A$ 不能在域 $\mathbb{R}$ 上对角化. $\therefore A$ 不能写成
-    \[B^{-1}\operatorname{diag}(\lambda_1,\lambda_2)B,\quad \operatorname{diag}(\lambda_1,\lambda_2),B\in\operatorname{GL}_2(\mathbb{R})\]
+    \[B^{-1}\diag (\lambda_1,\lambda_2)B,\quad \diag (\lambda_1,\lambda_2),B\in\gl _2(\mathbb{R})\]
 
     的形式.
 \end{example}
@@ -727,7 +727,7 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
 
     $\therefore$ 在 $V^\lambda$ 上有 $(\mathcal{A}|_{V^\lambda})^*=\mathcal{A}^*|_{V^\lambda}$.
 
-    $\because\mathcal{A}|_{V^\lambda}$ 在 $V^\lambda$ 的任一基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda=\operatorname{diag}(\lambda,\cdots,\lambda)$, $\therefore\mathcal{A}^*|_{V^\lambda}=(\mathcal{A}|_{V^\lambda})^*$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda^*=\operatorname{diag}(\overline{\lambda},\cdots,\overline{\lambda})$. $\therefore$
+    $\because\mathcal{A}|_{V^\lambda}$ 在 $V^\lambda$ 的任一基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda=\diag (\lambda,\cdots,\lambda)$, $\therefore\mathcal{A}^*|_{V^\lambda}=(\mathcal{A}|_{V^\lambda})^*$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s$ 下的矩阵为 $A_\lambda^*=\diag (\overline{\lambda},\cdots,\overline{\lambda})$. $\therefore$
     \[\mathcal{A}^*V_\lambda=\{\overline{\lambda}\boldsymbol{x}|\boldsymbol{x}\in V^\lambda\}\subset V_\lambda.\qedhere\]
 \end{proof}
 \begin{proof}[不借助矩阵的证明]
@@ -785,7 +785,7 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
 
     由引理 \ref{l3.3} 得 $(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, 也是 $\mathcal{A}^*$ 不变的.
 
-    $\because(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, $\therefore\operatorname{Im}\mathcal{A}|_{(V^\lambda)^\perp}\subset\operatorname{Im}\mathcal{A}\subset(V^\lambda)^\perp$, $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子. 同理得 $\mathcal{A}^*|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子.
+    $\because(V^\lambda)^\perp$ 是 $\mathcal{A}$ 不变的, $\therefore\im \mathcal{A}|_{(V^\lambda)^\perp}\subset\im \mathcal{A}\subset(V^\lambda)^\perp$, $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子. 同理得 $\mathcal{A}^*|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的算子.
 
     由引理 \ref{l3.2} 借助矩阵的证明得 $(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}^*|_{(V^\lambda)^\perp}$. $\therefore$
     \[\mathcal{A}|_{(V^\lambda)^\perp}(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}|_{(V^\lambda)^\perp}\mathcal{A}^*|_{(V^\lambda)^\perp}=\mathcal{A}^*|_{(V^\lambda)^\perp}\mathcal{A}|_{(V^\lambda)^\perp}=(\mathcal{A}|_{(V^\lambda)^\perp})^*\mathcal{A}|_{(V^\lambda)^\perp}.\]
@@ -799,7 +799,7 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
 \begin{note}
     $\mathcal{A}$ 只在 $V$ 的标准正交基下可对角化, 而不是任意的基.
 
-    设矩阵 $A$ 可对角化, 即 $\exists B\in\operatorname{GL}_n(\mathbb{R})$ 使得 $A=B^{-1}\Lambda B$, 其中 $\Lambda$ 是对角矩阵. 则 $A^*=B^*\Lambda^*(B^{-1})^*$, $AA^*=B^{-1}\Lambda BB^*\Lambda^*(B^{-1})^*$, $A^*A=B^*\Lambda^*(B^{-1})^*B^{-1}\Lambda B$.
+    设矩阵 $A$ 可对角化, 即 $\exists B\in\gl _n(\mathbb{R})$ 使得 $A=B^{-1}\Lambda B$, 其中 $\Lambda$ 是对角矩阵. 则 $A^*=B^*\Lambda^*(B^{-1})^*$, $AA^*=B^{-1}\Lambda BB^*\Lambda^*(B^{-1})^*$, $A^*A=B^*\Lambda^*(B^{-1})^*B^{-1}\Lambda B$.
 
     如果 $AA^*=A^*A$, 则 $B^*=B^{-1}$, $\therefore B$ 是酉矩阵. 在一般的基下这不一定成立.
 \end{note}
@@ -845,7 +845,7 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
     (3) 假设 $\mathcal{A}$ 还有分解式
     \[\mathcal{A}=\sum\limits_{i=1}^r\mu_i\mathcal{Q}_i,\]
 
-    其中 $\mathcal{Q}_1,\mathcal{Q}_2,\cdots,\mathcal{Q}_r$ 是完全正交组. 设 $U_i=\operatorname{Im}\mathcal{Q}_i$, 由书上第 2 章第 3 节的定理 1 得
+    其中 $\mathcal{Q}_1,\mathcal{Q}_2,\cdots,\mathcal{Q}_r$ 是完全正交组. 设 $U_i=\im \mathcal{Q}_i$, 由书上第 2 章第 3 节的定理 1 得
     \begin{equation}\label{eq3.5}
         V=U_1\oplus U_2\oplus\cdots\oplus U_r.
     \end{equation}
@@ -923,7 +923,7 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
     设 $\mathcal{A}$ 是 Hermite 矩阵, 则 $\mathcal{A}$ 正定当且仅当 $\mathcal{A}$ 的特征值全 $>0$.
 \end{theorem}
 \begin{proof}
-    设 $\mathcal{A}$ 对应的二次型为 $f_\mathcal{A}$. $\because\mathcal{A}$ 是 Hermite 矩阵, 由定理 \ref{t3.5} 得 $\exists V$ 的一个标准正交基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为对角矩阵 $\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\in\operatorname{Spec}(A)$.
+    设 $\mathcal{A}$ 对应的二次型为 $f_\mathcal{A}$. $\because\mathcal{A}$ 是 Hermite 矩阵, 由定理 \ref{t3.5} 得 $\exists V$ 的一个标准正交基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为对角矩阵 $\diag (\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\in\operatorname{Spec}(A)$.
 
     ($\Rightarrow$) $\because f_\mathcal{A}(\boldsymbol{e}_i)=(\mathcal{A}\boldsymbol{e}_i|\boldsymbol{e}_i)=(\lambda\boldsymbol{e}_i|\boldsymbol{e}_i)=\lambda(\boldsymbol{e}_i|\boldsymbol{e}_i)>0$, $\therefore\lambda_i>0$.
 
@@ -938,7 +938,7 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
 
     $\because\sum\limits_{i=1}^nx_i\overline{x}_i\lambda_i\geq0$ (当且仅当 $\prod\limits_{i=1}^nx_i=0$ 时取等号). 由书上的定义 6, $\mathcal{A}$ 是正定的.
 \end{proof}
-沿用定理证明中的记号. $\because\lambda_i>0$, $\therefore$ 有算子 $\mathcal{B}$, 其在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $\operatorname{diag}(\sqrt{\lambda_1},\sqrt{\lambda_2},\cdots,\sqrt{\lambda_n})$. 容易验证: (1) $\mathcal{B}$ 正定; (2) $\mathcal{B}^2=\mathcal{A}$. 这相当于证明了下面的定理中 $\mathcal{B}$ 的存在性:
+沿用定理证明中的记号. $\because\lambda_i>0$, $\therefore$ 有算子 $\mathcal{B}$, 其在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $\diag (\sqrt{\lambda_1},\sqrt{\lambda_2},\cdots,\sqrt{\lambda_n})$. 容易验证: (1) $\mathcal{B}$ 正定; (2) $\mathcal{B}^2=\mathcal{A}$. 这相当于证明了下面的定理中 $\mathcal{B}$ 的存在性:
 \begin{theorem}[书上的命题 1]
     设 $\mathcal{A}$ 是正定算子, 则 $\exists!$ 正定算子 $\mathcal{B}$ 使得 $\mathcal{A}=\mathcal{B}^2$.
 \end{theorem}
@@ -1406,7 +1406,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
 \end{solution}
 \begin{exercise}\label{ex1.3}
-    证明: $\forall A=(a_{ij})\in\operatorname{GL}_n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
+    证明: $\forall A=(a_{ij})\in\gl _n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
 \end{exercise}
 \begin{proof}
     考察 $A$ 的列空间 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
@@ -1513,7 +1513,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
             \vdots  & \vdots  & \ddots & \vdots \\
             (A_{(n)}|A_{(1)}) & (A_{(n)}|A_{(2)}) & \cdots & (A_{(n)}|A_{(n)}) \\
         \end{pmatrix} \\
-        & =\operatorname{diag}(\|A_{(1)}\|^2,\|A_{(2)}\|^2,\cdots,\|A_{(n)}\|^2).
+        & =\diag (\|A_{(1)}\|^2,\|A_{(2)}\|^2,\cdots,\|A_{(n)}\|^2).
     \end{align*}
 
     $\therefore$
@@ -1570,14 +1570,14 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\therefore{}^t\bar{A}=A$. $\therefore A$ 是 Hermite 矩阵.
 \end{proof}
 \begin{exercisec}% 补充题 2
-    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in\operatorname{GL}_n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
+    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in\gl _n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
 \end{exercisec}
 \begin{proof}
     ($\Rightarrow$) 由书上的定义 2, $V$ 是 Hermite 空间. $\therefore V$ 中有标准正交基 $(\boldsymbol{e}_i)$ 使得 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $E$.
 
-    由式 (\ref{eq2.1}) 得 $\exists Q\in\operatorname{GL}_n(\mathbb{C})$ 使得 $A={}^tQE\overline{Q}={}^tQ\overline{Q}$. 设 $P=\overline{Q}\in\operatorname{GL}_n(\mathbb{C})$, 则 $A=P^*P$.
+    由式 (\ref{eq2.1}) 得 $\exists Q\in\gl _n(\mathbb{C})$ 使得 $A={}^tQE\overline{Q}={}^tQ\overline{Q}$. 设 $P=\overline{Q}\in\gl _n(\mathbb{C})$, 则 $A=P^*P$.
 
-    ($\Leftarrow$) 设 $Q=\overline{P}\in\operatorname{GL}_n(\mathbb{C})$, 则 $A={}^tQ\overline{Q}$. $\therefore\forall X\in\mathbb{C}^n$,
+    ($\Leftarrow$) 设 $Q=\overline{P}\in\gl _n(\mathbb{C})$, 则 $A={}^tQ\overline{Q}$. $\therefore\forall X\in\mathbb{C}^n$,
     \[{}^tXA\overline{X}={}^tX{}^tQ\overline{Q}\overline{X}={}^t(QX)\overline{QX}.\]
 
     设 $QX=[y_1,y_2,\cdots,y_n]\in\mathbb{C}^n$, 则
@@ -1585,7 +1585,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
         {}^t(QX)\overline{QX} & =y_1\overline{y_1}+y_2\overline{y_2}+\cdots+y_n\overline{y_n} \\
         & =|y_1|^2+|y_2|^2+\cdots+|y_n|^2\geq0,
     \end{align*}
-    (当且仅当 $QX=0$ 时取等号. $\because Q\in\operatorname{GL}_n(\mathbb{C})$, $\therefore$ 当且仅当 $X=0$ 时取等号.)
+    (当且仅当 $QX=0$ 时取等号. $\because Q\in\gl _n(\mathbb{C})$, $\therefore$ 当且仅当 $X=0$ 时取等号.)
 
     $\therefore A$ 是正定的.
 \end{proof}
@@ -1601,7 +1601,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 \subsection{习题 3.3}
 \stepcounter{exsection}
 \begin{exercise}% 3.1
-    证明: 任一相似于 $B=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\overline{\lambda}_i=1,\lambda_1\lambda_2\cdots\lambda_n=1$ 的酉矩阵 $A\in U(n)$ 都有分解式 $A=XYX^{-1}Y^{-1}$, 其中 $X,Y$ 是酉矩阵.
+    证明: 任一相似于 $B=\diag (\lambda_1,\lambda_2,\cdots,\lambda_n)$, 其中 $\lambda_i\overline{\lambda}_i=1,\lambda_1\lambda_2\cdots\lambda_n=1$ 的酉矩阵 $A\in U(n)$ 都有分解式 $A=XYX^{-1}Y^{-1}$, 其中 $X,Y$ 是酉矩阵.
 \end{exercise}
 \begin{proof}
     由推论 \ref{c3.3} 得 $A$ 有分解式 $A=C^{-1}BC$, 其中 $C\in U(n)$. 考虑矩阵
@@ -1761,7 +1761,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because\mathcal{A},\mathcal{B}$ 正定, 由定理 \ref{t3.5} 得 $\mathcal{A},\mathcal{B}$ 可对角化. 由第 \ref{ex3.4} 题得 $\exists V$ 的标准正交基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A},\mathcal{B}$ 在这个基下的矩阵 $A,B$ 由 $\mathcal{A},\mathcal{B}$ 的特征值构成.
     
-    由定理 \ref{t3.11} 得 $\mathcal{A},\mathcal{B}$ 的特征值 $>0$, $\therefore\mathcal{AB}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $AB=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$ 满足 $\lambda_i>0$. 由定理 \ref{t3.11} 得 $\mathcal{AB}$ 是正定的.
+    由定理 \ref{t3.11} 得 $\mathcal{A},\mathcal{B}$ 的特征值 $>0$, $\therefore\mathcal{AB}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $AB=\diag (\lambda_1,\lambda_2,\cdots,\lambda_n)$ 满足 $\lambda_i>0$. 由定理 \ref{t3.11} 得 $\mathcal{AB}$ 是正定的.
 \end{proof}
 \begin{exercise}% 3.6
     设 $A\in M_n(\mathbb{R})$ 是斜对称矩阵, 证明: (1) $A^2$ 是对称的负定矩阵.
@@ -1844,14 +1844,14 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     设
     \[\mathfrak{G}=\{A_i\in M_n(\mathbb{C}),i\in I|A_iA_j=A_jA_i,\forall i,j\in I\},\]
 
-    证明: (1) $\exists C\in\operatorname{GL}_n(\mathbb{C})$ 使得
+    证明: (1) $\exists C\in\gl _n(\mathbb{C})$ 使得
     \[C^{-1}\mathfrak{G}C=\{C^{-1}A_iC|i\in I\}\]
     是由上三角矩阵组成的.
 
     (2) $C^{-1}\mathfrak{G}C$ 中的元素是可交换的.
 \end{exercise}
 \begin{proof}
-    (1) 对矩阵的阶数 $n$ 用数学归纳法. $1$ 阶矩阵都是上三角矩阵. 假设命题对 $n-1$ 阶矩阵构成的 $\mathfrak{G}'$ 成立. 由第 \ref{ex3.9} 题得 $\mathfrak{G}$ 中的矩阵有共同的特征向量 $X=[x_1,x_2,\cdots,x_n]\neq0$. 设 $C\in\operatorname{GL}_n(\mathbb{C})$ 是第 $1$ 列为 $X$ 的矩阵, 则 $\forall i\in I$,
+    (1) 对矩阵的阶数 $n$ 用数学归纳法. $1$ 阶矩阵都是上三角矩阵. 假设命题对 $n-1$ 阶矩阵构成的 $\mathfrak{G}'$ 成立. 由第 \ref{ex3.9} 题得 $\mathfrak{G}$ 中的矩阵有共同的特征向量 $X=[x_1,x_2,\cdots,x_n]\neq0$. 设 $C\in\gl _n(\mathbb{C})$ 是第 $1$ 列为 $X$ 的矩阵, 则 $\forall i\in I$,
     \[C^{-1}A_iC=\begin{pmatrix}
         \lambda_i & * \\
         0 & B_i \\
@@ -1875,7 +1875,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[F=\begin{pmatrix}
         1 & * \\
         0 & D \\
-    \end{pmatrix}\in\operatorname{GL}_n(\mathbb{C}),\]
+    \end{pmatrix}\in\gl _n(\mathbb{C}),\]
 
     则 $\forall i$,
     \[(CF)^{-1}A_iCF=F^{-1}C^{-1}A_iCF=\begin{pmatrix}
@@ -1884,7 +1884,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \end{pmatrix}\]
     是上三角矩阵.
 
-    $\therefore\exists(CF)\in\operatorname{GL}_n(\mathbb{C})$ 使得
+    $\therefore\exists(CF)\in\gl _n(\mathbb{C})$ 使得
     \[(CF)^{-1}\mathfrak{G}CF=\{C^{-1}A_iC|i\in I\}\]
     是由上三角矩阵组成的.
 
@@ -1897,7 +1897,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[\begin{pmatrix}
         \Sigma & 0 \\
         0 & 0 \\
-    \end{pmatrix},\quad\Sigma=\operatorname{diag}(\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\]
+    \end{pmatrix},\quad\Sigma=\diag (\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\]
 \end{exercisec}
 \begin{proof}
     $\because\mathcal{A}^*\mathcal{A}$ 是 Hermite 算子, 由定理 \ref{t3.5} 得 $\exists V$ 的标准正交基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_m$ 使得 $\mathcal{A}^*\mathcal{A}$ 在上述基下的矩阵为实对角矩阵 $\Lambda$.
@@ -1908,7 +1908,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     
     $\therefore\forall\boldsymbol{x}\in V,\mathcal{A}^*\mathcal{A}\boldsymbol{x}=\boldsymbol{0}\Rightarrow\mathcal{A}\boldsymbol{x}=\boldsymbol{0}$. $\therefore\ker\mathcal{A}\supset\ker\mathcal{A}^*\mathcal{A}$.
 
-    $\because\ker\mathcal{A}\subset\ker\mathcal{A}^*\mathcal{A}$, $\therefore\ker\mathcal{A}=\ker\mathcal{A}^*\mathcal{A}$. $\therefore\operatorname{rank}\mathcal{A}^*\mathcal{A}=\operatorname{rank}\mathcal{A}=r$. $\therefore\Lambda$ 的对角线上有 $r$ 个非零元素.
+    $\because\ker\mathcal{A}\subset\ker\mathcal{A}^*\mathcal{A}$, $\therefore\ker\mathcal{A}=\ker\mathcal{A}^*\mathcal{A}$. $\therefore\rank \mathcal{A}^*\mathcal{A}=\rank \mathcal{A}=r$. $\therefore\Lambda$ 的对角线上有 $r$ 个非零元素.
 
     设 $\lambda$ 是 $\mathcal{A}^*\mathcal{A}$ 的特征值, $\boldsymbol{v}$ 是对应的特征向量, 则
     \[\|\mathcal{A}\boldsymbol{v}\|^2=\boldsymbol{v}^*\mathcal{A}^*\mathcal{A}\boldsymbol{v}=\boldsymbol{v}^*(\lambda\boldsymbol{v})=\lambda\|\boldsymbol{v}\|^2,\quad\lambda=\dfrac{\|\mathcal{A}\boldsymbol{v}\|^2}{\|\boldsymbol{v}\|^2}\geq0.\]
@@ -1936,14 +1936,14 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[\begin{pmatrix}
         \Sigma & 0 \\
         0 & 0 \\
-    \end{pmatrix},\quad\Sigma=\operatorname{diag}(\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\qedhere\]
+    \end{pmatrix},\quad\Sigma=\diag (\sigma_1,\cdots,\sigma_r),\quad\sigma_i>0.\qedhere\]
 \end{proof}
 \begin{note}
     特别地, 当 $V=\mathbb{R}^m,U=\mathbb{R}^n$ 时, 选取适当的标准正交基, 使得
     \[A=B\begin{pmatrix}
         \Sigma & 0 \\
         0 & 0 \\
-    \end{pmatrix}{}^tC,\quad\Sigma=\operatorname{diag}(\sigma_1,\sigma_2,\cdots,\sigma_r),\quad \sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0,\]
+    \end{pmatrix}{}^tC,\quad\Sigma=\diag (\sigma_1,\sigma_2,\cdots,\sigma_r),\quad \sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r>0,\]
 
     上式称为 $A$ 的\textbf{奇异值分解}.
 \end{note}
@@ -1970,7 +1970,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
         B & A \\
     \end{pmatrix},\]
 
-    其中 $A=\operatorname{diag}(a_1,a_2,\cdots,a_m),B=\operatorname{diag}(b_1,b_2,\cdots,b_m)$. 由书上的命题 2 得 $\mathcal{A}\in\mathcal{L}(U)_\mathbb{R}$.
+    其中 $A=\diag (a_1,a_2,\cdots,a_m),B=\diag (b_1,b_2,\cdots,b_m)$. 由书上的命题 2 得 $\mathcal{A}\in\mathcal{L}(U)_\mathbb{R}$.
 \end{proof}
 \begin{exercise}% 4.2
     证明书上的命题 3: 设 $\mathcal{A}\in\mathcal{L}(U),\mathcal{A}_\mathbb{R}$ 是 $\mathcal{A}$ 的实化算子, 则 $\det\mathcal{A}_\mathbb{R}=|\det\mathcal{A}|^2$.

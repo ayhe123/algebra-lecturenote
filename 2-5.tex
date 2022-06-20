@@ -8,7 +8,7 @@
 % 习题 3.2 需要求出 $\mathbb{F}_2\mathbb{P}^2$ 中处于一般位置的点组(给定一个点的情况下)的个数
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 \title{第5章笔记和习题}
 
 \begin{document}
@@ -70,7 +70,7 @@
     & =(\phi_0+{}^tBCB-2{}^tAB)+({}^tAF-{}^tB{}^tCF)X'+({}^tAF-{}^tBCF)Y'+{}^tX'{}^tFCFY',
 \end{align*}
 
-考察 $\phi(\dot{p},\dot{q})$ 的二次部分, 其在 $\{\dot{o}',\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'\}$ 下的系数矩阵为 ${}^tFCF$. $\because F\in\operatorname{GL}_n$, $\therefore\operatorname{rank}C=\operatorname{rank}{}^tFCF$, 即 $\phi(\dot{p},\dot{q})$ 的二次部分的系数矩阵的秩与坐标的选取无关. 记 $\operatorname{rank}\phi=\operatorname{rank}C$.
+考察 $\phi(\dot{p},\dot{q})$ 的二次部分, 其在 $\{\dot{o}',\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'\}$ 下的系数矩阵为 ${}^tFCF$. $\because F\in\gl _n$, $\therefore\rank C=\rank {}^tFCF$, 即 $\phi(\dot{p},\dot{q})$ 的二次部分的系数矩阵的秩与坐标的选取无关. 记 $\rank \phi=\rank C$.
 
 跟前一章一样, 将线性空间与仿射空间中的函数的概念做比较, 如表 \ref{tb1}.
 \begin{table}\caption{线性空间与仿射空间的概念}\label{tb1}
@@ -173,7 +173,7 @@
     设 $Q$ 是 $\mathbb{A}$ 上的二次函数, 如果 $C(Q)\neq\varnothing$, 则 $\exists$ 坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
     \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+\phi_0,\]
 
-    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\operatorname{rank}Q$.
+    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q$.
 \end{theorem}
 \begin{proof}
     取 $\dot{o}\in C(Q)$, 则
@@ -197,10 +197,10 @@
     设 $Q$ 是 $\mathbb{A}$ 上的二次函数, 如果 $C(Q)=\varnothing$, 则 $\exists$ 坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
     \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+2x_{r+1},\]
 
-    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\operatorname{rank}Q$.
+    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q$.
 \end{theorem}
 \begin{proof}
-    设 $f$ 是 $Q$ 的二次部分 $q$ 对应的双线性型. $\because C(Q)=\varnothing,\therefore$ 方程组 (\ref{eq1.5})\footnote{在方程组中出现的记号的含义与方程组前面的定义一致.} 没有解, $\therefore r=\operatorname{rank}f<n$.
+    设 $f$ 是 $Q$ 的二次部分 $q$ 对应的双线性型. $\because C(Q)=\varnothing,\therefore$ 方程组 (\ref{eq1.5})\footnote{在方程组中出现的记号的含义与方程组前面的定义一致.} 没有解, $\therefore r=\rank f<n$.
 
     由书上第 1 章第 4 节定理 4 的推论 1, $\exists V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 使得 $q$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下取规范形式, 即 $\forall\boldsymbol{x}\in V$,
     \[q(\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r.\]
@@ -231,7 +231,7 @@
     设 $Q$ 是 $\mathbb{E}$ 上的二次函数, 如果 $C(Q)\neq\varnothing$, 则 $\exists$ 直角坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
     \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r+\phi_0,\]
 
-    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\operatorname{rank}Q$, $\lambda_i$ 在不计重数的意义下是唯一的.
+    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q$, $\lambda_i$ 在不计重数的意义下是唯一的.
 \end{theorem}
 \begin{proof}
     取 $\dot{o}\in C(Q)$, 则
@@ -248,10 +248,10 @@
     设 $Q$ 是 $\mathbb{E}$ 上的二次函数, 如果 $C(Q)=\varnothing$, 则 $\exists$ 直角坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
     \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r+2\mu x_{r+1},\]
 
-    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\operatorname{rank}Q,\lambda_i,\mu$ 在不计重数的意义下是唯一的.
+    其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q,\lambda_i,\mu$ 在不计重数的意义下是唯一的.
 \end{theorem}
 \begin{proof}
-    设 $f$ 是 $Q$ 的二次部分 $q$ 对应的双线性型. $\because C(Q)=\varnothing,\therefore$ 方程组 (\ref{eq1.5}) 没有解, $\therefore r=\operatorname{rank}f<n$.
+    设 $f$ 是 $Q$ 的二次部分 $q$ 对应的双线性型. $\because C(Q)=\varnothing,\therefore$ 方程组 (\ref{eq1.5}) 没有解, $\therefore r=\rank f<n$.
 
     由书上第 3 章第 3 节的定理 7, $\exists V$ 的一个标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 使得 $q$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下取规范形式, 即 $\forall\boldsymbol{x}\in V$,
     \[q(\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r.\]
@@ -709,7 +709,7 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
 \subsection{射影群}
 有两种看待射影空间 $\mathbb{P}(V)$ 的观点: $V$ 中 $1$ 维子空间全体和 $V^*/\sim$, 其中 $\boldsymbol{x}\sim\boldsymbol{y}\Leftrightarrow\exists\lambda,\boldsymbol{x}=\lambda\boldsymbol{y}$. 书上用第二种观点来定义射影变换, 其实用第一种观点来定义更为直观, 在处理一些问题的时候也更方便.
 
-设 $\mathcal{A}\in\operatorname{GL}(V)$, 则 $\mathcal{A}$ 把 $V$ 中的 $1$ 维子空间映成 $1$ 维子空间. $\therefore$
+设 $\mathcal{A}\in\gl (V)$, 则 $\mathcal{A}$ 把 $V$ 中的 $1$ 维子空间映成 $1$ 维子空间. $\therefore$
 \[\widetilde{\mathcal{A}}:\begin{array}{rcl}
     \mathbb{P}(V) & \to & \mathbb{P}(V) \\
     l & \to & \mathcal{A}l=\{\mathcal{A}\boldsymbol{x}|\boldsymbol{x}\in l\} \\
@@ -726,14 +726,14 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
 \begin{theorem}
     设仿射图 $\mathbb{E}_0=\boldsymbol{e}_0+\left<\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n\right>$, 则映射
     \[\sigma:\begin{array}{rcl}
-        \operatorname{Aff}(\mathbb{E}_0) & \to & \operatorname{PGL}(V) \\
+        \aff (\mathbb{E}_0) & \to & \pgl (V) \\
         \tau & \to & \widetilde{\mathcal{A}} \\
     \end{array}\]
     是同态.
 \end{theorem}
 \begin{proof}
     设 $\mathbb{E}_0$ 中的点 $\dot{p}$ 在坐标系 $\{\boldsymbol{e}_0;\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n\}$ 下的坐标为 $[x_1,x_2,\cdots,x_n]$, 可逆的仿射变换 $\tau$ 在坐标系 $\{\boldsymbol{e}_0;\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n\}$ 下具有形式
-    \[\tau(\dot{p})=A[x_1,x_2,\cdots,x_n]+[a_{10},\cdots,a_{n0}]\quad A=(a_{ij})\in\operatorname{GL}_n(K),a_{i0}\in K.\]
+    \[\tau(\dot{p})=A[x_1,x_2,\cdots,x_n]+[a_{10},\cdots,a_{n0}]\quad A=(a_{ij})\in\gl _n(K),a_{i0}\in K.\]
 
     设 $\tau(\dot{p})$ 在坐标系 $\{\boldsymbol{e}_0;\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n\}$ 下的坐标为 $[y_1,y_2,\cdots,y_n]$, 则
     \[y_j=\sum\limits_{i=1}^na_{ij}x_i+a_{j0},\quad j=1,2,\cdots,n\]
@@ -750,11 +750,11 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
         A^{(0)} & A \\
     \end{pmatrix},\quad A^{(0)}=[a_{10},\cdots,a_{n0}].\]
 
-    $\because A\in\operatorname{GL}_n(K)$, $\therefore\mathcal{A}$ 可逆. $\therefore\sigma$ 是确切定义的.
+    $\because A\in\gl _n(K)$, $\therefore\mathcal{A}$ 可逆. $\therefore\sigma$ 是确切定义的.
 
     设仿射变换 $\tau_1,\tau_2$ 在坐标系 $\{\boldsymbol{e}_0;\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n\}$ 下具有形式
-    \[\tau_1(\dot{p})=A_1[x_1,x_2,\cdots,x_n]+B_1\quad A_1\in\operatorname{GL}_n(K),B_1\in K^n,\]
-    \[\tau_2(\dot{p})=A_2[x_1,x_2,\cdots,x_n]+B_2\quad A_2\in\operatorname{GL}_n(K),B_2\in K^n,\]
+    \[\tau_1(\dot{p})=A_1[x_1,x_2,\cdots,x_n]+B_1\quad A_1\in\gl _n(K),B_1\in K^n,\]
+    \[\tau_2(\dot{p})=A_2[x_1,x_2,\cdots,x_n]+B_2\quad A_2\in\gl _n(K),B_2\in K^n,\]
 
     则
     \[\tau_2\tau_1(\dot{p})=A_2A_1[x_1,x_2,\cdots,x_n]+A_2B_1+B_2.\]
@@ -775,10 +775,10 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
 \end{proof}
 \subsection{射影几何的简单结论}
 \begin{theorem}
-    $\operatorname{PGL}(V)$ 可以把 $\mathbb{P}(V)$ 上的任意一点 $\tilde{x}$ 变为另一点 $\tilde{y}$.
+    $\pgl (V)$ 可以把 $\mathbb{P}(V)$ 上的任意一点 $\tilde{x}$ 变为另一点 $\tilde{y}$.
 \end{theorem}
 \begin{proof}
-    $\forall\boldsymbol{x},\boldsymbol{y}\in V\backslash\{0\}$, $\exists\mathcal{A}\in\operatorname{GL}(V)$ 使得 $\mathcal{A}\boldsymbol{x}=\boldsymbol{y}\Rightarrow\widetilde{\mathcal{A}}\tilde{\boldsymbol{x}}=\tilde{\boldsymbol{y}}$. 也可以由 $\widetilde{\mathcal{A}}$ 的双射性 (书上 P213) 得.
+    $\forall\boldsymbol{x},\boldsymbol{y}\in V\backslash\{0\}$, $\exists\mathcal{A}\in\gl (V)$ 使得 $\mathcal{A}\boldsymbol{x}=\boldsymbol{y}\Rightarrow\widetilde{\mathcal{A}}\tilde{\boldsymbol{x}}=\tilde{\boldsymbol{y}}$. 也可以由 $\widetilde{\mathcal{A}}$ 的双射性 (书上 P213) 得.
 \end{proof}
 \begin{theorem}
     设 $U$ 是 $V$ 的子空间, 则 $\widetilde{\mathcal{A}}\mathbb{P}(U)=\mathbb{P}(\mathcal{A}U)$ 是射影平面.
@@ -794,13 +794,13 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
 \end{proof}
 下面的性质是射影空间特有的, 在射影变换下不变的点比仿射空间的多一个.
 \begin{theorem}[书上的定理 3]\label{t3.10}
-    设 $\tilde{\boldsymbol{x}}_0,\tilde{\boldsymbol{x}}_1,\cdots,\tilde{\boldsymbol{x}}_{n+1}$ 和 $\tilde{\boldsymbol{y}}_0,\tilde{\boldsymbol{y}}_1,\cdots,\tilde{\boldsymbol{y}}_{n+1}$ 是处于一般位置的点组, 则 $\exists!\widetilde{\mathcal{A}}\in\operatorname{PGL}(V)$ 使得 $\widetilde{\mathcal{A}}\tilde{\boldsymbol{x}}_i=\tilde{\boldsymbol{y}_i},\ i=0,1,\cdots,n+1$.
+    设 $\tilde{\boldsymbol{x}}_0,\tilde{\boldsymbol{x}}_1,\cdots,\tilde{\boldsymbol{x}}_{n+1}$ 和 $\tilde{\boldsymbol{y}}_0,\tilde{\boldsymbol{y}}_1,\cdots,\tilde{\boldsymbol{y}}_{n+1}$ 是处于一般位置的点组, 则 $\exists!\widetilde{\mathcal{A}}\in\pgl (V)$ 使得 $\widetilde{\mathcal{A}}\tilde{\boldsymbol{x}}_i=\tilde{\boldsymbol{y}_i},\ i=0,1,\cdots,n+1$.
 \end{theorem}
 \begin{proof}
     有
     \[\left<\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_{n+1}\right>=V=\left<\boldsymbol{y}_1,\boldsymbol{y}_2,\cdots,\boldsymbol{y}_{n+1}\right>.\]
 
-    $\therefore\exists\mathcal{B}\in\operatorname{GL}(V)$ 使得 $\mathcal{B}\boldsymbol{x}_i=\boldsymbol{y}_i,i=1,2,\cdots,n+1$. 然而不能保证有 $\mathcal{B}\boldsymbol{x}_0=\boldsymbol{y}_0$. 设
+    $\therefore\exists\mathcal{B}\in\gl (V)$ 使得 $\mathcal{B}\boldsymbol{x}_i=\boldsymbol{y}_i,i=1,2,\cdots,n+1$. 然而不能保证有 $\mathcal{B}\boldsymbol{x}_0=\boldsymbol{y}_0$. 设
     \[\boldsymbol{x}_0=\sum\limits_{i=1}^{n+1}\alpha_i\boldsymbol{x}_i,\quad\boldsymbol{y}_0=\sum\limits_{i=1}^{n+1}\alpha_i\boldsymbol{y}_i.\]
 
     假设 $\exists\alpha_i=0$, 则有
@@ -813,9 +813,9 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
     定义
     \[\mathcal{C}:\boldsymbol{x}_i\to\dfrac{\beta_i}{\alpha_i}\boldsymbol{y}_i,\quad i=1,2,\cdots,n+1.\]
 
-    $\because\beta_i\neq0,\ i=1,2,\cdots,n+1$, $\therefore\mathcal{C}\in\operatorname{GL}(V)$.
+    $\because\beta_i\neq0,\ i=1,2,\cdots,n+1$, $\therefore\mathcal{C}\in\gl (V)$.
 
-    考察 $\mathcal{A}=\mathcal{CB}\in\operatorname{GL}(V)$. 有 $\mathcal{A}\boldsymbol{x}_i=\lambda_i\boldsymbol{y}_i,\ i=1,2,\cdots,n+1$,
+    考察 $\mathcal{A}=\mathcal{CB}\in\gl (V)$. 有 $\mathcal{A}\boldsymbol{x}_i=\lambda_i\boldsymbol{y}_i,\ i=1,2,\cdots,n+1$,
     \[\mathcal{A}\boldsymbol{x}_0=\mathcal{A}\sum\limits_{i=1}^{n+1}\alpha_i\boldsymbol{x}_i=\sum\limits_{i=1}^{n+1}\alpha_i\mathcal{A}\boldsymbol{x}_i=\sum\limits_{i=1}^{n+1}\alpha_i\lambda_i\boldsymbol{y}_i=\sum\limits_{i=1}^{n+1}\beta_i\boldsymbol{y}_i=\boldsymbol{y}_0.\]
 
     $\therefore\widetilde{\mathcal{A}}\tilde{\boldsymbol{x}}_i=\widetilde{\mathcal{A}\boldsymbol{x}_i}=\tilde{\boldsymbol{y}}_i,\ i=0,1,\cdots,n+1$.
@@ -1291,10 +1291,10 @@ $\because\tilde{\boldsymbol{u}}\in S$, $\therefore$
     令 $\tilde{p}_0=\tilde{p},\tilde{q}_0=\tilde{q}$, 从 $\mathbb{F}_2\mathbb{P}^2$ 中取处于一般位置的点组 $\tilde{p},\tilde{p}_1,\tilde{p}_2,\tilde{p}_3$ 和 $\tilde{q},\tilde{q}_1,\tilde{q}_2,\tilde{q}_3$, 可以构造出满足 $\widetilde{\mathcal{A}}\tilde{p}=\tilde{q}$ 的射影变换 $\widetilde{\mathcal{A}}$.
 \end{solution}
 \begin{exercise}% 3.3
-    设 $V$ 是域 $\mathbb{C}$ 上的 $n+1$ 维线性空间, 证明: 任意一个射影变换 $\widetilde{\mathcal{A}}\in\operatorname{PGL}(V)$ 都至少有一个不动点.
+    设 $V$ 是域 $\mathbb{C}$ 上的 $n+1$ 维线性空间, 证明: 任意一个射影变换 $\widetilde{\mathcal{A}}\in\pgl (V)$ 都至少有一个不动点.
 \end{exercise}
 \begin{proof}
-    $\because\widetilde{\mathcal{A}}\in\operatorname{PGL}(V)$, $\therefore\mathcal{A}\in\operatorname{GL}(V)$. 由第 2 章笔记的定理 4.4 得 $\mathcal{A}$ 在某个基 $\boldsymbol{e}_0,\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n$ 下的矩阵为 Jordan 矩阵
+    $\because\widetilde{\mathcal{A}}\in\pgl (V)$, $\therefore\mathcal{A}\in\gl (V)$. 由第 2 章笔记的定理 4.4 得 $\mathcal{A}$ 在某个基 $\boldsymbol{e}_0,\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n$ 下的矩阵为 Jordan 矩阵
     \[A=\begin{pmatrix}
         J_{i_1}(\lambda_1) \\
         & J_{i_p}(\lambda_p) \\
@@ -1304,7 +1304,7 @@ $\because\tilde{\boldsymbol{u}}\in S$, $\therefore$
     
     $\therefore\exists\lambda_1\in\mathbb{C}$ 使得 $\mathcal{A}\boldsymbol{e}_0=\lambda_1\boldsymbol{e}_0$.
 
-    假设 $\lambda_1=0$, 则 $(J_{i_1}(\lambda_1))^{i_1}=0$, $\therefore A^{i_1}$ 是退化的, 与 $\mathcal{A}\in\operatorname{GL}(V)$ 矛盾. $\therefore\lambda\neq0$. $\therefore\widetilde{\mathcal{A}}\tilde{\boldsymbol{e}}_0=\widetilde{\lambda\boldsymbol{e}_0}=\tilde{\boldsymbol{e}}_0$, 即 $\tilde{\boldsymbol{e}}_0$ 是 $\widetilde{\mathcal{A}}$ 的不动点.
+    假设 $\lambda_1=0$, 则 $(J_{i_1}(\lambda_1))^{i_1}=0$, $\therefore A^{i_1}$ 是退化的, 与 $\mathcal{A}\in\gl (V)$ 矛盾. $\therefore\lambda\neq0$. $\therefore\widetilde{\mathcal{A}}\tilde{\boldsymbol{e}}_0=\widetilde{\lambda\boldsymbol{e}_0}=\tilde{\boldsymbol{e}}_0$, 即 $\tilde{\boldsymbol{e}}_0$ 是 $\widetilde{\mathcal{A}}$ 的不动点.
 \end{proof}
 \subsection{习题 5.4}
 \stepcounter{exsection}

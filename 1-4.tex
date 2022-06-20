@@ -4,7 +4,7 @@
 % 习题 3.11 需要补充证明: 乘法群是循环群
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 
 \title{第4章笔记和习题}
 
@@ -48,7 +48,7 @@ $(G:H)$ 有更一般的定义(对于无限群也适用的), 以后会介绍.
 \begin{example}
     设 $K$ 是域,
     \[\phi:\begin{array}{rcl}
-        \operatorname{GL}_{n-1}(K) & \to & \operatorname{GL}_n(K) \\
+        \gl _{n-1}(K) & \to & \gl _n(K) \\
         A & \to & \begin{pmatrix}
             A & 0 \\
             0 & 1 \\
@@ -305,7 +305,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \begin{example}\label{ex2.4}
     类似于 2.3 节习题 6, 构造:
     \[f:\begin{array}{rcl}
-        S_n & \to & \operatorname{GL}_n(\mathbb{R}) \\
+        S_n & \to & \gl _n(\mathbb{R}) \\
         \sigma & \to & P_\sigma \\
     \end{array},\]
 
@@ -316,9 +316,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[A=BP_\sigma C,\]
 
     其中 $P_\sigma$ 的定义见例 \ref{ex2.4}. 可以证明:
-    \[\operatorname{GL}_n(\mathbb{R})=\bigcup\limits_{\sigma\in S_n}HP_\sigma H,\]
+    \[\gl _n(\mathbb{R})=\bigcup\limits_{\sigma\in S_n}HP_\sigma H,\]
 
-    其中 $H=\operatorname{GL}_n(\mathbb{R})\cap B_n(\mathbb{R})$.
+    其中 $H=\gl _n(\mathbb{R})\cap B_n(\mathbb{R})$.
 \end{example}
 \section{环和域(对应教材4.3节)}
 \subsection{环同态的核}
@@ -500,9 +500,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because(a\cdot1)(b\cdot1)^{-1}=0\Rightarrow a=0,\therefore\ker\tau=0$. 由引理 \ref{l3.2} 得 $\tau$ 是单射.
 
-    容易验证 $\tau$ 是环同态. $\therefore\operatorname{Im}\tau$ 是 $P$ 的子域.
+    容易验证 $\tau$ 是环同态. $\therefore\im \tau$ 是 $P$ 的子域.
 
-    $\because P$ 是素域, $\therefore\operatorname{Im}\tau=P.\therefore\tau$ 是同构.
+    $\because P$ 是素域, $\therefore\im \tau=P.\therefore\tau$ 是同构.
 
     (b) 若 $m>0$, 假设 $m=pq$, 其中 $p,q>1$, 则
     \begin{align*}
@@ -526,11 +526,11 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because k\cdot1=0\Rightarrow k=0,\therefore\ker\overline{\sigma}=0$. 由引理 \ref{l3.2} 得 $\overline{\sigma}$ 是单射.
 
-    容易验证 $\overline{\sigma}$ 是环同态. $\therefore\operatorname{Im}\overline{\sigma}$ 是 $P$ 的子域.
+    容易验证 $\overline{\sigma}$ 是环同态. $\therefore\im \overline{\sigma}$ 是 $P$ 的子域.
 
-    $\because P$ 是素域, $\therefore\operatorname{Im}\overline{\sigma}=P.\therefore\overline{\sigma}$ 是同构.
+    $\because P$ 是素域, $\therefore\im \overline{\sigma}=P.\therefore\overline{\sigma}$ 是同构.
 \end{proof}
-由证明过程得: $\forall$ 域 $F$, 在同构的意义下(up to isomorphism)有 $\mathbb{Q}\subset F$ (若 $\operatorname{char}F=0$) 或 $\mathbb{Z}_m\subset F$ (若 $\operatorname{char}F=m,m>0$). 这由 $1\in F$ 和域的性质得到.
+由证明过程得: $\forall$ 域 $F$, 在同构的意义下(up to isomorphism)有 $\mathbb{Q}\subset F$ (若 $\charop F=0$) 或 $\mathbb{Z}_m\subset F$ (若 $\charop F=m,m>0$). 这由 $1\in F$ 和域的性质得到.
 \subsection{一些例子}
 \begin{example}
     设 $G$ 是群, 定义
@@ -654,7 +654,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设 $R$ 是有单位元的环, 沿用书上定理 2 的记号 $U(R)$.
 
     容易验证
-    \[U(\mathbb{Z})=\{\pm1\},\quad U(M_n(K))=\operatorname{GL}_n(K).\]
+    \[U(\mathbb{Z})=\{\pm1\},\quad U(M_n(K))=\gl _n(K).\]
 
     $\because\forall s\in\mathbb{Z},$ 在 $\mathbb{Z}_m$ 中有 $\overline{sm}=\bar{0},\therefore$
     \begin{align*}
@@ -677,7 +677,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\operatorname{Aut}\overline{\mathbb{Q}}$ 称为有理数域上的\textbf{绝对 Galois 群}, 记作 $\operatorname{Gal}\overline{\mathbb{Q}}/\mathbb{Q}$.
 \end{example}
 \begin{example}
-    设 $p$ 为素数, $F=\mathbb{Z}_p$, 考虑 $F$ 上的 $2$ 阶全体可逆方阵 $G=\operatorname{GL}_2(F)$ 的个数 $|G|$.
+    设 $p$ 为素数, $F=\mathbb{Z}_p$, 考虑 $F$ 上的 $2$ 阶全体可逆方阵 $G=\gl _2(F)$ 的个数 $|G|$.
 
     将 $2$ 阶方阵写成
     \[A=\begin{pmatrix}
@@ -695,7 +695,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     事实上, $\because F^2$ 中的一个基为两个线性无关的向量, $\therefore F^2$ 中的基的个数为 $|G|$.
 
-    考虑更一般的 $|\operatorname{GL}_n(F)|$.
+    考虑更一般的 $|\gl _n(F)|$.
 
     考察 $n$ 阶方阵
     \[A=[A_{(1)},A_{(2)},\cdots,A_{(n)}],\]
@@ -713,7 +713,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because\forall x_1,x_2,\cdots,x_n\in F,A_{(n)}\neq x_1A_{(1)}+x_2A_{(2)}+\cdots+x_{n-1}A_{(n-1)},\therefore A_{(n)}$ 有 $=p^n-p^{n-1}$ 种情况.
 
     $\therefore$
-    \[|\operatorname{GL}_n(F)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+    \[|\gl _n(F)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
 \end{example}
 \begin{example}\label{exp3.6}
     在同构意义下, 有限域只有 $p^n$ 元域 $F_{p^n}$, 其中 $p$ 是素数, $n\in\mathbb{N}_+$.
@@ -752,27 +752,27 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     令 $\alpha^2=-1$, 则 $\alpha$ 是 $f_1=0$ 的解. 有
     \[F_9=\mathbb{Z}_3(\alpha).\]
-    \begin{table}\caption{$F_4$ 的加法表和乘法表}\label{tb1}
-        \begin{center}
-            \begin{tabular}{c|cccc}
-                $+$      & $0$      & $1$      & $\alpha$ & $\beta$   \\
-                \hline
-                $0$      & $0$      & $1$      & $\alpha$ & $\beta$   \\
-                $1$      & $1$      & $0$      & $\beta$  & $\alpha$  \\
-                $\alpha$ & $\alpha$ & $\beta$  & $0$      & $1$       \\
-                $\beta$  & $\beta$  & $\alpha$ & $1$      & $0$       \\
-            \end{tabular}\quad\quad
-            \begin{tabular}{c|cccc}
-                $\times$ & $0$ & $1$      & $\alpha$ & $\beta$  \\
-                \hline
-                $0$      & $0$ & $0$      & $0$      & $0$      \\
-                $1$      & $0$ & $1$      & $\alpha$ & $\beta$  \\
-                $\alpha$ & $0$ & $\alpha$ & $\beta$  & $1$      \\
-                $\beta$  & $0$ & $\beta$  & $1$      & $\alpha$ \\
-            \end{tabular}
-        \end{center}
-    \end{table}
 \end{example}
+\begin{table}\caption{$F_4$ 的加法表和乘法表}\label{tb1}
+    \begin{center}
+        \begin{tabular}{c|cccc}
+            $+$      & $0$      & $1$      & $\alpha$ & $\beta$   \\
+            \hline
+            $0$      & $0$      & $1$      & $\alpha$ & $\beta$   \\
+            $1$      & $1$      & $0$      & $\beta$  & $\alpha$  \\
+            $\alpha$ & $\alpha$ & $\beta$  & $0$      & $1$       \\
+            $\beta$  & $\beta$  & $\alpha$ & $1$      & $0$       \\
+        \end{tabular}\quad\quad
+        \begin{tabular}{c|cccc}
+            $\times$ & $0$ & $1$      & $\alpha$ & $\beta$  \\
+            \hline
+            $0$      & $0$ & $0$      & $0$      & $0$      \\
+            $1$      & $0$ & $1$      & $\alpha$ & $\beta$  \\
+            $\alpha$ & $0$ & $\alpha$ & $\beta$  & $1$      \\
+            $\beta$  & $0$ & $\beta$  & $1$      & $\alpha$ \\
+        \end{tabular}
+    \end{center}
+\end{table}
 \section{第4章习题}
 \subsection{习题 4.1}
 \stepcounter{exsection}
@@ -1279,7 +1279,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设 $A,B\in M_n(\mathbb{R})$ 且 $(AB)^m=E$ 对某个 $m\in\mathbb{Z}$ 成立, 证明: $(BA)^m=E$.
 \end{exercise}
 \begin{proof}
-    $\because(AB)^m=E,\therefore AB\in\operatorname{GL}_n(\mathbb{R}),\therefore A,B\in\operatorname{GL}_n(\mathbb{R})$.
+    $\because(AB)^m=E,\therefore AB\in\gl _n(\mathbb{R}),\therefore A,B\in\gl _n(\mathbb{R})$.
 
     当 $m=1$ 时由第 2.3 节第 5 小节的推论 2 得 $BA=AB=E$.
 
@@ -1292,7 +1292,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设
     \[\underbrace{ABA\cdots ABA}_{p+1\text{个}A}=C,\quad\underbrace{BAB\cdots BAB}_{q+1\text{个}B}=D,\]
 
-    则 $C,D\in\operatorname{GL}_n(\mathbb{R}),CD=E$. 由第 2.3 节第 5 小节的推论 2 得 $DC=E$, 即
+    则 $C,D\in\gl _n(\mathbb{R}),CD=E$. 由第 2.3 节第 5 小节的推论 2 得 $DC=E$, 即
     \[\underbrace{BAB\cdots BAB}_{q+1\text{个}B}\underbrace{ABA\cdots ABA}_{p+1\text{个}A}=E.\]
 
     $\therefore(BA)^m=E$.
@@ -1677,11 +1677,11 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         a & \to & ta \\
     \end{array},\]
 
-    则 $\forall x\in R\backslash(N\cap\{0\}),\operatorname{Im}\rho_x\subset N,\therefore\rho_x$ 是确切定义的.
+    则 $\forall x\in R\backslash(N\cap\{0\}),\im \rho_x\subset N,\therefore\rho_x$ 是确切定义的.
 
     $\because\forall x\in R\backslash(N\cap\{0\}),x$ 可逆, $x^{-1}\in R\backslash(N\cap\{0\})$,
 
-    $\therefore\forall a\in N,\exists a'=x^{-1}a\in N$ 使得 $\rho_x(a')=a.\therefore\operatorname{Im}\rho_x\supset N.\therefore\operatorname{Im}\rho_x=N,\rho_x$ 是满射.
+    $\therefore\forall a\in N,\exists a'=x^{-1}a\in N$ 使得 $\rho_x(a')=a.\therefore\im \rho_x\supset N.\therefore\im \rho_x=N,\rho_x$ 是满射.
 
     $\because\forall x\in R\backslash(N\cap\{0\}),x$ 可逆, $\therefore\forall a,a'\in N,a\neq a'\Rightarrow xa\neq xa'$(假设 $xa=xa'$, 两边乘 $x^{-1}$ 得 $a=a'$), $\rho_x$ 是单射. $\therefore\rho_x$ 是双射.
 
@@ -1739,8 +1739,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     在 $R$ 上建立等价关系 $\sim$: $\forall x,y\in R,x\sim y\Leftrightarrow\sigma(x)=\sigma(y)$.
 
-    $\because\operatorname{Im}\sigma\subset N^N,\therefore$
-    \[|\pi_\sim(R)|=|\operatorname{Im}\sigma|\leq|N^N|=n^n.\]
+    $\because\im \sigma\subset N^N,\therefore$
+    \[|\pi_\sim(R)|=|\im \sigma|\leq|N^N|=n^n.\]
 
     设 $A\in\pi_\sim(R)$, 则 $\forall y,z\in A,\sigma(y)=\sigma(z)$. 设 $y\in A$, 
     \[\tau_A:\begin{array}{rcl}
@@ -1890,7 +1890,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \end{solution}
 \subsection{补充题}
 \begin{exercisec}% 补充题 1
-    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\operatorname{GL}_n(K)$ 的子群.
+    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\gl _n(K)$ 的子群.
 \end{exercisec}
 \begin{proof}
     $\because\forall$
@@ -1902,7 +1902,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{pmatrix}\in B_n(K),\]
     \[\det X=\prod\limits_{i=1}^n\lambda_{ii}\neq0,\]
 
-    $\therefore B_n(K)\subset\operatorname{GL}_n(K)$.
+    $\therefore B_n(K)\subset\gl _n(K)$.
 
     容易验证 $B_n(K)$ 对矩阵的乘法封闭, $E\in B_n(K)$.
 

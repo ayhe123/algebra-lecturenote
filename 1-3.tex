@@ -1,7 +1,7 @@
 % TODO: 习题 4.1
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 
 \title{第3章笔记和习题}
 
@@ -1156,27 +1156,27 @@ $\therefore s_1=-s_2.\therefore$
     \[(A^\vee)^\vee=(\det A)^{n-2}A.\]
 \end{proof}
 \begin{exercise}% 3.2
-    用 $\operatorname{rank}A$ 表示 $\operatorname{rank}A^\vee$.
+    用 $\rank A$ 表示 $\rank A^\vee$.
 \end{exercise}
 \begin{solution}
-    当 $\operatorname{rank}A=n$ 时
+    当 $\rank A=n$ 时
     \[A^\vee=\dfrac{A^{-1}}{\det A},\]
 
-    $\therefore\operatorname{rank}A^\vee=n=\operatorname{rank}A$.
+    $\therefore\rank A^\vee=n=\rank A$.
 
-    当 $\operatorname{rank}A\leq n-2$ 时由第 3 小节的推论得 $A$ 的任一 $n-1$ 阶子式为 $0$. $\therefore A^\vee=0,\operatorname{rank}A^\vee=0$.
+    当 $\rank A\leq n-2$ 时由第 3 小节的推论得 $A$ 的任一 $n-1$ 阶子式为 $0$. $\therefore A^\vee=0,\rank A^\vee=0$.
 
-    当 $\operatorname{rank}A=n-1$ 时 $AA^\vee=0$, 由习题 2 的第 3.8 题得
-    \[\operatorname{rank}A+\operatorname{rank}A^\vee\leq n,\]
-    \[\operatorname{rank}A^\vee\leq1.\]
+    当 $\rank A=n-1$ 时 $AA^\vee=0$, 由习题 2 的第 3.8 题得
+    \[\rank A+\rank A^\vee\leq n,\]
+    \[\rank A^\vee\leq1.\]
 
-    另一方面, $\exists A$ 的 $n-1$ 阶子式不为 $0$, $\therefore\operatorname{rank}A^\vee\neq0.\therefore\operatorname{rank}A^\vee=1$.
+    另一方面, $\exists A$ 的 $n-1$ 阶子式不为 $0$, $\therefore\rank A^\vee\neq0.\therefore\rank A^\vee=1$.
 
     综上,
-    \[\operatorname{rank}A^\vee=\begin{cases}
-        \operatorname{rank}A, & \operatorname{rank}A=n, \\
-        1, & \operatorname{rank}A=n-1, \\
-        0, & \operatorname{rank}A\leq n-2. \\
+    \[\rank A^\vee=\begin{cases}
+        \rank A, & \rank A=n, \\
+        1, & \rank A=n-1, \\
+        0, & \rank A\leq n-2. \\
     \end{cases}\]
 \end{solution}
 \stepcounter{exercise}
@@ -1189,7 +1189,7 @@ $\therefore s_1=-s_2.\therefore$
         a_{n-1,1} & a_{n-1,2} & \cdots & a_{n-1,n} \\
     \end{pmatrix}.\]
 
-    证明: 当 $\operatorname{rank}A=n-1$ 时, 齐次线性方程组 $AX=0$ 的基础解系为一个列向量
+    证明: 当 $\rank A=n-1$ 时, 齐次线性方程组 $AX=0$ 的基础解系为一个列向量
     \[X_0=[D_1,-D_2,D_3,\cdots,(-1)^{n-1}D_n]\]
 
     组成, 其中 $D_i$ 为从 $A$ 中去掉第 $i$ 列所得矩阵的行列式.
@@ -1681,7 +1681,7 @@ $\therefore s_1=-s_2.\therefore$
     \begin{enumerate}
         \item 如果 $A$ 有一列为 $0$, 则 $\mathcal{D}(A)=0$;
         \item 如果 $A'$ 从 $A$ 经过 (II) 型初等列变换得到, 则 $\mathcal{D}(A')=\mathcal{D}(A)$;
-        \item 如果 $A=\operatorname{diag}(\lambda,1,\cdots,1)$ , 则 $\mathcal{D}(A)=f(\lambda)$.
+        \item 如果 $A=\diag (\lambda,1,\cdots,1)$ , 则 $\mathcal{D}(A)=f(\lambda)$.
     \end{enumerate}
 
     特别地, 当 $f(\lambda)=\lambda$ 时, $\mathcal{D}=\det$.
@@ -1902,13 +1902,13 @@ $\therefore s_1=-s_2.\therefore$
     \[\varepsilon_j^{i-1}(a_1+a_2\varepsilon_j+\cdots+a_{n-1}\varepsilon_j^{n-2}+a_n\varepsilon_j^{n-1}).\]
 
     $\therefore$
-    \[AB=B\operatorname{diag}(a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1}).\]
+    \[AB=B\diag (a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1}).\]
 
     $\therefore$
-    \[\det(AB)=\det(B\operatorname{diag}(a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1})).\]
+    \[\det(AB)=\det(B\diag (a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1})).\]
 
     $\because\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_n$ 互不相等, $\therefore\det B\neq0,\therefore$
-    \[\det A=|\operatorname{diag}(a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1})|\]
+    \[\det A=|\diag (a_1+a_2\varepsilon_1+\cdots+a_n\varepsilon_1^{n-1},\cdots,a_1+a_2\varepsilon_n+\cdots+a_n\varepsilon_n^{n-1})|\]
     \[=\prod\limits_{i=1}^n(a_1+a_2\varepsilon_i+\cdots+a_n\varepsilon_i^{n-1}).\]
 \end{solution}
 \begin{note}

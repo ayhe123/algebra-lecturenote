@@ -6,7 +6,7 @@
 % 习题 4.14 Sturm 组性质 iv
 
 \documentclass[UTF8]{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 
 \title{第6章笔记和习题}
 
@@ -18,7 +18,7 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
 \begin{example}
     若 $D_1,D_2\in\operatorname{Der}(R)$, 则 $D_1D_2\notin\operatorname{Der}(R)$, 但 $[D_1,D_2]=D_1D_2-D_2D_1\in\operatorname{Der}(R)$.
 
-    这一性质类似于 $\{A\in M_n(\mathbb{R}|\operatorname{tr}A=0\}$. 有
+    这一性质类似于 $\{A\in M_n(\mathbb{R}|\tr A=0\}$. 有
     \[\begin{pmatrix}
         0 & 1 \\
         0 & 0 \\
@@ -91,7 +91,7 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
 \end{example}
 书上的推论 1 可以直接证明:
 \begin{theorem}[书上的推论 1]
-    设 $A$ 是整环, $\operatorname{char}A=0$, $c\in A$ 是 $f(X)\in A[X]$ 的 $k$ 重根 $\Leftrightarrow$
+    设 $A$ 是整环, $\charop A=0$, $c\in A$ 是 $f(X)\in A[X]$ 的 $k$ 重根 $\Leftrightarrow$
     \[f(c)=f'(c)=\cdots=f^{(k-1)}(c)=0,\quad f^{(k)}(c)\neq0.\]
 \end{theorem}
 \begin{proof}
@@ -101,7 +101,7 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     由 Leibniz 公式 (P183 的式 (8')) 得
     \[f^{(i)}(X)=\sum\limits_{j=0}^i\dbinom{i}{j}((X-c)^k)^{(j)}g^{(i-j)}(X).\]
 
-    $\because\operatorname{char}A=0,\therefore\forall j\leq k$,
+    $\because\charop A=0,\therefore\forall j\leq k$,
     \[((X-c)^k)^{(j)}(X)=k(k-1)\cdots(k-j+1)(X-c)^{k-j}\neq0,\]
 
     $\therefore$
@@ -182,17 +182,17 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
 \end{proof}
 \begin{theorem}[书上的引理 1]
     设 $h=h_1h_2\cdots h_k,h_i\in A[X_1,X_2,\cdots,X_n]$, 则
-    \[\operatorname{FT}(h)=\operatorname{FT}(h_1)\operatorname{FT}(h_2)\cdots\operatorname{FT}(h_k).\]
+    \[\ft (h)=\ft (h_1)\ft (h_2)\cdots\ft (h_k).\]
 \end{theorem}
 \begin{proof}
     对 $k$ 用数学归纳法. 当 $k=2$ 时设
-    \[h_1=\operatorname{FT}(h_1)+p_1,\quad h_2=\operatorname{FT}(h_2)+p_2,\]
+    \[h_1=\ft (h_1)+p_1,\quad h_2=\ft (h_2)+p_2,\]
 
-    其中 $\operatorname{FT}(h_i)\succ p_i$($\succ$ 的记号见第 5 章笔记的 2.3 节). 则
-    \[h=\operatorname{FT}(h_1)\operatorname{FT}(h_2)+\operatorname{FT}(h_1)p_2+\operatorname{FT}(h_2)p_1+p_1p_2.\]
+    其中 $\ft (h_i)\succ p_i$($\succ$ 的记号见第 5 章笔记的 2.3 节). 则
+    \[h=\ft (h_1)\ft (h_2)+\ft (h_1)p_2+\ft (h_2)p_1+p_1p_2.\]
 
     设
-    \[\operatorname{FT}(h_1)=a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n},\quad\operatorname{FT}(h_2)=a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n},\]
+    \[\ft (h_1)=a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n},\quad\ft (h_2)=a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n},\]
     \[b_1X_1^{k_1}X_2^{k_2}\cdots X_n^{k_n},\quad b_2X_1^{l_1}X_2^{l_2}\cdots X_n^{l_n}\]
 
     分别出现在 $p_1,p_2$ 中.
@@ -203,12 +203,12 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     \[a_1X_1^{i_1}X_2^{i_2}\cdots X_n^{i_n}\cdot a_2X_1^{j_1}X_2^{j_2}\cdots X_n^{j_n}\succ b_1X_1^{k_1}X_2^{k_2}\cdots X_n^{k_n}\cdot b_2X_1^{l_1}X_2^{l_2}\cdots X_n^{l_n},\]
 
     $\therefore$
-    \[\operatorname{FT}(h)=\operatorname{FT}(h_1)\operatorname{FT}(h_2).\]
+    \[\ft (h)=\ft (h_1)\ft (h_2).\]
 
     假设当 $k-1$ 时成立, 则由 $h=h_1(h_2h_3\cdots h_k)$ 得
     \begin{align*}
-        \operatorname{FT}(h) & =\operatorname{FT}(h_1)\operatorname{FT}(h_2h_3\cdots h_k) \\
-        & =\operatorname{FT}(h_1)\operatorname{FT}(h_2)\cdots\operatorname{FT}(h_k).\qedhere
+        \ft (h) & =\ft (h_1)\ft (h_2h_3\cdots h_k) \\
+        & =\ft (h_1)\ft (h_2)\cdots\ft (h_k).\qedhere
     \end{align*}
 \end{proof}
 \begin{theorem}
@@ -233,16 +233,16 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     $\because g=\sum\limits_{i}f_{(i)},\therefore g$ 的系数是 $f$ 的系数的线性组合.
 \end{proof}
 \begin{lemma}\label{l2.1}
-    设 $g=g_1+\cdots+g_s\in A[X_1,\cdots,X_n]$, 则 $\operatorname{FT}(g)=\max\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+    设 $g=g_1+\cdots+g_s\in A[X_1,\cdots,X_n]$, 则 $\ft (g)=\max\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$.
 \end{lemma}
 \begin{proof}
-    假设 $\operatorname{FT}(g)\notin\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$, 设 $\operatorname{FT}(g)$ 在 $g_i$ 中, 则 $\operatorname{FT}(g_i)\succ\operatorname{FT}(g)$, 与 $\forall g$ 中的单项式 $f,\operatorname{FT}(g)\succ f$ 矛盾.
+    假设 $\ft (g)\notin\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$, 设 $\ft (g)$ 在 $g_i$ 中, 则 $\ft (g_i)\succ\ft (g)$, 与 $\forall g$ 中的单项式 $f,\ft (g)\succ f$ 矛盾.
 
-    $\therefore\operatorname{FT}(g)\in\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+    $\therefore\ft (g)\in\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$.
 
-    $\because\forall g_i,\operatorname{FT}(g)$ 是 $g$ 中的单项式 $\Rightarrow\operatorname{FT}(g)\succ\operatorname{FT}(g_i)$,
+    $\because\forall g_i,\ft (g)$ 是 $g$ 中的单项式 $\Rightarrow\ft (g)\succ\ft (g_i)$,
     
-    $\therefore\operatorname{FT}(g)=\max\{\operatorname{FT}(g_1),\operatorname{FT}(g_2),\cdots,\operatorname{FT}(g_s)\}$.
+    $\therefore\ft (g)=\max\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$.
 \end{proof}
 \begin{theorem}
     书上定理 1 中的 $g$ 是唯一的.
@@ -260,22 +260,22 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     
     $\because\phi$ 是同态, $\therefore\forall g\in\ker\phi$, 设 $g=g_1+g_2+\cdots+g_s$, 其中 $g_1,g_2,\cdots,g_s$ 是单项式, 则 $\phi(g)=\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s)$,
     \begin{align*}
-        \phi(g)=0 & \Rightarrow\operatorname{FT}(\phi(g))=0 \\
-        & \Rightarrow\operatorname{FT}(\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s))=0.
+        \phi(g)=0 & \Rightarrow\ft (\phi(g))=0 \\
+        & \Rightarrow\ft (\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s))=0.
     \end{align*}
 
     由引理 \ref{l2.1},
-    \[\max\{\operatorname{FT}(\phi(g_1)),\operatorname{FT}(\phi(g_2)),\cdots,\operatorname{FT}(\phi(g_s))\}=0.\]
+    \[\max\{\ft (\phi(g_1)),\ft (\phi(g_2)),\cdots,\ft (\phi(g_s))\}=0.\]
 
-    $\therefore\forall i,\operatorname{FT}(\phi(g_i))=0$.
+    $\therefore\forall i,\ft (\phi(g_i))=0$.
 
     设 $aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n$ 是 $g$ 的一个单项式. 则
     \begin{align*}
-        \operatorname{FT}(\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n)) & =aX_1^{k_1}(X_1X_2)^{k_2}\cdots(X_1,X_2,\cdots,X_n)^{k_n} \\
+        \ft (\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n)) & =aX_1^{k_1}(X_1X_2)^{k_2}\cdots(X_1,X_2,\cdots,X_n)^{k_n} \\
         & =aX_1^{k_1+k_2+\cdots+k_n}X_2^{k_2+k_3+\cdots+k_n}\cdots X_n^{k_n}.
     \end{align*}
 
-    $\therefore\operatorname{FT}(\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n))=0\Rightarrow a=0\Rightarrow aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n=0$.
+    $\therefore\ft (\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n))=0\Rightarrow a=0\Rightarrow aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n=0$.
 
     $\therefore\forall i,g_i=0.\therefore g=g_1+g_2+\cdots+g_s=0$.
 
@@ -327,23 +327,23 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     \end{align*}
 \end{proof}
 \begin{theorem}
-    如果 $v$ 是单调的, 那么 $\operatorname{FT}(S(v))=v$.
+    如果 $v$ 是单调的, 那么 $\ft (S(v))=v$.
 \end{theorem}
 \begin{proof}
-    假设 $\operatorname{FT}(S(v))=u\neq v$, 由书上的引理 2 得 $u$ 单调.
+    假设 $\ft (S(v))=u\neq v$, 由书上的引理 2 得 $u$ 单调.
 
     $\because\exists\sigma\in S_n\backslash\{e\},u=\sigma\circ v,\therefore$ 若 $v$ 单调, 则 $u$ 不单调. 与 $u$ 单调矛盾.
 \end{proof}
 设 $v$ 是单调的, 构造以 $v$ 为首项的对称多项式 $g_v$(书上 P192 式(6)), 容易验证 $g_v,S(v)$ 是齐次的且 $\deg g_v=\deg S(v),\therefore r_1=S(v)-g_v$ 是对称, 齐次的, 且 $\deg r_1=\deg(S(v)-g_v)$.
 
-% 设 $\operatorname{FT}(r_1)=u$, 构造以 $u$ 为首项的对称多项式 $g_u$(书上 P192 式(6)), 容易验证 $g_u$ 是齐次的且 $\deg g_u=\deg r_1,\therefore r_2=r_1-g_u$ 是对称, 齐次的, 且 $\deg r_2=\deg r=\deg(S(v)-g_v)$.
+% 设 $\ft (r_1)=u$, 构造以 $u$ 为首项的对称多项式 $g_u$(书上 P192 式(6)), 容易验证 $g_u$ 是齐次的且 $\deg g_u=\deg r_1,\therefore r_2=r_1-g_u$ 是对称, 齐次的, 且 $\deg r_2=\deg r=\deg(S(v)-g_v)$.
 
 % 重复上述步骤, 可以得到一列多项式
 % \begin{equation}\label{eq2.1}
 %     r_0=S(v),r_1,r_2,\cdots,r_n,\cdots
 % \end{equation}
 % 满足
-% \[r_n=r_{n-1}-g_{\operatorname{FT}(r_{n-1})},\quad\operatorname{FT}(r_{n-1})\succ\operatorname{FT}(r_n).\]
+% \[r_n=r_{n-1}-g_{\ft (r_{n-1})},\quad\ft (r_{n-1})\succ\ft (r_n).\]
 
 % $\because|S(v)|<\infty,\therefore$ 序列 (\ref{eq2.1}) 一定在某项 $m$ 终止, 这时 $\exists u_m$ 使得 $r_m=g_{u_m}$.
 
@@ -391,7 +391,7 @@ $v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
 \end{solution}
 \subsection{结式}
 书上结式定义那里排版得不太对. 准确的排版应该是
-\[\operatorname{Res}(f,g)\begin{vmatrix}
+\[\res (f,g)\begin{vmatrix}
     a_0 & a_1 & \cdots & a_{n-1} & a_n \\
     & a_0 & a_1 & \cdots & a_{n-1} & a_n \\
     && \ddots & \ddots & \ddots & \ddots & \ddots \\
@@ -405,7 +405,7 @@ $v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
 行列式的对角线为 $a_0,\cdots,a_0,b_m,\cdots,b_m$.
 
 在证明结式的性质 R2 的时候, 有
-\[\operatorname{Res}(f,g-Y)\begin{vmatrix}
+\[\res (f,g-Y)\begin{vmatrix}
     a_0 & a_1 & \cdots & a_n & a_n \\
     & a_0 & a_1 & \cdots & a_n & a_n \\
     && \ddots & \ddots & \ddots & \ddots & \ddots \\
@@ -418,8 +418,8 @@ $v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
 
 行列式中主对角线对应的一项为 $(-1)^na^mY^n$.
 
-将 $\operatorname{Res}(f,g-Y)$ 看成是 $Y$ 的多项式, 则其常数项为 $\operatorname{Res}(f,g).\therefore$ 书上有
-\[\operatorname{Res}(f,g-Y)=(-1)^na^mY^n+\cdots+\operatorname{Res}(f,g)\]
+将 $\res (f,g-Y)$ 看成是 $Y$ 的多项式, 则其常数项为 $\res (f,g).\therefore$ 书上有
+\[\res (f,g-Y)=(-1)^na^mY^n+\cdots+\res (f,g)\]
 这个式子.
 \section{代数基本定理(对应教材6.3节)}
 \begin{theorem}[书上的例子的推广]
@@ -515,12 +515,12 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \end{proof}
 \addtocounter{exercise}{3}
 \begin{exercise}\label{ex1.6}
-    设 $f$ 是域 $P$ 上的既约多项式, 且 $\operatorname{char}P=0$. 证明 $\gcd(f,f')=1$, 其中 $f'$ 是 $f$ 的导数.
+    设 $f$ 是域 $P$ 上的既约多项式, 且 $\charop P=0$. 证明 $\gcd(f,f')=1$, 其中 $f'$ 是 $f$ 的导数.
 \end{exercise}
 \begin{proof}
     $\because f$ 是域 $P$ 上的既约多项式, $\therefore\deg f\geq1$.
 
-    $\because\operatorname{char}P=0,\therefore\forall n\in\mathbb{N}_+,a_n\in P,na_n\neq0.\therefore\forall g\in P[X],\deg g\geq1\Rightarrow g'\neq0.\therefore f'\neq0$.
+    $\because\charop P=0,\therefore\forall n\in\mathbb{N}_+,a_n\in P,na_n\neq0.\therefore\forall g\in P[X],\deg g\geq1\Rightarrow g'\neq0.\therefore f'\neq0$.
 
     (a) 若 $\deg f=1$, 设 $f(X)=aX+b\ (a,b\in P)$, 则 $f'(X)=a$ 是可逆元. $\therefore$ 在相伴的意义下有 $\gcd(f,f')=f'=1$.
 
@@ -546,11 +546,11 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \begin{proof}
     证明逆否命题.
 
-    (1) 设 $f$ 是特征 $0$ 的域 $P$ 上的多项式且 $f$ 不是常数, 则 $f$ 的首项为 $aX^n,n\geq1$. 由书上的式 (6), $f'$ 的首项为 $naX^{n-1}.\because\operatorname{char}P=0,\therefore\forall n\geq1,a\in P,na\neq0,\therefore f'\neq0$.
+    (1) 设 $f$ 是特征 $0$ 的域 $P$ 上的多项式且 $f$ 不是常数, 则 $f$ 的首项为 $aX^n,n\geq1$. 由书上的式 (6), $f'$ 的首项为 $naX^{n-1}.\because\charop P=0,\therefore\forall n\geq1,a\in P,na\neq0,\therefore f'\neq0$.
 
     (2) 若 $f$ 是特征 $p>0$ 的域 $P$ 上的多项式且 $f(X)\neq g(X^p)$(其中 $g$ 是另外的某个多项式), 则 $f$ 中有一项 $aX^n$, 其中 $p\nmid n$. 由书上的式 (6), $f'$ 的首项为 $naX^{n-1}$.
     
-    $\because\operatorname{char}P=p,\therefore\forall k,a$ 满足 $k\nmid n,a\in P,ka\neq0,\therefore f'\neq0$.
+    $\because\charop P=p,\therefore\forall k,a$ 满足 $k\nmid n,a\in P,ka\neq0,\therefore f'\neq0$.
 \end{proof}
 \addtocounter{exercise}{2}
 \begin{exercise}% 1.10
@@ -957,7 +957,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \end{proof}
 \begin{exercise}\label{ex2.5}
     设 $f,g,h\in P[X]$. 证明:
-    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\]
+    \[\res (fg,h)=\res (f,h)\res (g,h).\]
 \end{exercise}
 \begin{proof}
     由分裂域的存在性, $\exists F\supset P,f,g,h$ 有分解式
@@ -969,16 +969,16 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[f(X)g(X)=a_0b_0(X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_m)(X-\beta_1)(X-\beta_2)\cdots(X-\beta_s).\]
 
     由结式的性质 R2,
-    \[\operatorname{Res}(f,h)=a_0^tc_0^m\prod\limits_{i,j}(\alpha_i-\gamma_j),\quad\operatorname{Res}(g,h)=b_0^tc_0^s\prod\limits_{i,j}(\beta_i-\gamma_j),\]
+    \[\res (f,h)=a_0^tc_0^m\prod\limits_{i,j}(\alpha_i-\gamma_j),\quad\res (g,h)=b_0^tc_0^s\prod\limits_{i,j}(\beta_i-\gamma_j),\]
     
-    \[\operatorname{Res}(fg,h)=(a_0b_0)^tc_0^{s+t}\left(\prod\limits_{i,j}(\beta_i-\gamma_j)\right)\left(\prod\limits_{i,j}(\alpha_i-\gamma_j)\right),\]
+    \[\res (fg,h)=(a_0b_0)^tc_0^{s+t}\left(\prod\limits_{i,j}(\beta_i-\gamma_j)\right)\left(\prod\limits_{i,j}(\alpha_i-\gamma_j)\right),\]
 
     $\therefore$
-    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\qedhere\]
+    \[\res (fg,h)=\res (f,h)\res (g,h).\qedhere\]
 \end{proof}
 \begin{exercise}% 2.6
     证明:
-    \[D(fg)=D(f)D(g)\operatorname{Res}^2(f,g).\]
+    \[D(fg)=D(f)D(g)\res ^2(f,g).\]
 \end{exercise}
 \begin{proof}
     设在 $f,g$ 的分裂域中有
@@ -986,57 +986,57 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[g(X)=b_0X^m+b_1X^{m-1}+\cdots+b_m=b_0(X-\beta_1)\cdots(X-\beta_m).\]
 
     由第 \ref{ex2.5} 题得
-    \[\operatorname{Res}(fg,h)=\operatorname{Res}(f,h)\operatorname{Res}(g,h).\]
+    \[\res (fg,h)=\res (f,h)\res (g,h).\]
 
     由结式的性质 R3 得
     \begin{align*}
-        D(fg) & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(fg,(fg)') \\
-        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(fg,f'g+fg') \\
-        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g+fg')\operatorname{Res}(g,f'g+fg').
+        D(fg) & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\res (fg,(fg)') \\
+        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\res (fg,f'g+fg') \\
+        & =(-1)^{(m+n)(m+n-1)/2}a_0b_0\res (f,f'g+fg')\res (g,f'g+fg').
     \end{align*}
 
     由结式的性质 R2 得
-    \[\operatorname{Res}(f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g+fg')(\alpha_i).\]
+    \[\res (f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g+fg')(\alpha_i).\]
 
     $\because f(\alpha_i)=0,\therefore f(\alpha_i)g'(\alpha_i)=0,\therefore$
-    \[\operatorname{Res}(f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g)(\alpha_i)=\operatorname{Res}(f,f'g).\]
+    \[\res (f,f'g+fg')=a_0^m\prod\limits_{i=1}^n(f'g)(\alpha_i)=\res (f,f'g).\]
 
     同理得
-    \[\operatorname{Res}(g,f'g+fg')=\operatorname{Res}(g,fg').\]
+    \[\res (g,f'g+fg')=\res (g,fg').\]
 
     $\therefore$
     \begin{align*}
-        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g+fg')\operatorname{Res}(g,f'g+fg') \\
-        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g)\operatorname{Res}(g,fg').
+        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\res (f,f'g+fg')\res (g,f'g+fg') \\
+        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0\res (f,f'g)\res (g,fg').
     \end{align*}
 
     由结式的性质 R2 (或者交换结式的各行)得
-    \[\operatorname{Res}(f,g)=(-1)^{mn}\operatorname{Res}(f,g).\]
+    \[\res (f,g)=(-1)^{mn}\res (f,g).\]
 
     $\therefore$
     \begin{align*}
-        \operatorname{Res}(h,fg) & =(-1)^{mn}\operatorname{Res}(fg,h) \\
-        & =(-1)^{mn}\operatorname{Res}(f,h)\operatorname{Res}(g,h) \\
-        & =(-1)^{mn}((-1)^{mn}\operatorname{Res}(h,f))((-1)^{mn}\operatorname{Res}(h,g)) \\
-        & =(-1)^{mn}\operatorname{Res}(h,f)\operatorname{Res}(h,g).
+        \res (h,fg) & =(-1)^{mn}\res (fg,h) \\
+        & =(-1)^{mn}\res (f,h)\res (g,h) \\
+        & =(-1)^{mn}((-1)^{mn}\res (h,f))((-1)^{mn}\res (h,g)) \\
+        & =(-1)^{mn}\res (h,f)\res (h,g).
     \end{align*}
 
     $\therefore$
     \begin{align*}
-        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\operatorname{Res}(f,f'g)\operatorname{Res}(g,f'g) \\
-        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0(-1)^{mn}\operatorname{Res}(f,f')\operatorname{Res}(f,g)(-1)^{mn}\operatorname{Res}(g,f)\operatorname{Res}(g,g') \\
-        =\  & (-1)^{(m^2+mn-m+mn+n^2-n)/2+mn}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(f,g)((-1)^{mn}\operatorname{Res}(g,f))\operatorname{Res}(g,g') \\
-        =\  & (-1)^{(m^2-m+n^2-n)/2+2mn}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(f,g)\operatorname{Res}(f,g)\operatorname{Res}(g,g') \\
-        =\  & (-1)^{(m^2-m+n^2-n)/2}a_0b_0\operatorname{Res}(f,f')\operatorname{Res}(g,g')\operatorname{Res}^2(f,g) \\
-        =\  & (-1)^{(m^2-m)/2}a_0\operatorname{Res}(f,f')(-1)^{(n^2-n)/2}b_0\operatorname{Res}(g,g')\operatorname{Res}^2(f,g) \\
-        =\  & D(f)D(g)\operatorname{Res}^2(f,g).\qedhere
+        & (-1)^{(m+n)(m+n-1)/2}a_0b_0\res (f,f'g)\res (g,f'g) \\
+        =\  & (-1)^{(m+n)(m+n-1)/2}a_0b_0(-1)^{mn}\res (f,f')\res (f,g)(-1)^{mn}\res (g,f)\res (g,g') \\
+        =\  & (-1)^{(m^2+mn-m+mn+n^2-n)/2+mn}a_0b_0\res (f,f')\res (f,g)((-1)^{mn}\res (g,f))\res (g,g') \\
+        =\  & (-1)^{(m^2-m+n^2-n)/2+2mn}a_0b_0\res (f,f')\res (f,g)\res (f,g)\res (g,g') \\
+        =\  & (-1)^{(m^2-m+n^2-n)/2}a_0b_0\res (f,f')\res (g,g')\res ^2(f,g) \\
+        =\  & (-1)^{(m^2-m)/2}a_0\res (f,f')(-1)^{(n^2-n)/2}b_0\res (g,g')\res ^2(f,g) \\
+        =\  & D(f)D(g)\res ^2(f,g).\qedhere
     \end{align*}
 \end{proof}
 \begin{exercise}\label{ex2.7}
-    求解 $\operatorname{Res}(f(X),X-a)$.
+    求解 $\res (f(X),X-a)$.
 \end{exercise}
 \begin{solution}
-    \[\operatorname{Res}(f(X),X-a)=\begin{vmatrix}
+    \[\res (f(X),X-a)=\begin{vmatrix}
         a_0 & a_1 & \cdots & a_{n-1} & a_n \\
         1 & -a \\
         & 1 & -a \\
@@ -1060,13 +1060,13 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \end{cases}\]
 
     $\therefore$
-    \[\operatorname{Res}(f(X),X-a)=f_n=\sum\limits_{i=0}^n(-a)^{n-i}(-1)^ia_i.\]
+    \[\res (f(X),X-a)=f_n=\sum\limits_{i=0}^n(-a)^{n-i}(-1)^ia_i.\]
 \end{solution}
 \begin{exercise}\label{ex2.8}
     求解 $D(X^n+a)$.
 \end{exercise}
 \begin{solution}
-    \[\operatorname{Res}(X^n-a,(X^n-a)')=\begin{vmatrix}
+    \[\res (X^n-a,(X^n-a)')=\begin{vmatrix}
         1 & 0 & 0 & \cdots & 0 & a \\
         & 1 & 0 & 0 & \cdots & 0 & a \\
         && \ddots & \ddots & \ddots & \ddots & \ddots & \ddots \\
@@ -1082,7 +1082,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     按第 $i$ 列展开($i=n+1,n+2,\cdots,{2n-1}$), 得
     \begin{align*}
-        \operatorname{Res}(X^n-a,(X^n-a)') & =a(-1)^{n+1+1}a(-1)^{n+2+2}\cdots a(-1)^{n+(n-1)+(n-1)}\begin{vmatrix}
+        \res (X^n-a,(X^n-a)') & =a(-1)^{n+1+1}a(-1)^{n+2+2}\cdots a(-1)^{n+(n-1)+(n-1)}\begin{vmatrix}
             n \\
             & n \\
             && \ddots \\
@@ -1099,7 +1099,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \end{align*}
 
     由结式的性质 R3 得
-    \[D(X^n-a)=(-1)^{n(n-1)/2}\operatorname{Res}(X^n-a,(X^n-a)')=(-1)^{n(n-1)/2}a^{n-1}n^n.\]
+    \[D(X^n-a)=(-1)^{n(n-1)/2}\res (X^n-a,(X^n-a)')=(-1)^{n(n-1)/2}a^{n-1}n^n.\]
 \end{solution}
 \begin{exercise}[2.9]
     设 $f(x)=X^{n-1}+X^{n-2}+\cdots+1$, 求解 $D(f)$.
@@ -1109,13 +1109,13 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[X^n-1=f(X)(X-1),\]
 
     $\therefore$
-    \[D(X^n-1)=D(f)D(X-1)\operatorname{Res}^2(f(X),X-1).\]
+    \[D(X^n-1)=D(f)D(X-1)\res ^2(f(X),X-1).\]
 
     $\because$ 多项式 $X-1$ 只有一个根, $\therefore D(X-1)=1$.
 
     由第 \ref{ex2.7},\ref{ex2.8} 题得
 
-    \[\operatorname{Res}^2(f(X),X-1)=\left(\sum\limits_{i=0}^n(-1)^{n-i}(-1)^i\cdot1\right)^2=n^2,\]
+    \[\res ^2(f(X),X-1)=\left(\sum\limits_{i=0}^n(-1)^{n-i}(-1)^i\cdot1\right)^2=n^2,\]
     \[D(X^n-1)=(-1)^{n(n-1)/2}(-1)^{n-1}n^n.\]
 
     $\therefore$

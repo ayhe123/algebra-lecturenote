@@ -7,7 +7,7 @@
 % 习题 2.1 (2)
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 \title{第6章笔记和习题}
 
 \begin{document}
@@ -208,7 +208,7 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
     \[A=B\begin{pmatrix}
         \Sigma & 0 \\
         0 & 0 \\
-    \end{pmatrix}{}^tC,\quad\Sigma=\operatorname{diag}(\sigma_1,\sigma_2,\cdots,\sigma_r).\]
+    \end{pmatrix}{}^tC,\quad\Sigma=\diag (\sigma_1,\sigma_2,\cdots,\sigma_r).\]
     
     $\because$
     \[\begin{pmatrix}
@@ -296,7 +296,7 @@ $\because\boldsymbol{u}\neq\boldsymbol{v}\Rightarrow\phi_{\boldsymbol{u}}\neq\ph
 
 $\because\forall\alpha,\beta\in K,\boldsymbol{u},\boldsymbol{v}\in V,f\in V^*,f(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha f(\boldsymbol{u})+\beta f(\boldsymbol{v})$, $\therefore\phi(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\phi(\boldsymbol{u})+\beta\phi(\boldsymbol{v})$, $\therefore\phi$ 是单同态. $\therefore V\hookrightarrow V^{**}$.
 
-类似地, 定义 $\psi_{\boldsymbol{w}}:f\to f(\boldsymbol{w})\in W^{**},\psi:\boldsymbol{v}\to\psi_{\boldsymbol{v}},W'=\operatorname{Im}\psi$.
+类似地, 定义 $\psi_{\boldsymbol{w}}:f\to f(\boldsymbol{w})\in W^{**},\psi:\boldsymbol{v}\to\psi_{\boldsymbol{v}},W'=\im \psi$.
 
 容易验证, 当 $V,W$ 是有限维时, 有 $\phi_{\boldsymbol{v}}=\boldsymbol{v},\psi_{\boldsymbol{w}}=\boldsymbol{w}$. 自然地, 引出下面的定义:
 \begin{definition}\label{d1.2}
@@ -484,7 +484,7 @@ $\mathcal{A}\otimes\mathcal{B}$ 在基 (\ref{eq1.3}) 下的矩阵
 \section{张量的卷积(对应第 2 节)}
 设 $\mathcal{A}\in\mathcal{L}(V)$. 用张量的语言来描述, 就是 $\mathcal{A}\in\mathbb{T}_1^1(V)$. 线性算子的迹是很重要的性质, 我们想得到 $\mathcal{A}$ 的迹在张量的语言下的形式.
 
-设 $T\in\mathbb{T}_1^1(V)$ 满足 $T(\boldsymbol{x},u)=(u,\mathcal{A}\boldsymbol{x})$, 则 $\operatorname{tr}\mathcal{A}=\sum\limits_{i=1}^nT(e^i,\boldsymbol{e}_i)$. 设 $T$ 在基 $\{e^i\otimes\boldsymbol{e}_j|1\leq i,j\leq n\}$ 下的坐标为 $T_i^j$, 则 $\operatorname{tr}\mathcal{A}=\sum\limits_{i=1}^nT_i^i$.
+设 $T\in\mathbb{T}_1^1(V)$ 满足 $T(\boldsymbol{x},u)=(u,\mathcal{A}\boldsymbol{x})$, 则 $\tr \mathcal{A}=\sum\limits_{i=1}^nT(e^i,\boldsymbol{e}_i)$. 设 $T$ 在基 $\{e^i\otimes\boldsymbol{e}_j|1\leq i,j\leq n\}$ 下的坐标为 $T_i^j$, 则 $\tr \mathcal{A}=\sum\limits_{i=1}^nT_i^i$.
 
 设 ${T'}_{i'}^{j'}$ 是 $T$ 在另一个基下的坐标, 由第 1 节的定理 2 得
 \[\sum\limits_{i=1}^nT_i^i=\sum\limits_{i=1}^n\sum\limits_{i'=1}^nb_i^{i'}{T'}_{i'}^{i'}a_{i'}^i,\quad\sum\limits_{k=1}^na_i^kb_k^j=\delta_i^j,\]
@@ -494,8 +494,8 @@ $\therefore$
 
 这验证了: $T$ 的迹与基的选取无关.
 
-$\operatorname{tr}$ 相当于一个映射: $\operatorname{tr}:\mathbb{T}_1^1(V)\to K=\mathbb{T}_0^0$. 一般地, 可以构造映射
-\[\operatorname{tr}_r^s:\begin{array}{rcl}
+$\tr $ 相当于一个映射: $\tr :\mathbb{T}_1^1(V)\to K=\mathbb{T}_0^0$. 一般地, 可以构造映射
+\[\tr _r^s:\begin{array}{rcl}
     \mathbb{T}_p^q & \to & \mathbb{T}_{p-1}^{q-1} \\
     T & \to & \overline{T} \\
 \end{array},\]
@@ -515,23 +515,23 @@ $\operatorname{tr}$ 相当于一个映射: $\operatorname{tr}:\mathbb{T}_1^1(V)\
 \[\overline{T}=\sum\limits_{i,j}\overline{T}^{j_1,\cdots,\widehat{j_s},\cdots,j_q}_{i_1,\cdots,\widehat{i_r},\cdots,i_p}e^{i_1}\otimes\cdots\otimes\hat{e}^{i_r}\otimes\cdots\otimes e^{i_p}\otimes\boldsymbol{e}_{j_1}\otimes\cdots\otimes\hat{\boldsymbol{e}}_{j_s}\otimes\cdots\otimes\boldsymbol{e}_{j_q},\]
 \[\overline{T}^{j_1,\cdots,\widehat{j_s},\cdots,j_q}_{i_1,\cdots,\widehat{i_r},\cdots,i_p}=\sum\limits_{k=1}^nT^{j_1,\cdots,j_{s-1},k,j_{s+1},\cdots,j_q}_{i_1,\cdots,i_{r-1},k,i_{r+1},\cdots,i_p}\]
 
-称 $\operatorname{tr}_r^s$ 为\textbf{收缩映射}.
+称 $\tr _r^s$ 为\textbf{收缩映射}.
 
 举几个用张量的卷积表示运算的例子.
 \begin{example}
-    对线性算子 $\mathcal{A},\mathcal{B}\in\mathbb{T}_1^1,\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_2^2$, $\operatorname{tr}_i^j\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$.
+    对线性算子 $\mathcal{A},\mathcal{B}\in\mathbb{T}_1^1,\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_2^2$, $\tr _i^j\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$.
 
     设 $\mathcal{A},\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵分别为 $A=(a_j^i),B=(b_j^i)$, 将 $\mathcal{A},\mathcal{B}$ 写成张量的形式:
     \[\mathcal{A}=\sum\limits_{i,k}a_i^ke^i\otimes\boldsymbol{e}_k,\quad\mathcal{B}=\sum\limits_{j,l}b_l^je^l\otimes\boldsymbol{e}_j,\]
 
     则
     \[\mathcal{A}\otimes\mathcal{B}=\sum a_i^kb_l^je^i\otimes e^l\otimes\boldsymbol{e}_k\otimes\boldsymbol{e}_j,\]
-    \[\operatorname{tr}_2^1\mathcal{A}\otimes\mathcal{B}=\sum S_i^je^i\otimes\boldsymbol{e}_j,\]
+    \[\tr _2^1\mathcal{A}\otimes\mathcal{B}=\sum S_i^je^i\otimes\boldsymbol{e}_j,\]
 
     其中
     \[S_i^j=\sum\limits_{k=1}^na_i^kb_k^j.\]
 
-    $\therefore\operatorname{tr}_2^1\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $BA$. 同理 $\operatorname{tr}_1^2\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $AB$.
+    $\therefore\tr _2^1\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $BA$. 同理 $\tr _1^2\mathcal{A}\otimes\mathcal{B}\in\mathbb{T}_1^1$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $AB$.
 \end{example}
 \section{对称张量代数(对应第 2 节)}
 \subsection{对称张量}
@@ -1065,7 +1065,7 @@ $\therefore A^2=A$.
 \begin{solution}
     由定理 \ref{t1.4} 的证明得(沿用定理 \ref{t1.4} 证明的记号), 当 $r>2$ 时 $\phi$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
     
-    事实上, 假设 $\phi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\phi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\operatorname{rank}A=1$, 与 $r>2$ 矛盾.
+    事实上, 假设 $\phi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\phi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\rank A=1$, 与 $r>2$ 矛盾.
 \end{solution}
 \begin{exercise}% 1.5
     设 $A,B$ 是可逆方阵, 试给出 $A\otimes B$ 的逆矩阵.
@@ -1107,7 +1107,7 @@ $\therefore A^2=A$.
     则
     $\mathcal{A}\otimes\mathcal{B}$ 在基 (\ref{eq1.3}) 下的矩阵是 $B\otimes A$.
 
-    可以直接验证: $\operatorname{tr}C=\operatorname{tr}A\cdot\operatorname{tr}B=\operatorname{tr}A\otimes B,\det C=\det((B\otimes E_n)(E_m\otimes A))=(\det A)^m(\det B)^n$.
+    可以直接验证: $\tr C=\tr A\cdot\tr B=\tr A\otimes B,\det C=\det((B\otimes E_n)(E_m\otimes A))=(\det A)^m(\det B)^n$.
 \end{solution}
 \subsection{习题 6.2}
 \stepcounter{exsection}

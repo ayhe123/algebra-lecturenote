@@ -13,8 +13,10 @@
 \DeclareOption{bgcolor}{\@backgroundcolortrue}
 \ProcessOptions
 \if@backgroundcolor
-\definecolor{geyecolor}{RGB}{199,237,204}
-\pagecolor{geyecolor}
+\definecolor{bg}{RGB}{199,237,204}
+\pagecolor{bg}
+\else
+\definecolor{bg}{RGB}{255,255,255}
 \fi
 
 \author{ayhe123\thanks{笔记发布在这个网址上: \url{https://github.com/ayhe123/algebra-lecturenote}}}
@@ -22,19 +24,31 @@
 \numberwithin{equation}{section}
 
 % 定理环境
+\mdfdefinestyle{mdftheoremstyle}{
+middlelinecolor=black,
+middlelinewidth=.5pt,
+backgroundcolor=black!15}
+\newmdtheoremenv[style=mdftheoremstyle]{theorem}{定理}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{lemma}{引理}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{corollary}{推论}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{proposition}{命题}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{property}{性质}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{exercise}{习题}
+\newmdtheoremenv[style=mdftheoremstyle]{exercisec}{补充题}
 \theoremstyle{definition}
-\newtheorem{definition}{定义}[section]
-\newtheorem{theorem}{定理}[section]
-\newtheorem{lemma}{引理}[section]
-\newtheorem{corollary}{推论}[section]
-\newtheorem{proposition}{命题}[section]
-\newtheorem{example}{例}[section]
-\newtheorem{property}{性质}[section]
-\newtheorem{exercise}{习题}
-\newtheorem{exercisec}{补充题}
+\newmdtheoremenv[
+topline=false,
+bottomline=false,
+rightline=false,
+middlelinecolor=black!50,
+middlelinewidth=3pt,
+backgroundcolor=bg]{example}{例}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{definition}{定义}[section]
 \newtheorem*{solution}{解}
+\theoremstyle{remark}
 \newtheorem*{thought}{思路}
 \newtheorem*{note}{注}
+\newtheorem*{remark}{注意}
 
 % 习题计数器
 \newcounter{exsection}[section]
@@ -46,12 +60,18 @@
 middlelinecolor=black,
 middlelinewidth=.5pt,
 backgroundcolor=black!15}
-\surroundwithmdframed{definition}
-\surroundwithmdframed{theorem}
-\surroundwithmdframed{lemma}
-\surroundwithmdframed{corollary}
-\surroundwithmdframed{proposition}
-\surroundwithmdframed{property}
-\surroundwithmdframed{exercise}
-\surroundwithmdframed{exercisec}
 \surroundwithmdframed{verbatim}
+
+% 自定义算符
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\charop}{char}
+\DeclareMathOperator{\ft}{FT}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\aff}{Aff}
+\DeclareMathOperator{\gl}{GL}
+\DeclareMathOperator{\pgl}{PGL}
+\DeclareMathOperator{\slop}{SL}
+\DeclareMathOperator{\spop}{Sp}

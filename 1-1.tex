@@ -27,21 +27,21 @@
     ($\Rightarrow$) (1) 设 $f$ 是单射, 定义映射
     \[g:\begin{array}{rcll}
     Y & \to & X \\
-    f(x) & \mapsto & x & (\forall f(x)\in\operatorname{Im}f) \\
-    y & \mapsto & x_0 & (\forall y\in Y\backslash\operatorname{Im}f)
+    f(x) & \mapsto & x & (\forall f(x)\in\im f) \\
+    y & \mapsto & x_0 & (\forall y\in Y\backslash\im f)
     \end{array},\]
 
     其中 $x_0\in X$.
 
-    $\because f$ 是单射, $\therefore\forall y\in\operatorname{Im}f,\exists!x\in X$ 使得 $y=f(x)\Rightarrow x=g(y).\therefore g$ 是确切定义(well-defined)的.
+    $\because f$ 是单射, $\therefore\forall y\in\im f,\exists!x\in X$ 使得 $y=f(x)\Rightarrow x=g(y).\therefore g$ 是确切定义(well-defined)的.
 
     容易验证 $gf=e_X$(到这里就可以用引理得到 $g$ 是满射, 下面采用与引理不同的方法证明).
 
-    $\because f$ 是映射, $\therefore\forall x\in X,\exists y\in Y$ 使得 $y=f(x)\Rightarrow x=g(y)$. $\therefore X\subset\operatorname{Im}g$.
+    $\because f$ 是映射, $\therefore\forall x\in X,\exists y\in Y$ 使得 $y=f(x)\Rightarrow x=g(y)$. $\therefore X\subset\im g$.
 
-    $\because g:Y\to X,\therefore\operatorname{Im}g\subset X.\therefore\operatorname{Im}g=X$, 即 $g$ 是满射.
+    $\because g:Y\to X,\therefore\im g\subset X.\therefore\im g=X$, 即 $g$ 是满射.
 
-    (2) 设 $f$ 是满射, 则 $\operatorname{Im}f=Y$.
+    (2) 设 $f$ 是满射, 则 $\im f=Y$.
 
     $\therefore\forall y\in Y,\exists x\in X$ 使得 $f(x)=y$.
 
@@ -92,24 +92,24 @@
     为 $f$ 在 $X_0$ 上的\textbf{限制}, 记作 $f|_{X_0}$.
 \end{definition}
 \begin{lemma}\label{l1.1}
-    设有限集 $X$, $f:X\to Y$ 是单射, 则 $|\operatorname{Im}f|=|X|$.
+    设有限集 $X$, $f:X\to Y$ 是单射, 则 $|\im f|=|X|$.
 \end{lemma}
 \begin{proof}
-    对 $|X|$ 用数学归纳法. 当 $|X|=1$ 时, $\operatorname{Im}f=\{f(x)\},|\operatorname{Im}f|=1$.
+    对 $|X|$ 用数学归纳法. 当 $|X|=1$ 时, $\im f=\{f(x)\},|\im f|=1$.
 
-    假设对 $\forall$ 基数为 $n$ 的集合 $X$ 和 $X\to Y$ 的映射 $f$ 都有 $|\operatorname{Im}f|=|X|$. 对基数为 $n+1$ 的集合 $X$, 考虑 $X$ 的一个基数为 $n$ 的子集 $X_0$ 和 $f$ 在 $X_0$ 上的限制 $\bar{f}=f|_{X_0}$. 有 $f(X_0)=\operatorname{Im}\bar{f}$.
+    假设对 $\forall$ 基数为 $n$ 的集合 $X$ 和 $X\to Y$ 的映射 $f$ 都有 $|\im f|=|X|$. 对基数为 $n+1$ 的集合 $X$, 考虑 $X$ 的一个基数为 $n$ 的子集 $X_0$ 和 $f$ 在 $X_0$ 上的限制 $\bar{f}=f|_{X_0}$. 有 $f(X_0)=\im \bar{f}$.
 
-    设 $X=\{x_0\}\cup X_0$, 则 $\operatorname{Im}f=\{f(x_0)\}\cup f(X_0)=\{f(x_0)\}\cup\operatorname{Im}\bar{f}$. $\therefore|\operatorname{Im}f|=|\operatorname{Im}\bar{f}|+1$.
+    设 $X=\{x_0\}\cup X_0$, 则 $\im f=\{f(x_0)\}\cup f(X_0)=\{f(x_0)\}\cup\im \bar{f}$. $\therefore|\im f|=|\im \bar{f}|+1$.
 
-    由归纳假定, $|\operatorname{Im}\bar{f}|=|X_0|$. $\therefore|\operatorname{Im}f|=|X_0|+1=|X|$.
+    由归纳假定, $|\im \bar{f}|=|X_0|$. $\therefore|\im f|=|X_0|+1=|X|$.
 \end{proof}
 \begin{theorem}
     设有限集 $X,Y$ 满足 $|X|=|Y|<\infty$, $f:X\to Y$ 是单射/满射, 则 $f$ 是双射.
 \end{theorem}
 \begin{proof}
-    设 $f$ 是单射, 由引理 \ref{l1.1} 得 $|\operatorname{Im}f|=|X|=|Y|.\because\operatorname{Im}f\subset Y,\therefore\operatorname{Im}f=Y$, 即 $f$ 是满射.
+    设 $f$ 是单射, 由引理 \ref{l1.1} 得 $|\im f|=|X|=|Y|.\because\im f\subset Y,\therefore\im f=Y$, 即 $f$ 是满射.
 
-    假设 $f$ 是满射而不是单射, 由 $f$ 是满射得 $\operatorname{Im}f=Y$, 由 $f$ 不是单射得 $|\operatorname{Im}f|<|X|=|Y|$, 与 $\operatorname{Im}f=Y$ 矛盾.
+    假设 $f$ 是满射而不是单射, 由 $f$ 是满射得 $\im f=Y$, 由 $f$ 不是单射得 $|\im f|<|X|=|Y|$, 与 $\im f=Y$ 矛盾.
 \end{proof}
 
 当 $X,Y$ 是无限集时定理 1 不一定成立. 比如:
@@ -118,7 +118,7 @@
 n & \to & n+1
 \end{array}\]
 
-是单射不是满射($0\notin\operatorname{Im}f$),
+是单射不是满射($0\notin\im f$),
 \[g:\begin{array}{rcl}
 \mathbb{N} & \to & \mathbb{N} \\
 n & \to & \dfrac{n+(-1)^nn}{4}
@@ -439,14 +439,14 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     设 $f:X\to Y$ 是一个映射, 且对某个元素 $a\in X,b=f(a)$. 原像
     \[f^{-1}(b)=f^{-1}(f(a))=\{x|f(x)=f(a)\}\]
 
-    称为元素 $b\in\operatorname{Im}f$ 上的\textbf{纤维}. 证明集合 $X$ 是互不相交的纤维的并.
+    称为元素 $b\in\im f$ 上的\textbf{纤维}. 证明集合 $X$ 是互不相交的纤维的并.
 \end{exercise}
 \begin{proof}
-    设 $b_1,b_2\in\operatorname{Im}f,a\in X$.
+    设 $b_1,b_2\in\im f,a\in X$.
 
     若 $a\in f^{-1}(b_1)\land a\in f^{-1}(b_2)$, 则 $f(a)=b_1\land f(a)=b_2\Rightarrow b_1=b_2$.
 
-    $\therefore$ 对 $b_1,b_2\in\operatorname{Im}f$, 若 $b_1\neq b_2$, 则 $f^{-1}(b_1),f^{-1}(b_2)$ 互不相交.
+    $\therefore$ 对 $b_1,b_2\in\im f$, 若 $b_1\neq b_2$, 则 $f^{-1}(b_1),f^{-1}(b_2)$ 互不相交.
 
     $\forall a\in X,a\in f^{-1}(f(a)),\therefore X$ 是纤维的并.
 \end{proof}

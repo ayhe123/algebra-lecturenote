@@ -6,7 +6,7 @@
 % 习题 4.2 计算要化简, 用计算器算的那一步要补充
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 \title{第4章笔记和习题}
 
 \begin{document}
@@ -311,38 +311,38 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
 $\because\mathbb{A}$ 与 $K$ 可以等同起来(见这章的开头), $\therefore$ 可以将 $\dot{o}+y\ (y\in K)$ 与 $y$ 等同起来.
 
 当 $\alpha=0$ 时 $\forall x\in K,\phi_{\alpha,\beta}(x)=\beta$. 考察
-\[\operatorname{Aff}(K)=\{\phi_{\alpha,\beta}|\alpha\in K\backslash\{0\},\beta\in K\}.\]
+\[\aff (K)=\{\phi_{\alpha,\beta}|\alpha\in K\backslash\{0\},\beta\in K\}.\]
 
-$\because$ 对 $\phi_{\alpha,\beta},\phi_{\sigma,\tau}\in\operatorname{Aff}(K)$,
+$\because$ 对 $\phi_{\alpha,\beta},\phi_{\sigma,\tau}\in\aff (K)$,
 \[\phi_{\alpha,\beta}\phi_{\sigma,\tau}(x)=\phi_{\alpha,\beta}(\sigma x+\tau)=\alpha(\sigma x+\tau)+\beta=\alpha\sigma x+\alpha\tau+\beta,\]
 
-$\therefore\phi_{\alpha,\beta}\phi_{\sigma,\tau}=\phi_{\alpha\sigma,\alpha\tau+\beta}\in\operatorname{Aff}(K)$.
+$\therefore\phi_{\alpha,\beta}\phi_{\sigma,\tau}=\phi_{\alpha\sigma,\alpha\tau+\beta}\in\aff (K)$.
 
-$\because\phi_{1,0}=e,\forall\phi_{\alpha,\beta}\in\operatorname{Aff}(K),\exists\phi_{\alpha^{-1},-\alpha^{-1}\beta}\in\operatorname{Aff}(K)$ 使得 $\phi_{\alpha,\beta}\phi_{\alpha^{-1},-\alpha^{-1}\beta}=\phi_{\alpha^{-1},-\alpha^{-1}\beta}\phi_{\alpha,\beta}=\phi_{1,0}$, $\therefore\operatorname{Aff}(K)$ 是群.
+$\because\phi_{1,0}=e,\forall\phi_{\alpha,\beta}\in\aff (K),\exists\phi_{\alpha^{-1},-\alpha^{-1}\beta}\in\aff (K)$ 使得 $\phi_{\alpha,\beta}\phi_{\alpha^{-1},-\alpha^{-1}\beta}=\phi_{\alpha^{-1},-\alpha^{-1}\beta}\phi_{\alpha,\beta}=\phi_{1,0}$, $\therefore\aff (K)$ 是群.
 
-考察 $\operatorname{Aff}(K)$ 的子集 $\{\phi_{1,\beta}|\beta\in K\}$. 有
+考察 $\aff (K)$ 的子集 $\{\phi_{1,\beta}|\beta\in K\}$. 有
 \[\phi_{1,\beta}\phi_{1,\gamma}=\phi_{1,\beta+\gamma}.\]
 
-$\therefore\{\phi_{1,\beta}|\beta\in K\}$ 是 $\operatorname{Aff}(K)$ 的子群, 且同构于 $K^+$. 设
+$\therefore\{\phi_{1,\beta}|\beta\in K\}$ 是 $\aff (K)$ 的子群, 且同构于 $K^+$. 设
 
 \[\xi:\begin{array}{rcl}
-    K & \to & \operatorname{Aff}(K) \\
+    K & \to & \aff (K) \\
     \beta & \to & \phi_{1,\beta} \\
 \end{array},\]
 \[\eta:\begin{array}{rcl}
-    \operatorname{Aff}(K) & \to & K\backslash\{0\} \\
+    \aff (K) & \to & K\backslash\{0\} \\
     \phi_{\alpha,\beta} & \to & \alpha \\
 \end{array}.\]
 
-容易验证 $\operatorname{Im}\xi=\ker\eta$. 这时称 $\xi$ 与 $\eta$ \textbf{正合}.
+容易验证 $\im \xi=\ker\eta$. 这时称 $\xi$ 与 $\eta$ \textbf{正合}.
 \begin{definition}
     设集合 $A_1,A_2,\cdots,A_s$, $A_i$ 与 $A_{i+1}$ 间可以建立映射 $\xi_i\ (i=1,2,\cdots,s-1)$. 如果 $\xi_i$ 与 $\xi_{i+1}\ (i=1,2,\cdots,s-2)$ 正合, 则称映射列
     \[A_1\xrightarrow{\xi_1}A_2\xrightarrow{\xi_2}\cdots\xrightarrow{\xi_{s-1}}A_s\]
     为\textbf{正合列}(exact sequence).
 \end{definition}
 由上面的定义,
-\[\{0\}\to K\xrightarrow{\xi}\operatorname{Aff}(K)\xrightarrow{\eta}K\backslash\{0\}\to\{1\}\]
-是正合列. 上式最左边的 $\{0\}$ 说明 $\ker\xi=\{0\},\xi$ 是单射, 最右边的 $\{1\}$ 说明 $\operatorname{Im}\eta=K\backslash\{0\},\eta$ 是满射. 通常把 $\{0\},\{1\}$ 简写为 $0,1$.
+\[\{0\}\to K\xrightarrow{\xi}\aff (K)\xrightarrow{\eta}K\backslash\{0\}\to\{1\}\]
+是正合列. 上式最左边的 $\{0\}$ 说明 $\ker\xi=\{0\},\xi$ 是单射, 最右边的 $\{1\}$ 说明 $\im \eta=K\backslash\{0\},\eta$ 是满射. 通常把 $\{0\},\{1\}$ 简写为 $0,1$.
 
 一般地, 设
 \[f:\begin{array}{rcl}
@@ -365,17 +365,17 @@ $\therefore\{\phi_{1,\beta}|\beta\in K\}$ 是 $\operatorname{Aff}(K)$ 的子群,
 
     $\therefore f$ 可逆, $f^{-1}=g$.
 \end{proof}
-考察可逆的仿射变换全体 $\operatorname{Aff}(\mathbb{A})$. 设 $f,g\in\operatorname{Aff}(\mathbb{A})$, 由引理 \ref{l3.1} 的证明过程得
-\[fg:\dot{p}+\boldsymbol{v}\to f(g(\dot{p}))+DfDg\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A}),\quad f^{-1}:\dot{p}+\boldsymbol{v}\to f^{-1}(\dot{p})+Df^{-1}\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A}),\]
+考察可逆的仿射变换全体 $\aff (\mathbb{A})$. 设 $f,g\in\aff (\mathbb{A})$, 由引理 \ref{l3.1} 的证明过程得
+\[fg:\dot{p}+\boldsymbol{v}\to f(g(\dot{p}))+DfDg\boldsymbol{v}\in\aff (\mathbb{A}),\quad f^{-1}:\dot{p}+\boldsymbol{v}\to f^{-1}(\dot{p})+Df^{-1}\boldsymbol{v}\in\aff (\mathbb{A}),\]
 
-$\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\dot{p}+\boldsymbol{v}$ 满足 $De=\mathcal{E}$. 从上式可以看出,
+$\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\dot{p}+\boldsymbol{v}$ 满足 $De=\mathcal{E}$. 从上式可以看出,
 \[D:\begin{array}{rcl}
-    \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V) \\
+    \aff (\mathbb{A}) & \to & \gl (V) \\
     f & \to & Df \\
 \end{array}\]
 是群同态.
 
-对 $\forall\mathcal{F}\in\operatorname{GL}(V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{p}+\boldsymbol{v})=f(\dot{p})+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\operatorname{GL}(V)$, 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$. $\therefore D$ 是满同态. 有
+对 $\forall\mathcal{F}\in\gl (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{p}+\boldsymbol{v})=f(\dot{p})+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\gl (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\therefore D$ 是满同态. 有
 \begin{lemma}
     $\ker D$ 是 $\mathbb{A}$ 上的平移变换全体 $T$.
 \end{lemma}
@@ -392,19 +392,19 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
 \end{proof}
 有下面的正合列
 \begin{equation}\label{eq3.1}
-    e\to T\xrightarrow{\xi}\operatorname{Aff}(\mathbb{A})\xrightarrow{\eta}\operatorname{GL}(V)\to\mathcal{E},
+    e\to T\xrightarrow{\xi}\aff (\mathbb{A})\xrightarrow{\eta}\gl (V)\to\mathcal{E},
 \end{equation}
 
 其中 $\xi$ 是恒等变换, $\eta=D$.
 
-设 $\operatorname{Aff}(\mathbb{A})$ 中保持点 $\dot{o}$ 不变的变换全体为 $G_{\dot{o}}$, 则
+设 $\aff (\mathbb{A})$ 中保持点 $\dot{o}$ 不变的变换全体为 $G_{\dot{o}}$, 则
 \begin{lemma}\label{l3.3}
     $\eta|_{G_{\dot{o}}}$ 是同构.
 \end{lemma}
 \begin{proof}
-    前面证明过 $\eta=D$ 是 $\operatorname{Aff}(\mathcal{A})$ 上的群同态. $\therefore\eta|_{G_{\dot{o}}}$ 是群同态.
+    前面证明过 $\eta=D$ 是 $\aff (\mathcal{A})$ 上的群同态. $\therefore\eta|_{G_{\dot{o}}}$ 是群同态.
 
-    对 $\forall\mathcal{F}\in\operatorname{GL}(V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{o}+\boldsymbol{v})=\dot{o}+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\operatorname{GL}(V)$, 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$. $\because f(\dot{o})=\dot{o}$, $\therefore f\in G_{\dot{o}}$. $\therefore \eta|_{G_{\dot{o}}}$ 是满同态.
+    对 $\forall\mathcal{F}\in\gl (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{o}+\boldsymbol{v})=\dot{o}+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\gl (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\because f(\dot{o})=\dot{o}$, $\therefore f\in G_{\dot{o}}$. $\therefore \eta|_{G_{\dot{o}}}$ 是满同态.
     
     $\because\forall f\in\ker\eta|_{G_{\dot{o}}},Df=\mathcal{E}$,
     \[f(\dot{o}+\boldsymbol{v})=\dot{o}+\boldsymbol{v}\Rightarrow f=e.\]
@@ -412,10 +412,10 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
     $\therefore\ker\eta|_{G_{\dot{o}}}=\{e\}$. $\therefore\eta|_{G_{\dot{o}}}$ 是同构.
 \end{proof}
 \begin{theorem}[书上的定理 2 的加强命题]\label{t3.1}
-    $\forall f\in\operatorname{Aff}(\mathbb{A})$, $\exists!t_{\boldsymbol{a}}\in T,g\in G_{\dot{o}}$ 使得 $f=t_{\boldsymbol{a}}g$.
+    $\forall f\in\aff (\mathbb{A})$, $\exists!t_{\boldsymbol{a}}\in T,g\in G_{\dot{o}}$ 使得 $f=t_{\boldsymbol{a}}g$.
 \end{theorem}
 \begin{proof}
-    (存在性) 设 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+Df\boldsymbol{v}$. $\because f\in\operatorname{Aff}(\mathbb{A})$, 由引理 \ref{l3.1} 得 $Df\in\operatorname{GL}(V)$. 由引理 \ref{l3.3} 得 $\eta|_{G_{\dot{o}}}$ 是双射, $\therefore\exists g\in G_{\dot{o}}$ 使得 $g(\dot{o}+\boldsymbol{v})=\dot{o}+Df\boldsymbol{v}$.
+    (存在性) 设 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+Df\boldsymbol{v}$. $\because f\in\aff (\mathbb{A})$, 由引理 \ref{l3.1} 得 $Df\in\gl (V)$. 由引理 \ref{l3.3} 得 $\eta|_{G_{\dot{o}}}$ 是双射, $\therefore\exists g\in G_{\dot{o}}$ 使得 $g(\dot{o}+\boldsymbol{v})=\dot{o}+Df\boldsymbol{v}$.
 
     令 $\boldsymbol{a}=\overrightarrow{of(o)}$, 则
     \begin{align*}
@@ -432,12 +432,12 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
 
     $\therefore\boldsymbol{a}=Df\boldsymbol{v}-Dg\boldsymbol{v}$. 同理得 $\boldsymbol{a}=Df\boldsymbol{u}-Dg\boldsymbol{u}$. $\therefore(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$.
 
-    $\because f,g\in\operatorname{Aff}(\mathbb{A}),\therefore Df,Dg\in\operatorname{GL}(V)$. 假设 $Df\neq Dg$, 则 $Df-Dg\in\operatorname{GL}(V)$, $\therefore\ker(Df-Dg)=\{\boldsymbol{0}\}$, 与 $\boldsymbol{u}-\boldsymbol{v}\neq\boldsymbol{0}$ 但 $(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$ 矛盾. $\therefore Dg=Df$.
+    $\because f,g\in\aff (\mathbb{A}),\therefore Df,Dg\in\gl (V)$. 假设 $Df\neq Dg$, 则 $Df-Dg\in\gl (V)$, $\therefore\ker(Df-Dg)=\{\boldsymbol{0}\}$, 与 $\boldsymbol{u}-\boldsymbol{v}\neq\boldsymbol{0}$ 但 $(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$ 矛盾. $\therefore Dg=Df$.
 
     设 $f=t_{\boldsymbol{b}}g$, 则 $f=t_{\boldsymbol{b}-\boldsymbol{a}}t_{\boldsymbol{a}}g$, 其中 $\boldsymbol{a}=\overrightarrow{of(o)}$. 由存在性的证明得 $f=t_{\boldsymbol{a}}g$, $\therefore f=t_{\boldsymbol{b}-\boldsymbol{a}}f$. $\therefore\boldsymbol{b}=\boldsymbol{a}$.
 \end{proof}
 \begin{theorem}\label{t3.2}
-    $T$ 是 $\operatorname{Aff}(\mathbb{A})$ 的正规子群, 即 $\forall f\in\operatorname{Aff}(\mathbb{A}),t_{\boldsymbol{v}}\in T$, 有 $ft_{\boldsymbol{v}}f^{-1}\in T$.
+    $T$ 是 $\aff (\mathbb{A})$ 的正规子群, 即 $\forall f\in\aff (\mathbb{A}),t_{\boldsymbol{v}}\in T$, 有 $ft_{\boldsymbol{v}}f^{-1}\in T$.
 \end{theorem}
 \begin{proof}
     对 $\forall h\in G_{\dot{o}},t_{\boldsymbol{v}}\in T,\dot{p}\in\mathbb{A}$, 有
@@ -451,12 +451,12 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
 
     $\therefore ht_{\boldsymbol{v}}h^{-1}=t_{Dh\boldsymbol{v}}\in T$.
 
-    由定理 \ref{t3.1} 得 $\forall f\in\operatorname{Aff}(\mathbb{A}),\exists g\in G_{\dot{o}},t_{\boldsymbol{u}}\in T$ 使得 $f=t_{\boldsymbol{u}}g$. $\therefore$
+    由定理 \ref{t3.1} 得 $\forall f\in\aff (\mathbb{A}),\exists g\in G_{\dot{o}},t_{\boldsymbol{u}}\in T$ 使得 $f=t_{\boldsymbol{u}}g$. $\therefore$
     \[ft_{\boldsymbol{v}}f^{-1}=t_{\boldsymbol{u}}gt_{\boldsymbol{v}}(t_{\boldsymbol{u}}g)^{-1}=t_{\boldsymbol{u}}gt_{\boldsymbol{v}}g^{-1}t_{\boldsymbol{u}}^{-1}=t_{\boldsymbol{u}}t_{Dg\boldsymbol{v}}t_{\boldsymbol{u}}^{-1}\in T.\qedhere\]
 \end{proof}
 定理 \ref{t3.1} 说明映射
 \[\begin{array}{rcl}
-    \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V)\times V \\
+    \aff (\mathbb{A}) & \to & \gl (V)\times V \\
     f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
 \end{array}\]
 是双射. 如果定义形式上的运算
@@ -465,7 +465,7 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
 则
 \begin{theorem}\label{t3.3}
     \[\phi:\begin{array}{rcl}
-        \operatorname{Aff}(\mathbb{A}) & \to & \operatorname{GL}(V)\times V \\
+        \aff (\mathbb{A}) & \to & \gl (V)\times V \\
         f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
     \end{array}\]
     是同构.
@@ -516,7 +516,7 @@ $\therefore\operatorname{Aff}(\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\bold
 \subsection{群与几何}
 Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距离不变. 类似地, 一般的仿射变换也可以用几何不变量来刻画: 仿射空间 $\mathbb{A}$ 上的变换 $f$ 是仿射变换当且仅当 $f$ 保持直线不变(由书上第 1 节的定理 4 得 $f$ 保持任一仿射子空间不变), 且保持共线的点的比例不变.
 \begin{theorem}[书上的定理 9]
-    设 $f:\mathbb{A}\to\mathbb{A}$ 是双射, 那么 $f\in\operatorname{Aff}(\mathbb{A})\Leftrightarrow\forall\dot{p},\dot{q}\in\mathbb{A},f(\varPi_{\dot{p},\dot{q}})=\varPi_{f(\dot{p}),f(\dot{q})}$.
+    设 $f:\mathbb{A}\to\mathbb{A}$ 是双射, 那么 $f\in\aff (\mathbb{A})\Leftrightarrow\forall\dot{p},\dot{q}\in\mathbb{A},f(\varPi_{\dot{p},\dot{q}})=\varPi_{f(\dot{p}),f(\dot{q})}$.
 \end{theorem}
 \begin{proof}
     ($\Rightarrow$) 设 $U$ 是 $V$ 的子空间, 有 $f(\dot{p}+U)=f(\dot{p})+Df(U)$. 取 $\dim U=1$ 得.
@@ -530,7 +530,7 @@ Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距�
     对 $\boldsymbol{u},\boldsymbol{v}\in V$, 设 $\dot{p}+\boldsymbol{u}=\dot{q},\dot{p}+\boldsymbol{u}+\boldsymbol{v}=\dot{q}+\boldsymbol{v}=\dot{r}$, 则 $\overrightarrow{pq}=\boldsymbol{u},\overrightarrow{pr}=\boldsymbol{u}+\boldsymbol{v}$. 有
     \[\mathcal{F}(\boldsymbol{u}+\boldsymbol{v})=\overrightarrow{f(\dot{p})f(\dot{r})}=\overrightarrow{f(\dot{p})f(\dot{q})}+\overrightarrow{f(\dot{q})f(\dot{r})}=\mathcal{F}\boldsymbol{u}+\mathcal{F}\boldsymbol{v}.\]
 
-    $\therefore\mathcal{F}\in\operatorname{GL}(V)$. 由引理 \ref{l3.1} 得 $f\in\operatorname{Aff}(\mathbb{A})$.
+    $\therefore\mathcal{F}\in\gl (V)$. 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$.
 \end{proof}
 当 $K=\mathbb{R},\dim\mathbb{A}\geq2$ 时, \cite[p41]{geometry} 证明了: 上述定理有更符合几何直观的加强命题:
 \begin{theorem}
@@ -548,7 +548,7 @@ Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距�
 
     由定理 \ref{t1.7} 得 $\exists!$ 仿射映射 $f,g,e$ 使得 $e(\dot{p}_i)=\dot{p}_i,f(\dot{p}_i)=\dot{q}_i,g(\dot{q}_i)=\dot{p}_i\ (i=0,1,2,\cdots,n)$.
 
-    $\because fg(\dot{p}_i)=gf(\dot{p}_i)=\dot{p}_i$, $\therefore fg=gf=e$. $\therefore f\in\operatorname{Aff}(\mathbb{A})$.
+    $\because fg(\dot{p}_i)=gf(\dot{p}_i)=\dot{p}_i$, $\therefore fg=gf=e$. $\therefore f\in\aff (\mathbb{A})$.
 \end{proof}
 \subsection{Euclid 空间中的仿射变换}
 考察平行六面体
@@ -558,7 +558,7 @@ Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距�
 
 则 $\Delta$ 的体积 $S_\Delta=|\det A|$.
 
-设 $f:\dot{o}+\boldsymbol{v}\to f(\dot{o})+Df\boldsymbol{v}\in\operatorname{Aff}(\mathbb{A})$, $Df$ 在基 $(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)$ 下的矩阵为 $B$, 则
+设 $f:\dot{o}+\boldsymbol{v}\to f(\dot{o})+Df\boldsymbol{v}\in\aff (\mathbb{A})$, $Df$ 在基 $(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)$ 下的矩阵为 $B$, 则
 \[f(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=f((\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A)=f(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)A=(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)BA.\]
 
 $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这与多元微积分中的 Jacobi 行列式有关.
@@ -568,7 +568,7 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
     在仿射变换下, 平行六面体的体积比不变.
 \end{theorem}
 \begin{theorem}[书上的定理 11]
-    设 $f\in\operatorname{Aff}(\mathbb{E})$, 则 $f$ 是一些如下变换的乘积:
+    设 $f\in\aff (\mathbb{E})$, 则 $f$ 是一些如下变换的乘积:
 
     (1) 平移;
     
@@ -628,8 +628,8 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
 
     由第 3 章笔记的定理 3.11 得 $\mathcal{P}$ 在某个基下的矩阵为
     \begin{align*}
-        B & =\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n) \\
-        & =\operatorname{diag}(\lambda_1,1,\cdots,1)\operatorname{diag}(1,\lambda_2,\cdots,1)\cdots\operatorname{diag}(1,1,\cdots,\lambda_n).
+        B & =\diag (\lambda_1,\lambda_2,\cdots,\lambda_n) \\
+        & =\diag (\lambda_1,1,\cdots,1)\diag (1,\lambda_2,\cdots,1)\cdots\diag (1,1,\cdots,\lambda_n).
     \end{align*}
     $\therefore\mathcal{P}$ 对应的变换只有 (4).
 \end{proof}
@@ -652,7 +652,7 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
 \begin{proof}
     ($\Rightarrow$) 假设 $m>m'$. 则 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}'$ 可以扩充为 $m+1$ 个处于一般位置的点组 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_m'$.
     
-    $\because\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$ 在仿射几何中是可叠合的, $\therefore\exists f\in\operatorname{Aff}(\mathbb{A})$ 使得
+    $\because\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$ 在仿射几何中是可叠合的, $\therefore\exists f\in\aff (\mathbb{A})$ 使得
     \begin{equation}\label{eq3.2}
         f(\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))=\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}').
     \end{equation}
@@ -670,9 +670,9 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
     
     $\therefore\dim f(A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))\leq\dim A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
 
-    $\because\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, $\therefore\dim A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)=m>m'$. $\therefore Df$ 退化, 与 $f\in\operatorname{Aff}(\mathbb{A})$ 矛盾.
+    $\because\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置, $\therefore\dim A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)=m>m'$. $\therefore Df$ 退化, 与 $f\in\aff (\mathbb{A})$ 矛盾.
 
-    ($\Leftarrow$) 由定理 \ref{t3.8} 得 $\exists f\in\operatorname{Aff}(\mathbb{A})$ 使得 $f(\dot{p}_i)=\dot{p}_i'$. 由式 (\ref{eq3.2}) 得
+    ($\Leftarrow$) 由定理 \ref{t3.8} 得 $\exists f\in\aff (\mathbb{A})$ 使得 $f(\dot{p}_i)=\dot{p}_i'$. 由式 (\ref{eq3.2}) 得
     \[f(\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))=\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\qedhere\]
 \end{proof}
 书上的命题 1 证明的图画错了.
@@ -773,20 +773,20 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     $\boldsymbol{L}_+$ 在空间 $\Lambda^3$ 上的作用是\textbf{可迁的}, 即 $\forall\boldsymbol{p},\boldsymbol{q}\in\Lambda^3,\exists g\in\boldsymbol{L}^+$ 使得 $g\boldsymbol{p}=\boldsymbol{q}$.
 \end{theorem}
 \begin{proof}
-    $\because\forall\boldsymbol{u}=(t,x_1,x_2,x_3)\in\Lambda^3,P_{\boldsymbol{u}}$ 正定, $\therefore\exists A\in\operatorname{SL}_2(\mathbb{C})$ 使得
+    $\because\forall\boldsymbol{u}=(t,x_1,x_2,x_3)\in\Lambda^3,P_{\boldsymbol{u}}$ 正定, $\therefore\exists A\in\slop _2(\mathbb{C})$ 使得
     \[P_{\boldsymbol{u}}=A\begin{pmatrix}
         1 & 0 \\
         0 & 1 \\
     \end{pmatrix}A^*.\]
 
-    $\therefore\exists B,C\in\operatorname{SL}_2(\mathbb{C})$ 使得 $P_{\boldsymbol{p}}=\Gamma_B(E),P_{\boldsymbol{q}}=\Gamma_C(E)$.
+    $\therefore\exists B,C\in\slop _2(\mathbb{C})$ 使得 $P_{\boldsymbol{p}}=\Gamma_B(E),P_{\boldsymbol{q}}=\Gamma_C(E)$.
 
     $\therefore P_{\boldsymbol{p}}=\Gamma_B\Gamma_{C^{-1}}(P_{\boldsymbol{q}})=\Gamma_{BC^{-1}}(P_{\boldsymbol{q}})$.
 \end{proof}
 下面的定理说明了 $\boldsymbol{L}_+$ 与 $O(1,3)$ 之间的关系.
 \begin{theorem}
     令
-    \[P=\operatorname{diag}(1,-1,-1,-1),\quad T=\operatorname{diag}(-1,1,1,1),\]
+    \[P=\diag (1,-1,-1,-1),\quad T=\diag (-1,1,1,1),\]
 
     则
     \[O(1,3)=\boldsymbol{L}_+\cup P\boldsymbol{L}_+\cup T\boldsymbol{L}_+\cup PT\boldsymbol{L}_+.\]
@@ -1189,7 +1189,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 % 先证明一个引理.
 % \begin{lemma}
 %     设 $V$ 是 $1$ 维线性空间, 零元为 $0$, 则
-%     $\operatorname{GL}(V)\simeq V\backslash\{0\}$.
+%     $\gl (V)\simeq V\backslash\{0\}$.
 % \end{lemma}
 % \begin{proof}
     
@@ -1201,7 +1201,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     (1) 求 $|A_1(\mathbb{F}_p)|$. (2) $A_1(\mathbb{F}_p)$ 同构于什么群?
 \end{exercise}
 \begin{solution}
-    (2) 由定理 \ref{t3.3} 得 $A_1(\mathbb{F}_p)\simeq\operatorname{GL}(\mathbb{F}_p)\times\mathbb{F}_p$.
+    (2) 由定理 \ref{t3.3} 得 $A_1(\mathbb{F}_p)\simeq\gl (\mathbb{F}_p)\times\mathbb{F}_p$.
 
     (1) 由第 2 章笔记的定理 1.1 得
     \[\begin{array}{rcl}
@@ -1210,14 +1210,14 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     \end{array}\]
     是同构. $\therefore|\mathcal{L}(\mathbb{F}_p)|=p$.
 
-    设 $f:1\mapsto0\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,f(a)=f(a\cdot 1)=af(1)=0$, $\therefore f\notin\operatorname{GL}(\mathbb{F}_p)$.
+    设 $f:1\mapsto0\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,f(a)=f(a\cdot 1)=af(1)=0$, $\therefore f\notin\gl (\mathbb{F}_p)$.
 
     设 $f:1\mapsto b\neq0\in\mathcal{L}(\mathbb{F}_p)$. 令 $g:b\mapsto 1\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,fg(a)=f(g(a\cdot 1))=f(a\cdot g(1))=af(g(1))=a$, $\therefore$
     \[\begin{array}{rcl}
-        \operatorname{GL}(\mathbb{F}_p) & \to & \mathbb{F}_p\backslash\{0\} \\
+        \gl (\mathbb{F}_p) & \to & \mathbb{F}_p\backslash\{0\} \\
         f & \to & f(1) \\
     \end{array}\]
-    是双射. $\therefore|\operatorname{GL}(\mathbb{F}_p)|=p-1,|A_1(\mathbb{F}_p)|=|\operatorname{GL}(\mathbb{F}_p)||\mathbb{F}_p|=p(p-1)$.
+    是双射. $\therefore|\gl (\mathbb{F}_p)|=p-1,|A_1(\mathbb{F}_p)|=|\gl (\mathbb{F}_p)||\mathbb{F}_p|=p(p-1)$.
 \end{solution}
 \begin{exercise}% 3.2
     Euclid 平面上的一个固有运动 $f$ 满足
@@ -1245,7 +1245,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \end{exercise}
 \begin{solution}
     $V$ 中的正交矩阵可以化为下列情形:
-    \[\operatorname{diag}(1,1,1,1),\quad\operatorname{diag}(1,1,1,-1),\quad\begin{pmatrix}
+    \[\diag (1,1,1,1),\quad\diag (1,1,1,-1),\quad\begin{pmatrix}
         \cos\phi & -\sin\phi \\
         \sin\phi & \cos\phi \\
         && 1 \\
@@ -1360,7 +1360,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \end{exercise}
 \begin{proof}
     这里用纯代数方法证明, 因此比较繁琐. 设
-    \[S=\{B\in\operatorname{GL}_2(\mathbb{C})|B^*=B\},\]
+    \[S=\{B\in\gl _2(\mathbb{C})|B^*=B\},\]
     
     则
     \[E_{(1)}=\begin{pmatrix}
@@ -1380,7 +1380,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     \[A=\begin{pmatrix}
         \alpha & \beta \\
         \gamma & \delta \\
-    \end{pmatrix}\in\operatorname{SL}_n(\mathbb{C}).\]
+    \end{pmatrix}\in\slop _n(\mathbb{C}).\]
 
     $\because$
     \begin{align*}

@@ -7,7 +7,7 @@
 % 有空的话可以改一下最后一节的label的编号
 
 \documentclass[UTF8]{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 
 \title{第5章笔记和习题}
 
@@ -948,7 +948,7 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     $\therefore$
     \[\delta(a)=\delta(a_1a_2\cdots a_n)>\delta(a_2a_3\cdots a_n)>\cdots>\delta(a_n)>\delta(1)\geq0.\]
 
-    $\because\operatorname{Im}\delta=\mathbb{N},\therefore n\leq\delta(a)$.
+    $\because\im \delta=\mathbb{N},\therefore n\leq\delta(a)$.
 
     之后与书上相同.
 \end{proof}
@@ -1330,11 +1330,11 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     容易看出 $\phi$ 是单射.
 
-    若 $n=0$, 则 $\operatorname{Im}\phi=\mathbb{Q},\phi$ 不是 $\mathbb{Q}(\sqrt{d})$ 的自同构.
+    若 $n=0$, 则 $\im \phi=\mathbb{Q},\phi$ 不是 $\mathbb{Q}(\sqrt{d})$ 的自同构.
 
-    若 $n\neq0$, $\because\phi\left(-\dfrac{m}{n}+\dfrac{\sqrt{d}}{n}\right)=\sqrt{d},\therefore\sqrt{d}\in\operatorname{Im}\phi$.
+    若 $n\neq0$, $\because\phi\left(-\dfrac{m}{n}+\dfrac{\sqrt{d}}{n}\right)=\sqrt{d},\therefore\sqrt{d}\in\im \phi$.
 
-    $\therefore\mathbb{Q}(\sqrt{d})\subset\operatorname{Im}\phi.\therefore\mathbb{Q}(\sqrt{d})=\operatorname{Im}\phi$.
+    $\therefore\mathbb{Q}(\sqrt{d})\subset\im \phi.\therefore\mathbb{Q}(\sqrt{d})=\im \phi$.
 
     $\therefore\phi$ 是双射. $\therefore\phi$ 是同构.
 
@@ -1369,7 +1369,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         \begin{tikzpicture}[scale=2]
             \node [above left] at (0,0) {$O$};
             \node [above left] at (2,0) {$\operatorname{Re}$};
-            \node [above left] at (0,2) {$\operatorname{Im}$};
+            \node [above left] at (0,2) {$\im $};
             \draw [->] (-2,0) -- (2,0);
             \draw [->] (0,-1) -- (0,2);
             \foreach \n/\t/\u in
@@ -1455,9 +1455,9 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     \[\deg\phi_t(f)=\deg f\deg t.\]
 
     若 $\deg t\neq1$, 则
-    \[\{\deg f|f\in\operatorname{Im}\phi_t\}=(\deg t)\ \mathbb{Z}\neq\mathbb{Z}=\{\deg f|f\in F[X]\},\]
+    \[\{\deg f|f\in\im \phi_t\}=(\deg t)\ \mathbb{Z}\neq\mathbb{Z}=\{\deg f|f\in F[X]\},\]
 
-    $\therefore\operatorname{Im}\phi_t\neq F[X],\phi_t$ 不是同构.
+    $\therefore\im \phi_t\neq F[X],\phi_t$ 不是同构.
 
     取逆否命题即为: 若 $\phi_t:F[X]\to F[X]$ 是保持 $F$ 不变的同构, 则 $\deg t=1$, 即 $t=aX+b\Rightarrow\phi_t(X)=aX+b$, 其中 $a,b\in F,a\neq0.\therefore$
     \[\sigma:\begin{array}{rcl}
@@ -1475,7 +1475,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i(aX+b)^i \\
     \end{array}\]
 
-    是单同态. 下面证明 $\phi_g$ 是满同态, 即 $\operatorname{Im}\phi_g\supset F[X]$.
+    是单同态. 下面证明 $\phi_g$ 是满同态, 即 $\im \phi_g\supset F[X]$.
 
     只需证明 $\forall f\in F[X],\exists h\in F[X]$ 使得 $f=\phi_g(h)$.
 

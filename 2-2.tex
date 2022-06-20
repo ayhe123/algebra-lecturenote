@@ -5,7 +5,7 @@
 % 一些例子的引用需要改一下
 
 \documentclass{ctexart}
-\usepackage{lecturenote}
+\usepackage[bgcolor]{lecturenote}
 \title{第2章笔记和习题}
 
 \begin{document}
@@ -151,21 +151,21 @@ $\therefore f(\boldsymbol{v})$ 在基 $(\boldsymbol{w}_i)$ 下的坐标为
 \end{CD}\]
 
 其中 $\eta_v,\eta_w$ 是同构. 由上图得
-\[\eta_w\circ f=f'\circ\eta_v\Rightarrow\ker(\eta_w\circ f)=\ker(f'\circ\eta_v),\quad\operatorname{Im}(\eta_w\circ f)=\operatorname{Im}(f'\circ\eta_v).\]
+\[\eta_w\circ f=f'\circ\eta_v\Rightarrow\ker(\eta_w\circ f)=\ker(f'\circ\eta_v),\quad\im (\eta_w\circ f)=\im (f'\circ\eta_v).\]
 
 $\because\eta_w$ 是单射, $\therefore\ker\eta_w=\{\boldsymbol{0}\},\therefore\ker(\eta_w\circ f)=\ker f,\therefore\ker(f'\circ\eta_v)=\ker f$.
 
 $\because\ker(f'\circ\eta_v)=\{\boldsymbol{x}\in V|\eta_v(\boldsymbol{x})\in\ker f'\},\therefore$
-\[\eta_v(\ker(f'\circ\eta_v))=\{\eta_v(\boldsymbol{x})\in\operatorname{Im}\eta_v|\eta_v(\boldsymbol{x})\in\ker f'\}.\]
+\[\eta_v(\ker(f'\circ\eta_v))=\{\eta_v(\boldsymbol{x})\in\im \eta_v|\eta_v(\boldsymbol{x})\in\ker f'\}.\]
 
-$\because\eta_v$ 是满射, $\therefore\operatorname{Im}\eta_v=K^n,\therefore\eta_v(\ker(f'\circ\eta_v))=\ker f',\therefore\eta_v(\ker f)=\ker f'$.
+$\because\eta_v$ 是满射, $\therefore\im \eta_v=K^n,\therefore\eta_v(\ker(f'\circ\eta_v))=\ker f',\therefore\eta_v(\ker f)=\ker f'$.
 
-有 $\eta_w(\operatorname{Im}f)=\operatorname{Im}(\eta_w\circ f)=\operatorname{Im}(f'\circ\eta_v).\because\eta_v$ 是满射, $\therefore\operatorname{Im}(f'\circ\eta_v)=f'(\operatorname{Im}\eta_v)=\operatorname{Im}f'$.
+有 $\eta_w(\im f)=\im (\eta_w\circ f)=\im (f'\circ\eta_v).\because\eta_v$ 是满射, $\therefore\im (f'\circ\eta_v)=f'(\im \eta_v)=\im f'$.
 
 $\because\eta_w,\eta_v$ 是同构, $\therefore$
 \[\dim\ker f=\dim\eta_v(\ker f)=\dim\ker f',\]
 \begin{equation}\label{eq1.2}
-    \dim\operatorname{Im}f=\dim\eta_w(\operatorname{Im}f)=\dim\operatorname{Im}f'.
+    \dim\im f=\dim\eta_w(\im f)=\dim\im f'.
 \end{equation}
 
 可以用比较简单(但没有那么深刻)的方法得到上述结论.
@@ -190,13 +190,13 @@ $\because\boldsymbol{w}_i$ 线性无关, $\therefore$ 方程组 (\ref{eq1.3}) �
 
 上述方程组的系数矩阵为 $A_f,\therefore$ 方程组的解空间为 $\ker f'.\therefore\eta_v(\ker f)=\ker f'$.
 
-可以直接从 $\dim\ker f'=n-\operatorname{rank}A_f=n-\dim\operatorname{Im}f'$ 以及书上的定理 4 得到 $\dim\operatorname{Im}f'=\dim\operatorname{Im}f$, 下面采用另一种证明方法.
+可以直接从 $\dim\ker f'=n-\rank A_f=n-\dim\im f'$ 以及书上的定理 4 得到 $\dim\im f'=\dim\im f$, 下面采用另一种证明方法.
 
 $\because f(\boldsymbol{v}_j)=a_{1j}\boldsymbol{w}_1+a_{2j}\boldsymbol{w}_2+\cdots+a_{mj}\boldsymbol{w}_m,\therefore\eta_w(f(\boldsymbol{v}_j))=[a_{1j},a_{2j},\cdots,a_{mj}]=A^{j}$.
 
-$\because\operatorname{Im}f=\left<f(\boldsymbol{v}_1),f(\boldsymbol{v}_2),\cdots,f(\boldsymbol{v}_n)\right>,\therefore\operatorname{Im}f$ 在 $\eta_w$ 下的像 $\eta_w(\operatorname{Im}f)=\left<A^{1},A^{2},\cdots,A^{n}\right>$ 为 $A_f$ 的列空间.
+$\because\im f=\left<f(\boldsymbol{v}_1),f(\boldsymbol{v}_2),\cdots,f(\boldsymbol{v}_n)\right>,\therefore\im f$ 在 $\eta_w$ 下的像 $\eta_w(\im f)=\left<A^{1},A^{2},\cdots,A^{n}\right>$ 为 $A_f$ 的列空间.
 
-$\therefore\operatorname{rank}A_f=\dim\operatorname{Im}f$.
+$\therefore\rank A_f=\dim\im f$.
 \section{线性算子(对应第 2 节)}
 \subsection{线性算子代数}
 作为定理 \ref{t1.2} 的一个特殊情况, 有:
@@ -219,18 +219,18 @@ $\therefore\operatorname{rank}A_f=\dim\operatorname{Im}f$.
     \end{array}\]
     是线性空间的同构.
 \end{theorem}
-设 $\mathcal{A}\in\mathcal{L}(V)$, 一般来说没有 $V=\ker\mathcal{A}+\operatorname{Im}A$, 但是有:
+设 $\mathcal{A}\in\mathcal{L}(V)$, 一般来说没有 $V=\ker\mathcal{A}+\im A$, 但是有:
 \begin{example}\label{exa2.1}
-    设 $\mathcal{A}\in\mathcal{L}(V)$, 若 $\mathcal{A}^2=\mathcal{A}$, 则 $V=\ker\mathcal{A}\oplus\operatorname{Im}\mathcal{A}$.
+    设 $\mathcal{A}\in\mathcal{L}(V)$, 若 $\mathcal{A}^2=\mathcal{A}$, 则 $V=\ker\mathcal{A}\oplus\im \mathcal{A}$.
 \end{example}
 \begin{proof}
     设 $\boldsymbol{x}\in V$. 为了方便, 将 $\mathcal{A}(\boldsymbol{x})$ 简写为 $\mathcal{A}\boldsymbol{x}$.
 
     设 $\boldsymbol{y}=\mathcal{A}\boldsymbol{x}$, 有 $\boldsymbol{y}=\mathcal{A}\boldsymbol{x}=\mathcal{A}^2\boldsymbol{x}=\mathcal{A}(\mathcal{A}\boldsymbol{x})=\mathcal{A}\boldsymbol{y}.\therefore\boldsymbol{y}\in\ker\mathcal{A}$ 当且仅当 $\mathcal{A}\boldsymbol{y}=\boldsymbol{y}=\boldsymbol{0}$.
 
-    $\therefore\ker\mathcal{A}\cap\operatorname{Im}\mathcal{A}=\{0\}=\ker\mathcal{A}$.
+    $\therefore\ker\mathcal{A}\cap\im \mathcal{A}=\{0\}=\ker\mathcal{A}$.
 
-    $\because\dim\ker\mathcal{A}+\dim\operatorname{Im}\mathcal{A}=n,\therefore V=\ker\mathcal{A}\oplus\operatorname{Im}\mathcal{A}$.
+    $\because\dim\ker\mathcal{A}+\dim\im \mathcal{A}=n,\therefore V=\ker\mathcal{A}\oplus\im \mathcal{A}$.
 \end{proof}
 \begin{note}
     (1) 称 $\boldsymbol{y}$ 是 $\mathcal{A}$ 的一个\textbf{不动点}.
@@ -243,7 +243,7 @@ $\therefore\operatorname{rank}A_f=\dim\operatorname{Im}f$.
     f(t) & \to & f(A) \\
 \end{array},\]
 
-则 $\operatorname{Im}\phi=K[\mathcal{A}].\because\operatorname{Im}\phi\subset\mathcal{L}(V),\therefore\dim\operatorname{Im}\phi\leq\dim\mathcal{L}(V)=n^2$.
+则 $\im \phi=K[\mathcal{A}].\because\im \phi\subset\mathcal{L}(V),\therefore\dim\im \phi\leq\dim\mathcal{L}(V)=n^2$.
 
 然而 $K[t]$ 是无限维的. $\therefore\ker\phi\neq\{0\}$, 即 $\mathcal{A}$ 一定有零化多项式. 事实上, 由书上的定理 2, 有
 \[\ker\phi=\{\mu_\mathcal{A}(t)g(t)|g(t)\in K[t]\}.\]
@@ -325,7 +325,7 @@ $\therefore\operatorname{rank}A_f=\dim\operatorname{Im}f$.
         &&& 0 & 1 \\
         &&&& 0 \\
     \end{pmatrix}\]
-    (其余元素为 $0$) 的相似等价类为 $\mathcal{C}_A=\{B^{-1}AB|B\in\operatorname{GL}_n\}$. 这是一个\textbf{幂0类}.
+    (其余元素为 $0$) 的相似等价类为 $\mathcal{C}_A=\{B^{-1}AB|B\in\gl _n\}$. 这是一个\textbf{幂0类}.
 
     有
     \[A'=\begin{pmatrix}
@@ -414,10 +414,10 @@ $\therefore\operatorname{rank}A_f=\dim\operatorname{Im}f$.
 考察例 \ref{exa2.1} 中的 $\mathcal{A}$. 有
 \[\mathcal{A}:\begin{array}{rcl}
     V & \to & V \\
-    \boldsymbol{x}+\boldsymbol{y}\ (\boldsymbol{x}\in\ker\mathcal{A},\boldsymbol{y}\in\operatorname{Im}\mathcal{A}) & \to & \boldsymbol{y} \\
+    \boldsymbol{x}+\boldsymbol{y}\ (\boldsymbol{x}\in\ker\mathcal{A},\boldsymbol{y}\in\im \mathcal{A}) & \to & \boldsymbol{y} \\
 \end{array},\]
 
-设 $U=\operatorname{Im}\mathcal{A},W=\ker\mathcal{A}$, 定义
+设 $U=\im \mathcal{A},W=\ker\mathcal{A}$, 定义
 \[\mathcal{B}:\begin{array}{rcl}
     V & \to & V \\
     \boldsymbol{x}+\boldsymbol{y}\ (\boldsymbol{x}\in W,\boldsymbol{y}\in U) & \to & \boldsymbol{x} \\
@@ -448,7 +448,7 @@ $\therefore\mathcal{A}\mathcal{B}=\mathcal{O}$, 同理 $\mathcal{B}\mathcal{A}=\
     0 & E_{n-r}
 \end{pmatrix}.\]
 
-$\therefore$ 如果 $\operatorname{char}K=0$ (书上漏掉了这个条件), 则 $\operatorname{rank}\mathcal{A}=\operatorname{tr}\mathcal{A},\operatorname{rank}\mathcal{B}=\operatorname{tr}\mathcal{B}$.
+$\therefore$ 如果 $\charop K=0$ (书上漏掉了这个条件), 则 $\rank \mathcal{A}=\tr \mathcal{A},\rank \mathcal{B}=\tr \mathcal{B}$.
 
 上述性质实际上是投影算子的性质.
 \subsection{不变子空间}
@@ -827,11 +827,11 @@ Hamilton-Cayley 定理(书上的定理 2) 有一个推论:
 \end{proof}
 \begin{corollary}
     设 $\mathcal{B}=\mathcal{A}|_{V(\lambda_j)}-\lambda_j\mathcal{E}|_{V(\lambda_j)}$, 则
-    \[\operatorname{Im}\mathcal{B}^{m-1}=\left<\boldsymbol{v}_1\right>.\]
+    \[\im \mathcal{B}^{m-1}=\left<\boldsymbol{v}_1\right>.\]
 \end{corollary}
 \begin{proof}
     $\because\mathcal{B}^{m-1}\boldsymbol{v}_m=\mathcal{B}^{m-1}\boldsymbol{v}=\boldsymbol{v}_1,\forall j<m,\mathcal{B}^{m-1}\boldsymbol{v}_j=\mathcal{B}^{m-1+j}\boldsymbol{v}=\boldsymbol{0}$, $\therefore$
-    \[\operatorname{Im}\mathcal{B}^{m-1}=\left<\mathcal{B}^{m-1}\boldsymbol{v}_1,\mathcal{B}^{m-1}\boldsymbol{v}_2,\cdots,\mathcal{B}^{m-1}\boldsymbol{v}_m\right>=\left<\boldsymbol{v}_1\right>.\qedhere\]
+    \[\im \mathcal{B}^{m-1}=\left<\mathcal{B}^{m-1}\boldsymbol{v}_1,\mathcal{B}^{m-1}\boldsymbol{v}_2,\cdots,\mathcal{B}^{m-1}\boldsymbol{v}_m\right>=\left<\boldsymbol{v}_1\right>.\qedhere\]
 \end{proof}
 由定理 \ref{t4.2}, $V(\lambda_j)$ 的一个基(记为 $(\boldsymbol{e}^j_i)$)合起来就是 $V$ 的一个基(记为 $(\boldsymbol{e}_i)$), 设 $\mathcal{A}|_{V(\lambda_j)}$ 在 $(\boldsymbol{e}^j_i)$ 下的矩阵为 $A_j$, 则 $\mathcal{A}$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为
 \[\begin{pmatrix}
@@ -864,17 +864,17 @@ Hamilton-Cayley 定理(书上的定理 2) 有一个推论:
     $\therefore$
     \[\mathcal{A}V=\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_4,\boldsymbol{e}_5,\boldsymbol{e}_7\right>,\quad\mathcal{A}^2V=\left<\boldsymbol{e}_1,\boldsymbol{e}_4\right>,\quad\mathcal{A}^3V=\{\boldsymbol{0}\}.\]
 
-    对 $\mathcal{A}^2\boldsymbol{e}_3=\boldsymbol{e}_1,\mathcal{A}^2\boldsymbol{e}_6=\boldsymbol{e}_4\in\operatorname{Im}\mathcal{A}^2\cap\ker\mathcal{A},\boldsymbol{e}_3,\mathcal{A}\boldsymbol{e}_3,\mathcal{A}^2\boldsymbol{e}_3$ 给出了第一个 Jordan 块, $\boldsymbol{e}_6,\mathcal{A}\boldsymbol{e}_6,\mathcal{A}^2\boldsymbol{e}_6$ 给出了第二个 Jordan 块.
+    对 $\mathcal{A}^2\boldsymbol{e}_3=\boldsymbol{e}_1,\mathcal{A}^2\boldsymbol{e}_6=\boldsymbol{e}_4\in\im \mathcal{A}^2\cap\ker\mathcal{A}$, 第一个 Jordan 块由 $\boldsymbol{e}_3,\mathcal{A}\boldsymbol{e}_3,\mathcal{A}^2\boldsymbol{e}_3$ 给出, 第二个 Jordan 块由 $\boldsymbol{e}_6,\mathcal{A}\boldsymbol{e}_6,\mathcal{A}^2\boldsymbol{e}_6$ 给出.
 
-    对 $\mathcal{A}\boldsymbol{e}_8=\boldsymbol{e}_7\in\operatorname{Im}\mathcal{A}\cap\ker\mathcal{A},\boldsymbol{e}_8,\mathcal{A}\boldsymbol{e}_8$ 给出了第 $3$ 个 Jordan 块.
+    对 $\mathcal{A}\boldsymbol{e}_8=\boldsymbol{e}_7\in\im \mathcal{A}\cap\ker\mathcal{A},\boldsymbol{e}_8,\mathcal{A}\boldsymbol{e}_8$ 给出了第 $3$ 个 Jordan 块.
 
-    $\boldsymbol{e}_9,\boldsymbol{e}_{10}\in\ker\mathcal{A}\backslash\operatorname{Im}A$ 给出了第 $4,5$ 个 Jordan 块.
+    $\boldsymbol{e}_9,\boldsymbol{e}_{10}\in\ker\mathcal{A}\backslash\im A$ 给出了第 $4,5$ 个 Jordan 块.
 \end{example}
 类似于例 \ref{exa4.2}, 给出命题``幂零矩阵可以化为 Jordan 矩阵''的构造性证明, 虽然在表述上比较麻烦, 但是思路还是很简单的. 为了方便, 下面的定理和引理使用的记号的含义都相同, 在前面提到过的记号后面不再重复说明.
 
-设 $\mathcal{A}^m=\mathcal{O},\mathcal{A}^{m-1}\neq\mathcal{O},V_i=\operatorname{Im}\mathcal{A}^{i-1}\cap\ker\mathcal{A}$, 约定 $\mathcal{A}^0=\mathcal{E}$.
+设 $\mathcal{A}^m=\mathcal{O},\mathcal{A}^{m-1}\neq\mathcal{O},V_i=\im \mathcal{A}^{i-1}\cap\ker\mathcal{A}$, 约定 $\mathcal{A}^0=\mathcal{E}$.
 
-$\because\operatorname{Im}\mathcal{A}^i=\mathcal{A}^iV=\mathcal{A}^{i-1}\mathcal{A}V\subset\mathcal{A}^{i-1}V=\operatorname{Im}\mathcal{A}^{i-1}$, $\therefore$
+$\because\im \mathcal{A}^i=\mathcal{A}^iV=\mathcal{A}^{i-1}\mathcal{A}V\subset\mathcal{A}^{i-1}V=\im \mathcal{A}^{i-1}$, $\therefore$
 \[\ker\mathcal{A}=V_1\supset V_2\supset\cdots\supset V_m\supsetneq\{\boldsymbol{0}\}.\]
 
 从例 \ref{exa4.2} 可以看出:
@@ -884,16 +884,16 @@ $\because\operatorname{Im}\mathcal{A}^i=\mathcal{A}^iV=\mathcal{A}^{i-1}\mathcal
 \begin{proof}
     考虑
     \[\phi:\begin{array}{rcl}
-        \ker\mathcal{A}^i & \to & \operatorname{Im}\mathcal{A}^{i-1}\cap\ker\mathcal{A}=V_i \\
+        \ker\mathcal{A}^i & \to & \im \mathcal{A}^{i-1}\cap\ker\mathcal{A}=V_i \\
         \boldsymbol{x} & \to & \mathcal{A}^{i-1}\boldsymbol{x} \\
     \end{array}.\]
 
-    $\because\forall\boldsymbol{y}\in\operatorname{Im}\mathcal{A}^{i-1}\cap\ker\mathcal{A},\exists\boldsymbol{x}\in V$ 使得 $\boldsymbol{y}=\mathcal{A}^{i-1}\boldsymbol{x}$. 由 $\boldsymbol{y}\in\ker\mathcal{A}\Rightarrow\mathcal{A}\boldsymbol{y}=\boldsymbol{0}$ 得 $\mathcal{A}^i\boldsymbol{x}=\boldsymbol{0}$, $\therefore\boldsymbol{x}\in\ker\mathcal{A}^i$. $\therefore\phi$ 是满射, $\operatorname{Im}\phi=V_i$.
+    $\because\forall\boldsymbol{y}\in\im \mathcal{A}^{i-1}\cap\ker\mathcal{A},\exists\boldsymbol{x}\in V$ 使得 $\boldsymbol{y}=\mathcal{A}^{i-1}\boldsymbol{x}$. 由 $\boldsymbol{y}\in\ker\mathcal{A}\Rightarrow\mathcal{A}\boldsymbol{y}=\boldsymbol{0}$ 得 $\mathcal{A}^i\boldsymbol{x}=\boldsymbol{0}$, $\therefore\boldsymbol{x}\in\ker\mathcal{A}^i$. $\therefore\phi$ 是满射, $\im \phi=V_i$.
 
     由第 \ref{ex3.3} 题得 $\ker\mathcal{A}^i\supset\ker\mathcal{A}^{i-1}$, $\therefore\ker\phi=\ker\mathcal{A}^{i-1}$.
 
     由书上第 1 节的定理 4 得
-    \[\dim\ker\phi+\dim\operatorname{Im}\phi=\dim\ker\mathcal{A}^i,\]
+    \[\dim\ker\phi+\dim\im \phi=\dim\ker\mathcal{A}^i,\]
 
     $\therefore$
     \begin{equation}\label{eq4.6}
@@ -924,7 +924,7 @@ $\because V_{i+1}\subset V_i\ (i=1,2,\cdots,m-1),\therefore\exists V_{i,1}$ 使�
     \end{aligned}
 \end{equation}
 
-$\because V_{i,1}\subset V_i=\operatorname{Im}\mathcal{A}^{i-1}\cap\ker\mathcal{A}\subset\operatorname{Im}\mathcal{A}^{i-1}$, $\therefore V_{i,1}$ 的基 $(\boldsymbol{f}_k)$ 具有 $\boldsymbol{f}_k=\mathcal{A}^{i-1}\boldsymbol{v}_k,\boldsymbol{v}_k\in V$ 的形式.
+$\because V_{i,1}\subset V_i=\im \mathcal{A}^{i-1}\cap\ker\mathcal{A}\subset\im \mathcal{A}^{i-1}$, $\therefore V_{i,1}$ 的基 $(\boldsymbol{f}_k)$ 具有 $\boldsymbol{f}_k=\mathcal{A}^{i-1}\boldsymbol{v}_k,\boldsymbol{v}_k\in V$ 的形式.
 
 设 $V_{i,i}=\left<\boldsymbol{v}_j\right>$. 容易验证 $V_{i,i}$ 满足: (1) $\mathcal{A}^{i-1}V_{i,i}=V_{i,1}$, (2) $\dim V_{i,i}=\dim V_{i,1}$.
 
@@ -956,7 +956,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\because V_{i,j}=\mathcal{A}^{i-j}V_{i,i},\therefore$
     \[\mathcal{A}^jV_{i,j}=\mathcal{A}^iV_{i,i}=\mathcal{A}V_{i,1}\subset\mathcal{A}V_i.\]
 
-    $\because V_i=\operatorname{Im}\mathcal{A}^{i-1}\cap\ker\mathcal{A}\subset\ker\mathcal{A},\therefore\mathcal{A}^jV_{i,j}=\mathcal{A}V_i=\{\boldsymbol{0}\}$.
+    $\because V_i=\im \mathcal{A}^{i-1}\cap\ker\mathcal{A}\subset\ker\mathcal{A},\therefore\mathcal{A}^jV_{i,j}=\mathcal{A}V_i=\{\boldsymbol{0}\}$.
 
     设 $\boldsymbol{v}_{ij}\in V_{i,j}$ 满足
     \begin{equation}\label{eq4.9}
@@ -1092,12 +1092,12 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
 由定理 \ref{t4.4} 的注记得对角线上元素为 $\lambda_i$ 的 Jordan 块的个数为 $\dim(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_i)}$, 其中 $t$ 阶的 Jordan 块的个数为 $2\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^t|_{V(\lambda_i)}-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t-1}|_{V(\lambda_i)}-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t+1}|_{V(\lambda_i)}$.
 
-由推论 \ref{c4.4} 得若 $i\neq j$, 则 $\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_j)}=\{\boldsymbol{0}\}$, $\therefore\ker(\mathcal{A}-\lambda_i\mathcal{E})=\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_i)}$. $\therefore\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_i)}=\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})=n-\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})$,
+由推论 \ref{c4.4} 得若 $i\neq j$, 则 $\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_j)}=\{\boldsymbol{0}\}$, $\therefore\ker(\mathcal{A}-\lambda_i\mathcal{E})=\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_i)}$. $\therefore\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})|_{V(\lambda_i)}=\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})=n-\rank (\mathcal{A}-\lambda_i\mathcal{E})$,
 \begin{align*}
     & 2\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^t|_{V(\lambda_i)}-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t-1}|_{V(\lambda_i)}-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t+1}|_{V(\lambda_i)} \\
     = &\ 2\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^t-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t-1}-\dim\ker(\mathcal{A}-\lambda_i\mathcal{E})^{t+1} \\
-    = &\ 2(n-\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^t)-(n-\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^{t-1})-(n-\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^{t+1}) \\
-    = &\ \operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^{t-1}+\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^{t+1}-2\operatorname{rank}(\mathcal{A}-\lambda_i\mathcal{E})^t.
+    = &\ 2(n-\rank (\mathcal{A}-\lambda_i\mathcal{E})^t)-(n-\rank (\mathcal{A}-\lambda_i\mathcal{E})^{t-1})-(n-\rank (\mathcal{A}-\lambda_i\mathcal{E})^{t+1}) \\
+    = &\ \rank (\mathcal{A}-\lambda_i\mathcal{E})^{t-1}+\rank (\mathcal{A}-\lambda_i\mathcal{E})^{t+1}-2\rank (\mathcal{A}-\lambda_i\mathcal{E})^t.
 \end{align*}
 
 在大多数情况下, 知道对角线上元素为 $\lambda_i$ 的 Jordan 块的个数就可以写出 Jordan 矩阵 $J_A$ 了.
@@ -1156,7 +1156,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         P_n & \to & P_n \\
         u(t) & \to & tu'(t)-u(t) \\
     \end{array}\]
-    是线性映射, 求 $\ker f,\operatorname{rank}f$.
+    是线性映射, 求 $\ker f,\rank f$.
 
     (3) 设 $C$ 是非退化矩阵, 验证 $f_C:X\mapsto C^{-1}XC$ 是 $M_n(K)$ 上的线性映射, 且
     \[f_C(XY)=f_C(X)f_C(Y).\]
@@ -1182,7 +1182,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $\therefore\forall w=a_0+a_1t+\cdots+a_nt^n\in P_n\backslash\{0\},f(w)=-a_0+a_2t^2+\cdots+(n-1)a_nt^n$.
 
-    $\therefore f(w)=0\Leftrightarrow w=\alpha t,\alpha\in K.\therefore\ker f=Kt=\{\alpha t|\alpha\in K\}.\therefore\operatorname{rank}f=\dim P_n-\dim\ker f=n$.
+    $\therefore f(w)=0\Leftrightarrow w=\alpha t,\alpha\in K.\therefore\ker f=Kt=\{\alpha t|\alpha\in K\}.\therefore\rank f=\dim P_n-\dim\ker f=n$.
 
     (3) 设 $A,B\in M_n(K),\alpha,\beta\in K$. 有
     \begin{align*}
@@ -1198,67 +1198,67 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \stepcounter{exsection}
 \stepcounter{exercise}
 \begin{exercise}% 2.2
-    证明: 如果 $A,B,C$ 分别是 $n\times p,p\times q,q\times n$ 的矩阵, 那么 $\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)$.
+    证明: 如果 $A,B,C$ 分别是 $n\times p,p\times q,q\times n$ 的矩阵, 那么 $\tr (ABC)=\tr (BCA)=\tr (CAB)$.
 \end{exercise}
 \begin{proof}
-    只需证明: 若 $A',B'$ 分别是 $n\times p,p\times n$ 的矩阵, 那么 $\operatorname{tr}(A'B')=\operatorname{tr}(B'A')$, 令 $A'=A,B'=BC$ 得 $\operatorname{tr}(ABC)=\operatorname{tr}(BCA)$, 令 $A'=B,B'=CA$ 得 $\operatorname{tr}(BCA)=\operatorname{tr}(CAB)$.
+    只需证明: 若 $A',B'$ 分别是 $n\times p,p\times n$ 的矩阵, 那么 $\tr (A'B')=\tr (B'A')$, 令 $A'=A,B'=BC$ 得 $\tr (ABC)=\tr (BCA)$, 令 $A'=B,B'=CA$ 得 $\tr (BCA)=\tr (CAB)$.
 
     设 $A'=(a_{ij}),B'=(b_{ij}),A'B'=(c_{ij}),B'A'=(d_{ij})$, 则
     \[c_{ij}=\sum\limits_{k=1}^pa_{ik}b_{kj},\quad d_{ij}=\sum\limits_{k=1}^nb_{ik}a_{kj}.\]
 
     $\therefore$
     \begin{align*}
-        \operatorname{tr}(A'B') & =\sum\limits_{i=1}^nc_{ii} \\
+        \tr (A'B') & =\sum\limits_{i=1}^nc_{ii} \\
         & =\sum\limits_{i=1}^n\sum\limits_{k=1}^pa_{ik}b_{ki} \\
         & =\sum\limits_{k=1}^p\sum\limits_{i=1}^nb_{ki}a_{ik} \\
         & =\sum\limits_{k=1}^pd_{kk} \\
-        & =\operatorname{tr}(B'A').\qedhere
+        & =\tr (B'A').\qedhere
     \end{align*}
 \end{proof}
 \addtocounter{exercise}{2}
 \begin{exercise}\label{ex2.5}
     证明: 对 $V$ 上的任意线性算子 $\mathcal{A},\mathcal{B}$, 有
-    \[\operatorname{rank}\mathcal{A}=\operatorname{rank}\mathcal{BA}+\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}).\]
+    \[\rank \mathcal{A}=\rank \mathcal{BA}+\dim(\im \mathcal{A}\cap\ker\mathcal{B}).\]
 \end{exercise}
 \begin{proof}
-    考虑 $\mathcal{B}$ 在 $\operatorname{Im}\mathcal{A}$ 上的限制 $\mathcal{B}'$. 有
-    \[\operatorname{Im}\mathcal{BA}=B(\operatorname{Im}\mathcal{A})=\operatorname{Im}\mathcal{B}',\]
-    \[\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}=\{\boldsymbol{x}\in\operatorname{Im}\mathcal{A}|\mathcal{B}\boldsymbol{x}=\boldsymbol{0}\}=\{\boldsymbol{x}\in\operatorname{Im}\mathcal{A}|\mathcal{B}'\boldsymbol{x}=\boldsymbol{0}\}=\ker\mathcal{B}',\]
+    考虑 $\mathcal{B}$ 在 $\im \mathcal{A}$ 上的限制 $\mathcal{B}'$. 有
+    \[\im \mathcal{BA}=B(\im \mathcal{A})=\im \mathcal{B}',\]
+    \[\im \mathcal{A}\cap\ker\mathcal{B}=\{\boldsymbol{x}\in\im \mathcal{A}|\mathcal{B}\boldsymbol{x}=\boldsymbol{0}\}=\{\boldsymbol{x}\in\im \mathcal{A}|\mathcal{B}'\boldsymbol{x}=\boldsymbol{0}\}=\ker\mathcal{B}',\]
 
     由书上的式 (1) 得
-    \[\dim\operatorname{Im}\mathcal{A}=\dim\operatorname{Im}\mathcal{B}'+\dim\ker\mathcal{B}'.\]
+    \[\dim\im \mathcal{A}=\dim\im \mathcal{B}'+\dim\ker\mathcal{B}'.\]
 
     $\therefore$
-    \[\dim\operatorname{Im}\mathcal{A}=\dim\operatorname{Im}\mathcal{BA}+\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}).\]
+    \[\dim\im \mathcal{A}=\dim\im \mathcal{BA}+\dim(\im \mathcal{A}\cap\ker\mathcal{B}).\]
 
     由式 (\ref{eq1.2}) 得 $\forall\mathcal{C}\in\mathcal{L}(V)$,
-    \[\dim\operatorname{Im}\mathcal{C}=\operatorname{rank}\mathcal{C},\]
+    \[\dim\im \mathcal{C}=\rank \mathcal{C},\]
 
     $\therefore$
-    \[\operatorname{rank}\mathcal{A}=\operatorname{rank}\mathcal{BA}+\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}).\qedhere\]
+    \[\rank \mathcal{A}=\rank \mathcal{BA}+\dim(\im \mathcal{A}\cap\ker\mathcal{B}).\qedhere\]
 \end{proof}
 \begin{exercise}% 2.6
     证明: $\forall\mathcal{A},\mathcal{B},\mathcal{C}\in\mathcal{L}V$, 有
-    \[\operatorname{rank}\mathcal{BA}+\operatorname{rank}\mathcal{AC}\leq\operatorname{rank}\mathcal{A}+\operatorname{rank}\mathcal{BAC}.\]
+    \[\rank \mathcal{BA}+\rank \mathcal{AC}\leq\rank \mathcal{A}+\rank \mathcal{BAC}.\]
 \end{exercise}
 \begin{proof}
     由第 \ref{ex2.5} 题得
-    \[\operatorname{rank}\mathcal{A}-\operatorname{rank}\mathcal{BA}=\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B}),\]
-    \[\operatorname{rank}\mathcal{AC}-\operatorname{rank}\mathcal{BAC}=\dim(\operatorname{Im}(\mathcal{AC})\cap\ker\mathcal{B}).\]
+    \[\rank \mathcal{A}-\rank \mathcal{BA}=\dim(\im \mathcal{A}\cap\ker\mathcal{B}),\]
+    \[\rank \mathcal{AC}-\rank \mathcal{BAC}=\dim(\im (\mathcal{AC})\cap\ker\mathcal{B}).\]
 
-    $\because\operatorname{Im}(\mathcal{AC})=A(\operatorname{Im}\mathcal{C})\subset\operatorname{Im}\mathcal{A},\ \therefore\operatorname{Im}(\mathcal{AC})\cap\ker\mathcal{B}\subset\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B},\ \therefore$
-    \[\dim(\operatorname{Im}(\mathcal{AC})\cap\ker\mathcal{B})\leq\dim(\operatorname{Im}\mathcal{A}\cap\ker\mathcal{B})\Rightarrow\operatorname{rank}\mathcal{AC}-\operatorname{rank}\mathcal{BAC}\leq\operatorname{rank}\mathcal{A}-\operatorname{rank}\mathcal{BA}.\qedhere\]
+    $\because\im (\mathcal{AC})=A(\im \mathcal{C})\subset\im \mathcal{A},\ \therefore\im (\mathcal{AC})\cap\ker\mathcal{B}\subset\im \mathcal{A}\cap\ker\mathcal{B},\ \therefore$
+    \[\dim(\im (\mathcal{AC})\cap\ker\mathcal{B})\leq\dim(\im \mathcal{A}\cap\ker\mathcal{B})\Rightarrow\rank \mathcal{AC}-\rank \mathcal{BAC}\leq\rank \mathcal{A}-\rank \mathcal{BA}.\qedhere\]
 \end{proof}
 \stepcounter{exercise}
 \begin{exercise}% 2.8
-    设 $A,B\in M_n(\mathbb{R})$. 证明: 如果 $\exists C\in \operatorname{GL}_n(\mathbb{C})$ 使得 $B=C^{-1}AC$, 则 $\exists D\in \operatorname{GL}_n(\mathbb{R})$ 使得 $B=D^{-1}AD$.
+    设 $A,B\in M_n(\mathbb{R})$. 证明: 如果 $\exists C\in \gl _n(\mathbb{C})$ 使得 $B=C^{-1}AC$, 则 $\exists D\in \gl _n(\mathbb{R})$ 使得 $B=D^{-1}AD$.
 \end{exercise}
 \begin{proof}
     设 $C=X+iY,(X,Y\in M_n(\mathbb{R}))$. 令 $C_t=X+tY$, 其中 $t$ 是变元, $f(t)=\det C_t.\because X,Y\in M_n(\mathbb{R}),\therefore f\in\mathbb{R}[t]$.
     
     $\because f(i)=\det C\neq0,\therefore f\neq0$.
 
-    $\because\deg f\leq n,\therefore f$ 最多只有 $n$ 个根, $\therefore\exists t_0\in\mathbb{R}$ 使得 $\det C_{t_0}=f(t_0)\neq0.\therefore C_{t_0}$ 可逆. $\therefore C_{t_0}\in \operatorname{GL}_n(\mathbb{R})$.
+    $\because\deg f\leq n,\therefore f$ 最多只有 $n$ 个根, $\therefore\exists t_0\in\mathbb{R}$ 使得 $\det C_{t_0}=f(t_0)\neq0.\therefore C_{t_0}$ 可逆. $\therefore C_{t_0}\in \gl _n(\mathbb{R})$.
 
     $\because B=C^{-1}AC,\therefore(X+iY)B=A(X+iY)\Rightarrow XB+iYB=AX+iAY$.
 
@@ -1286,20 +1286,20 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \end{proof}
 \stepcounter{exercise}
 \begin{exercise}\label{ex2.11}
-    设 $\operatorname{char}K=0,A\in M_n(K)$, 证明: 如果 $\operatorname{tr}A=0$, 则 $A$ 相似于主对角线上取零值的矩阵 $A'$.
+    设 $\charop K=0,A\in M_n(K)$, 证明: 如果 $\tr A=0$, 则 $A$ 相似于主对角线上取零值的矩阵 $A'$.
 \end{exercise}
 \begin{proof}
-    证明与之等价的命题: 设 $\mathcal{A}\in\mathcal{L}(V)$. 如果 $\operatorname{tr}\mathcal{A}=0$, 则 $\exists V$ 的一个基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在 $(\boldsymbol{e}_i)$ 下的矩阵的主对角线上取零值(由定理 \ref{t2.1} 得这个命题与原命题等价).
+    证明与之等价的命题: 设 $\mathcal{A}\in\mathcal{L}(V)$. 如果 $\tr \mathcal{A}=0$, 则 $\exists V$ 的一个基 $(\boldsymbol{e}_i)$ 使得 $\mathcal{A}$ 在 $(\boldsymbol{e}_i)$ 下的矩阵的主对角线上取零值(由定理 \ref{t2.1} 得这个命题与原命题等价).
 
     对 $n$ 用数学归纳法. 当 $n=1$ 时 $\mathcal{A}=\mathcal{O}$, 对任一基, $\mathcal{A}$ 在基下的矩阵的主对角线上都取零值. 假设当 $n=m-1$ 时命题成立.
 
-    取 $V$ 的一个基 $(\boldsymbol{e}_i)$, 设 $A=(a_{ij})$ 是 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵. 有 $\operatorname{tr}A=\operatorname{tr}\mathcal{A}=0$.
+    取 $V$ 的一个基 $(\boldsymbol{e}_i)$, 设 $A=(a_{ij})$ 是 $\mathcal{A}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵. 有 $\tr A=\tr \mathcal{A}=0$.
 
     (a) 若 $a_{11}=0$, 设 $W=\left<\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n\right>$, 则 $V=W\oplus\left<\boldsymbol{e}_1\right>,\dim W=n-1,\mathcal{A}\boldsymbol{e}_1=a_{12}\boldsymbol{e}_2+a_{13}\boldsymbol{e}_3+\cdots+a_{1n}\boldsymbol{e}_n\in W$.
     
     考虑 $\mathcal{A}$ 在 $W$ 上的限制 $\overline{\mathcal{A}}$. $\overline{\mathcal{A}}$ 在 $\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n$ 上的矩阵为 $A$ 去掉第 $1$ 行第 $1$ 列的矩阵 $\overline{A}$.
     
-    $\because a_{11}=0,\operatorname{tr}A=\sum\limits_{i=1}^na_{ii}=0$, $\therefore\operatorname{tr}\overline{A}=\sum\limits_{i=2}^na_{ii}=0$, 即 $\operatorname{tr}\overline{\mathcal{A}}=0$.
+    $\because a_{11}=0,\tr A=\sum\limits_{i=1}^na_{ii}=0$, $\therefore\tr \overline{A}=\sum\limits_{i=2}^na_{ii}=0$, 即 $\tr \overline{\mathcal{A}}=0$.
     
     由归纳假定, $\exists W$ 的一个基 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_{n-1}'$ 使得 $\mathcal{A}$ 在 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_{n-1}'$ 下的矩阵 $A'=(a'_{ij})$ 的主对角线上取零值, 即 $a'_{11}=a'_{22}=\cdots=a'_{n-1,n-1}=0.\therefore$
     \[\begin{cases}
@@ -1330,7 +1330,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     是将 $AF_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)$ 的第 $1$ 行乘 $-\dfrac{a_{11}}{a_{1j}}$ 后加到第 $j$ 列得到的矩阵, 有
     \[c_{11}=b_{11}=a_{11}-\dfrac{a_{11}}{a_{1j}}a_{1j}=0.\]
 
-    记 $A'=F^{-1}_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)AF_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)$ $\because F_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)\in\operatorname{GL}_n(K),\therefore A$ 相似于 $A'$.
+    记 $A'=F^{-1}_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)AF_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)$ $\because F_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)\in\gl _n(K),\therefore A$ 相似于 $A'$.
 
     由定理 \ref{t2.3}, $\mathcal{A}$ 在基
     \[(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)F_{j,1}\left(-\dfrac{a_{11}}{a_{1j}}\right)\]
@@ -1338,7 +1338,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     (d) 若 $\forall k,a_{kk}\neq0$ 但 $\exists i\neq j$ 使得 $a_{ij}\neq0$, 则 $\mathcal{A}$ 在基 $\boldsymbol{e}_i,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{i-1},\boldsymbol{e}_1,\boldsymbol{e}_{i+1},\cdots,\boldsymbol{e}_n$ 下的矩阵 $A'=(a_{ij}')$ 有 $a_{1j}'=0$. 问题归结为 (c) 的情形.
 
-    (e) 若 $A=\operatorname{diag}(a_{11},a_{22},\cdots,a_{nn})$, 假设 $a_{11}=a_{22}=\cdots=a_{nn}=a$, 则 $\operatorname{tr}A=na$. $\because\operatorname{char}K=0,\therefore\operatorname{tr}A\neq0$. $\therefore\exists k$ 使得 $a_{kk}\neq a_{11}$.
+    (e) 若 $A=\diag (a_{11},a_{22},\cdots,a_{nn})$, 假设 $a_{11}=a_{22}=\cdots=a_{nn}=a$, 则 $\tr A=na$. $\because\charop K=0,\therefore\tr A\neq0$. $\therefore\exists k$ 使得 $a_{kk}\neq a_{11}$.
 
     设 $AF_{1,2}(1)=(b_{ij}),F^{-1}_{1,2}(1)AF_{1,2}(1)=(c_{ij})$, 则
     \[c_{1k}=b_{1k}-b_{kk}=(a_{1k}+a_{11})-(a_{kk}+a_{k1})=a_{11}-a_{kk}.\]
@@ -1346,10 +1346,10 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $\therefore A$ 相似于满足 $\exists j\neq 1$ 使得 $a'_{1j}=0$ 的矩阵 $A'=(a'_{ij})$. 问题归结为 (c) 的情形.
 \end{proof}
 \begin{exercise}% 2.12
-    将习题 \ref{ex2.11} 中的 ``$\operatorname{char}K=0$'' 这一条件去掉, 结论是否还成立?
+    将习题 \ref{ex2.11} 中的 ``$\charop K=0$'' 这一条件去掉, 结论是否还成立?
 \end{exercise}
 \begin{solution}
-    不成立. 考虑 $\operatorname{char}K=n$ 中的单位矩阵 $E\in M_n(K)$. $\because\operatorname{char}K=n$, $\therefore\operatorname{tr}A=n=0$. 另一方面, $\because\forall A\in\operatorname{GL}_n(K),A^{-1}EA=A^{-1}A=E,\therefore E$ 只与 $E$ 相似.
+    不成立. 考虑 $\charop K=n$ 中的单位矩阵 $E\in M_n(K)$. $\because\charop K=n$, $\therefore\tr A=n=0$. 另一方面, $\because\forall A\in\gl _n(K),A^{-1}EA=A^{-1}A=E,\therefore E$ 只与 $E$ 相似.
 \end{solution}
 \subsection{习题2.3}
 \stepcounter{exsection}
@@ -1408,17 +1408,17 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     $f(A_1\cap A_2)=f(A_1)\cap f(A_2)$ 不一定成立. 比如: 对 $\mathbb{R}$ 上的函数 $f(x)=|x|$, 有 $f(\{1\}\cap\{-1\})=f(\varnothing)=\varnothing$, 但 $f(\{1\})\cap f(\{-1\})=\{1\}$.
 \end{note}
 \begin{exercise}\label{ex3.3}
-    设 $\dim V=n,\mathcal{A}\in\mathcal{L}(V)$ 满足: 对某个 $p\in\mathbb{N}$ 有 $\operatorname{Im}\mathcal{A}^p=\operatorname{Im}\mathcal{A}^{p+1}$. 证明: $\ker\mathcal{A}^p,\operatorname{Im}\mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间, 且 $V=\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p$.
+    设 $\dim V=n,\mathcal{A}\in\mathcal{L}(V)$ 满足: 对某个 $p\in\mathbb{N}$ 有 $\im \mathcal{A}^p=\im \mathcal{A}^{p+1}$. 证明: $\ker\mathcal{A}^p,\im \mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间, 且 $V=\ker\mathcal{A}^p\oplus\im \mathcal{A}^p$.
 \end{exercise}
 \begin{proof}
-    $\because\operatorname{Im}\mathcal{A}^p=\operatorname{Im}\mathcal{A}^{p+1}=\mathcal{A}(\operatorname{Im}\mathcal{A}^p)$, $\therefore\operatorname{Im}\mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间. 有
+    $\because\im \mathcal{A}^p=\im \mathcal{A}^{p+1}=\mathcal{A}(\im \mathcal{A}^p)$, $\therefore\im \mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间. 有
     \begin{align*}
-        \mathcal{A}^p(\operatorname{Im}\mathcal{A}^p) & =\operatorname{Im}\mathcal{A}^{2p} \\
-        & =\mathcal{A}^{p-1}(\operatorname{Im}\mathcal{A}^{p+1}) \\
-        & =\mathcal{A}^{p-1}(\operatorname{Im}\mathcal{A}^p) \\
-        & =\operatorname{Im}\mathcal{A}^{2p-1} \\
+        \mathcal{A}^p(\im \mathcal{A}^p) & =\im \mathcal{A}^{2p} \\
+        & =\mathcal{A}^{p-1}(\im \mathcal{A}^{p+1}) \\
+        & =\mathcal{A}^{p-1}(\im \mathcal{A}^p) \\
+        & =\im \mathcal{A}^{2p-1} \\
         & =\cdots \\
-        & =\operatorname{Im}\mathcal{A}^p.
+        & =\im \mathcal{A}^p.
     \end{align*}
 
     $\because\ker\mathcal{A}^p=\{\boldsymbol{x}|\mathcal{A}^p\boldsymbol{x}=\boldsymbol{0}\}$, $\therefore$
@@ -1428,19 +1428,19 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $\because\forall\boldsymbol{x}\in\ker\mathcal{A}^{p-1},\mathcal{A}^{p-1}\boldsymbol{x}=\boldsymbol{0}\Rightarrow\mathcal{A}^p\boldsymbol{x}=\mathcal{A}(\mathcal{A}^{p-1}\boldsymbol{x})=\mathcal{A}\boldsymbol{0}=\boldsymbol{0}$, $\therefore\boldsymbol{x}\in\ker\mathcal{A}^p$. $\therefore\mathcal{A}(\ker\mathcal{A}^p)\subset\ker\mathcal{A}^p$, 即 $\ker\mathcal{A}^p$ 是 $\mathcal{A}$ 的不变子空间.
 
-    假设 $\exists$ 非零的 $\boldsymbol{x}\in\ker\mathcal{A}^p\cap\operatorname{Im}\mathcal{A}^p$, 则 $\exists\boldsymbol{y}\in V$ 使得 $\mathcal{A}^p\boldsymbol{y}=\boldsymbol{x}$. $\because\boldsymbol{x}\neq\boldsymbol{0}$, $\therefore\boldsymbol{y}\neq\boldsymbol{0}$.
+    假设 $\exists$ 非零的 $\boldsymbol{x}\in\ker\mathcal{A}^p\cap\im \mathcal{A}^p$, 则 $\exists\boldsymbol{y}\in V$ 使得 $\mathcal{A}^p\boldsymbol{y}=\boldsymbol{x}$. $\because\boldsymbol{x}\neq\boldsymbol{0}$, $\therefore\boldsymbol{y}\neq\boldsymbol{0}$.
 
-    假设 $\boldsymbol{y}\notin\operatorname{Im}\mathcal{A}^p$, 则 $\boldsymbol{x}\notin\mathcal{A}^p(\operatorname{Im}\mathcal{A}^p)=\operatorname{Im}\mathcal{A}^p$, 与 $\boldsymbol{x}\in\operatorname{Im}\mathcal{A}^p$ 矛盾. $\therefore\boldsymbol{y}\in\operatorname{Im}\mathcal{A}^p$. $\therefore\exists\boldsymbol{z}\in V$ 使得 $\mathcal{A}^p\boldsymbol{z}=\boldsymbol{y}$. 与前面类似, $\boldsymbol{z}\in\operatorname{Im}\mathcal{A}^p\backslash\{\boldsymbol{0}\}$.
+    假设 $\boldsymbol{y}\notin\im \mathcal{A}^p$, 则 $\boldsymbol{x}\notin\mathcal{A}^p(\im \mathcal{A}^p)=\im \mathcal{A}^p$, 与 $\boldsymbol{x}\in\im \mathcal{A}^p$ 矛盾. $\therefore\boldsymbol{y}\in\im \mathcal{A}^p$. $\therefore\exists\boldsymbol{z}\in V$ 使得 $\mathcal{A}^p\boldsymbol{z}=\boldsymbol{y}$. 与前面类似, $\boldsymbol{z}\in\im \mathcal{A}^p\backslash\{\boldsymbol{0}\}$.
 
     重复上述步骤得 $\exists\boldsymbol{x}_0\in V$ 使得 $\mathcal{A}^{kp}\boldsymbol{x}_0\neq\boldsymbol{0}\ (k=0,1,2,\cdots,n),\mathcal{A}^{(n+1)p}\boldsymbol{x}_0=0$.
 
     由书上第 4 节的例 1 得 $\boldsymbol{x}_0,\mathcal{A}^p\boldsymbol{x}_0,\mathcal{A}^{2p}\boldsymbol{x}_0,\cdots,\mathcal{A}^{np}\boldsymbol{x}_0$ 线性无关, 这与 $\dim V=n$ 矛盾. $\therefore$
-    \[\ker\mathcal{A}^p\cap\operatorname{Im}\mathcal{A}^p=\{\boldsymbol{0}\}.\]
+    \[\ker\mathcal{A}^p\cap\im \mathcal{A}^p=\{\boldsymbol{0}\}.\]
 
-    $\therefore\ker\mathcal{A}^p+\operatorname{Im}\mathcal{A}^p$ 是直和. $\therefore$
-    \[\dim(\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p)=\dim\ker\mathcal{A}^p+\dim\operatorname{Im}\mathcal{A}^p.\]
+    $\therefore\ker\mathcal{A}^p+\im \mathcal{A}^p$ 是直和. $\therefore$
+    \[\dim(\ker\mathcal{A}^p\oplus\im \mathcal{A}^p)=\dim\ker\mathcal{A}^p+\dim\im \mathcal{A}^p.\]
 
-    由书上第 1 节的定理 4 得 $\dim(\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p)=\dim V$. $\therefore V=\ker\mathcal{A}^p\oplus\operatorname{Im}\mathcal{A}^p$.
+    由书上第 1 节的定理 4 得 $\dim(\ker\mathcal{A}^p\oplus\im \mathcal{A}^p)=\dim V$. $\therefore V=\ker\mathcal{A}^p\oplus\im \mathcal{A}^p$.
 \end{proof}
 \begin{exercise}% 3.4
     证明: 如果 $n$ 维向量空间 $V$ 上的线性算子 $\mathcal{E},\mathcal{A},\mathcal{A}^2,\cdots,\mathcal{A}^{n-1}$ 是线性无关的, 那么 $\exists\boldsymbol{v}$ 使得
@@ -1463,9 +1463,9 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     证明: $\forall A,B\in M_n(\mathbb{R})$, 矩阵 $AB$ 和 $BA$ 的特征多项式相同.
 \end{exercise}
 \begin{proof}
-    若 $A\in\operatorname{GL}_n(\mathbb{R})$, 则 $AB=(A^{-1})^{-1}BAA^{-1},\therefore AB$ 与 $BA$ 相似. 由书上的定理 3 得 $AB$ 和 $BA$ 的特征多项式相同.
+    若 $A\in\gl _n(\mathbb{R})$, 则 $AB=(A^{-1})^{-1}BAA^{-1},\therefore AB$ 与 $BA$ 相似. 由书上的定理 3 得 $AB$ 和 $BA$ 的特征多项式相同.
 
-    若 $A\notin\operatorname{GL}_n(\mathbb{R})$, 则 % 补充
+    若 $A\notin\gl _n(\mathbb{R})$, 则 % 补充
 \end{proof}
 \begin{exercise}% 3.7
     求循环矩阵
@@ -1521,7 +1521,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \end{note}
 \stepcounter{exercise}
 \begin{exercise}% 3.9
-    设 $\operatorname{char}K\neq2,A,B\in M_n(K)$. 若 $\exists D=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1$ 使得 $B=DA$, 则记为 $B\sim A$.
+    设 $\charop K\neq2,A,B\in M_n(K)$. 若 $\exists D=\diag (\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1$ 使得 $B=DA$, 则记为 $B\sim A$.
 
     (1) 验证 $\sim$ 是一个等价关系.
 
@@ -1532,15 +1532,15 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{proof}
     (1) $\because A=EA,\therefore A\sim A$.
 
-    设 $B=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n)A$, 则 $A=\operatorname{diag}(\theta_1',\theta_2',\cdots,\theta_n')B$, 其中 $\theta_i\theta_i'=1\Rightarrow\theta_i'=\pm1$. $\therefore A\sim B\Rightarrow B\sim A$.
+    设 $B=\diag (\theta_1,\theta_2,\cdots,\theta_n)A$, 则 $A=\diag (\theta_1',\theta_2',\cdots,\theta_n')B$, 其中 $\theta_i\theta_i'=1\Rightarrow\theta_i'=\pm1$. $\therefore A\sim B\Rightarrow B\sim A$.
 
-    设 $A=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n)B,B=\operatorname{diag}(\theta_1',\theta_2',\cdots,\theta_n')C$, 则 $A=\operatorname{diag}(\theta_1\theta_1',\theta_2\theta_2',\cdots,\theta_n\theta_n')C$. $\therefore A\sim B,B\sim C\Rightarrow A\sim C$.
+    设 $A=\diag (\theta_1,\theta_2,\cdots,\theta_n)B,B=\diag (\theta_1',\theta_2',\cdots,\theta_n')C$, 则 $A=\diag (\theta_1\theta_1',\theta_2\theta_2',\cdots,\theta_n\theta_n')C$. $\therefore A\sim B,B\sim C\Rightarrow A\sim C$.
 
     (2) $\because$
-    \[S(A)=\{DA|D=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1\},\]
+    \[S(A)=\{DA|D=\diag (\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1\},\]
 
     $\therefore$
-    \[|S(A)|\leq\operatorname{Card}\{D|D=\operatorname{diag}(\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1\}=2^n.\]
+    \[|S(A)|\leq\operatorname{Card}\{D|D=\diag (\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1\}=2^n.\]
 
     (3) 设 $A$ 以 $1$ 为特征值, 否则 $A$ 为符合要求的矩阵. 对 $n$ 用数学归纳法. 当 $n=1$ 时 $S(A)=\{(1),(-1)\},(-1)$ 符合要求. 假设对 $\forall A\in M_{n-1}(K),\exists B\in S(A)$ 使得 $B$ 不以 $1$ 为特征值.
     
@@ -1552,7 +1552,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         &&& \ddots \\
         &&&& c_{n-1} \\
     \end{pmatrix}\quad(c_i\neq 1).\]
-    相似, 则 $\operatorname{diag}(-1,1,\cdots,1)A$ 与对角矩阵
+    相似, 则 $\diag (-1,1,\cdots,1)A$ 与对角矩阵
     \[D'=\begin{pmatrix}
         -1 \\
         & c_1 \\
@@ -1562,11 +1562,11 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     \end{pmatrix}\quad(c_i\neq 1).\]
     相似.
     
-    由书上的定理 3 得 $\operatorname{diag}(-1,1,\cdots,1)A$ 与 $D'$ 有相同的特征值.
+    由书上的定理 3 得 $\diag (-1,1,\cdots,1)A$ 与 $D'$ 有相同的特征值.
 
     $\because D'$ 的特征值为 $-1,c_1,c_2,\cdots,c_k,\therefore D'$ 不以 $1$ 为特征值.
 
-    $\therefore\exists\operatorname{diag}(-1,1,\cdots,1)A\in S(A)$ 不以 $1$ 为特征值.
+    $\therefore\exists\diag (-1,1,\cdots,1)A\in S(A)$ 不以 $1$ 为特征值.
 \end{proof}
 \subsection{习题2.4}
 \stepcounter{exsection}
@@ -1676,7 +1676,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     \end{pmatrix}\sim A_2.\]
 
     (3) $\because$
-    \[\operatorname{rank}\begin{pmatrix}
+    \[\rank \begin{pmatrix}
         0 & 0 & 0 & 0 \\
         1 & 0 & 0 & 0 \\
         1 & -1 & 0 & 0 \\
@@ -1745,16 +1745,16 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{exercise}% 4.3
     设 $\chi_\mathcal{A}(t)=(t-3)^4(t+2)$.
 
-    (1) 已知 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=2$, 求 $\mathcal{A}$ 的 Jordan 矩阵 $J(\mathcal{A})$.
+    (1) 已知 $\rank (\mathcal{A}-3\mathcal{E})=2$, 求 $\mathcal{A}$ 的 Jordan 矩阵 $J(\mathcal{A})$.
 
-    (2) 若 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=1,3,4$, 能求出唯一的 $J(\mathcal{A})$ 吗?
+    (2) 若 $\rank (\mathcal{A}-3\mathcal{E})=1,3,4$, 能求出唯一的 $J(\mathcal{A})$ 吗?
 \end{exercise}
 \begin{solution}
     $-2$ 是 $\mathcal{A}$ 的代数重数为 $1$ 的特征值, $\therefore-2$ 在 $J(\mathcal{A})$ 的主对角线上只出现一次.
 
     $3$ 是 $\mathcal{A}$ 的代数重数为 $4$ 的特征值.
 
-    (1) 若 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=2$, 则 $J(\mathcal{A})$ 中有 $n-\operatorname{rank}(\mathcal{A}-3\mathcal{E})=5-2=3$ 个对角线上的值为 $3$ 的 Jordan 块, 分别为 $J_2(3),J_1(3),J_1(3)$. $\therefore$
+    (1) 若 $\rank (\mathcal{A}-3\mathcal{E})=2$, 则 $J(\mathcal{A})$ 中有 $n-\rank (\mathcal{A}-3\mathcal{E})=5-2=3$ 个对角线上的值为 $3$ 的 Jordan 块, 分别为 $J_2(3),J_1(3),J_1(3)$. $\therefore$
     \[J(\mathcal{A})=\begin{pmatrix}
         -2 & 0 & 0 & 0 & 0 \\
         0 & 3 & 1 & 0 & 0 \\
@@ -1763,7 +1763,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0 & 0 & 0 & 0 & 3 \\
     \end{pmatrix}.\]
 
-    (2) 若 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=1$, 则 $J(\mathcal{A})$ 中有 $5-1=4$ 个对角线上的值为 $3$ 的 Jordan 块, 只有可能是 $4$ 个 $J_1(3)$. $\therefore$
+    (2) 若 $\rank (\mathcal{A}-3\mathcal{E})=1$, 则 $J(\mathcal{A})$ 中有 $5-1=4$ 个对角线上的值为 $3$ 的 Jordan 块, 只有可能是 $4$ 个 $J_1(3)$. $\therefore$
     \[J(\mathcal{A})=\begin{pmatrix}
         -2 & 0 & 0 & 0 & 0 \\
         0 & 3 & 0 & 0 & 0 \\
@@ -1772,9 +1772,9 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0 & 0 & 0 & 0 & 3 \\
     \end{pmatrix}.\]
 
-    若 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=3$, 则 $J(\mathcal{A})$ 中有 $5-3=2$ 个对角线上的值为 $3$ 的 Jordan 块, 可能是 $J_1(3),J_3(3)$ 或者是 $J_2(3),J_2(3)$. $\therefore J(\mathcal{A})$ 不能唯一确定.
+    若 $\rank (\mathcal{A}-3\mathcal{E})=3$, 则 $J(\mathcal{A})$ 中有 $5-3=2$ 个对角线上的值为 $3$ 的 Jordan 块, 可能是 $J_1(3),J_3(3)$ 或者是 $J_2(3),J_2(3)$. $\therefore J(\mathcal{A})$ 不能唯一确定.
 
-    若 $\operatorname{rank}(\mathcal{A}-3\mathcal{E})=4$, 则 $J(\mathcal{A})$ 中有 $5-4=1$ 个对角线上的值为 $3$ 的 Jordan 块, 只有可能是 $J_4(3)$. $\therefore$
+    若 $\rank (\mathcal{A}-3\mathcal{E})=4$, 则 $J(\mathcal{A})$ 中有 $5-4=1$ 个对角线上的值为 $3$ 的 Jordan 块, 只有可能是 $J_4(3)$. $\therefore$
     \[J(\mathcal{A})=\begin{pmatrix}
         -2 & 0 & 0 & 0 & 0 \\
         0 & 3 & 1 & 0 & 0 \\
@@ -1809,14 +1809,14 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     $4$ 是 $A,B$ 的代数重数为 $2$ 的特征值.
 
-    $\because\operatorname{rank}(A-4E)=1$, $\therefore J(A)$ 中有 $n-\operatorname{rank}(A-4E)=3-1=2$ 个对角线上的值为 $4$ 的 Jordan 块, $\therefore$
+    $\because\rank (A-4E)=1$, $\therefore J(A)$ 中有 $n-\rank (A-4E)=3-1=2$ 个对角线上的值为 $4$ 的 Jordan 块, $\therefore$
     \[J(A)=\begin{pmatrix}
         2 & 0 & 0 \\
         0 & 4 & 0 \\
         0 & 0 & 4 \\
     \end{pmatrix}.\]
 
-    $\because\operatorname{rank}(B-4E)=2$, $\therefore J(B)$ 中有 $n-\operatorname{rank}(B-4E)=3-2=1$ 个对角线上的值为 $4$ 的 Jordan 块, $\therefore$
+    $\because\rank (B-4E)=2$, $\therefore J(B)$ 中有 $n-\rank (B-4E)=3-2=1$ 个对角线上的值为 $4$ 的 Jordan 块, $\therefore$
     \[J(B)=\begin{pmatrix}
         2 & 0 & 0 \\
         0 & 4 & 1 \\
@@ -1830,9 +1830,9 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \begin{proof}
     $\because\det(A-tE)=\det({}^tA-tE)$, $\therefore A$ 与 $^tA$ 有相同的特征值.
 
-    $\because\forall k\in\mathbb{N}_+,\lambda\in\mathbb{C},({}^tA-\lambda E)^k=({}^t(A-\lambda E))^k={}^t((A-\lambda E)^k)$, $\therefore\operatorname{rank}({}^tA-\lambda E)^k=\operatorname{rank}{}^t((A-\lambda E)^k)$.
+    $\because\forall k\in\mathbb{N}_+,\lambda\in\mathbb{C},({}^tA-\lambda E)^k=({}^t(A-\lambda E))^k={}^t((A-\lambda E)^k)$, $\therefore\rank ({}^tA-\lambda E)^k=\rank {}^t((A-\lambda E)^k)$.
     
-    $\because\forall B\in M_n(\mathbb{C}),B$ 的行/列向量的线性相关性等价于 $^tB$ 的列/行向量的线性相关性,$\therefore\operatorname{rank}{}^tB=\operatorname{rank}B$, $\therefore\operatorname{rank}{}^t((A-\lambda E)^k)=\operatorname{rank}(A-\lambda E)^k$.
+    $\because\forall B\in M_n(\mathbb{C}),B$ 的行/列向量的线性相关性等价于 $^tB$ 的列/行向量的线性相关性,$\therefore\rank {}^tB=\rank B$, $\therefore\rank {}^t((A-\lambda E)^k)=\rank (A-\lambda E)^k$.
     
     $\therefore A$ 与 $^tA$ 具有相同的 Jordan 块, $\therefore J(A)=J({}^tA)$. $\therefore A\sim J(A)=J({}^tA)\sim{}^tA$.
 \end{proof}
@@ -1841,12 +1841,12 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \end{exercise}
 \begin{proof}
     ($\Leftarrow$) 设
-    \[A=C^{-1}\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)C,\]
+    \[A=C^{-1}\diag (\lambda_1,\lambda_2,\cdots,\lambda_n)C,\]
 
     其中 $\lambda_1,\lambda_2,\cdots,\lambda_n$ 是 $A$ 的特征根, 而且是 $N$ 次单位根. $\therefore$
-    \[A^N=C^{-1}\operatorname{diag}(\lambda_1^N,\lambda_2^N,\cdots,\lambda_n^N)C=C^{-1}C=E.\]
+    \[A^N=C^{-1}\diag (\lambda_1^N,\lambda_2^N,\cdots,\lambda_n^N)C=C^{-1}C=E.\]
 
-    ($\Rightarrow$) 由书上的基本定理, $\exists C\in\operatorname{GL}_n(\mathbb{C})$ 使得
+    ($\Rightarrow$) 由书上的基本定理, $\exists C\in\gl _n(\mathbb{C})$ 使得
     \[A=C^{-1}\begin{pmatrix}
         J_{m_1}(\lambda_1) \\
         & \ddots \\
@@ -1897,7 +1897,7 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
         0 & \mu & 1 \\
         0 & 0 & \mu \\
     \end{pmatrix}\in M_3(\mathbb{C})\]
-    可以写成 $A=S+N$ 的形式, 其中 $S=\operatorname{diag}(\lambda,\mu,\mu)$.
+    可以写成 $A=S+N$ 的形式, 其中 $S=\diag (\lambda,\mu,\mu)$.
 
     求次数最小的多项式 $s(t),n(t)$ 使得 $s(A)=S,n(A)=N$. 规定 $A^0=E$.
 \end{exercise}
