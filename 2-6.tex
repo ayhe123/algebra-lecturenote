@@ -1,6 +1,5 @@
 % TODO:
 % 推论 1.1 的逆命题
-% 定理 1.3 将条件减弱为 $K$ 为一般的域
 % 第 1.4 节, 是否可以将 $(V^*)^p$ 与 $(V^p)^*$ 等同起来, 求坐标时应该用的是加法而不是乘法
 % 定理 3.3 补充证明: $W_p(V)$ 与多项式环在代数意义下同构
 % 习题 1.3 (2) 不知道要证明什么, 感觉需要用到张量积的定义
@@ -197,35 +196,35 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
 
 有:
 \begin{theorem}\label{t1.4}
-    当 $K^p,p\in\mathbb{N}$ 是 Hermite 空间($\mathbb{R},\mathbb{C}$ 都满足这个条件), $V,W$ 都是有限维空间时, 有
+    当 $V,W$ 都是有限维空间时, 有
     \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>=T(V^*,W^*).\]
 \end{theorem}
 \begin{proof}
     设 $e^1,e^2,\cdots,e^n$ 是 $V^*$ 的一个基, $e'^1,e'^2,\cdots,e'^m$ 是 $W^*$ 的一个基, 则 $\forall \phi\in T(V^*,W^*),\exists A\in M_{m,n}(K)$ 使得 $\forall f=\sum\limits_{i=1}^na_ie^i\in V^*,g=\sum\limits_{j=1}^mb_je'^j\in W^*$, 有
     \[\phi(f,g)=(b_1,b_2,\cdots,b_m)A[a_1,a_2,\cdots,a_n].\]
 
-    由第 3 章笔记的补充题 4 得 $\exists$ 酉矩阵 $B\in U(m),C\in U(n)$ 使得
+    由 [BAI] 第 2 章第 3 节的定理 4 得 $\exists B\in M_m(K),C\in M_n(K)$ 使得
     \[A=B\begin{pmatrix}
-        \Sigma & 0 \\
+        E_r & 0 \\
         0 & 0 \\
-    \end{pmatrix}{}^tC,\quad\Sigma=\diag (\sigma_1,\sigma_2,\cdots,\sigma_r).\]
+    \end{pmatrix}{}^tC,\quad r=\rank A.\]
     
     $\because$
     \[\begin{pmatrix}
-        \Sigma & 0 \\
+        E_r & 0 \\
         0 & 0 \\
-    \end{pmatrix}=\sigma_1\begin{pmatrix}
+    \end{pmatrix}=\begin{pmatrix}
         1 \\
         0 \\
         \vdots \\
         0 \\
-    \end{pmatrix}(1,0,\cdots,0)+\sigma_2\begin{pmatrix}
+    \end{pmatrix}(1,0,\cdots,0)+\begin{pmatrix}
         0 \\
         1 \\
         0 \\
         \vdots \\
         0 \\
-    \end{pmatrix}(0,1,0,\cdots,0)+\cdots+\sigma_r\begin{pmatrix}
+    \end{pmatrix}(0,1,0,\cdots,0)+\cdots+\begin{pmatrix}
         0 \\
         \vdots \\
         0 \\
@@ -236,12 +235,12 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
 
     $\therefore$
     \begin{align*}
-        A & =\sigma_1B\begin{pmatrix}
+        A & =B\begin{pmatrix}
             1 \\
             0 \\
             \vdots \\
             0 \\
-        \end{pmatrix}(1,0,\cdots,0){}^tC+\cdots+\sigma_rB\begin{pmatrix}
+        \end{pmatrix}(1,0,\cdots,0){}^tC+\cdots+B\begin{pmatrix}
             0 \\
             \vdots \\
             0 \\
@@ -249,27 +248,27 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
             \vdots \\
             0
         \end{pmatrix}(0,\cdots,1(\text{第}r\text{个}),\cdots,0){}^tC \\
-        & =\sum\limits_{i=1}^r\sigma_iB^{(i)}{}^t(C^{(i)}).
+        & =\sum\limits_{i=1}^rB^{(i)}{}^t(C^{(i)}).
     \end{align*}
 
     $\therefore$
     \begin{align*}
-        \phi(f,g) & =(b_1,b_2,\cdots,b_m)\left(\sum\limits_{i=1}^r\sigma_iB^{(i)}{}^t(C^{(i)})\right)[a_1,a_2,\cdots,a_n] \\
-        & =\sum\limits_{i=1}^r\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)}\cdot{}^t((a_1,a_2,\cdots,a_n)C^{(i)}) \\
-        & =\sum\limits_{i=1}^r\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)}\cdot(a_1,a_2,\cdots,a_n)C^{(i)}.
+        \phi(f,g) & =(b_1,b_2,\cdots,b_m)\left(\sum\limits_{i=1}^rB^{(i)}{}^t(C^{(i)})\right)[a_1,a_2,\cdots,a_n] \\
+        & =\sum\limits_{i=1}^r(b_1,b_2,\cdots,b_m)B^{(i)}\cdot{}^t((a_1,a_2,\cdots,a_n)C^{(i)}) \\
+        & =\sum\limits_{i=1}^r(b_1,b_2,\cdots,b_m)B^{(i)}\cdot(a_1,a_2,\cdots,a_n)C^{(i)}.
     \end{align*}
 
     设 $(e^1,\cdots,e^n)$ 的对偶基为 $(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)$, $(e'^1,\cdots,e'^m)$ 的对偶基为 $(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_m')$. 令
     \[\boldsymbol{v}_i=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)C^{(i)}\in V,\quad\boldsymbol{w}_i=(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_m')B^{(i)}\in W,\]
     
     有
-    \[\boldsymbol{v}_i(f)=(a_1,a_2,\cdots,a_n)C^{(i)},\quad\boldsymbol{w}_i(g)=\sigma_i(b_1,b_2,\cdots,b_m)B^{(i)},\quad i=1,2,\cdots,r.\]
+    \[\boldsymbol{v}_i(f)=(a_1,a_2,\cdots,a_n)C^{(i)},\quad\boldsymbol{w}_i(g)=(b_1,b_2,\cdots,b_m)B^{(i)},\quad i=1,2,\cdots,r.\]
 
     $\therefore\forall f\in V^*,g\in W^*$,
-    \[\phi(f,g)=\sum\limits_{i=1}^r\sigma_i\boldsymbol{v}_i(f)\boldsymbol{w}_i(g).\]
+    \[\phi(f,g)=\sum\limits_{i=1}^r\boldsymbol{v}_i(f)\boldsymbol{w}_i(g).\]
 
     $\therefore$
-    \[\phi=\sum\limits_{i=1}^r\sigma_i\boldsymbol{v}_i\otimes\boldsymbol{w}_i\in\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>.\]
+    \[\phi=\sum\limits_{i=1}^r\boldsymbol{v}_i\otimes\boldsymbol{w}_i\in\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>.\]
 
     $\therefore$
     \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\supset T(V^*,W^*).\qedhere\]
