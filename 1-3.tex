@@ -1913,7 +1913,7 @@
     \[a_{11}a_{23}a_{34}a_{42}+a_{12}a_{23}a_{31}a_{44}+a_{14}a_{23}a_{32}a_{41}.\]
 \end{solution}
 \begin{note}
-    可以用下面的 Mathematica 代码来验证:
+    可以用下面的代码来验证:
     \begin{verbatim}
 split[expr_] := Reap[Scan[Sow, expr]][[2, 1]];
 Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]], 
@@ -1984,7 +1984,7 @@ Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]],
     \end{vmatrix}.\]
 \end{exercisec}
 \begin{exercisec}[4.2.11(2)]
-    (1) 计算行列式
+    计算行列式
     \[\begin{vmatrix}
         1+a_1+b_1 & a_1+b_2 & \cdots & a_1+b_n \\
         a_2+b_1 & 1+a_2+b_2 & \cdots & a_2+b_n \\

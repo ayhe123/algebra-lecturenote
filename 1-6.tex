@@ -249,46 +249,46 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
 \end{theorem}
 \begin{proof}
     设 $R_1$ 为 $A$ 上的 $n$ 元对称多项式, $R_2$ 为 $A$ 上单调的 $n$ 元单项式. 考虑映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         A[Y_1,Y_2,\cdots,Y_n] & \to & R_1 \\
         g(Y_1,Y_2,\cdots,Y_n) & \to & f=g(\mathbf{s}_1,\mathbf{s}_2,\cdots,\mathbf{s}_n) \\
     \end{array},\]
 
-    由 $\phi$ 的构造得 $\phi$ 是同态. 由书上的定理 1 证明的第 3 部分得 $\forall f\in R_1,\exists f\in A[Y_1,Y_2,\cdots,Y_n]$ 使得 $f=\phi(g).\therefore\phi$ 是满射.
+    由 $\varphi$ 的构造得 $\varphi$ 是同态. 由书上的定理 1 证明的第 3 部分得 $\forall f\in R_1,\exists f\in A[Y_1,Y_2,\cdots,Y_n]$ 使得 $f=\varphi(g).\therefore\varphi$ 是满射.
     
-    $\therefore g$ 的唯一性等价于 $\phi$ 是同构.
+    $\therefore g$ 的唯一性等价于 $\varphi$ 是同构.
     
-    $\because\phi$ 是同态, $\therefore\forall g\in\ker\phi$, 设 $g=g_1+g_2+\cdots+g_s$, 其中 $g_1,g_2,\cdots,g_s$ 是单项式, 则 $\phi(g)=\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s)$,
+    $\because\varphi$ 是同态, $\therefore\forall g\in\ker\varphi$, 设 $g=g_1+g_2+\cdots+g_s$, 其中 $g_1,g_2,\cdots,g_s$ 是单项式, 则 $\varphi(g)=\varphi(g_1)+\varphi(g_2)+\cdots+\varphi(g_s)$,
     \begin{align*}
-        \phi(g)=0 & \Rightarrow\ft (\phi(g))=0 \\
-        & \Rightarrow\ft (\phi(g_1)+\phi(g_2)+\cdots+\phi(g_s))=0.
+        \varphi(g)=0 & \Rightarrow\ft (\varphi(g))=0 \\
+        & \Rightarrow\ft (\varphi(g_1)+\varphi(g_2)+\cdots+\varphi(g_s))=0.
     \end{align*}
 
     由引理 \ref{l2.1},
-    \[\max\{\ft (\phi(g_1)),\ft (\phi(g_2)),\cdots,\ft (\phi(g_s))\}=0.\]
+    \[\max\{\ft (\varphi(g_1)),\ft (\varphi(g_2)),\cdots,\ft (\varphi(g_s))\}=0.\]
 
-    $\therefore\forall i,\ft (\phi(g_i))=0$.
+    $\therefore\forall i,\ft (\varphi(g_i))=0$.
 
     设 $aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n$ 是 $g$ 的一个单项式. 则
     \begin{align*}
-        \ft (\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n)) & =aX_1^{k_1}(X_1X_2)^{k_2}\cdots(X_1,X_2,\cdots,X_n)^{k_n} \\
+        \ft (\varphi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n)) & =aX_1^{k_1}(X_1X_2)^{k_2}\cdots(X_1,X_2,\cdots,X_n)^{k_n} \\
         & =aX_1^{k_1+k_2+\cdots+k_n}X_2^{k_2+k_3+\cdots+k_n}\cdots X_n^{k_n}.
     \end{align*}
 
-    $\therefore\ft (\phi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n))=0\Rightarrow a=0\Rightarrow aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n=0$.
+    $\therefore\ft (\varphi(aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n))=0\Rightarrow a=0\Rightarrow aY^{k_1}_1Y^{k_2}_2\cdots Y^{k_n}_n=0$.
 
     $\therefore\forall i,g_i=0.\therefore g=g_1+g_2+\cdots+g_s=0$.
 
-    $\therefore\phi$ 是单射, $\therefore\phi$ 是同构.
+    $\therefore\varphi$ 是单射, $\therefore\varphi$ 是同构.
 \end{proof}
 \begin{note}
     类比下面这个例子可以理解为什么一个环能与自己的真子环建立同构. 考察映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathbb{N} & \to & N=\{a|a=2k,k\in\mathbb{N}\} \\
         a & \to & 2a \\
     \end{array}.\]
 
-    容易验证 $\phi$ 是双射. 这样我们就在 $\mathbb{N}$ 与 $\mathbb{N}$ 的真子集间建立了双射.
+    容易验证 $\varphi$ 是双射. 这样我们就在 $\mathbb{N}$ 与 $\mathbb{N}$ 的真子集间建立了双射.
 \end{note}
 \subsection{待定系数法}
 可以给出 $S(v)$ 的形式化的定义:
@@ -504,14 +504,14 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     由书上定理 3 的证明得 $\exists a_{k+1}\in P,f(a_1,a_2,\cdots,a_k,a_{k+1})\neq0$.
 
     (2) 设
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         P[X_1,X_2,\cdots,X_n] & \to & (\underbrace{P\times P\times\cdots\times P}_{n\text{个}P})^P \\
         f(X_1,X_2,\cdots,X_n) & \to & f(x_1,x_2,\cdots,x_n) \\
     \end{array}.\]
 
-    与第 5 章笔记的例 2.6 类似, 可以证明 $\phi$ 是满同态.
+    与第 5 章笔记的例 2.6 类似, 可以证明 $\varphi$ 是满同态.
 
-    由 (1) 得 $\ker\phi=\{0\},\therefore\phi$ 是同构.
+    由 (1) 得 $\ker\varphi=\{0\},\therefore\varphi$ 是同构.
 \end{proof}
 \addtocounter{exercise}{3}
 \begin{exercise}\label{ex1.6}
@@ -1138,16 +1138,16 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     $\because S_+(X^n)=\varnothing,\therefore S_+(X^nf(1/X))=S_+(f(1/X))$.
 
     容易验证
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         S_+(f(X)) & \to & S_+(f(1/X)) \\
         c & \to & \dfrac{1}{c} \\
     \end{array}\]
     
-    是单射. $\because|S_+(f(X))|<\infty,\therefore\phi$ 是双射. $\therefore\phi^{-1}$ 是双射.
+    是单射. $\because|S_+(f(X))|<\infty,\therefore\varphi$ 是双射. $\therefore\varphi^{-1}$ 是双射.
 
-    $\because\phi^{-1}$ 是满射, $\therefore\forall c'\in S_+(f(X)),\exists c\in S_+(f(1/X))$ 使得 $c'=\phi^{-1}(c)$.
+    $\because\varphi^{-1}$ 是满射, $\therefore\forall c'\in S_+(f(X)),\exists c\in S_+(f(1/X))$ 使得 $c'=\varphi^{-1}(c)$.
 
-    若 $a$ 是 $S_+(f(1/X))$ 的一个上界, 则 $a\geq c\Rightarrow\dfrac{1}{a}\leq\dfrac{1}{c}=\phi^{-1}(c)=c'.\therefore\dfrac{1}{a}$ 是 $S_+(f(X))$ 的一个下界.
+    若 $a$ 是 $S_+(f(1/X))$ 的一个上界, 则 $a\geq c\Rightarrow\dfrac{1}{a}\leq\dfrac{1}{c}=\varphi^{-1}(c)=c'.\therefore\dfrac{1}{a}$ 是 $S_+(f(X))$ 的一个下界.
 
     容易验证
     \[\psi:\begin{array}{rcl}
@@ -1159,7 +1159,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     $\because\psi^{-1}$ 是满射, $\therefore\forall c'\in S_-(f(X)),\exists c\in S_+(f(-X))$ 使得 $c'=\psi^{-1}(c)$.
 
-    若 $a$ 是 $S_+(f(-X))$ 的一个上界, 则 $a\geq c\Rightarrow-a\leq-c=\phi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个下界. 若 $a$ 是 $S_+(f(-X))$ 的一个下界, 则 $a\leq c\Rightarrow-a\geq-c=\phi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个上界.
+    若 $a$ 是 $S_+(f(-X))$ 的一个上界, 则 $a\geq c\Rightarrow-a\leq-c=\varphi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个下界. 若 $a$ 是 $S_+(f(-X))$ 的一个下界, 则 $a\leq c\Rightarrow-a\geq-c=\varphi^{-1}(c)=c'.\therefore-a$ 是 $S_-(f(X))$ 的一个上界.
 
     $\because S_-(X^n)=\varnothing,\therefore S_-(X^nf(-1/X))=S_-(f(-1/X))$.
 

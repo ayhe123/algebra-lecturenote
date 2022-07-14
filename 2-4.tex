@@ -194,11 +194,11 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
 \end{theorem}
 \begin{proof}
     由书上第 1 章第 3 节的定理 4(ii), $U$ 是某个齐次线性方程组
-    \[\phi_i(\boldsymbol{x})=0,\quad i=1,2,\cdots,m\]
+    \[\varphi_i(\boldsymbol{x})=0,\quad i=1,2,\cdots,m\]
     的解空间.
 
-    在 $\mathbb{A}$ 上取一点 $\dot{o}$ (在不在 $\varPi$ 上都可以). 设仿射函数 $f_i$ 满足 $Df_i=\phi_i,f_i(\dot{o})=-\phi_i(\overrightarrow{op_0})$, 则
-    \[f_i(\dot{p}_0)=f_i(\dot{o})+\phi_i(\overrightarrow{op_0})=0.\]
+    在 $\mathbb{A}$ 上取一点 $\dot{o}$ (在不在 $\varPi$ 上都可以). 设仿射函数 $f_i$ 满足 $Df_i=\varphi_i,f_i(\dot{o})=-\varphi_i(\overrightarrow{op_0})$, 则
+    \[f_i(\dot{p}_0)=f_i(\dot{o})+\varphi_i(\overrightarrow{op_0})=0.\]
 
     $\therefore\dot{p}_0$ 是方程组 \ref{eq1.1} 的解.
 \end{proof}
@@ -242,7 +242,7 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
     \[\overrightarrow{(\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u})}=\overrightarrow{(\dot{p}+\boldsymbol{u})\dot{p}}+\overrightarrow{pp'}+\overrightarrow{\dot{p}'(\dot{p}'+\boldsymbol{u})}=-\boldsymbol{v}+\overrightarrow{pp'}+\boldsymbol{v}=\overrightarrow{pp'}.\]
 
     $\therefore(\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u})$ 是 $\varPi$ 与 $\varPi'$ 的公垂线. $\therefore$
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         U\cap U' & \to & S \\
         \boldsymbol{u} & \to & (\dot{p}+\boldsymbol{u})(\dot{p}'+\boldsymbol{u}) \\
     \end{array}\]
@@ -254,9 +254,9 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
     $\because\overrightarrow{pp'}\in(U+U')^\perp$, $\therefore\overrightarrow{pp'}\perp(\boldsymbol{u}'-\boldsymbol{u})$, $\therefore$
     \[\|\overrightarrow{rr'}\|^2=\|\overrightarrow{pp'}\|^2+\|\boldsymbol{u}-\boldsymbol{u}'\|^2.\]
 
-    $\because\|\overrightarrow{rr'}\|=\|\overrightarrow{pp'}\|$, $\therefore\boldsymbol{u}=\boldsymbol{u}'\in U\cap U'$. $\therefore\phi$ 是满射.
+    $\because\|\overrightarrow{rr'}\|=\|\overrightarrow{pp'}\|$, $\therefore\boldsymbol{u}=\boldsymbol{u}'\in U\cap U'$. $\therefore\varphi$ 是满射.
 
-    $\because\dot{r}=\dot{p}$ 当且仅当 $\boldsymbol{v}=\boldsymbol{0}$, $\therefore\phi$ 是单射.
+    $\because\dot{r}=\dot{p}$ 当且仅当 $\boldsymbol{v}=\boldsymbol{0}$, $\therefore\varphi$ 是单射.
 \end{proof}
 设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 是 $V$ 的一个向量组(线性相关性不作要求), $\dot{o}\in\mathbb{A},\dot{p}_i=\dot{o}+\boldsymbol{e}_i,\ i=1,2,\cdots,m$, 则线段 $\dot{o}\dot{p}_1,\dot{o}\dot{p}_2,\cdots,\dot{o}\dot{p}_m$ 围成一个平行六面体
 \[\Delta=\{\dot{o}+t_1\overrightarrow{op_1}+t_2\overrightarrow{op_2}+\cdots+t_m\overrightarrow{op_m}|0\leq t_i\leq1\}.\]
@@ -303,35 +303,35 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
 在这节中, 不加说明的话, $\mathbb{A}$ 一律为与域 $K$ 上的 $n$ 维线性空间 $V$ 相伴的仿射空间, $\mathbb{E}$ 一律为与域 $K$ 上的 $n$ 维 Euclid 空间 $V$ 相伴的仿射空间.
 \subsection{仿射群}
 首先考察 $K$ 上的仿射空间 $\mathbb{A}$ 的仿射变换
-\[\phi_{\alpha,\beta}:\begin{array}{rcl}
+\[\varphi_{\alpha,\beta}:\begin{array}{rcl}
     \mathbb{A} & \to & \mathbb{A} \\
     \dot{o}+x & \to & (\dot{o}+\beta)+\alpha x \\
 \end{array}.\]
 
 $\because\mathbb{A}$ 与 $K$ 可以等同起来(见这章的开头), $\therefore$ 可以将 $\dot{o}+y\ (y\in K)$ 与 $y$ 等同起来.
 
-当 $\alpha=0$ 时 $\forall x\in K,\phi_{\alpha,\beta}(x)=\beta$. 考察
-\[\aff (K)=\{\phi_{\alpha,\beta}|\alpha\in K\backslash\{0\},\beta\in K\}.\]
+当 $\alpha=0$ 时 $\forall x\in K,\varphi_{\alpha,\beta}(x)=\beta$. 考察
+\[\aff (K)=\{\varphi_{\alpha,\beta}|\alpha\in K\backslash\{0\},\beta\in K\}.\]
 
-$\because$ 对 $\phi_{\alpha,\beta},\phi_{\sigma,\tau}\in\aff (K)$,
-\[\phi_{\alpha,\beta}\phi_{\sigma,\tau}(x)=\phi_{\alpha,\beta}(\sigma x+\tau)=\alpha(\sigma x+\tau)+\beta=\alpha\sigma x+\alpha\tau+\beta,\]
+$\because$ 对 $\varphi_{\alpha,\beta},\varphi_{\sigma,\tau}\in\aff (K)$,
+\[\varphi_{\alpha,\beta}\varphi_{\sigma,\tau}(x)=\varphi_{\alpha,\beta}(\sigma x+\tau)=\alpha(\sigma x+\tau)+\beta=\alpha\sigma x+\alpha\tau+\beta,\]
 
-$\therefore\phi_{\alpha,\beta}\phi_{\sigma,\tau}=\phi_{\alpha\sigma,\alpha\tau+\beta}\in\aff (K)$.
+$\therefore\varphi_{\alpha,\beta}\varphi_{\sigma,\tau}=\varphi_{\alpha\sigma,\alpha\tau+\beta}\in\aff (K)$.
 
-$\because\phi_{1,0}=e,\forall\phi_{\alpha,\beta}\in\aff (K),\exists\phi_{\alpha^{-1},-\alpha^{-1}\beta}\in\aff (K)$ 使得 $\phi_{\alpha,\beta}\phi_{\alpha^{-1},-\alpha^{-1}\beta}=\phi_{\alpha^{-1},-\alpha^{-1}\beta}\phi_{\alpha,\beta}=\phi_{1,0}$, $\therefore\aff (K)$ 是群.
+$\because\varphi_{1,0}=e,\forall\varphi_{\alpha,\beta}\in\aff (K),\exists\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\in\aff (K)$ 使得 $\varphi_{\alpha,\beta}\varphi_{\alpha^{-1},-\alpha^{-1}\beta}=\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\varphi_{\alpha,\beta}=\varphi_{1,0}$, $\therefore\aff (K)$ 是群.
 
-考察 $\aff (K)$ 的子集 $\{\phi_{1,\beta}|\beta\in K\}$. 有
-\[\phi_{1,\beta}\phi_{1,\gamma}=\phi_{1,\beta+\gamma}.\]
+考察 $\aff (K)$ 的子集 $\{\varphi_{1,\beta}|\beta\in K\}$. 有
+\[\varphi_{1,\beta}\varphi_{1,\gamma}=\varphi_{1,\beta+\gamma}.\]
 
-$\therefore\{\phi_{1,\beta}|\beta\in K\}$ 是 $\aff (K)$ 的子群, 且同构于 $K^+$. 设
+$\therefore\{\varphi_{1,\beta}|\beta\in K\}$ 是 $\aff (K)$ 的子群, 且同构于 $K^+$. 设
 
 \[\xi:\begin{array}{rcl}
     K & \to & \aff (K) \\
-    \beta & \to & \phi_{1,\beta} \\
+    \beta & \to & \varphi_{1,\beta} \\
 \end{array},\]
 \[\eta:\begin{array}{rcl}
     \aff (K) & \to & K\backslash\{0\} \\
-    \phi_{\alpha,\beta} & \to & \alpha \\
+    \varphi_{\alpha,\beta} & \to & \alpha \\
 \end{array}.\]
 
 容易验证 $\im \xi=\ker\eta$. 这时称 $\xi$ 与 $\eta$ \textbf{正合}.
@@ -464,14 +464,14 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 
 则
 \begin{theorem}\label{t3.3}
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \aff (\mathbb{A}) & \to & \gl (V)\times V \\
         f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
     \end{array}\]
     是同构.
 \end{theorem}
 \begin{proof}
-    前面证明了 $\phi$ 是双射.
+    前面证明了 $\varphi$ 是双射.
 
     设 $f_1=t_{\boldsymbol{v}_1}g_1,f_2=t_{\boldsymbol{v}_2}g_2$, 则
     \[f_1f_2=t_{\boldsymbol{v}_1}g_1t_{\boldsymbol{v}_2}g_2.\]
@@ -479,7 +479,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
     由定理 \ref{t3.2} 的证明得 $t_{Dg_1\boldsymbol{v}_2}=g_1t_{\boldsymbol{v}_2}g_1^{-1}\Rightarrow t_{\boldsymbol{v}_2}=g_1^{-1}t_{Dg_1\boldsymbol{v}_2}g_1=g_1^{-1}t_{Df_1\boldsymbol{v}_2}g_1$, $\therefore$
     \[t_{\boldsymbol{v}_1}g_1t_{\boldsymbol{v}_2}g_2=t_{\boldsymbol{v}_1}g_1g_1^{-1}t_{Df_1\boldsymbol{v}_2}g_1g_2=t_{\boldsymbol{v}_1+Df_1\boldsymbol{v}_2}g_1g_2.\]
 
-    $\therefore\phi(f_1f_2)=(Df_1Df_2,\boldsymbol{v}_1+Df_1\boldsymbol{v}_2)=\phi(f_1)\phi(f_2)$.
+    $\therefore\varphi(f_1f_2)=(Df_1Df_2,\boldsymbol{v}_1+Df_1\boldsymbol{v}_2)=\varphi(f_1)\varphi(f_2)$.
 \end{proof}
 \subsection{运动群}
 把正合列 (\ref{eq3.1}) 限制在群 $\operatorname{Iso}(\mathbb{E})$ 上, 有
@@ -586,13 +586,13 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
         A & =\begin{pmatrix}
                 E_r \\
                 & -E_s \\
-                && \cos\phi_1 & -\sin\phi_1 \\
-                && \sin\phi_1 & \cos\phi_1 \\
-                &&&& \cos\phi_2 & -\sin\phi_2 \\
-                &&&& \sin\phi_2 & \cos\phi_2 \\
+                && \cos\varphi_1 & -\sin\varphi_1 \\
+                && \sin\varphi_1 & \cos\varphi_1 \\
+                &&&& \cos\varphi_2 & -\sin\varphi_2 \\
+                &&&& \sin\varphi_2 & \cos\varphi_2 \\
                 &&&&& \ddots & \ddots \\
-                &&&&&& \cos\phi_t & -\sin\phi_t \\
-                &&&&&& \sin\phi_t & \cos\phi_t \\
+                &&&&&& \cos\varphi_t & -\sin\varphi_t \\
+                &&&&&& \sin\varphi_t & \cos\varphi_t \\
             \end{pmatrix} \\
         & =\begin{pmatrix}
             E_r \\
@@ -609,19 +609,19 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
         \end{pmatrix} \\
         & \quad\cdot\begin{pmatrix}
             E_{r+s} \\
-            & \cos\phi_1 & -\sin\phi_1 \\
-            & \sin\phi_1 & \cos\phi_1 \\
+            & \cos\varphi_1 & -\sin\varphi_1 \\
+            & \sin\varphi_1 & \cos\varphi_1 \\
             &&& I_{n-r-s-2}
         \end{pmatrix}\begin{pmatrix}
             E_{r+s+2} \\
-            & \cos\phi_2 & -\sin\phi_2 \\
-            & \sin\phi_2 & \cos\phi_2 \\
+            & \cos\varphi_2 & -\sin\varphi_2 \\
+            & \sin\varphi_2 & \cos\varphi_2 \\
             &&& I_{n-r-s-4}
         \end{pmatrix}\cdots \\
         & \quad\cdot\begin{pmatrix}
             E_{n-2} \\
-            & \cos\phi_t & -\sin\phi_t \\
-            & \sin\phi_t & \cos\phi_t \\
+            & \cos\varphi_t & -\sin\varphi_t \\
+            & \sin\varphi_t & \cos\varphi_t \\
         \end{pmatrix}.
     \end{align*}
     $\therefore\mathcal{Q}$ 对应的变换只有 (2) (3) 两种.
@@ -1246,21 +1246,21 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \begin{solution}
     $V$ 中的正交矩阵可以化为下列情形:
     \[\diag (1,1,1,1),\quad\diag (1,1,1,-1),\quad\begin{pmatrix}
-        \cos\phi & -\sin\phi \\
-        \sin\phi & \cos\phi \\
+        \cos\varphi & -\sin\varphi \\
+        \sin\varphi & \cos\varphi \\
         && 1 \\
         &&& 1 \\
     \end{pmatrix},\]
     \[\begin{pmatrix}
-        \cos\phi & -\sin\phi \\
-        \sin\phi & \cos\phi \\
+        \cos\varphi & -\sin\varphi \\
+        \sin\varphi & \cos\varphi \\
         && 1 \\
         &&& -1 \\
     \end{pmatrix},\quad\begin{pmatrix}
-        \cos\phi & -\sin\phi \\
-        \sin\phi & \cos\phi \\
-        && \cos\phi & -\sin\phi \\
-        && \sin\phi & \cos\phi \\
+        \cos\varphi & -\sin\varphi \\
+        \sin\varphi & \cos\varphi \\
+        && \cos\varphi & -\sin\varphi \\
+        && \sin\varphi & \cos\varphi \\
     \end{pmatrix},\]
 
     分别对应 $\operatorname{Iso}(\mathbb{E})$ 的平移, 在一个维度上的反射, 在一 $2$ 维平面 $\varPi$ 上平移的同时绕 $\varPi$ 旋转, 在一 $2$ 维平面 $\varPi$ 上反射加平移的同时绕 $\varPi$ 旋转, 同时绕两个平面旋转.

@@ -3,7 +3,7 @@
 % 习题 3.5
 % 看第 3 节的性质 1(4) 的注释以及性质后面的注释
 % 例 3.7(1)
-% 引理 4.2 和之后的习题. 引理 4.2 需要补充添加 \phi':X\to g(X) 保持素性的条件
+% 引理 4.2 和之后的习题. 引理 4.2 需要补充添加 \varphi':X\to g(X) 保持素性的条件
 % 有空的话可以改一下最后一节的label的编号
 
 \documentclass[UTF8]{ctexart}
@@ -60,7 +60,7 @@ $\because$
 (当且仅当 $a=b=0$ 时取等号), $\therefore P_d$ 中的非零元素可逆. $\therefore P_d$ 是域.
 
 容易验证% $P_d$ 与 $P[d]$
-\[\phi:\begin{array}{rcl}
+\[\varphi:\begin{array}{rcl}
     P[d] & \to & P_d \\
     a+b\sqrt{d}\ (a,b\in P) & \mapsto & \begin{pmatrix}
         a & db \\
@@ -214,16 +214,16 @@ $\because n$ 不是确定的数, $\therefore$ 可以用序列
     但是作为多项式的 $(0,1,1,0,\cdots)$ 和 $(0,0,\cdots)$ 是有差别的.
 \end{example}
 \begin{example}
-    设 $\phi$ 是 $\mathbb{R}^*$ 上的恒等映射, 定义
-    \[\phi^n:\begin{array}{rcl}
+    设 $\varphi$ 是 $\mathbb{R}^*$ 上的恒等映射, 定义
+    \[\varphi^n:\begin{array}{rcl}
         \mathbb{R}^* & \to & \mathbb{R}^* \\
         a & \to & a^n \\
     \end{array},\]
 
     则
     \[f:\begin{array}{rcl}
-        \mathbb{R}[X] & \to & \mathbb{R}[\phi] \\
-        \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i\phi^i \\
+        \mathbb{R}[X] & \to & \mathbb{R}[\varphi] \\
+        \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i\varphi^i \\
     \end{array}\]
 
     是同构.
@@ -330,7 +330,7 @@ $\because$
 \end{align*}
 
 $\therefore$
-\[\phi:\begin{array}{rcl}
+\[\varphi:\begin{array}{rcl}
     R & \to & R[X_1,X_2,\cdots,X_n] \\
     a & \mapsto & f_a \\
 \end{array}\]
@@ -440,77 +440,77 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 \end{proof}
 \subsection{多项式的"取值"}
 类比函数的取值. 给定函数 $f\in\mathbb{R}^\mathbb{R}$ 和 $a\in\mathbb{R}$, 称 $f(a)\in\mathbb{R}$ 为函数在点 $a$ 处的\textbf{取值}. 事实上我们对于 $\forall a\in\mathbb{R}$ 建立了一个映射
-\[\phi_a:\begin{array}{rcl}
+\[\varphi_a:\begin{array}{rcl}
     \mathbb{R}^\mathbb{R} & \to & \mathbb{R} \\
     f & \to & f(a) \\
 \end{array}.\]
 
 对于环 $R$ 上的多项式环 $R[X],\forall c\in R$, 可以构造映射
-\[\phi_c:\begin{array}{rcl}
+\[\varphi_c:\begin{array}{rcl}
     R[X] & \to & R \\
     \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_ic^i \\
 \end{array}.\]
 
-书上的定理2证明了对给定的 $c,\phi_c$ 是唯一的, 且 $\phi_c$ 是环同态.
+书上的定理2证明了对给定的 $c,\varphi_c$ 是唯一的, 且 $\varphi_c$ 是环同态.
 \begin{example}
     考察 $\mathbb{R}[X,Y]$ 的取值
-    \[\phi_{a,b}:\begin{array}{rcl}
+    \[\varphi_{a,b}:\begin{array}{rcl}
         \mathbb{R}[X,Y] & \to & \mathbb{R} \\
         f(x,y) & \to & f(a,b) \\
     \end{array}\]
 
-    的理想 $\ker\phi_{a,b}$. 有 $X-a,Y-b\in\ker\phi_{a,b}$.
+    的理想 $\ker\varphi_{a,b}$. 有 $X-a,Y-b\in\ker\varphi_{a,b}$.
 
-    可以证明 $(a,b)\to\ker\phi_{a,b}$ 是双射, 即 $\mathbb{R}[X,Y]$ 的所有极大理想组成的集合与平面 $\mathbb{R}^2$ 同构.
+    可以证明 $(a,b)\to\ker\varphi_{a,b}$ 是双射, 即 $\mathbb{R}[X,Y]$ 的所有极大理想组成的集合与平面 $\mathbb{R}^2$ 同构.
 
     更一般地, 对交换环 $R,R[X,Y]$ 的所有极大理想组成的集合与某个几何结构同构. 从这个例子可以看出交换环论是现代代数几何的基础.
 \end{example}
 \subsection{补充一些定理的证明}
 下面是书上定理3的另一种表述.
 \begin{theorem}[书上的定理3]\label{t2.1}
-    设 $R$ 是交换环, $\phi:R\to A$ 是环同态, 那么 $\forall t\in A,\exists!$ 环同态 $\phi_t:R[X]\to A$ 使得 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$.
+    设 $R$ 是交换环, $\varphi:R\to A$ 是环同态, 那么 $\forall t\in A,\exists!$ 环同态 $\varphi_t:R[X]\to A$ 使得 $\forall a\in R,\varphi_t(a)=\varphi(a),\varphi_t(X)=t$.
 \end{theorem}
 \begin{thought}
-    如果 $\phi_t$ 存在, 由环同态的性质以及 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$ 得
+    如果 $\varphi_t$ 存在, 由环同态的性质以及 $\forall a\in R,\varphi_t(a)=\varphi(a),\varphi_t(X)=t$ 得
     \begin{equation}\label{eq2.2}
-        \phi_t\left(\sum\limits_{i=0}^{n}a_iX^i\right)=\sum\limits_{i=0}^{n}\phi(a_i)t^i.
+        \varphi_t\left(\sum\limits_{i=0}^{n}a_iX^i\right)=\sum\limits_{i=0}^{n}\varphi(a_i)t^i.
     \end{equation}
 
-    之后验证由式 (\ref{eq2.2}) 定义的 $\phi_t$ 是满足 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t$ 的唯一的环同态.
+    之后验证由式 (\ref{eq2.2}) 定义的 $\varphi_t$ 是满足 $\forall a\in R,\varphi_t(a)=\varphi(a),\varphi_t(X)=t$ 的唯一的环同态.
 \end{thought}
 \begin{proof}
-    按照式 (\ref{eq2.2}) 定义 $\phi_t$, 容易验证 $\forall a\in R,\phi_t(a)=\phi(a),\phi_t(X)=t.\because$
-    \[\sum\limits_i\phi(a_i)t^i+\sum\limits_i\phi(b_i)t^i=\sum\limits_i(\phi(a_i)+\phi(b_i))t^i,\]
+    按照式 (\ref{eq2.2}) 定义 $\varphi_t$, 容易验证 $\forall a\in R,\varphi_t(a)=\varphi(a),\varphi_t(X)=t.\because$
+    \[\sum\limits_i\varphi(a_i)t^i+\sum\limits_i\varphi(b_i)t^i=\sum\limits_i(\varphi(a_i)+\varphi(b_i))t^i,\]
     
     $\therefore$
-    \[\sum\limits_i\phi(a_i)t^i+\sum\limits_i\phi(b_i)t^i=\sum\limits_i\phi(a_i+b_i)t^i,\]
-    
-    $\therefore$
-    \begin{align*}
-        \phi_t\left(\sum\limits_ia_iX^i\right)+\phi_t\left(\sum\limits_ib_iX^i\right) & =\phi_t\left(\sum\limits_i(a_i+b_i)X^i\right) \\
-        & =\phi_t\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
-    \end{align*}
-    \[\sum\limits_i\phi(a_i)t^i\sum\limits_j\phi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\phi(a_i)\phi(b_j)t^k\]
-    \[\Rightarrow\sum\limits_i\phi(a_i)t^i\sum\limits_j\phi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\phi(a_ib_j)t^k\]
+    \[\sum\limits_i\varphi(a_i)t^i+\sum\limits_i\varphi(b_i)t^i=\sum\limits_i\varphi(a_i+b_i)t^i,\]
     
     $\therefore$
     \begin{align*}
-        \phi_t\left(\sum\limits_ia_iX^i\right)\phi_t\left(\sum\limits_jb_jX^j\right) & =\sum\limits_k\phi_t\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
-        & =\phi_t\left(\sum\limits_k\sum\limits_{i+j=k}a_ib_jX^k\right) \\
-        & =\phi_t\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
+        \varphi_t\left(\sum\limits_ia_iX^i\right)+\varphi_t\left(\sum\limits_ib_iX^i\right) & =\varphi_t\left(\sum\limits_i(a_i+b_i)X^i\right) \\
+        & =\varphi_t\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
     \end{align*}
-
-    $\therefore\phi_t$ 是环同态.
-
-    假设 $\exists$ 环同态 $\phi_t'\neq\phi_t$ 满足 $\forall a\in R,\phi_t'(a)=\phi(a),\phi_t'(X)=t$. $\because\phi'_t$ 是同态, $\therefore$
+    \[\sum\limits_i\varphi(a_i)t^i\sum\limits_j\varphi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\varphi(a_i)\varphi(b_j)t^k\]
+    \[\Rightarrow\sum\limits_i\varphi(a_i)t^i\sum\limits_j\varphi(b_j)t^j=\sum\limits_k\sum\limits_{i+j=k}\varphi(a_ib_j)t^k\]
+    
+    $\therefore$
     \begin{align*}
-        \phi_t'\left(\sum\limits_{i=0}^{n}a_iX^i\right) & =\sum\limits_{i=0}^{n}\phi_t'\left(a_iX^i\right) \\
-        & =\sum\limits_{i=0}^{n}\phi_t'(a_i)\phi_t'\left(X^i\right) \\
-        & =\sum\limits_{i=0}^{n}\phi_t'(a_i)(\phi_t'(X))^i \\
-        & =\sum\limits_{i=0}^{n}\phi(a_i)t^i,
+        \varphi_t\left(\sum\limits_ia_iX^i\right)\varphi_t\left(\sum\limits_jb_jX^j\right) & =\sum\limits_k\varphi_t\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\varphi_t\left(\sum\limits_k\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\varphi_t\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
     \end{align*}
 
-    $\therefore\forall Y\in R[X],\phi_t'(Y)=\phi_t(Y)$, 与 $\phi_t'\neq\phi_t$ 矛盾. $\therefore\phi_t$ 是唯一确定的.
+    $\therefore\varphi_t$ 是环同态.
+
+    假设 $\exists$ 环同态 $\varphi_t'\neq\varphi_t$ 满足 $\forall a\in R,\varphi_t'(a)=\varphi(a),\varphi_t'(X)=t$. $\because\varphi'_t$ 是同态, $\therefore$
+    \begin{align*}
+        \varphi_t'\left(\sum\limits_{i=0}^{n}a_iX^i\right) & =\sum\limits_{i=0}^{n}\varphi_t'\left(a_iX^i\right) \\
+        & =\sum\limits_{i=0}^{n}\varphi_t'(a_i)\varphi_t'\left(X^i\right) \\
+        & =\sum\limits_{i=0}^{n}\varphi_t'(a_i)(\varphi_t'(X))^i \\
+        & =\sum\limits_{i=0}^{n}\varphi(a_i)t^i,
+    \end{align*}
+
+    $\therefore\forall Y\in R[X],\varphi_t'(Y)=\varphi_t(Y)$, 与 $\varphi_t'\neq\varphi_t$ 矛盾. $\therefore\varphi_t$ 是唯一确定的.
 \end{proof}
 \begin{theorem}
     设 $P$ 是域, $f\in P[X]$ 是可逆元, 则 $f\in P$.
@@ -541,11 +541,11 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
         x & \to & \sum\limits_{i=0}^{n}a_ix^i \\
     \end{array}.\]
 
-    由多项式和多项式函数的定义, $\phi:F\to\xi_F$ 是 $R[X]$ 到 $R_x$ 的满射.
+    由多项式和多项式函数的定义, $\varphi:F\to\xi_F$ 是 $R[X]$ 到 $R_x$ 的满射.
 
-    假设 $\phi(F)=0$ 而 $F\neq0$, 不妨设 $\deg F=n$.
+    假设 $\varphi(F)=0$ 而 $F\neq0$, 不妨设 $\deg F=n$.
 
-    $\because\phi(F)=0,\therefore\forall x\in R,\sum\limits_{i=0}^{n}a_ix^i=0$. 设 $t\in R$, 则
+    $\because\varphi(F)=0,\therefore\forall x\in R,\sum\limits_{i=0}^{n}a_ix^i=0$. 设 $t\in R$, 则
     \[\sum\limits_{i=0}^{n}a_it^i=0\Rightarrow\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i=\sum\limits_{i=0}^{n}a_iX^i.\]
 
     $\because$
@@ -567,12 +567,12 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     \[G=\sum\limits_{i=0}^{n-1}b_iX^i,\ b_i\in R.\]
 
     由式 (\ref{eq2.3}) 得
-    \[\phi\left(\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i\right)=\phi\left((X-t)G\right).\]
+    \[\varphi\left(\sum\limits_{i=0}^{n}a_iX^i-\sum\limits_{i=0}^{n}a_it^i\right)=\varphi\left((X-t)G\right).\]
 
     设 $t'\neq t$, 把 $t'$ 代入上式得
     \[\sum\limits_{i=0}^{n}a_i(t')^i-\sum\limits_{i=0}^{n}a_it^i=(t'-t)\sum\limits_{i=0}^{n-1}b_i(t')^i.\]
 
-    $\because\phi(F)=0\Rightarrow\sum\limits_{i=0}^{n}a_it^i=0,\sum\limits_{i=0}^{n}a_i(t')^i=0,\therefore(t'-t)\sum\limits_{i=0}^{n-1}b_i(t')^i=0$.
+    $\because\varphi(F)=0\Rightarrow\sum\limits_{i=0}^{n}a_it^i=0,\sum\limits_{i=0}^{n}a_i(t')^i=0,\therefore(t'-t)\sum\limits_{i=0}^{n-1}b_i(t')^i=0$.
 
     $\because t'-t\neq0,R$ 是整环, $\therefore\sum\limits_{i=0}^{n-1}b_i(t')^i=0$.
 
@@ -587,30 +587,30 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     $\therefore$
     \[\sum\limits_{i=0}^{n}a_ix^i=c_n(x-t)(x-t')(x-t'')\cdots(x-t^{(n-1)}).\]
 
-    当 $x\in R\backslash\{t,t',t'',\cdots,t^{(n-1)}\}$ 时 $\sum\limits_{i=0}^{n}a_ix^i\neq0$, 与 $\phi(F)=0$ 矛盾.
+    当 $x\in R\backslash\{t,t',t'',\cdots,t^{(n-1)}\}$ 时 $\sum\limits_{i=0}^{n}a_ix^i\neq0$, 与 $\varphi(F)=0$ 矛盾.
 
-    $\therefore\phi$ 是单射. $\therefore\phi$ 是双射.
+    $\therefore\varphi$ 是单射. $\therefore\varphi$ 是双射.
 
     $\because$
 
     \[\sum\limits_ia_ix^i+\sum\limits_ib_ix^i=\sum\limits_i(a_i+b_i)x^i\Rightarrow\]
     \begin{align*}
-        \phi\left(\sum\limits_ia_iX^i\right)+\phi\left(\sum\limits_ib_iX^i\right) & =\phi\left(\sum\limits_i(a_i+b_i)X^i\right) \\
-        & =\phi\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
+        \varphi\left(\sum\limits_ia_iX^i\right)+\varphi\left(\sum\limits_ib_iX^i\right) & =\varphi\left(\sum\limits_i(a_i+b_i)X^i\right) \\
+        & =\varphi\left(\sum\limits_ia_iX^i+\sum\limits_ib_iX^i\right),
     \end{align*}
     \[\sum\limits_ia_ix^i\sum\limits_jb_jx^j=\sum\limits_{i+j=k}a_ib_jx^k\Rightarrow\]
     \begin{align*}
-        \phi\left(\sum\limits_ia_iX^i\right)\phi\left(\sum\limits_jb_jX^j\right) & =\phi\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
-        & =\phi\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
+        \varphi\left(\sum\limits_ia_iX^i\right)\varphi\left(\sum\limits_jb_jX^j\right) & =\varphi\left(\sum\limits_{i+j=k}a_ib_jX^k\right) \\
+        & =\varphi\left(\sum\limits_ia_iX^i\sum\limits_jb_jX^j\right),
     \end{align*}
 
-    由第4章笔记的定理2.1得 $\phi$ 是同构.
+    由第4章笔记的定理2.1得 $\varphi$ 是同构.
 \end{proof}
 \begin{note}
     这个定理有其他的证明方法:
 
     (1) 给定 $R\backslash\{0,1\}$ 中的任一元素 $t$, 验证
-    \[\phi_t:\begin{array}{rcl}
+    \[\varphi_t:\begin{array}{rcl}
         R & \to & R_x \\
         \sum\limits_{i=0}^{n}a_it^i & \to & \sum\limits_{i=0}^{n}a_ix^i \\
     \end{array}\]
@@ -655,7 +655,7 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     定义等价类的加法和乘法为其代表元的加法和乘法, 用与书上p133第1段相同的方法可以验证 $\pi_\sim(\mathbb{R}[X])$ 是环.
 
     $\because(X^2+1)|(X^2+1),\therefore X^2+1\in\overline{0},\therefore\overline{X^2+1}=\overline{0},\therefore\overline{X^2}=\overline{-1}$. 定义
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \pi_\sim(\mathbb{R}[X]) & \to & \mathbb{C} \\[6pt]
         \overline{aX+b} & \mapsto & ai+b\ (a,b\in\mathbb{R}) \\
     \end{array}.\]
@@ -665,9 +665,9 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     $\therefore f\in aX+b,\therefore\overline{f}=\overline{aX+b}$.
 
-    $\therefore\forall f\in\mathbb{R}[X],\exists! a+bi\in\mathbb{C},\phi(\overline{f})=a+bi$. $\therefore\phi$ 是确切定义的.
+    $\therefore\forall f\in\mathbb{R}[X],\exists! a+bi\in\mathbb{C},\varphi(\overline{f})=a+bi$. $\therefore\varphi$ 是确切定义的.
 
-    由 $\phi$ 的定义得 $\phi$ 是双射.
+    由 $\varphi$ 的定义得 $\varphi$ 是双射.
 
     $\forall f,g\in\pi_\sim(\mathbb{R}[X])$, 设 $\overline{f}=\overline{aX+b},\overline{g}=\overline{cX+d}$,
 
@@ -688,19 +688,19 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     $\therefore$
     \begin{align*}
-        \phi(\overline{f}+\overline{g}) & =\phi(\overline{(a+c)X+(b+d)}) \\
+        \varphi(\overline{f}+\overline{g}) & =\varphi(\overline{(a+c)X+(b+d)}) \\
         & =(a+c)i+(b+d) \\
         & =(a+bi)+(c+di) \\
-        & =\phi(\overline{f})+\phi(\overline{g}),
+        & =\varphi(\overline{f})+\varphi(\overline{g}),
     \end{align*}
     \begin{align*}
-        \phi(\overline{fg}) & =\overline{(a+c)X+(bd-ac)} \\
+        \varphi(\overline{fg}) & =\overline{(a+c)X+(bd-ac)} \\
         & =(a+c)i+(bd-ac) \\
         & =(a+bi)(c+di) \\
-        & =\phi(\overline{f})\phi(\overline{g}),
+        & =\varphi(\overline{f})\varphi(\overline{g}),
     \end{align*}
 
-    $\therefore\phi$ 是同构.
+    $\therefore\varphi$ 是同构.
 \end{example}
 \section{多项式环中的因式分解(对应教材5.3节)}
 在这一节中, 如果没有说明, 一律认为 $R$ 是整环.
@@ -1138,32 +1138,32 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \end{theorem}
 \begin{proof}
     考虑映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         Q(A) & \to & A \\[3pt]
         [a,b] & \to & ab^{-1}
     \end{array}.\]
 
-    $\because$ 若 $ac=bd$, 则 $ab^{-1}=add^{-1}b^{-1}=bcd^{-1}b^{-1}=cd^{-1},\therefore\phi$ 是确切定义的.
+    $\because$ 若 $ac=bd$, 则 $ab^{-1}=add^{-1}b^{-1}=bcd^{-1}b^{-1}=cd^{-1},\therefore\varphi$ 是确切定义的.
 
-    由 $\phi$ 的定义得 $\phi$ 是双射.
+    由 $\varphi$ 的定义得 $\varphi$ 是双射.
 
     $\because$
     \begin{align*}
-        \phi([a,b]+[c,d]) & =\phi([ad+bc,bd]) \\
+        \varphi([a,b]+[c,d]) & =\varphi([ad+bc,bd]) \\
         & =(ad+bc)(bd)^{-1} \\
         & =adb^{-1}d^{-1}+bcb^{-1}d^{-1} \\
         & =ab^{-1}+cd^{-1} \\
-        & =\phi([a,b])+\phi([c,d]),
+        & =\varphi([a,b])+\varphi([c,d]),
     \end{align*}
     
     \begin{align*}
-        \phi([a,b][c,d]) & =\phi([ac,bd]) \\
+        \varphi([a,b][c,d]) & =\varphi([ac,bd]) \\
         & =ac(bd)^{-1} \\
         & =ab^{-1}cd^{-1} \\
-        & =\phi([a,b])\phi([c,d]),
+        & =\varphi([a,b])\varphi([c,d]),
     \end{align*}
 
-    $\therefore\phi$ 是同构.
+    $\therefore\varphi$ 是同构.
 \end{proof}
 \section{第5章习题}
 \subsection{习题5.1}
@@ -1320,33 +1320,33 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     找出 $\mathbb{Q}(\sqrt{d})$ 所有的保持有理数不变的自同构.
 \end{exercise}
 \begin{solution}
-    设 $\phi$ 是 $\mathbb{Q}(\sqrt{d})\to\mathbb{Q}(\sqrt{d})$ 保持有理数不变的同态, 且 $\phi(\sqrt{d})=m+n\sqrt{d}$, 则 $\forall a,b\in\mathbb{Q}(\sqrt{d})$,
+    设 $\varphi$ 是 $\mathbb{Q}(\sqrt{d})\to\mathbb{Q}(\sqrt{d})$ 保持有理数不变的同态, 且 $\varphi(\sqrt{d})=m+n\sqrt{d}$, 则 $\forall a,b\in\mathbb{Q}(\sqrt{d})$,
     \begin{align*}
-        \phi(a+b\sqrt{d}) & =\phi(a)+\phi(b\sqrt{d}) \\
-        & =a+\phi(b)\phi(\sqrt{d}) \\
-        & =a+b\phi(\sqrt{d}) \\
+        \varphi(a+b\sqrt{d}) & =\varphi(a)+\varphi(b\sqrt{d}) \\
+        & =a+\varphi(b)\varphi(\sqrt{d}) \\
+        & =a+b\varphi(\sqrt{d}) \\
         & =a+bm+bn\sqrt{d}.
     \end{align*}
 
-    容易看出 $\phi$ 是单射.
+    容易看出 $\varphi$ 是单射.
 
-    若 $n=0$, 则 $\im \phi=\mathbb{Q},\phi$ 不是 $\mathbb{Q}(\sqrt{d})$ 的自同构.
+    若 $n=0$, 则 $\im \varphi=\mathbb{Q},\varphi$ 不是 $\mathbb{Q}(\sqrt{d})$ 的自同构.
 
-    若 $n\neq0$, $\because\phi\left(-\dfrac{m}{n}+\dfrac{\sqrt{d}}{n}\right)=\sqrt{d},\therefore\sqrt{d}\in\im \phi$.
+    若 $n\neq0$, $\because\varphi\left(-\dfrac{m}{n}+\dfrac{\sqrt{d}}{n}\right)=\sqrt{d},\therefore\sqrt{d}\in\im \varphi$.
 
-    $\therefore\mathbb{Q}(\sqrt{d})\subset\im \phi.\therefore\mathbb{Q}(\sqrt{d})=\im \phi$.
+    $\therefore\mathbb{Q}(\sqrt{d})\subset\im \varphi.\therefore\mathbb{Q}(\sqrt{d})=\im \varphi$.
 
-    $\therefore\phi$ 是双射. $\therefore\phi$ 是同构.
+    $\therefore\varphi$ 是双射. $\therefore\varphi$ 是同构.
 
-    $\because\phi$ 是同构, $\therefore$
+    $\because\varphi$ 是同构, $\therefore$
     \begin{align*}
-        \phi(a+d) & =\phi(a+\sqrt{d}\cdot\sqrt{d}) \\
-        & =\phi(a)+\phi(\sqrt{d})\phi(\sqrt{d}) \\
+        \varphi(a+d) & =\varphi(a+\sqrt{d}\cdot\sqrt{d}) \\
+        & =\varphi(a)+\varphi(\sqrt{d})\varphi(\sqrt{d}) \\
         & =a+(m+n\sqrt{d})^2 \\
         & =a+m^2+n^2d+2mn\sqrt{d}.
     \end{align*}
 
-    $\because\phi$ 保持有理数不变, $\therefore m=0,n^2=1,n=\pm1$.
+    $\because\varphi$ 保持有理数不变, $\therefore m=0,n^2=1,n=\pm1$.
 \end{solution}
 \begin{exercise}% 1.7
     当 $n>1$ 时, 求 $1$ 的所有 $n$ 次方根的和.
@@ -1435,13 +1435,13 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \end{exercise}
 \begin{proof}
     容易验证
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         F & \to & F[X] \\
         a & \to & a=(a,0,0,\cdots) \\
     \end{array}\]
 
     是环同态. 由定理 \ref{t2.1} 的证明得 $\forall t\in F[X]$,
-    \[\phi_t:\begin{array}{rcl}
+    \[\varphi_t:\begin{array}{rcl}
         F[X] & \to & F[X] \\
         \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_it^i \\
     \end{array}\]
@@ -1452,36 +1452,36 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     \[\deg\sum\limits_{i=0}^{n}a_it^i=\deg a_nt^n=n\deg t.\]
 
     $\therefore\forall f\in F[X]$,
-    \[\deg\phi_t(f)=\deg f\deg t.\]
+    \[\deg\varphi_t(f)=\deg f\deg t.\]
 
     若 $\deg t\neq1$, 则
-    \[\{\deg f|f\in\im \phi_t\}=(\deg t)\ \mathbb{Z}\neq\mathbb{Z}=\{\deg f|f\in F[X]\},\]
+    \[\{\deg f|f\in\im \varphi_t\}=(\deg t)\ \mathbb{Z}\neq\mathbb{Z}=\{\deg f|f\in F[X]\},\]
 
-    $\therefore\im \phi_t\neq F[X],\phi_t$ 不是同构.
+    $\therefore\im \varphi_t\neq F[X],\varphi_t$ 不是同构.
 
-    取逆否命题即为: 若 $\phi_t:F[X]\to F[X]$ 是保持 $F$ 不变的同构, 则 $\deg t=1$, 即 $t=aX+b\Rightarrow\phi_t(X)=aX+b$, 其中 $a,b\in F,a\neq0.\therefore$
+    取逆否命题即为: 若 $\varphi_t:F[X]\to F[X]$ 是保持 $F$ 不变的同构, 则 $\deg t=1$, 即 $t=aX+b\Rightarrow\varphi_t(X)=aX+b$, 其中 $a,b\in F,a\neq0.\therefore$
     \[\sigma:\begin{array}{rcl}
         G_1 & \to & G_2 \\
-        \phi_t & \to & X\mapsto t \\
+        \varphi_t & \to & X\mapsto t \\
     \end{array}\]
 
     是确切定义的.
 
-    $\because\phi_t$ 是唯一的将 $X$ 映成 $t$ 的自同态, $\therefore\sigma(\phi_{t_1})=\sigma(\phi_{t_2})\Rightarrow t_1=t_2\Rightarrow\phi_{t_1}=\phi_{t_2},\therefore\sigma$ 是单射.
+    $\because\varphi_t$ 是唯一的将 $X$ 映成 $t$ 的自同态, $\therefore\sigma(\varphi_{t_1})=\sigma(\varphi_{t_2})\Rightarrow t_1=t_2\Rightarrow\varphi_{t_1}=\varphi_{t_2},\therefore\sigma$ 是单射.
 
     $\forall\tau:X\mapsto aX+b$, 其中 $a,b\in F,a\neq0$, 令 $g=aX+b\in F[X]$, 则
-    \[\phi_g:\begin{array}{rcl}
+    \[\varphi_g:\begin{array}{rcl}
         F[X] & \to & F[X] \\
         \sum\limits_{i=0}^{n}a_iX^i & \to & \sum\limits_{i=0}^{n}a_i(aX+b)^i \\
     \end{array}\]
 
-    是单同态. 下面证明 $\phi_g$ 是满同态, 即 $\im \phi_g\supset F[X]$.
+    是单同态. 下面证明 $\varphi_g$ 是满同态, 即 $\im \varphi_g\supset F[X]$.
 
-    只需证明 $\forall f\in F[X],\exists h\in F[X]$ 使得 $f=\phi_g(h)$.
+    只需证明 $\forall f\in F[X],\exists h\in F[X]$ 使得 $f=\varphi_g(h)$.
 
-    用数学归纳法. (a) 当 $\deg f=0$ 或 $-\infty$ 时有 $f=\phi_g(f)$.
+    用数学归纳法. (a) 当 $\deg f=0$ 或 $-\infty$ 时有 $f=\varphi_g(f)$.
 
-    (b) 设 $\forall f$ 满足 $\deg f\leq k,\exists h$ 使得 $f=\phi_g(h)$.
+    (b) 设 $\forall f$ 满足 $\deg f\leq k,\exists h$ 使得 $f=\varphi_g(h)$.
 
     则 $\forall\psi(X)=\sum\limits_{i=0}^{k+1}a_iX^i\in F[X]\ (a_i\in F,i=1,2,\cdots,k+1,a_{k+1}\neq0)$, 有
     \begin{align*}
@@ -1489,13 +1489,13 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         & =\dfrac{a_{k+1}}{a^{k+1}}(aX+b)^{k+1}+\sum\limits_{i=0}^{k}c_iX^i & (c_i\in F,i=1,2,\cdots,k+1).
     \end{align*}
 
-    $\because\deg\sum\limits_{i=0}^{k}c_iX^i\leq k,\therefore\exists p(X)\in F[X]$ 使得 $\sum\limits_{i=0}^{k}c_iX^i=\phi_g(p(X))$.
+    $\because\deg\sum\limits_{i=0}^{k}c_iX^i\leq k,\therefore\exists p(X)\in F[X]$ 使得 $\sum\limits_{i=0}^{k}c_iX^i=\varphi_g(p(X))$.
 
-    $\therefore\exists q(X)=p(X)+\dfrac{a_{k+1}}{a^{k+1}}X^{k+1}\in F(X)$ 使得 $\psi(X)=\phi_g(q(X))$.
+    $\therefore\exists q(X)=p(X)+\dfrac{a_{k+1}}{a^{k+1}}X^{k+1}\in F(X)$ 使得 $\psi(X)=\varphi_g(q(X))$.
 
-    $\therefore\phi_g$ 是自同构.
+    $\therefore\varphi_g$ 是自同构.
 
-    $\therefore\forall\tau\in G_2,\exists\phi_g\in G_1,\tau=\sigma(\phi_g).\therefore\sigma$ 是满射.
+    $\therefore\forall\tau\in G_2,\exists\varphi_g\in G_1,\tau=\sigma(\varphi_g).\therefore\sigma$ 是满射.
 
     $\therefore\sigma$ 是恒等映射, $\therefore\sigma$ 是同构.
 \end{proof}
@@ -1747,7 +1747,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \end{lemma}
 \begin{proof}
     由书上5.2节的定理3得
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         R[X] & \to & R[X] \\
         a\in R & \to & a \\
         X & \to & g(X) \\
@@ -1758,7 +1758,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     \[f(X)=p(X)q(X).\]
 
     则
-    \[\phi(f(X))=\phi(p(X)q(X))=\phi(p(X))\phi(q(X)),\]
+    \[\varphi(f(X))=\varphi(p(X)q(X))=\varphi(p(X))\varphi(q(X)),\]
 
     即
     \[f(g(X))=p(g(X))q(g(X)).\]
@@ -1839,7 +1839,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     $\therefore f$ 不是齐次的, 与 $f$ 是齐次的矛盾.
 
     (2) 由书上5.3节的定理2, 映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathbb{Q}[X,Y] & \to & \mathbb{Q}[X] \\
         f(X,Y) & \to & f(X,1)
     \end{array}\]
@@ -1848,9 +1848,9 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     $\therefore$ 若 $f(X,Y)=g(X,Y)h(X,Y)$, 则
     \begin{align*}
-        f(X,1) & =\phi(f(X,Y)) \\
-        & =\phi(g(X,Y)h(X,Y)) \\
-        & =\phi(g(X,Y))\phi(h(X,Y)) \\
+        f(X,1) & =\varphi(f(X,Y)) \\
+        & =\varphi(g(X,Y)h(X,Y)) \\
+        & =\varphi(g(X,Y))\varphi(h(X,Y)) \\
         & =g(X,1)h(X,1).
     \end{align*}
 
@@ -1871,18 +1871,18 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     否则 $f(X,Y)$ 中有因子 $X$ 或 $Y$, 与 $f$ 是既约的矛盾.
 
     设 $A$ 是具有式 (\ref{eq4.5}) 的形式的齐次多项式组成的集合,
-    \[\phi':\begin{array}{rcl}
+    \[\varphi':\begin{array}{rcl}
         A & \to & \mathbb{Q}[X] \\
         f(X,Y) & \to & f(X,1)
     \end{array}.\]
 
-    对比式 (\ref{eq4.4}) 和式 (\ref{eq4.5}) 得 $\phi'$ 是双射.
+    对比式 (\ref{eq4.4}) 和式 (\ref{eq4.5}) 得 $\varphi'$ 是双射.
 
     $\because$
     \[\left(\sum\limits_{i=0}^ma_iX^iY^{m-i}\right)\left(\sum\limits_{j=0}^nb_jX^jY^{n-j}\right)=\sum\limits_{k=0}^{m+n}\left(\sum\limits_{i+j=k}a_ib_j\right)X^kY^{m+n-k},\]
     \[\left(\sum\limits_{i=0}^ma_iX^i\right)\left(\sum\limits_{j=0}^nb_jX^j\right)=\sum\limits_{k=0}^{m+n}\left(\sum\limits_{i+j=k}a_ib_j\right)X^k,\]
 
-    $\therefore\phi'$ 满足 $\forall f,g\in A,\phi'(fg)=\phi'(f)\phi'(g)$.
+    $\therefore\varphi'$ 满足 $\forall f,g\in A,\varphi'(fg)=\varphi'(f)\varphi'(g)$.
 
     $\because f$ 是既约的, $\therefore\forall g,h\in A$,
     \begin{equation}\label{eq4.6}
@@ -1891,16 +1891,16 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     
     假设 $f(X,1)$ 不是既约的, 则 $\exists g'(X,1),h'(X,1)\in\mathbb{Q}[X]$ 使得 $f(X,1)=g'(X,1)h'(X,1)$.
 
-    $\because\phi$ 是满射, $\therefore\forall r(X,1)\in\mathbb{Q}[X],\exists r(X,Y)\in\mathbb{Q}[X]$ 使得 $r(X,1)=\phi(r(X,Y))$.
+    $\because\varphi$ 是满射, $\therefore\forall r(X,1)\in\mathbb{Q}[X],\exists r(X,Y)\in\mathbb{Q}[X]$ 使得 $r(X,1)=\varphi(r(X,Y))$.
 
-    $\therefore\exists g'(X,Y),h'(X,Y)\in A$ 使得 $g'(X,1)=\phi(g'(X,Y)),h'(X,1)=\phi(h'(X,Y))$.
+    $\therefore\exists g'(X,Y),h'(X,Y)\in A$ 使得 $g'(X,1)=\varphi(g'(X,Y)),h'(X,1)=\varphi(h'(X,Y))$.
 
-    $\therefore\phi(f(X,Y))=\phi(g'(X,Y))\phi(h'(X,Y))=\phi(g'(X,Y)h'(X,Y))$.
+    $\therefore\varphi(f(X,Y))=\varphi(g'(X,Y))\varphi(h'(X,Y))=\varphi(g'(X,Y)h'(X,Y))$.
 
-    $\because\phi'$ 是单射, $\therefore f(X,Y)=g'(X,Y)h'(X,Y)$, 与式 (\ref{eq4.6}) 矛盾.
+    $\because\varphi'$ 是单射, $\therefore f(X,Y)=g'(X,Y)h'(X,Y)$, 与式 (\ref{eq4.6}) 矛盾.
 \end{proof}
 \begin{note}
-    不能直接说 (2) 的 ($\Rightarrow$) 中的 $\phi'$ 是同构, 因为 $A$ 不是域.
+    不能直接说 (2) 的 ($\Rightarrow$) 中的 $\varphi'$ 是同构, 因为 $A$ 不是域.
 \end{note}
 \begin{exercise}\label{ex3.6}
     设 $P$ 是一个域, 考察 $P[[X]]$ (定义见第 \ref{ex2.5} 题). 证明:
@@ -1968,16 +1968,16 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \subsection{习题5.4}
 \stepcounter{exsection}
 \begin{exercise}% 4.1
-    考虑 $\mathbb{R}$ 上的形式幂级数环 $\mathbb{R}[[X]]$ 的分式域 $\mathbb{R}((X))$. 证明: $\mathbb{R}[[X]]$ 中的元素形如 $\phi(X)=\dfrac{f(X)}{X^m}$, 其中 $f(X)\in\mathbb{R}[[X]],m<\infty$.
+    考虑 $\mathbb{R}$ 上的形式幂级数环 $\mathbb{R}[[X]]$ 的分式域 $\mathbb{R}((X))$. 证明: $\mathbb{R}[[X]]$ 中的元素形如 $\varphi(X)=\dfrac{f(X)}{X^m}$, 其中 $f(X)\in\mathbb{R}[[X]],m<\infty$.
 \end{exercise}
 \begin{proof}
-    $\forall\phi\in\mathbb{R}((X)),\exists f_1\in\mathbb{R}[[X]],g_1\in\mathbb{R}[[X]]\backslash\{0\},\phi=\dfrac{f_1}{g_1}$.
+    $\forall\varphi\in\mathbb{R}((X)),\exists f_1\in\mathbb{R}[[X]],g_1\in\mathbb{R}[[X]]\backslash\{0\},\varphi=\dfrac{f_1}{g_1}$.
 
     由第 \ref{ex3.6} 题 (2) 得
-    \[\phi(X)=\dfrac{X^{\omega(f_1)}f_2(X)}{X^{\omega(g_1)}g_2(X)},\]
+    \[\varphi(X)=\dfrac{X^{\omega(f_1)}f_2(X)}{X^{\omega(g_1)}g_2(X)},\]
 
     其中 $f_2,g_2\in\mathbb{R}[[X]]$ 是可逆元. $\therefore$
-    \[\phi(X)=\dfrac{X^{\omega(f_1)}f_2(X)g^{-1}_2(X)}{X^{\omega(g_1)}}=\dfrac{h(X)}{X^{\omega(g_1)}},\]
+    \[\varphi(X)=\dfrac{X^{\omega(f_1)}f_2(X)g^{-1}_2(X)}{X^{\omega(g_1)}}=\dfrac{h(X)}{X^{\omega(g_1)}},\]
 
     其中 $h(X)\in\mathbb{R}[[X]]$.
 
@@ -1995,14 +1995,14 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     $\because\mathbb{R}[[X]]$ 是整环, $\therefore\omega(fg)=\omega(f)+\omega(g),A$ 对乘法封闭.
 
     $\therefore(A,\cdot)$ 是 $(\mathbb{R}[[X]],\cdot)$ 的一个子群. $\therefore$
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         A & \to & \mathbb{R}((X)) \\
         ab^{-1} & \to & \dfrac{a}{b}
     \end{array}\]
 
     是群同态, 证明过程与定理 \ref{t4.1} 类似.
 
-    严格来说, $f\in A$ ``可以写成'' $g\in\mathbb{R}(X)\subset\mathbb{R}((X))$ 指的是 $\phi(f)=g$.
+    严格来说, $f\in A$ ``可以写成'' $g\in\mathbb{R}(X)\subset\mathbb{R}((X))$ 指的是 $\varphi(f)=g$.
 
     \begin{align*}
         f(X)= & \ a_0+a_1X+\cdots+a_{k-1}X^{k-1}+a_0X^k+a_1X^{k+1}+\cdots+a_0X^{2k}+a_1X^{2k+1}+\cdots \\
@@ -2012,7 +2012,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         = & \ (a_0+a_1X+\cdots+a_{k-1}X^{k-1})(1-X)^{-1}.
     \end{align*}
 
-    $\therefore\phi(f)=\dfrac{a_0+a_1X+\cdots+a_{k-1}X^{k-1}}{1-X}\in\mathbb{R}(X)$.
+    $\therefore\varphi(f)=\dfrac{a_0+a_1X+\cdots+a_{k-1}X^{k-1}}{1-X}\in\mathbb{R}(X)$.
 \end{proof}
 \begin{exercise}\label{ex4.3}
     设 $P$ 是域, $p\in P[X]$ 是素元, 证明: 形如 $f/p^n,n\geq1$ 的最简分式及其线性组合的集合 $P_1(X)$ 是环 $P_0(X)$ 的一个子环.

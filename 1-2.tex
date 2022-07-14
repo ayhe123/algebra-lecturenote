@@ -46,35 +46,35 @@
 
 下面讨论一下线性映射的核与像.
 
-设矩阵 $A=(A^{(1)},A^{(2)},\cdots,A^{(n)})$ 对应的线性映射为 $\phi_A$.
+设矩阵 $A=(A^{(1)},A^{(2)},\cdots,A^{(n)})$ 对应的线性映射为 $\varphi_A$.
 
-$\because\forall X=[x_1,x_2,\cdots,x_n]\in\mathbb{R}^n,\phi_A(X)=x_1A^{(1)}+x_2A^{(2)}+\cdots+x_nA^{(n)}\in\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$,
+$\because\forall X=[x_1,x_2,\cdots,x_n]\in\mathbb{R}^n,\varphi_A(X)=x_1A^{(1)}+x_2A^{(2)}+\cdots+x_nA^{(n)}\in\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$,
 
-$\therefore\im \phi_A\subset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+$\therefore\im \varphi_A\subset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
 
 $\because\forall Y\in\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>,\exists y_1,y_2,\cdots,y_n$ 使得 $Y=y_1A^{(1)}+y_2A^{(2)}+\cdots+y_nA^{(n)}$,
 
-$\therefore\exists Y_0=(y_1,y_2,\cdots,y_n)$ 使得 $\phi_A(Y_0)=Y$.
+$\therefore\exists Y_0=(y_1,y_2,\cdots,y_n)$ 使得 $\varphi_A(Y_0)=Y$.
 
-$\therefore\im \phi_A\supset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
+$\therefore\im \varphi_A\supset\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
 
-$\therefore\im \phi_A=\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>,\dim\im \phi_A=\rank A$.
+$\therefore\im \varphi_A=\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>,\dim\im \varphi_A=\rank A$.
 
 上述讨论对于实际的计算也有帮助. 比如求 $\left<X_1,\cdots,X_n\right>$ 的维数, 只需要求矩阵 $(X_1,\cdots,X_n)$ 的秩, 而后者可以通过行或列变换得到.
 
 按照定义,
 \begin{align*}
-    \ker\phi_A & =\{X\in\mathbb{R}^n|\phi_A(X)=0\} \\
+    \ker\varphi_A & =\{X\in\mathbb{R}^n|\varphi_A(X)=0\} \\
     & =\{X\in\mathbb{R}^n|AX=0\}.
 \end{align*}
 
-$\therefore\ker\phi_A$ 是方程 $AX=0$ 的解空间.
+$\therefore\ker\varphi_A$ 是方程 $AX=0$ 的解空间.
 
 由书上第 3 节的定理 7 得
-\[\dim\ker\phi_A=n-\rank A.\]
+\[\dim\ker\varphi_A=n-\rank A.\]
 
 $\therefore$
-\[\dim\ker\phi_A+\dim\im \phi_A=n.\]
+\[\dim\ker\varphi_A+\dim\im \varphi_A=n.\]
 \section{第2章习题}
 \subsection{习题2.1}
 \stepcounter{exsection}
@@ -426,7 +426,7 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
     由 Markov 矩阵
     \[P=(p_{ij}),\quad p_{ij}\geq0,\quad\sum\limits_{i=1}^np_{ij}=1,\quad i=1,2,\cdots,n\]
     
-    确定的线性变换 $\phi_P$ 通常作用于概率列向量
+    确定的线性变换 $\varphi_P$ 通常作用于概率列向量
     \[X=[x_1,\cdots,x_n],\quad x_i\geq0,\quad\sum\limits_{i=1}^nx_i=1.\]
     
     证明:
@@ -515,47 +515,47 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
 
 证明第 \ref{ex3.8} 题需要证明两个引理.
 \begin{lemma}\label{l2.3}
-    是 $A$ 是 $m\times s$ 矩阵, $B$ 是 $s\times n$ 矩阵, $A$ 确定的线性映射为 $\phi_A$, $B$ 的列空间为 $V_c(B)$, 则
-    \[\dim\phi_A(V_c(B))=\rank AB.\]
+    是 $A$ 是 $m\times s$ 矩阵, $B$ 是 $s\times n$ 矩阵, $A$ 确定的线性映射为 $\varphi_A$, $B$ 的列空间为 $V_c(B)$, 则
+    \[\dim\varphi_A(V_c(B))=\rank AB.\]
 \end{lemma}
 \begin{proof}
     设 $AB$ 的列空间为 $V_c(AB)$, 有
     \[\dim V_c(AB)=\rank AB.\]
 
-    $\therefore$ 只需证明 $V_c(AB)=\phi_A(V_c(B))$.
+    $\therefore$ 只需证明 $V_c(AB)=\varphi_A(V_c(B))$.
 
-    $\because\phi_A(B^{(i)})=AB^{(i)}\ (i=1,2,\cdots,n)$, $\therefore$
-    \[V_c(AB)=\left<AB^{(1)},AB^{(2)},\cdots,AB^{(n)}\right>=\left<\phi_A(B^{(1)}),\phi_A(B^{(2)}),\cdots,\phi_A(B^{(n)})\right>.\]
+    $\because\varphi_A(B^{(i)})=AB^{(i)}\ (i=1,2,\cdots,n)$, $\therefore$
+    \[V_c(AB)=\left<AB^{(1)},AB^{(2)},\cdots,AB^{(n)}\right>=\left<\varphi_A(B^{(1)}),\varphi_A(B^{(2)}),\cdots,\varphi_A(B^{(n)})\right>.\]
 
-    $\because\left\{\phi_A(B^{(1)}),\cdots,\phi_A(B^{(n)})\right\}\subset\phi_A(V_c(B))$, 由引理 \ref{l2.1} 得 $\left<\phi_A(B^{(1)}),\cdots,\phi_A(B^{(n)})\right>\subset\phi_A(V_c(B))$.
+    $\because\left\{\varphi_A(B^{(1)}),\cdots,\varphi_A(B^{(n)})\right\}\subset\varphi_A(V_c(B))$, 由引理 \ref{l2.1} 得 $\left<\varphi_A(B^{(1)}),\cdots,\varphi_A(B^{(n)})\right>\subset\varphi_A(V_c(B))$.
 
-    $\forall X\in\phi_A(V_c(B)),\exists Y\in V_c(B)$ 使得 $X=\phi_A(Y)$.
+    $\forall X\in\varphi_A(V_c(B)),\exists Y\in V_c(B)$ 使得 $X=\varphi_A(Y)$.
     
     $\because Y\in V_c(B)$, $\therefore\exists c_1,c_2,\cdots,c_n$ 使得 $Y=\sum\limits_{i=1}^nc_iB^{(i)}$. 有
-    \[X=\phi_A\left(\sum\limits_{i=1}^nc_iB^{(i)}\right)=\sum\limits_{i=1}^nc_i\phi_A(B^{(i)})\in\left<\phi_A(B^{(1)}),\phi_A(B^{(2)}),\cdots,\phi_A(B^{(n)})\right>.\]
+    \[X=\varphi_A\left(\sum\limits_{i=1}^nc_iB^{(i)}\right)=\sum\limits_{i=1}^nc_i\varphi_A(B^{(i)})\in\left<\varphi_A(B^{(1)}),\varphi_A(B^{(2)}),\cdots,\varphi_A(B^{(n)})\right>.\]
 
-    $\therefore\phi_A(V_c(B))\subset\left<\phi_A(B^{(1)}),\phi_A(B^{(2)}),\cdots,\phi_A(B^{(n)})\right>$.
+    $\therefore\varphi_A(V_c(B))\subset\left<\varphi_A(B^{(1)}),\varphi_A(B^{(2)}),\cdots,\varphi_A(B^{(n)})\right>$.
 \end{proof}
 \begin{lemma}\label{l2.4}
-    设 $\phi$ 是线性映射, $V_1,V_2$ 是 $\mathbb{R}$ 的线性子空间, 则
-    \[\phi(V_1+V_2)=\phi(V_1)+\phi(V_2).\]
+    设 $\varphi$ 是线性映射, $V_1,V_2$ 是 $\mathbb{R}$ 的线性子空间, 则
+    \[\varphi(V_1+V_2)=\varphi(V_1)+\varphi(V_2).\]
 \end{lemma}
 \begin{proof}
-    $\forall Y'\in\phi(V_1+V_2),\exists Y\in V_1+V_2,\phi(Y)=Y'$.
+    $\forall Y'\in\varphi(V_1+V_2),\exists Y\in V_1+V_2,\varphi(Y)=Y'$.
 
     $\because Y\in V_1+V_2,\therefore\exists X_1\in V_1,X_2\in V_2$ 使得 $Y=X_1+X_2$.\footnote{这样的 $X_1,X_2$ 不一定是唯一的, 不过这不影响证明, 下面的 $\exists X_1',X_2'$ 也一样} $\therefore$
-    \[Y'=\phi(Y)=\phi(X_1+X_2)=\phi(X_1)+\phi(X_2).\]
+    \[Y'=\varphi(Y)=\varphi(X_1+X_2)=\varphi(X_1)+\varphi(X_2).\]
 
-    $\therefore\phi(V_1+V_2)\subset\phi(V_1)+\phi(V_2)$.
+    $\therefore\varphi(V_1+V_2)\subset\varphi(V_1)+\varphi(V_2)$.
 
-    $\forall Y'\in\phi(V_1)+\phi(V_2),\exists X_1'\in\phi(V_1),X_2'\in\phi(V_2),Y'=X_1'+X_2'$.
+    $\forall Y'\in\varphi(V_1)+\varphi(V_2),\exists X_1'\in\varphi(V_1),X_2'\in\varphi(V_2),Y'=X_1'+X_2'$.
 
-    $\because\exists X_1\in V_1,X_2\in V_2,\phi(X_1)=X_1',\phi(X_2)=X_2'$,
+    $\because\exists X_1\in V_1,X_2\in V_2,\varphi(X_1)=X_1',\varphi(X_2)=X_2'$,
 
     $\therefore\exists Y=X_1+X_2\in V_1+V_2$,
-    \[\phi(Y)=\phi(X_1+X_2)=\phi(X_1)+\phi(X_2)=X_1'+X_2'=Y.\]
+    \[\varphi(Y)=\varphi(X_1+X_2)=\varphi(X_1)+\varphi(X_2)=X_1'+X_2'=Y.\]
 
-    $\therefore\phi(V_1+V_2)\supset\phi(V_1)+\phi(V_2)$.
+    $\therefore\varphi(V_1+V_2)\supset\varphi(V_1)+\varphi(V_2)$.
 \end{proof}
 \begin{exercise}\label{ex3.8}
     对于任意 $m\times s$ 矩阵 $A$ 和 $s\times n$ 矩阵 $B$, 证明
@@ -569,52 +569,52 @@ $$\mathrm{dim}(V_1+V_2)=\mathrm{dim}V_1+\mathrm{dim}V_2-\mathrm{dim}(V_1\cap V_2
     然后我们把矩阵的秩都转化为线性子空间的维数. 注意到:
     \begin{enumerate}
         \item $V_c(B)\subset\dim\mathbb{R}^s$,
-        \item 设 $A$ 确定的线性映射为 $\phi_A$, 则 $\rank A=\dim\phi_A(\mathbb{R}^s),V_c(AB)=\phi_A(V_c(B))$,
+        \item 设 $A$ 确定的线性映射为 $\varphi_A$, 则 $\rank A=\dim\varphi_A(\mathbb{R}^s),V_c(AB)=\varphi_A(V_c(B))$,
     \end{enumerate}
 
     将不等式变为
     \begin{align*}
-        \dim\phi_A(\mathbb{R}^s)-\dim\phi_A(V_c(B)) & \leq\dim\mathbb{R}^s-\dim V_c(B) \\
+        \dim\varphi_A(\mathbb{R}^s)-\dim\varphi_A(V_c(B)) & \leq\dim\mathbb{R}^s-\dim V_c(B) \\
         & =\dim\mathbb{R}^s\backslash V_c(B).
     \end{align*}
 
     如果能证明
-    \[\dim\phi_A(\mathbb{R}^s)-\dim\phi_A(V_c(B))\leq\dim\phi_A(\mathbb{R}^s\backslash V_c(B)),\]
+    \[\dim\varphi_A(\mathbb{R}^s)-\dim\varphi_A(V_c(B))\leq\dim\varphi_A(\mathbb{R}^s\backslash V_c(B)),\]
 
     那么只需证明
-    \[\dim\phi_A(\mathbb{R}^s\backslash V_c(B))\leq\dim\mathbb{R}^s\backslash V_c(B).\]
+    \[\dim\varphi_A(\mathbb{R}^s\backslash V_c(B))\leq\dim\mathbb{R}^s\backslash V_c(B).\]
 \end{thought}
 \begin{proof}
-    设 $A$ 确定的线性映射为 $\phi_A$, $V_c(B)\subset\dim\mathbb{R}^s$ 为 $B$ 的列空间.
+    设 $A$ 确定的线性映射为 $\varphi_A$, $V_c(B)\subset\dim\mathbb{R}^s$ 为 $B$ 的列空间.
 
     令 $C$ 是满足 $V_c(C)+V_c(B)=\mathbb{R}^s$ 的矩阵.\footnote{这样的 $C$ 不一定是唯一的, 不过这不影响证明} 由书上的定理 3 得
     \[\rank AC\leq\rank C.\]
 
     由引理 \ref{l2.3} 得
-    \[\rank AC=\dim\phi_A(V_c(C)),\]
+    \[\rank AC=\dim\varphi_A(V_c(C)),\]
 
     $\therefore$
     \begin{equation}\label{eq2.3}
-        \dim\phi_A(V_c(C))\leq\dim V_c(C).
+        \dim\varphi_A(V_c(C))\leq\dim V_c(C).
     \end{equation}
 
     $\because V_c(C)+V_c(B)=\mathbb{R}^s$, 由引理 \ref{l2.4} 得
-    \[\phi_A(V_c(C))+\phi_A(V_c(B))=\phi_A(V_c(C)+V_c(B))=\phi_A(\mathbb{R}^s).\]
+    \[\varphi_A(V_c(C))+\varphi_A(V_c(B))=\varphi_A(V_c(C)+V_c(B))=\varphi_A(\mathbb{R}^s).\]
 
     由习题 \ref{ex1.7} 得
     \begin{align*}
-        \dim\phi_A(\mathbb{R}^s) & =\dim(\phi_A(V_c(C))+\phi_A(V_c(B))) \\
-        & \leq\dim\phi_A(V_c(C))+\dim\phi_A(V_c(B)).
+        \dim\varphi_A(\mathbb{R}^s) & =\dim(\varphi_A(V_c(C))+\varphi_A(V_c(B))) \\
+        & \leq\dim\varphi_A(V_c(C))+\dim\varphi_A(V_c(B)).
     \end{align*}
 
     由 (\ref{eq2.3}) 式得
     \begin{equation}\label{eq2.4}
-        \dim\phi_A(\mathbb{R}^s)\leq\dim V_c(C)+\dim\phi_A(V_c(B)).
+        \dim\varphi_A(\mathbb{R}^s)\leq\dim V_c(C)+\dim\varphi_A(V_c(B)).
     \end{equation}
 
     由引理 \ref{l2.3} 得
-    \[\dim\phi_A(\mathbb{R}^s)=\rank AE=\rank A,\]
-    \[\dim\phi_A(V_c(B))=\rank AB,\]
+    \[\dim\varphi_A(\mathbb{R}^s)=\rank AE=\rank A,\]
+    \[\dim\varphi_A(V_c(B))=\rank AB,\]
 
     代入 (\ref{eq2.4}) 式得
     \[\rank A\leq\dim V_c(C)+\rank AB.\]

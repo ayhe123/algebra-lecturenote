@@ -16,33 +16,33 @@
 在这章中, 不加说明的话, $\mathbb{A}$ 一律为与域 $K$ 上的 $n$ 维线性空间 $V$ 相伴的仿射空间, $\mathbb{E}$ 一律为与域 $K$ 上的 $n$ 维 Euclid 空间 $V$ 相伴的仿射空间.
 \section{二次函数(对应第 1 节)}
 \subsection{二次函数}
-设 $\phi:\mathbb{A}\times\mathbb{A}\to K$ 是双仿射的, 给定 $\mathbb{A}$ 的一个坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$, $\dot{p}$ 的坐标为 $X=[x_1,x_2,\cdots,x_n]$, $\dot{q}$ 的坐标为 $Y=[y_1,y_2,\cdots,y_n]$. 有
+设 $\varphi:\mathbb{A}\times\mathbb{A}\to K$ 是双仿射的, 给定 $\mathbb{A}$ 的一个坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$, $\dot{p}$ 的坐标为 $X=[x_1,x_2,\cdots,x_n]$, $\dot{q}$ 的坐标为 $Y=[y_1,y_2,\cdots,y_n]$. 有
 \begin{align*}
-    \phi(\dot{p},\dot{q}) & =\phi(\dot{o},\dot{q})+\sum\limits_{i=1}^n\xi_i(\dot{q})x_i \\
-    & =\phi(\dot{o},\dot{o})+\sum\limits_{i=1}^nb_iy_i+\sum\limits_{i=1}^n\left(\sum\limits_{j=1}^nc_{ij}y_j+a_i\right)x_i \\
-    & =\phi(\dot{o},\dot{o})+{}^tAX+{}^tBY+{}^tXCY,
+    \varphi(\dot{p},\dot{q}) & =\varphi(\dot{o},\dot{q})+\sum\limits_{i=1}^n\xi_i(\dot{q})x_i \\
+    & =\varphi(\dot{o},\dot{o})+\sum\limits_{i=1}^nb_iy_i+\sum\limits_{i=1}^n\left(\sum\limits_{j=1}^nc_{ij}y_j+a_i\right)x_i \\
+    & =\varphi(\dot{o},\dot{o})+{}^tAX+{}^tBY+{}^tXCY,
 \end{align*}
 
-其中 $A=[a_1,a_2,\cdots,a_n],B=[b_1,b_2,\cdots,b_n],C=(c_{ij})$. 如果 $\phi$ 是对称的, 则
-\[\phi(\dot{p},\dot{q})=\phi(\dot{o},\dot{o})+{}^tAX+{}^tAY+{}^tXCY,\]
+其中 $A=[a_1,a_2,\cdots,a_n],B=[b_1,b_2,\cdots,b_n],C=(c_{ij})$. 如果 $\varphi$ 是对称的, 则
+\[\varphi(\dot{p},\dot{q})=\varphi(\dot{o},\dot{o})+{}^tAX+{}^tAY+{}^tXCY,\]
 
 其中 $C$ 是对称的.
 
 反之, 对于具有形式
-\[\phi(\dot{p},\dot{q})=\phi_0+{}^tAX+{}^tBY+{}^tXCY,\quad A,B\in K^n,C\in M_n(K),\phi_0\in K\]
-的函数 $\phi$, 固定 $\dot{q}$(等价于固定 $Y$), 则
+\[\varphi(\dot{p},\dot{q})=\varphi_0+{}^tAX+{}^tBY+{}^tXCY,\quad A,B\in K^n,C\in M_n(K),\varphi_0\in K\]
+的函数 $\varphi$, 固定 $\dot{q}$(等价于固定 $Y$), 则
 \begin{align*}
-    \phi(\dot{p},\dot{q}) & =(\phi_0+{}^tBY)+{}^tAX+{}^tXCY \\
-    & =(\phi_0+{}^tBY)+{}^tAX+{}^tY{}^tCX \\
-    & =(\phi_0+{}^tBY)+({}^tA+{}^tY{}^tC)X \\
+    \varphi(\dot{p},\dot{q}) & =(\varphi_0+{}^tBY)+{}^tAX+{}^tXCY \\
+    & =(\varphi_0+{}^tBY)+{}^tAX+{}^tY{}^tCX \\
+    & =(\varphi_0+{}^tBY)+({}^tA+{}^tY{}^tC)X \\
 \end{align*}
-是 $\dot{p}$ 的仿射函数. 同理, 固定 $\dot{p}$, 则 $\phi$ 是 $\dot{q}$ 的仿射函数. $\therefore\mathbb{A}$ 上的双仿射函数与 $K\times K^n\times K^n\times M_n(K)$ 间可以建立双射. 下面将双仿射函数与
-\[\phi(\dot{p},\dot{q})=\phi_0+{}^tAX+{}^tBY+{}^tXCY,\quad A,B\in K^n,C\in M_n(K),\phi_0\in K\]
+是 $\dot{p}$ 的仿射函数. 同理, 固定 $\dot{p}$, 则 $\varphi$ 是 $\dot{q}$ 的仿射函数. $\therefore\mathbb{A}$ 上的双仿射函数与 $K\times K^n\times K^n\times M_n(K)$ 间可以建立双射. 下面将双仿射函数与
+\[\varphi(\dot{p},\dot{q})=\varphi_0+{}^tAX+{}^tBY+{}^tXCY,\quad A,B\in K^n,C\in M_n(K),\varphi_0\in K\]
 等同起来.
 
 我们希望能找到不依赖于坐标系的选取的性质. 考虑对称的双仿射函数
 \begin{equation}\label{eq1.1}
-    \phi(\dot{p},\dot{q})=\phi_0+{}^tAX+{}^tAY+{}^tXCY,\quad A\in K^n,C\in M_n(K),{}^tC=C,\phi_0\in K.
+    \varphi(\dot{p},\dot{q})=\varphi_0+{}^tAX+{}^tAY+{}^tXCY,\quad A\in K^n,C\in M_n(K),{}^tC=C,\varphi_0\in K.
 \end{equation}
 
 设 $\{\dot{o}',\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'\}$ 是 $\mathbb{A}$ 的另一个坐标系, 且
@@ -63,14 +63,14 @@
 
 同理得 $Y=FY'-B$. 代入 (\ref{eq1.1}) 式得
 \begin{align*}
-    \phi(\dot{p},\dot{q}) & =\phi_0+{}^tA(FX'-B)+{}^tA(FY'-B)+{}^t(FX'-B)C(FY'-B) \\
-    & =\phi_0+{}^tAFX'-{}^tAB+{}^tAFY'-{}^tAB+({}^tX'{}^tF-{}^tB)C(FY'-B) \\
-    & =\phi_0+{}^tBCB-2{}^tAB+{}^tAFX'+{}^tAFY'+{}^tX'{}^tFCFY'-{}^tX'{}^tFCB-{}^tBCFY' \\
-    & =(\phi_0+{}^tBCB-2{}^tAB)+{}^tAFX'+({}^tAF-{}^tBCF)Y'+{}^tX'{}^tFCFY'-{}^tB{}^tCFX' \\
-    & =(\phi_0+{}^tBCB-2{}^tAB)+({}^tAF-{}^tB{}^tCF)X'+({}^tAF-{}^tBCF)Y'+{}^tX'{}^tFCFY',
+    \varphi(\dot{p},\dot{q}) & =\varphi_0+{}^tA(FX'-B)+{}^tA(FY'-B)+{}^t(FX'-B)C(FY'-B) \\
+    & =\varphi_0+{}^tAFX'-{}^tAB+{}^tAFY'-{}^tAB+({}^tX'{}^tF-{}^tB)C(FY'-B) \\
+    & =\varphi_0+{}^tBCB-2{}^tAB+{}^tAFX'+{}^tAFY'+{}^tX'{}^tFCFY'-{}^tX'{}^tFCB-{}^tBCFY' \\
+    & =(\varphi_0+{}^tBCB-2{}^tAB)+{}^tAFX'+({}^tAF-{}^tBCF)Y'+{}^tX'{}^tFCFY'-{}^tB{}^tCFX' \\
+    & =(\varphi_0+{}^tBCB-2{}^tAB)+({}^tAF-{}^tB{}^tCF)X'+({}^tAF-{}^tBCF)Y'+{}^tX'{}^tFCFY',
 \end{align*}
 
-考察 $\phi(\dot{p},\dot{q})$ 的二次部分, 其在 $\{\dot{o}',\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'\}$ 下的系数矩阵为 ${}^tFCF$. $\because F\in\gl _n$, $\therefore\rank C=\rank {}^tFCF$, 即 $\phi(\dot{p},\dot{q})$ 的二次部分的系数矩阵的秩与坐标的选取无关. 记 $\rank \phi=\rank C$.
+考察 $\varphi(\dot{p},\dot{q})$ 的二次部分, 其在 $\{\dot{o}',\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'\}$ 下的系数矩阵为 ${}^tFCF$. $\because F\in\gl _n$, $\therefore\rank C=\rank {}^tFCF$, 即 $\varphi(\dot{p},\dot{q})$ 的二次部分的系数矩阵的秩与坐标的选取无关. 记 $\rank \varphi=\rank C$.
 
 跟前一章一样, 将线性空间与仿射空间中的函数的概念做比较, 如表 \ref{tb1}.
 \begin{table}\caption{线性空间与仿射空间的概念}\label{tb1}
@@ -155,9 +155,9 @@
 
 这是一个关于 $\boldsymbol{x}$ 的线性方程组, 这个方程组有没有解决定了 $C(Q)$ 是否非空.
 
-设 $\phi_i=l(\boldsymbol{e}_i)$, $f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $F=(f_{ij})$, $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n]$, 可以把方程组重写为
+设 $\varphi_i=l(\boldsymbol{e}_i)$, $f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $F=(f_{ij})$, $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n]$, 可以把方程组重写为
 \begin{equation}\label{eq1.5}
-    \sum\limits_{j=1}^nf_{ij}x_j+\phi_i=0,\quad i=1,2,\cdots,n.
+    \sum\limits_{j=1}^nf_{ij}x_j+\varphi_i=0,\quad i=1,2,\cdots,n.
 \end{equation}
 
 方程组 \ref{eq1.5} 对应的齐次方程组为
@@ -171,7 +171,7 @@
 将书上的定理 2,3 拆成几个定理.
 \begin{theorem}\label{t1.3}
     设 $Q$ 是 $\mathbb{A}$ 上的二次函数, 如果 $C(Q)\neq\varnothing$, 则 $\exists$ 坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
-    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+\phi_0,\]
+    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+\varphi_0,\]
 
     其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q$.
 \end{theorem}
@@ -179,7 +179,7 @@
     取 $\dot{o}\in C(Q)$, 则
     \[Q(\dot{o}+\boldsymbol{v})=Q(\dot{o})+q(\boldsymbol{v}).\]
 
-    由定理 \ref{t1.1}, 上式右边第一项与 $\dot{o}\in C(Q)$ 的选取无关, 为常数 $\phi_0$.
+    由定理 \ref{t1.1}, 上式右边第一项与 $\dot{o}\in C(Q)$ 的选取无关, 为常数 $\varphi_0$.
 
     由书上第 1 章第 4 节定理 4 的推论 1, $\exists V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 使得 $q$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下取规范形式, 即 $\forall\boldsymbol{x}\in V$,
     \[q(\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r.\qedhere\]
@@ -189,7 +189,7 @@
 \end{lemma}
 \begin{proof}
     假设二次函数 $Q$ 没有中心且 $Q$ 与有中心的二次函数仿射等价, 由定理 \ref{t1.3} 得 $Q$ 在某个坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 下有形式
-    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+\phi_0=f(\boldsymbol{x},\boldsymbol{x})+\phi_0.\]
+    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r+\varphi_0=f(\boldsymbol{x},\boldsymbol{x})+\varphi_0.\]
 
     $\because\boldsymbol{x}=\boldsymbol{0}$ 满足 $\forall\boldsymbol{y}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)Y\in V,f(\boldsymbol{x},\boldsymbol{y})+0Y=f(\boldsymbol{0},\boldsymbol{y})=0$, 由定理 \ref{t1.2} 得 $\dot{o}\in C(Q)$, 与 $C(Q)=\varnothing$ 矛盾.
 \end{proof}
@@ -206,7 +206,7 @@
     \[q(\boldsymbol{x})=\alpha_1x^2_1+\alpha_2x^2_2+\cdots+\alpha_rx^2_r.\]
 
     $\therefore$ 在坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 下有
-    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\cdots+\alpha_rx^2_r+2(\beta_1x_1+\cdots+\beta_nx_n)+\phi_0.\]
+    \[Q(\dot{o}+\boldsymbol{x})=\alpha_1x^2_1+\cdots+\alpha_rx^2_r+2(\beta_1x_1+\cdots+\beta_nx_n)+\varphi_0.\]
 
     按书上 P150 的式 (3) 来刻画仿射变换. 作仿射变换
     \[g:x_i'=\begin{cases}
@@ -215,11 +215,11 @@
     \end{cases}\]
 
     设 $g(\dot{o})=\dot{o}',Dg\boldsymbol{x}=\boldsymbol{x}'$, 则
-    \[Q(\dot{o}'+\boldsymbol{x}')=\alpha_1x'^2_1+\cdots+\alpha_rx'^2_r+2(\beta_{r+1}'x'_{r+1}+\cdots+\beta_n'x'_n)+\phi_0'.\]
+    \[Q(\dot{o}'+\boldsymbol{x}')=\alpha_1x'^2_1+\cdots+\alpha_rx'^2_r+2(\beta_{r+1}'x'_{r+1}+\cdots+\beta_n'x'_n)+\varphi_0'.\]
 
     由引理 \ref{l1.1} 的证明得 $\beta_{r+1}',\beta_{r+2}',\cdots,\beta_n'$ 不全为 $0$. 设 $\beta_{r+1}'=\cdots=\beta_{r+k-1}'=0,\beta'_{r+k}\neq0$, 作仿射变换
     \[h:x''_i=\begin{cases}
-        \beta'_{r+k}x'_{r+k}+\beta'_{r+k+1}x'_{r+k+1}+\cdots+\beta'_nx'_n+\dfrac{\phi_0}{2}, & i=r+1, \\
+        \beta'_{r+k}x'_{r+k}+\beta'_{r+k+1}x'_{r+k+1}+\cdots+\beta'_nx'_n+\dfrac{\varphi_0}{2}, & i=r+1, \\
         x'_{i-1}, & r+1\leq i\leq r+k, \\
         x'_i, & \text{其他情况}, \\
     \end{cases},\]
@@ -229,7 +229,7 @@
 \end{proof}
 \begin{theorem}
     设 $Q$ 是 $\mathbb{E}$ 上的二次函数, 如果 $C(Q)\neq\varnothing$, 则 $\exists$ 直角坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 使得 $\forall\boldsymbol{x}\in V$,
-    \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r+\phi_0,\]
+    \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r+\varphi_0,\]
 
     其中 $\boldsymbol{x}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)[x_1,x_2,\cdots,x_n],r=\rank Q$, $\lambda_i$ 在不计重数的意义下是唯一的.
 \end{theorem}
@@ -237,7 +237,7 @@
     取 $\dot{o}\in C(Q)$, 则
     \[Q(\dot{o}+\boldsymbol{v})=Q(\dot{o})+q(\boldsymbol{v}).\]
 
-    由定理 \ref{t1.1}, 上式右边第一项与 $\dot{o}\in C(Q)$ 的选取无关, 为常数 $\phi_0$.
+    由定理 \ref{t1.1}, 上式右边第一项与 $\dot{o}\in C(Q)$ 的选取无关, 为常数 $\varphi_0$.
 
     由书上第 3 章第 3 节的定理 7, $\exists V$ 的一个标准正交基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 使得 $q$ 在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下取规范形式, 即 $\forall\boldsymbol{x}\in V$,
     \[q(\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r.\]
@@ -257,7 +257,7 @@
     \[q(\boldsymbol{x})=\lambda_1x^2_1+\lambda_2x^2_2+\cdots+\lambda_rx^2_r.\]
 
     $\therefore$ 在坐标系 $\{\dot{o},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\}$ 下有
-    \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\cdots+\lambda_rx^2_r+2(\beta_1x_1+\cdots+\beta_nx_n)+\phi_0.\]
+    \[Q(\dot{o}+\boldsymbol{x})=\lambda_1x^2_1+\cdots+\lambda_rx^2_r+2(\beta_1x_1+\cdots+\beta_nx_n)+\varphi_0.\]
 
     $\because\lambda_i$ 是 $q$ 的特征值, $\therefore\lambda_i$ 在不计重数的意义下是唯一的.
 
@@ -268,7 +268,7 @@
     \end{cases}\]
 
     设 $g(\dot{o})=\dot{o}',Dg\boldsymbol{x}=\boldsymbol{x}'$, 则
-    \[Q(\dot{o}'+\boldsymbol{x}')=\lambda_1x'^2_1+\cdots+\lambda_rx'^2_r+2(\beta_{r+1}'x'_{r+1}+\cdots+\beta_n'x'_n)+\phi_0'.\]
+    \[Q(\dot{o}'+\boldsymbol{x}')=\lambda_1x'^2_1+\cdots+\lambda_rx'^2_r+2(\beta_{r+1}'x'_{r+1}+\cdots+\beta_n'x'_n)+\varphi_0'.\]
 
     $\because f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为
     \[\begin{pmatrix}
@@ -283,7 +283,7 @@
     $\therefore\ker f=\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>$.
 
     $\therefore$
-    \[Q(\dot{o}'+\boldsymbol{x}')=q(\boldsymbol{u})+2l(\boldsymbol{v})+\phi_0',\]
+    \[Q(\dot{o}'+\boldsymbol{x}')=q(\boldsymbol{u})+2l(\boldsymbol{v})+\varphi_0',\]
 
     其中 $\boldsymbol{u}\in(\ker f)^\perp,\boldsymbol{v}\in\ker f,l\in(\ker f)^*$. $\because\ker f$ 是 Euclid 向量空间, 由书上第 3 章第 1 节的定理 7 得 $(\ker f)^*\simeq\ker f$.
     
@@ -294,7 +294,7 @@
     作变换
     \[h:x''_j=\begin{cases}
         x'_j, & 1\leq j\leq r, \\
-        \dfrac{1}{\mu}(\beta'_{r+1}x'_{r+1}+\beta'_{r+2}x'_{r+2}+\cdots+\beta'_nx'_n)+\dfrac{\phi_0}{2}, & j=r+1, \\
+        \dfrac{1}{\mu}(\beta'_{r+1}x'_{r+1}+\beta'_{r+2}x'_{r+2}+\cdots+\beta'_nx'_n)+\dfrac{\varphi_0}{2}, & j=r+1, \\
         \sum\limits_{i=r+1}^n\alpha_{ij}x'_i, & r+2\leq j\leq n, \\
     \end{cases},\]
 

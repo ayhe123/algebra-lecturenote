@@ -326,12 +326,12 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     \[|(\boldsymbol{x}|\boldsymbol{y})|\leq\|\boldsymbol{x}\|\|\boldsymbol{y}\|.\]
 \end{theorem}
 \begin{proof}
-    设 $(\boldsymbol{x}|\boldsymbol{y})=|(\boldsymbol{x}|\boldsymbol{y})|e^{i\phi},t=se^{-i\phi},s\in\mathbb{R}$ 是变元. 则 
+    设 $(\boldsymbol{x}|\boldsymbol{y})=|(\boldsymbol{x}|\boldsymbol{y})|e^{i\varphi},t=se^{-i\varphi},s\in\mathbb{R}$ 是变元. 则 
     \begin{align*}
         (t\boldsymbol{x}+\boldsymbol{y}|t\boldsymbol{x}+\boldsymbol{y}) & =(t\boldsymbol{x}|t\boldsymbol{x})+(t\boldsymbol{x}|\boldsymbol{y})+(\boldsymbol{y}|t\boldsymbol{x})+\|\boldsymbol{y}\|^2 \\
         & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+t(\boldsymbol{x}|\boldsymbol{y})+\bar{t}(\boldsymbol{y}|\boldsymbol{x})+\|\boldsymbol{y}\|^2 \\
         & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+t(\boldsymbol{x}|\boldsymbol{y})+\bar{t}\overline{(\boldsymbol{x}|\boldsymbol{y})}+\|\boldsymbol{y}\|^2 \\
-        & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+se^{-i\phi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{i\phi}+se^{i\phi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{-i\phi}+\|\boldsymbol{y}\|^2 \\
+        & =t\overline{t}(\boldsymbol{x}|\boldsymbol{x})+se^{-i\varphi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{i\varphi}+se^{i\varphi}\cdot|(\boldsymbol{x}|\boldsymbol{y})|e^{-i\varphi}+\|\boldsymbol{y}\|^2 \\
         & =s^2+2s|(\boldsymbol{x}|\boldsymbol{y})|+\|\boldsymbol{y}\|^2.
     \end{align*}
 
@@ -342,21 +342,21 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 \end{proof}
 \subsection{半线性函数和映射}
 像书上第 1 节的定理 7 一样, 对于给定的 $\boldsymbol{v}\in V$, 定义
-\[\phi_{\boldsymbol{v}}:\begin{array}{rcl}
+\[\varphi_{\boldsymbol{v}}:\begin{array}{rcl}
     V & \to & \mathbb{R} \\
     \boldsymbol{x} & \to & (\boldsymbol{v}|\boldsymbol{x}) \\
 \end{array}.\]
 
-与 Euclid 空间中不同, $\phi_{\boldsymbol{v}}$ 不是线性函数, 对 $\boldsymbol{x},\boldsymbol{y}\in V,\alpha,\beta\in\mathbb{C}$, 有
-\[\phi_{\boldsymbol{v}}(\alpha\boldsymbol{x}+\beta\boldsymbol{y})=\bar{\alpha}\phi_{\boldsymbol{v}}(\boldsymbol{x})+\bar{\beta}\phi_{\boldsymbol{v}}(\boldsymbol{y}).\]
+与 Euclid 空间中不同, $\varphi_{\boldsymbol{v}}$ 不是线性函数, 对 $\boldsymbol{x},\boldsymbol{y}\in V,\alpha,\beta\in\mathbb{C}$, 有
+\[\varphi_{\boldsymbol{v}}(\alpha\boldsymbol{x}+\beta\boldsymbol{y})=\bar{\alpha}\varphi_{\boldsymbol{v}}(\boldsymbol{x})+\bar{\beta}\varphi_{\boldsymbol{v}}(\boldsymbol{y}).\]
 
-称 $\phi_{\boldsymbol{v}}$ 是\textbf{半线性的}.
+称 $\varphi_{\boldsymbol{v}}$ 是\textbf{半线性的}.
 
 设 $\underline{V}$ 为 $V\to\mathbb{R}$ 的半线性函数全体, 有
 \begin{theorem}\label{t2.2}
     \[\sigma:\begin{array}{rcl}
         V & \to & \underline{V} \\
-        \boldsymbol{v} & \to & \phi_{\boldsymbol{v}} \\
+        \boldsymbol{v} & \to & \varphi_{\boldsymbol{v}} \\
     \end{array}\]
 
     是线性空间的同构.
@@ -372,18 +372,18 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     $\therefore$
     \[\sigma(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\sigma(\boldsymbol{u})+\beta\sigma(\boldsymbol{v}).\]
 
-    若 $\boldsymbol{v}\in\ker\sigma$, 则 $\phi_{\boldsymbol{v}}=\boldsymbol{0}\Rightarrow\forall\boldsymbol{x},\phi_{\boldsymbol{v}}(\boldsymbol{x})=\boldsymbol{0}$, $\therefore\phi_{\boldsymbol{v}}(\boldsymbol{v})=(\boldsymbol{v}|\boldsymbol{v})=\boldsymbol{0}$, $\therefore\boldsymbol{v}=\boldsymbol{0}$. $\therefore\sigma$ 是单射.
+    若 $\boldsymbol{v}\in\ker\sigma$, 则 $\varphi_{\boldsymbol{v}}=\boldsymbol{0}\Rightarrow\forall\boldsymbol{x},\varphi_{\boldsymbol{v}}(\boldsymbol{x})=\boldsymbol{0}$, $\therefore\varphi_{\boldsymbol{v}}(\boldsymbol{v})=(\boldsymbol{v}|\boldsymbol{v})=\boldsymbol{0}$, $\therefore\boldsymbol{v}=\boldsymbol{0}$. $\therefore\sigma$ 是单射.
 
-    设 $\phi\in\underline{V}$, $(\boldsymbol{e}_i)$ 是 $V$ 的一个标准正交基, 考虑
-    \[\boldsymbol{v}=\phi(\boldsymbol{e}_1)\boldsymbol{e}_1+\phi(\boldsymbol{e}_2)\boldsymbol{e}_2+\cdots+\phi(\boldsymbol{e}_n)\boldsymbol{e}_n.\]
+    设 $\varphi\in\underline{V}$, $(\boldsymbol{e}_i)$ 是 $V$ 的一个标准正交基, 考虑
+    \[\boldsymbol{v}=\varphi(\boldsymbol{e}_1)\boldsymbol{e}_1+\varphi(\boldsymbol{e}_2)\boldsymbol{e}_2+\cdots+\varphi(\boldsymbol{e}_n)\boldsymbol{e}_n.\]
 
     $\forall\boldsymbol{x}=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_n\boldsymbol{e}_n$,
-    \[(\boldsymbol{v}|\boldsymbol{x})=(\phi(\boldsymbol{e}_1)\boldsymbol{e}_1+\cdots+\phi(\boldsymbol{e}_n)\boldsymbol{e}_n|\boldsymbol{x})=\sum\limits_{i=1}^n\phi(\boldsymbol{e}_i)\overline{x_i}.\]
+    \[(\boldsymbol{v}|\boldsymbol{x})=(\varphi(\boldsymbol{e}_1)\boldsymbol{e}_1+\cdots+\varphi(\boldsymbol{e}_n)\boldsymbol{e}_n|\boldsymbol{x})=\sum\limits_{i=1}^n\varphi(\boldsymbol{e}_i)\overline{x_i}.\]
 
-    $\because\phi$ 是线性函数, $\therefore$
-    \[\sum\limits_{i=1}^n\phi(\boldsymbol{e}_i)\overline{x_i}=\phi\left(\sum\limits_{i=1}^n\overline{x_i}\boldsymbol{e}_i\right)=\phi(\boldsymbol{x}).\]
+    $\because\varphi$ 是线性函数, $\therefore$
+    \[\sum\limits_{i=1}^n\varphi(\boldsymbol{e}_i)\overline{x_i}=\varphi\left(\sum\limits_{i=1}^n\overline{x_i}\boldsymbol{e}_i\right)=\varphi(\boldsymbol{x}).\]
 
-    $\therefore\exists\boldsymbol{v}$ 使得 $\sigma(\boldsymbol{v})=\phi$. $\therefore\sigma$ 是满射. $\therefore\sigma$ 是同构.
+    $\therefore\exists\boldsymbol{v}$ 使得 $\sigma(\boldsymbol{v})=\varphi$. $\therefore\sigma$ 是满射. $\therefore\sigma$ 是同构.
 \end{proof}
 对于 $\boldsymbol{v}\in V$, 也可以定义与之对应的线性函数:
 \[\psi_{\boldsymbol{v}}:\begin{array}{rcl}
@@ -425,7 +425,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
 则有
 \begin{theorem}\label{t3.1}
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathcal{L}(V) & \to & \mathcal{L}_\theta(V,K) \\
         \mathcal{A} & \to & f_\mathcal{A} \\
     \end{array}\]
@@ -435,7 +435,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     设 $\mathcal{A},\mathcal{B}\in\mathcal{L}(V)$ 满足 $f_\mathcal{A}=f_\mathcal{B}$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V$,
     \[((\mathcal{A}-\mathcal{B})\boldsymbol{x}|\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})-(\mathcal{B}\boldsymbol{x}|\boldsymbol{y})=0.\]
 
-    取 $\boldsymbol{y}=(\mathcal{A}-\mathcal{B})\boldsymbol{x}$, 则 $(\boldsymbol{y}|\boldsymbol{y})=0$, $\therefore\forall\boldsymbol{x},(\mathcal{A}-\mathcal{B})\boldsymbol{x}=\boldsymbol{y}=0$. $\therefore\mathcal{A}=\mathcal{B}$. $\therefore\phi$ 是单射.
+    取 $\boldsymbol{y}=(\mathcal{A}-\mathcal{B})\boldsymbol{x}$, 则 $(\boldsymbol{y}|\boldsymbol{y})=0$, $\therefore\forall\boldsymbol{x},(\mathcal{A}-\mathcal{B})\boldsymbol{x}=\boldsymbol{y}=0$. $\therefore\mathcal{A}=\mathcal{B}$. $\therefore\varphi$ 是单射.
 
     设 $(\boldsymbol{e}_i)$ 是 $V$ 的标准正交基, $\boldsymbol{x}=x_1\boldsymbol{e}_1+\cdots+x_n\boldsymbol{e}_n=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)X,\boldsymbol{y}=y_1\boldsymbol{e}_1+\cdots+y_n\boldsymbol{e}_n=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)Y$, 则
     \[(\boldsymbol{x}|\boldsymbol{y})={}^tX\overline{Y}.\]
@@ -467,9 +467,9 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
     这与一般的情况, 即 $\mathcal{A}\boldsymbol{e}_j=\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i$, 不一样.
 
-    (2) 实际上可以在证明 $\phi$ 是线性的(见定理 \ref{t3.2})之后用 $\dim\mathcal{L}(V)=\dim\mathcal{L}_\theta(V,K)=n^2$ 直接得到 $\phi$ 是双射.
+    (2) 实际上可以在证明 $\varphi$ 是线性的(见定理 \ref{t3.2})之后用 $\dim\mathcal{L}(V)=\dim\mathcal{L}_\theta(V,K)=n^2$ 直接得到 $\varphi$ 是双射.
 
-    (3) 这个证明实际上说明了: 定理 \ref{t3.2} 中的映射 $\psi$ 是确切定义的. 这个定理的另一种证明方法是证明 $\psi$ 是 $\phi$ 的逆映射, 具体的方法见定理 \ref{t3.2}.
+    (3) 这个证明实际上说明了: 定理 \ref{t3.2} 中的映射 $\psi$ 是确切定义的. 这个定理的另一种证明方法是证明 $\psi$ 是 $\varphi$ 的逆映射, 具体的方法见定理 \ref{t3.2}.
 
     (4) 在式 (\ref{eq3.1}) 中令 $\boldsymbol{y}'=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)\overline{F}Y$, 则有
     \[f(\boldsymbol{x},\boldsymbol{y})={}^tX\overline{\overline{F}Y}=(\boldsymbol{x}|\boldsymbol{y}').\]
@@ -483,7 +483,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 \end{note}
 进一步地, 有
 \begin{theorem}\label{t3.2}
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathcal{L}(V) & \to & \mathcal{L}_\theta(V,K) \\
         \mathcal{A} & \to & f_\mathcal{A} \\
     \end{array}\]
@@ -500,7 +500,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     $\therefore$
     \[f_{\alpha\mathcal{A}+\beta\mathcal{B}}(\boldsymbol{x},\boldsymbol{y})=\alpha f_{\mathcal{A}}(\boldsymbol{x},\boldsymbol{y})+\beta f_{\mathcal{B}}(\boldsymbol{x},\boldsymbol{y}).\]
 
-    $\therefore\phi$ 是线性的. $\therefore\phi$ 是同构.
+    $\therefore\varphi$ 是线性的. $\therefore\varphi$ 是同构.
 
     $\because\forall f,g\in\mathcal{L}_\theta(V,K),\alpha,\beta\in K,\boldsymbol{x},\boldsymbol{y}\in V$,
     \begin{align*}
@@ -510,7 +510,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
         & =((\alpha\mathcal{A}_f+\beta\mathcal{A}_g)\boldsymbol{x}|\boldsymbol{y}),
     \end{align*}
 
-    $\therefore\phi(\mathcal{A}_{\alpha f+\beta g})=\phi(\alpha\mathcal{A}_f+\beta\mathcal{A}_g)$. 由定理 \ref{t3.1} 得 $\phi$ 是单射, $\therefore\mathcal{A}_{\alpha f+\beta g}=\alpha\mathcal{A}_f+\beta\mathcal{A}_g$.
+    $\therefore\varphi(\mathcal{A}_{\alpha f+\beta g})=\varphi(\alpha\mathcal{A}_f+\beta\mathcal{A}_g)$. 由定理 \ref{t3.1} 得 $\varphi$ 是单射, $\therefore\mathcal{A}_{\alpha f+\beta g}=\alpha\mathcal{A}_f+\beta\mathcal{A}_g$.
 
     $\therefore\psi$ 是线性的.
 
@@ -518,14 +518,14 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
     $\because\dim\ker\psi+\dim\im \psi=\dim\mathcal{L}_\theta(V,K)=n^2,\therefore\ker\psi=\{\boldsymbol{0}\}$. $\therefore\psi$ 是双射. $\therefore\psi$ 是同构.
 
-    考察 $\psi\circ\phi$. $\forall\mathcal{A}\in\mathcal{L}(V)$, 设 $\phi(\mathcal{A})=f$, 则由 $\phi$ 的定义得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\psi(f)=\mathcal{A}_f$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y})$.
+    考察 $\psi\circ\varphi$. $\forall\mathcal{A}\in\mathcal{L}(V)$, 设 $\varphi(\mathcal{A})=f$, 则由 $\varphi$ 的定义得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\psi(f)=\mathcal{A}_f$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}_f\boldsymbol{x}|\boldsymbol{y})$.
     
-    $\therefore\phi(\mathcal{A})=\phi(\mathcal{A}_f)$. 由定理 \ref{t3.1} 得 $\phi$ 是单射, $\therefore\mathcal{A}=\mathcal{A}_f$. $\therefore\psi\circ\phi$ 是 $\mathcal{L}(V)$ 上的恒等映射.
+    $\therefore\varphi(\mathcal{A})=\varphi(\mathcal{A}_f)$. 由定理 \ref{t3.1} 得 $\varphi$ 是单射, $\therefore\mathcal{A}=\mathcal{A}_f$. $\therefore\psi\circ\varphi$ 是 $\mathcal{L}(V)$ 上的恒等映射.
     
-    考察 $\phi\circ\psi$. $\forall f\in\mathcal{L}_\theta(V,K)$, 设 $\psi(f)=\mathcal{A}$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\phi(\mathcal{A})=f_\mathcal{A}$, 则由 $\phi$ 的定义得
+    考察 $\varphi\circ\psi$. $\forall f\in\mathcal{L}_\theta(V,K)$, 设 $\psi(f)=\mathcal{A}$, 则由式 (\ref{eq3.2}) 得 $f(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})$. 设 $\varphi(\mathcal{A})=f_\mathcal{A}$, 则由 $\varphi$ 的定义得
     \[f_\mathcal{A}(\boldsymbol{x},\boldsymbol{y})=(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=f(\boldsymbol{x},\boldsymbol{y}).\]
     
-    $\because$ 上式对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, $\therefore f=f_\mathcal{A}$. $\therefore\phi\circ\psi$ 是 $\mathcal{L}_\theta(V,K)$ 上的恒等映射. $\therefore\phi=\psi^{-1}$.
+    $\because$ 上式对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, $\therefore f=f_\mathcal{A}$. $\therefore\varphi\circ\psi$ 是 $\mathcal{L}_\theta(V,K)$ 上的恒等映射. $\therefore\varphi=\psi^{-1}$.
 \end{proof}
 \begin{theorem}
     \[\sigma:\begin{array}{rcl}
@@ -546,7 +546,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 \end{proof}
 下面的交换图表示了各个线性空间之间的关系:
 \[\begin{CD}
-    \mathcal{L}(V) @>\phi>> \mathcal{L}_\theta(V,K) @>\sigma>> \mathcal{L}(V) @>\psi>> \mathcal{L}_\theta(V,K) \\
+    \mathcal{L}(V) @>\varphi>> \mathcal{L}_\theta(V,K) @>\sigma>> \mathcal{L}(V) @>\psi>> \mathcal{L}_\theta(V,K) \\
     @VVV @VVV @VVV @VVV \\
     M_n(K) @>\eta>> M_n(K) @>\xi>> M_n(K) @>\eta>> M_n(K)
 \end{CD}\]
@@ -563,12 +563,12 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     称 $\mathcal{A}^*$ 为 $\mathcal{A}$ 的\textbf{伴随算子}.
 \end{corollary}
 \begin{proof}
-    $\because\sigma\circ\phi$ 是 $\mathcal{L}(V)$ 上的单射, 且有
-    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=\phi(\mathcal{A})(\boldsymbol{x},\boldsymbol{y})=(\boldsymbol{x}|\sigma\circ\phi(\mathcal{A})\boldsymbol{y}),\]
+    $\because\sigma\circ\varphi$ 是 $\mathcal{L}(V)$ 上的单射, 且有
+    \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=\varphi(\mathcal{A})(\boldsymbol{x},\boldsymbol{y})=(\boldsymbol{x}|\sigma\circ\varphi(\mathcal{A})\boldsymbol{y}),\]
 
-    $\therefore\forall\mathcal{A}\in\mathcal{L}(V),\exists!\mathcal{A}^*=\sigma\circ\phi(\mathcal{A})\in\mathcal{L}(V)$ 使得 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})$.
+    $\therefore\forall\mathcal{A}\in\mathcal{L}(V),\exists!\mathcal{A}^*=\sigma\circ\varphi(\mathcal{A})\in\mathcal{L}(V)$ 使得 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})$.
 \end{proof}
-此外, $\sigma\circ\phi$ 对应到矩阵上就是 $\xi\circ\eta:A\to A^*={}^t\overline{A}$, 这并不能体现推论 \ref{c3.1} 描述的算子与纯量积之间的关系. 所以用空间和算子来表述是很有必要的.
+此外, $\sigma\circ\varphi$ 对应到矩阵上就是 $\xi\circ\eta:A\to A^*={}^t\overline{A}$, 这并不能体现推论 \ref{c3.1} 描述的算子与纯量积之间的关系. 所以用空间和算子来表述是很有必要的.
 
 伴随算子有一些性质:
 \begin{property}
@@ -580,12 +580,12 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     (3) $\because$
     \[(\boldsymbol{x}|(\mathcal{A}\mathcal{B})^*\boldsymbol{y})=(\mathcal{A}\mathcal{B}\boldsymbol{x}|\boldsymbol{y})=(\mathcal{A}(\mathcal{B}\boldsymbol{x})|\boldsymbol{y})=(\mathcal{B}\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=(\boldsymbol{x}|\mathcal{B}^*(\mathcal{A}^*\boldsymbol{y}))=(\boldsymbol{x}|\mathcal{B}^*\mathcal{A}^*\boldsymbol{y})\]
 
-    对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, 用与定理 \ref{t3.1} 证明 $\phi$ 是单射类似的方法得 $(\mathcal{A}\mathcal{B})^*=\mathcal{B}^*\mathcal{A}^*$.
+    对 $\forall\boldsymbol{x},\boldsymbol{y}$ 都成立, 用与定理 \ref{t3.1} 证明 $\varphi$ 是单射类似的方法得 $(\mathcal{A}\mathcal{B})^*=\mathcal{B}^*\mathcal{A}^*$.
 
     (4) $\because$
     \[(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}^*\boldsymbol{y})=(\mathcal{A}^{**}\boldsymbol{x}|\boldsymbol{y}),\]
 
-    设 $\phi$ 的定义与定理 \ref{t3.1} 相同, 则 $\phi(\mathcal{A})=\phi(\mathcal{A}^{**})$. $\because\phi$ 是单射, $\therefore\mathcal{A}^{**}=\mathcal{A}$.
+    设 $\varphi$ 的定义与定理 \ref{t3.1} 相同, 则 $\varphi(\mathcal{A})=\varphi(\mathcal{A}^{**})$. $\because\varphi$ 是单射, $\therefore\mathcal{A}^{**}=\mathcal{A}$.
 \end{proof}
 \subsection{Hermite 算子}
 下面的定理说明, 线性算子及与之对应的 $\theta$ 型(包括与之对应的矩阵)的 Hermite 性是统一的.
@@ -659,7 +659,7 @@ $\therefore\forall\boldsymbol{x},\boldsymbol{y}\in V$,
     & \Rightarrow(\boldsymbol{x}|\mathcal{A}^*\mathcal{A}\boldsymbol{y})=(\boldsymbol{x}|\mathcal{E}\boldsymbol{y}).
 \end{align*}
 
-用与定理 \ref{t3.1} 证明 $\phi$ 是单射类似的方法得
+用与定理 \ref{t3.1} 证明 $\varphi$ 是单射类似的方法得
 \begin{equation}\label{eq3.4}
     \mathcal{A}^*\mathcal{A}=\mathcal{E}.
 \end{equation}
@@ -1327,11 +1327,11 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     考虑 $[a,b]$ 上的实变量连续函数全体 $C_2(a,b)$, 引进内积:
     \[(f|g)=\int_a^bf(t)\overline{g(t)}\mathrm{d}t.\]
     
-    设 $\phi_1,\phi_2,\cdots,\phi_m$ 是 $C_2(a,b)$ 的标准正交函数组, $f\in C_2(a,b)$ 有分解式 $f=\sum\limits_{i=1}^mc_i\phi_i,\quad c_i\in\mathbb{C}$, 则 $c_i=(f_i|\phi_i)$. 这个结论可以推广到无限项的标准正交函数组.
+    设 $\varphi_1,\varphi_2,\cdots,\varphi_m$ 是 $C_2(a,b)$ 的标准正交函数组, $f\in C_2(a,b)$ 有分解式 $f=\sum\limits_{i=1}^mc_i\varphi_i,\quad c_i\in\mathbb{C}$, 则 $c_i=(f_i|\varphi_i)$. 这个结论可以推广到无限项的标准正交函数组.
 
-    对于一般的 $f\in C_2(a,b)$, 由定理 \ref{t5.1} 得当 $c_i=(f_i|\phi_i)$ 时 $\left\|f-\sum\limits_{i=1}^mc_i\phi_i\right\|$ 取最小值.
+    对于一般的 $f\in C_2(a,b)$, 由定理 \ref{t5.1} 得当 $c_i=(f_i|\varphi_i)$ 时 $\left\|f-\sum\limits_{i=1}^mc_i\varphi_i\right\|$ 取最小值.
 
-    书上 P132 把当 $c_i=(f_i|\phi_i)$ 时的 $\left\|f-\sum\limits_{i=1}^mc_i\phi_i\right\|$ 计算出来了.
+    书上 P132 把当 $c_i=(f_i|\varphi_i)$ 时的 $\left\|f-\sum\limits_{i=1}^mc_i\varphi_i\right\|$ 计算出来了.
 
     有时候会用下式定义内积:
     \[(f|g)=\int_a^b\lambda(t)f(t)\overline{g(t)}\mathrm{d}t,\quad\lambda\in C_2(a,b).\]

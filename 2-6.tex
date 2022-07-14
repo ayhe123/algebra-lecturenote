@@ -28,9 +28,9 @@
 \subsection{共变和反变}
 要准确地描述共变和反变的概念需要引入\textbf{函子}的概念, 这里只是给读者一个模糊的印象.
 
-定义映射的乘法为复合. 设 $\phi:W\to V$ 是线性映射, 则对张量 $S:W^p\to K$, $S\phi:V^p\to K$. $S$ 与 $S\phi$ 分别是 $\phi$ 的定义域和陪域上的张量, 这时称 $f$ 是\textbf{共变}的.
+定义映射的乘法为复合. 设 $\varphi:W\to V$ 是线性映射, 则对张量 $S:W^p\to K$, $S\varphi:V^p\to K$. $S$ 与 $S\varphi$ 分别是 $\varphi$ 的定义域和陪域上的张量, 这时称 $f$ 是\textbf{共变}的.
 
-对 $f\in V^*$, 则 $f\phi\in W^*$. $\therefore$ 对张量 $T:(V^*)^q\to K$, $T\phi:(W^*)^q\to K$. $T$ 与 $T\phi$ 分别是 $\phi$ 的陪域和定义域上的张量, 这时称 $g$ 是\textbf{反变}的.
+对 $f\in V^*$, 则 $f\varphi\in W^*$. $\therefore$ 对张量 $T:(V^*)^q\to K$, $T\varphi:(W^*)^q\to K$. $T$ 与 $T\varphi$ 分别是 $\varphi$ 的陪域和定义域上的张量, 这时称 $g$ 是\textbf{反变}的.
 
 当然这里的说明是不严格的, 比如说采用了不同的方法来处理 $V$ 和 $V^*$ 中的元素.
 \subsection{坐标}
@@ -129,12 +129,12 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
         (\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_n) & \to & e^j(\boldsymbol{x}_i) \\
     \end{array}\]
     以及线性映射
-    \[\phi:\begin{array}{rcll}
+    \[\varphi:\begin{array}{rcll}
         (V^p)^* & \to & (V^*)^p \\
         \varepsilon^{ij} & \to & (0,\cdots,0,e^j(\text{第}i\text{个}),0,\cdots,0) & (i=1,2,\cdots,p) \\
     \end{array}.\]
 
-    $\because\varepsilon^{ij},(0,\cdots,0,e^j(\text{第}i\text{个}),0,\cdots,0)$ 分别是 $(V^p)^*,(V^*)^q$ 的一个基, $\therefore\phi$ 是双射. $\therefore\phi$ 是同构.
+    $\because\varepsilon^{ij},(0,\cdots,0,e^j(\text{第}i\text{个}),0,\cdots,0)$ 分别是 $(V^p)^*,(V^*)^q$ 的一个基, $\therefore\varphi$ 是双射. $\therefore\varphi$ 是同构.
 \end{proof}
 \begin{theorem}\label{t1.3}
     $\tau:V^p\to V^q$ 与一个 $(p,q)$ 型张量 $T$ 可以等同起来.
@@ -200,8 +200,8 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
     \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>=T(V^*,W^*).\]
 \end{theorem}
 \begin{proof}
-    设 $e^1,e^2,\cdots,e^n$ 是 $V^*$ 的一个基, $e'^1,e'^2,\cdots,e'^m$ 是 $W^*$ 的一个基, 则 $\forall \phi\in T(V^*,W^*),\exists A\in M_{m,n}(K)$ 使得 $\forall f=\sum\limits_{i=1}^na_ie^i\in V^*,g=\sum\limits_{j=1}^mb_je'^j\in W^*$, 有
-    \[\phi(f,g)=(b_1,b_2,\cdots,b_m)A[a_1,a_2,\cdots,a_n].\]
+    设 $e^1,e^2,\cdots,e^n$ 是 $V^*$ 的一个基, $e'^1,e'^2,\cdots,e'^m$ 是 $W^*$ 的一个基, 则 $\forall \varphi\in T(V^*,W^*),\exists A\in M_{m,n}(K)$ 使得 $\forall f=\sum\limits_{i=1}^na_ie^i\in V^*,g=\sum\limits_{j=1}^mb_je'^j\in W^*$, 有
+    \[\varphi(f,g)=(b_1,b_2,\cdots,b_m)A[a_1,a_2,\cdots,a_n].\]
 
     由 [BAI] 第 2 章第 3 节的定理 4 得 $\exists B\in M_m(K),C\in M_n(K)$ 使得
     \[A=B\begin{pmatrix}
@@ -253,7 +253,7 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
 
     $\therefore$
     \begin{align*}
-        \phi(f,g) & =(b_1,b_2,\cdots,b_m)\left(\sum\limits_{i=1}^rB^{(i)}{}^t(C^{(i)})\right)[a_1,a_2,\cdots,a_n] \\
+        \varphi(f,g) & =(b_1,b_2,\cdots,b_m)\left(\sum\limits_{i=1}^rB^{(i)}{}^t(C^{(i)})\right)[a_1,a_2,\cdots,a_n] \\
         & =\sum\limits_{i=1}^r(b_1,b_2,\cdots,b_m)B^{(i)}\cdot{}^t((a_1,a_2,\cdots,a_n)C^{(i)}) \\
         & =\sum\limits_{i=1}^r(b_1,b_2,\cdots,b_m)B^{(i)}\cdot(a_1,a_2,\cdots,a_n)C^{(i)}.
     \end{align*}
@@ -265,10 +265,10 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
     \[\boldsymbol{v}_i(f)=(a_1,a_2,\cdots,a_n)C^{(i)},\quad\boldsymbol{w}_i(g)=(b_1,b_2,\cdots,b_m)B^{(i)},\quad i=1,2,\cdots,r.\]
 
     $\therefore\forall f\in V^*,g\in W^*$,
-    \[\phi(f,g)=\sum\limits_{i=1}^r\boldsymbol{v}_i(f)\boldsymbol{w}_i(g).\]
+    \[\varphi(f,g)=\sum\limits_{i=1}^r\boldsymbol{v}_i(f)\boldsymbol{w}_i(g).\]
 
     $\therefore$
-    \[\phi=\sum\limits_{i=1}^r\boldsymbol{v}_i\otimes\boldsymbol{w}_i\in\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>.\]
+    \[\varphi=\sum\limits_{i=1}^r\boldsymbol{v}_i\otimes\boldsymbol{w}_i\in\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>.\]
 
     $\therefore$
     \[\left<\boldsymbol{v}\otimes\boldsymbol{w}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\supset T(V^*,W^*).\qedhere\]
@@ -280,26 +280,26 @@ $\therefore f$ 在基 $e^i\otimes\boldsymbol{e}_j$ 下的坐标为
 与定理 \ref{t1.1} 类似, 得 $(\boldsymbol{v}_i\otimes\boldsymbol{w}_j)$ 线性无关. $\therefore(\boldsymbol{v}_i\otimes\boldsymbol{w}_j)$ 是 $T(V^*,W^*)$ 的一个基.
 
 如果 $\dim V=\infty$, 则 $V^{**}$ 不一定 $=V$. 对 $\boldsymbol{v}\in V$, 定义
-\[\phi_{\boldsymbol{v}}:\begin{array}{rcl}
+\[\varphi_{\boldsymbol{v}}:\begin{array}{rcl}
     V^* & \to & K \\
     f & \to & f(\boldsymbol{v}) \\
 \end{array},\]
 
-则 $V'=\{\phi_{\boldsymbol{v}}|\boldsymbol{v}\in V\}$ 是 $V^{**}$ 的子空间. 定义
-\[\phi:\begin{array}{rcl}
+则 $V'=\{\varphi_{\boldsymbol{v}}|\boldsymbol{v}\in V\}$ 是 $V^{**}$ 的子空间. 定义
+\[\varphi:\begin{array}{rcl}
     V & \to & V' \\
-    \boldsymbol{v} & \to & \phi_{\boldsymbol{v}} \\
+    \boldsymbol{v} & \to & \varphi_{\boldsymbol{v}} \\
 \end{array}.\]
 
-$\because\boldsymbol{u}\neq\boldsymbol{v}\Rightarrow\phi_{\boldsymbol{u}}\neq\phi_{\boldsymbol{v}}$, $\therefore\phi$ 是单射.
+$\because\boldsymbol{u}\neq\boldsymbol{v}\Rightarrow\varphi_{\boldsymbol{u}}\neq\varphi_{\boldsymbol{v}}$, $\therefore\varphi$ 是单射.
 
-$\because\forall\alpha,\beta\in K,\boldsymbol{u},\boldsymbol{v}\in V,f\in V^*,f(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha f(\boldsymbol{u})+\beta f(\boldsymbol{v})$, $\therefore\phi(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\phi(\boldsymbol{u})+\beta\phi(\boldsymbol{v})$, $\therefore\phi$ 是单同态. $\therefore V\hookrightarrow V^{**}$.
+$\because\forall\alpha,\beta\in K,\boldsymbol{u},\boldsymbol{v}\in V,f\in V^*,f(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha f(\boldsymbol{u})+\beta f(\boldsymbol{v})$, $\therefore\varphi(\alpha\boldsymbol{u}+\beta\boldsymbol{v})=\alpha\varphi(\boldsymbol{u})+\beta\varphi(\boldsymbol{v})$, $\therefore\varphi$ 是单同态. $\therefore V\hookrightarrow V^{**}$.
 
 类似地, 定义 $\psi_{\boldsymbol{w}}:f\to f(\boldsymbol{w})\in W^{**},\psi:\boldsymbol{v}\to\psi_{\boldsymbol{v}},W'=\im \psi$.
 
-容易验证, 当 $V,W$ 是有限维时, 有 $\phi_{\boldsymbol{v}}=\boldsymbol{v},\psi_{\boldsymbol{w}}=\boldsymbol{w}$. 自然地, 引出下面的定义:
+容易验证, 当 $V,W$ 是有限维时, 有 $\varphi_{\boldsymbol{v}}=\boldsymbol{v},\psi_{\boldsymbol{w}}=\boldsymbol{w}$. 自然地, 引出下面的定义:
 \begin{definition}\label{d1.2}
-    称 $V'\otimes W'=\left<\phi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\subseteq T(V^*,W^*)$ (最右边的包含符号当 $V,W$ 都为有限维时取等号) 为 $V$ 和 $W$ 的\textbf{张量积}, 记作 $V\otimes W$.
+    称 $V'\otimes W'=\left<\varphi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}|\boldsymbol{v}\in V,\boldsymbol{w}\in W\right>\subseteq T(V^*,W^*)$ (最右边的包含符号当 $V,W$ 都为有限维时取等号) 为 $V$ 和 $W$ 的\textbf{张量积}, 记作 $V\otimes W$.
 \end{definition}
 考虑映射
 \[\tau:\begin{array}{rcl}
@@ -412,17 +412,17 @@ $\because\forall\alpha,\beta\in K,\boldsymbol{u},\boldsymbol{v}\in V,f\in V^*,f(
 
     $\therefore\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关.
     
-    令 $Y=\left<\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>,\sigma(\boldsymbol{v},\boldsymbol{w})=\phi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}$, 其中 $\phi_{\boldsymbol{v}},\psi_{\boldsymbol{w}}$ 的定义见定义 \ref{d1.2}. 有
+    令 $Y=\left<\varphi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>,\sigma(\boldsymbol{v},\boldsymbol{w})=\varphi_{\boldsymbol{v}}\otimes\psi_{\boldsymbol{w}}$, 其中 $\varphi_{\boldsymbol{v}},\psi_{\boldsymbol{w}}$ 的定义见定义 \ref{d1.2}. 有
     \begin{center}
         \begin{tikzcd}
             V\times W \arrow[rd, "\sigma"] \arrow[r, "\tau"] & Z \arrow[d, "\xi"] \\
-            & \left<\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>
+            & \left<\varphi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\right>
         \end{tikzcd}.
     \end{center}
 
-    $\because\{\boldsymbol{v}_i|i\in I\},\{\boldsymbol{w}_j|j\in J\}$ 分别是 $V,W$ 的一个基, $\therefore\{\phi_{\boldsymbol{v}_i}|i\in I\},\{\psi_{\boldsymbol{w}_j}|j\in J\}$ 线性无关.
+    $\because\{\boldsymbol{v}_i|i\in I\},\{\boldsymbol{w}_j|j\in J\}$ 分别是 $V,W$ 的一个基, $\therefore\{\varphi_{\boldsymbol{v}_i}|i\in I\},\{\psi_{\boldsymbol{w}_j}|j\in J\}$ 线性无关.
     
-    $\therefore\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}=\{\phi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\}$ 线性无关, 与 $\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关矛盾.
+    $\therefore\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}=\{\varphi_{\boldsymbol{v}_i}\otimes\psi_{\boldsymbol{w}_j}|i\in I,j\in J\}$ 线性无关, 与 $\{\sigma(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性相关矛盾.
 
     $\therefore\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 线性无关. $\therefore\{\tau(\boldsymbol{v}_i,\boldsymbol{w}_j)|i\in I,j\in J\}$ 是 $Z$ 的一个基.
 \end{proof}
@@ -707,10 +707,10 @@ $\because\mathbb{T}_1^0(V)=V^*,\mathbb{T}_2^0=V^*\otimes V^*,\cdots$, $\therefor
     \end{array},\]
     是线性空间的同构.
 
-    对 $\phi=(\phi_0,\phi_1,\cdots),\psi=(\psi_0,\psi_1,\cdots)\in\bigoplus\limits_{i=0}^\infty W_i(V),$ 定义
-    \[\phi\cdot\psi=(\eta_0,\eta_1,\cdots),\quad\eta_k:\boldsymbol{x}\mapsto\sum\limits_{i+j=k}\phi_i(\boldsymbol{x})\psi_j(\boldsymbol{x}).\]
+    对 $\varphi=(\varphi_0,\varphi_1,\cdots),\psi=(\psi_0,\psi_1,\cdots)\in\bigoplus\limits_{i=0}^\infty W_i(V),$ 定义
+    \[\varphi\cdot\psi=(\eta_0,\eta_1,\cdots),\quad\eta_k:\boldsymbol{x}\mapsto\sum\limits_{i+j=k}\varphi_i(\boldsymbol{x})\psi_j(\boldsymbol{x}).\]
 
-    设 $f=(f_0,f_1,f_2,\cdots),g=(g_0,g_1,g_2,\cdots)\in S(V^*),\phi=\sigma(f),\psi=\sigma(g),f\cdot g=(h_0,h_1,h_2,\cdots)$, 则 $\sigma(f\cdot g)$ 的第 $k$ 项为
+    设 $f=(f_0,f_1,f_2,\cdots),g=(g_0,g_1,g_2,\cdots)\in S(V^*),\varphi=\sigma(f),\psi=\sigma(g),f\cdot g=(h_0,h_1,h_2,\cdots)$, 则 $\sigma(f\cdot g)$ 的第 $k$ 项为
     \begin{align*}
         \boldsymbol{x}\mapsto\sum\limits_{i+j=k}f_i(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{i\text{个}\boldsymbol{x}})g_j(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{j\text{个}\boldsymbol{x}}) & =\sum\limits_{i+j=k}(f_i\otimes g_j)(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{k\text{个}\boldsymbol{x}}) \\
         & =\sum\limits_{i+j=k}S(f_i\otimes g_j)(\underbrace{\boldsymbol{x},\cdots,\boldsymbol{x}}_{k\text{个}\boldsymbol{x}}) \\
@@ -1062,9 +1062,9 @@ $\therefore A^2=A$.
     设 $\dim V>1,\dim W>1$, 试说明, $\exists f\in V\otimes W,f$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
 \end{exercise}
 \begin{solution}
-    由定理 \ref{t1.4} 的证明得(沿用定理 \ref{t1.4} 证明的记号), 当 $r>2$ 时 $\phi$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
+    由定理 \ref{t1.4} 的证明得(沿用定理 \ref{t1.4} 证明的记号), 当 $r>2$ 时 $\varphi$ 不能被写成 $\boldsymbol{v}\otimes\boldsymbol{w}$ 的形式.
     
-    事实上, 假设 $\phi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\phi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\rank A=1$, 与 $r>2$ 矛盾.
+    事实上, 假设 $\varphi=\boldsymbol{v}\otimes\boldsymbol{w},\boldsymbol{v}(f)=(a_1,a_2,\cdots,a_n)X,\boldsymbol{w}(g)=(b_1,b_2,\cdots,b_m)Y$, 则 $\varphi(f,g)=(a_1,a_2,\cdots,a_n)X{}^tY[b_1,b_2,\cdots,b_m]$, $\therefore A=X{}^tY,\rank A=1$, 与 $r>2$ 矛盾.
 \end{solution}
 \begin{exercise}% 1.5
     设 $A,B$ 是可逆方阵, 试给出 $A\otimes B$ 的逆矩阵.

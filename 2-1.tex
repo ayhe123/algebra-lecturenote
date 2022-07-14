@@ -38,7 +38,7 @@ $\therefore AB=E,\therefore A$ 可逆.
 进一步, 有
 \begin{theorem}\label{t1.1}
     设 $V$ 的所有的基组成的集合为 $V_b$, 给定 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \gl _n(K) & \to & V_b \\
         A & \to & (\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A \\
     \end{array}\]
@@ -53,14 +53,14 @@ $\therefore AB=E,\therefore A$ 可逆.
 
     假设 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 线性相关, 则 $\exists i,\boldsymbol{e}_i'$ 可以被 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 线性表示. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 这 $n-1$ 个向量的线性组合. 这与书上的定理 2 矛盾.
 
-    $\therefore\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 线性无关, 是 $V$ 的一个基. $\therefore\phi$ 是确切定义的.
+    $\therefore\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 线性无关, 是 $V$ 的一个基. $\therefore\varphi$ 是确切定义的.
 
-    由前面的讨论得, $\forall(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')\in V_b,\exists$ 可逆矩阵 $A$ 使得 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A.\therefore\phi$ 是满射.
+    由前面的讨论得, $\forall(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')\in V_b,\exists$ 可逆矩阵 $A$ 使得 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A.\therefore\varphi$ 是满射.
 
-    设 $\phi(A)=\phi(B)$, 则 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)(A-B)=\boldsymbol{0}$. 设 $A=(a_{ij}),B=(b_{ij})$, 则
+    设 $\varphi(A)=\varphi(B)$, 则 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)(A-B)=\boldsymbol{0}$. 设 $A=(a_{ij}),B=(b_{ij})$, 则
     \[(a_{1j}-b_{1j})\boldsymbol{e}_1+(a_{2j}-b_{2j})\boldsymbol{e}_2+\cdots+(a_{nj}-b_{nj})\boldsymbol{e}_n=\boldsymbol{0},\quad j=1,2,\cdots,n.\]
 
-    $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 线性无关, $\therefore a_{ij}-b_{ij}=0,\therefore A=B,\phi$ 是单射.
+    $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 线性无关, $\therefore a_{ij}-b_{ij}=0,\therefore A=B,\varphi$ 是单射.
 \end{proof}
 
 设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 和 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 是不同的两个基, $\boldsymbol{u}\in V$ 满足
@@ -181,29 +181,29 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
 \subsection{线性空间的同构}
 由书上的定理 5, 同构实际上是线性映射. 有几个简单的性质.
 \begin{property}
-    设 $\phi:U\to V,\psi:V\to W$ 是线性映射, 则 $\psi\circ\phi$ 也是线性映射. 特别地, 同构的合成也是同构.
+    设 $\varphi:U\to V,\psi:V\to W$ 是线性映射, 则 $\psi\circ\varphi$ 也是线性映射. 特别地, 同构的合成也是同构.
 \end{property}
 \begin{proof}
     由定义,
     \begin{align*}
-        \psi(\phi(\alpha\boldsymbol{x}+\beta\boldsymbol{y})) & =\psi(\alpha\phi(\boldsymbol{x})+\beta\phi(\boldsymbol{y})) \\
-        & =\alpha\psi(\phi(\boldsymbol{x}))+\beta\psi(\phi(\boldsymbol{y})).\qedhere
+        \psi(\varphi(\alpha\boldsymbol{x}+\beta\boldsymbol{y})) & =\psi(\alpha\varphi(\boldsymbol{x})+\beta\varphi(\boldsymbol{y})) \\
+        & =\alpha\psi(\varphi(\boldsymbol{x}))+\beta\psi(\varphi(\boldsymbol{y})).\qedhere
     \end{align*}
 \end{proof}
 \begin{property}
-    设 $\phi:U\to V$ 是同构, 则 $\phi^{-1}$ 也是同构.
+    设 $\varphi:U\to V$ 是同构, 则 $\varphi^{-1}$ 也是同构.
 \end{property}
 \begin{proof}
-    $\because\phi$ 是双射, $\therefore\phi^{-1}$ 是双射.
+    $\because\varphi$ 是双射, $\therefore\varphi^{-1}$ 是双射.
 
     $\because$
-    \[\phi(\alpha\boldsymbol{x}+\beta\boldsymbol{y})=\alpha\phi(\boldsymbol{x})+\beta\phi(\boldsymbol{y}),\]
+    \[\varphi(\alpha\boldsymbol{x}+\beta\boldsymbol{y})=\alpha\varphi(\boldsymbol{x})+\beta\varphi(\boldsymbol{y}),\]
 
     $\therefore$
-    \[\alpha\boldsymbol{x}+\beta\boldsymbol{y}=\phi^{-1}(\alpha\phi(\boldsymbol{x})+\beta\phi(\boldsymbol{y})).\]
+    \[\alpha\boldsymbol{x}+\beta\boldsymbol{y}=\varphi^{-1}(\alpha\varphi(\boldsymbol{x})+\beta\varphi(\boldsymbol{y})).\]
 
-    令 $\boldsymbol{u}=\phi(\boldsymbol{x}),\boldsymbol{v}=\phi(\boldsymbol{y})$, 则 $\boldsymbol{x}=\phi^{-1}(\boldsymbol{u}),\boldsymbol{y}=\phi^{-1}(\boldsymbol{v})$,
-    \[\alpha\phi^{-1}(\boldsymbol{u})+\beta\phi^{-1}(\boldsymbol{v})=\phi^{-1}(\alpha\boldsymbol{u}+\beta\boldsymbol{v}).\]
+    令 $\boldsymbol{u}=\varphi(\boldsymbol{x}),\boldsymbol{v}=\varphi(\boldsymbol{y})$, 则 $\boldsymbol{x}=\varphi^{-1}(\boldsymbol{u}),\boldsymbol{y}=\varphi^{-1}(\boldsymbol{v})$,
+    \[\alpha\varphi^{-1}(\boldsymbol{u})+\beta\varphi^{-1}(\boldsymbol{v})=\varphi^{-1}(\alpha\boldsymbol{u}+\beta\boldsymbol{v}).\]
 \end{proof}
 类似于有限集合中的双射, 有:
 \begin{theorem}\label{t1.5}
@@ -276,18 +276,18 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
 \end{proof}
 \begin{theorem}[书上的定理 10]
     设 $U\oplus W=V$, 则映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         W & \to & V/U \\
         \boldsymbol{x} & \to & \bar{\boldsymbol{x}} \\
     \end{array}\]
     是同构.
 \end{theorem}
 \begin{proof}
-    由性质 \ref{p1.3}(2) 得 $\phi$ 是确切定义的.
+    由性质 \ref{p1.3}(2) 得 $\varphi$ 是确切定义的.
     
     由性质 \ref{p1.3}(1), $\bar{\boldsymbol{x}}=\bar{\boldsymbol{y}}\Leftrightarrow\boldsymbol{x}-\boldsymbol{y}\in U.\because\boldsymbol{x}-\boldsymbol{y}\in W,\therefore\boldsymbol{x}-\boldsymbol{y}\in U\cap W$.
 
-    $\because U\oplus W=V$, 由定理 \ref{t1.4} 的证明得 $U\cap W=\{\boldsymbol{0}\},\therefore\boldsymbol{x}-\boldsymbol{y}=\boldsymbol{0},\boldsymbol{x}=\boldsymbol{y}.\therefore\phi$ 是单射.
+    $\because U\oplus W=V$, 由定理 \ref{t1.4} 的证明得 $U\cap W=\{\boldsymbol{0}\},\therefore\boldsymbol{x}-\boldsymbol{y}=\boldsymbol{0},\boldsymbol{x}=\boldsymbol{y}.\therefore\varphi$ 是单射.
 
     $\because U\oplus W=V,\therefore\forall\boldsymbol{y}\in V,\exists\boldsymbol{u}\in U,\boldsymbol{w}\in W$ 使得 $\boldsymbol{y}=\boldsymbol{u}+\boldsymbol{w}\Rightarrow\bar{\boldsymbol{y}}=\bar{\boldsymbol{u}}+\bar{\boldsymbol{w}}$.
 
@@ -295,9 +295,9 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
 
     $\therefore\bar{\boldsymbol{u}}+\bar{\boldsymbol{w}}=\bar{\boldsymbol{0}}+\bar{\boldsymbol{w}}=\bar{\boldsymbol{w}}$.
     
-    $\therefore\exists\boldsymbol{w}\in W$ 使得 $\boldsymbol{y}=\phi(\boldsymbol{w}).\therefore\phi$ 是满射.
+    $\therefore\exists\boldsymbol{w}\in W$ 使得 $\boldsymbol{y}=\varphi(\boldsymbol{w}).\therefore\varphi$ 是满射.
     
-    由陪集运算的定义得 $\phi$ 是同构.
+    由陪集运算的定义得 $\varphi$ 是同构.
 \end{proof}
 设 $U$ 是 $V$ 的子空间. 当 $\dim V=\infty$ 时, 书上对于 $\operatorname{codim}U$ 的定义没有意义. 这时可以令 $\operatorname{codim}U=\dim V/U$.
 \subsection{一些例子}
@@ -345,14 +345,14 @@ $\therefore f$ 只由其在基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsy
 $\therefore f$ 是线性函数. $\therefore$ 在线性函数全体 $V^*\in K^V$ 和 $K^n$ 间可以建立双射:
 \begin{theorem}\label{t2.1}
     给定一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         V^* & \to & K^n \\
         f & \to & (f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n)) \\
     \end{array}.\]
     是双射.
 \end{theorem}
 \begin{proof}
-    由式 (\ref{eq2.1}) 得若 $f(\boldsymbol{e}_i)=0$, 则 $\forall\boldsymbol{x},f(\boldsymbol{x})=0$, 即 $\ker\phi=\{0\}.\therefore\phi$ 是单射. 由式 (\ref{eq2.1}) 后面的讨论得 $f$ 是满射. 
+    由式 (\ref{eq2.1}) 得若 $f(\boldsymbol{e}_i)=0$, 则 $\forall\boldsymbol{x},f(\boldsymbol{x})=0$, 即 $\ker\varphi=\{0\}.\therefore\varphi$ 是单射. 由式 (\ref{eq2.1}) 后面的讨论得 $f$ 是满射. 
 \end{proof}
 
 与之类似的看法在数学中很常见. 比如说生成函数([BAI] 第 5 章习题 3.6)就是将幂级数与数列等同起来.
@@ -422,7 +422,7 @@ $\therefore$
 
     假设 $\boldsymbol{x}\neq\boldsymbol{0}$, 可以将 $f$ 扩充为 $V$ 的一个基 $\boldsymbol{x},\boldsymbol{x}_2,\cdots,\boldsymbol{x}_n$.
     
-    由定理 \ref{t2.1} (沿用定理中 $\phi$ 的记号), $\exists f$ 使得 $\phi(f)=(1,0,0,\cdots,0).\therefore\exists f$ 使得 $f(\boldsymbol{x})=1$, 与 $\forall f\in V^*,\varepsilon_{\boldsymbol{x}}(f)=f(\boldsymbol{x})=0$ 矛盾. $\therefore\boldsymbol{x}=\boldsymbol{0},\varepsilon$ 是单射.
+    由定理 \ref{t2.1} (沿用定理中 $\varphi$ 的记号), $\exists f$ 使得 $\varphi(f)=(1,0,0,\cdots,0).\therefore\exists f$ 使得 $f(\boldsymbol{x})=1$, 与 $\forall f\in V^*,\varepsilon_{\boldsymbol{x}}(f)=f(\boldsymbol{x})=0$ 矛盾. $\therefore\boldsymbol{x}=\boldsymbol{0},\varepsilon$ 是单射.
 
     由定理 \ref{t1.5} 得 $\varepsilon$ 是双射.
 \end{proof}
@@ -432,7 +432,7 @@ $\therefore$
     容易验证
     \[f_k:\begin{array}{rcl}
         V & \to & \mathbb{R} \\
-        \phi & \to & \dfrac{1}{2\pi}\int_0^{2\pi}\phi e^{-ikx}\mathrm{d}x \\
+        \varphi & \to & \dfrac{1}{2\pi}\int_0^{2\pi}\varphi e^{-ikx}\mathrm{d}x \\
     \end{array}\]
     是线性函数. 容易验证
     \[f_k(e^{imx})=\delta_{km},\quad V^*=\left<f_k|k=1,2,\cdots,n\right>.\]
@@ -1035,25 +1035,25 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     下面的直和一律指外直和.
 
     考虑映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         V_1\oplus V_2\oplus\cdots\oplus V_k & \to & (V_1+V_2)\oplus(V_2+V_3)\oplus\cdots\oplus(V_{k-1}+V_k) \\
         (\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_k) & \to & (\boldsymbol{v}_1-\boldsymbol{v}_2,\boldsymbol{v}_2-\boldsymbol{v}_3,\cdots,\boldsymbol{v}_{k-1}-\boldsymbol{v}_k) \\
     \end{array},\]
 
     则 $\dim(V_1\oplus V_2\oplus\cdots\oplus V_k)=\dim V_1+\dim V_2+\cdots+\dim V_k>n(k-1)$.
 
-    $\because\phi(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_k)=(\underbrace{\boldsymbol{0},\boldsymbol{0},\cdots,\boldsymbol{0}}_{k\text{个}\boldsymbol{0}})$ 当且仅当 $\boldsymbol{v}_1=\boldsymbol{v}_2=\cdots=\boldsymbol{v}_k$, $\therefore$
-    \[\ker\phi=\bigg\{(\underbrace{\boldsymbol{v},\boldsymbol{v},\cdots,\boldsymbol{v}}_{k-1\text{个}\boldsymbol{v}})\bigg|\boldsymbol{v}\in\bigcap\limits_{i=1}^kV_i\bigg\}.\]
+    $\because\varphi(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_k)=(\underbrace{\boldsymbol{0},\boldsymbol{0},\cdots,\boldsymbol{0}}_{k\text{个}\boldsymbol{0}})$ 当且仅当 $\boldsymbol{v}_1=\boldsymbol{v}_2=\cdots=\boldsymbol{v}_k$, $\therefore$
+    \[\ker\varphi=\bigg\{(\underbrace{\boldsymbol{v},\boldsymbol{v},\cdots,\boldsymbol{v}}_{k-1\text{个}\boldsymbol{v}})\bigg|\boldsymbol{v}\in\bigcap\limits_{i=1}^kV_i\bigg\}.\]
 
-    容易验证 $\ker\phi$ 与 $\bigcap\limits_{i=1}^kV_i$ 同构. $\therefore\dim\ker\phi=\dim\bigcap\limits_{i=1}^kV_i$.
+    容易验证 $\ker\varphi$ 与 $\bigcap\limits_{i=1}^kV_i$ 同构. $\therefore\dim\ker\varphi=\dim\bigcap\limits_{i=1}^kV_i$.
 
     由书上第 2 章第 1 节的定理 4 得
-    \[\dim\ker\phi+\dim\im \phi=\dim(V_1\oplus V_2\oplus\cdots\oplus V_k)>n(k-1).\]
+    \[\dim\ker\varphi+\dim\im \varphi=\dim(V_1\oplus V_2\oplus\cdots\oplus V_k)>n(k-1).\]
 
     $\because$
-    \[\dim\im \phi\leq\dim\bigoplus\limits_{i=1}^{k-1}(V_i+V_{i+1})=\sum\limits_{i=1}^{k-1}\dim(V_i+V_{i+1})\leq\sum\limits_{i=1}^{k-1}\dim V=n(k-1),\]
+    \[\dim\im \varphi\leq\dim\bigoplus\limits_{i=1}^{k-1}(V_i+V_{i+1})=\sum\limits_{i=1}^{k-1}\dim(V_i+V_{i+1})\leq\sum\limits_{i=1}^{k-1}\dim V=n(k-1),\]
 
-    $\therefore\dim\bigcap\limits_{i=1}^kV_i=\dim\ker\phi>0$.
+    $\therefore\dim\bigcap\limits_{i=1}^kV_i=\dim\ker\varphi>0$.
 \end{proof}
 \subsection{习题1.3}
 \stepcounter{exsection}
@@ -1101,7 +1101,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     $\therefore f(u)$ 不是线性函数.
 \end{solution}
 \begin{note}
-    用下面这段 Mathematica 代码验证 (4), 输出 $0$ 则说明 $f(mu+nv)=mf(u)+nf(v)$ (没错我又偷懒了):
+    用下面这段代码验证 (4), 输出 $0$ 则说明 $f(mu+nv)=mf(u)+nf(v)$ (没错我又偷懒了):
     \begin{verbatim}
         D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] - 
           D[a[x] (m u[x] + n v[x]), {x, 3}] // Simplify
@@ -1152,7 +1152,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 \subsection{习题1.4}
 \begin{exercisec}% 补充题1
     证明映射
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         M_n(K)\times M_n(K) & \to & K \\
         (A,B) & \to & \tr (AB) \\
     \end{array}\]
@@ -1169,25 +1169,25 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         \end{array}.\]
     容易验证 $L_A,R_A$ 是线性映射. 由第 \ref{ex3.1} 题的证明得 $\tr $ 是线性映射.
     
-    与性质 \ref{p2.1} 类似, 得 $\phi_A(X)=\phi(X,A)=\tr \circ R_A$ 和 $\phi_A'(X)=\phi(A,X)=\tr \circ L_A$ 是线性映射. $\therefore\phi$ 是双线性映射.
+    与性质 \ref{p2.1} 类似, 得 $\varphi_A(X)=\varphi(X,A)=\tr \circ R_A$ 和 $\varphi_A'(X)=\varphi(A,X)=\tr \circ L_A$ 是线性映射. $\therefore\varphi$ 是双线性映射.
 
     沿用第 \ref{ex2.2} 的证明中的记号. $E_{ij}(1\leq i,j\leq n)$ 是 $M_n(K)$ 的一个基. 将 $E_{ij}$ 排成一行:
     \[E_{11},\cdots,E_{1n},E_{21},\cdots,E_{2n},E_{31},\cdots,E_{n1},\cdots,E_{nn}.\]
 
     记 $\tilde{E}_k\ (1\leq k\leq n^2)$ 为上述序列的第 $k$ 个, 则 $\tilde{E}_k\ (1\leq k\leq n^2)$ 是 $M_n(K)$ 的一个基.
     
-    设 $F=(f_{ij})$ 是 $\phi$ 在 $\tilde{E}_k\ (1\leq k\leq n^2)$ 下的矩阵, 则
+    设 $F=(f_{ij})$ 是 $\varphi$ 在 $\tilde{E}_k\ (1\leq k\leq n^2)$ 下的矩阵, 则
     \[f_{n(i-1)+j,n(k-1)+l}=\tr (E_{ij}E_{kl}).\]
 
     $\because E_{ij}E_{kl}=\delta_{jk}E_{il},\therefore f_{n(i-1)+j,n(j-1)+i}=1,F$ 的其余元为 $0$.
 
-    $\therefore F$ 是对称矩阵, $\therefore\phi$ 是对称的双线性型.
+    $\therefore F$ 是对称矩阵, $\therefore\varphi$ 是对称的双线性型.
 
     交换 $F$ 的第 $n(i-1)+j,n(j-1)+i\ (1\leq i,j\leq n)$ 行得到单位矩阵 $E.\because$ 初等行变换不改变矩阵的秩, $\therefore\rank F=\rank E=n$.
 \end{proof}
 \begin{exercisec}% 补充题2
     设 $V=P_n(X)$ 为次数 $\leq n$ 的实多项式, 容易验证
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         V\times V & \to & \mathbb{R} \\
         (f,g) & \to & \int_{-1}^1fg\mathrm{d}x \\
     \end{array}\]

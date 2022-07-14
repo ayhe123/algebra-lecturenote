@@ -856,7 +856,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     $\because\forall i,j,i+j<2n+1\Rightarrow j/2<n-(i-1)/2$, $\therefore$ 当 $2\nmid i,2|j$ 时 $\sigma(j)=j/2<n-(i-1)/2=\sigma(i)$. $\therefore\sigma$ 的反序数为
     \[|\{(i,j):2\nmid i,2\nmid j,i<j\}|+|\{(i,j):2\nmid i,2|j,i<j\}|=\dfrac{1}{2}\left\lfloor\dfrac{n+1}{2}\right\rfloor\left\lfloor\dfrac{n+1}{2}-1\right\rfloor+\dfrac{1}{2}\left\lfloor\dfrac{n}{2}\right\rfloor\left\lfloor\dfrac{n}{2}+1\right\rfloor.\]
 
-    置换的分解现在还没想出来. 下面的 Mathematica 代码可以生成输出这 3 题的循环的交互式程序. 循环以图的形式给出, 可以方便地看出有多少个不相交的循环.
+    置换的分解现在还没想出来. 下面的代码可以生成输出这 3 题的循环的交互式程序. 循环以图的形式给出, 可以方便地看出有多少个不相交的循环.
 \begin{verbatim}
 rules[cycle_] := Thread[DirectedEdge[cycle, RotateLeft[cycle]]];
 permGraph[list_] := 
