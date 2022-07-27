@@ -418,7 +418,7 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     \end{itemize}
 \end{proposition}
 \begin{proof}
-    设 $u=(u_1,u_2,\cdots,u_n),v=(v_1,v_2,\cdots,v_n),w=(w_1,w_2,\cdots,w_n),z=(z_1,z_2,\cdots,z_n)$.
+    设 $u=(u_1,\cdots,u_n),v=(v_1,\cdots,v_n),w=(w_1,\cdots,w_n),z=(z_1,\cdots,z_n)$.
 
     (1) 由 $u_i-v_i=(u_i+w_i)-(v_i+w_i)$ 得.
 
@@ -505,8 +505,8 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 \end{theorem}
 \begin{proof}
     假设
-    \[f(X)=a_0+a_1X+\cdots+a_nX^n,\quad g(X)=b_0+b_1X+\cdots+b_mX^m,\quad a_i,b_j\in P,a_n,b_m\neq0,n\geq1\]
-    满足 $fg=1$.
+    \[f(X)=a_0+a_1X+\cdots+a_nX^n,\quad g(X)=b_0+b_1X+\cdots+b_mX^m\]
+    (其中 $a_i,b_j\in P,a_n,b_m\neq0,n\geq1$) 满足 $fg=1$.
 
     $\because n\geq1,\therefore m+n\geq1,\therefore a_nb_m=0$, 与 $P$ 中没有零因子矛盾.
 \end{proof}
@@ -1185,7 +1185,8 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     的渐近线, 即直线 $y=x$ 与 $x+y=1$.
 
-    直线 $y=x$ 与 $x+y=1$ 与 $x^2+y^2=1$ 的交点为 $\left(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right),(-1,0),\left(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right),(0,-1)$.
+    直线 $y=x$ 与 $x+y=1$ 与 $x^2+y^2=1$ 的交点为
+    \[\left(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right),\quad(-1,0),\quad\left(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right),\quad(0,-1).\]
 
     文件夹里的 \verb|1-5-5.1.ggb| 画出了曲线 $x^2-y^2+x-y=0,x^2+y^2=1$ 以及它们的交点.
 \end{solution}
@@ -1551,7 +1552,9 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     (3) 证明: $A[X]$ 是 $A[[X]]$ 的一个子环.
 \end{exercise}
 \begin{proof}
-    (1) 容易证明 $A[[X]]$ 对加法和乘法封闭, 加法和乘法是交换的. $\forall f=\sum a_iX^i\in A[[X]],\exists! g=\sum-a_iX^i\in A[[X]],f+g=0.\therefore A[[X]]$ 的加法群是 Abel 群.
+    (1) 容易证明 $A[[X]]$ 对加法和乘法封闭, 加法和乘法是交换的.
+    
+    $\forall f=\sum a_iX^i\in A[[X]],\exists! g=\sum-a_iX^i\in A[[X]],f+g=0$. $\therefore A[[X]]$ 的加法群是 Abel 群.
 
     $\because\forall f=\sum a_iX^i\in A[[X]]$
     \begin{align*}

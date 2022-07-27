@@ -51,11 +51,11 @@ $\therefore AB=E,\therefore A$ 可逆.
 
     即 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 的线性组合.
 
-    假设 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 线性相关, 则 $\exists i,\boldsymbol{e}_i'$ 可以被 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 线性表示. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 这 $n-1$ 个向量的线性组合. 这与书上的定理 2 矛盾.
+    假设 $\boldsymbol{e}_1',\cdots,\boldsymbol{e}_n'$ 线性相关, 则 $\exists i,\boldsymbol{e}_i'$ 可以被 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 线性表示. $\therefore\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\cdots,\widehat{\boldsymbol{e}_i'},\cdots,\boldsymbol{e}_n'$ 这 $n-1$ 个向量的线性组合. 这与书上的定理 2 矛盾.
 
     $\therefore\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 线性无关, 是 $V$ 的一个基. $\therefore\varphi$ 是确切定义的.
 
-    由前面的讨论得, $\forall(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')\in V_b,\exists$ 可逆矩阵 $A$ 使得 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A.\therefore\varphi$ 是满射.
+    由前面的讨论得, $\forall(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_n')\in V_b,\exists$ 可逆矩阵 $A$ 使得 $(\boldsymbol{e}_1',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n)A$. $\therefore\varphi$ 是满射.
 
     设 $\varphi(A)=\varphi(B)$, 则 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)(A-B)=\boldsymbol{0}$. 设 $A=(a_{ij}),B=(b_{ij})$, 则
     \[(a_{1j}-b_{1j})\boldsymbol{e}_1+(a_{2j}-b_{2j})\boldsymbol{e}_2+\cdots+(a_{nj}-b_{nj})\boldsymbol{e}_n=\boldsymbol{0},\quad j=1,2,\cdots,n.\]
@@ -684,7 +684,10 @@ $\because a>0,\therefore$ 上式两边乘 $a$ 得
     
     $\therefore\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U=\{0\}$.
 
-    $\therefore$ 设 $\boldsymbol{e}_n$ 是方程组的一个非零解, 假设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 线性相关, 则 $\boldsymbol{e}_n\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U$, 与 $\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U=\{0\}$ 矛盾. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 是 $V$ 的一个基, 且满足
+    $\therefore$ 设 $\boldsymbol{e}_n$ 是方程组的一个非零解, 假设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 线性相关, 则
+    \[\boldsymbol{e}_n\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U,\]
+
+    与 $\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U=\{0\}$ 矛盾. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 是 $V$ 的一个基, 且满足
     \[f(\boldsymbol{e}_i,\boldsymbol{e}_j)=0,\quad1\leq i,j\leq n.\]
     
     设
@@ -935,7 +938,9 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     \end{align*}
 \end{solution}
 \begin{exercise}% 2.6
-    设 $\theta$ 是不可约多项式 $f\in\mathbb{Q}[X]$ 的一个复根. 求域 $\mathbb{Q}$ 上的空间 $\mathbb{Q}[\theta]=\left<1,\theta,\cdots,\theta^k,\cdots\right>$ 的维数.
+    设 $\theta$ 是不可约多项式 $f\in\mathbb{Q}[X]$ 的一个复根. 求域 $\mathbb{Q}$ 上的空间
+    \[\mathbb{Q}[\theta]=\left<1,\theta,\cdots,\theta^k,\cdots\right>\]
+    的维数.
 \end{exercise}
 \begin{solution}
     设 $f(X)=a_0X^n+a_1X^{n-1}+\cdots+a_{n-1}X+a_n$, 则
@@ -1239,7 +1244,8 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 \end{exercisec}
 \begin{solution}
     \begin{align*}
-        X_1X_2+X_2^2+X_2X_3 & =\left(X_2^2+X_1X_2+X_2X_3+\dfrac{1}{4}X_1^2+\dfrac{1}{2}X_1X_3+\dfrac{1}{4}X_3^2\right)-\dfrac{1}{4}X_1^2-\dfrac{1}{4}X_3^2-\dfrac{1}{2}X_1X_3 \\
+        & X_1X_2+X_2^2+X_2X_3 \\
+        & =\left(X_2^2+X_1X_2+X_2X_3+\dfrac{1}{4}X_1^2+\dfrac{1}{2}X_1X_3+\dfrac{1}{4}X_3^2\right)-\dfrac{1}{4}X_1^2-\dfrac{1}{4}X_3^2-\dfrac{1}{2}X_1X_3 \\
         & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\dfrac{1}{4}(X_1^2+X_3^2+2X_1X_3) \\
         & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\left(\dfrac{X_1+X_3}{2}\right)^2.
     \end{align*}
@@ -1346,12 +1352,14 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         & =(x_1+x_2+x_3)(y_1+y_2+y_3),
     \end{align*}
     \begin{align*}
-        z_1+\varepsilon z_2+\varepsilon^2z_3 & =x_1y_1+x_2y_3+x_3y_2+\varepsilon(x_1y_2+x_2y_1+x_3y_3)+\varepsilon^2(x_1y_3+x_3y_1+x_2y_2) \\
+        & z_1+\varepsilon z_2+\varepsilon^2z_3 \\
+        & =x_1y_1+x_2y_3+x_3y_2+\varepsilon(x_1y_2+x_2y_1+x_3y_3)+\varepsilon^2(x_1y_3+x_3y_1+x_2y_2) \\
         & =x_1y_1+\varepsilon(x_1y_2+x_2y_1)+\varepsilon^2(x_1y_3+x_2y_2+x_3y_1)+\varepsilon^3(x_2y_3+x_3y_2)+\varepsilon^4x_3y_3 \\
         & =(x_1+\varepsilon x_2+\varepsilon^2x_3)(y_1+\varepsilon y_2+\varepsilon^2y_3),
     \end{align*}
     \begin{align*}
-        z_1+\varepsilon^2z_2+\varepsilon z_3 & =x_1y_1+x_2y_3+x_3y_2+\varepsilon^2(x_1y_2+x_2y_1+x_3y_3)+\varepsilon(x_1y_3+x_3y_1+x_2y_2) \\
+        & z_1+\varepsilon^2z_2+\varepsilon z_3 \\
+        & =x_1y_1+x_2y_3+x_3y_2+\varepsilon^2(x_1y_2+x_2y_1+x_3y_3)+\varepsilon(x_1y_3+x_3y_1+x_2y_2) \\
         & =x_1y_1+\varepsilon^2(x_1y_2+x_2y_1+x_3y_3)+\varepsilon(x_1y_3+x_2y_2+x_3y_1)+\varepsilon^3(x_2y_3+x_3y_2)+\varepsilon^4x_2y_2 \\
         & =(x_1+\varepsilon^2x_2+\varepsilon x_3)(y_1+\varepsilon^2y_2+\varepsilon y_3),
     \end{align*}
@@ -1482,7 +1490,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         & =\sum\limits_{k=1}^ra_{ki}a_{kj}.
     \end{align*}
 
-    考虑 $F$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下对应的二次型在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$ 上的限制的矩阵 $\overline{F}=(\bar{f}_{ij}).\because r\leq n-1,\therefore$
+    考虑 $F$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下对应的二次型在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$ 上的限制的矩阵 $\overline{F}=(\bar{f}_{ij})$. $\because r\leq n-1$, $\therefore$
     \[\bar{f}_{ij}=f_{ij}=\sum\limits_{k=1}^ra_{ki}a_{kj},\quad1\leq i,j\leq n-1.\]
 
     $\therefore$

@@ -429,7 +429,8 @@ $\therefore\rank A_f=\dim\im f$.
         & =\mathcal{A}\mathcal{B}\mathcal{C}-\mathcal{A}\mathcal{C}\mathcal{B}-\mathcal{B}\mathcal{C}\mathcal{A}+\mathcal{C}\mathcal{B}\mathcal{A}.
     \end{align*}
     \begin{align*}
-        [\mathcal{A},[\mathcal{B},\mathcal{C}]]+[\mathcal{B},[\mathcal{C},\mathcal{A}]]+[\mathcal{C},[\mathcal{A},\mathcal{B}]] & =\mathcal{A}\mathcal{B}\mathcal{C}-\mathcal{A}\mathcal{C}\mathcal{B}-\mathcal{B}\mathcal{C}\mathcal{A}+\mathcal{C}\mathcal{B}\mathcal{A}+\mathcal{B}\mathcal{C}\mathcal{A}-\mathcal{B}\mathcal{A}\mathcal{C}-\mathcal{C}\mathcal{A}\mathcal{B}+\mathcal{A}\mathcal{C}\mathcal{B} \\
+        & [\mathcal{A},[\mathcal{B},\mathcal{C}]]+[\mathcal{B},[\mathcal{C},\mathcal{A}]]+[\mathcal{C},[\mathcal{A},\mathcal{B}]] \\
+        & =\mathcal{A}\mathcal{B}\mathcal{C}-\mathcal{A}\mathcal{C}\mathcal{B}-\mathcal{B}\mathcal{C}\mathcal{A}+\mathcal{C}\mathcal{B}\mathcal{A}+\mathcal{B}\mathcal{C}\mathcal{A}-\mathcal{B}\mathcal{A}\mathcal{C}-\mathcal{C}\mathcal{A}\mathcal{B}+\mathcal{A}\mathcal{C}\mathcal{B} \\
         & +\mathcal{C}\mathcal{A}\mathcal{B}-\mathcal{C}\mathcal{B}\mathcal{A}-\mathcal{A}\mathcal{B}\mathcal{C}+\mathcal{B}\mathcal{A}\mathcal{C} \\
         & =\mathcal{O},
     \end{align*}
@@ -546,13 +547,19 @@ $\therefore\mathcal{A}$ 在基 $\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n$ 下的
     ($\Rightarrow$) 设 $\mathcal{A}_U$ 在 $U$ 的某个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 上的矩阵为 $A$. 设 $A_1\in M_r(K)$. 则
     \[V=\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>\oplus\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>.\]
 
-    由 $A$ 的形式得 $\mathcal{A}\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>,\mathcal{A}\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>\in\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>$.
-    
+    由 $A$ 的形式得
+    \[\mathcal{A}\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>,\]
+    \[\mathcal{A}\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>\in\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>.\]
+
     $\therefore\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\right>,\left<\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\right>$ 是 $\mathcal{A}$ 的两个不变子空间.
 
     ($\Leftarrow$) 考虑 $\mathcal{A}$ 在 $U$ 上的限制 $\mathcal{A}_U$ 和 $\mathcal{A}$ 在 $W$ 上的限制 $\mathcal{A}_W$.
 
-    设 $\mathcal{A}_U$ 在 $U$ 的某个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r$ 上的矩阵为 $A_1=(a_{ij})$, $\mathcal{A}_W$ 在 $W$ 的某个基 $\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n$ 上的矩阵为 $A_2=(b_{ij})$, $\therefore$
+    设 $\mathcal{A}_U$ 在 $U$ 的某个基
+    \[\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_r\]
+    上的矩阵为 $A_1=(a_{ij})$, $\mathcal{A}_W$ 在 $W$ 的某个基
+    \[\boldsymbol{e}_{r+1},\boldsymbol{e}_{r+2},\cdots,\boldsymbol{e}_n\]
+    上的矩阵为 $A_2=(b_{ij})$, $\therefore$
     \[\mathcal{A}\boldsymbol{e}_j=\begin{cases}
         \mathcal{A}_U\boldsymbol{e}_j=a_{1j}\boldsymbol{e}_1+a_{2j}\boldsymbol{e}_2+\cdots+a_{rj}\boldsymbol{e}_r, & j\leq r, \\
         \mathcal{A}_V\boldsymbol{e}_j=b_{1j}\boldsymbol{e}_{r+1}+b_{2j}\boldsymbol{e}_{r+2}+\cdots+b_{n-r,j}\boldsymbol{e}_n, & j>r. \\
@@ -647,13 +654,7 @@ $\therefore\mathcal{A}$ 在基 $\boldsymbol{e}_1,\cdots,\boldsymbol{e}_n$ 下的
 \end{theorem}
 \begin{proof}
     $\forall f\in V^*,\boldsymbol{x}\in V$,
-    \begin{align*}
-        ((\mathcal{AB})^*f,\boldsymbol{x}) & =(f,\mathcal{AB}\boldsymbol{x}) \\
-        & =(f,\mathcal{A}(\mathcal{B}\boldsymbol{x})) \\
-        & =(\mathcal{A}^*f,\mathcal{B}\boldsymbol{x}) \\
-        & =(\mathcal{B}^*(\mathcal{A}^*f),\boldsymbol{x}) \\
-        & =(\mathcal{B}^*\mathcal{A}^*f,\boldsymbol{x}).
-    \end{align*}
+    \[((\mathcal{AB})^*f,\boldsymbol{x})=(f,\mathcal{AB}\boldsymbol{x})=(f,\mathcal{A}(\mathcal{B}\boldsymbol{x}))=(\mathcal{A}^*f,\mathcal{B}\boldsymbol{x})=(\mathcal{B}^*(\mathcal{A}^*f),\boldsymbol{x})=(\mathcal{B}^*\mathcal{A}^*f,\boldsymbol{x}).\qedhere\]
 \end{proof}
 \section{Jordan 标准型 (对应第 4 节)}
 \subsection{一些证明}
@@ -1537,7 +1538,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     由书上的定理 3 得
     \begin{align*}
-        \chi_A(t) & =\chi_{C^{-1}AC}(t) \\
+        & \chi_A(t) \\
+        & =\chi_{C^{-1}AC}(t) \\
         & =(\lambda-(a_0+a_1+a_2))(\lambda-(a_0+a_1e^{2\pi i/3}+a_2e^{-2\pi i/3}))(\lambda-(a_0+a_1e^{-2\pi i/3}+a_2e^{2\pi i/3})).
     \end{align*}
 
@@ -1561,7 +1563,10 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 
     设 $B=\diag (\theta_1,\theta_2,\cdots,\theta_n)A$, 则 $A=\diag (\theta_1',\theta_2',\cdots,\theta_n')B$, 其中 $\theta_i\theta_i'=1\Rightarrow\theta_i'=\pm1$. $\therefore A\sim B\Rightarrow B\sim A$.
 
-    设 $A=\diag (\theta_1,\theta_2,\cdots,\theta_n)B,B=\diag (\theta_1',\theta_2',\cdots,\theta_n')C$, 则 $A=\diag (\theta_1\theta_1',\theta_2\theta_2',\cdots,\theta_n\theta_n')C$. $\therefore A\sim B,B\sim C\Rightarrow A\sim C$.
+    设 $A=\diag (\theta_1,\theta_2,\cdots,\theta_n)B,B=\diag (\theta_1',\theta_2',\cdots,\theta_n')C$, 则 
+    \[A=\diag (\theta_1\theta_1',\theta_2\theta_2',\cdots,\theta_n\theta_n')C.\]
+    
+    $\therefore A\sim B,B\sim C\Rightarrow A\sim C$.
 
     (2) $\because$
     \[S(A)=\{DA|D=\diag (\theta_1,\theta_2,\cdots,\theta_n),\theta_i=\pm1\},\]
@@ -1600,17 +1605,20 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
 \stepcounter{exercise}
 \begin{exercise}% 4.2
     精确到相似, 矩阵
-    \[A_1=\begin{pmatrix}
-        J_2(0) \\
-        & J_1(0) \\
-        && J_1(0) \\
-    \end{pmatrix},\quad A_2=\begin{pmatrix}
-        J_2(0) \\
-        & J_2(0) \\
-    \end{pmatrix},\quad A_3=\begin{pmatrix}
-        J_3(0) \\
-        & J_1(0) \\
-    \end{pmatrix},\quad A_4=J_4(0)\]
+    \begin{align*}
+        A_1 & =\begin{pmatrix}
+            J_2(0) \\
+            & J_1(0) \\
+            && J_1(0) \\
+        \end{pmatrix}, & A_2 & =\begin{pmatrix}
+            J_2(0) \\
+            & J_2(0) \\
+        \end{pmatrix}, \\
+        A_3 & =\begin{pmatrix}
+            J_3(0) \\
+            & J_1(0) \\
+        \end{pmatrix} & A_4 & =J_4(0)
+    \end{align*}
     穷尽了所有的非零 $4\times 4$ 幂零矩阵. 矩阵
     \[(1)\ \begin{pmatrix}
         0 & 0 & 0 & 0 \\
@@ -1989,7 +1997,8 @@ $\therefore(\mathcal{A}^{i-j}\boldsymbol{v}_k)$ 是 $V_{i,j}$ 的一个基, $\di
     \[XY=\begin{pmatrix}
         x_{11}y_{11}+x_{21}y_{21} & x_{11}y_{12}+x_{21}y_{22} \\
         x_{21}y_{11}+x_{22}y_{21} & x_{21}y_{12}+x_{22}y_{22} \\
-    \end{pmatrix},\quad YX=\begin{pmatrix}
+    \end{pmatrix},\]
+    \[YX=\begin{pmatrix}
         x_{11}y_{11}+x_{21}y_{21} & x_{12}y_{11}+x_{22}y_{21} \\
         x_{11}y_{21}+x_{21}y_{22} & x_{12}y_{21}+x_{22}y_{22} \\
     \end{pmatrix}.\]

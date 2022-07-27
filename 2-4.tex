@@ -8,7 +8,7 @@
 \documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
 \usepackage{lecturenote}
 \title{第4章笔记和习题}
-
+\addbibresource{reference.bib}
 \begin{document}
 \maketitle
 \section{仿射空间(对应第 1 节)}
@@ -82,8 +82,12 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
 \begin{proof}
     有
     \[\varPi_{\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}}=\dot{p}_0+\left<\overrightarrow{p_0q}|\dot{q}\in\{\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\}\right>=\dot{p}_0+\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>.\]
-
-    $\therefore\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m$ 处于一般位置 $\Leftrightarrow\dim\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>=m\Leftrightarrow\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关.
+    
+    $\therefore$
+    \begin{align*}
+        \dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m\text{处于一般位置} & \Leftrightarrow\dim\left<\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_m}\right>=m \\
+        & \Leftrightarrow\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}\text{线性无关}.
+    \end{align*}
 \end{proof}
 与线性包络类似, 有
 \begin{theorem}
@@ -141,7 +145,9 @@ $\mathbb{A}$ 中的两个点可以进行减法运算, 下面的定理说明: 点
     \end{array}\]
     是确切定义的, 且满足 $f(\dot{p}_i)=\dot{p}_i',\ i=0,1,2,\cdots,n$.
     
-    $\because\dot{p}_0,\cdots,\dot{p}_n$ 是 $\mathbb{A}$ 的一个重心坐标系, $\therefore\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关. 设 $\boldsymbol{v}=\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}$, 则
+    $\because\dot{p}_0,\cdots,\dot{p}_n$ 是 $\mathbb{A}$ 的一个重心坐标系, $\therefore\overrightarrow{p_0p_1},\overrightarrow{p_0p_2},\cdots,\overrightarrow{p_0p_n}$ 线性无关.
+    
+    设 $\boldsymbol{v}=\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}$, 则
     \[\dot{p}+\boldsymbol{v}=\sum\limits_{i=0}^n\alpha_i\dot{p}_i+\sum\limits_{i=1}^n\lambda_i\overrightarrow{p_0p_i}.\]
 
     设 $\beta_0=\alpha_0-\sum\limits_{i=1}^n\lambda_i,\beta_j=\alpha_j+\lambda_j,\ j=1,2,\cdots,n$, 则 $\sum\limits_{i=0}^n\beta_i=1$,
@@ -318,7 +324,10 @@ $\because$ 对 $\varphi_{\alpha,\beta},\varphi_{\sigma,\tau}\in\aff (K)$,
 
 $\therefore\varphi_{\alpha,\beta}\varphi_{\sigma,\tau}=\varphi_{\alpha\sigma,\alpha\tau+\beta}\in\aff (K)$.
 
-$\because\varphi_{1,0}=e,\forall\varphi_{\alpha,\beta}\in\aff (K),\exists\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\in\aff (K)$ 使得 $\varphi_{\alpha,\beta}\varphi_{\alpha^{-1},-\alpha^{-1}\beta}=\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\varphi_{\alpha,\beta}=\varphi_{1,0}$, $\therefore\aff (K)$ 是群.
+$\because\varphi_{1,0}=e,\forall\varphi_{\alpha,\beta}\in\aff (K),\exists\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\in\aff (K)$ 使得
+\[\varphi_{\alpha,\beta}\varphi_{\alpha^{-1},-\alpha^{-1}\beta}=\varphi_{\alpha^{-1},-\alpha^{-1}\beta}\varphi_{\alpha,\beta}=\varphi_{1,0},\]
+
+$\therefore\aff(K)$ 是群.
 
 考察 $\aff (K)$ 的子集 $\{\varphi_{1,\beta}|\beta\in K\}$. 有
 \[\varphi_{1,\beta}\varphi_{1,\gamma}=\varphi_{1,\beta+\gamma}.\]
@@ -546,7 +555,8 @@ Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距�
     将 $\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\},\{\dot{q}_1,\dot{q}_2,\cdots,\dot{q}_m\}$ 分别扩充为 $(\mathbb{A},V)$ 的两个处于一般位置的点组
     \[\{\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\},\quad\{\dot{q}_1,\dot{q}_2,\cdots,\dot{q}_n\}.\]
 
-    由定理 \ref{t1.7} 得 $\exists!$ 仿射映射 $f,g,e$ 使得 $e(\dot{p}_i)=\dot{p}_i,f(\dot{p}_i)=\dot{q}_i,g(\dot{q}_i)=\dot{p}_i\ (i=0,1,2,\cdots,n)$.
+    由定理 \ref{t1.7} 得 $\exists!$ 仿射映射 $f,g,e$ 使得
+    \[e(\dot{p}_i)=\dot{p}_i,f(\dot{p}_i)=\dot{q}_i,g(\dot{q}_i)=\dot{p}_i\ (i=0,1,2,\cdots,n).\]
 
     $\because fg(\dot{p}_i)=gf(\dot{p}_i)=\dot{p}_i$, $\therefore fg=gf=e$. $\therefore f\in\aff (\mathbb{A})$.
 \end{proof}
@@ -643,11 +653,15 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
     \[\left\{\sum\limits_{i=1}^m\lambda_i\dot{p}_i\Bigg|\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\in\mathbb{A}\text{处于一般位置},\lambda_i>0,\sum\limits_{i=1}^m\lambda_i=1\right\}\]
     的集合为\textbf{(开)单纯形}(simplex), 记为 $\Delta(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$. 称
     \[\left\{\sum\limits_{i=1}^m\lambda_i\dot{p}_i\Bigg|\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m\in\mathbb{A}\text{处于一般位置},\lambda_i\geq0,\sum\limits_{i=1}^m\lambda_i=1\right\}\]
-    的集合为\textbf{闭单纯形}(closed simplex), 记为 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$. 称 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m$ 为 $\Delta(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 或 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 的\textbf{顶点}.
+    的集合为\textbf{闭单纯形}(closed simplex), 记为 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$.
+    
+    称 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m$ 为 $\Delta(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 或 $\overline{\Delta}(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_m)$ 的\textbf{顶点}.
 \end{definition}
 书上忽略了处于一般位置的条件. 在拓扑中不处于处于一般位置的点按上述规则构成的图形可能会非常复杂.
 \begin{theorem}[书上定理 12 后半部分的加强命题]
-    两个单纯形 $\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$ 在仿射几何中是可叠合的当且仅当 $m=m'$.
+    两个单纯形
+    \[\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m),\quad\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\]
+    在仿射几何中是可叠合的当且仅当 $m=m'$.
 \end{theorem}
 \begin{proof}
     ($\Rightarrow$) 假设 $m>m'$. 则 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}'$ 可以扩充为 $m+1$ 个处于一般位置的点组 $\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_m'$.
@@ -664,7 +678,8 @@ $\therefore f(\Delta)$ 的体积 $S_{f(\Delta)}=|\det BA|=|\det B||\det A|$. 这
     由书上第 1 节的命题 2(i) 得
     \[f\left(\sum\limits_{i=1}^m\lambda_i\dot{p}_i\right)=\sum\limits_{i=1}^m\lambda_if(\dot{p}_i),\quad\lambda_i\geq0,\quad\sum\limits_{i=1}^m\lambda_i=1.\]
 
-    $\because\sum\limits_{i=1}^m\lambda_i\dot{p}_i\in\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)$, $\therefore\sum\limits_{i=m'+1}^m\lambda_if(\dot{p}_i)\in\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\subset A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
+    $\because\sum\limits_{i=1}^m\lambda_i\dot{p}_i\in\overline{\Delta}(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m)$, $\therefore$
+    \[\sum\limits_{i=m'+1}^m\lambda_if(\dot{p}_i)\in\overline{\Delta}(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\subset A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\]
 
     特别地, $f(\dot{p}_i)\in A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')\Rightarrow f(A(\dot{p}_0,\dot{p}_1,\cdots,\dot{p}_m))\in A(\dot{p}_0',\dot{p}_1',\cdots,\dot{p}_{m'}')$.
     
@@ -835,7 +850,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     $\because(\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n)$ 是 $n$ 维仿射空间 $\mathbb{A}$ 的坐标系, $\therefore\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n$ 给出 $\mathbb{A}$ 的一个重心坐标系. 由定理 \ref{t1.7} 得.
 \end{proof}
 \begin{exercise}% 1.4
-    证明: 点 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\in\mathbb{A}$ 的有限多个重心组合的重心组合仍然是点 $\dot{p}_1,\dot{p}_2,\cdots,\dot{p}_n\in\mathbb{A}$ 的重心组合.
+    证明: 点 $\dot{p}_1,\cdots,\dot{p}_n\in\mathbb{A}$ 的有限多个重心组合的重心组合仍然是点 $\dot{p}_1,\cdots,\dot{p}_n\in\mathbb{A}$ 的重心组合.
 \end{exercise}
 \begin{proof}
     设
@@ -970,7 +985,10 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     \[\dot{p}\dot{r}=\|\overrightarrow{pr}\|=6.\]
 \end{solution}
 \begin{exercise}% 2.2
-    给定 $(\mathbb{A},\mathbb{R}^5)$ 的坐标系 $\{\dot{o};[1,0,0,0,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,1,0],[0,0,0,0,1]\}$. 求出平面
+    给定 $(\mathbb{A},\mathbb{R}^5)$ 的坐标系
+    \[\{\dot{o};[1,0,0,0,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,1,0],[0,0,0,0,1]\}.\]
+    
+    求出平面
     \[\varPi_1:\begin{cases}
         x_1+x_3+x_4-2x_5-2=0, \\
         x_2+x_3-x_4-x_5-3=0, \\
@@ -1171,7 +1189,9 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 
     其中 $G_{m,i}$ 是 $G_{(m)}$ 去掉第 $m$ 行第 $i$ 列的矩阵.
     
-    设 $G_{m,i}'\ (i=1,2,\cdots,m-1)$ 是将 $G_{(m-1)}$ 的第 $i$ 列替换为 $[(\boldsymbol{e}_1|\boldsymbol{e}_m),(\boldsymbol{e}_2|\boldsymbol{e}_m),\cdots,(\boldsymbol{e}_m|\boldsymbol{e}_m)]$ 得到的矩阵, 则 $\det G_{m,i}'=(-1)^{m-1-i}\det G_{m,i}$,
+    设 $G_{m,i}'\ (i=1,2,\cdots,m-1)$ 是将 $G_{(m-1)}$ 的第 $i$ 列替换为
+    \[[(\boldsymbol{e}_1|\boldsymbol{e}_m),(\boldsymbol{e}_2|\boldsymbol{e}_m),\cdots,(\boldsymbol{e}_m|\boldsymbol{e}_m)]\]
+    得到的矩阵, 则 $\det G_{m,i}'=(-1)^{m-1-i}\det G_{m,i}$,
     \begin{align*}
         \sum\limits_{i=1}^{m-1}(-1)^{m+i}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i} & =\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)(-1)^{m-i}\det G_{m,i} \\
         & =-\sum\limits_{i=1}^{m-1}(\boldsymbol{e}_m|\boldsymbol{e}_i)\det G_{m,i}' \\
@@ -1358,121 +1378,119 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \begin{exercise}% 4.2
     证明: 对于第 4 小节中定义的线性算子 $\Gamma_A$, 有 $\det\Gamma_A=1$.
 \end{exercise}
-\begin{proof}
-    这里用纯代数方法证明, 因此比较繁琐. 设
-    \[S=\{B\in\gl _2(\mathbb{C})|B^*=B\},\]
+\begin{landscape}
+    \begin{proof}
+        这里用纯代数方法证明, 因此比较繁琐. 设
+        \[S=\{B\in\gl _2(\mathbb{C})|B^*=B\},\]
+        
+        则
+        \[E_{(1)}=\begin{pmatrix}
+            1 & 0 \\
+            0 & 1 \\
+        \end{pmatrix},\quad E_{(2)}=\begin{pmatrix}
+            -1 & 0 \\
+            0 & 1 \\
+        \end{pmatrix},\quad E_{(3)}=\begin{pmatrix}
+            0 & 1 \\
+            1 & 0 \\
+        \end{pmatrix},\quad E_{(4)}=\begin{pmatrix}
+            0 & -i \\
+            i & 0 \\
+        \end{pmatrix}\]
+        是 $S$ 的一个基. 设
+        \[A=\begin{pmatrix}
+            \alpha & \beta \\
+            \gamma & \delta \\
+        \end{pmatrix}\in\slop _n(\mathbb{C}).\]
     
-    则
-    \[E_{(1)}=\begin{pmatrix}
-        1 & 0 \\
-        0 & 1 \\
-    \end{pmatrix},\quad E_{(2)}=\begin{pmatrix}
-        -1 & 0 \\
-        0 & 1 \\
-    \end{pmatrix},\quad E_{(3)}=\begin{pmatrix}
-        0 & 1 \\
-        1 & 0 \\
-    \end{pmatrix},\quad E_{(4)}=\begin{pmatrix}
-        0 & -i \\
-        i & 0 \\
-    \end{pmatrix}\]
-    是 $S$ 的一个基. 设
-    \[A=\begin{pmatrix}
-        \alpha & \beta \\
-        \gamma & \delta \\
-    \end{pmatrix}\in\slop _n(\mathbb{C}).\]
-
-    $\because$
-    \begin{align*}
-        AE_{(1)}A^* & =\begin{pmatrix}
-            |\alpha|^2+|\beta|^2 & \alpha\bar{\gamma}+\beta\bar{\delta} \\
-            \gamma\bar{\alpha}+\delta\bar{\beta} & |\gamma|^2+|\delta|^2 \\
-        \end{pmatrix} \\
-        & =\dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2}E_{(2)} \\
-        & \quad+\dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
-    \end{align*}
-    \begin{align*}
-        AE_{(2)}A^* & =\begin{pmatrix}
-            -|\alpha|^2+|\beta|^2 & -\alpha\bar{\gamma}+\beta\bar{\delta} \\
-            -\gamma\bar{\alpha}+\delta\bar{\beta} & -|\gamma|^2+|\delta|^2 \\
-        \end{pmatrix} \\
-        & =\dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2}E_{(2)} \\
-        & \quad+\dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
-    \end{align*}
-    \begin{align*}
-        AE_{(3)}A^* & =\begin{pmatrix}
-            \beta\bar{\alpha}+\alpha\bar{\beta} & \beta\bar{\gamma}+\alpha\bar{\delta} \\
-            \delta\bar{\alpha}+\gamma\bar{\beta} & \delta\bar{\gamma}+\gamma\bar{\delta} \\
-        \end{pmatrix} \\
-        & =\dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2}E_{(2)} \\
-        & \quad+\dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i}E_{(4)},
-    \end{align*}
-    \begin{align*}
-        AE_{(4)}A^* & =\begin{pmatrix}
-            i\beta\bar{\alpha}-i\alpha\bar{\beta} & i\beta\bar{\gamma}-i\alpha\bar{\delta} \\
-            i\delta\bar{\alpha}-i\gamma\bar{\beta} & i\delta\bar{\gamma}-i\gamma\bar{\delta} \\
-        \end{pmatrix} \\
-        & =\dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2}E_{(2)} \\
-        & \quad+\dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2}E_{(4)},
-    \end{align*}
-
-    $\therefore$
-    \[\Gamma_A:\begin{array}{rcl}
-        S & \to & S \\
-        P_{\boldsymbol{x}} & \to & AP_{\boldsymbol{x}}A^* \\
-    \end{array}\]
-
-    在基 $E_{(1)},E_{(2)},E_{(3)},E_{(4)}$ 下的矩阵为
-    \[\begin{pmatrix}
-        \dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2} & \dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2} & \dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2} & \dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2} \\[8pt]
-        \dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2} & \dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2} & \dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2} & \dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2} \\[8pt]
-        \dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2} & \dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2} \\[8pt]
-        \dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2} \\[8pt]
-    \end{pmatrix}.\]
-
-    进行 II 型初等列变换得
-    \[F=\begin{pmatrix}
-        \dfrac{|\alpha|^2+|\gamma|^2}{2} & |\beta|^2+|\delta|^2 & \dfrac{\alpha\bar{\beta}+\gamma\bar{\delta}}{2} & i\beta\bar{\alpha}+i\delta\bar{\gamma} \\[8pt]
-        \dfrac{|\gamma|^2-|\alpha|^2}{2} & |\delta|^2-|\beta|^2 & \dfrac{\gamma\bar{\delta}-\alpha\bar{\beta}}{2} & i\delta\bar{\gamma}-i\beta\bar{\alpha} \\[8pt]
-        \dfrac{\alpha\bar{\gamma}+\gamma\bar{\alpha}}{2} & \beta\bar{\delta}+\delta\bar{\beta} & \dfrac{\alpha\bar{\delta}+\gamma\bar{\beta}}{2} & i\beta\bar{\gamma}+i\delta\bar{\alpha} \\[8pt]
-        \dfrac{\gamma\bar{\alpha}-\alpha\bar{\gamma}}{2i} & \dfrac{\delta\bar{\beta}-\beta\bar{\delta}}{i} & \dfrac{\gamma\bar{\beta}-\alpha\bar{\delta}}{2i} & \delta\bar{\alpha}-\beta\bar{\gamma} \\[8pt]
-    \end{pmatrix}.\]
-
-    进行 III 型初等变换得
-    \begin{align*}
-        \det F & =\dfrac{1}{4}\begin{vmatrix}
-            |\alpha|^2+|\gamma|^2 & |\beta|^2+|\delta|^2 & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
-            |\gamma|^2-|\alpha|^2 & |\delta|^2-|\beta|^2 & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
-            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
-            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
-        \end{vmatrix} \\
-        & =\dfrac{1}{4}\begin{vmatrix}
-            \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
-            \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
-            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
-            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
-        \end{vmatrix}.
-    \end{align*}
-
-    进行 II 型初等行变换得
-    \begin{align*}
-        \begin{vmatrix}
-            \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
-            \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
-            \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
-            \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
-        \end{vmatrix} & =\begin{vmatrix}
-            \alpha\bar{\alpha} & \beta\bar{\beta} & \alpha\bar{\beta} & \beta\bar{\alpha} \\
-            2\gamma\bar{\gamma} & 2\delta\bar{\delta} & 2\gamma\bar{\delta} & 2\delta\bar{\gamma} \\
-            \alpha\bar{\gamma} & \beta\bar{\delta} & \alpha\bar{\delta} & \beta\bar{\gamma} \\
-            2\gamma\bar{\alpha} & 2\delta\bar{\beta} & 2\gamma\bar{\beta} & 2\delta\bar{\alpha} \\
-        \end{vmatrix} \\
-        & =4(\beta\gamma-\alpha\delta)^2(\bar{\beta}\bar{\gamma}-\bar{\alpha}\bar{\delta})^2 \\
-        & =4(\beta\gamma-\alpha\delta)^2\overline{\beta\gamma-\alpha\delta}^2=4.
-    \end{align*}
-
-    $\therefore\det\Gamma_A=1$.
-\end{proof}
+        $\because$
+        \begin{align*}
+            AE_{(1)}A^* & =\begin{pmatrix}
+                |\alpha|^2+|\beta|^2 & \alpha\bar{\gamma}+\beta\bar{\delta} \\
+                \gamma\bar{\alpha}+\delta\bar{\beta} & |\gamma|^2+|\delta|^2 \\
+            \end{pmatrix} \\
+            & =\dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2}E_{(2)}+\dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
+        \end{align*}
+        \begin{align*}
+            AE_{(2)}A^* & =\begin{pmatrix}
+                -|\alpha|^2+|\beta|^2 & -\alpha\bar{\gamma}+\beta\bar{\delta} \\
+                -\gamma\bar{\alpha}+\delta\bar{\beta} & -|\gamma|^2+|\delta|^2 \\
+            \end{pmatrix} \\
+            & =\dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2}E_{(1)}+\dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2}E_{(2)}+\dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2}E_{(3)}+\dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i}E_{(4)},
+        \end{align*}
+        \begin{align*}
+            AE_{(3)}A^* & =\begin{pmatrix}
+                \beta\bar{\alpha}+\alpha\bar{\beta} & \beta\bar{\gamma}+\alpha\bar{\delta} \\
+                \delta\bar{\alpha}+\gamma\bar{\beta} & \delta\bar{\gamma}+\gamma\bar{\delta} \\
+            \end{pmatrix} \\
+            & =\dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2}E_{(2)}+\dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i}E_{(4)},
+        \end{align*}
+        \begin{align*}
+            AE_{(4)}A^* & =\begin{pmatrix}
+                i\beta\bar{\alpha}-i\alpha\bar{\beta} & i\beta\bar{\gamma}-i\alpha\bar{\delta} \\
+                i\delta\bar{\alpha}-i\gamma\bar{\beta} & i\delta\bar{\gamma}-i\gamma\bar{\delta} \\
+            \end{pmatrix} \\
+            & =\dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2}E_{(1)}+\dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2}E_{(2)}+\dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2}E_{(3)}+\dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2}E_{(4)},
+        \end{align*}
+    
+        $\therefore$
+        \[\Gamma_A:\begin{array}{rcl}
+            S & \to & S \\
+            P_{\boldsymbol{x}} & \to & AP_{\boldsymbol{x}}A^* \\
+        \end{array}\]
+    
+        在基 $E_{(1)},E_{(2)},E_{(3)},E_{(4)}$ 下的矩阵为
+        \[\begin{pmatrix}
+            \dfrac{|\alpha|^2+|\beta|^2+|\gamma|^2+|\delta|^2}{2} & \dfrac{-|\alpha|^2+|\beta|^2-|\gamma|^2+|\delta|^2}{2} & \dfrac{\beta\bar{\alpha}+\alpha\bar{\beta}+\delta\bar{\gamma}+\gamma\bar{\delta}}{2} & \dfrac{i\beta\bar{\alpha}-i\alpha\bar{\beta}+i\delta\bar{\gamma}-i\gamma\bar{\delta}}{2} \\[8pt]
+            \dfrac{|\gamma|^2+|\delta|^2-|\alpha|^2-|\beta|^2}{2} & \dfrac{-|\gamma|^2+|\delta|^2+|\alpha|^2-|\beta|^2}{2} & \dfrac{\delta\bar{\gamma}+\gamma\bar{\delta}-\beta\bar{\alpha}-\alpha\bar{\beta}}{2} & \dfrac{i\delta\bar{\gamma}-i\gamma\bar{\delta}-i\beta\bar{\alpha}+i\alpha\bar{\beta}}{2} \\[8pt]
+            \dfrac{\alpha\bar{\gamma}+\beta\bar{\delta}+\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{-\alpha\bar{\gamma}+\beta\bar{\delta}-\gamma\bar{\alpha}+\delta\bar{\beta}}{2} & \dfrac{\beta\bar{\gamma}+\alpha\bar{\delta}+\delta\bar{\alpha}+\gamma\bar{\beta}}{2} & \dfrac{i\beta\bar{\gamma}-i\alpha\bar{\delta}+i\delta\bar{\alpha}-i\gamma\bar{\beta}}{2} \\[8pt]
+            \dfrac{\gamma\bar{\alpha}+\delta\bar{\beta}-\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{-\gamma\bar{\alpha}+\delta\bar{\beta}+\alpha\bar{\gamma}-\beta\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}+\gamma\bar{\beta}-\beta\bar{\gamma}-\alpha\bar{\delta}}{2i} & \dfrac{\delta\bar{\alpha}-\gamma\bar{\beta}-\beta\bar{\gamma}+\alpha\bar{\delta}}{2} \\[8pt]
+        \end{pmatrix}.\]
+    
+        进行 II 型初等列变换得
+        \[F=\begin{pmatrix}
+            \dfrac{|\alpha|^2+|\gamma|^2}{2} & |\beta|^2+|\delta|^2 & \dfrac{\alpha\bar{\beta}+\gamma\bar{\delta}}{2} & i\beta\bar{\alpha}+i\delta\bar{\gamma} \\[8pt]
+            \dfrac{|\gamma|^2-|\alpha|^2}{2} & |\delta|^2-|\beta|^2 & \dfrac{\gamma\bar{\delta}-\alpha\bar{\beta}}{2} & i\delta\bar{\gamma}-i\beta\bar{\alpha} \\[8pt]
+            \dfrac{\alpha\bar{\gamma}+\gamma\bar{\alpha}}{2} & \beta\bar{\delta}+\delta\bar{\beta} & \dfrac{\alpha\bar{\delta}+\gamma\bar{\beta}}{2} & i\beta\bar{\gamma}+i\delta\bar{\alpha} \\[8pt]
+            \dfrac{\gamma\bar{\alpha}-\alpha\bar{\gamma}}{2i} & \dfrac{\delta\bar{\beta}-\beta\bar{\delta}}{i} & \dfrac{\gamma\bar{\beta}-\alpha\bar{\delta}}{2i} & \delta\bar{\alpha}-\beta\bar{\gamma} \\[8pt]
+        \end{pmatrix}.\]
+    
+        进行 III 型初等变换得
+        \begin{align*}
+            \det F & =\dfrac{1}{4}\begin{vmatrix}
+                |\alpha|^2+|\gamma|^2 & |\beta|^2+|\delta|^2 & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+                |\gamma|^2-|\alpha|^2 & |\delta|^2-|\beta|^2 & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+                \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+                \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+            \end{vmatrix} \\
+            & =\dfrac{1}{4}\begin{vmatrix}
+                \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+                \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+                \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+                \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+            \end{vmatrix}.
+        \end{align*}
+    
+        进行 II 型初等行变换得
+        \begin{align*}
+            \begin{vmatrix}
+                \alpha\bar{\alpha}+\gamma\bar{\gamma} & \beta\bar{\beta}+\delta\bar{\delta} & \alpha\bar{\beta}+\gamma\bar{\delta} & \beta\bar{\alpha}+\delta\bar{\gamma} \\
+                \gamma\bar{\gamma}-\alpha\bar{\alpha} & \delta\bar{\delta}-\beta\bar{\beta} & \gamma\bar{\delta}-\alpha\bar{\beta} & \delta\bar{\gamma}-\beta\bar{\alpha} \\
+                \alpha\bar{\gamma}+\gamma\bar{\alpha} & \beta\bar{\delta}+\delta\bar{\beta} & \alpha\bar{\delta}+\gamma\bar{\beta} & \beta\bar{\gamma}+\delta\bar{\alpha} \\
+                \gamma\bar{\alpha}-\alpha\bar{\gamma} & \delta\bar{\beta}-\beta\bar{\delta} & \gamma\bar{\beta}-\alpha\bar{\delta} & \delta\bar{\alpha}-\beta\bar{\gamma} \\
+            \end{vmatrix} & =\begin{vmatrix}
+                \alpha\bar{\alpha} & \beta\bar{\beta} & \alpha\bar{\beta} & \beta\bar{\alpha} \\
+                2\gamma\bar{\gamma} & 2\delta\bar{\delta} & 2\gamma\bar{\delta} & 2\delta\bar{\gamma} \\
+                \alpha\bar{\gamma} & \beta\bar{\delta} & \alpha\bar{\delta} & \beta\bar{\gamma} \\
+                2\gamma\bar{\alpha} & 2\delta\bar{\beta} & 2\gamma\bar{\beta} & 2\delta\bar{\alpha} \\
+            \end{vmatrix} \\
+            & =4(\beta\gamma-\alpha\delta)^2(\bar{\beta}\bar{\gamma}-\bar{\alpha}\bar{\delta})^2 \\
+            & =4(\beta\gamma-\alpha\delta)^2\overline{\beta\gamma-\alpha\delta}^2=4.
+        \end{align*}
+    
+        $\therefore\det\Gamma_A=1$.
+    \end{proof}
+\end{landscape}
 \begin{note}
     最后的行列式的化简是用 Mathematica 算的, 代码如下:
     \begin{verbatim}
@@ -1483,7 +1501,5 @@ Det[{{a Conjugate[a], b Conjugate[b], a Conjugate[b], b Conjugate[a]},
     // Simplify
     \end{verbatim}
 \end{note}
-\begin{thebibliography}{99}
-    \bibitem{geometry} Michele Audin. \textit{Geometry}. Springer-Verlag Berlin Heidelberg, 2003.
-\end{thebibliography}
+\printbibliography
 \end{document}

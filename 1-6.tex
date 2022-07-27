@@ -233,7 +233,8 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     $\because g=\sum\limits_{i}f_{(i)},\therefore g$ 的系数是 $f$ 的系数的线性组合.
 \end{proof}
 \begin{lemma}\label{l2.1}
-    设 $g=g_1+\cdots+g_s\in A[X_1,\cdots,X_n]$, 则 $\ft (g)=\max\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$.
+    设 $g=g_1+\cdots+g_s\in A[X_1,\cdots,X_n]$, 则
+    \[\ft (g)=\max\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}.\]
 \end{lemma}
 \begin{proof}
     假设 $\ft (g)\notin\{\ft (g_1),\ft (g_2),\cdots,\ft (g_s)\}$, 设 $\ft (g)$ 在 $g_i$ 中, 则 $\ft (g_i)\succ\ft (g)$, 与 $\forall g$ 中的单项式 $f,\ft (g)\succ f$ 矛盾.
@@ -254,7 +255,9 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
         g(Y_1,Y_2,\cdots,Y_n) & \to & f=g(\mathbf{s}_1,\mathbf{s}_2,\cdots,\mathbf{s}_n) \\
     \end{array},\]
 
-    由 $\varphi$ 的构造得 $\varphi$ 是同态. 由书上的定理 1 证明的第 3 部分得 $\forall f\in R_1,\exists f\in A[Y_1,Y_2,\cdots,Y_n]$ 使得 $f=\varphi(g).\therefore\varphi$ 是满射.
+    由 $\varphi$ 的构造得 $\varphi$ 是同态.
+    
+    由书上的定理 1 证明的第 3 部分得 $\forall f\in R_1,\exists f\in A[Y_1,Y_2,\cdots,Y_n]$ 使得 $f=\varphi(g)$. $\therefore\varphi$ 是满射.
     
     $\therefore g$ 的唯一性等价于 $\varphi$ 是同构.
     
@@ -466,10 +469,11 @@ f = X^3 + 3 X - 1;
 lb = -10;
 ub = 10;
 changeNum[list_] := 
-    Select[list, # != 0 &] // Positive // Boole // Differences // Abs // Total;
+    Total[Abs[Differences[Boole[Positive[Select[list, # != 0 &]]]]]];
 sturm = {f, D[f, X]};
 While[! NumberQ[sturm[[-1]]], 
-    sturm = Append[sturm, -PolynomialRemainder[sturm[[-2]], sturm[[-1]], X]]];
+    sturm = Append[
+        sturm, -PolynomialRemainder[sturm[[-2]], sturm[[-1]], X]]];
 changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \end{verbatim}
 其中 \verb|changeNum[list_]| 函数用于计算列表 \verb|list| 的变号数.
@@ -493,7 +497,10 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \end{exercise}
 \begin{proof}
     (1) 用数学归纳法. $n=1$ 的情况由书上定理 3 的证明得. 假设当 $n=k$ 时成立. 设 $f\in P[X_1,X_2,\cdots,X_{k+1}]\backslash\{0\}$, 则 $f$ 可以写成
-    \[f(X_1,X_2,\cdots,X_{k+1})=g_0(X_1,X_2,\cdots,X_k)+g_1(X_1,X_2,\cdots,X_k)X_{k+1}+\cdots+g_s(X_1,X_2,\cdots,X_k)X^s_{k+1}\]
+    \begin{align*}
+        & f(X_1,X_2,\cdots,X_{k+1}) \\
+        & =g_0(X_1,X_2,\cdots,X_k)+g_1(X_1,X_2,\cdots,X_k)X_{k+1}+\cdots+g_s(X_1,X_2,\cdots,X_k)X^s_{k+1}
+    \end{align*}
     的形式, 其中 $g_0,g_1,\cdots,g_s\in P[X_1,X_2,\cdots,X_k]$ 且至少有一个为非零多项式. 不妨设 $g_t\neq0$.
 
     由归纳假定, $\exists a_1,a_2,\cdots,a_k\in P$ 使得 $g_t(a_1,a_2,\cdots,a_k)\neq0.\therefore$
@@ -681,6 +688,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
         \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
     \end{vmatrix}.\]
 \end{exercise}
+\begin{landscape}
 \begin{proof}
     由 Newton 公式(书上的式 (8) (9)),
     \begin{equation}\label{eq5.3}
@@ -825,28 +833,25 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \end{pmatrix}.\]
 
     由 Crammer 法则,
-    \begin{align*}
-        \mathbf{s}_k & =\dfrac{\begin{vmatrix}
-            -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
-            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
-            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
-            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
-        \end{vmatrix}}{\begin{vmatrix}
-            -1 & 0 & 0 & \cdots & 0 & 0 \\
-            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & 0 \\
-            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & 0 \\
-            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & (-1)^kk \\
-        \end{vmatrix}} \\
-        & =\dfrac{(-1)^{(1+k)k/2}}{k!}\begin{vmatrix}
-            -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
-            -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
-            -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
-            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
-        \end{vmatrix}
-    \end{align*}
+    \[\mathbf{s}_k=\dfrac{\begin{vmatrix}
+        -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
+        -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
+        -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
+    \end{vmatrix}}{\begin{vmatrix}
+        -1 & 0 & 0 & \cdots & 0 & 0 \\
+        -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & 0 \\
+        -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & (-1)^kk \\
+    \end{vmatrix}}=\dfrac{(-1)^{(1+k)k/2}}{k!}\begin{vmatrix}
+        -1 & 0 & 0 & \cdots & 0 & -\mathbf{p}_1 \\
+        -\mathbf{p}_1 & 2 & 0 & \cdots & 0 & -\mathbf{p}_2 \\
+        -\mathbf{p}_2 & \mathbf{p}_1 & -3 & \cdots & 0 & -\mathbf{p}_3 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        -\mathbf{p}_{k-1} & \mathbf{p}_{k-2} & -\mathbf{p}_{k-3} & \cdots & (-1)^{k-1}\mathbf{p}_1 & -\mathbf{p}_k \\
+    \end{vmatrix}\]
 
     第 $i$ 列与第 $i-1$ 列交换 ($i$ 按顺序从 $k$ 到 $2$), 得
     \[\mathbf{s}_k=\dfrac{(-1)^{(1+k)k/2+k-1}}{k!}\begin{vmatrix}
@@ -899,6 +904,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
         \mathbf{p}_k & \mathbf{p}_{k-1} & \mathbf{p}_{k-2} & \mathbf{p}_{k-3} & \cdots & \mathbf{p}_1 \\
     \end{vmatrix}.\qedhere\]
 \end{proof}
+\end{landscape}
 \begin{exercise}% 2.3
     设 $c_1,c_2,c_3$ 是多项式 $X^3-X+1$ 的三个复根. 证明: 扩域 $\mathbb{Q}(c_1^{99}+c_2^{99}+c_3^{99})=\mathbb{Q}$.
 \end{exercise}
@@ -913,7 +919,10 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \begin{proof}
     $\forall j<i$, 设 $\sigma=(i\ j)\in S_n$, 则 $\varepsilon_\sigma=-1$.
 
-    设 $f_i,(\sigma\circ f)_i$ 为 $\in P[X_1,\cdots,X_{i-1},X_{i+1},\cdots,X_n]$ 上的多项式, $f_i(X_i)=f(X_1,\cdots,X_n),(\sigma\circ f)_i(X_i)=(\sigma\circ f)(X_1,\cdots,X_n)$, 则
+    设 $f_i,(\sigma\circ f)_i$ 为 $\in P[X_1,\cdots,X_{i-1},X_{i+1},\cdots,X_n]$ 上的多项式,
+    \[f_i(X_i)=f(X_1,\cdots,X_n),(\sigma\circ f)_i(X_i)=(\sigma\circ f)(X_1,\cdots,X_n)\]
+    
+    则
     \begin{align*}
         (\sigma\circ f)_i(X_j) & =(\sigma\circ f)(X_1,\cdots,X_{j-1},X_j,X_{j+1},\cdots,X_{i-1},X_j,X_{i+1},\cdots,X_n) \\
         & =f(X_1,\cdots,X_{j-1},X_j,X_{j+1},\cdots,X_{i-1},X_j,X_{i+1},\cdots,X_n),

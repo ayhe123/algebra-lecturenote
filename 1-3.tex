@@ -1,6 +1,5 @@
 \documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
 \usepackage{lecturenote}
-\usepackage{lscape}
 
 \title{第3章笔记和习题}
 \begin{document}
@@ -939,7 +938,9 @@
         & =\prod\limits_{i=2}^m(x_i-x_1)^{k_1k_i}\cdot\prod\limits_{i=3}^m(x_i-x_2)^{k_2k_i}\Delta_{n-k_1}(0,x_1;0,x_2;\cdots;k_m,x_m) \\
         & =\cdots \\
         & =\Delta_{n-k_1-k_2-\cdots-k_{m-1}}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
-        & =\Delta_{k_m}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
+        & =\Delta_{k_m}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i}
+    \end{align*}
+    \begin{align*}
         & =\begin{vmatrix}
             1 & x_m & x_m^2 & \cdots & x_m^{k_m-1} \\[4pt]
             0 & 1 & \binom{2}{1}x_m & \cdots & \binom{k_m-1}{1}x_m^{k_m-2} \\[10pt]
@@ -952,7 +953,6 @@
     \end{align*}
 \end{proof}
 \end{landscape}
-
 \begin{exercise}% 2.5
     求
     \[B_n(s,t)=\begin{vmatrix}
@@ -964,71 +964,70 @@
 
     的值.
 \end{exercise}
+\begin{landscape}
 \begin{solution}
-    \begin{landscape}
-        \begin{align*}
-            B_n(s,t) & =\begin{vmatrix}
-                \dfrac{s!}{t!(s-t)!} & \dfrac{s!}{(t+1)!(s-t+1)!} & \cdots & \dfrac{s!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
-                \dfrac{(s+1)!}{t!(s+1-t)!} & \dfrac{(s+1)!}{(t+1)!(s-t)!} & \cdots & \dfrac{(s+1)!}{(t+n-1)!(s+1-(t+n-1))!} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dfrac{(s+n-1)!}{t!(s+n-1-t)!} & \dfrac{(s+n-1)!}{(t+1)!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
-            \end{vmatrix} \\
-            & =\dfrac{s}{t}\begin{vmatrix}
-                \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{(t+1)!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
-                \dfrac{(s+1)!}{(t-1)!(s+1-t)!} & \dfrac{(s+1)!}{(t+1)!(s-t)!} & \cdots & \dfrac{(s+1)!}{(t+n-1)!(s+1-(t+n-1))!} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dfrac{(s+n-1)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-1)!}{(t+1)!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
-            \end{vmatrix} \\
-            & =\dfrac{s(s+1)}{t(t+1)}\begin{vmatrix}
-                \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{t!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
-                \dfrac{s!}{(t-1)!(s+1-t)!} & \dfrac{s!}{t!(s-t)!} & \cdots & \dfrac{s!}{(t+n-1)!(s+1-(t+n-1))!} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dfrac{(s+n-1)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-1)!}{t!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
-            \end{vmatrix} \\
-            & =\cdots
-        \end{align*}
-        \begin{align*}
-            & =\dfrac{s(s+1)(s+2)\cdots(s+n-1)}{t(t+1)(t+2)\cdots(t+n-1)}\begin{vmatrix}
-                \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{t!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-2)!(s-(t+n-1))!} \\[10pt]
-                \dfrac{s!}{(t-1)!(s+1-t)!} & \dfrac{s!}{t!(s-t)!} & \cdots & \dfrac{s!}{(t+n-2)!(s+1-(t+n-1))!} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dfrac{(s+n-2)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-2)!}{t!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-2)!}{(t+n-2)!(s-t)!} \\
-            \end{vmatrix} \\
-            & =\dfrac{\dfrac{s(s+1)(s+2)\cdots(s+n-1)}{1\cdot2\cdots n}}{\dfrac{t(t+1)(t+2)\cdots(t+n-1)}{1\cdot2\cdots n}}\begin{vmatrix}
-                \dbinom{s-1}{t-1} & \dbinom{s-1}{t} & \cdots & \dbinom{s-1}{t+n-2} \\[10pt]
-                \dbinom{s}{t-1} & \dbinom{s}{t} & \cdots & \dbinom{s}{t+n-2} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dbinom{s+n-2}{t-1} & \dbinom{s+n-2}{t} & \cdots & \dbinom{s+n-2}{t+n-2} \\
-            \end{vmatrix} \\
-            & =\dfrac{\dbinom{n+s-1}{n}}{\dbinom{n+t-1}{n}}\begin{vmatrix}
-                \dbinom{s-1}{t-1} & \dbinom{s-1}{t} & \cdots & \dbinom{s-1}{t+n-2} \\[10pt]
-                \dbinom{s}{t-1} & \dbinom{s}{t} & \cdots & \dbinom{s}{t+n-2} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dbinom{s+n-2}{t-1} & \dbinom{s+n-2}{t} & \cdots & \dbinom{s+n-2}{t+n-2} \\
-            \end{vmatrix} \\
-            & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}}\begin{vmatrix}
-                \dbinom{s-2}{t-2} & \dbinom{s-2}{t-1} & \cdots & \dbinom{s-2}{t+n-3} \\[10pt]
-                \dbinom{s-1}{t-2} & \dbinom{s-1}{t-1} & \cdots & \dbinom{s-1}{t+n-3} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dbinom{s+n-3}{t-2} & \dbinom{s+n-3}{t-1} & \cdots & \dbinom{s+n-3}{t+n-3} \\
-            \end{vmatrix} \\
-            & =\cdots
-        \end{align*}
-        \begin{align*}
-            & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}\cdots\dbinom{n}{n}}\begin{vmatrix}
-                \dbinom{s-t}{0} & \dbinom{s-t}{1} & \cdots & \dbinom{s-t}{n-1} \\[10pt]
-                \dbinom{s-t+1}{0} & \dbinom{s-t+1}{1} & \cdots & \dbinom{s-t+1}{n-1} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                \dbinom{s-t+n-1}{0} & \dbinom{s-t+n-1}{1} & \cdots & \dbinom{s-t+n-1}{n-1} \\
-            \end{vmatrix} \\
-            & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}\cdots\dbinom{n}{n}}\begin{vmatrix}
-                1 & s-t & \cdots & \dbinom{s-t}{n-1} \\[10pt]
-                1 & s-t+1 & \cdots & \dbinom{s-t+1}{n-1} \\
-                \vdots & \vdots & \ddots & \vdots \\[4pt]
-                1 & s-t+n-1 & \cdots & \dbinom{s-t+n-1}{n-1} \\
-            \end{vmatrix}.
-        \end{align*}
-    \end{landscape}
+    \begin{align*}
+        B_n(s,t) & =\begin{vmatrix}
+            \dfrac{s!}{t!(s-t)!} & \dfrac{s!}{(t+1)!(s-t+1)!} & \cdots & \dfrac{s!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
+            \dfrac{(s+1)!}{t!(s+1-t)!} & \dfrac{(s+1)!}{(t+1)!(s-t)!} & \cdots & \dfrac{(s+1)!}{(t+n-1)!(s+1-(t+n-1))!} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dfrac{(s+n-1)!}{t!(s+n-1-t)!} & \dfrac{(s+n-1)!}{(t+1)!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
+        \end{vmatrix} \\
+        & =\dfrac{s}{t}\begin{vmatrix}
+            \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{(t+1)!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
+            \dfrac{(s+1)!}{(t-1)!(s+1-t)!} & \dfrac{(s+1)!}{(t+1)!(s-t)!} & \cdots & \dfrac{(s+1)!}{(t+n-1)!(s+1-(t+n-1))!} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dfrac{(s+n-1)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-1)!}{(t+1)!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
+        \end{vmatrix} \\
+        & =\dfrac{s(s+1)}{t(t+1)}\begin{vmatrix}
+            \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{t!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-1)!(s-(t+n-1))!} \\[10pt]
+            \dfrac{s!}{(t-1)!(s+1-t)!} & \dfrac{s!}{t!(s-t)!} & \cdots & \dfrac{s!}{(t+n-1)!(s+1-(t+n-1))!} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dfrac{(s+n-1)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-1)!}{t!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-1)!}{(t+n-1)!(s-t)!} \\
+        \end{vmatrix} \\
+        & =\cdots
+    \end{align*}
+    \begin{align*}
+        & =\dfrac{s(s+1)(s+2)\cdots(s+n-1)}{t(t+1)(t+2)\cdots(t+n-1)}\begin{vmatrix}
+            \dfrac{(s-1)!}{(t-1)!(s-t)!} & \dfrac{(s-1)!}{t!(s-t+1)!} & \cdots & \dfrac{(s-1)!}{(t+n-2)!(s-(t+n-1))!} \\[10pt]
+            \dfrac{s!}{(t-1)!(s+1-t)!} & \dfrac{s!}{t!(s-t)!} & \cdots & \dfrac{s!}{(t+n-2)!(s+1-(t+n-1))!} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dfrac{(s+n-2)!}{(t-1)!(s+n-1-t)!} & \dfrac{(s+n-2)!}{t!(s+n-1-(t+1))!} & \cdots & \dfrac{(s+n-2)!}{(t+n-2)!(s-t)!} \\
+        \end{vmatrix} \\
+        & =\dfrac{\dfrac{s(s+1)(s+2)\cdots(s+n-1)}{1\cdot2\cdots n}}{\dfrac{t(t+1)(t+2)\cdots(t+n-1)}{1\cdot2\cdots n}}\begin{vmatrix}
+            \dbinom{s-1}{t-1} & \dbinom{s-1}{t} & \cdots & \dbinom{s-1}{t+n-2} \\[10pt]
+            \dbinom{s}{t-1} & \dbinom{s}{t} & \cdots & \dbinom{s}{t+n-2} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dbinom{s+n-2}{t-1} & \dbinom{s+n-2}{t} & \cdots & \dbinom{s+n-2}{t+n-2} \\
+        \end{vmatrix} \\
+        & =\dfrac{\dbinom{n+s-1}{n}}{\dbinom{n+t-1}{n}}\begin{vmatrix}
+            \dbinom{s-1}{t-1} & \dbinom{s-1}{t} & \cdots & \dbinom{s-1}{t+n-2} \\[10pt]
+            \dbinom{s}{t-1} & \dbinom{s}{t} & \cdots & \dbinom{s}{t+n-2} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dbinom{s+n-2}{t-1} & \dbinom{s+n-2}{t} & \cdots & \dbinom{s+n-2}{t+n-2} \\
+        \end{vmatrix} \\
+        & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}}\begin{vmatrix}
+            \dbinom{s-2}{t-2} & \dbinom{s-2}{t-1} & \cdots & \dbinom{s-2}{t+n-3} \\[10pt]
+            \dbinom{s-1}{t-2} & \dbinom{s-1}{t-1} & \cdots & \dbinom{s-1}{t+n-3} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dbinom{s+n-3}{t-2} & \dbinom{s+n-3}{t-1} & \cdots & \dbinom{s+n-3}{t+n-3} \\
+        \end{vmatrix} \\
+        & =\cdots
+    \end{align*}
+    \begin{align*}
+        & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}\cdots\dbinom{n}{n}}\begin{vmatrix}
+            \dbinom{s-t}{0} & \dbinom{s-t}{1} & \cdots & \dbinom{s-t}{n-1} \\[10pt]
+            \dbinom{s-t+1}{0} & \dbinom{s-t+1}{1} & \cdots & \dbinom{s-t+1}{n-1} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            \dbinom{s-t+n-1}{0} & \dbinom{s-t+n-1}{1} & \cdots & \dbinom{s-t+n-1}{n-1} \\
+        \end{vmatrix} \\
+        & =\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s-2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t-2}{n}\cdots\dbinom{n}{n}}\begin{vmatrix}
+            1 & s-t & \cdots & \dbinom{s-t}{n-1} \\[10pt]
+            1 & s-t+1 & \cdots & \dbinom{s-t+1}{n-1} \\
+            \vdots & \vdots & \ddots & \vdots \\[4pt]
+            1 & s-t+n-1 & \cdots & \dbinom{s-t+n-1}{n-1} \\
+        \end{vmatrix}.
+    \end{align*}
     
     设
     \[A_n(s,t)=\begin{vmatrix}
@@ -1050,6 +1049,7 @@
     $\therefore A_n(s,t)=A_1(s,t)=1$, 原式
     \[=\dfrac{\dbinom{n+s-1}{n}\dbinom{n+s+2}{n}\cdots\dbinom{n+s-t}{n}}{\dbinom{n+t-1}{n}\dbinom{n+t+2}{n}\cdots\dbinom{n}{n}}.\]
 \end{solution}
+\end{landscape}
 \begin{exercise}% 2.6
     设
     \[C_n(\lambda_1,\lambda_2,\cdots,\lambda_n)=\begin{pmatrix}
@@ -1449,7 +1449,7 @@
         \end{vmatrix}.
     \end{align*}
 
-    $\because k_1,k_2,\cdots,k_n\in\{1,2,\cdots,m\}$ 且互不相等, $\therefore k_1,k_2,\cdots,k_n$ 可以看成是从 $\{1,2,\cdots,m\}$ 中取出 $n$ 个数 $1\leq j_1<j_2<\cdots<j_n\leq m$ 排成一列. 有
+    $\because k_1,\cdots,k_n\in\{1,2,\cdots,m\}$ 且互不相等, $\therefore k_1,\cdots,k_n$ 可以看成是从 $\{1,2,\cdots,m\}$ 中取出 $n$ 个数 $1\leq j_1<j_2<\cdots<j_n\leq m$ 排成一列. 有
     \begin{align*}
         & \sum_{\substack{k_1,k_2,\cdots,k_n=1\\k_i\neq k_j\ (i\neq j)}}^mb_{k_11}b_{k_22}\cdots b_{k_nn}\begin{vmatrix}
             a_{1k_1} & a_{1k_2} & \cdots & a_{nk_n} \\
@@ -1579,6 +1579,7 @@
         j_1 & \cdots & j_k \\
     \end{pmatrix}.\]
 \end{exercise}
+\begin{landscape}
 \begin{proof}
     (a) 先考虑 $i_1=1,i_2=2,\cdots,i_k=k$ 的情况.
 
@@ -1613,8 +1614,7 @@
             a_{k+1,1} & 0 & \cdots & a_{k+1,n} \\
             \vdots & \vdots & \ddots & \vdots \\
             a_{n1} & 0 & \cdots & a_{nn} \\
-        \end{vmatrix} \\
-        & +\begin{vmatrix}
+        \end{vmatrix}+\begin{vmatrix}
             a_{11} & 0 & \cdots & a_{1n} \\
             \vdots & \vdots & \ddots & \vdots \\
             a_{k1} & 0 & \cdots & a_{kn} \\
@@ -1629,8 +1629,7 @@
             \vdots & \vdots & \ddots & \vdots \\
             a_{n1} & a_{n2} & \cdots & a_{nn} \\
         \end{vmatrix} \\
-        & =\cdots \\
-        & =\sum\limits_{s=0}^{2^n-1}\det{}^{(s)}A,
+        & =\cdots=\sum\limits_{s=0}^{2^n-1}\det{}^{(s)}A,
     \end{align*}
 
     其中将 $s$ 写成 $n$ 位二进制的形式, 有
@@ -1651,8 +1650,7 @@
         a_{21} & a_{22} & \cdots & a_{2T(s)} \\
         \vdots & \vdots & \ddots & \vdots \\
         a_{k1} & a_{k2} & \cdots & a_{kT(s)} \\
-    \end{pmatrix},\]
-    \[{}_{(2)}^{(s)}A=\begin{pmatrix}
+    \end{pmatrix},\quad{}_{(2)}^{(s)}A=\begin{pmatrix}
         a_{k+1,1} & a_{k+1,2} & \cdots & a_{k+1,n-T(s)} \\
         a_{k+2,1} & a_{k+2,2} & \cdots & a_{k+2,n-T(s)} \\
         \vdots & \vdots & \ddots & \vdots \\
@@ -1663,13 +1661,7 @@
 
     若 $k\neq T(s)$, 不妨设 $k>T(s)$.
 
-    $\because{}_{(1)}^{(s)}A_{(i)}\in\mathbb{R}^{T(s)},i=1,2,\cdots,k,\therefore{}_{(1)}^{(s)}A$ 的行线性相关. $\therefore$
-    \[\begin{pmatrix}
-        {}_{(1)}^{(s)}A & 0 \\
-        0 & {}_{(2)}^{(s)}A \\
-    \end{pmatrix}\]
-
-    的行线性相关. 由书上第 1 小节的推论得
+    $\because{}_{(1)}^{(s)}A_{(i)}\in\mathbb{R}^{T(s)},i=1,2,\cdots,k,\therefore{}_{(1)}^{(s)}A$ 的行线性相关. $\therefore\begin{pmatrix} {}_{(1)}^{(s)}A & 0 \\ 0 & {}_{(2)}^{(s)}A \\ \end{pmatrix}$ 的行线性相关. 由书上第 1 小节的推论得
     \[\det{}^{(s)}A=(-1)^{S_0(s)}\det\begin{pmatrix}
         {}_{(1)}^{(s)}A & 0 \\
         0 & {}_{(2)}^{(s)}A \\
@@ -1700,8 +1692,7 @@
     \end{subarray}A=M\begin{pmatrix}
         1 & \cdots & k \\
         j_1 & \cdots & j_k \\
-    \end{pmatrix},\]
-    \[\det\begin{subarray}{c}
+    \end{pmatrix},\quad\det\begin{subarray}{c}
     (f(j_1,j_2,\cdots,j_k)) \\
     (2)
     \end{subarray}A=\overline{M}\begin{pmatrix}
@@ -1787,6 +1778,7 @@
         \end{pmatrix}.\qedhere
     \end{align*}
 \end{proof}
+\end{landscape}
 \stepcounter{exercise}
 \begin{exercise}% 3.10
     证明: 若 $A,B,C,D\in M_n(\mathbb{R}),\det A\neq0$, 则
@@ -1891,15 +1883,13 @@
 
     特别地, 当 $f(\lambda)=\lambda$ 时, $\mathcal{D}=\det$.
 \end{exercise}
+\newpage
 \begin{proof}
     容易验证: 当 $\lambda\neq0$ 时,
     \[F_s(\lambda)=F_1(\lambda)F_{1,s}(1/\lambda)F_{s,1}(-\lambda+1)F_{1,s}(-1)F_{s,1}\left(\dfrac{\lambda-1}{\lambda}\right).\]
 
     由性质 (2) 得
-    \begin{align*}
-        \mathcal{D}(F_s(\lambda)) & =\mathcal{D}\left(F_1(\lambda)F_{1,s}(1/\lambda)F_{s,1}(-\lambda+1)F_{1,s}(-1)F_{s,1}\left(\dfrac{\lambda-1}{\lambda}\right)\right) \\
-        & =\mathcal{D}(F_1(\lambda)).
-    \end{align*}
+    \[\mathcal{D}(F_s(\lambda))=\mathcal{D}\left(F_1(\lambda)F_{1,s}(1/\lambda)F_{s,1}(-\lambda+1)F_{1,s}(-1)F_{s,1}\left(\dfrac{\lambda-1}{\lambda}\right)\right)=\mathcal{D}(F_1(\lambda)).\]
 
     由性质 (3) 得 $\mathcal{D}(F_1(\lambda))=f(\lambda)$. $\therefore\mathcal{D}(F_s(\lambda))=f(\lambda)$.
 
@@ -1914,9 +1904,15 @@
 
     当 $a_1,a_2,\cdots,a_n\neq0$ 中至少有一个为 $0$ 时, 由性质 (1) 和 $f(0)=0$ 得上式成立.
 
-    由引理 \ref{l5.2} 得 $\forall A\in M_n(\mathbb{R})$, 作 (II) 型初等列变换可以将 $A$ 化为对角矩阵 $\diag(a_1,a_2,\cdots,a_n)$. $\therefore\mathcal{D}(A)=f(a_1a_2\cdots a_n)$. $\therefore\mathcal{D}$ 是确切定义的.
+    由引理 \ref{l5.2} 得 $\forall A\in M_n(\mathbb{R})$, 作 (II) 型初等列变换可以将 $A$ 化为对角矩阵
+    \[\diag(a_1,a_2,\cdots,a_n).\]
+    
+    $\therefore\mathcal{D}(A)=f(a_1a_2\cdots a_n)$. $\therefore\mathcal{D}$ 是确切定义的.
 
-    作 (II) 型初等列变换可能会将 $A$ 化为不同的对角矩阵. 设 $\diag(a_1,\cdots,a_n)$ 和 $\diag(a_1',\cdots,a_n')$ 是 $A$ 化为的两个不同的对角矩阵, 由 $\det$ 的唯一性得
+    作 (II) 型初等列变换可能会将 $A$ 化为不同的对角矩阵. 设
+    \[\diag(a_1',\cdots,a_n'),\quad\diag(a_1,\cdots,a_n)\]
+    
+    是 $A$ 化为的两个不同的对角矩阵, 由 $\det$ 的唯一性得
     \[a_1a_2\cdots a_n=\det A=a_1'a_2'\cdots a_n'\Rightarrow f(a_1a_2\cdots a_n)=f(a_1'a_2'\cdots a_n').\]
 
     $\therefore\mathcal{D}$ 是唯一的.
@@ -2216,7 +2212,11 @@ Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]],
     由书上的引理 4.20 得 $A$ 有一个 $r$ 阶子式不为 $0$. 不妨设子式 $M\begin{pmatrix} 1 & \cdots & r \\ 1 & \cdots & r \end{pmatrix}\neq0$, 由第 \ref{ex3.4} 题得方程组
     \[A^{(1)}x_1+A^{(2)}x_2+\cdots+A^{(r+1)}x_{r+1}=0\]
 
-    的一个非零解为 $[D_1,-D_2,D_3,\cdots,(-1)^rD_{r+1}]$, 其中 $D_i=M\begin{pmatrix} 1 & \cdots && \cdots & r \\ 1 & \cdots & \hat{i} & \cdots & r+1 \end{pmatrix}$.
+    的一个非零解为 $[D_1,-D_2,D_3,\cdots,(-1)^rD_{r+1}]$, 其中
+    \[D_i=M\begin{pmatrix}
+        1 & \cdots && \cdots & r \\
+        1 & \cdots & \hat{i} & \cdots & r+1
+    \end{pmatrix}.\]
     
     $\therefore$ 方程组 $AX=0$ 的一个非零解为 $[D_1,-D_2,D_3,\cdots,(-1)^rD_{r+1},0,\cdots,0]$.
 \end{solution}
@@ -2341,7 +2341,9 @@ Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]],
     $\therefore$
     \[\sum\limits_{i=1}^n\alpha_ia_{ij}=0\quad(j=1,2,\cdots,n-1),\]
 
-    这是关于 $\alpha_i$ 的一个线性方程组. 由书上第 1.3 节的推论 2 得方程组有非零解, 即 $\exists\beta_1,\beta_2,\cdots,\beta_n$ 使得
+    这是关于 $\alpha_i$ 的一个线性方程组.
+    
+    由书上第 1.3 节的推论 2 得方程组有非零解, 即 $\exists\beta_1,\beta_2,\cdots,\beta_n$ 使得
     \[\sum\limits_{i=1}^n\beta_if_i=0\Rightarrow\sum\limits_{i=1}^n\beta_if_i(a_j )=0.\]
 
     $\therefore A$ 的行线性相关, $\det A=0$.

@@ -82,6 +82,15 @@ cd algebra-lecturenote
 
 按提示进行操作即可。
 
+`2-4.tex` 有参考文献，要额外编译：
+
+```bash
+xelatex 2-4
+biber 2-4
+xelatex 2-4
+xelatex 2-4
+```
+
 由于我不会写批处理文件，所以 Windows 用户只能逐个编译文件（或者帮我写一个批处理文件）。
 
 ### 使用原版 ElegantNote

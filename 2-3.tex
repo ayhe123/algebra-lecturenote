@@ -610,7 +610,9 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 
     设当 $\dim V=n-1$ 时命题成立, 当 $\dim V=n$ 时, 由书上的引理 1,2 得 $\operatorname{Spec}\mathcal{A}\neq\varnothing$. 设 $\lambda_1\in\operatorname{Spec}\mathcal{A},\boldsymbol{e}$ 是 $\mathcal{A}$ 属于特征值 $\lambda_1\in\mathbb{R}$ 的特征向量. 设 $\boldsymbol{e}_1=\dfrac{\boldsymbol{e}}{\|\boldsymbol{e}\|}$, 则 $\mathcal{A}\boldsymbol{e}_1=\lambda_1\boldsymbol{e}_1$, $V=\left<\boldsymbol{e}_1\right>+\left<\boldsymbol{e}_1\right>^\perp$, 其中 $\dim\left<\boldsymbol{e}_1\right>^\perp=n-1$.
 
-    $\because\left<\boldsymbol{e}_1\right>$ 是 $\mathcal{A}$ 的不变子空间, 由书上的引理 3 得 $\left<\boldsymbol{e}_1\right>^\perp$ 也是 $\mathcal{A}$ 的不变子空间. $\therefore\im \mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}=\left<\boldsymbol{e}_1\right>^\perp$. $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 $\left<\boldsymbol{e}_1\right>^\perp$ 上的算子.
+    $\because\left<\boldsymbol{e}_1\right>$ 是 $\mathcal{A}$ 的不变子空间, 由书上的引理 3 得 $\left<\boldsymbol{e}_1\right>^\perp$ 也是 $\mathcal{A}$ 的不变子空间.
+    
+    $\therefore\im \mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}=\left<\boldsymbol{e}_1\right>^\perp$. $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 $\left<\boldsymbol{e}_1\right>^\perp$ 上的算子.
 
     $\because$ 若 $(\mathcal{A}\boldsymbol{x}|\boldsymbol{y})=(\boldsymbol{x}|\mathcal{A}\boldsymbol{y})$ 对 $\forall\boldsymbol{x},\boldsymbol{y}\in V$ 都成立, 则对 $\forall\boldsymbol{x},\boldsymbol{y}\in\left<\boldsymbol{e}_1\right>^\perp\subset V$ 也成立, $\therefore\mathcal{A}|_{\left<\boldsymbol{e}_1\right>^\perp}$ 是 Hermite 算子.
 
@@ -790,7 +792,9 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
     由引理 \ref{l3.2} 借助矩阵的证明得 $(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}^*|_{(V^\lambda)^\perp}$. $\therefore$
     \[\mathcal{A}|_{(V^\lambda)^\perp}(\mathcal{A}|_{(V^\lambda)^\perp})^*=\mathcal{A}|_{(V^\lambda)^\perp}\mathcal{A}^*|_{(V^\lambda)^\perp}=\mathcal{A}^*|_{(V^\lambda)^\perp}\mathcal{A}|_{(V^\lambda)^\perp}=(\mathcal{A}|_{(V^\lambda)^\perp})^*\mathcal{A}|_{(V^\lambda)^\perp}.\]
 
-    $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的正规算子. 由归纳假定, $\exists(V^\lambda)^\perp$ 的一个标准基 $\boldsymbol{e}_{s+1},\boldsymbol{e}_{s+2},\cdots,\boldsymbol{e}_n$ 使得 $\mathcal{A}\boldsymbol{e}_i=\lambda_i\boldsymbol{e}_i\ (i=s+1,s+2,\cdots,n)$.
+    $\therefore\mathcal{A}|_{(V^\lambda)^\perp}$ 是 $(V^\lambda)^\perp$ 上的正规算子.
+    
+    由归纳假定, $\exists(V^\lambda)^\perp$ 的一个标准基 $\boldsymbol{e}_{s+1},\boldsymbol{e}_{s+2},\cdots,\boldsymbol{e}_n$ 使得 $\mathcal{A}\boldsymbol{e}_i=\lambda_i\boldsymbol{e}_i\ (i=s+1,s+2,\cdots,n)$.
 
     $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_s\in V^\lambda,\boldsymbol{e}_{s+1},\boldsymbol{e}_{s+2},\cdots,\boldsymbol{e}_n\in(V^\lambda)^\perp$, $\therefore\forall i,j$ 满足 $1\leq i<j\leq n,\boldsymbol{e}_i\perp\boldsymbol{e}_j$.
 
@@ -912,7 +916,8 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
         & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)C^{-1}AC,
     \end{align*}
 
-    $\therefore\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $C^{-1}AC$ 不是正定矩阵. 由定理 \ref{t3.9} 得 $\exists X\neq0$ 使得 $X^*C^{-1}ACX\leq0$.
+    $\therefore\mathcal{B}$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵 $C^{-1}AC$ 不是正定矩阵. 由定理 \ref{t3.9} 得 $\exists X\neq0$ 使得
+    \[X^*C^{-1}ACX\leq0.\]
 
     $\because C$ 是酉矩阵, $\therefore X^*C^{-1}=X^*C^*=(CX)^*$. $\therefore\exists X\neq0$ 使得 $X^*AX\leq0$.
 
@@ -1006,7 +1011,10 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
         &&& J_{m_s}(\lambda_s) \\
     \end{pmatrix}.\]
 
-    若 $\lambda_i\neq0$, 则 $J_{m_i}(\lambda_i)$ 非退化, 由书上的定理 15 得 $J_{m_i}(\lambda_i)$ 有唯一的极化分解式 $J_{m_i}(\lambda_i)=P_iQ_i$. 若 $\lambda_i=0$, 由 (a) 得 $J_{m_i}(\lambda_i)$ 有极化分解式 $J_{m_i}(0)=P_iQ_i$. $\therefore A$ 有分解式
+    若 $\lambda_i\neq0$, 则 $J_{m_i}(\lambda_i)$ 非退化, 由书上的定理 15 得 $J_{m_i}(\lambda_i)$ 有唯一的极化分解式
+    \[J_{m_i}(\lambda_i)=P_iQ_i.\]
+    
+    若 $\lambda_i=0$, 由 (a) 得 $J_{m_i}(\lambda_i)$ 有极化分解式 $J_{m_i}(0)=P_iQ_i$. $\therefore A$ 有分解式
     \begin{equation}\label{eq3.6}
         A=\begin{pmatrix}
             P_1 \\
@@ -1132,7 +1140,9 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
 \end{example}
 把书上的命题 1 拆成几个定理.
 \begin{theorem}\label{t4.1}
-    如果 $V$ 有复结构 $(V,\mathcal{J})$, 则 $\exists\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m\in V$ 使得 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m$ 是 $V$ 的一个基.
+    如果 $V$ 有复结构 $(V,\mathcal{J})$, 则 $\exists\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m\in V$ 使得
+    \[\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m\]
+    是 $V$ 的一个基.
 \end{theorem}
 \begin{proof}
     设 $\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k,\mathcal{J}\boldsymbol{e}_k$ ($k$ 可以等于 $0$) 线性无关.
@@ -1171,10 +1181,16 @@ $\because(\mathcal{A}\boldsymbol{x}|\boldsymbol{x})\geq0$ (当且仅当 $\boldsy
     \[\widetilde{V}=\left<\boldsymbol{e}_1,\mathcal{J}\boldsymbol{e}_1,\boldsymbol{e}_2,\mathcal{J}\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m,\mathcal{J}\boldsymbol{e}_m\right>.\]
 
     $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 在 $V$ 上是线性无关的, $\therefore$
-    \[\lambda_1\boldsymbol{e}_1+\lambda_1'\mathcal{J}\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\lambda_2'\mathcal{J}\boldsymbol{e}_2+\cdots+\lambda_m\boldsymbol{e}_m+\lambda_m'\mathcal{J}\boldsymbol{e}_m=\boldsymbol{0}\Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.\]
+    \begin{align*}
+        & \lambda_1\boldsymbol{e}_1+\lambda_1'\mathcal{J}\boldsymbol{e}_1+\lambda_2\boldsymbol{e}_2+\lambda_2'\mathcal{J}\boldsymbol{e}_2+\cdots+\lambda_m\boldsymbol{e}_m+\lambda_m'\mathcal{J}\boldsymbol{e}_m=\boldsymbol{0} \\
+        & \Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.
+    \end{align*}
 
     $\therefore$ 在 $\widetilde{V}$ 上有
-    \[(\lambda_1+i\lambda_1')\boldsymbol{e}_1+(\lambda_2+i\lambda_2')\boldsymbol{e}_2+\cdots+(\lambda_m+i\lambda_m')\boldsymbol{e}_m=\boldsymbol{0}\Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.\]
+    \begin{align*}
+        & (\lambda_1+i\lambda_1')\boldsymbol{e}_1+(\lambda_2+i\lambda_2')\boldsymbol{e}_2+\cdots+(\lambda_m+i\lambda_m')\boldsymbol{e}_m=\boldsymbol{0} \\
+        & \Rightarrow\lambda_1=\lambda_1'=\lambda_2=\lambda_2'=\cdots=\lambda_m=\lambda_m'=0.
+    \end{align*}
 
     $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_m$ 在 $\widetilde{V}$ 上线性无关.
 
@@ -1295,7 +1311,9 @@ $\therefore$ 有以 $\lambda_i$ 为变量的方程组
 
 如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $U$ 的一个正交基, 则 $A$ 是对角矩阵, $\therefore$ 方程组 (\ref{eq5.1}) 有唯一解.
 
-如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 不是正交的, 设 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 是 $U$ 的一个标准正交基, 且 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B$, 则
+如果 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 不是正交的, 设 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 是 $U$ 的一个标准正交基, 且
+\[(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)=(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B,\]
+则
 \[(\boldsymbol{e}_i|\boldsymbol{e}_j)=\left((\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B^{(i)}\Big|(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')B^{(j)}\right)={}^tB^{(i)}B^{(j)}.\]
 
 $\therefore$
@@ -1321,13 +1339,18 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     在 $\mathbb{R}^m$ 上引进内积 $(X|Y)={}^tXY$. 解与方程组 (\ref{eq5.1}) 类似的方程组
     \[\sum\limits_{i=1}^nx_i{}^tA^{(i)}A^{(j)}={}^tBA^{(j)}\quad j=1,2,\cdots,n.\]
     
-    得到的解 $X_0=[x_1,x_2,\cdots,x_n]$ 不是 $AX=B$ 的解, 但满足 $\left\|x_1A^{(1)}+x_1A^{(2)}+\cdots+x_1A^{(n)}-B\right\|$ 最小. 称 $X_0$ 为方程 $AX=B$ 的\textbf{最小二乘解}(平方后是各个分量的平方和, 所以称为最小二乘).
+    得到的解 $X_0=[x_1,x_2,\cdots,x_n]$ 不是 $AX=B$ 的解, 但满足
+    \[\left\|x_1A^{(1)}+x_1A^{(2)}+\cdots+x_1A^{(n)}-B\right\|\]
+    最小. 称 $X_0$ 为方程 $AX=B$ 的\textbf{最小二乘解}(平方后是各个分量的平方和, 所以称为最小二乘).
 \end{example}
 \begin{example}
     考虑 $[a,b]$ 上的实变量连续函数全体 $C_2(a,b)$, 引进内积:
     \[(f|g)=\int_a^bf(t)\overline{g(t)}\mathrm{d}t.\]
     
-    设 $\varphi_1,\varphi_2,\cdots,\varphi_m$ 是 $C_2(a,b)$ 的标准正交函数组, $f\in C_2(a,b)$ 有分解式 $f=\sum\limits_{i=1}^mc_i\varphi_i,\quad c_i\in\mathbb{C}$, 则 $c_i=(f_i|\varphi_i)$. 这个结论可以推广到无限项的标准正交函数组.
+    设 $\varphi_1,\varphi_2,\cdots,\varphi_m$ 是 $C_2(a,b)$ 的标准正交函数组, $f\in C_2(a,b)$ 有两个分解式
+    \[f=\sum\limits_{i=1}^mc_i\varphi_i,\quad c_i\in\mathbb{C},\]
+    
+    则 $c_i=(f_i|\varphi_i)$. 这个结论可以推广到无限项的标准正交函数组.
 
     对于一般的 $f\in C_2(a,b)$, 由定理 \ref{t5.1} 得当 $c_i=(f_i|\varphi_i)$ 时 $\left\|f-\sum\limits_{i=1}^mc_i\varphi_i\right\|$ 取最小值.
 
@@ -1413,8 +1436,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     
     $\because A$ 非退化, $\therefore A^{(1)},A^{(2)},\cdots,A^{(n)}$ 线性无关, 是 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$ 的一个基.
 
-    用书上定理 4 的正交化方法求 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$ 的一个标准正交基 $B^{(1)},B^{(2)},\cdots,B^{(n)}$:
-    \[B^{(1)}=\dfrac{A^{(1)}}{\|A^{(1)}\|}=\lambda_{11}A^{(1)}\ (\lambda_{11}\neq0),\quad B^{(2)}=\dfrac{A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}}{\|A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}\|}=\lambda_{12}A^{(1)}+\lambda_{22}A^{(2)}\ (\lambda_{22}\neq0),\]
+    用书上定理 4 的正交化方法求 $\left<A^{(1)},\cdots,A^{(n)}\right>$ 的一个标准正交基 $B^{(1)},\cdots,B^{(n)}$:
+    \[B^{(1)}=\dfrac{A^{(1)}}{\|A^{(1)}\|}=\lambda_{11}A^{(1)}\ (\lambda_{11}\neq0),\]
+    \[B^{(2)}=\dfrac{A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}}{\|A^{(2)}-(B^{(1)}|A^{(2)})B^{(1)}\|}=\lambda_{12}A^{(1)}+\lambda_{22}A^{(2)}\ (\lambda_{22}\neq0),\]
     \[B^{(3)}=\dfrac{A^{(3)}-(B^{(1)}|A^{(3)})B^{(1)}-(B^{(2)}|A^{(3)})B^{(2)}}{\|A^{(3)}-(B^{(1)}|A^{(3)})B^{(1)}-(B^{(2)}|A^{(3)})B^{(2)}\|}=\lambda_{13}A^{(1)}+\lambda_{23}A^{(2)}+\lambda_{33}A^{(3)}\ (\lambda_{33}\neq0),\]
     \[\cdots,\]
     \[B^{(n)}=\lambda_{1n}A^{(1)}+\lambda_{2n}A^{(2)}+\cdots+\lambda_{nn}A^{(n)}\ (\lambda_{nn}\neq0).\]
@@ -1684,7 +1708,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 \begin{proof}
     $J_n$ 的特征多项式 $\chi_{J_n}(t)=\det(tE-J_n)$. 按最后一行展开, 得
     \begin{align*}
-        \det(tE-J_n) & =(t-a_n)\det(tE-J_{n-1})-c_{n-1}\begin{vmatrix}
+        & \det(tE-J_n) \\
+        & =(t-a_n)\det(tE-J_{n-1})-c_{n-1}\begin{vmatrix}
             t-a_1 & b_1 \\
             c_1 & t-a_2 & b_2 \\
             & \ddots & \ddots & \ddots \\
@@ -1747,7 +1772,8 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     设 $\lambda\in\operatorname{Spec}\mathcal{A}$. 由书上的引理 6 (注意到引理的证明用到的唯一一个复空间的性质是 $\mathcal{A},\mathcal{B}$ 均可对角化)得 $V^\lambda$ 是 $\mathcal{B}$ 的不变子空间. $\therefore\mathcal{B}|_{V^\lambda}$ 是 $V^\lambda$ 上的算子.
     
-    $\because\mathcal{B}$ 可对角化, $\therefore\mathcal{B}|_{V^\lambda}$ 可对角化. $\therefore\exists V^\lambda$ 的一个基 $\boldsymbol{e}^\lambda_1,\boldsymbol{e}^\lambda_2,\cdots,\boldsymbol{e}^\lambda_{m_\lambda}$ 使得 $\mathcal{B}\boldsymbol{e}^\lambda_i=\mathcal{B}|_{V^\lambda}\boldsymbol{e}^\lambda_i=\mu^\lambda_i\boldsymbol{e}^\lambda_i,\mu^\lambda_i\in K$.
+    $\because\mathcal{B}$ 可对角化, $\therefore\mathcal{B}|_{V^\lambda}$ 可对角化. $\therefore\exists V^\lambda$ 的一个基 $\boldsymbol{e}^\lambda_1,\boldsymbol{e}^\lambda_2,\cdots,\boldsymbol{e}^\lambda_{m_\lambda}$ 使得 
+    \[\mathcal{B}\boldsymbol{e}^\lambda_i=\mathcal{B}|_{V^\lambda}\boldsymbol{e}^\lambda_i=\mu^\lambda_i\boldsymbol{e}^\lambda_i,\mu^\lambda_i\in K.\]
 
     $\because V=\bigoplus\limits_{\lambda\in\operatorname{Spec}\mathcal{A}}V^\lambda$, $\therefore$ 对 $\forall\lambda\in\operatorname{Spec}\mathcal{A}$ 求出 $\boldsymbol{e}^\lambda_1,\boldsymbol{e}^\lambda_2,\cdots,\boldsymbol{e}^\lambda_{m_\lambda}$, 合并得到 $V$ 的一个基 $(\boldsymbol{e}_i)$.
 
@@ -1930,7 +1956,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     设 $W=\mathcal{A}(\left<\boldsymbol{v}_i|i=r+1,\cdots,n\right>)$. $\because\forall\boldsymbol{w}\in W,i=1,\cdots,r$,
     \[(\boldsymbol{w}|\boldsymbol{u}_i)=\left(\sum\limits_{j=r+1}^na_j\mathcal{A}\boldsymbol{v}_j\Bigg|\dfrac{1}{\sigma_i}\mathcal{A}\boldsymbol{v}_i\right)=\sum\limits_{j=r+1}^n\dfrac{a_j}{\sigma_i}(\mathcal{A}\boldsymbol{v}_j|\mathcal{A}\boldsymbol{v}_i)=\sum\limits_{j=r+1}^n\dfrac{a_j}{\sigma_i}(\mathcal{A}^*\mathcal{A}\boldsymbol{v}_j|\boldsymbol{v}_i)=0,\]
 
-    $\therefore W=(\mathcal{A}(\left<\boldsymbol{v}_i|i=1,2,\cdots,r\right>))^\perp$. $\therefore$ 从 $W$ 中选取标准正交基 $\boldsymbol{u}_{r+1},\cdots,\boldsymbol{u}_n$, 则 $\boldsymbol{u}_1,\cdots,\boldsymbol{u}_n$ 是 $U$ 的标准正交基.
+    $\therefore W=(\mathcal{A}(\left<\boldsymbol{v}_i|i=1,2,\cdots,r\right>))^\perp$.
+    
+    $\therefore$ 从 $W$ 中选取标准正交基 $\boldsymbol{u}_{r+1},\cdots,\boldsymbol{u}_n$, 则 $\boldsymbol{u}_1,\cdots,\boldsymbol{u}_n$ 是 $U$ 的标准正交基.
 
     $\mathcal{A}$ 在基 $(\boldsymbol{v}_i)$ 和 $(\boldsymbol{u}_i)$ 下的矩阵为
     \[\begin{pmatrix}
@@ -2010,7 +2038,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 \end{proof}
 \stepcounter{exercise}
 \begin{exercise}% 4.4
-    设 $V$ 是 $m$ 维 Euclid 空间, $V^\mathbb{C}$ 是它的复化空间, $\mathcal{A}$ 是 $V^\mathbb{C}$ 上的线性算子, 由 $\forall\boldsymbol{u},\boldsymbol{v},\mathcal{A}(\boldsymbol{u}+i\boldsymbol{v})=\boldsymbol{u}-i\boldsymbol{v}$ 定义. $\mathcal{A}_\mathbb{R}$ 是 $(V^\mathbb{C})_\mathbb{R}$ 上的线性算子吗? 如果是, $\mathcal{A}_\mathbb{R}$ 是否是对称, 正交, 幂等的?
+    设 $V$ 是 $m$ 维 Euclid 空间, $V^\mathbb{C}$ 是它的复化空间, $\mathcal{A}$ 是 $V^\mathbb{C}$ 上的线性算子, 由
+    \[\mathcal{A}(\boldsymbol{u}+i\boldsymbol{v})=\boldsymbol{u}-i\boldsymbol{v},\quad\forall\boldsymbol{u},\boldsymbol{v}\]
+    定义. $\mathcal{A}_\mathbb{R}$ 是 $(V^\mathbb{C})_\mathbb{R}$ 上的线性算子吗? 如果是, $\mathcal{A}_\mathbb{R}$ 是否是对称, 正交, 幂等的?
 \end{exercise}
 \begin{proof}
     设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, 则 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n,i\boldsymbol{e}_1,\cdots,i\boldsymbol{e}_2,i\boldsymbol{e}_n$ 是 $(V^\mathbb{C})_\mathbb{R}$ 的一个基.
