@@ -7,8 +7,8 @@
 % 习题 2.4
 % 习题 3.2 需要求出 $\mathbb{F}_2\mathbb{P}^2$ 中处于一般位置的点组(给定一个点的情况下)的个数
 
-\documentclass{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 \title{第5章笔记和习题}
 
 \begin{document}
@@ -878,39 +878,8 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
     \[[A,B,C,D]=\dfrac{\sin\angle AOC}{\sin\angle BOC}\cdot\dfrac{\sin\angle BOD}{\sin\angle AOD}.\]
 \end{theorem}
 \begin{proof}
-    如下图建立坐标系, 各点的坐标在点后, 则在坐标系 $\boldsymbol{e}_1,\boldsymbol{e}_2$ 下有 $\Phi_0^{-1}(A)=(s:x_1),\Phi_0^{-1}(B)=(s:x_2),\Phi_0^{-1}(C)=(s:x_3),\Phi_0^{-1}(D)=(s:x_4)$.
-    \begin{figure}[h!]
-        \centering
-        \begin{tikzpicture}
-            \draw [->] (-1,0) -- (6,0);
-            \draw [->] (0,-1) -- (0,8);
-            \draw [thick, ->] (0,0) -- (1,0);
-            \draw [thick, ->] (0,0) -- (0,1);
-            \node [below] at (1,0) {$\boldsymbol{e}_1$};
-            \node [left] at (0,1) {$\boldsymbol{e}_2$};
-            \node [above] at (6,0) {$x$};
-            \node [right] at (0,8) {$y$};
-            \node [right] at (4,8) {$l$};
-            \node [below left] at (0,0) {$O$};
-            \draw [thick] (4,-1) -- (4,8);
-            \draw [thick,domain=0:5] plot(\x,{(-0-0.844*\x)/-4});
-            \draw [thick,domain=0:5] plot(\x,{(-0--1.958*\x)/4});
-            \draw [thick,domain=0:5] plot(\x,{(-0--4*\x)/4});
-            \draw [thick,domain=0:5] plot(\x,{(-0--6*\x)/4});
-            \draw [fill] (4,0.8444838677059961) circle (1pt);
-            \node [right] at (4.129,1.211) {$A\ (s,x_1)$};
-            \draw [fill] (0,0) circle (1pt);
-            \draw [fill] (4,1.958) circle (1pt);
-            \node [below right] at (4.129,2.3182) {$B\ (s,x_2)$};
-            \draw [fill] (4,4) circle (1pt);
-            \node [below right] at (4.129,4.363) {$C\ (s,x_3)$};
-            \draw [fill] (4,6) circle (1pt);
-            \node [below right] at (4.129,6.373) {$D\ (s,x_4)$};
-            \draw [fill] (4,0) circle (1pt);
-            \node [right] at (4,0.325) {$E\ (s,0)$};
-        \end{tikzpicture}
-        \caption{交比不变性的证明}
-    \end{figure}
+    如图 \ref{f2} 建立坐标系, 各点的坐标在点后, 则在坐标系 $\boldsymbol{e}_1,\boldsymbol{e}_2$ 下有
+    \[\Phi_0^{-1}(A)=(s:x_1),\quad\Phi_0^{-1}(B)=(s:x_2),\quad\Phi_0^{-1}(C)=(s:x_3),\quad\Phi_0^{-1}(D)=(s:x_4).\]
 
     令 $\alpha=\angle AOE,\beta=\angle BOE,\gamma=\angle COE,\delta=\angle DOE$, 有
     \begin{align*}
@@ -936,6 +905,39 @@ $\because\forall\tilde{\boldsymbol{x}}\in\mathbb{P}(V),\boldsymbol{x}\in V\backs
         & =\dfrac{\sin\angle AOC\sin\angle BOD}{\sin\angle AOD\sin\angle BOC}.\qedhere
     \end{align*}
 \end{proof}
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}
+        \draw [->] (-1,0) -- (6,0);
+        \draw [->] (0,-1) -- (0,8);
+        \draw [thick, ->] (0,0) -- (1,0);
+        \draw [thick, ->] (0,0) -- (0,1);
+        \node [below] at (1,0) {$\boldsymbol{e}_1$};
+        \node [left] at (0,1) {$\boldsymbol{e}_2$};
+        \node [above] at (6,0) {$x$};
+        \node [right] at (0,8) {$y$};
+        \node [right] at (4,8) {$l$};
+        \node [below left] at (0,0) {$O$};
+        \draw [thick] (4,-1) -- (4,8);
+        \draw [thick,domain=0:5] plot(\x,{(-0-0.844*\x)/-4});
+        \draw [thick,domain=0:5] plot(\x,{(-0--1.958*\x)/4});
+        \draw [thick,domain=0:5] plot(\x,{(-0--4*\x)/4});
+        \draw [thick,domain=0:5] plot(\x,{(-0--6*\x)/4});
+        \draw [fill] (4,0.8444838677059961) circle (1pt);
+        \node [right] at (4.129,1.211) {$A\ (s,x_1)$};
+        \draw [fill] (0,0) circle (1pt);
+        \draw [fill] (4,1.958) circle (1pt);
+        \node [below right] at (4.129,2.3182) {$B\ (s,x_2)$};
+        \draw [fill] (4,4) circle (1pt);
+        \node [below right] at (4.129,4.363) {$C\ (s,x_3)$};
+        \draw [fill] (4,6) circle (1pt);
+        \node [below right] at (4.129,6.373) {$D\ (s,x_4)$};
+        \draw [fill] (4,0) circle (1pt);
+        \node [right] at (4,0.325) {$E\ (s,0)$};
+    \end{tikzpicture}
+    \caption{交比不变性的证明}\label{f2}
+\end{figure}
+
 从上面的定理可以得到一些难以用古典方法得到的的结论, 比如对下图中的各点, 有 $[A,B,C,D]=[A',B',C',D']$.
 \begin{figure}[h!]
     \centering

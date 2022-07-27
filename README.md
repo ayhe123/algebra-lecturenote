@@ -20,7 +20,7 @@
 
 在 [这里](https://github.com/ayhe123/algebra-lecturenote/releases) 下载我编译好的 PDF 文件。文件包括：
 
-1. `no_bg.zip` 是编译好的 PDF 文件（无背景颜色），``with_bg.zip` 是编译好的 PDF 文件（有绿色的背景颜色）。
+1. `no_bg.zip` 是编译好的 PDF 文件（无背景颜色），`with_bg.zip` 是编译好的 PDF 文件（有绿色的背景颜色）。
 2.  `materials.zip` 里面有文中提到的 `.nb` 文件和 `.ggb` 文件。
 
 如果你会使用 $\LaTeX$, 可以自己编译，具体方法见“编译方法”一节。
@@ -63,12 +63,19 @@
 
 ## 编译方法
 
-建议使用最新的 $\LaTeX$ 发行版的 `xelatex` 编译。
+这个笔记从 0.3 版开始使用 [ElegantNote 模板](https://github.com/ElegantLaTeX/ElegantNote)，能提供更多的自定义样式，且不容易有字体问题。
+
+### 使用我修改过的 ElegantNote
+
+为了更好地用 ElegantNote 做笔记，我对 ElegantNote 进行了一些修改，[源码地址](https://github.com/ayhe123/ElegantNote)
 
 在 Linux 或者 MacOS 下执行：
 
 ```bash
 git clone https://github.com/ayhe123/algebra-lecturenote.git
+git clone https://github.com/ayhe123/ElegantNote.git
+cp ElegantNote/elegantnote.cls algebra-lecturenote
+cp ElegantNote/utils/auto_build.sh algebra-lecturenote
 cd algebra-lecturenote
 ./auto_build.sh
 ```
@@ -77,11 +84,43 @@ cd algebra-lecturenote
 
 由于我不会写批处理文件，所以 Windows 用户只能逐个编译文件（或者帮我写一个批处理文件）。
 
-## 添加背景颜色
+### 使用原版 ElegantNote
 
-文档背景颜色是从 [ElegantNote](https://github.com/ElegantLaTeX/ElegantNote) 学到的。给 `lecturenote` 宏包加上 `bgcolor` 参数可以修改文档背景颜色为绿色，不加参数则没有背景颜色。
+主流的 $\LaTeX$ 发行版应该都预装有 ElegantNote，不用下载。
 
-运行 `change_color.py` 可以自动改变文档的背景颜色。
+这里介绍不用 `mdframed` 宏包的方法。首先删掉 `lecturenote.sty` 的下列内容：
+```LaTeX
+\newmdtheoremenv[style=mdftheoremstyle]{property}{性质}[section]
+\newmdtheoremenv[style=mdftheoremstyle]{exercise}{习题}
+\newmdtheoremenv[style=mdftheoremstyle]{exercisec}{补充题}
+```
+
+在 `lecturenote.sty` 或者其他合适的地方加上：
+
+```LaTeX
+\theoremstyle{definition}  % 或者改成其他的定理样式
+\newtheorem*{solution}{解}
+\theoremstyle{plain}
+\newtheorem{property}{性质}[section]
+\newtheorem{exercise}{习题}
+\newtheorem{exercisec}{补充题}
+```
+
+之后就能正常编译了。
+
+可以使用 `auto_build.sh`。在 Linux 或者 MacOS 下执行：
+
+```bash
+git clone https://github.com/ayhe123/algebra-lecturenote.git
+git clone https://github.com/ayhe123/ElegantNote.git
+cp ElegantNote/utils/auto_build.sh algebra-lecturenote
+cd algebra-lecturenote
+./auto_build.sh
+```
+
+### 一键修改样式
+
+我写了一个 Python 脚本用于批量修改样式。使用方法见[这里](https://github.com/ayhe123/ElegantNote/tree/master/utils)
 
 ## 存在的问题
 

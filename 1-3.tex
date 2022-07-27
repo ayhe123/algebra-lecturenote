@@ -1,5 +1,5 @@
-\documentclass{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 \usepackage{lscape}
 
 \title{第3章笔记和习题}
@@ -14,46 +14,10 @@
     图 \ref{f1} 可以说明 $v(\Pi(A,B))$ 具有以下的线性性质:
     \begin{enumerate}
         \item $\forall$ 纯量 $\lambda,v(\Pi(A,\lambda B))=v(\Pi(\lambda A,B))=\lambda v(\Pi(A,B))$,
-        \item $\forall\ 2$ 维列向量 $C,v(\Pi(A,B+C))=v(\Pi(A,B))+v(\Pi(A,C)),v(\Pi(A+C,B))=v(\Pi(A,B))+v(\Pi(C,B))$.
+        \item $\forall\ 2$ 维列向量 $C,v(\Pi(A,B+C))=v(\Pi(A,B))+v(\Pi(A,C))$,
+        
+        $v(\Pi(A+C,B))=v(\Pi(A,B))+v(\Pi(C,B))$.
     \end{enumerate}
-    \begin{figure}[htbp!]
-        \centering
-        \begin{tikzpicture}[scale=.5]
-            \draw [thick, ->] (0,0) -- (2,3);
-            \node [above left] at (2,3) {$A$};
-            \draw [thick, ->] (0,0) -- (4,0);
-            \node [below] at (4,0) {$B$};
-            \draw [thick, ->] (0,0) -- (4,6);
-            \node [above] at (4,6) {$2A$};
-            \draw [thick, ->] (0,0) -- (8,0);
-            \node [below] at (8,0) {$2B$};
-            \draw [thick, cyan] (8,0) -- (10,3) -- (2,3);
-            \draw [thick, cyan] (4,0) -- (8,6) -- (4,6);
-            \draw [thick, red] (4,0) -- (6,3) -- (2,3);
-        \end{tikzpicture}
-        \quad
-        \begin{tikzpicture}[scale=.5]
-            \draw [thick, ->] (0,2) -- (2,5);
-            \draw [thick, red] (2,2) -- (2,5);
-            \draw [thick, red] (2,2.2) -- (2.2,2.2) -- (2.2,2);
-            \draw [thick, cyan] (2,5) -- (6,5) -- (4,2);
-            \node [above left] at (2,5) {$B$};
-            \draw [thick, ->] (0,2) -- (3,1);
-            \draw [thick, red] (3,2) -- (3,1);
-            \draw [thick, red] (3,1.8) -- (3.2,1.8) -- (3.2,2);
-            \draw [thick, cyan] (3,1) -- (7,1) -- (4,2);
-            \node [below] at (3,1) {$C$};
-            \draw [thick, ->] (0,2) -- (7,4);
-            \draw [thick, red] (7,4) -- (7,2);
-            \draw [thick, red] (7,2.2) -- (6.8,2.2) -- (6.8,2);
-            \draw [thick, cyan] (7,4) -- (11,4) -- (4,2);
-            \node [above] at (7,4) {$B+C$};
-            \draw [thick, ->] (0,2) -- (4,2);
-            \draw [thick, dashed] (4,2) -- (7,2);
-            \node [below] at (4,2) {$A$};
-        \end{tikzpicture}
-        \caption{有向面积的线性性质. 左图对应性质 1, 右图对应性质 2}\label{f1}
-    \end{figure}
 
     此外还有:
     \begin{enumerate}
@@ -71,7 +35,8 @@
 
     $\because$
     \begin{align*}
-        v(\Pi(E))+v(\Pi([0,1],[1,0])) & =v(\Pi(E))+v(\Pi([0,1],[1,0]))+v(\Pi([1,0],[1,0]))+v(\Pi([0,1],[0,1])) \\
+        & v(\Pi(E))+v(\Pi([0,1],[1,0])) \\
+        & =v(\Pi(E))+v(\Pi([0,1],[1,0]))+v(\Pi([1,0],[1,0]))+v(\Pi([0,1],[0,1])) \\
         & =v(\Pi([1,1],[1,1]))=0,
     \end{align*}
 
@@ -79,6 +44,44 @@
     \[v(\Pi(E))=-v(\Pi([0,1],[1,0])),\]
     \[v(\Pi(A,B))=(ad-bc)v(\Pi(E))=ad-bc.\qedhere\]
 \end{proof}
+\begin{figure}[htbp!]
+    \centering
+    \begin{tikzpicture}[scale=.5]
+        \draw [thick, ->] (0,0) -- (2,3);
+        \node [above left] at (2,3) {$A$};
+        \draw [thick, ->] (0,0) -- (4,0);
+        \node [below] at (4,0) {$B$};
+        \draw [thick, ->] (0,0) -- (4,6);
+        \node [above] at (4,6) {$2A$};
+        \draw [thick, ->] (0,0) -- (8,0);
+        \node [below] at (8,0) {$2B$};
+        \draw [thick, cyan] (8,0) -- (10,3) -- (2,3);
+        \draw [thick, cyan] (4,0) -- (8,6) -- (4,6);
+        \draw [thick, red] (4,0) -- (6,3) -- (2,3);
+    \end{tikzpicture}
+    \quad
+    \begin{tikzpicture}[scale=.5]
+        \draw [thick, ->] (0,2) -- (2,5);
+        \draw [thick, red] (2,2) -- (2,5);
+        \draw [thick, red] (2,2.2) -- (2.2,2.2) -- (2.2,2);
+        \draw [thick, cyan] (2,5) -- (6,5) -- (4,2);
+        \node [above left] at (2,5) {$B$};
+        \draw [thick, ->] (0,2) -- (3,1);
+        \draw [thick, red] (3,2) -- (3,1);
+        \draw [thick, red] (3,1.8) -- (3.2,1.8) -- (3.2,2);
+        \draw [thick, cyan] (3,1) -- (7,1) -- (4,2);
+        \node [below] at (3,1) {$C$};
+        \draw [thick, ->] (0,2) -- (7,4);
+        \draw [thick, red] (7,4) -- (7,2);
+        \draw [thick, red] (7,2.2) -- (6.8,2.2) -- (6.8,2);
+        \draw [thick, cyan] (7,4) -- (11,4) -- (4,2);
+        \node [above] at (7,4) {$B+C$};
+        \draw [thick, ->] (0,2) -- (4,2);
+        \draw [thick, dashed] (4,2) -- (7,2);
+        \node [below] at (4,2) {$A$};
+    \end{tikzpicture}
+    \caption{有向面积的线性性质. 左图对应性质 1, 右图对应性质 2}\label{f1}
+\end{figure}
 
 由于证明过程中只涉及 $v(\Pi(A,B))$ 的一些性质, 因此这一证明很容易推广到 $n$ 维的情形.
 
@@ -186,7 +189,8 @@
 
     对于性质 \ref{p2}, 下面只讨论行的情况, 列的情况类似.
 
-    设 $A=[A_{(1)},\cdots,A_{(k)},\cdots,A_{(l)},\cdots,A_{(n)}]=(a_{ij}),A'=[A_{(1)},\cdots,A_{(l)},\cdots,A_{(k)},\cdots,A_{(n)}]$.
+    设
+    \[A=[A_{(1)},\cdots,A_{(k)},\cdots,A_{(l)},\cdots,A_{(n)}]=(a_{ij}),A'=[A_{(1)},\cdots,A_{(l)},\cdots,A_{(k)},\cdots,A_{(n)}]\]
 
     设 $\tau=(k,l)$, 则 $A'=(a_{\tau(j),j})$. $\therefore$
     \[\det A'=\sum\limits_{\sigma\in S_n}\varepsilon_\sigma a_{\sigma\tau(1),1}a_{\sigma\tau(2),2}\cdots a_{\sigma\tau(n),n}.\]
@@ -379,7 +383,7 @@
         j_1 & \cdots & j_{r-1} & j_r
     \end{pmatrix}=0.\]
 
-    $\because$ 上式对任意的 $v=1,2,\cdots,r$ 都成立, 式 (\ref{eq3.1}) 对任意的 $i_s\in\{1,2,\cdots,m\}\backslash\{i_1,i_2,\cdots,i_r\}$ 都成立, $\therefore\forall i=1,2,\cdots,m$, 有
+    $\because$ 上式对任意的 $v=1,\cdots,r$ 都成立, 式 (\ref{eq3.1}) 对任意的 $i_s\in\{1,\cdots,m\}\backslash\{i_1,\cdots,i_r\}$ 都成立, $\therefore\forall i=1,2,\cdots,m$, 有
     \[a_{ij_1}M_1+a_{ij_2}M_2+\cdots+a_{ij_r}M_r+a_{ij_t}M\begin{pmatrix}
         i_1 & \cdots & i_{r-1} & j_r \\
         j_1 & \cdots & j_{r-1} & j_r
@@ -415,10 +419,16 @@
     \[\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,A_{(j)},\cdots,A_{(n)})=\lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,\lambda A_{(j)},\cdots,A_{(n)}).\]
 
     由书上的公理 2.2,
-    \[\lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,\lambda A_{(j)},\cdots,A_{(n)})=\lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,\lambda A_{(j)},\cdots,A_{(n)}).\]
+    \begin{align*}
+        & \lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,\lambda A_{(j)},\cdots,A_{(n)}) \\
+        & =\lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,\lambda A_{(j)},\cdots,A_{(n)}).
+    \end{align*}
 
     由书上的公理 2.1,
-    \[\lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,\lambda A_{(j)},\cdots,A_{(n)})=\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,A_{(j)},\cdots,A_{(n)}).\]
+    \begin{align*}
+        & \lambda^{-1}\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,\lambda A_{(j)},\cdots,A_{(n)}) \\
+        & =\mathcal{D}(A_{(1)},\cdots,A_{(i)}+\lambda A_{(j)},\cdots,A_{(j)},\cdots,A_{(n)}).
+    \end{align*}
 \end{proof}
 \begin{lemma}\label{l4.2}
     若 $A$ 的行线性相关, 则 $\mathcal{D}=0$.
@@ -442,7 +452,8 @@
 \begin{proof}
     由引理 \ref{l4.1}, 进行 (II) 型初等行变换得
     \begin{align*}
-        \mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,A_{(j)},\cdots,A_{(n)}) & =\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,A_{(i)}+A_{(j)},\cdots,A_{(n)}) \\
+        & \mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,A_{(j)},\cdots,A_{(n)}) \\
+        & =\mathcal{D}(A_{(1)},\cdots,A_{(i)},\cdots,A_{(i)}+A_{(j)},\cdots,A_{(n)}) \\
         & =\mathcal{D}(A_{(1)},\cdots,A_{(i)}-(A_{(i)}+A_{(j)}),\cdots,A_{(i)}+A_{(j)},\cdots,A_{(n)}) \\
         & =\mathcal{D}(A_{(1)},\cdots,-A_{(j)},\cdots,A_{(i)}+A_{(j)},\cdots,A_{(n)}) \\
         & =\mathcal{D}(A_{(1)},\cdots,-A_{(j)},\cdots,A_{(i)}+A_{(j)}-A_{(j)},\cdots,A_{(n)}) \\
@@ -470,7 +481,10 @@
 
     $\therefore$
     \begin{equation}\label{eq4.1}
-        \mathcal{D}(A_{(1)},\cdots,\lambda A_{(i)}'+\mu A_{(i)}'',\cdots,A_{(n)})=\lambda\mathcal{D}(A_{(1)},\cdots,A_{(i)}',\cdots,A_{(n)})+\mu\mathcal{D}(A_{(1)},\cdots,A_{(i)}'',\cdots,A_{(n)}).
+        \begin{aligned}
+            & \mathcal{D}(A_{(1)},\cdots,\lambda A_{(i)}'+\mu A_{(i)}'',\cdots,A_{(n)}) \\
+            & =\lambda\mathcal{D}(A_{(1)},\cdots,A_{(i)}',\cdots,A_{(n)})+\mu\mathcal{D}(A_{(1)},\cdots,A_{(i)}'',\cdots,A_{(n)}).
+        \end{aligned}
     \end{equation}
 
     (b) 若 $A_{(1)},\cdots,A_{(i-1)},A_{(i+1)},\cdots,A_{(n)}$ 线性无关, 而
@@ -492,10 +506,16 @@
 
     则
     \[\lambda A_{(i)}''+\mu A_{(i)}'=\sum\limits_{\substack{j=1\\j\neq i}}^{n}\lambda\alpha_jA_{(j)}+(\lambda\alpha_i+\mu)A_{(i)}',\]
-    \[\mathcal{D}(A_{(1)},\cdots,\lambda A_{(i)}'+\mu A_{(i)}'',\cdots,A_{(n)})=\mathcal{D}\left(A_{(1)},\cdots,\sum\limits_{\substack{j=1\\j\neq i}}^{n}\lambda\alpha_jA_{(j)}+(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right).\]
+    \begin{align*}
+        & \mathcal{D}(A_{(1)},\cdots,\lambda A_{(i)}'+\mu A_{(i)}'',\cdots,A_{(n)}) \\
+        & =\mathcal{D}\left(A_{(1)},\cdots,\sum\limits_{\substack{j=1\\j\neq i}}^{n}\lambda\alpha_jA_{(j)}+(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right).
+    \end{align*}
 
     由引理 \ref{l4.1}, 进行 (II) 型初等行变换得
-    \[\mathcal{D}\left(A_{(1)},\cdots,\sum\limits_{\substack{j=1\\j\neq i}}^{n}\lambda\alpha_jA_{(j)}+(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right)=\mathcal{D}\left(A_{(1)},\cdots,(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right).\]
+    \begin{align*}
+        & \mathcal{D}\left(A_{(1)},\cdots,\sum\limits_{\substack{j=1\\j\neq i}}^{n}\lambda\alpha_jA_{(j)}+(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right) \\
+        & =\mathcal{D}\left(A_{(1)},\cdots,(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right).
+    \end{align*}
 
     由书上的公理 2.1 得
     \[\mathcal{D}\left(A_{(1)},\cdots,(\lambda\alpha_i+\mu)A_{(i)}',\cdots,A_{(n)}\right)=(\lambda\alpha_i+\mu)\mathcal{D}\left(A_{(1)},\cdots,A_{(i)}',\cdots,A_{(n)}\right).\]
@@ -638,47 +658,50 @@
     \end{pmatrix}\]
     (其中 $a_{ij}\in\mathbb{Z}$) 的行列式是一个有理数的平方.
 \end{exercise}
+
+\begin{landscape}
 \begin{proof}
     当 $n=1$ 时 $\det A=0$, 当 $n=2$ 时 $\det A=a_{12}^2$. 对 $n$ 用数学归纳法证明: 当 $n$ 为奇数时 $\det A=0$, 当 $n$ 为偶数时 $\det A$ 是一个有理数的平方.
     
     考察 $n$ 阶斜对称矩阵 $A$, 不妨设 $a_{n-1,n}\neq0$ (如果 $a_{n-1,n}=0,a_{ij}\neq0$, 那么依次交换 $A$ 的第 $i$ 行和 $n-1$ 行, 第 $j$ 行和 $n$ 行, 第 $i$ 列和 $n-1$ 列, 第 $j$ 列和 $n$ 列, 得到的矩阵仍然是斜对称矩阵, 且第 $n-1,n$ 元为 $a_{ij}$).
     
     $A$ 的第 $i\ (i<n-1)$ 列加上第 $n-1$ 列的 $-\dfrac{a_{i,n}}{a_{n-1,n}}$ 倍得 $\det A=\det A_1$, $A_1$ 的第 $i\ (i<n-1)$ 行加上第 $n-1$ 行的 $-\dfrac{a_{i,n}}{a_{n-1,n}}$ 倍得 $\det A_1=\det A_2$, 将 $\det A_2$ 按第 $n$ 行和第 $n$ 列展开得 $\det A_2=a_{n-1,n}^2\det A_3$, 其中
-    \begin{landscape}
-        \[A_1=\begin{pmatrix}
-            -\dfrac{a_{1,n}}{a_{n-1,n}}a_{1,n-1} & a_{12}-\dfrac{a_{2,n}}{a_{n-1,n}}a_{1,n-1} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{1,n-1} & a_{1,n-1} & a_{1,n} \\
-            -a_{12}-\dfrac{a_{1,n}}{a_{n-1,n}}a_{2,n-1} & -\dfrac{a_{2,n}}{a_{n-1,n}}a_{2,n-1} & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{2,n-1} & a_{2,n-1} & a_{2,n} \\
-            \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
-            -a_{1,n-2}-\dfrac{a_{1,n}}{a_{n-1,n}}a_{n-2,n-1} & -a_{2,n-2}-\dfrac{a_{2,n}}{a_{n-1,n}}a_{n-2,n-1} & \cdots & -\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{n-2,n-1} & a_{n-2,n-1} & a_{n-2,n}\\
-            -a_{1,n-1} & -a_{2,n-1} & \cdots & -a_{n-2,n-1} & 0 & a_{n-1,n} \\
-            0 & 0 & \cdots & 0 & -a_{n-1,n} & 0 \\
-        \end{pmatrix},\]
-        \[A_2=\begin{pmatrix}
-            0 & a_{12}-\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}} & a_{1,n-1} & 0 \\
-            -a_{12}-\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}} & 0 & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}} & a_{2,n-1} & 0 \\
-            \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
-            -a_{1,n-2}-\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}} & -a_{2,n-2}-\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & 0 & a_{n-2,n-1} & 0 \\
-            -a_{1,n-1} & -a_{2,n-1} & \cdots & -a_{n-2,n-1} & 0 & a_{n-1,n} \\
-            0 & 0 & \cdots & 0 & -a_{n-1,n} & 0 \\
-        \end{pmatrix},\]
-        \begin{align*}
-            \det A_3 & =\begin{vmatrix}
-                0 & a_{12}-\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}} \\
-                -a_{12}-\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}} & 0 & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}} \\
-                \vdots & \vdots & \ddots & \vdots \\
-                -a_{1,n-2}-\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}} & -a_{2,n-2}-\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & 0 \\
-            \end{vmatrix} \\
-            & =a_{n-1,n}^{2-n}\begin{vmatrix}
-                0 & a_{12}a_{n-1,n}-a_{2,n}a_{1,n-1}+a_{1,n}a_{2,n-1} & \cdots & a_{1,n-2}a_{n-1,n}-a_{n-2,n}a_{1,n-1}+a_{1,n}a_{n-2,n-1} \\
-                -a_{12}a_{n-1,n}-a_{1,n}a_{2,n-1}+a_{2,n}a_{1,n-1} & 0 & \cdots & a_{2,n-2}a_{n-1,n}-a_{n-2,n}a_{2,n-1}+a_{2,n}a_{n-2,n-1} \\
-                \vdots & \vdots & \ddots & \vdots \\
-                -a_{1,n-2}a_{n-1,n}-a_{1,n}a_{n-2,n-1}+a_{n-2,n}a_{1,n-1} & -a_{2,n-2}a_{n-1,n}-a_{2,n}a_{n-2,n-1}+a_{n-2,n}a_{2,n-1} & \cdots & 0 \\
-            \end{vmatrix} \\
-        \end{align*}
-    \end{landscape}
+    
+    \[A_1=\begin{pmatrix}
+        -\dfrac{a_{1,n}}{a_{n-1,n}}a_{1,n-1} & a_{12}-\dfrac{a_{2,n}}{a_{n-1,n}}a_{1,n-1} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{1,n-1} & a_{1,n-1} & a_{1,n} \\
+        -a_{12}-\dfrac{a_{1,n}}{a_{n-1,n}}a_{2,n-1} & -\dfrac{a_{2,n}}{a_{n-1,n}}a_{2,n-1} & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{2,n-1} & a_{2,n-1} & a_{2,n} \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+        -a_{1,n-2}-\dfrac{a_{1,n}}{a_{n-1,n}}a_{n-2,n-1} & -a_{2,n-2}-\dfrac{a_{2,n}}{a_{n-1,n}}a_{n-2,n-1} & \cdots & -\dfrac{a_{n-2,n}}{a_{n-1,n}}a_{n-2,n-1} & a_{n-2,n-1} & a_{n-2,n}\\
+        -a_{1,n-1} & -a_{2,n-1} & \cdots & -a_{n-2,n-1} & 0 & a_{n-1,n} \\
+        0 & 0 & \cdots & 0 & -a_{n-1,n} & 0 \\
+    \end{pmatrix},\]
+    \[A_2=\begin{pmatrix}
+        0 & a_{12}-\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}} & a_{1,n-1} & 0 \\
+        -a_{12}-\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}} & 0 & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}} & a_{2,n-1} & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+        -a_{1,n-2}-\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}} & -a_{2,n-2}-\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & 0 & a_{n-2,n-1} & 0 \\
+        -a_{1,n-1} & -a_{2,n-1} & \cdots & -a_{n-2,n-1} & 0 & a_{n-1,n} \\
+        0 & 0 & \cdots & 0 & -a_{n-1,n} & 0 \\
+    \end{pmatrix},\]
+    \begin{align*}
+        & \det A_3 \\
+        & =\begin{vmatrix}
+            0 & a_{12}-\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & a_{1,n-2}-\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}}+\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}} \\
+            -a_{12}-\dfrac{a_{1,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{1,n-1}}{a_{n-1,n}} & 0 & \cdots & a_{2,n-2}-\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}}+\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            -a_{1,n-2}-\dfrac{a_{1,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{1,n-1}}{a_{n-1,n}} & -a_{2,n-2}-\dfrac{a_{2,n}a_{n-2,n-1}}{a_{n-1,n}}+\dfrac{a_{n-2,n}a_{2,n-1}}{a_{n-1,n}} & \cdots & 0 \\
+        \end{vmatrix} \\
+        & =a_{n-1,n}^{2-n}\begin{vmatrix}
+            0 & a_{12}a_{n-1,n}-a_{2,n}a_{1,n-1}+a_{1,n}a_{2,n-1} & \cdots & a_{1,n-2}a_{n-1,n}-a_{n-2,n}a_{1,n-1}+a_{1,n}a_{n-2,n-1} \\
+            -a_{12}a_{n-1,n}-a_{1,n}a_{2,n-1}+a_{2,n}a_{1,n-1} & 0 & \cdots & a_{2,n-2}a_{n-1,n}-a_{n-2,n}a_{2,n-1}+a_{2,n}a_{n-2,n-1} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            -a_{1,n-2}a_{n-1,n}-a_{1,n}a_{n-2,n-1}+a_{n-2,n}a_{1,n-1} & -a_{2,n-2}a_{n-1,n}-a_{2,n}a_{n-2,n-1}+a_{n-2,n}a_{2,n-1} & \cdots & 0 \\
+        \end{vmatrix} \\
+    \end{align*}
 
     $\because\det A_3=a_{n-1,n}^{2-n}\cdot b$, 其中 $b$ 是一个元素全为整数的 $n-2$ 阶行列式, $\therefore$ 由归纳假定, 若 $n$ 为奇数, 则 $\det A_3=0$, 若 $n$ 为奇数, 则 $\sqrt{\det A_3}\in\mathbb{Q}$. $\therefore\sqrt{\det A}\in\mathbb{Q}$.
 \end{proof}
+\end{landscape}
 \begin{note}
     当 $n=4$ 时, 可以得到 $\sqrt{\det A}\in\mathbb{Z}$. 一般地, $\forall n,\sqrt{\det A}\in\mathbb{Z}$, 但这不能由上述证法得到.
 \end{note}
@@ -731,6 +754,8 @@
     证明:
     \[\Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m)=\prod\limits_{1\leq j<i\leq m}(x_i-x_j)^{k_ik_j}.\]
 \end{exercise}
+
+\begin{landscape}
 \begin{proof}
     $\Delta_n$ 的第 $i\ (i$ 按顺序从 $n$ 到 $2)$ 列加上第 $i-1$ 行的 $-x_1$ 倍, 注意到 $\dbinom{a}{b}-\dbinom{a-1}{b}=\dbinom{a-1}{b-1}$, 得
     \[\Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m)=\begin{vmatrix}
@@ -791,25 +816,24 @@
         \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
         0 & 0 & 0 & \cdots & \binom{n-1}{k_i-1}x_i^{n-k_i}-\binom{n-2}{k_i-1}x_i^{n-k_i-1}x_1 \\
     \end{pmatrix}.\]
-    \begin{landscape}
-        $\because\dbinom{a+1}{b+1}=\dbinom{a}{b+1}+\dbinom{a}{b}$, $\therefore$
-        \begin{align*}
-            ^{(12)}M_{k_i}^n(x_i)= & \ \begin{pmatrix}
-                x_i-x_1 & x_i^2-x_ix_1 & x_i^3-x_i^2x_1 & \cdots & x_i^{n-1}-x_i^{n-2}x_1 \\[4pt]
-                1 & \binom{1}{1}(x_i-x_1)+\binom{1}{0}x_i & \binom{2}{1}(x_i^2-x_ix_1)+\binom{2}{0}x_i^2 & \cdots & \binom{n-2}{1}(x_i^{n-2}-x_i^{n-3}x_1)+\binom{n-2}{0}x_i^{n-2} \\[10pt]
-                0 & 1 & \binom{2}{2}(x_i-x_1)+\binom{2}{1}x_i & \cdots & \binom{n-2}{2}(x_i^{n-3}-x_i^{n-4}x_1)+\binom{n-2}{1}x_i^{n-3} \\
-                \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
-                0 & 0 & 0 & \cdots & \binom{n-2}{k_i-1}(x_i^{n-k_i}-x_i^{n-k_i-1}x_1)+\binom{n-2}{k_i-2}x_i^{n-k_i} \\
-            \end{pmatrix} \\
-            = & \ \begin{pmatrix}
-                x_i-x_1 & x_i^2-x_ix_1 & x_i^3-x_i^2x_1 & \cdots & x_i^{n-1}-x_i^{n-2}x_1 \\[4pt]
-                1 & \binom{1}{1}(x_i-x_1)+x_i & \binom{2}{1}(x_i^2-x_ix_1)+x_i^2 & \cdots & \binom{n-2}{1}(x_i^{n-2}-x_i^{n-3}x_1)+x_i^{n-2} \\[10pt]
-                0 & 1 & \binom{2}{2}(x_i-x_1)+\binom{2}{1}x_i & \cdots & \binom{n-2}{2}(x_i^{n-3}-x_i^{n-4}x_1)+\binom{n-2}{1}x_i^{n-3} \\
-                \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
-                0 & 0 & 0 & \cdots & \binom{n-2}{k_i-1}(x_i^{n-k_i}-x_i^{n-k_i-1}x_1)+\binom{n-2}{k_i-2}x_i^{n-k_i} \\
-            \end{pmatrix},
-        \end{align*}
-    \end{landscape}
+    
+    $\because\dbinom{a+1}{b+1}=\dbinom{a}{b+1}+\dbinom{a}{b}$, $\therefore$
+    \begin{align*}
+        ^{(12)}M_{k_i}^n(x_i)= & \ \begin{pmatrix}
+            x_i-x_1 & x_i^2-x_ix_1 & x_i^3-x_i^2x_1 & \cdots & x_i^{n-1}-x_i^{n-2}x_1 \\[4pt]
+            1 & \binom{1}{1}(x_i-x_1)+\binom{1}{0}x_i & \binom{2}{1}(x_i^2-x_ix_1)+\binom{2}{0}x_i^2 & \cdots & \binom{n-2}{1}(x_i^{n-2}-x_i^{n-3}x_1)+\binom{n-2}{0}x_i^{n-2} \\[10pt]
+            0 & 1 & \binom{2}{2}(x_i-x_1)+\binom{2}{1}x_i & \cdots & \binom{n-2}{2}(x_i^{n-3}-x_i^{n-4}x_1)+\binom{n-2}{1}x_i^{n-3} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
+            0 & 0 & 0 & \cdots & \binom{n-2}{k_i-1}(x_i^{n-k_i}-x_i^{n-k_i-1}x_1)+\binom{n-2}{k_i-2}x_i^{n-k_i} \\
+        \end{pmatrix} \\
+        = & \ \begin{pmatrix}
+            x_i-x_1 & x_i^2-x_ix_1 & x_i^3-x_i^2x_1 & \cdots & x_i^{n-1}-x_i^{n-2}x_1 \\[4pt]
+            1 & \binom{1}{1}(x_i-x_1)+x_i & \binom{2}{1}(x_i^2-x_ix_1)+x_i^2 & \cdots & \binom{n-2}{1}(x_i^{n-2}-x_i^{n-3}x_1)+x_i^{n-2} \\[10pt]
+            0 & 1 & \binom{2}{2}(x_i-x_1)+\binom{2}{1}x_i & \cdots & \binom{n-2}{2}(x_i^{n-3}-x_i^{n-4}x_1)+\binom{n-2}{1}x_i^{n-3} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
+            0 & 0 & 0 & \cdots & \binom{n-2}{k_i-1}(x_i^{n-k_i}-x_i^{n-k_i-1}x_1)+\binom{n-2}{k_i-2}x_i^{n-k_i} \\
+        \end{pmatrix},
+    \end{align*}
 
     $^{(12)}M_{k_i}^n$ 的第 $1$ 行提取公因式 $x_i-x_1$, 得
     \[\Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m)=\prod\limits_{i=2}^m(x_i-x_1)\begin{vmatrix}
@@ -907,27 +931,28 @@
 
     $\therefore$
     \begin{align*}
-        & \Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m) \\
-        = & \ \Delta_{n-1}(k_1-1,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{k_i} \\
-        = & \ \Delta_{n-2}(k_1-2,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{2k_i} \\
-        = & \ \cdots \\
-        = & \ \Delta_{n-k_1}(0,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{k_1k_i} \\
-        = & \ \cdots \\
-        = & \ \prod\limits_{i=2}^m(x_i-x_1)^{k_1k_i}\cdot\prod\limits_{i=3}^m(x_i-x_2)^{k_2k_i}\Delta_{n-k_1}(0,x_1;0,x_2;\cdots;k_m,x_m) \\
-        = & \ \cdots \\
-        = & \ \Delta_{n-k_1-k_2-\cdots-k_{m-1}}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
-        = & \ \Delta_{k_m}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
-        = & \ \begin{vmatrix}
+        \Delta_n(k_1,x_1;k_2,x_2;\cdots;k_m,x_m) & =\Delta_{n-1}(k_1-1,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{k_i} \\
+        & =\Delta_{n-2}(k_1-2,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{2k_i} \\
+        & =\cdots \\
+        & =\Delta_{n-k_1}(0,x_1;k_2,x_2;\cdots;k_m,x_m)\prod\limits_{i=2}^m(x_i-x_1)^{k_1k_i} \\
+        & =\cdots \\
+        & =\prod\limits_{i=2}^m(x_i-x_1)^{k_1k_i}\cdot\prod\limits_{i=3}^m(x_i-x_2)^{k_2k_i}\Delta_{n-k_1}(0,x_1;0,x_2;\cdots;k_m,x_m) \\
+        & =\cdots \\
+        & =\Delta_{n-k_1-k_2-\cdots-k_{m-1}}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
+        & =\Delta_{k_m}(0,x_1;0,x_2;\cdots;0,x_{m-1};k_m,x_m)\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
+        & =\begin{vmatrix}
             1 & x_m & x_m^2 & \cdots & x_m^{k_m-1} \\[4pt]
             0 & 1 & \binom{2}{1}x_m & \cdots & \binom{k_m-1}{1}x_m^{k_m-2} \\[10pt]
             0 & 0 & 1 & \cdots & \binom{k_m-1}{2}x_m^{k_m-3} \\
             \vdots & \vdots & \vdots & \ddots & \vdots \\[4pt]
             0 & 0 & 0 & \cdots & \binom{k_m-1}{k_m-1}x_m^{k_m-k_m} \\
         \end{vmatrix}\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
-        = & \ 1\cdot\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
-        = & \ \prod\limits_{1\leq j<i\leq m}(x_i-x_j)^{k_jk_i}.\qedhere
+        & =1\cdot\prod_{j=1}^{m-1}\prod\limits_{i=j+1}^m(x_i-x_j)^{k_jk_i} \\
+        & =\prod\limits_{1\leq j<i\leq m}(x_i-x_j)^{k_jk_i}.\qedhere
     \end{align*}
 \end{proof}
+\end{landscape}
+
 \begin{exercise}% 2.5
     求
     \[B_n(s,t)=\begin{vmatrix}
@@ -1039,54 +1064,56 @@
 
     证明 $\det C_n(\lambda_1,\lambda_2,\cdots,\lambda_n)=\lambda_n\det C_{n-1}(\lambda_1,\lambda_2,\cdots,\lambda_n)+\det C_{n-2}(\lambda_1,\lambda_2,\cdots,\lambda_n)$, 并求 $\lambda_i=1\ (i=1,2,\cdots,n)$ 时的 $\det C_n$.
 \end{exercise}
-\begin{proof}
-    按最后一行展开, 得
-    \begin{align*}
-        \det C_n & =\lambda_n\begin{vmatrix}
-        \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
-        -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
-        0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-        0 & 0 & 0 & \cdots & \lambda_{n-2} & 1 \\
-        0 & 0 & 0 & \cdots & -1 & \lambda_{n-1} \\
-    \end{vmatrix}-(-1)\begin{vmatrix}
-        \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
-        -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
-        0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-        0 & 0 & 0 & \cdots & \lambda_{n-2} & 0 \\
-        0 & 0 & 0 & \cdots & -1 & 1 \\
-    \end{vmatrix} \\
-        & =\lambda_n\begin{vmatrix}
-        \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
-        -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
-        0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-        0 & 0 & 0 & \cdots & \lambda_{n-2} & 1 \\
-        0 & 0 & 0 & \cdots & -1 & \lambda_{n-1} \\
-    \end{vmatrix}+\begin{vmatrix}
-        \lambda_1 & 1 & 0 & \cdots & 0 \\
-        -1 & \lambda_2 & 1 & \cdots & 0 \\
-        0 & -1 & \lambda_3 & \cdots & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & 0 & \cdots & \lambda_{n-2} \\
-    \end{vmatrix}+\begin{vmatrix}
-        \lambda_1 & 1 & 0 & \cdots & 0 \\
-        -1 & \lambda_2 & 1 & \cdots & 0 \\
-        0 & -1 & \lambda_3 & \cdots & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & 0 & \cdots & 0 \\
-    \end{vmatrix} \\
-        & =\lambda_n\det C_{n-1}+\det C_{n-2}.
-    \end{align*}
-
-    当 $\lambda_i=1\ (i=1,2,\cdots,n)$ 时
-    \[\det C_n=\det C_{n-1}+\det C_{n-2},\]
-    \[\det C_1=1,\quad\det C_2=2,\]
-
-    由第 2 章第 3.3 节的例 3,
-    \[\det C_n=\dfrac{1}{\sqrt{5}}\left(\left(\dfrac{1+\sqrt{5}}{2}\right)^{m-1}-\left(\dfrac{1-\sqrt{5}}{2}\right)^{m-1}\right).\qedhere\]
-\end{proof}
+\begin{landscape}
+    \begin{proof}
+        按最后一行展开, 得
+        \begin{align*}
+            \det C_n & =\lambda_n\begin{vmatrix}
+            \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
+            -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
+            0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & \cdots & \lambda_{n-2} & 1 \\
+            0 & 0 & 0 & \cdots & -1 & \lambda_{n-1} \\
+        \end{vmatrix}-(-1)\begin{vmatrix}
+            \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
+            -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
+            0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & \cdots & \lambda_{n-2} & 0 \\
+            0 & 0 & 0 & \cdots & -1 & 1 \\
+        \end{vmatrix} \\
+            & =\lambda_n\begin{vmatrix}
+            \lambda_1 & 1 & 0 & \cdots & 0 & 0 \\
+            -1 & \lambda_2 & 1 & \cdots & 0 & 0 \\
+            0 & -1 & \lambda_3 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & \cdots & \lambda_{n-2} & 1 \\
+            0 & 0 & 0 & \cdots & -1 & \lambda_{n-1} \\
+        \end{vmatrix}+\begin{vmatrix}
+            \lambda_1 & 1 & 0 & \cdots & 0 \\
+            -1 & \lambda_2 & 1 & \cdots & 0 \\
+            0 & -1 & \lambda_3 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \cdots & \lambda_{n-2} \\
+        \end{vmatrix}+\begin{vmatrix}
+            \lambda_1 & 1 & 0 & \cdots & 0 \\
+            -1 & \lambda_2 & 1 & \cdots & 0 \\
+            0 & -1 & \lambda_3 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \cdots & 0 \\
+        \end{vmatrix} \\
+            & =\lambda_n\det C_{n-1}+\det C_{n-2}.
+        \end{align*}
+    
+        当 $\lambda_i=1\ (i=1,2,\cdots,n)$ 时
+        \[\det C_n=\det C_{n-1}+\det C_{n-2},\]
+        \[\det C_1=1,\quad\det C_2=2,\]
+    
+        由第 2 章第 3.3 节的例 3,
+        \[\det C_n=\dfrac{1}{\sqrt{5}}\left(\left(\dfrac{1+\sqrt{5}}{2}\right)^{m-1}-\left(\dfrac{1-\sqrt{5}}{2}\right)^{m-1}\right).\qedhere\]
+    \end{proof}
+\end{landscape}
 \stepcounter{exercise}
 \begin{exercise}% 2.8
     设 $A,B$ 是任一 $n$ 阶方阵. 证明
@@ -1484,7 +1511,7 @@
 
 证明第 \ref{ex3.8} 题需要证明一个引理.
 \begin{lemma}\label{l5.1}
-    设 $k<n,U=\{j_1,j_2,\cdots,j_k\}\subset\{1,2,\cdots,n\},\{i_1,i_2,\cdots,i_{n-k}\}=\{1,2,\cdots,n\}\backslash U,j_1<j_2<\cdots<j_k,i_1<i_2<\cdots<i_{n-k}$. 则
+    设 $k<n,U=\{j_1,j_2,\cdots,j_k\}\subset\{1,2,\cdots,n\},\{i_1,i_2,\cdots,i_{n-k}\}=\{1,2,\cdots,n\}\backslash U$, $j_1<j_2<\cdots<j_k,i_1<i_2<\cdots<i_{n-k}$. 则
     \begin{align*}
         \det A & =(-1)^{T(U)}\det(A_{(j_1)},\cdots,A_{(j_k)},A_{(i_1)},\cdots,A_{(i_{n-k})}) \\
         & =(-1)^{T(U)}\det(A^{(j_1)},\cdots,A^{(j_k)},A^{(i_1)},\cdots,A^{(i_{n-k})}),
@@ -2012,13 +2039,119 @@ Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]],
     的行列式.
 \end{exercisec}
 \begin{solution}
+    (1) 有
+    \[A{}^tA=\begin{pmatrix}
+        a^2+b^2+c^2+d^2 & 0 & 0 & 0 \\
+        0 & a^2+b^2+c^2+d^2 & 0 & 0 \\
+        0 & 0 & a^2+b^2+c^2+d^2 & 0 \\
+        0 & 0 & 0 & a^2+b^2+c^2+d^2 \\
+    \end{pmatrix},\]
+
+    $\therefore(\det A)^2=\det(A{}^tA)=(a^2+b^2+c^2+d^2)^4$.
+
+    由第 \ref{ex3.8} 题得
+    \begin{align*}
+        \det A & =\begin{vmatrix}
+            a & b \\
+            -b & a \\
+        \end{vmatrix}^2-\begin{vmatrix}
+            a & c \\
+            -b & d \\
+        \end{vmatrix}\begin{vmatrix}
+            -d & b \\
+            c & a \\
+        \end{vmatrix}+\begin{vmatrix}
+            a & d \\
+            -b & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            -d & a \\
+            c & -b \\
+        \end{vmatrix} \\
+        & \quad+\begin{vmatrix}
+            b & c \\
+            a & d \\
+        \end{vmatrix}\begin{vmatrix}
+            -c & b \\
+            -d & a \\
+        \end{vmatrix}-\begin{vmatrix}
+            b & d \\
+            a & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            -c & a \\
+            -d & -b \\
+        \end{vmatrix}+\begin{vmatrix}
+            c & d \\
+            d & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            -c & -d \\
+            -d & c \\
+        \end{vmatrix} \\
+        & =\begin{vmatrix}
+            a & b \\
+            -b & a \\
+        \end{vmatrix}^2-\begin{vmatrix}
+            a & c \\
+            -b & d \\
+        \end{vmatrix}\begin{vmatrix}
+            a & c \\
+            b & -d \\
+        \end{vmatrix}-\begin{vmatrix}
+            a & d \\
+            -b & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            a & -d \\
+            -b & c \\
+        \end{vmatrix} \\
+        & \quad-\begin{vmatrix}
+            b & c \\
+            a & d \\
+        \end{vmatrix}\begin{vmatrix}
+            b & -c \\
+            a & -d \\
+        \end{vmatrix}-\begin{vmatrix}
+            b & d \\
+            a & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            -b & -d \\
+            a  & -c \\
+        \end{vmatrix}+\begin{vmatrix}
+            c & d \\
+            d & -c \\
+        \end{vmatrix}\begin{vmatrix}
+            -c & -d \\
+            -d & c \\
+        \end{vmatrix} \\
+        & =\begin{vmatrix}
+            a & b \\
+            -b & a \\
+        \end{vmatrix}^2+\begin{vmatrix}
+            a & c \\
+            -b & d \\
+        \end{vmatrix}^2+\begin{vmatrix}
+            a & d \\
+            -b & -c \\
+        \end{vmatrix}^2 \\
+        & \quad+\begin{vmatrix}
+            b & c \\
+            a & d \\
+        \end{vmatrix}^2+\begin{vmatrix}
+            b & d \\
+            a & -c \\
+        \end{vmatrix}^2+\begin{vmatrix}
+            c & d \\
+            d & -c \\
+        \end{vmatrix}^2\geq0,
+    \end{align*}
+
+    $\therefore\det A=(a^2+b^2+c^2+d^2)^2$.
+
     (2) 有
     \begin{align*}
         A & =\begin{pmatrix}
-            \cos\alpha_1\cos\beta_1+\sin\alpha_1\sin\beta_1 & \cos\alpha_1\cos\beta_1+\sin\alpha_1\sin\beta_2 & \cdots & \cos\alpha_1\cos\beta_1+\sin\alpha_1\sin\beta_n \\
-            \cos\alpha_2\cos\beta_1+\sin\alpha_2\sin\beta_1 & \cos\alpha_2\cos\beta_1+\sin\alpha_2\sin\beta_2 & \cdots & \cos\alpha_2\cos\beta_1+\sin\alpha_2\sin\beta_n \\
-            \vdots & \vdots & \ddots & \vdots \\
-            \cos\alpha_n\cos\beta_1+\sin\alpha_n\sin\beta_1 & \cos\alpha_n\cos\beta_1+\sin\alpha_n\sin\beta_2 & \cdots & \cos\alpha_n\cos\beta_1+\sin\alpha_n\sin\beta_n \\
+            \cos\alpha_1\cos\beta_1+\sin\alpha_1\sin\beta_1 & \cdots & \cos\alpha_1\cos\beta_1+\sin\alpha_1\sin\beta_n \\
+            \cos\alpha_2\cos\beta_1+\sin\alpha_2\sin\beta_1 & \cdots & \cos\alpha_2\cos\beta_1+\sin\alpha_2\sin\beta_n \\
+            \vdots & \ddots & \vdots \\
+            \cos\alpha_n\cos\beta_1+\sin\alpha_n\sin\beta_1 & \cdots & \cos\alpha_n\cos\beta_1+\sin\alpha_n\sin\beta_n \\
         \end{pmatrix} \\
         & =\begin{pmatrix}
             \cos\alpha_1 & \sin\alpha_1 \\
@@ -2301,7 +2434,7 @@ Select[split[Det[Array[Subscript[a, ##] &, {4, 4}]]],
     上式两边求导得
     \[nx^{n-1}=(x-\varepsilon_i)^2g'(x)+(x-\varepsilon_i)g(x).\]
 
-    当 $x=\varepsilon_i$ 时, 等式左边为 $n$, 右边为 $0$, 矛盾. $\therefore\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_n$ 互不相等.
+    当 $x=\varepsilon_i$ 时, 等式左边为 $n\varepsilon^{-1}$, 右边为 $0$, 矛盾. $\therefore\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_n$ 互不相等.
 
     考察
     \[B=\begin{pmatrix}

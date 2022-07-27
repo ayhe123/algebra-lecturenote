@@ -5,8 +5,8 @@
 % 习题 2.1
 % 习题 4.14 Sturm 组性质 iv
 
-\documentclass[UTF8]{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 
 \title{第6章笔记和习题}
 
@@ -379,16 +379,15 @@ $v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
 
     $\therefore$
     \[S(X_1^3X_2)=\mathbf{s}_1^2\mathbf{s}_2-2\mathbf{s}_2^2-\mathbf{s}_1\mathbf{s}_3+4\mathbf{s}_4\]
-    \begin{table}\caption{$M_v$ 和 $g_\omega$}\label{tb1}
-        \begin{center}
-            \begin{tabular}{c|ccc}
-                $M_v$      & $X_1^2X_2^2$ & $X_1^2X_2X_3$ & $X_1X_2X_3X_4$ \\
-                \hline
-                $g_\omega$ & $\mathbf{s}_2^2$ & $\mathbf{s}_1\mathbf{s}_3$ & $\mathbf{s}_4$ \\
-            \end{tabular}
-        \end{center}
-    \end{table}
 \end{solution}
+\begin{table}\caption{$M_v$ 和 $g_\omega$}\label{tb1}
+    \centering
+    \begin{tabular}{c|ccc}
+        $M_v$      & $X_1^2X_2^2$ & $X_1^2X_2X_3$ & $X_1X_2X_3X_4$ \\
+        \hline
+        $g_\omega$ & $\mathbf{s}_2^2$ & $\mathbf{s}_1\mathbf{s}_3$ & $\mathbf{s}_4$ \\
+    \end{tabular}
+\end{table}
 \subsection{结式}
 书上结式定义那里排版得不太对. 准确的排版应该是
 \[\res (f,g)\begin{vmatrix}
@@ -599,16 +598,6 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[1+\sum\limits_{k=1}^na_k=0.\]
 
     由综合除法(表 \ref{tb2}), 式 (\ref{eq5.2}) 有线性因子 $X+1$.
-    \begin{table}\caption{式 (\ref{eq5.2})$/(X+1)$}\label{tb2}
-        \begin{center}
-            \begin{tabular}{c|ccccc}
-                $x+1$             & $1$ & $a_1$   & $a_2$         & $\cdots$ & $a_n$ \\
-                                  &     & $1$     & $1+a_1$       & $\cdots$ & $a_n$ \\
-                \cline{2-6}
-                \multicolumn{2}{r}{$1$} & $1+a_1$ & $1+a_1+a_2$   & $\cdots$ & $1+\sum\limits_{k=1}^na_k$
-                \end{tabular}
-        \end{center}
-    \end{table}
 
     (2) 满足 $a_n(1+\sum a_i)\neq0$ 的 4 次多项式为
     \[X^4+X^3+X^2+X+1,\ X^4+X^3+1,\ X^4+X^2+1,\ X^4+X+1.\]
@@ -631,9 +620,18 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     \[X^5+X^3+X^2+X+1,\ X^5+X^4+X^2+X+1,\ X^5+X^4+X^3+X+1,\]
     \[X^5+X^4+X^3+X^2+1,\ X^5+X^2+1,\ X^5+X^3+1.\]
 \end{proof}
+\begin{table}\caption{式 (\ref{eq5.2})$/(X+1)$}\label{tb2}
+    \centering
+    \begin{tabular}{c|ccccc}
+        $x+1$             & $1$ & $a_1$   & $a_2$         & $\cdots$ & $a_n$ \\
+                            &     & $1$     & $1+a_1$       & $\cdots$ & $a_n$ \\
+        \cline{2-6}
+        \multicolumn{2}{r}{$1$} & $1+a_1$ & $1+a_1+a_2$   & $\cdots$ & $1+\sum\limits_{k=1}^na_k$
+    \end{tabular}
+\end{table}
 \begin{exercise}% 1.11
     根据同余式
-    \[X^5-X-1=(X^2+X+1)(X^3+X^2+1)\ (\operatorname{mod}2)\]
+    \[X^5-X-1=(X^2+X+1)(X^3+X^2+1)\pmod{2}\]
     证明多项式 $X^5-X-1$ 在 $\mathbb{Q}$ 上的既约性.
 \end{exercise}
 \begin{proof}
@@ -657,8 +655,8 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 \begin{exercise}% 2.1
     设 $p$ 是奇数, 证明:
     \[\sum\limits_{i=1}^{p-1}i^m=\begin{cases}
-        -1\ (\operatorname{mod}p) & (p-1)|m, \\
-        0\ (\operatorname{mod}p) & (p-1)\nmid m. \\
+        -1\pmod{p}, & (p-1)|m, \\
+        0\pmod{p}, & (p-1)\nmid m. \\
     \end{cases}\]
 \end{exercise}
 \begin{proof}
@@ -1264,19 +1262,17 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     取 $z^4+12z^2+5z-9,4z^3+24z+5,-24z^2-15z+36,-505z-20,-93228$ 为 Sturm 组. 在 $[-M,M]$ 上的符号如表 \ref{tb3}.
 
-    \begin{table}\caption{$f$ 的 Sturm 组的符号表}\label{tb3}
-        \begin{center}
-            \begin{tabular}{c|ccccc|c}
-                & $z^4+12z^2+5z-9$ & $4z^3+24z+5$ & $-24z^2-15z+36$ & $-505z-20$ & $-93228$ & $V$ \\
-                \hline
-                $z=-M$ & $+$ & $-$ & $-$ & $+$ & $-$ & $3$ \\
-                $z=M$  & $+$ & $+$ & $-$ & $-$ & $-$ & $1$ \\
-            \end{tabular}
-        \end{center}
-    \end{table}
-
     $\therefore f(z)=z^4+12z^2+5z-9$ 有 $2$ 个实根.
 \end{solution}
+\begin{table}\caption{$f$ 的 Sturm 组的符号表}\label{tb3}
+    \centering
+    \begin{tabular}{c|ccccc|c}
+        & $z^4+12z^2+5z-9$ & $4z^3+24z+5$ & $-24z^2-15z+36$ & $-505z-20$ & $-93228$ & $V$ \\
+        \hline
+        $z=-M$ & $+$ & $-$ & $-$ & $+$ & $-$ & $3$ \\
+        $z=M$  & $+$ & $+$ & $-$ & $-$ & $-$ & $1$ \\
+    \end{tabular}
+\end{table}
 \begin{exercise}% 4.14
     Legendre 多项式 $P_0(X)=1,P_1(X)=X,\cdots,P_n(X),\cdots$ 可由递推公式
     \begin{equation}\label{eq5.4}
@@ -1327,19 +1323,17 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
 
     (3) 由 (2) 得 $\{P_n,P_{n-1},\cdots,P_0\}$ 是 Sturm 组, 在 $[-1,1]$ 上的符号如表 \ref{tb4}.
 
-    \begin{table}\caption{Sturm 组的符号表}\label{tb4}
-        \begin{center}
-            \begin{tabular}{c|ccccc|c}
-                & $P_0$ & $P_1$ & $P_2$ & $\cdots$ & $P_n$ & $V$ \\
-                \hline
-                $z=-1$ & $1$ & $-1$ & $(-1)^2$ & $\cdots$ & $(-1)^n$ & $n$ \\
-                $z=1$  & $1$ & $1$ & $1$ & $1$ & $1$ & $0$ \\
-            \end{tabular}
-        \end{center}
-    \end{table}
-
     $\therefore P_n$ 在 $(-1,1)$ 上有 $n$ 个彼此相异的根.
 \end{proof}
+\begin{table}\caption{Sturm 组的符号表}\label{tb4}
+    \centering
+    \begin{tabular}{c|ccccc|c}
+        & $P_0$ & $P_1$ & $P_2$ & $\cdots$ & $P_n$ & $V$ \\
+        \hline
+        $z=-1$ & $1$ & $-1$ & $(-1)^2$ & $\cdots$ & $(-1)^n$ & $n$ \\
+        $z=1$  & $1$ & $1$ & $1$ & $1$ & $1$ & $0$ \\
+    \end{tabular}
+\end{table}
 \subsection{补充题}
 \begin{exercisec}% 补充题1
     设 $f\in\mathbb{R}[X]$. 证明: 若 $D(f)<0$, 则 $f$ 有奇数对虚根.

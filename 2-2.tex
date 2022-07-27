@@ -4,8 +4,8 @@
 % 习题 3.2, 3.6, 3.9, 3.10
 % 一些例子的引用需要改一下
 
-\documentclass{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 \title{第2章笔记和习题}
 
 \begin{document}
@@ -15,18 +15,18 @@
 与第 1 章笔记的定理 2.1 类似, 有
 \begin{theorem}\label{t1.1}
     给定 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathcal{L}(V,W) & \to & V^n \\
         f & \to & (f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n)) \\
     \end{array}\]
     是双射.
 \end{theorem}
 \begin{proof}
-    若 $f(\boldsymbol{e}_i)=\boldsymbol{0}$, 则 $\forall\boldsymbol{x}=\lambda_1\boldsymbol{e}_1+\cdots+\lambda_n\boldsymbol{e}_n,f(\boldsymbol{x})=\lambda_1\boldsymbol{0}+\cdots+\lambda_n\boldsymbol{0}=\boldsymbol{0}$, 即 $\ker\phi=\{\boldsymbol{0}\}.\therefore\phi$ 是单射.
+    若 $f(\boldsymbol{e}_i)=\boldsymbol{0}$, 则 $\forall\boldsymbol{x}=\lambda_1\boldsymbol{e}_1+\cdots+\lambda_n\boldsymbol{e}_n,f(\boldsymbol{x})=\lambda_1\boldsymbol{0}+\cdots+\lambda_n\boldsymbol{0}=\boldsymbol{0}$, 即 $\ker\varphi=\{\boldsymbol{0}\}.\therefore\varphi$ 是单射.
 
-    $\forall(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n)\in V^n,$ 定义 $f\in A$ 满足 $f(\lambda_1\boldsymbol{e}_1+\cdots+\lambda_n\boldsymbol{e}_n)=\lambda_1\boldsymbol{a}_1+\cdots+\lambda_n\boldsymbol{a}_n$, 则 $f(\boldsymbol{e}_i)=\boldsymbol{a}_i\Rightarrow\phi(f)=(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n)$.
+    $\forall(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n)\in V^n,$ 定义 $f\in A$ 满足 $f(\lambda_1\boldsymbol{e}_1+\cdots+\lambda_n\boldsymbol{e}_n)=\lambda_1\boldsymbol{a}_1+\cdots+\lambda_n\boldsymbol{a}_n$, 则 $f(\boldsymbol{e}_i)=\boldsymbol{a}_i\Rightarrow\varphi(f)=(\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_n)$.
 
-    与第 1 章笔记的定理 2.1 类似, 可以验证 $f\in\mathcal{L}(V,W).\therefore\phi$ 是满射.
+    与第 1 章笔记的定理 2.1 类似, 可以验证 $f\in\mathcal{L}(V,W).\therefore\varphi$ 是满射.
 \end{proof}
 
 对 $f,g\in\mathcal{L}(V,W),\boldsymbol{v}\in V,\alpha,\beta\in K$, 定义
@@ -76,7 +76,7 @@ $\therefore f(\boldsymbol{v})$ 在基 $(\boldsymbol{w}_i)$ 下的坐标为
 与线性函数类似, 可以证明:
 \begin{theorem}[书上的定理 2(i)]\label{t1.2}
     给定 $V$ 的一个基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 和 $W$ 的一个基 $\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_m$, 按照式 (\ref{eq1.1}) 定义 $A_f=(a_{ij})$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathcal{L}(V,W) & \to & M_{m,n}(K) \\
         f & \to & A_f \\
     \end{array}\]
@@ -91,11 +91,11 @@ $\therefore f(\boldsymbol{v})$ 在基 $(\boldsymbol{w}_i)$ 下的坐标为
         & =\sum\limits_{i=1}^m(\alpha a_{ij}+\beta b_{ij})\boldsymbol{w}_i,
     \end{align*}
     
-    $\therefore A_{\alpha f+\beta g}$ 的 $i,j$ 元为 $\alpha a_{ij}+\beta b_{ij}.\therefore A_{\alpha f+\beta g}=\alpha A_f+\beta A_g,\therefore\phi(\alpha f+\beta g)=\alpha\phi(f)+\beta\phi(g)$.
+    $\therefore A_{\alpha f+\beta g}$ 的 $i,j$ 元为 $\alpha a_{ij}+\beta b_{ij}.\therefore A_{\alpha f+\beta g}=\alpha A_f+\beta A_g,\therefore\varphi(\alpha f+\beta g)=\alpha\varphi(f)+\beta\varphi(g)$.
 
     $\because A_f=0\Rightarrow\forall i,j,a_{ij}=0\Rightarrow\forall j,f(\boldsymbol{v}_j)=0\Rightarrow\forall\boldsymbol{v}\in V,f(\boldsymbol{v})=\boldsymbol{0}\Rightarrow f=\boldsymbol{0}$,
 
-    $\therefore\ker\phi=\{\boldsymbol{0}\},\phi$ 是单射.
+    $\therefore\ker\varphi=\{\boldsymbol{0}\},\varphi$ 是单射.
 
     对 $A=(a_{ij})\in M_{m,n}(k)$, 对 $\boldsymbol{v}=x_1\boldsymbol{v}_1+x_2\boldsymbol{v}_2+\cdots+x_n\boldsymbol{v}_n$, 由式
     \[f(\boldsymbol{v})=(\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_m)A_f\begin{pmatrix}
@@ -112,7 +112,7 @@ $\therefore f(\boldsymbol{v})$ 在基 $(\boldsymbol{w}_i)$ 下的坐标为
         a_{ni} \\
     \end{pmatrix},\]
 
-    $\therefore\phi(f)=A_f$. 设 $\alpha,\beta\in K,\boldsymbol{v}'=x_1'\boldsymbol{v}_1+x_2'\boldsymbol{v}_2+\cdots+x_n'\boldsymbol{v}_n$, 则
+    $\therefore\varphi(f)=A_f$. 设 $\alpha,\beta\in K,\boldsymbol{v}'=x_1'\boldsymbol{v}_1+x_2'\boldsymbol{v}_2+\cdots+x_n'\boldsymbol{v}_n$, 则
     \[\alpha\boldsymbol{v}+\beta\boldsymbol{v}'=(\alpha x_1+\beta x_1')\boldsymbol{v}_1+(\alpha x_2+\beta x_2')\boldsymbol{v}_2+\cdots+(\alpha x_n+\beta x_n')\boldsymbol{v}_n,\]
     \begin{align*}
         f(\alpha\boldsymbol{v}+\beta\boldsymbol{v}') & =(\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_m)A_f\begin{pmatrix}
@@ -135,7 +135,7 @@ $\therefore f(\boldsymbol{v})$ 在基 $(\boldsymbol{w}_i)$ 下的坐标为
         & =\alpha f(\boldsymbol{v})+\beta f(\boldsymbol{v}'),
     \end{align*}
 
-    $\therefore f\in\mathcal{L}(V,W).\therefore\phi$ 是满射.
+    $\therefore f\in\mathcal{L}(V,W).\therefore\varphi$ 是满射.
 \end{proof}
 
 下面的交换图表示了各个线性空间之间的关系(左边的图中的空间中的元素在右边的图对应的位置上):
@@ -199,6 +199,33 @@ $\because\im f=\left<f(\boldsymbol{v}_1),f(\boldsymbol{v}_2),\cdots,f(\boldsymbo
 $\therefore\rank A_f=\dim\im f$.
 \section{线性算子(对应第 2 节)}
 \subsection{线性算子代数}
+举一个代数的例子.
+\begin{example}
+    考察 [BAI] 第 4 章笔记的例 3.1 中的 $R[G]$. 如果 $R$ 是域, 定义 $R[G]$ 的纯量乘法为对 $a\in R,f\in R[G],\forall x\in G,(a\cdot f)(x)=af(x)$, 则 $R[G]$ 是 $R$ 上的线性空间, 基为 $\{\theta_x|x\in G\}$.
+    
+    $\forall g,h\in R[G]$, 设
+    \[g(z)=\sum\limits_{i=1}^{n}a_i\cdot\theta_{g_i}(z),\quad h=\sum\limits_{j=1}^{m}b_j\cdot\theta_{h_j}(z),\]
+    
+    有
+    \[g*h=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_i}(z)*\theta_{h_j}(z).\]
+
+    $\because\forall f,g\in G$,
+    \begin{align*}
+        a\theta_f*b\theta_g(z) & =ab\sum\limits_{h\in G}\theta_f(zh^{-1})\theta_g(h) \\
+        & =ab\cdot\theta_f(zg^{-1})\theta_g(g) \\
+        & =\begin{cases}
+                ab, & zg^{-1}=f \\
+                0, & zg^{-1}\neq f
+            \end{cases} \\
+        & =ab\cdot\theta_{fg}(z),
+    \end{align*}
+
+    $\therefore$
+    \[g*h=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_i}(z)*\theta_{h_j}(z)=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_ih_j}(z).\]
+
+    由上式容易验证 $\forall a\in R,a(g*h)=(ag)*h=g*(ah)$. $\therefore R[G]$ 是代数, 称为 $G$ 在 $R$ 上的\textbf{群代数}(group algebra).
+\end{example}
+
 作为定理 \ref{t1.2} 的一个特殊情况, 有:
 \begin{theorem}\label{t2.1}
     给定 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 按照
@@ -213,7 +240,7 @@ $\therefore\rank A_f=\dim\im f$.
     \end{align*}
 
     定义 $A_\mathcal{A}=(a_{ij})$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \mathcal{L}(V) & \to & M_n(K) \\
         \mathcal{A} & \to & A_\mathcal{A} \\
     \end{array}\]
@@ -238,17 +265,17 @@ $\therefore\rank A_f=\dim\im f$.
     (2) 若 $\mathcal{A}\neq\mathcal{E},\mathcal{O}$, 则 $\mathcal{A}$ 的极小多项式为 $t^2-t$.
 \end{note}
 采用同态的观点([BAI] 第 5 章第 2 节定理 3)来考察 $K[\mathcal{A}]$. 设
-\[\phi:\begin{array}{rcl}
+\[\varphi:\begin{array}{rcl}
     K[t] & \to & \mathcal{L}(V) \\
     f(t) & \to & f(A) \\
 \end{array},\]
 
-则 $\im \phi=K[\mathcal{A}].\because\im \phi\subset\mathcal{L}(V),\therefore\dim\im \phi\leq\dim\mathcal{L}(V)=n^2$.
+则 $\im \varphi=K[\mathcal{A}].\because\im \varphi\subset\mathcal{L}(V),\therefore\dim\im \varphi\leq\dim\mathcal{L}(V)=n^2$.
 
-然而 $K[t]$ 是无限维的. $\therefore\ker\phi\neq\{0\}$, 即 $\mathcal{A}$ 一定有零化多项式. 事实上, 由书上的定理 2, 有
-\[\ker\phi=\{\mu_\mathcal{A}(t)g(t)|g(t)\in K[t]\}.\]
+然而 $K[t]$ 是无限维的. $\therefore\ker\varphi\neq\{0\}$, 即 $\mathcal{A}$ 一定有零化多项式. 事实上, 由书上的定理 2, 有
+\[\ker\varphi=\{\mu_\mathcal{A}(t)g(t)|g(t)\in K[t]\}.\]
 
-这是 $\phi$ 的主理想.
+这是 $\varphi$ 的主理想.
 \begin{theorem}
     $\deg\mu_\mathcal{A}=\dim K[\mathcal{A}]$.
 \end{theorem}
@@ -883,17 +910,17 @@ $\because\im \mathcal{A}^i=\mathcal{A}^iV=\mathcal{A}^{i-1}\mathcal{A}V\subset\m
 \end{lemma}
 \begin{proof}
     考虑
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \ker\mathcal{A}^i & \to & \im \mathcal{A}^{i-1}\cap\ker\mathcal{A}=V_i \\
         \boldsymbol{x} & \to & \mathcal{A}^{i-1}\boldsymbol{x} \\
     \end{array}.\]
 
-    $\because\forall\boldsymbol{y}\in\im \mathcal{A}^{i-1}\cap\ker\mathcal{A},\exists\boldsymbol{x}\in V$ 使得 $\boldsymbol{y}=\mathcal{A}^{i-1}\boldsymbol{x}$. 由 $\boldsymbol{y}\in\ker\mathcal{A}\Rightarrow\mathcal{A}\boldsymbol{y}=\boldsymbol{0}$ 得 $\mathcal{A}^i\boldsymbol{x}=\boldsymbol{0}$, $\therefore\boldsymbol{x}\in\ker\mathcal{A}^i$. $\therefore\phi$ 是满射, $\im \phi=V_i$.
+    $\because\forall\boldsymbol{y}\in\im \mathcal{A}^{i-1}\cap\ker\mathcal{A},\exists\boldsymbol{x}\in V$ 使得 $\boldsymbol{y}=\mathcal{A}^{i-1}\boldsymbol{x}$. 由 $\boldsymbol{y}\in\ker\mathcal{A}\Rightarrow\mathcal{A}\boldsymbol{y}=\boldsymbol{0}$ 得 $\mathcal{A}^i\boldsymbol{x}=\boldsymbol{0}$, $\therefore\boldsymbol{x}\in\ker\mathcal{A}^i$. $\therefore\varphi$ 是满射, $\im \varphi=V_i$.
 
-    由第 \ref{ex3.3} 题得 $\ker\mathcal{A}^i\supset\ker\mathcal{A}^{i-1}$, $\therefore\ker\phi=\ker\mathcal{A}^{i-1}$.
+    由第 \ref{ex3.3} 题得 $\ker\mathcal{A}^i\supset\ker\mathcal{A}^{i-1}$, $\therefore\ker\varphi=\ker\mathcal{A}^{i-1}$.
 
     由书上第 1 节的定理 4 得
-    \[\dim\ker\phi+\dim\im \phi=\dim\ker\mathcal{A}^i,\]
+    \[\dim\ker\varphi+\dim\im \varphi=\dim\ker\mathcal{A}^i,\]
 
     $\therefore$
     \begin{equation}\label{eq4.6}

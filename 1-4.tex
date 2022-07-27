@@ -1,18 +1,14 @@
-% TODO:
-% 2.5 例 1
-% 3.6 例 6 补充第1句话的证明
-% 习题 3.11 需要补充证明: 乘法群是循环群
-
-\documentclass{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 
 \title{第4章笔记和习题}
 
 \begin{document}
 \maketitle
+在这章的笔记中, 对环 $R$, 记 $R^*:=R\backslash\{0\}$.
 \section{运算(对应教材4.1节)}
 \subsection{对于可逆元素定义的一个说明}
-可逆的定义中要求元素 $a$ 满足 $\exists b,ab=ba=e,a$ 才可逆. 这一条件是否可以减弱, 比如说只要 $a$ 满足 $\exists b,ab=e,a$ 就可逆? 答案是否定的.
+可逆的定义中要求元素 $a$ 满足 $\exists b,ab=ba=e,a$ 才可逆. 对于 $A,B\in M_n(\mathbb{R})$, $AB=E\Rightarrow BA=E$. 是否只要 $a$ 满足 $\exists b,ab=e,a$ 就可逆? 答案是否定的.
 
 设 $X$ 是全体 $\mathbb{N}\to\mathbb{N}$ 的映射, $\circ$ 是映射的复合, 则 $(X,\circ)$ 构成一个幺半群. 考虑 $f,g\in X$,
 \[f:n\to n+1,\quad g:n\to\begin{cases}
@@ -37,17 +33,18 @@
 $(G:H)$ 有更一般的定义(对于无限群也适用的), 以后会介绍.
 
 子群的定义等价于:
-\begin{definition}
+\begin{definition}\label{d2.1}
     设 $G$ 是群, $H$ 是 $G$ 的子群当且仅当 $H\subset G,\forall a,b\in H,ab^{-1}\in H$.
 \end{definition}
+
 按照上面的定义, 若 $H$ 是 $G$ 的子群, $H\neq\varnothing$, 设 $a,b\in H$, 则 $e=aa^{-1}\in H,a^{-1}=ae^{-1}\in H,ab=a(b^{-1})^{-1}\in H$, 这就得到了子群的一般的定义.
 \begin{definition}
-    设 $A,B$ 是群. 若 $\phi:A\to B$ 是单同态, 则称 $A$ \textbf{嵌入} $B$, 记作 $A\hookrightarrow B.\phi$ 也称为嵌入.
+    设 $A,B$ 是群. 若 $\varphi:A\to B$ 是单同态, 则称 $A$ \textbf{嵌入} $B$, 记作 $A\hookrightarrow B$. $\varphi$ 也称为嵌入.
 \end{definition}
-在环中也有类似的定义.
+
 \begin{example}
     设 $K$ 是域,
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \gl _{n-1}(K) & \to & \gl _n(K) \\
         A & \to & \begin{pmatrix}
             A & 0 \\
@@ -57,78 +54,61 @@ $(G:H)$ 有更一般的定义(对于无限群也适用的), 以后会介绍.
     是嵌入.
 \end{example}
 若 $A\hookrightarrow B$, 在同构意义下可以认为 $A$ 是 $B$ 的一个子群.
+
+在环中也可以类似地定义嵌入.
 \subsection{补充几个定理的证明}
-\begin{theorem}(书上P124性质3的推广)
+\begin{theorem}(书上P124性质3的推广)\label{t2.1}
     若半群 $G_1$ 与 $G_2$ 间可以建立类似于同构的双射, 即 $\exists$ 双射 $\sigma:G_1\to G_2$ 满足 $\forall x,y\in G_1$,
     \begin{equation}\label{eq2.1}
         \sigma(xy)=\sigma(x)\sigma(y),
     \end{equation}
 
     则:
-
-    (1) 若 $G_2$ 是群, 则 $G_1$ 也是群, $\sigma,\sigma^{-1}$ 是同构.
-
-    (2) 若 $G_2$ 是 Abel 群, 则 $G_1$ 也是 Abel 群.
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $\forall x',y'\in G_2,\sigma^{-1}(x'y')=\sigma^{-1}(x')\sigma^{-1}(y')$, 其中 $\sigma^{-1}$ 是 $\sigma$ 的逆.
+        \item 若 $G_1$ 是群, 则 $G_2$ 也是群, $\sigma,\sigma^{-1}$ 是同构.
+        \item 若 $G_2$ 是群, 则 $G_1$ 也是群, $\sigma,\sigma^{-1}$ 是同构.
+    \end{enumerate}
 \end{theorem}
 \begin{proof}
-    (1) $\because\sigma$ 是双射, $\therefore\sigma^{-1}$ 是双射.
-
-    $\because\sigma$ 是满射, $\therefore\forall x',y'\in G_2,\exists x,y$ 使得 $\sigma(x)=x',\sigma(y)=y'$.
+    (1) $\because\sigma$ 是满射, $\therefore\forall x',y'\in G_2,\exists x,y$ 使得 $\sigma(x)=x',\sigma(y)=y'$.
 
     由 (\ref{eq2.1}) 式得
-    \begin{align*}
-        & \sigma^{-1}(\sigma(xy))=\sigma^{-1}(\sigma(x)\sigma(y)) \\
-        \Rightarrow & \sigma^{-1}(x')\sigma^{-1}(y')=xy=\sigma^{-1}(x'y').
-    \end{align*}
+    \[xy=\sigma^{-1}(\sigma(xy))=\sigma^{-1}(\sigma(x)\sigma(y))\Rightarrow\sigma^{-1}(x')\sigma^{-1}(y')=\sigma^{-1}(x'y').\]
 
     $\therefore\sigma^{-1}:G_2\to G_1$ 满足 $\sigma^{-1}(x'y')=\sigma^{-1}(x')\sigma^{-1}(y')$.
 
-    $\because\sigma^{-1}$ 是满射, $\therefore\forall x\in G_1,\exists x'\in G_2$ 使得 $x=\sigma^{-1}(x')$.
+    (2) 设 $e$ 是 $G_1$ 的单位元. $\forall a\in G_1$,
+    \[ae=ea=a\Rightarrow\sigma(a)\sigma(e)=\sigma(ae)=\sigma(a)=\sigma(ea)=\sigma(e)\sigma(a).\]
 
-    设 $e'$ 为 $G_2$ 的单位元. $\because\forall x'\in G_2,x'e'=e'x'=x',\therefore$
-    \[\sigma^{-1}(x')=\sigma^{-1}(x'e')=\sigma^{-1}(x')\sigma^{-1}(e),\]
-    \[\sigma^{-1}(x')=\sigma^{-1}(e'x')=\sigma^{-1}(e')\sigma^{-1}(x').\]
+    $\because G$ 是满射, $\forall a'\in G_2,\exists a\in G_1$ 使得 $a'=\sigma(a)$. 由上式得 $a'\sigma(e)=\sigma(e)a'$. $\therefore G_2$ 有单位元 $\sigma(e)$.
 
-    $\therefore\forall x\in G_1$,
-    \[x\sigma^{-1}(e')=\sigma^{-1}(e')x=x.\]
+    假设 $\exists x'\in G_2,\forall y'\in G_2,x'y'\neq\sigma(e)$.
+    
+    $\because\sigma^{-1}$ 是单射, $\therefore\sigma^{-1}(x'y')\neq\sigma^{-1}(\sigma(e))=e$.
 
-    $\therefore G_1$ 有单位元 $e=\sigma^{-1}(e')$.
+    $\because\sigma^{-1}$ 是满射, $\therefore\forall y\in G_1,\exists y'\in G_2$ 使得 $y=\sigma^{-1}(y')$. $\because\sigma^{-1}$ 是确切定义的, $\therefore\exists x\in G_1$ 使得 $x=\sigma^{-1}(x')$. $\therefore\exists x\in G_1,\forall y\in G_1$,
+    \[xy=\sigma^{-1}(x')\sigma^{-1}(y')=\sigma^{-1}(x'y')\neq e\]
+    (这里用了 (1) 的结论), 这与 $x\in G_1$ 有左逆矛盾. 同理, $\exists x'\in G_2,\forall y'\in G_2,y'x'\neq\sigma(e)$ 与 $G_1$ 中任一元素都有右逆矛盾.
+    
+    $\therefore\forall x'\in G_2,x'$ 可逆. $\therefore G_2$ 是群.
+    
+    $\because\sigma$ 是双射且式 (\ref{eq2.1}) 成立, $\therefore\sigma$ 是同构. 由 (1) 得 $\sigma^{-1}$ 是同构.
 
-    $\because\sigma$ 是满射, $\therefore\forall y'\in G_2,\exists y\in G_1$ 使得 $y'=\sigma(y)$.
-
-    $\because\sigma$ 是确切定义的, $\therefore\forall x\in G_1,\exists!x'\in G_2$ 使得 $y'=\sigma(y)$.
-
-    假设 $\exists x\in G_1,\forall y\in G_1,xy\neq e.\because\sigma$ 是单射, $\therefore$
-    \begin{align*}
-        xy\neq e & \Rightarrow\sigma(xy)\neq\sigma(e) \\
-        & \Rightarrow\sigma(x)\sigma(y)\neq\sigma(\sigma^{-1}(e'))=e'.
-    \end{align*}
-
-    $\therefore\exists x'\in G_2,\forall y'\in G_2,x'y'\neq e'$, 与 $G_2$ 是群矛盾.
-
-    $\therefore\forall x\in G_1,\exists y\in G_1$ 使得 $xy=e$. 同理得 $\forall x\in G_1,\exists y\in G_1$ 使得 $yx=e$. $\therefore G_1$ 是群.
-
-    (2) $\because\sigma^{-1}$ 是满射, $\therefore\forall x',y'\in G_1,\exists x,y\in G_2$ 使得 $x'=\sigma^{-1}(x),y'=\sigma^{-1}(y)$.
-
-    $\because\sigma^{-1}$ 是单射, $\therefore\forall x,y\in G_2$,
-    \begin{align*}
-        xy=yx & \Rightarrow\sigma^{-1}(xy)=\sigma^{-1}(yx) \\
-        & \Rightarrow\sigma^{-1}(x)\sigma^{-1}(y)=\sigma^{-1}(y)\sigma^{-1}(x).
-    \end{align*}
-
-    $\therefore\forall x',y'\in G_1,x'y'=y'x'$.
+    (3) 由 (1) 得 $\sigma^{-1}:G_2\to G_1$ 满足 $\forall x',y'\in G_2,\sigma^{-1}(x'y')=\sigma^{-1}(x')\sigma^{-1}(y')$, 把 $\sigma^{-1}$ 看成是 $\sigma$, 则 $G_2,G_1,\sigma^{-1}$ 满足这个定理的条件, $\therefore$ 由 (2) 得 $G_2$ 是群 $\Rightarrow G_1$ 是群. 与 (2) 一样, 可以验证 $\sigma,\sigma^{-1}$ 是同构.
 \end{proof}
 \begin{theorem}
-    设 $G,H$ 是群, 同态 $\phi:G\to H$ 是单同态当且仅当 $\ker\phi=\{e\}$(有时在不引起歧义的情况下, 将 $\{e\}$ 简写为 $e$), 即 $\forall a\in G,\phi(a)=e'\Rightarrow a=e$, 其中 $e,e'$ 分别是 $G,H$ 的单位元.
+    设 $G,H$ 是群, 同态 $\varphi:G\to H$ 是单同态当且仅当 $\ker\varphi=\{e\}$(有时在不引起歧义的情况下, 将 $\{e\}$ 简写为 $e$), 即 $\forall a\in G,\varphi(a)=e'\Rightarrow a=e$, 其中 $e,e'$ 分别是 $G,H$ 的单位元.
 \end{theorem}
 \begin{proof}
     ($\Rightarrow$)由单射的定义(p22)的逆否命题得.
 
     ($\Leftarrow$) $\forall a,b\in G$,
     \begin{align*}
-        & \phi(a)=\phi(b)\Rightarrow\phi(a)\phi(b^{-1})=\phi(b)\phi(b^{-1}) \\
-        \Rightarrow & \phi(ab^{-1})=\phi(bb^{-1}) \\
-        \Rightarrow & \phi(ab^{-1})=\phi(e)=e' \\
+        & \varphi(a)=\varphi(b)\Rightarrow\varphi(a)\varphi(b^{-1})=\varphi(b)\varphi(b^{-1}) \\
+        \Rightarrow & \varphi(ab^{-1})=\varphi(bb^{-1}) \\
+        \Rightarrow & \varphi(ab^{-1})=\varphi(e)=e' \\
         \Rightarrow & ab^{-1}=e \\
         \Rightarrow & a=b.
     \end{align*}
@@ -163,8 +143,9 @@ $\therefore$
 $\therefore$
 \[((a^m)^{-1})^{-n}=((a^{mn})^{-1})^{-1}=a^{mn}.\]
 \end{proof}
+
 引入一些新的结构(如 $\mathbb{Z}_n$)可以简化证明.
-\begin{theorem}[书上的定理3]
+\begin{theorem}[书上的定理 3]
     任意两个同阶的循环群同构.
 \end{theorem}
 \begin{proof}
@@ -178,7 +159,7 @@ $\therefore$
     是同构.
 
     (b) 若 $o(a)=n<\infty$, 则
-    \[\phi:\begin{array}{rcl}
+    \[\varphi:\begin{array}{rcl}
         \left<a\right> & \to & (\mathbb{Z}_n,+) \\
         a^k & \to & \overline{k} \\
     \end{array}\]
@@ -189,10 +170,29 @@ $\therefore$
 
     其中规定 $\mathbb{Z}_\infty=\mathbb{Z}$.
 \end{proof}
+
+书上的定理 4 用到了下面的定理的减弱形式.
+\begin{theorem}\label{t2.5}
+    设 $G$ 是群. 对 $a\in G$, 定义 $G$ 的左平移和右平移
+    \[L_a:\begin{array}{rcl}
+        G & \to & G \\
+        x & \mapsto & ax \\
+    \end{array},\quad R_a:\begin{array}{rcl}
+        G & \to & G \\
+        x & \mapsto & xa \\
+    \end{array}.\]
+
+    证明 $L_a,R_a$ 是双射.
+\end{theorem}
+\begin{proof}
+    对于 $\forall x\in G$, 有 $x=a^{-1}ax=a^{-1}L_a(x)$, $\therefore L_a$ 有逆映射 $(a^{-1})_L$. 由书上的定理 2.16 得 $L_a$ 是双射.
+
+    对于 $\forall x\in G$, 有 $x=xaa^{-1}=R_a(x)a^{-1}$, $\therefore R_a$ 有逆映射 $(a^{-1})_R$. 由书上的定理 2.16 得 $R_a$ 是双射.
+\end{proof}
 \subsection{集合生成的子群}
-设 $\{H|f(H)\}$ 是满足条件 $f$ 的集族(可以看成是集合的集合), $\cap\{H|f(H)\}$ 表示集族中所有元素的交. 第1章习题5.4中的 $\mathcal{P}(S)$ 实际上是满足条件 $H\subset S$ 的集族.
+设 $\{H|f(H)\}$ 是满足条件 $f$ 的集族(集合的集合), $\cap\{H|f(H)\}$ 表示集族中所有元素的交. 第1章习题5.4中的 $\mathcal{P}(S)$ 实际上是满足条件 $H\subset S$ 的集族.
 \begin{definition}
-    设 $G$ 是群, $S$ 是 $G$ 的子集, 则称 $G$ 的所有包含 $S$ 的子群中最小的那个为 $S$ \textbf{生成的子群}, 记作 $\left<S\right>$.
+    设 $G$ 是群, $S$ 是 $G$ 的子集, 则称 $G$ 的所有包含 $S$ 的子群中最小的那个为 $S$ \textbf{生成的子群}, 记作 $\left<S\right>$. ``最小'' 的含义是: 如果 $H$ 是 $G$ 的子群, 那么 $\left<S\right>\subset H$.
 \end{definition}
 
 设群 $U,V$ 满足 $S\subset U\subset G,S\subset V\subset G$, 则 $U\cap V$ 是群, $S\subset U\cap V\subset G$.
@@ -223,14 +223,14 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[f(axa^{-1})=f(a)f(x)f(a^{-1}).\]
 
     $\because x\in\ker f,\therefore f(x)=e'$,
-    \[f(a)f(x)f(a^{-1})=f(a)f(a^{-1})=f(aa^{-1})=f(e)=e'.\]
+    \[f(a)f(x)f(a^{-1})=f(a)f(a^{-1})=f(aa^{-1})=f(e)=e'.\qedhere\]
 \end{proof}
 满足性质 1 的子群 $H$ (若 $x\in H,a\in G$, 则 $axa^{-1}\in H$)称为\textbf{正规子群}.
 
 不是所有的子群都是正规的, 比如对 $S_3$ 中的 $\left<(1\ 2)\right>$, 有 $(1\ 3)(1\ 2)(1\ 3)=(2\ 3)\notin\left<(1\ 2)\right>$.
 \subsection{一些例子}
 研究 $\operatorname{Aut}(G)$ 和 $\operatorname{Inn}(G)$ 的差别是很有趣的. 比如说 $\operatorname{Aut}(S_n)$ 和 $\operatorname{Inn}(S_n)$ 差不多, 但是有:
-\begin{example}% 需要看一下
+\begin{example}
     考虑
     \[\theta:\begin{array}{rcl}
         S_n & \to & S_n \\
@@ -238,15 +238,14 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{array},\]
 
     其中
-    \[\sigma'(i)=\sigma(n+1)-1,\]
-
-    定义
+    \[\sigma'(i)=\sigma(i+1)-1,\]
     \[a+b:=\begin{cases}
         a+b & a+b\leq n, \\
         a+b-kn & n<a+b<kn,k\in\mathbb{Z}, \\
-    \end{cases},\quad a-b:=\begin{cases}
+    \end{cases},\]
+    \[a-b:=\begin{cases}
         a-b & a-b\geq 0, \\
-        kn-(a-b) & a-b>-kn,k\in\mathbb{Z}_+, \\
+        kn-(a-b) & a-b>-kn,k\in\mathbb{Z}_+. \\
     \end{cases}\]
     
     $\because\forall\pi,\tau\in S_n$,
@@ -268,6 +267,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\theta\notin\operatorname{Inn}(S_3)$.
 \end{example}
+
 下面是同构和同态的一些例子, 作为教材的补充.
 \begin{example}
     设 $\left<a\right>$ 是有限循环群, $o(a)=q$, 则 $\forall m\in\mathbb{Z},\left<a^m\right>\subset\left<a\right>$.
@@ -303,15 +303,14 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{cases}\]
 \end{example}
 \begin{example}\label{ex2.4}
-    类似于 2.3 节习题 6, 构造:
+    类似于第 2 章习题的习题 3.6, 构造:
     \[f:\begin{array}{rcl}
         S_n & \to & \gl _n(\mathbb{R}) \\
         \sigma & \to & P_\sigma \\
     \end{array},\]
 
-    其中 $P_\sigma$ 的 $(i,\sigma(i))$ 元为 $1$ (习题 6 是 $(\sigma(i),i)$ 元为 $1$), 其他元素为 $0$. 则 $f$ 是同态, 而且是单射.
-\end{example}
-\begin{example}
+    其中 $P_\sigma$ 的 $(i,\sigma(i))$ 元为 $1$ (习题 3.6 是 $(\sigma(i),i)$ 元为 $1$), 其他元素为 $0$. 则 $f$ 是同态, 而且是单射.
+
     $\forall A\in M_n(\mathbb{R}),\exists B,C\in B_n(\mathbb{R})$ (其中 $B_n(\mathbb{R})$ 是 $n$ 阶上三角矩阵全体), $\exists!\sigma\in S_n$, 使得
     \[A=BP_\sigma C,\]
 
@@ -332,7 +331,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \subsection{左, 右零因子}
 修改一下书上第4小节关于左, 右零因子的定义.
 \begin{definition}
-    设 $R$ 是环, $a\in R$. 称 $a$ 为\textbf{左零因子}当且仅当 $\exists b\in R\backslash\{0\},ab=0$, 称 $a$ 为\textbf{右零因子}当且仅当 $\exists c\in R\backslash\{0\},ca=0$. 左, 右零因子并称为\textbf{零因子}.
+    设 $R$ 是环, $a\in R$. 称 $a$ 为\textbf{左零因子}当且仅当 $\exists b\in R^*,ab=0$, 称 $a$ 为\textbf{右零因子}当且仅当 $\exists c\in R^*,ca=0$. 左, 右零因子都称为\textbf{零因子}.
 \end{definition}
 
 按照这个定义, $0$ 是平凡的零因子.
@@ -362,7 +361,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     书上定义在剩余类上的运算与代表元的选取无关.
 \end{theorem}
 \begin{proof}
-    设 $a\equiv b\operatorname{mod}m,c\equiv d\operatorname{mod}m$, 只需证明 $(a+c)\equiv(b+d)\operatorname{mod}m,ac\equiv bd\operatorname{mod}m$.
+    设 $\overline{a}=\overline{b},\overline{c}=\overline{d}$ (即 $a\equiv b\bmod m,c\equiv d\bmod m$), 只需证明 $\overline{a+c}=\overline{b+d},\overline{ac}=\overline{bd}$ (即 $(a+c)\equiv(b+d)\bmod m,ac\equiv bd\bmod m$).
 
     $\because m|(a-b),m|(c-d),\therefore m|((a+c)-(b+d))$,
     \begin{align*}
@@ -370,7 +369,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         & \Rightarrow m|(ac-bd),
     \end{align*}
 
-    $\therefore (a+c)\equiv(b+d)\operatorname{mod}m,ac\equiv bd\operatorname{mod}m$.
+    $\therefore (a+c)\equiv(b+d)\bmod m,ac\equiv bd\bmod m$.
 \end{proof}
 \begin{theorem}
     书上定义的 $\{\mathbb{Z}_m,\oplus,\odot\}$ 是交换环.
@@ -396,13 +395,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     ($\Leftarrow$) 若 $m$ 为素数, 则 $\forall a$ 满足 $1\leq a<m$, 有 $(a,m)=1$.
 
-    $\therefore\exists b,c$ 使得 $ab+cm=1$.
-
-    $\therefore\overline{ab}+\overline{cm}=\overline{1}$.
-
-    $\because\overline{cm}=\overline{0},\therefore\overline{ab}=\overline{1}$,
-
-    $\therefore(\overline{a})^{-1}=\overline{b}$, 即任一 $\mathbb{Z}_m\backslash\{\overline{0}\}$ 中的元素都是可逆元素.
+    由补充题 \ref{exc5.3.5} 得任一 $\mathbb{Z}_m\backslash\{\overline{0}\}$ 中的元素都是可逆元素.
 
     $\because\mathbb{Z}_m$ 是交换环, $\therefore\mathbb{Z}_m$ 是域.
 \end{proof}
@@ -441,12 +434,15 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     设 $m$ 是满足 $m\in\ker f$ 的最小的非负整数. 则 $m\cdot1=0$.
 
-    $\therefore\forall a\in\mathbb{Z},(ma)\cdot1=(m\cdot1)(a\cdot1)=0(a\cdot1)=0$.
+    $\therefore\forall a\in\mathbb{Z},(ma)\cdot1=(m\cdot1)(a\cdot1)=0(a\cdot1)=0$. $\therefore m\mathbb{Z}\subset\ker f$.
 
-    $\therefore\ker f=m\mathbb{Z}$.
+    假设 $\exists x\in\ker f,m\nmid x$, 设 $x=km+r\ (0<r<m)$, 有
+    \[f(x)=f(km+r)=(km+r)\cdot1=(km)\cdot1+r\cdot1=r\cdot 1=0,\]
+
+    与 $m$ 是满足 $m\in\ker f$ 的最小的非负整数矛盾. $\therefore\ker f=m\mathbb{Z}$.
 \end{proof}
 \begin{lemma}\label{l3.2}
-    设 $F_1,F_2$ 是域, $f:F_1\to F_2$ 满足 $\ker f=0$, 则 $f$ 是单射.
+    设 $F_1,F_2$ 是环, 同态 $f:F_1\to F_2$ 满足 $\ker f=0$, 则 $f$ 是单射.
 \end{lemma}
 \begin{proof}
     $\because\ker f=0,\therefore f(a)=0\Rightarrow a=0$.
@@ -533,102 +529,58 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 由证明过程得: $\forall$ 域 $F$, 在同构的意义下(up to isomorphism)有 $\mathbb{Q}\subset F$ (若 $\charop F=0$) 或 $\mathbb{Z}_m\subset F$ (若 $\charop F=m,m>0$). 这由 $1\in F$ 和域的性质得到.
 \subsection{一些例子}
 \begin{example}
-    设 $G$ 是群, 定义
-    \[\mathbb{R}[G]=\left\{\sum\limits_{i=1}^{n}a_ig_i\bigg|a_i\in\mathbb{R},g_i\in G,i=1,2,\cdots,n,n\in\mathbb{N}_+\right\},\]
+    设 $G$ 是群, $R$ 是环, 定义 $R[G]=\{f\in R^G:|G\backslash\ker f|\text{是有限数}\}$.
+    
+    定义 $R[G]$ 上的加法定义为 $\forall x\in G,(f+g)(x)=f(x)+g(x)$. 容易验证 $R[G]$ 对加法封闭.
+    
+    定义 $R[G]$ 上的\textbf{卷积运算}: 对 $\varphi,\psi\in R[G],z\in G$,
+    \[\varphi*\psi(z)=\sum\limits_{h\in G}\varphi(zh^{-1})\psi(h).\]
 
-    其中的加法和乘法是有确切定义的 $\mathbb{R}[G]\times\mathbb{R}[G]\to\mathbb{R}[G]$ 和 $\mathbb{R}\times G\to\mathbb{R}[G]$ 的映射, 且满足当 $G=\mathbb{R}$ 时退化为 $\mathbb{R}$ 上的加法和乘法. 设 $p,q\in\mathbb{R}(G)$, 其中
-    \[p=\sum\limits_{i=1}^{n}a_ig_i,\quad q=\sum\limits_{i=1}^{m}b_ih_i,\]
+    $\because\psi\in R[G]$, $\therefore|G\backslash\ker\psi|$ 是有限数. 设 $G\backslash\ker\psi=\{h_1,h_2,\cdots,h_m\},\psi(h_i)=\alpha_i$, 则
+    \[\sum\limits_{h\in G}\varphi(zh^{-1})\psi(h)=\sum\limits_{i=1}^m\varphi(zh_i^{-1})\psi(h_i)=\sum\limits_{i=1}^m\alpha_i\varphi(zh_i^{-1}).\]
 
-    其中 $a_i,b_j\in\mathbb{R},g_i,h_j\in G;i=1,2,\cdots,n;j=1,2,\cdots,m;m,n\in\mathbb{N}_+$.
-
-    定义
-    \[p\oplus q=\sum\limits_{i=1}^{n}a_ig_i+\sum\limits_{i=1}^{m}b_ih_i,\]
-    \[p\odot q=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ig_ib_jh_j,\]
-
-    容易验证 $(\mathbb{R}[G],\oplus,\odot)$ 是环, 零元为 $0$, 单位元为 $1\cdot e$, 其中 $e$ 为 $G$ 的单位元, $\sum\limits_{i=1}^{n}a_ig_i$ 的加法逆元为 $\sum\limits_{i=1}^{n}(-a_i)g_i$.
-
-    设 $G$ 是有限群, 定义 $\mathbb{R}^G$($\mathbb{R}^G$ 的定义见教材第1小节的例3)上的\textbf{卷积运算}:
-    \[\phi*\psi(z)=\sum\limits_{h\in G}\phi(zh^{-1})\psi(h),\]
+    $\because\varphi\in R[G]$, $\therefore|G\backslash\ker\varphi|$ 是有限数. 设 $G\backslash\ker\varphi=\{g_1,g_2,\cdots,g_n\}$, 则 $\sum\limits_{i=1}^m\alpha_i\varphi(zh_i^{-1})$ 只可能在 $g_ih_j\ (i=1,2,\cdots,n,j=1,2,\cdots,m)$ 处取非零值. $\therefore\varphi*\psi\in R[G]$.
 
     有
     \begin{align*}
-        \phi*(\psi*\theta)(f) & =\sum\limits_{g\in G}\phi(fg^{-1})(\psi*\theta)(g) \\
-        & =\sum\limits_{g\in G}\phi(fg^{-1})\left(\sum\limits_{h\in G}\psi(gh^{-1})\theta(h)\right) \\
-        & =\sum\limits_{h\in G}\sum\limits_{g\in G}\phi(fg^{-1})\psi(gh^{-1})\theta(h).
+        \varphi*(\psi*\theta)(f) & =\sum\limits_{g\in G}\varphi(fg^{-1})(\psi*\theta)(g) \\
+        & =\sum\limits_{g\in G}\varphi(fg^{-1})\left(\sum\limits_{h\in G}\psi(gh^{-1})\theta(h)\right) \\
+        & =\sum\limits_{h\in G}\sum\limits_{g\in G}\varphi(fg^{-1})\psi(gh^{-1})\theta(h).
     \end{align*}
 
-    令 $a=gh^{-1}$, $\because\forall g_1,g_2,h\in G, g_1\neq g_2\Rightarrow g_1h^{-1}\neq g_2h^{-1}$, 且 $G$ 是有限群, 由书上 1.5 节的定理 3 得对于给定的 $h$,
+    令 $a=gh^{-1}$, 由定理 \ref{t2.5} 得
     \[R_{h^{-1}}:\begin{array}{rcl}
         G & \to & G \\
-        g & \to & gh^{-1} \\
+        g & \mapsto & gh^{-1} \\
     \end{array}\]
     是双射, 当 $g$ 取遍 $G$ 中的 $|G|$ 个互不相同的值时, $a$ 也取遍 $G$ 中的 $|G|$ 个互不相同的值\footnote{这可以用来解释书上定理3推论中的 $\{\overline{m},\bar{2}\bar{m},\cdots,\overline{p-1}\bar{m}\}=\{\overline{1},\overline{2},\cdots,\overline{p-1}\}$.}. $\therefore$
     \begin{align*}
-        \sum\limits_{h\in G}\sum\limits_{g\in G}\phi(fg^{-1})\psi(gh^{-1})\theta(h) & =\sum\limits_{h\in G}\sum\limits_{a\in G}\phi(f(ah)^{-1})\psi(ahh^{-1})\theta(h) \\
-        & =\sum\limits_{a\in G}\sum\limits_{h\in G}\phi(fh^{-1}a^{-1})\psi(a)\theta(h) \\
-        & =\sum\limits_{h\in G}\left(\sum\limits_{a\in G}\phi(fh^{-1}a^{-1})\psi(a)\right)\theta(h) \\
-        & =\sum\limits_{h\in G}\phi*\psi(fh^{-1})\theta(h) \\
-        & =(\phi*\psi)*\theta(h),
+        \sum\limits_{h\in G}\sum\limits_{g\in G}\varphi(fg^{-1})\psi(gh^{-1})\theta(h) & =\sum\limits_{h\in G}\sum\limits_{a\in G}\varphi(f(ah)^{-1})\psi(ahh^{-1})\theta(h) \\
+        & =\sum\limits_{a\in G}\sum\limits_{h\in G}\varphi(fh^{-1}a^{-1})\psi(a)\theta(h) \\
+        & =\sum\limits_{h\in G}\left(\sum\limits_{a\in G}\varphi(fh^{-1}a^{-1})\psi(a)\right)\theta(h) \\
+        & =\sum\limits_{h\in G}\varphi*\psi(fh^{-1})\theta(h) \\
+        & =(\varphi*\psi)*\theta(h),
     \end{align*}
 
     $\therefore*$ 是结合的.
 
-    定义
+    令
     \[\theta_g:\begin{array}{rcl}
-        G & \to & \mathbb{R} \\
+        G & \to & R \\
         g & \mapsto & 1 \\
         h & \mapsto & 0\ (h\neq g) \\
     \end{array},\]
 
-    设 $e$ 是 $g$ 的单位元, 则 $\forall\phi\in\mathbb{R}^G$,
-    \begin{align*}
-        \phi*\theta_e(z) & =\sum\limits_{h\in G}\phi(zh^{-1})\theta_e(h) \\
-        & =\phi(ze^{-1})\theta_e(e)=\phi(z), \\
-        \theta_e*\phi(z) & =\sum\limits_{h\in G}\theta_e(zh^{-1})\phi(h) \\
-        & =\theta_e(zz^{-1})\phi(z)=\phi(z),
-    \end{align*}
+    设 $e$ 是 $g$ 的单位元, 则 $\forall\varphi\in R[G]$,
+    \[\varphi*\theta_e(z)=\sum\limits_{h\in G}\varphi(zh^{-1})\theta_e(h)=\varphi(ze^{-1})\theta_e(e)=\varphi(z),\]
+    \[\theta_e*\varphi(z)=\sum\limits_{h\in G}\theta_e(zh^{-1})\varphi(h)=\theta_e(zz^{-1})\varphi(z)=\varphi(z),\]
 
     $\therefore\theta_e$ 是 $*$ 运算的单位元.
 
-    由定义容易验证 $\forall\phi,\psi,\theta\in\mathbb{R}^G$,
-    \[(\phi+\psi)*\theta=\phi*\theta+\psi*\theta,\]
-    \[\theta*(\phi+\psi)=\theta*\phi+\theta*\psi,\]
+    由定义容易验证 $\forall\varphi,\psi,\theta\in R[G]$,
+    \[(\varphi+\psi)*\theta=\varphi*\theta+\psi*\theta,\quad\theta*(\varphi+\psi)=\theta*\varphi+\theta*\psi,\]
 
-    $\therefore(\mathbb{R}^G,+,*)$ 是环.
-
-    由广义分配律(第1小节的式 (6)),
-    \[\left(\sum\limits_{i=1}^{n}a_i\cdot\theta_{g_i}(z)\right)*\left(\sum\limits_{j=1}^{m}b_j\cdot\theta_{h_j}(z)\right)=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_i}(z)*\theta_{h_j}(z).\]
-
-    $\because\forall f,g\in G$,
-    \begin{align*}
-        a\theta_f*b\theta_g(z) & =ab\sum\limits_{h\in G}\theta_f(zh^{-1})\theta_g(h) \\
-        & =ab\cdot\theta_f(zg^{-1})\theta_g(g) \\
-        & =\begin{cases}
-                ab, & zg^{-1}=f \\
-                0, & zg^{-1}\neq f
-            \end{cases} \\
-        & =ab\cdot\theta_{fg}(z),
-    \end{align*}
-
-    $\therefore$
-    \begin{align*}
-        \left(\sum\limits_{i=1}^{n}a_i\cdot\theta_{g_i}(z)\right)*\left(\sum\limits_{j=1}^{m}b_i\cdot\theta_{h_j}(z)\right) & =\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_i}(z)*\theta_{h_j}(z) \\
-        & =\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{m}a_ib_j\cdot\theta_{g_ih_j}(z).
-    \end{align*}
-
-    $\therefore$ 构造映射
-    \[\mathscr{A}:\begin{array}{rcl}
-        (\mathbb{R}[G],\oplus,\odot) & \to & (\mathbb{R}^G,+,*) \\
-        \sum\limits_{i=1}^{n}a_ig_i & \to & \sum\limits_{i=1}^{n}a_i\cdot\theta_{g_i} \\
-    \end{array},\]
-
-    则 $\mathscr{A}$ 是 $\mathbb{R}[G]$ 到 $\mathbb{R}^G$ 的同态.
-
-    由定义得 $\mathscr{A}$ 是单射.
-
-    $\because\forall\phi\in\mathbb{R}^G,\exists x=\sum\limits_{h\in G}\phi(h)h\in\mathbb{R}[G],\mathscr{A}(x)=\phi.\therefore\mathscr{A}$ 是满射.
-
-    $\therefore\mathscr{A}$ 是 $\mathbb{R}[G]$ 到 $\mathbb{R}^G$ 的同构.
+    $\therefore(R[G],+,*)$ 是环, 称为 $G$ 在 $R$ 上的\textbf{群环}(group ring).
 \end{example}
 \begin{example}
     映射 $\det:M_n(\mathbb{R})\to\mathbb{R}$ 不是环同态, 这说明行列式对矩阵加法的性质是很不好的(类比一下加法运算对素数的性质).
@@ -642,7 +594,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     是环同态.
 
-    设 $\mathbb{R}[X,Y]$ 是 $\mathbb{R}^2$ 上的二元多项式环, 则
+    设 $\mathbb{R}[X,Y]$ 是 $\mathbb{R}$ 上的二元多项式环, 则
     \[\pi:\begin{array}{rcl}
         \mathbb{R}[X,Y] & \to & \mathbb{R}[X] \\
         f(x,y) & \mapsto & f(x,x^2) \\
@@ -715,12 +667,10 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore$
     \[|\gl _n(F)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
 \end{example}
-\begin{example}\label{exp3.6}
-    在同构意义下, 有限域只有 $p^n$ 元域 $F_{p^n}$, 其中 $p$ 是素数, $n\in\mathbb{N}_+$.
+\begin{example}
+    下面是通过 $\mathbb{Z}_p$ 上的 $n$ 次不可约多项式的根来构造 $p^n$ 元域 $F_{p^n}$ (其中 $p$ 是素数, $n\in\mathbb{N}_+$) 的两个例子.
 
-    $F_{p^n}$ 有特征 $p$, 含有 $p^n$ 个元素, $\mathbb{Z}_p\subset F_{p^n}$. $F_{p^n}$ 通过 $\mathbb{Z}_p$ 上的 $n$ 次不可约多项式的根来构造.
-
-    例如 $\mathbb{Z}_2=\{0,1\}$, $\mathbb{Z}_2$ 上的 $2$ 次不可约多项式只有 $x^2+1,x^2+x,x^2+x+1$.
+    (1) $\mathbb{Z}_2=\{0,1\}$, $\mathbb{Z}_2$ 上的 $2$ 次不可约多项式只有 $x^2+1,x^2+x,x^2+x+1$.
 
     注意在 $\mathbb{Z}_2$ 上 $1+1=1,1=-1,\therefore x^2+1=0$ 的解只有 $1$, $x^2+x=0$ 的解为 $0,1$.
 
@@ -743,7 +693,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\because\alpha\beta=\alpha(-1-\alpha)=-\alpha-\alpha^2=1,\beta^2=\alpha\cdot\alpha\beta=\alpha,\therefore F_4$ 的乘法表如表 \ref{tb1}.
 
-    当 $p=3$ 时, $\mathbb{Z}_3$ 上的 $2$ 次不可约多项式有
+    (2) 当 $p=3$ 时, $\mathbb{Z}_3$ 上的 $2$ 次不可约多项式有
     \[\begin{array}{ll}
         f_1=x^2+1, & f_2=x^2-1, \\
         f_3=x^2+x+1, & f_4=x^2+x-1, \\
@@ -793,24 +743,23 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         y*(x*y)=x.
     \end{equation}
 
-    由 (\ref{eq4.1}),(\ref{eq4.2}) 式得
-    \begin{equation}\label{eq4.3}
-        (y*x)*y=y*(x*y).
-    \end{equation}
+    由 (\ref{eq4.1}), (\ref{eq4.2}) 式得
+    \[y*(x*y)=(y*x)*y.\]
 
-    $\because y*(y*x)=x$, 由 (\ref{eq4.1}) 式得
-    \[(y*x)*y=y*(y*x).\]
-
-    (注意: 不能直接在上式中令 $z=y*x$, 推出 $z*y=y*z$, 就说 $*$ 是交换的, 因为 $\forall y,z\in X,z$ 不一定能写成 $y*x$ 的形式)
-
-    $\therefore$
-    \[y*((y*x)*y)=y*(y*(y*x))=y*x.\]
-
-    另一方面, 以 $y*x$ 代 (\ref{eq4.3}) 式的 $x$, 有
+    以 $y*x$ 代上式的 $x$, 有
     \[y*((y*x)*y)=(y*(y*x))*y=x*y.\]
+
+    另一方面, 由式 (\ref{eq4.1}) 得
+    \[y*((y*x)*y)=y*x.\]
 
     $\therefore\forall x,y,x*y=y*x$.
 \end{proof}
+\begin{note}
+    由 (\ref{eq4.1}) 式得
+    \[(y*x)*y=y*(y*x).\]
+
+    不能直接在上式中令 $z=y*x$, 推出 $z*y=y*z$, 就说 $*$ 是交换的, 因为 $\forall y,z\in X,z$ 不一定能写成 $y*x$ 的形式.
+\end{note}
 \begin{exercise}% 1.2
     证明集合
     \[M_n^0(\mathbb{R})=\left\{A=(a_{ij})\in M_n(\mathbb{R})\Bigg|\sum\limits_{j=1}^{n}a_{ij}=0,i=1,2,\cdots,n\right\}\]
@@ -824,9 +773,6 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[c_{ij}=\sum_{k=1}^na_{ik}b_{kj}.\]
 
     固定 $i$, 令 $j=1,2,\cdots,n$, 得
-    \[C_{(i)}=\sum_{k=1}^na_{ik}B_{(k)}.\]
-
-    $\therefore$
     \[\sum\limits_{j=1}^{n}c_{ij}=\sum_{k=1}^na_{ik}\sum\limits_{j=1}^{n}b_{kj}=\sum_{k=1}^na_{ik}\cdot0=0.\]
 
     考察
@@ -905,39 +851,32 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because H_i$ 是 $G$ 的子群, $\therefore\forall i\in I,a^{-1}\in H_i.\therefore a^{-1}\in\bigcap\limits_{i\in I}H_i$.
 \end{proof}
 \begin{exercise}\label{ex2.2}
-    设 $S$ 是群 $G$ 的子集, 证明: 当 $G=\left<S\right>$ 时, $\forall g\in G\backslash\{e\},g=t_1t_2\cdots t_n,n\in\mathbb{N}_+$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
+    设 $S$ 是群 $G$ 的子集, 证明: 当 $G=\left<S\right>$ 时, $\forall g\in G,g=t_1t_2\cdots t_n,n\in\mathbb{N}$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
 \end{exercise}
 \begin{proof}
-    若 $G=\left<S\right>$, 则 $G=\cap\{H|S\subset H\land H$ 是 $G$ 的子群 $\}$.
-
-    $\therefore G\subset\cap\{H|S\subset H\land H$ 是 $G$ 的子群 $\}$.
-
-    $\therefore\forall H_i\in\{H|S\subset H\land H$ 是 $G$ 的子群 $\},G\subset H_i$.
-
-    $\because H_i$ 是 $G$ 的子群, $\therefore G=H_i$.
-
-    (这是原题中 "$G$ 的子群中没有包含 $S$ 的非平凡子群" 的意思.)
-
-    设 $S'=\{t_1t_2\cdots t_n|t_i\in S\vee t_i^{-1}\in S,1\leq i\leq n,n\in\mathbb{N}_+\}\cup\{e\}$. 有 $S\subset S'$.
+    设 $S'=\{t_1t_2\cdots t_n|t_i\in S\vee t_i^{-1}\in S,1\leq i\leq n,n\in\mathbb{N}_+\}$, 有 $S\subset S'$.
 
     $\forall a=t_1t_2\cdots t_m,b=t_1t_2\cdots t_n,ab=t_1t_2\cdots t_{m+n},\therefore a,b\in S\Rightarrow ab\in S'$.
 
     $\forall a=t_1t_2\cdots t_n,a^{-1}=t_n^{-1}t_{n-1}^{-1}\cdots t_1^{-1},\therefore a\in S'\Rightarrow a^{-1}\in S'$.
 
-    $\therefore S'$ 是 $G$ 的子群.
+    $\therefore S'$ 是群.
 
-    $\because G=\left<S\right>,\therefore G=S'$.
+    $\because G=\left<S\right>$, $\therefore G=\cap\{H|S\subset H\land H$ 是群$\}$.
 
-    $\therefore\forall g\in G\backslash\{e\},g=t_1t_2\cdots t_n,n\in\mathbb{N}_+$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
+    $\therefore\forall H_i\in\{H|S\subset H\land H$ 是群$\},G\subset H_i$.
+
+    $\because S'\in\{H|S\subset H\land H$ 是群$\}$, $\therefore G\subset S'$.
+
+    $\therefore\forall g\in G,g=t_1t_2\cdots t_n,n\in\mathbb{N}_+$, 其中 $t_i\in S$ 或 $t_i^{-1}\in S, 1\leq i\leq n$.
 \end{proof}
 \begin{exercise}% 2.3
     证明群 $G$ 中乘法可换的元素 $a,b$ 若有互素的阶 $s,t$, 则在 $G$ 中生成一个 $st$ 阶的循环子群: $\left<a,b\right>=\left<ab\right>$, 其中 $\left<a,b\right>=\{a^ib^j|0\leq i\leq s-1,0\leq j\leq t-1\}$.
 \end{exercise}
 \begin{proof}
-    在 $\left<a,b\right>=\{a^ib^j|0\leq i\leq s-1,0\leq j\leq s-1\}$ 中令 $i=j$ 可以得到 $\left<ab\right>.\therefore\left<ab\right>\subset\left<a,b\right>$.
+    在 $\left<a,b\right>=\{a^ib^j|0\leq i\leq s-1,0\leq j\leq t-1\}$ 中令 $i=j=1$ 可以得到 $ab$. $\therefore\left<ab\right>\subset\left<a,b\right>$.
 
-    由第 1.9 节第 3 小节的命题得 $\exists u,v\in\mathbb{Z}$ 使得
-    \[su+tv=1.\]
+    由第 1.9 节第 3 小节的命题得 $\exists u,v\in\mathbb{Z}$ 使得 $su+tv=1$.
 
     $\because a^s=e,\therefore a^{su}=e,a^{-su}=(a^{su})^{-1}=e$ (这里用了第 2 小节的定理 1).
 
@@ -957,22 +896,32 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设 $M=\left<S\right>$ 是由集合 $S$ 生成的幺半群. 如果 $\forall s\in S$ 在 $M$ 中可逆, 证明 $M$ 是一个群.
 \end{exercise}
 \begin{proof}
-    $\because\forall s\in S$ 在 $M$ 中可逆, 由第 \ref{ex2.2} 题的证明得 $S'=\{t_1t_2\cdots t_n|t_i\in S\vee t_i^{-1}\in S,1\leq i\leq n,n=1,2,\cdots\}\cup\{e\}$ 是 $M$ 的子群.
+    设 $S'=\{t_1t_2\cdots t_n|t_i\in S,1\leq i\leq n,n\in\mathbb{N}\}$. 与第 \ref{ex2.2} 题类似, 可以验证: $S'\subset S$, $S'$ 是幺半群.
 
-    $\because M=\left<S\right>,\therefore M=S',\therefore M$ 是群.
+    $\because M=\left<S\right>$, $\therefore M\subset S'$, $\therefore\forall t\in M,t=t_1t_2\cdots t_n$, 其中 $t_i\in S,1\leq i\leq n,n\in\mathbb{N}$.
+
+    $\because\forall s\in S,s^{-1}\in M$, $\therefore\forall t=t_1t_2\cdots t_n\in M,t_1^{-1},t_2^{-1},\cdots,t_n^{-1}\in M$,
+    
+    $\therefore t^{-1}=t_n^{-1}t_{n-1}^{-1}\cdots t_1^{-1}\in M$. $\therefore M$ 是群.
 \end{proof}
 \begin{exercise}% 2.5
-    证明: 设 $G$ 是一个幺半群, 且任意 $a,b\in G$, 方程 $ax=b,ya=b$ 有唯一解, 则 $G$ 是一个群.
+    证明: 设 $G$ 是一个半群, 且任意 $a,b\in G$, 方程 $ax=b,ya=b$ 有唯一解, 则 $G$ 是一个群.
 \end{exercise}
 \begin{proof}
+    从 $G$ 中任取一个元素 $a$, 则方程 $ax=a$ 和 $ya=a$ 都有唯一解, 分别记作 $1_{ar},1_{al}$. 有
+    \[a(1_{ar}a)=(a1_{ar})a=a^2=a(1_{al}a).\]
+
+    $\because$ 方程 $ax=a^2$ 有唯一解, $\therefore 1_{ar}a=1_{al}a=a$. $\because$ 方程 $ya=a$ 有唯一解, $\therefore 1_{al}=1_{ar}$, 下面记 $1_a=1_{al}=1_{ar}$.
+
+    $\forall b\in G$, 有 $(a1_a)b=a(1_ab)=ab$. $\because ax=ab$ 有唯一解 $b$, $\therefore 1_ab=b$. 对称地, 考虑 $b1_aa$, 有 $b1_a=b$. $\therefore 1_a$ 是 $G$ 的单位元, 下面记 $1=1_a$.
+
     对 $\forall a\in G,ax=1$ 有解 $x_0$, 则
     \[ax_0\cdot ax_0=1\Rightarrow a(x_0ax_0)=1.\]
 
-    $\because$ 满足 $ax=1$ 的 $x$ 唯一, $\therefore$
+    $\because ax=1$ 有唯一解 $x_0$, $\therefore$
     \[x_0=x_0ax_0=(x_0a)x_0.\]
 
-    $\because1\cdot x_0=x_0$, 而满足 $yx_0=x_0$ 的 $y$ 唯一, $\therefore$
-    \[x_0a=1.\]
+    $\because1\cdot x_0=x_0$, 而满足 $yx_0=x_0$ 有唯一解 $1$, $\therefore x_0a=1$. 同理得 $ax_0=1$.
 
     $\therefore\forall a\in G,\exists!x_0\in G$ 使得 $ax_0=x_0a=1$. $\therefore G$ 是群.
 \end{proof}
@@ -1017,8 +966,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{pmatrix}\begin{pmatrix}
         1 & 1 \\
         0 & 1
-    \end{pmatrix}^{k-1}\]
-    \[=\begin{pmatrix}
+    \end{pmatrix}^{k-1}=\begin{pmatrix}
         1 & 1 \\
         0 & 1
     \end{pmatrix}\begin{pmatrix}
@@ -1042,7 +990,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         1 & -n \\
         0 & 1
     \end{pmatrix}^{-1}=\begin{pmatrix}
-        1 & -n \\
+        1 & n \\
         0 & 1
     \end{pmatrix}.\]
     
@@ -1094,7 +1042,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \begin{proof}
     $\because(pq)=(1p)(1q)(1p),\therefore(pq)\in\left<(12),(13),\cdots,(1n)\right>$.
 
-    $\because\forall\sigma\in S_n,\sigma$ 都可以写成对换的乘积(特别地, $e=(12)(12)$), $\therefore S_n=\left<(12),(13),\cdots,(1n)\right>$.
+    $\because\forall\sigma\in S_n,\sigma$ 都可以写成对换的乘积(特别地, $e=(12)(12)$),
+    
+    $\therefore S_n=\left<(12),(13),\cdots,(1n)\right>$.
 \end{proof}
 \begin{exercise}\label{ex2.10}
     证明: $S_n=\left<(12),(123\cdots n)\right>$.
@@ -1129,11 +1079,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\left<(12),(13),\cdots,(1n)\right>\in\left<(12),(123\cdots n)\right>$.
 
-    由第 \ref{ex2.9} 题得
-
-    $S_n\subset\left<(12),(123\cdots n)\right>$.
+    由第 \ref{ex2.9} 题得 $S_n\subset\left<(12),(123\cdots n)\right>$.
 \end{proof}
-\begin{exercise}% 2.11
+\begin{exercise}
     证明交错群 $A_n(n\geq3)$ 是由 $3$ 循环生成的, 事实上,
     \[A_n=\left<(123),(124),\cdots,(12m)\right>.\]
 \end{exercise}
@@ -1157,13 +1105,13 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore A_n(n\geq3)$ 是由 $3$ 循环生成的.
 
     $\because$
-    \[(12m)^2(12n)(12m)=(1nm)\ (m,n=3,4,\cdots,n),\]
+    \[(12i)^2(12j)(12i)=(1ji)\ (i,j=3,4,\cdots,n),\]
 
     $\therefore$
-    \[\{(1mn)|m,n=2,3,\cdots,n\}\subset\left<(123),\cdots,(12n)\right>.\]
+    \[\{(1ji)|i,j=2,3,\cdots,n\}\subset\left<(123),\cdots,(12n)\right>.\]
 
     $\because$
-    \[(1mn)^2(1pn)(1mn)=(mnp)\ (m,n,p=2,3,4,\cdots,n,m\neq n,n\neq p),\]
+    \[(1ij)^2(1kj)(1ij)=(ijk)\ (i,j,k=2,3,4,\cdots,n,i,j,k \text{互不相等}),\]
 
     $\therefore$ 任一 $3$ 循环 $\in\left<(123),\cdots,(12n)\right>.\therefore$
     \[A_n\subset\left<(123),\cdots,(12n)\right>.\]
@@ -1205,7 +1153,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     则 $\pi^a=e$ 的充要条件是 $\forall\pi_i\in\{\pi_1,\pi_2,\cdots,\pi_s\},\pi_i^a=e$.
 \end{lemma}
 \begin{proof}
-    充分性是显然的. 下面证明必要性. 由第 1 章笔记的引理 1.2 得 $\{\pi_1,\pi_2,\cdots,\pi_s\}$ 上的乘法是交换的. $\therefore\forall a\in\mathbb{Z}$,
+    充分性是显然的. 下面证明必要性. 由第 1 章笔记的引理 1.3 得 $\{\pi_1,\pi_2,\cdots,\pi_s\}$ 上的乘法是交换的. $\therefore\forall a\in\mathbb{Z}$,
     \[\pi^a=\pi_1^a\pi_2^a\cdots\pi_s^a.\]
 
     假设 $\exists j,\pi_j^a\neq e$. 设 $\pi_j^a(u)=v,u\neq v$, $\because\pi_1,\pi_2,\cdots,\pi_s$ 不相交, $\therefore\forall\pi_i(i\neq j),\pi_i(u)=u.\therefore$
@@ -1221,11 +1169,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[(kq)d=kqd=nk,\]
 
     由第 1.9 节第 2 小节的式 (2) 得
-    \[kq=\operatorname{lcm}(n,k).\]
+    \[kq=\lcm (n,k).\]
 
-    $\therefore n|kq$ 且 $\forall p<kq,n\nmid p\vee k\nmid p$.
-
-    $\because\forall p,k|kp,\therefore\forall p<q,kp<kq\Rightarrow n\nmid kp$.
+    $\therefore n|kq$ 且 $\forall p<kq,n\nmid p\vee k\nmid p$. $\therefore\forall p<q,kp<kq\Rightarrow n\nmid kp$.
     
     $\therefore\pi^{kq}=e,\forall p<q,\pi^{kp}\neq e$.
 
@@ -1239,10 +1185,13 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because\pi_1,\pi_2,\cdots,\pi_s$ 不相交, $\therefore\forall\pi_i(i\neq j),\pi_i(l)=l$. 由引理 \ref{l4.1} 的证明得
     \[\pi^{ka}=\pi_1^a\pi_2^a\cdots\pi_s^a\Rightarrow\pi^{ka}(l)=\pi_j^a(l)=l.\]
 
-    设 $r\in\{1,2,\cdots,n\},\pi^b(r)=l$, 则
-    \[\pi^{n-b}(l)=\pi^{n-b}(\pi^b(r))=r.\]
+    设 $r\in\{1,2,\cdots,n\}\backslash\{l\}$,
+    \[b=\begin{cases}
+        l-r, & l>r, \\
+        l+n-r, & l<r, \\
+    \end{cases}\]
 
-    $\therefore$
+    则 $\pi^b(r)=l,\pi^{n-b}(l)=\pi^{n-b}(\pi^b(r))=r$, $\therefore$
     \begin{align*}
         \pi^{ka}(r) & =\pi^{ka}(\pi^{n}(r)) \\
         & =\pi^{n+ka}(r) \\
@@ -1317,7 +1266,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because H$ 关于 $G$ 的乘法封闭, $\therefore1,a^{-1}\in H$.
 \end{proof}
 \begin{exercise}% 2.16
-    正整数的乘法群 $(\mathbb{Q}_+,\cdot)$ 有什么样的生成元集? $(\mathbb{Q}_+,\cdot)$ 中是否存在有限生成元集?
+    正有理数的乘法群 $(\mathbb{Q}_+,\cdot)$ 有什么样的生成元集? $(\mathbb{Q}_+,\cdot)$ 中是否存在有限生成元集?
 \end{exercise}
 \begin{solution}
     设所有的素数为
@@ -1343,10 +1292,11 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     证明对于给定的阶数 $n$, 在同构的意义下仅有有限多个 $n$ 阶群. 记在同构的意义下的 $n$ 阶群的个数为 $\rho(n)$.
 \end{exercise}
 \begin{proof}
-    由定理 4, $\rho(n)$ 等于在同构的意义下 $S_n$ 的全体 $n$ 阶子群的个数.
+    由书上的定理 4, $\rho(n)$ 等于在同构的意义下 $S_n$ 的全体 $n$ 阶子群的个数.
 
     $\because|S_n|=n!,\therefore S_n$ 中含有 $n$ 个元素的子集的个数为 $\dbinom{n!}{n}$. $\therefore\rho(n)\leq\dbinom{n!}{n}$.
 \end{proof}
+
 证明第 \ref{ex2.18} 题需要证明一个引理.
 \begin{lemma}\label{l4.3}
     设 $A,B,C$ 是群,
@@ -1368,7 +1318,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore\forall a_1,a_2\in A,g(f(a_1a_2))=g(f(a_1)f(a_2))=g(f(a_1))g(f(a_2))$.
 \end{proof}
 \begin{exercise}\label{ex2.18}
-    证明: 对每个有限群 $G$, 都存在 $G$ 到由 $G$ 的两个元素 $a,b$ 生成的子群 $\left<a,b\right>$ 的一个单同态.
+    证明: 对每个有限群 $G$, 都存在 $G$ 到由两个元素生成的子群的一个单同态.
 \end{exercise}
 \begin{proof}
     由书上的定理 4, 存在 $G$ 到 $S_n$ 的一个单同态 $f$. 由第 \ref{ex2.10} 题,
@@ -1377,13 +1327,133 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         c & \to & c \\
     \end{array}\]
 
-    是同构, 也是单同态.
+    是同构, 也是单同态. 由引理 \ref{l4.3} 得 $f\circ g$ 是单同态.
+\end{proof}
+\begin{exercise}\label{ex2.19}
+    证明: 书上的图 17 给出了交错群 $A_4$ 的所有子群.
+\end{exercise}
+\begin{proof}
+    (a) $\{e\}$ 是 $A_4$ 的子群.
 
-    设 $a=(12),b=(123\cdots n),a',b'\in G$ 且 $a$. 定义
-    \[h:\begin{array}{rcl}
-        \left<(12),(123\cdots n)\right> & \to & \left<a,b\right> \\
-        a & \to & a \\
+    (b) 考察由 $2$ 个对换相乘形成的置换生成的子群, 这些子群是 $A_4$ 的子群, 在包含关系中覆盖了 $\{e\}$.
+
+    $4$ 个元素的对换有 $(1\ 2),(1\ 3),(1\ 4),(2\ 3),(2\ 4),(3\ 4)$, 共有 $\dbinom{6}{2}=15$ 种组合, 最终化简为
+    \[\left<(1\ 2\ 3)\right>,\quad\left<(1\ 2\ 4)\right>,\quad\left<(1\ 3\ 4)\right>,\quad\left<(2\ 3\ 4)\right>,\quad\left<(1\ 2)(3\ 4)\right>,\quad\left<(1\ 3)(2\ 4)\right>,\quad\left<(1\ 4)(2\ 3)\right>.\]
+
+    (c) $(1\ 2)(3\ 4),(1\ 3)(2\ 4),(1\ 4)(2\ 3)$ 这 $3$ 个置换两两相乘得到第三个置换, $\therefore\nexists$ 一个群只含有其中两个置换, $\therefore V_4$ 在包含关系中覆盖了 $\left<(1\ 2)(3\ 4)\right>,\left<(1\ 3)(2\ 4)\right>,\left<(1\ 4)(2\ 3)\right>$.
+
+    (d) $(1\ 2\ 3),(1\ 2\ 4),(1\ 3\ 4),(2\ 3\ 4)$ 中的任意两个置换都能生成 $A_4$, 任意一个置换与 $(1\ 2)(3\ 4),(1\ 3)(2\ 4),(1\ 4)(2\ 3)$ 中的任意一个置换都能生成 $A_4$, $\therefore(1\ 2\ 3),(1\ 2\ 4),(1\ 3\ 4),(2\ 3\ 4)$ 互不包含, 与 $V_4$ 没有包含关系, 都被 $A_4$ 覆盖.
+\end{proof}
+\begin{note}
+    第 (b)(d) 部分我没有想到好的方法, 只能逐个验证.
+    
+    (b) 用下面的代码计算 $(1\ 2),(1\ 3),(1\ 4),(2\ 3),(2\ 4),(3\ 4)$ 两两相乘, 结果保存在 \verb|product| 中. 内层的 \verb|ReplaceList| 生成 $(1\ 2),(1\ 3),(1\ 4),(2\ 3),(2\ 4),(3\ 4)$, 外层的 \verb|ReplaceList| 生成这些置换的乘积, 用 \verb|Union| 函数去掉重复的结果:
+    \begin{verbatim}
+product = Union[
+    PermutationProduct @@@
+     ReplaceList[
+      ReplaceList[Range[4], {{___, x_, ___, y_, ___} :> Cycles[{{x, y}}]}],
+      {{___, x_, ___} :> {x, x},{___, x_, ___, y_, ___} :> {x, y}}]]\end{verbatim}
+
+    对换的乘积最多是 $3$ 循环, 要验证一个置换 $a\neq e$ 是否能由另一 $3$ 循环 $b$ 生成, 只需判断 $a$ 是否 $\in\{b,b^2\}$. 从 \verb|product| 中任取一个 $3$ 循环 $b$, 去掉 \verb|product| 中的 $b^2$ (具体的实现方法是将 $b^2$ 替换为 $b$, 再用 \verb|Union| 函数去重), 反复执行这一操作直到 \verb|product| 中没有可以去掉的元素, 这时 \verb|product| 中除了 $e$ 之外的元素就是由 $2$ 个对换相乘形成的置换生成的子群的生成元:
+    \begin{verbatim}
+(* 把 b^2 替换为 b *)
+rules[list_] := 
+  Cases[list /.
+    {x_Cycles :> (PermutationProduct[x, x] -> x) /; 
+      And[PermutationProduct[x, x] != Cycles[{}], 
+        MemberQ[list, PermutationProduct[x, x]]]}, 
+    Except[Cycles[_]]];
+(* 用于去掉 b^2 的函数 *)
+func[{list_, rule_}] := {Union[list /. First[rule]], rules[list]};
+(* 反复应用 func *)
+NestWhile[func, {product, rules[product]}, #[[2]] != {} &]\end{verbatim}
+
+    (d) 下面的 \verb|cyc2str| 函数可以按照书上的方式输出置换 \verb|x| 对应的字符串.
+    \begin{verbatim}
+cyc2str[x_Cycles] := 
+  StringReplace[
+   ToString[(Sequence @@ x) /. {{} -> e, {y_List} :> y}],
+    {"," -> "", "{" -> "(", "}" -> ")"}];\end{verbatim}
+    
+    Mathematica 的 \verb|AlternatingGroup[n]| 函数可以构造 $A_n$, 下面的代码可以用来检验两个置换能否生成 $A_4$, 比如输出的表的第 $2$ 行第 $2$ 列是 \verb|False|, 说明 $\left<(1\ 2\ 4)\right>\neq A_4$, 第 $2$ 行第 $3$ 列是 \verb|True|, 说明 $\left<(1\ 2\ 4),(1\ 3\ 4)\right>=A_4$.
+    \begin{verbatim}
+cyc3s = {Cycles[{{1, 2, 3}}], Cycles[{{1, 2, 4}}], 
+   Cycles[{{1, 3, 4}}], Cycles[{{2, 3, 4}}]};
+allcycs = 
+  Join[cyc3s, {Cycles[{{1, 2}, {3, 4}}], Cycles[{{1, 3}, {2, 4}}], 
+    Cycles[{{1, 4}, {2, 3}}]}];
+TableForm[
+ Array[PermutationGroup[{cyc3s[[#1]], allcycs[[#2]]}] == 
+    AlternatingGroup[4] &, {Length[cyc3s], Length[allcycs]}], 
+ TableHeadings -> {cyc2str /@ cyc3s, cyc2str /@ allcycs}]\end{verbatim}
+\end{note}
+
+证明第 \ref{ex2.20} 题需要证明一个引理.
+\begin{lemma}\label{l4.4}
+    设 $G$ 是 $n$ 阶群(即 $|G|=n$), 则 $\forall a\in G$, $a$ 的阶 $m$ 整除 $n$.
+\end{lemma}
+\begin{proof}
+    如果 $m=1$, 那么 $a=e$. 下面设 $m\geq2$.
+
+    $\because\left<a\right>$ 是 $G$ 的子群, $\therefore m=|\left<a\right>|\leq|G|=n$.
+    
+    假设 $n=lm+r\ (l\geq1,0<r<m)$, 则 $lm<n$.
+    
+    $\because a$ 的阶为 $m$, $\therefore e,a^1,a^2,\cdots,a^{m-1}$ 互不相等.
+
+    $\because n>m$, $\therefore\exists b_1\in G\backslash\left<a\right>$. 考察 $b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1}$.
+    
+    $\because e,a^1,a^2,\cdots,a^{m-1}$ 互不相等, $\therefore b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1}$ 互不相等(否则由 $b_1a^i=b_1a^j$ 得 $a^i=b_1^{-1}b_1a^i=b_1^{-1}b_1a^j=a^j$).
+
+    假设 $\exists i,j\in\{0,\cdots,m-1\}$ 使得 $b_1a^i=a^j$, 则 $b_1=a^{j-i}\in\left<a\right>$, 与 $b\notin\left<a\right>$ 矛盾. $\therefore$
+    \[e,a^1,a^2,\cdots,a^{m-1},b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1}\]
+    互不相等. $\therefore$
+
+    \[B_1=\{e,a^1,a^2,\cdots,a^{m-1},b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1}\}\]
+    满足 $|B_1|=2m$.
+
+    如果 $l=1$, 那么 $|B_1|=2m>m+r=|G|$. 另一方面, $\because G$ 是群, $\therefore B_1\subset G\Rightarrow|B_1|\leq|G|$, 产生矛盾.
+
+    如果 $l>1$, 那么 $\exists b_2\in G\backslash B_1$. 考察 $b_2,b_2a^1,b_2a^2,\cdots,b_2a^{m-1}$.
+
+    与前面类似, 得 $e,a^1,a^2,\cdots,a^{m-1},b_2,b_2a^1,b_2a^2,\cdots,b_2a^{m-1}$ 互不相等.
+
+    假设 $\exists i,j\in\{0,\cdots,m-1\}$ 使得 $b_2a^i=b_1a^j$, 那么 $b_2=b_1a^{j-i}$,
+    
+    与 $b_2\notin\{b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1}\}$ 矛盾. $\therefore$
+    \[B_2=\{e,a^1,a^2,\cdots,a^{m-1},b_1,b_1a^1,b_1a^2,\cdots,b_1a^{m-1},b_2,b_2a^1,b_2a^2,\cdots,b_2a^{m-1}\}\]
+    满足 $|B_2|=3m$.
+
+    重复上述步骤, 得
+    \[B_0=\left<a\right>,\quad B_k=\left<a\right>\cup b_1\left<a\right>\cup b_2\left<a\right>\cup\cdots\cup b_k\left<a\right>\quad(k=1,2,\cdots,l)\]
+    满足 $|B_l|=(l+1)m$, 其中 $b_i\in G\backslash B_{i-1}\ (i=1,2,\cdots,l)$, 对任意群 $H\subset G,b\in G$, 定义 $bH=\{bc|c\in H\}\subset G$.
+
+    另一方面, $B_l\subset G$, 与 $|B_l|=(l+1)m>lm+r=n$ 矛盾.
+\end{proof}
+\begin{exercise}\label{ex2.20}
+    证明: 所有的 $4$ 阶群都是 Abel 群, 在同构意义下只有置换群 $\left<(1\ 2\ 3\ 4)\right>$ 和 Klein $4$ 元群 $V_4$ 两个 $4$ 阶群.
+\end{exercise}
+\begin{proof}
+    设 $G$ 是 $4$ 阶群. 由引理 \ref{l4.4} 得 $G$ 中只有 $1,2,4$ 阶元. 由单位元的唯一性得 $G$ 中有 $e$ 和 $3$ 个 $2,4$ 阶元(分别记作 $f,g,h$).
+    
+    (a) 如果 $G$ 没有 $4$ 阶元, 则 $\forall x\in G,x^2=e$.
+
+    $\forall a,b\in G$, 有 $abab=e$. $\therefore$
+    \[ab=(ab)^{-1}=b^{-1}a^{-1}=b(b^{-1})^2(a^{-1})^2a=ba.\]
+    
+    $\therefore G$ 是 Abel 群.
+
+    如果 $fg=gf=f$, 那么 $f=fg=fgf=ffg=g$, 与 $f\neq g$ 矛盾. $\therefore fg=gf=h$. 类似地, $gh=hg=f,fh=hf=g$. 这时 $G\simeq V_4$.
+
+    (b) 设 $f$ 是 $G$ 的 $4$ 阶元, 那么 $G=\left<f\right>$. $\because\forall a,b\in G,\exists m,n\in\mathbb{N}$ 使得 $a=f^m,b=f^n$, $\therefore ab=f^{m+n}=ba$, $\therefore G$ 是 Abel 群.
+    
+    容易验证映射
+    \[\varphi:\begin{array}{rcl}
+        G & \to & \left<(1\ 2\ 3\ 4)\right> \\
+        f^n & \mapsto & (1\ 2\ 3\ 4)^n \\
     \end{array}\]
+    是同构.
 \end{proof}
 \subsection{习题 4.3}
 \stepcounter{exsection}
@@ -1394,52 +1464,28 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     之下是一个有单位元的环, 其加法群的元素的阶为 $2$.
 \end{exercise}
 \begin{proof}
-    $\because\cap,\cup$ 运算是交换的, $\therefore+,\cdot$ 运算是交换的.
+    $\because\cap,\cup$ 运算是交换的, $\therefore+,\cdot$ 运算是交换的. $\because\cap$ 运算是结合的, $\therefore$ 乘法是结合的.
+    
+    设 $A,B,C\in\mathcal{P}(\Omega)$, 定义 $\overline{A}=\Omega\backslash A$, 有
+    \[A+B=(A\cup B)(\overline{AB})=(A\cup B)(\overline{A}\cup\overline{B})=(A\overline{B})\cup(\overline{A}B).\]
 
-    设 $A,B,C\in\mathcal{P}(\Omega)$, 定义
-    $S_{ABC}=\{S_i|i=0,1,\cdots,7\}\subset\mathcal{P}(\Omega)$, 其中
-    \[S_0=(\Omega\backslash A)\cap(\Omega\backslash B)\cap(\Omega\backslash C),\]
-    \[S_1=(\Omega\backslash A)\cap(\Omega\backslash B)\cap C,\]
-    \[S_2=(\Omega\backslash A)\cap B\cap(\Omega\backslash C),\]
-    \[S_3=(\Omega\backslash A)\cap B\cap C,\]
-    \[S_4=A\cap(\Omega\backslash B)\cap(\Omega\backslash C),\]
-    \[S_5=A\cap(\Omega\backslash B)\cap C,\]
-    \[S_6=A\cap B\cap(\Omega\backslash C),\]
-    \[S_7=A\cap B\cap C.\]
-
-    可以确定 $\Omega$ 上的等价关系 $\sim:\forall x,y\in\Omega$,
-    \[x\sim y:=\exists S\in S_{ABC},x\in S\land y\in S.\]
-
-    这里只对反身性加以说明, 其他两个性质是显然的. $\because\cup S_{ABC}=\Omega,\therefore\forall x\in\Omega,\exists S\in S_{ABC}$ 使得 $x\in S$.
-
-    $\therefore\forall x\in\Omega,\exists S\in S_{ABC},x\in S\land x\in S\Rightarrow x\sim x$.
-
-    $\because\ \sim$ 的等价类的集合为 $S_{ABC}\therefore S_{ABC}$ 是 $\Omega$ 的一个划分. $\therefore S_{ABC}$ 中的集合互不相交.
-
-    $\therefore$ 若 $1<i_1,\cdots,i_p,j_1,\cdots,j_q<7,\{i_1,\cdots,i_p\}\cap\{j_1,\cdots,j_q\}=\{l_1,\cdots,l_s\}$, 则
-    \[\left(\bigcup\limits_{k=1}^pS_{i_k}\right)\cap\left(\bigcup\limits_{k=1}^qS_{j_k}\right)=\bigcup\limits_{k=1}^sS_{l_k}.\]
-
-    有:
-    \[A=S_4\cup S_5\cup S_6\cup S_7,\quad B=S_2\cup S_3\cup S_6\cup S_7,\]
-    \[C=S_1\cup S_3\cup S_5\cup S_7,\]
-    \[AB=S_6\cup S_7,\quad AC=S_5\cup S_7,\quad BC=S_3\cup S_7,\]
-    \[A\cup B=S_2\cup S_3\cup S_4\cup S_5\cup S_6\cup S_7,\]
-    \[A\cup C=S_1\cup S_3\cup S_4\cup S_5\cup S_6\cup S_7,\]
-    \[B\cup C=S_1\cup S_2\cup S_3\cup S_5\cup S_6\cup S_7,\]
-    \[A+B=S_2\cup S_3\cup S_4\cup S_5,\]\[A+C=S_1\cup S_3\cup S_4\cup S_6,\]\[B+C=S_1\cup S_2\cup S_5\cup S_6.\]
-
-    $\because$ 乘法是交换的, 且
-    \[AB+AC=(S_5\cup S_6\cup S_7)\backslash S_7\]
-    \[=S_5\cup S_6=A(B+C),\]
-
-    $\therefore$ 乘法对加法有分配律.
-
-    $\because$
-    \[A\cup(B+C)=S_1\cup S_2\cup S_4\cup S_5\cup S_6\cup S_7,\]
-    \[A+(B+C)=S_1\cup S_2\cup S_4\cup S_7,\]
-    \[C(A+B)=S_3\cup S_5,\]
-    \[C\cup(A+B)=S_1\cup S_2\cup S_3\cup S_4\cup S_5\cup S_7,\]
-    \[(A+B)+C=S_1\cup S_2\cup S_4\cup S_7,\]
+    $\therefore$
+    \begin{align*}
+        (A+B)+C & =((A\overline{B})\cup(\overline{A} B)\cup C)(\overline{(A\overline{B})\cup(\overline{A} B)}\cup\overline{C}) \\
+        & =((A\overline{B})\cup(\overline{A}B)\cup C)(((\overline{A\overline{B}})(\overline{\overline{A}B}))\cup\overline{C}) \\
+        & =((A\overline{B})\cup(\overline{A}B)\cup C)(((A\cup\overline{B})(\overline{A}\cup B))\cup\overline{C}) \\
+        & =((A\overline{B})\cup(\overline{A}B)\cup C)((AB)\cup(\overline{A}\cdot\overline{B})\cup\overline{C}) \\
+        & =(A\overline{B}AB)\cup(\overline{A}BAB)\cup(CAB) \\
+        & \quad\cup(A\overline{B}\cdot\overline{A}\cdot\overline{B})\cup(\overline{A}B\overline{A}\cdot\overline{B})\cup(C\overline{A}\cdot\overline{B}) \\
+        & \quad\cup(A\overline{B}\cdot\overline{C})\cup(\overline{A}B\overline{C})\cup(C\overline{C}) \\
+        & =(CAB)\cup(C\overline{A}\cdot\overline{B})\cup(A\overline{B}\cdot\overline{C})\cup(\overline{A}B\overline{C}),
+    \end{align*}
+    \begin{align*}
+        A+(B+C) & =(A\overline{(B\cup C)(\overline{B}\cup\overline{C})})\cup(\overline{A}(B\cup C)(\overline{B}\cup\overline{C})) \\
+        & =(A((\overline{B}\cdot\overline{C})\cup(BC)))\cup(\overline{A}((B\overline{B})\cup(C\overline{B})\cup(B\overline{C})\cup(C\overline{C}))) \\
+        & =((A\overline{B}\cdot\overline{C})\cup(ABC))\cup(\overline{A}((C\overline{B})\cup(B\overline{C}))) \\
+        & =(A\overline{B}\cdot\overline{C})\cup(ABC)\cup(\overline{A}C\overline{B})\cup(\overline{A}B\overline{C}).
+    \end{align*}
 
     $\therefore$ 加法是结合的.
 
@@ -1466,7 +1512,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[(ab-ba)^3=ab-ba.\]
 
     在 $\forall x,x^3=x$ 且 $R$ 是交换的情况下, 应该有
-    \[aba^2=aa^3b=ab,\quad a^2ba=ba.\]
+    \[aba^2=a^3b=ab,\quad a^2ba=ba.\]
 
     把上式代入 $(ab-ba)^3$ 的展开式中进行化简.
 \end{thought}
@@ -1502,7 +1548,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{align*}
 
     $\therefore$
-    \[aba^2-ab=0.\]
+    \[aba^2-ab=(aba^2-ab)^2\cdot(aba^2-ab)=0.\]
 
     同理得
     \[a^2ba-ba=0.\]
@@ -1541,17 +1587,45 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     证明交换环 $R$ 的满同态 $f$ 的像 $f(R)$ 仍是交换环.
 \end{exercise}
 \begin{proof}
-    $\because f$ 是满同态, $\therefore\forall x,y\in f(R),\exists a,b\in R,x=f(a),y=f(b)$.
+    $\because f$ 是满射, $\therefore\forall x,y,z\in f(R),\exists a,b,c\in R,x=f(a),y=f(b),z=f(c)$.
+
+    $\because R$ 是环, $\therefore$
+    \[a+b=b+a,\quad a(bc)=(ab)c,\quad a(b+c)=ab+ac,\quad(a+b)c=ac+bc.\]
+
+    $\because f$ 是同态, $\therefore$
+    \[f(a+b)=f(a)+f(b),\quad f(ab)=f(a)f(b),\]
+
+    $\therefore$
+    \[f(a)+f(b)=f(a+b)=f(b+a)=f(b)+f(a),\]
+    \begin{align*}
+        x(yz) & =f(a)(f(b)f(c)) \\
+        & =f(a)f(bc) \\
+        & =f(abc) \\
+        & =f(ab)f(c) \\
+        & =(f(a)f(b))f(c) \\
+        & =(xy)z,
+    \end{align*}
+    \begin{align*}
+        x(y+z) & =f(a)(f(b)+f(c)) \\
+        & =f(a)f(b+c) \\
+        & =f(a(b+c)) \\
+        & =f(ab+ac) \\
+        & =f(ab)+f(ac) \\
+        & =f(a)f(b)+f(a)f(c) \\
+        & =xy+xz.
+    \end{align*}
+
+    $\therefore f(R)$ 是环.
 
     $\because R$ 是交换环, $\therefore ab=ba$.
 
-    $\therefore f(ab)=f(ba).\therefore f(a)f(b)=f(b)f(a)$, 即 $xy=yx$.
+    $\therefore f(ab)=f(ba)\Rightarrow f(a)f(b)=f(b)f(a)\Rightarrow xy=yx$.
 \end{proof}
 \begin{exercise}\label{ex3.5}
     证明任一有限整环 $R$ 是一个域.
 \end{exercise}
 \begin{proof}
-    假设 $\exists a\in R\backslash\{0\},\forall x\in R,ax\neq1$.
+    假设 $\exists a\in R^*,\forall x\in R,ax\neq1$.
 
     $\because R$ 是整环, 由第4小节的定理1得 $R$ 中有消去律, $\therefore\forall b,c\in R,b\neq c\Rightarrow ab\neq ac$. 设
     \[aR=\{ax|x\in R\},\]
@@ -1603,11 +1677,18 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore$
     \[(x+y)^{p^{n+1}}=(x^{p^n})^p+(y^{p^n})^p=x^{p^{n+1}}+y^{p^{n+1}}.\qedhere\]
 \end{proof}
-\begin{exercise}% 3.7
-    设 $R$ 是含有 $5$ 个元素的环. 证明: 若 $R$ 没有非平凡的零因子, 则 $R$ 同构于 $\mathbb{Z}_5$.
+\begin{exercise}[有修改]% 3.7
+    设 $R$ 是含有 $p$ ($p$ 是素数) 个元素的环. 证明: 若 $R$ 没有非平凡的零因子, 则 $R$ 同构于 $\mathbb{Z}_p$.
 \end{exercise}
 \begin{proof}
-    考察 $R\backslash\{0\}$ 中的元素 $x$.
+    由引理 \ref{l4.4} 得群 $(R,+)$ 只有 $p$ 阶元和 $1$ 阶元, $R^*$ 中的元素都是 $p$ 阶元.
+    
+    $\forall a\in R^*$, 有 $R=\left<a\right>$. $\therefore\forall b\in R,\exists n\in\{0,1,\cdots,p-1\},b=na$. $\therefore$
+    \[ab=a(\underbrace{a+\cdots+a}_{n\text{个}a})=\underbrace{a^2+\cdots+a^2}_{n\text{个}a^2}=(\underbrace{a+\cdots+a}_{n\text{个}a})a=ba,\]
+
+    $\therefore R$ 是交换的.
+
+    考察 $R^*$ 中的元素 $x$.
 
     假设 $1\notin R$, 则 $x\neq 1\Rightarrow x^2\neq x,x^3\neq x^2,\cdots,x^{k+1}\neq x^k\ (k=2,3,\cdots)$,
 
@@ -1615,11 +1696,23 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $x^3\neq 1\Rightarrow x^4\neq x,x^5\neq x^2,\cdots,x^{k+3}\neq x^k\ (k=2,3,\cdots),\cdots$,
 
-    $\therefore x,x^2,x^3,\cdots$ 互不相等. $\therefore R$ 的乘法群是无限阶的, 与 $R$ 只有 $5$ 个元素矛盾.
+    $\therefore x,x^2,x^3,\cdots$ 互不相等. $\therefore R$ 的乘法群是无限阶的, 与 $R$ 只有 $p$ 个元素矛盾.
 
     $\therefore R$ 是整环. 由第 \ref{ex3.5} 题得 $R$ 是域.
 
-    由例 \ref{exp3.6} 得 $R$ 同构于 $\mathbb{Z}_5$.
+    考察
+    \[\varphi:\begin{array}{rcl}
+        \mathbb{Z}_p & \to & R \\
+        \overline{n} & \mapsto & \underbrace{1+\cdots+1}_{n\text{个}1} \\
+    \end{array}.\]
+
+    $\because 1\in R$ 是 $p$ 阶元, $\therefore$
+    \begin{align*}
+        \underbrace{1+\cdots+1}_{m\text{个}1}=\underbrace{1+\cdots+1}_{n\text{个}1} & \Rightarrow m\equiv n\pmod{p} \\
+        & \Rightarrow\overline{n}=\overline{m}.
+    \end{align*}
+
+    $\therefore\varphi$ 是单射. $\because\mathbb{Z}_p,R$ 是有限集, $\therefore\varphi$ 是双射. 容易验证 $\varphi$ 是同构.
 \end{proof}
 \begin{exercise}% 3.8
     环 $R$ 的非零元素 $x$ 称为\textbf{幂零的}, 若 $\exists n\in\mathbb{N},x^n=0$. 证明:
@@ -1641,24 +1734,21 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     令 $a=rs$, 则 $rm=(rs)^2=a^2,\therefore\exists\overline{a}\in\mathbb{Z}_m,\overline{a}^2=0$.
 
-    ($\Rightarrow$) 设 $a^n=km$. 将 $m$ 写成素数的幂的乘积:
+    ($\Rightarrow$) 设 $0<a<m,a^n=km$. 将 $m$ 写成素数的幂的乘积:
     \[m=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_t^{\alpha_t},\]
 
     假设 $m$ 不能被任一 $>1$ 的整数的平方整除, 则 $\alpha_1=\alpha_2=\cdots=\alpha_t=1$ (若 $\alpha_i\geq2$, 则 $m$ 能被 $p_i^2$ 整除).
 
-    $\therefore$ 将 $k$ 写成素数的幂的乘积, 有
-    \[k=p_1^{n-1}p_2^{n-1}\cdots p_t^{n-1}p_{t+1}^np_{t+2}^n\cdots p_u^n,\]
+    将 $a$ 写成素数的幂的乘积:
+    \[a=p_1^{\beta_1}p_2^{\beta_2}\cdots p_n^{\beta_n},\]
+    
+    假设 $\exists i\leq t,\beta_i=0$, 则等式
+    \[p_1^{n\beta_1}p_2^{n\beta_2}\cdots p_n^{n\beta_n}=a^n=km=kp_1p_2\cdots p_t\]
 
-    $\therefore$
-    \begin{align*}
-        a & =p_1p_2\cdots p_tp_{t+1}p_{t+2}\cdots p_u \\
-        & >p_1p_2\cdots p_t=m,
-    \end{align*}
-
-    与 $a<m$ 矛盾.
+    的左边没有因子 $p_i$, 右边有因子 $p_i$, 矛盾. $\therefore\beta_1,\beta_2,\cdots,\beta_t>0$. $\therefore m|a$, 与 $a<m$ 矛盾.
 \end{proof}
 \begin{exercise}% 3.9
-    若环 $R$ 有单位元, 且基数 $|R|=\infty$, 则 $R$ 中非零不可逆元素的个数不可能是一个有限整数.
+    若环 $R$ 有单位元 $1$, 且基数 $|R|=\infty$, 则 $R$ 中非零不可逆元素的个数不可能是一个有限整数.
 \end{exercise}
 \begin{proof}
     假设 $N=\{a_1,a_2,\cdots,a_n\}$ 是非零不可逆元素的全体. 则
@@ -1679,13 +1769,13 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     则 $\forall x\in R\backslash(N\cap\{0\}),\im \rho_x\subset N,\therefore\rho_x$ 是确切定义的.
 
-    $\because\forall x\in R\backslash(N\cap\{0\}),x$ 可逆, $x^{-1}\in R\backslash(N\cap\{0\})$,
+    $\because\forall x\in R\backslash(N\cap\{0\}),x$ 可逆, $x^{-1}\in R\backslash(N\cap\{0\})\Rightarrow x^{-1}a\in N$.
 
     $\therefore\forall a\in N,\exists a'=x^{-1}a\in N$ 使得 $\rho_x(a')=a.\therefore\im \rho_x\supset N.\therefore\im \rho_x=N,\rho_x$ 是满射.
 
     $\because\forall x\in R\backslash(N\cap\{0\}),x$ 可逆, $\therefore\forall a,a'\in N,a\neq a'\Rightarrow xa\neq xa'$(假设 $xa=xa'$, 两边乘 $x^{-1}$ 得 $a=a'$), $\rho_x$ 是单射. $\therefore\rho_x$ 是双射.
 
-    $\therefore\rho_x\in S_n$.
+    $\because\rho_x$ 是 $N$ 上的双射, 置换是 $\{1,\cdots,n\}$ 上的双射, $\therefore\{\rho_x|x\in R\}\hookrightarrow S_n$. 不妨把 $\rho_x$ 看成是 $S_n$ 中的元素.
 
     将 $\rho_x$ 写成不交的置换的乘积, 设 $m$ 是这些置换的阶的最小公倍数, 则 $\rho_x^{km}=e$, 其中 $k\in\mathbb{N}_+,e\in S_n$ 是恒等置换.
 
@@ -1706,8 +1796,8 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore\exists k_1,k_2\in\mathbb{N}_+,k_1>k_2$ 使得
     \begin{align*}
         & x^{k_1m}-1=x^{k_2m}-1 \\
-        \Rightarrow & x^{k_1m}-x^{k_2m}=0 \\
-        \Rightarrow & x^{k_1m}(x^{(k_1-k_2)m}-1)=0.
+        & \Rightarrow x^{k_1m}-x^{k_2m}=0 \\
+        & \Rightarrow x^{k_1m}(x^{(k_1-k_2)m}-1)=0.
     \end{align*}
 
     $\because x^{k_1m}$ 可逆, $\therefore x^{k_2m}-1=0$, 与 $\forall k\in\mathbb{N}_+,x^{km}-1\neq0$ 矛盾.
@@ -1739,16 +1829,17 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     在 $R$ 上建立等价关系 $\sim$: $\forall x,y\in R,x\sim y\Leftrightarrow\sigma(x)=\sigma(y)$.
 
-    $\because\im \sigma\subset N^N,\therefore$
-    \[|\pi_\sim(R)|=|\im \sigma|\leq|N^N|=n^n.\]
+    由第 1 章笔记的推论 1.1 得 $|R/\sim|=|\im\sigma|$.
 
-    设 $A\in\pi_\sim(R)$, 则 $\forall y,z\in A,\sigma(y)=\sigma(z)$. 设 $y\in A$, 
+    $\because\im\sigma\subset N^N,\therefore|\im\sigma|\leq|N^N|=n^n$.
+
+    设 $A\in R/\sim$, 则 $\forall y,z\in A,\sigma(y)=\sigma(z)$. 设 $y\in A$, 
     \[\tau_A:\begin{array}{rcl}
         \ker\sigma & \to & A \\
         x & \to & x+y \\
     \end{array}.\]
 
-    $\because\forall x\in\ker\sigma,y\in A,\sigma(x+y)=\sigma(x)+\sigma(y)=\sigma(y),\therefore\tau_A$ 是确切定义的.
+    $\because\forall x\in\ker\sigma,y\in A,\sigma(x+y)=\sigma(x)+\sigma(y)=\sigma(y)$, $\therefore x+y\in A$, $\therefore\tau_A$ 是确切定义的.
 
     $\because\forall z\in A,\sigma(z-y)=\sigma(z)-\sigma(y)=0,z-y\in\ker\sigma$,
 
@@ -1756,16 +1847,13 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     $\therefore\tau_A$ 是满射, $|A|\leq|\ker\sigma|$.
 
-    $\therefore\forall A\in\pi_\sim(R),|A|\leq|\ker\sigma|$.
+    $\therefore\forall A\in R/\sim,|A|\leq|\ker\sigma|$.
 
     $\because$
-    \[R=\bigcup\limits_{A\in\pi_\sim(R)}A,\]
+    \[R=\bigcup\limits_{A\in R/\sim}A,\]
 
     $\therefore$
-    \begin{align*}
-        |R| & \leq|\pi_\sim(R)|\cdot\max\limits_{A\in\pi_\sim(R)}|A| \\
-        & \leq|\pi_\sim(R)||\ker\sigma|\leq n^n(n-1),
-    \end{align*}
+    \[|R|\leq|R/\sim|\cdot\max\limits_{A\in R/\sim}|A|\leq|R/\sim||\ker\sigma|\leq n^n(n-1),\]
 
     与 $|R|=\infty$ 矛盾.
 \end{proof}
@@ -1824,83 +1912,597 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
         0 & 0 \\
     \end{pmatrix}.\]
 
-    $\therefore F\backslash\{0\}$ 是群.
+    $\therefore F^*$ 是群.
 
     $\because$
-    \begin{align*}
-        \begin{pmatrix}
-            a & b \\
-            -b & a \\
-        \end{pmatrix}\begin{pmatrix}
-            c & d \\
-            -d & c \\
-        \end{pmatrix} & =\begin{pmatrix}
-                            ac-bd & ad+bc \\
-                            -(ad+bc) & ac-bd \\
-                        \end{pmatrix} \\
-        & =\begin{pmatrix}
-            c & d \\
-            -d & c \\
-        \end{pmatrix}\begin{pmatrix}
-            a & b \\
-            -b & a \\
-        \end{pmatrix},
-    \end{align*}
+    \[\begin{pmatrix}
+        a & b \\
+        -b & a \\
+    \end{pmatrix}\begin{pmatrix}
+        c & d \\
+        -d & c \\
+    \end{pmatrix}=\begin{pmatrix}
+        ac-bd & ad+bc \\
+        -(ad+bc) & ac-bd \\
+    \end{pmatrix}=\begin{pmatrix}
+        c & d \\
+        -d & c \\
+    \end{pmatrix}\begin{pmatrix}
+        a & b \\
+        -b & a \\
+    \end{pmatrix},\]
 
     $\therefore F$ 是域.
+
+    设 $F$ 的乘法群的单位元 $E=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ 对 $\forall A=\begin{pmatrix} a & b \\ -b & a \end{pmatrix}\in F$, 其中 $ab\neq0$, 有 $a^2=b^2=1,3ab=0$, $\therefore$
+    \[A^2=\begin{pmatrix}
+        a^2-b^2 & 2ab \\
+        -2ab & b^2-a^2 \\
+    \end{pmatrix}=\begin{pmatrix}
+        0 & -ab \\
+        ab & 0 \\
+    \end{pmatrix}\neq E.\]
+    \[A^3=\begin{pmatrix}
+        0 & -ab \\
+        ab & 0 \\
+    \end{pmatrix}\begin{pmatrix}
+        a & b \\
+        -b & a \\
+    \end{pmatrix}=\begin{pmatrix}
+        ab^2 & -a^2b \\
+        a^2b & ab^2 \\
+    \end{pmatrix}=\begin{pmatrix}
+        a & -b \\
+        b & a \\
+    \end{pmatrix}\neq E,\]
+    \[A^4=\begin{pmatrix}
+        a & -b \\
+        b & a \\
+    \end{pmatrix}\begin{pmatrix}
+        a & b \\
+        -b & a \\
+    \end{pmatrix}=\begin{pmatrix}
+        a^2+b^2 & * \\
+        0 & * \\
+    \end{pmatrix}=\begin{pmatrix}
+        2 & * \\
+        0 & * \\
+    \end{pmatrix}\neq E.\]
+
+    $\therefore\left<A\right>>5$.
+    $\because A\in F$, $F$ 的乘法群是 $8$ 阶群, 由引理 \ref{l4.4} 得 $A$ 是 $8$ 阶元, $\therefore F=\left<A\right>$.
 \end{proof}
 \begin{exercise}% 3.12
     在本节最后的例2中构造的编码 $S_0$ 能否纠正两个错误?
 \end{exercise}
 \begin{solution}
     考虑编码向量恰好有两个失真的情况. 对于 $X\in \mathbb{F}_2^5$, 有 $\dbinom{5}{2}=10$ 种恰好有两个失真的情况. 要没有错误地传输 $4$ 个向量, 一共需要 $40$ 种不同的情况, 而 $|\mathbb{F}_2^5|=2^5=32$, $\therefore S_0$ 不能纠正两个错误.
-
-    下面这段 Python 代码可以把所有的编码向量失真后得到的向量都求出来:
-    \begin{verbatim}
-        import copy
-
-        # 编码向量
-        enc = [['0', '0', '1', '1', '0'], ['1', '0', '0', '1', '1'],
-            ['0', '1', '1', '0', '1'], ['1', '1', '0', '0', '0']]
-
-        # 编码向量失真后得到的向量
-        changed = []
-
-        # 遍历编码向量失真后得到的向量
-        # i取遍从0到len(code)-1,j取遍从i到len(code)-1
-        for code in enc:
-            print(''.join(code)+':')
-            for i in range(len(code)):
-                seq = list(range(i+1, len(code)))
-                for j in seq:
-                    temp_code = copy.deepcopy(code)
-                    # 改变编码向量的值
-                    temp_code[i] = '0' if temp_code[i] == '1' else '1'
-                    temp_code[j] = '0' if temp_code[j] == '1' else '1'
-                    changed.append(''.join(temp_code))
-                    print(i, j, ''.join(temp_code))
-            print('-'*30)
-
-        # 如果changed中有重复的向量,则说明不能纠正
-        if len(set(changed)) == len(changed):
-            print('能纠正')
-        else:
-            print('不能纠正')
-    \end{verbatim}
 \end{solution}
-\subsection{补充题}
-\begin{exercisec}% 补充题 1
-    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\gl _n(K)$ 的子群.
+\begin{note}
+    写一个代码把 $S_0$ 所有的编码向量失真后得到的向量都求出来. 对于某个向量 $X\in\mathbb{F}_2^5$, $X$ 在第 $i,j$ 位出现错误可以看成是 $X$ 与一个向量 $Y\in\mathbb{F}_2^5$ 相加, 其中 $Y$ 的第 $i$ 和第 $j$ 个分量是 $1$, 其余分量是 $0$. 下面的代码遍历了所有的有两个分量是 $1$ 的向量 $Y\in\mathbb{F}_2^5$:
+    \begin{verbatim}
+list = ReplaceList[
+    Range[5], {{___, x_, ___, y_, ___} :> 
+      Array[If[# == x || # == y, 1, 0] &, 5]}]\end{verbatim}
+
+    下面的 \verb|distortion[z_]| 函数可以求出一个编码向量失真后得到的所有向量. 对 $S_0$ 中的 $4$ 个编码向量求失真后得到的所有向量:
+    \begin{verbatim}
+distortion[z_] := Mod[z + #, 2] & /@ list
+distortion[{0, 0, 1, 1, 0}] // TableForm
+distortion[{1, 0, 0, 1, 1}] // TableForm
+distortion[{0, 1, 1, 0, 1}] // TableForm
+distortion[{1, 1, 0, 0, 0}] // TableForm\end{verbatim}
+
+    如果两个编码向量求失真后形成的向量集合有交集, 那么这两个编码向量就不能被正常传输. 下面的代码可以求出 $(0, 0, 1, 1, 0)$ 和其余向量失真后形成的向量集合的交集:
+    \begin{verbatim}
+intersection[a_, b_] :=
+    Intersection[distortion[a], distortion[b]] // TableForm;
+intersection[{0, 0, 1, 1, 0}, #] & /@
+    {{1, 0, 0, 1, 1},
+    {0, 1, 1, 0, 1},
+    {1, 1, 0, 0, 0}}\end{verbatim}
+
+    可以看到 $(0, 0, 1, 1, 0)$ 只和 $(1, 1, 0, 0, 0)$ 不能正常传输.
+\end{note}
+\section{补充题}
+\subsection{群}
+\begin{exercisec}[5.1.1]
+    设 $S$ 是集合, 定义 $S$ 上的乘法为 $ab=b$. 证明 $S$ 是半群. 在什么情况下 $S$ 是幺半群?
 \end{exercisec}
 \begin{proof}
-    $\because\forall$
-    \[X=\begin{pmatrix}
+    $\because\forall a,b\in S,ab=b\in S$, $\therefore S$ 对乘法封闭.
+
+    $\because\forall a,b,c\in S,(ab)c=c,a(bc)=ac=c$, $\therefore S$ 是半群.
+
+    当 $|S|=1$ 时 $S$ 中唯一的元素是单位元, $\therefore S$ 是幺半群.
+
+    假设 $|S|>1$, $S$ 有单位元 $e$, 则对 $a\in S,a\neq e$, 有 $ea=a\neq e$, 与 $e$ 是单位元矛盾.
+\end{proof}
+\begin{exercisec}[5.1.2]
+    设 $M=\mathbb{Z}\times\mathbb{Z}$. 定义 $(a,b)\cdot(c,d)=(ac+2bd,ad+bc)$. 证明 $M$ 是交换的幺半群, 单位元为 $(1,0)$, 而且对非零元有消去律, 即如果 $(a,b)\neq(0,0),(a,b)(c,d)=(a,b)(x,y)$, 则 $(c,d)=(x,y)$. 计算 $(a,a)^n$ 和 $(2a,a)^n$.
+\end{exercisec}
+\begin{proof}
+    显然 ``$\cdot$'' 运算是交换的. 有
+    \begin{align*}
+        ((a,b)\cdot(c,d))\cdot(e,f) & =(ac+2bd,ad+bc)\cdot(e,f) \\
+        & =((ac+2bd)e+2(ad+bc)f,(ac+2bd)f+(ad+bc)e) \\
+        & =(ace+2bde+2adf+2bcf,acf+2bdf+ade+bce),
+    \end{align*}
+    \begin{align*}
+        (a,b)\cdot((c,d)\cdot(e,f)) & =(a,b)\cdot(ce+2df,cf+de) \\
+        & =(a(ce+2df)+2b(cf+de),a(cf+de)+b(ce+2df)) \\
+        & =(ace+2adf+2bcf+2bde,acf+ade+bce+2bdf),
+    \end{align*}
+
+    $\therefore$ ``$\cdot$'' 运算是结合的. $\because$
+    \[(a,b)\cdot(1,0)=(a\cdot1+2b\cdot0,a\cdot0+b\cdot1)=(a,b),\]
+
+    $\therefore(1,0)$ 是 $M$ 的单位元.
+
+    由 $(a,b)(c,d)=(a,b)(x,y)$ 得
+    \[(ac+2bd,ad+bc)=(ax+2by,ay+bx),\]
+
+    $\therefore$
+    \[\begin{cases}
+        ac+2bd=ax+2by, \\
+        ad+bc=ay+bx \\
+    \end{cases}\Rightarrow\quad\begin{cases}
+        a(c-x)+2b(d-y)=0, \\
+        b(c-x)+a(d-y)=0. \\
+    \end{cases}\]
+
+    $\because$ 关于 $x_1,x_2$ 的方程组
+    \[\begin{cases}
+        ax_1+2bx_2=0, \\
+        bx_1+ax_2=0 \\
+    \end{cases}\]
+    只有零解, $\therefore c=x,d=y\Rightarrow(c,d)=(x,y)$.
+
+    有
+    \[(a,a)\cdot(c,d)=(ac+2ad,ad+ac)=(a(c+2d),a(c+d)).\]
+
+    设 $(a,a)^n=(c_n,d_n)$, 则
+    \begin{align*}
+        (c_n,d_n) & =(a,a)\cdot(c_{n-1},d_{n-1}) \\
+        & =(a(c_{n-1}+2d_{n-1}),a(c_{n-1}+d_{n-1})),
+    \end{align*}
+
+    $\therefore$
+    \[\begin{cases}
+        c_n=ac_{n-1}+2ad_{n-1}, & (n>1) \\
+        d_n=ac_{n-1}+ad_{n-1}, & (n>1) \\
+        c_1=d_1=a.
+    \end{cases}\]
+
+    $\therefore$
+    \[\begin{pmatrix}
+        c_n \\ d_n
+    \end{pmatrix}=\begin{pmatrix}
+        a & 2a \\
+        a & a \\
+    \end{pmatrix}^{n-1}\begin{pmatrix}
+        a \\ a
+    \end{pmatrix}=a^n\begin{pmatrix}
+        1 & 2 \\
+        1 & 1 \\
+    \end{pmatrix}^{n-1}\begin{pmatrix}
+        1 \\ 1
+    \end{pmatrix}.\]
+
+    容易验证:
+    \[\begin{pmatrix}
+        1 & 2 \\
+        1 & 1 \\
+    \end{pmatrix}=\begin{pmatrix}
+        \sqrt{2} & -\sqrt{2} \\
+        1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        1+\sqrt{2} & 0 \\
+        0 & 1-\sqrt{2} \\
+    \end{pmatrix}\begin{pmatrix}
+        \sqrt{2} & -\sqrt{2} \\
+        1 & 1 \\
+    \end{pmatrix}^{-1}.\]
+
+    $\therefore$
+    \begin{align*}
+        \begin{pmatrix}
+            1 & 2 \\
+            1 & 1 \\
+        \end{pmatrix}^{n-1} & =\begin{pmatrix}
+            \sqrt{2} & -\sqrt{2} \\
+            1 & 1 \\
+        \end{pmatrix}\begin{pmatrix}
+            1+\sqrt{2} & 0 \\
+            0 & 1-\sqrt{2} \\
+        \end{pmatrix}^{n-1}\begin{pmatrix}
+            \sqrt{2} & -\sqrt{2} \\
+            1 & 1 \\
+        \end{pmatrix}^{-1} \\
+        & =\dfrac{1}{2\sqrt{2}}\begin{pmatrix}
+            \sqrt{2} & -\sqrt{2} \\
+            1 & 1 \\
+        \end{pmatrix}\begin{pmatrix}
+            (1+\sqrt{2})^{n-1} & 0 \\
+            0 & (1-\sqrt{2})^{n-1} \\
+        \end{pmatrix}\begin{pmatrix}
+            1 & \sqrt{2} \\
+            -1 & \sqrt{2} \\
+        \end{pmatrix}^{-1} \\
+        & =\dfrac{1}{2\sqrt{2}}\begin{pmatrix}
+            \sqrt{2}((1+\sqrt{2})^{n-1}+(1-\sqrt{2})^{n-1}) & 2((1+\sqrt{2})^{n-1}-(1-\sqrt{2})^{n-1}) \\
+            (1+\sqrt{2})^{n-1}-(1-\sqrt{2})^{n-1} & \sqrt{2}((1+\sqrt{2})^{n-1}+(1-\sqrt{2})^{n-1})
+        \end{pmatrix}
+    \end{align*}
+
+    $\therefore$
+    \begin{align*}
+        \begin{pmatrix}
+            c_n \\ d_n
+        \end{pmatrix} & =\dfrac{a^n}{2\sqrt{2}}\begin{pmatrix}
+            \sqrt{2}((1+\sqrt{2})^{n-1}+(1-\sqrt{2})^{n-1})+2((1+\sqrt{2})^{n-1}-(1-\sqrt{2})^{n-1}) \\
+            (1+\sqrt{2})^{n-1}-(1-\sqrt{2})^{n-1}+\sqrt{2}((1+\sqrt{2})^{n-1}+(1-\sqrt{2})^{n-1})
+        \end{pmatrix} \\
+        & =\dfrac{a^n}{2\sqrt{2}}\begin{pmatrix}
+            (1+\sqrt{2})^{n-1}(\sqrt{2}+2)+(1-\sqrt{2})^{n-1}(\sqrt{2}-2) \\
+            (1+\sqrt{2})^{n-1}(1+\sqrt{2})+(1-\sqrt{2})^{n-1}(\sqrt{2}-1) \\
+        \end{pmatrix} \\
+        & =\dfrac{a^n}{2\sqrt{2}}\begin{pmatrix}
+            \sqrt{2}((1+\sqrt{2})^n+(1-\sqrt{2})^n) \\
+            (1+\sqrt{2})^n-(1-\sqrt{2})^n \\
+        \end{pmatrix}.
+    \end{align*}
+
+    类似地, 令 $(2a,a)^n=(e_n,f_n)$, 有
+    \[\begin{cases}
+        e_n=2ae_{n-1}+2af_{n-1}, & (n>1) \\
+        f_n=2af_{n-1}+ae_{n-1}, & (n>1) \\
+        e_1=2a, \\
+        f_1=a,
+    \end{cases}\]
+    \[\begin{pmatrix}
+        e_n \\ f_n
+    \end{pmatrix}=\begin{pmatrix}
+        2a & 2a \\
+        a & 2a \\
+    \end{pmatrix}^{n-1}\begin{pmatrix}
+        2a \\ a
+    \end{pmatrix}=a^n\begin{pmatrix}
+        2 & 2 \\
+        1 & 2 \\
+    \end{pmatrix}^{n-1}\begin{pmatrix}
+        2 \\ 1
+    \end{pmatrix},\]
+    \[\begin{pmatrix}
+        2 & 2 \\
+        1 & 2 \\
+    \end{pmatrix}=\begin{pmatrix}
+        \sqrt{2} & -\sqrt{2} \\
+        1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        2+\sqrt{2} & 0 \\
+        0 & 2-\sqrt{2} \\
+    \end{pmatrix}^{n-1}\begin{pmatrix}
+        \sqrt{2} & -\sqrt{2} \\
+        1 & 1 \\
+    \end{pmatrix}^{-1},\]
+    \[\begin{pmatrix}
+        2 & 2 \\
+        1 & 2 \\
+    \end{pmatrix}^{n-1}=\dfrac{\begin{pmatrix}
+        \sqrt{2}((2+\sqrt{2})^{n-1}+(2-\sqrt{2})^{n-1}) & 2((2+\sqrt{2})^{n-1}-(2-\sqrt{2})^{n-1}) \\
+        (2+\sqrt{2})^{n-1}-(2-\sqrt{2})^{n-1} & \sqrt{2}((2+\sqrt{2})^{n-1}+(2-\sqrt{2})^{n-1}) \\
+    \end{pmatrix}}{2\sqrt{2}},\]
+    \[\begin{pmatrix}
+        e_n \\ f_n
+    \end{pmatrix}=\dfrac{a^n}{2\sqrt{2}}\begin{pmatrix}
+        \sqrt{2}(2+\sqrt{2})^n+\sqrt{2}(2-\sqrt{2})^n \\
+        (2+\sqrt{2})^n-(2-\sqrt{2})^n
+    \end{pmatrix}.\qedhere\]
+\end{proof}
+\begin{note}
+    下面的代码可以求出 $(a,a)^n$ 的前 $20$ 个真实值和 $c_n$ 和 $d_n$ 的真实值, 用来验证 $c_n$ 和 $d_n$ 确实是 $(a,a)^n$ 的系数.
+    \begin{verbatim}(*(a,a)^n的真实值*)
+times[{a_, b_}, {c_, d_}] := {a c + 2 b d, a d + b c};
+realVal = FoldList[times, {a, a}, Array[{a, a} &, 20 - 1]];
+(*c_n,d_n的真实值*)
+c[n_] := a c[n - 1] + 2 a d[n - 1];
+d[n_] := a c[n - 1] + a d[n - 1];
+c[1] = a;
+d[1] = a;
+(*判断是否相等*)
+EqualTo[realVal][Transpose[{c /@ Range[20], d /@ Range[20]}]]\end{verbatim}
+
+    下面的代码可以用表达式求出前 $20$ 个 $c_n$ 和 $d_n$ 的值, 与真实值比较, 用来验证 $c_n$ 和 $d_n$ 的表达式. 需要先运行前面一段代码.
+    \begin{verbatim}
+(*c_n,d_n的表达式*)
+cExpr[n_] := a^n ((1 + Sqrt[2])^n + (1 - Sqrt[2])^n)/2;
+dExpr[n_] := a^n ((1 + Sqrt[2])^n - (1 - Sqrt[2])^n)/(2 Sqrt[2]);
+(*判断是否相等*)
+EqualTo[c /@ Range[20]][cExpr /@ Range[20] // Simplify]
+EqualTo[d /@ Range[20]][dExpr /@ Range[20] // Simplify]\end{verbatim}
+\end{note}
+\begin{exercisec}[5.1.3]
+    一台机器输入两个八字符串(由 $8$ 个字符构成的序列) $a,b$, 输出 $a$ 的前 $5$ 个字符接上 $b$ 的后 $3$ 个字符, 证明: 八字符串全体 $S$ 在这个合成法(记作 $*$)下是半群. 如果输出 $a$ 的前 $4$ 个字符接上 $b$ 的后 $4$ 个字符, 结论是否还成立? 这些运算是否有单位元? 对任意的 $a\in S$ 计算 $a^n$.
+\end{exercisec}
+\begin{proof}
+    显然 $S$ 对 $*$ 封闭.
+
+    设 $a,b,c\in S$, $(a*b)*c$ 是取 $a$ 的前 $5$ 个字符接上 $b$ 的后 $3$ 个字符组成的字符串 $a'$ 的前 $5$ 个字符接上 $c$ 的后 $3$ 个字符组成字符串, 得到的字符串的前 $5$ 个字符与 $a$ 相同, 后 $3$ 个字符与 $c$ 相同.
+    
+    $a*(b*c)$ 是取 $b$ 的前 $5$ 个字符接上 $c$ 的后 $3$ 个字符组成的字符串 $c'$ 的后 $3$ 个字符接上 $a$ 的前 $5$ 个字符组成字符串, 得到的字符串的前 $5$ 个字符与 $a$ 相同, 后 $3$ 个字符与 $c$ 相同. $\therefore(a*b)*c=a*(b*c)$. $\therefore(S,*)$ 是半群.
+
+    如果 $|S|=1$, 那么 $S$ 中唯一的元素是单位元.
+    
+    如果 $|S|\neq1$, 假设 $e\in S$ 是 $*$ 的单位元, 对 $a\neq e$, $a$ 和 $e$ 的前 $5$ 个字符不同或后 $3$ 个字符不同, 不妨设 $a$ 和 $e$ 的前 $5$ 个字符不同, 那么 $e*a$ 的前 $5$ 个字符是 $e$ 的前 $5$ 个字符, 与 $a$ 的不同, $\therefore S$ 中没有单位元.
+
+    如果输出 $a$ 的前 $4$ 个字符接上 $b$ 的后 $4$ 个字符, 上述结论还成立, 证明与前面类似.
+
+    $\because a$ 的前 $5$ 个字符接上 $a$ 的后 $3$ 个字符组成 $a$, $\therefore a^2=a$. 用数学归纳法可得 $a^n=a$.
+\end{proof}
+\begin{exercisec}[5.1.5]
+    设 $S$ 是半群, $u\notin S$. 令 $M=S\cup\{u\}$, 延拓 $S$ 的运算至 $M$: $\forall a\in S,ua=a=au$. 证明 $M$ 是幺半群.
+\end{exercisec}
+\begin{proof}
+    考虑 $a,b,c\in M$ 的乘法. 当 $a,b,c$ 中没有 $u$ 时, 由 $S$ 是半群得 $a(bc)=(ab)c$. 当 $a,b,c$ 中至少有一个为 $u$ 时, $a(bc)$ 和 $(ab)c$ 都等于一个至多有两个元素的乘法, 比如 $a(uc)=ac=(au)c$. $\therefore M$ 是半群. 容易验证 $u$ 是 $M$ 的单位元.
+\end{proof}
+\begin{exercisec}[5.2.1]
+    写出 $S_3$ 的乘法表.
+\end{exercisec}
+\begin{solution}
+    用 Mathematica 的 \verb|GroupMultiplicationTable| 函数可以作出群的乘法表, 不过 Mathematica 中的置换乘积与书上的顺序相反(对乘法表转置可以解决这一问题), 而且乘法表的元素是 $1\sim n$ 的整数. 下面的代码可以画 $S_3$ 的乘法表, 把 \verb|n| 改成其他数可以画 $S_n$ 的乘法表. 其中 \verb|cyc2str| 函数的定义见第 \ref{ex2.19} 题的代码.
+    \begin{verbatim}
+n = 3;
+(* elements是想要的乘法表的元素, 格式为置换对应的字符串,
+可以改成任意的 List, 比如 elements = {a, b, c, d, e, f} *)
+elements = cyc2str /@ GroupElements[SymmetricGroup[n]];
+(* 画乘法表 *)
+TableForm[
+ Transpose[GroupMultiplicationTable[SymmetricGroup[n]]] /. 
+  MapIndexed[#2[[1]] -> #1 &, elements], 
+ TableHeadings -> {elements, elements}]\end{verbatim}
+\end{solution}
+\begin{exercisec}[5.2.5]\label{exc5.2.5}
+    证明:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item 如果一个幺半群(单位元为 $1$) $G$ 中的元素 $a$ 有右逆 $b$ 和左逆 $c$, 那么 $a$ 可逆, $a^{-1}=b=c$.
+        \item $a\in G$ 可逆且 $a^{-1}=b$ 当且仅当 $aba=a,ab^2a=1$.
+    \end{enumerate}
+\end{exercisec}
+\begin{proof}
+    (1) 有 $b=(ca)b=c(ab)=c$, $\therefore b=c$. 由定义得 $a$ 可逆.
+
+    (2) ($\Rightarrow$) 是显然的. 下面证明 ($\Leftarrow$). $\because(ab^2)a=1$, $\therefore ab^2$ 是 $a$ 的左逆. $\because a(b^2a)=1$, $\therefore b^2a$ 是 $a$ 的右逆. $\therefore a$ 可逆.
+    
+    在 $aba=a$ 两边左乘 $a^{-1}$ 得 $ba=1$, $\therefore b=a^{-1}$.
+\end{proof}
+\begin{exercisec}[5.2.6]
+    设 $\alpha$ 是平面上绕原点旋转 $\varphi$ 弧度, $\rho$ 是关于 $x$ 轴的反射, 证明: $\rho\alpha\rho^{-1}=\alpha^{-1}$.
+\end{exercisec}
+\begin{proof}
+    考察平面上任一点 $P$ 的极坐标 $(r,\theta)$. $\alpha(P)=(r,\theta+\varphi)$, $\rho(P)=(r,-\theta)$, 则 $\rho\alpha(P)=(r,-\theta-\varphi)$.
+
+    $\because(\rho\alpha)^2=e$, $\therefore$
+    \[\rho\alpha=(\rho\alpha)^{-1}=\alpha^{-1}\rho^{-1}.\]
+
+    $\because(\rho^{-1})^2=e$, $\therefore$ 上式两边右乘 $\rho^{-1}$ 得
+    \[\rho\alpha\rho^{-1}=\alpha^{-1}(\rho^{-1})^2=\alpha^{-1}.\qedhere\]
+\end{proof}
+\begin{exercisec}[5.2.8]
+    设 $G$ 是半群, 具有如下性质:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $G$ 含有右单位元 $1_r$, 即 $\forall a\in G,a1_r=a$;
+        \item $\forall a\in G,a$ 有右逆, 即 $\exists b\in G,ab=1_r$.
+    \end{enumerate}
+
+    证明: $G$ 是群.
+\end{exercisec}
+\begin{proof}
+    由 (1) 得 $1_r1_r=1_r$.
+
+    $\because\forall a\in G,\exists b$ 使得 $ab=1_r$, $\therefore$
+    \[1_rab=ab.\]
+
+    对 $b\in G,\exists c\in G$ 使得 $bc=1_r$, $\therefore$
+    \[1_ra=1_ra1_r=1_rabc=abc=a1_r=a.\]
+
+    $\therefore G$ 有单位元 $1_r$.
+
+    在 $ab=1_r$ 两边左乘 $b$, 右乘 $c$, 得 $babc=b1_rc$. $\therefore$
+    \[ba=ba1_r=babc=b1_rc=bc=1_r,\]
+
+    $\therefore b$ 是 $a$ 的逆元.
+    
+    上述讨论对 $\forall a\in G$ 都成立, $\therefore G$ 是群.
+\end{proof}
+\begin{exercisec}[5.2.10(2)]
+    证明: 左右消去律都成立的有限半群 $G$ 是群.
+\end{exercisec}
+\begin{proof}
+    假设 $\forall a,b\in G,ab\neq a\wedge ab\neq b$, 则对 $a,b\in G$,
+    \[ab,\quad a^2b=a(ab),\quad a^3b=a(a^2b)=a^2(ab),\quad a^4b=a(a^3b)=a^2(a^2b)=a^3(ab),\quad\cdots\]
+    互不相等, 这与 $G$ 是有限阶群矛盾.
+    
+    如果 $\exists a,b\in G,ab=a$, 则 $\forall c\in G,abc=ac$. 由左消去律得 $\forall c\in G,bc=c$. $\therefore cbc=c^2$, 由右消去律得 $cb=c$. $\therefore b$ 是 $G$ 的单位元. 如果 $\exists a,b\in G,ab=b$, 类似地有 $a$ 是 $G$ 的单位元. 记 $G$ 的单位元为 $e$.
+
+    假设 $\exists a\in G,\forall b\in G,ab\neq e$, 则
+    \[a,\quad a^2=a\cdot a,\quad a^3=a(a^2),\quad a^4=a(a^3),\quad\cdots\]
+    互不相等. $\therefore a$ 是无限阶元, 与 $G$ 是有限群矛盾. $\therefore\forall a\in G,a$ 有右逆. 类似地, $a$ 有左逆. 由补充题 \ref{exc5.2.5}(1) 得 $G$ 是群.
+\end{proof}
+\begin{exercisec}[5.2.12]
+    证明: 一个群不会是两个真子群的并.
+\end{exercisec}
+\begin{solution}
+    假设 $G=G_1\cup G_2$, 其中 $G_1,G_2$ 是 $G$ 的真子集. 如果 $G_1\subset G_2$, 那么 $G=G_1\cup G_2=G_2$, 与 $G_2$ 是 $G$ 的真子集矛盾. $\therefore G_1\not\subset G_2$. 对称地, $G_2\not\subset G_1$.
+
+    设 $a_1\in G_1\backslash G_2,a_2\in G_2\backslash G_1$, 考察 $a_1a_2\in G$.
+    
+    如果 $a_1a_2\in G_1$, 那么 $a_2=a_1^{-1}a_1a_2\in G_1$, 与 $a_2\notin G_1$ 矛盾, 如果 $a_1a_2\in G_2$, 那么 $a_1=a_1a_2a_2^{-1}\in G_2$, 与 $a_1\notin G_2$ 矛盾. $\therefore a_1a_2\notin G_1\cup G_2$, 这与 $G_1\cup G_2=G$ 矛盾.
+\end{solution}
+\begin{exercisec}[5.2.13]
+    设 $G$ 是群, $I$ 是指标集, 对 $\forall i\in I$, 定义 $G$ 的子群 $H_i$. 证明: $H=\bigcap\limits_{i\in I}H_i$ 是 $G$ 的子群.
+\end{exercisec}
+\begin{proof}
+    $\forall x\in H$, $x$ 满足 $\forall i\in I,x\in H_i$.
+
+    设 $x,y\in H$, 则 $\forall i\in I,x,y\in H_i$. $\because H_i$ 是群, 由定义 \ref{d2.1}, $xy^{-1}\in H_i$.
+    
+    $\because xy^{-1}\in H_i$ 对 $\forall i\in I$ 都成立, $\therefore xy^{-1}\in H$. 由定义 \ref{d2.1}, $H$ 是 $G$ 的子群.
+\end{proof}
+\begin{exercisec}[5.2.21]
+    设 $H$ 是群 $G$ 的有限非空子集, 如果 $H$ 对 $G$ 中的乘法封闭, 证明: $H$ 是 $G$ 的子群.
+\end{exercisec}
+\begin{proof}
+    $\forall a\in H$, $\because H$ 对 $a$ 的乘法封闭, $\therefore a^2,a^3,\cdots\in H$. $\because H$ 是有限集, $\therefore a$ 是有限阶元.
+    
+    设 $a$ 的阶为 $n$, 则 $\therefore a^{-1}=a^{n-1}\in H$. $\therefore H$ 是 $G$ 的子群.
+\end{proof}
+\begin{exercisec}[5.2.22]
+    设 $\varphi:G\to G'$ 是满同态. 证明:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item 如果 $G$ 是循环群, 则 $G'$ 是循环群;
+        \item 如果 $G$ 是 Abel 群, 则 $G'$ 是 Abel 群.
+    \end{enumerate}
+\end{exercisec}
+\begin{proof}
+    (1) $\because G$ 是循环群, $\therefore\exists a\in G$ 使得 $G=\{a^n|n\in\mathbb{Z}\}$. $\because\varphi$ 是满同态, $\therefore\forall x\in G',\exists n\in\mathbb{Z}$ 使得
+    \[x=\varphi(a^n)=(\varphi(a))^n.\]
+
+    $\therefore G'\subset\{(\varphi(a))^n|n\in\mathbb{Z}\}$.
+
+    $\because G'$ 是群, 由书上的命题 5.19 得 $G'$ 是循环群.
+
+    (2) $\because\varphi$ 是满射, $\therefore\forall a',b'\in G',\exists a,b\in G$ 使得 $\varphi(a)=a',\varphi(b)=b'$. $\because G$ 是 Abel 群, $\therefore ab=ba$, $\therefore$
+    \[a'b'=\varphi(a)\varphi(b)=\varphi(ab)=\varphi(ba)=\varphi(b)\varphi(a)=b'a'.\qedhere\]
+\end{proof}
+\begin{exercisec}[5.2.25]
+    确定整数加群到自身的所有群同态. 确定它们中有哪些是单射, 哪些是满射, 哪些是同构.
+\end{exercisec}
+\begin{solution}
+    设 $f:\mathbb{Z}\to\mathbb{Z}$ 是 $(\mathbb{Z},+)$ 的同态, 则 $\forall a\in\mathbb{Z}_+$,
+    \[f(a)=f(\underbrace{1+\cdots+1}_{a\text{个}1})=\underbrace{f(1)+\cdots+f(1)}_{a\text{个}f(1)}=af(1),\]
+
+    $\forall a\in\mathbb{Z}_-$,
+    \[f(a)+f(-a)=0\Rightarrow f(a)=-f(-a)=-(-a)f(1)=af(1),\]
+
+    $\therefore f(1)$ 完全确定了 $f$.
+
+    当 $f(1)=0$ 时, $f(\mathbb{Z})=\{0\}$, $f$ 不是单射, 其他情况下 $f$ 都是单射.
+
+    当 $f(1)=\pm1$ 时 $f$ 是满射, 其他情况下 $|f(1)|-1$ 没有原像, $f$ 不是满射.
+
+    $\therefore$ 当 $f(1)=\pm1$ 时 $f$ 是同构.
+\end{solution}
+\begin{exercisec}[5.2.26]
+    证明 $f:A\mapsto({}^tA)^{-1}$ 是 $\gl_n(\mathbb{R})$ 的自同构.
+\end{exercisec}
+\begin{proof}
+    $\because({}^t({}^tA)^{-1})^{-1}=A$, $\therefore f^{-1}=f$, 由书上的定理 2.16 得 $f$ 是双射. 容易验证 $f$ 是 $\gl_n(\mathbb{R})$ 上的同构.
+\end{proof}
+\begin{exercisec}[5.2.27]\label{exc5.2.27}
+    设 $G$ 是群. 证明在映射的合成下 $G$ 的右平移(定义见定理 \ref{t2.5})全体 $G_R$ 是群, $\varphi:a\mapsto R_{a^{-1}}$ 是 $G\to G_R$ 的同构.
+\end{exercisec}
+\begin{proof}
+    对于 $\forall a\in G$, 有 $a=(a^{-1})^{-1}=(R_{a^{-1}}(e))^{-1}$, $\therefore\varphi$ 有逆映射
+    \[\varphi^{-1}:\begin{array}{rcl}
+        G_R & \to & G \\
+        f & \mapsto & (f(e))^{-1} \\
+    \end{array}.\]
+
+    由书上的定理 2.16 得 $\varphi$ 是双射.
+
+    设 $a,b\in G$, 则 $\forall x\in G$,
+    \[R_{ab}(x)=xab=(xa)b=R_b(R_a(x)),\]
+    \[R_{(ab)^{-1}}(x)=R_{b^{-1}a^{-1}}(x)=R_{a^{-1}}(R_{b^{-1}}(x)).\]
+
+    $\therefore$
+    \[\varphi(ab)=R_{(ab)^{-1}}=R_{a^{-1}}\circ R_{b^{-1}}=\varphi(a)\circ\varphi(b).\]
+
+    由定理 \ref{t2.1} (2) 得 $G_R$ 是群, $\varphi$ 是同构.
+\end{proof}
+\begin{exercisec}[5.2.28]\label{exc5.2.28}
+    把函数的复合定义为乘法, 证明 $f(x)=1/x,g(x)=(x-1)/x$ 生成的群与 $S_3$ 同构.
+\end{exercisec}
+\begin{proof}
+    由第 \ref{ex2.10} 题得 $S_3\simeq\left<(1\ 2),(1\ 2\ 3)\right>$.
+
+    容易验证 $(f\circ f)(x)=x,(g\circ g\circ g)(x)=x$. 考虑映射
+    \[\varphi:\begin{array}{rcl}
+        \left<(1\ 2),(1\ 2\ 3)\right> & \to & \left<f,g\right> \\
+        (1\ 2)    & \mapsto & f \\
+        (1\ 2\ 3) & \mapsto & g \\
+    \end{array}\]
+    (其余元素的值根据规则 $\varphi(ab)=\varphi(a)\varphi(b)$ 得到) 和
+    \[\psi:\begin{array}{rcl}
+        \left<f,g\right> & \to & \left<(1\ 2),(1\ 2\ 3)\right> \\
+        f & \mapsto & (1\ 2)    \\
+        g & \mapsto & (1\ 2\ 3) \\
+    \end{array}\]
+    (其余元素的值根据规则 $\psi(ab)=\psi(a)\psi(b)$ 得到). $\forall a\in\left<(1\ 2),(1\ 2\ 3)\right>$, $a$ 都是若干 $(1\ 2)$ 和 $(1\ 2\ 3)$ 的乘积. 不妨设
+    \[a=(1\ 2)^{i_1}(1\ 2\ 3)^{j_1}(1\ 2)^{i_2}(1\ 2\ 3)^{j_2}\cdots(1\ 2)^{i_n}(1\ 2\ 3)^{j_n}\quad(i_k,j_k\in\mathbb{Z}),\]
+
+    则
+    \begin{align*}
+        \varphi(a) & =\varphi((1\ 2)^{i_1}(1\ 2\ 3)^{j_1}(1\ 2)^{i_2}(1\ 2\ 3)^{j_2}\cdots(1\ 2)^{i_n}(1\ 2\ 3)^{j_n}) \\
+        & =f^{i_1}g^{j_1}f^{i_2}g^{j_2}\cdots f^{i_n}g^{j_n},
+    \end{align*}
+    \begin{align*}
+        \psi(\varphi(a)) & =\psi(f^{i_1}g^{j_1}f^{i_2}g^{j_2}\cdots f^{i_n}g^{j_n}) \\
+        & =(1\ 2)^{i_1}(1\ 2\ 3)^{j_1}(1\ 2)^{i_2}(1\ 2\ 3)^{j_2}\cdots(1\ 2)^{i_n}(1\ 2\ 3)^{j_n} \\
+        & =a.
+    \end{align*}
+    
+    同理得 $\forall h\in\left<f,g\right>,\varphi(\psi(h))=h$. $\therefore\psi=\phi^{-1}$. 由书上的定理 2.16 得 $\varphi$ 是双射.
+
+    由定理 \ref{t2.1} (2) 得 $\left<f,g\right>$ 是群, $\varphi$ 是同构. $\therefore\left<f,g\right>\simeq\left<(1\ 2),(1\ 2\ 3)\right>\simeq S_3$.
+\end{proof}
+\begin{exercisec}[5.2.29]
+    在同构意义下分类所有的 $6$ 阶群.
+\end{exercisec}
+\begin{solution}
+    设 $G$ 是 $6$ 阶群, 单位元为 $e$. 由引理 \ref{l4.4} 得 $G$ 没有 $4$ 阶和 $5$ 阶元.
+    
+    (a) 如果 $a\in G$ 是 $G$ 的 $6$ 阶元, 则 $a^k\ (k=0,1,\cdots,6)$ 互不相等, $\therefore G=\left<a\right>$. 与第 \ref{ex2.20} 题 (b) 类似, 有 $G\simeq\left<(1\ 2\ 3\ 4\ 5\ 6)\right>$.
+
+    (b) 如果 $G$ 没有 $6$ 阶元但有 $3$ 阶元 $a$, 则 $|G\backslash\left<a\right>|=3$. 设 $b\in G\backslash\left<a\right>$.
+
+    $\because b\neq e$, $\therefore ab\neq a,a^2b\neq a^2$.
+    
+    $\because b\neq a$, $\therefore ab\neq a^2,a^2b\neq a^3=e$. 
+    
+    $\because b\neq a^2$, $\therefore ab\neq a^3=e,a^2b\neq a^4=a$.
+
+    $\because e,a,a^2$ 互不相等, $\therefore b,ab,a^2b$ 互不相等, $\therefore e,a,a^2,b,ab,a^2b$ 互不相等, $\therefore$
+    \[G=\{e,a,a^2,b,ab,a^2b\}.\]
+
+    有 $b\neq e\Rightarrow b^2\neq b,b\neq a\Rightarrow b^2\neq ab,b\neq a^2\Rightarrow b^2\neq a^2b$.
+
+    假设 $b^2=a$, 则 $G=\{e,b^2,b^4,b,b^3,b^5\}$, $b$ 是 $6$ 阶元, 与 $g$ 没有 $6$ 阶元矛盾.
+
+    假设 $b^2=a^k$, 则 $b^4=a^4=a,G=\{e,b^4,b^8,b,b^5,b^9\}$. $\because G$ 是群, $\therefore G=\left<b\right>$, $b$ 是 $6$ 阶元, 与 $g$ 没有 $6$ 阶元矛盾.
+
+    $\because b^2\in G$, $\therefore b^2=e$, 即 $b$ 是 $2$ 阶元. 与补充题 \ref{exc5.2.28} 相同, 有 $G=\left<a,b\right>\simeq\left<(1\ 2\ 3),(1\ 2)\right>\simeq S_3$.
+
+    (c) 如果 $G$ 只有 $1,2$ 阶元, 则 $G\backslash\{e\}$ 中的元素都是 $2$ 阶元.
+
+    由书上第 2 节的定理 4 得 $G\simeq G_L\hookrightarrow S_6$, 其中 $G_L$ 是 $G$ 的左平移全体, 单位元为 $L_e$. $\because\forall a\in G,a^2=e$, $\therefore\forall L_a\in G_L,L_a^2=L_e$.
+
+    $\because\forall2$ 阶元 $a\in G$, $a\neq e\Rightarrow\forall b\in G,ba\neq b$, $\therefore\forall b\in G,L_a(b)\neq b$.
+\end{solution}
+\begin{exercisec}
+    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\gl_n(K)$ 的子群.
+\end{exercisec}
+\begin{proof}
+    $\because$
+    \[\forall X=\begin{pmatrix}
         \lambda_{11} & \lambda_{12} & \cdots & \lambda_{1n} \\
         0 & \lambda_{22} & \cdots & \lambda_{2n} \\
         \vdots & \vdots & \ddots & \vdots \\
         0 & 0 & \cdots & \lambda_{nn} \\
-    \end{pmatrix}\in B_n(K),\]
-    \[\det X=\prod\limits_{i=1}^n\lambda_{ii}\neq0,\]
+    \end{pmatrix}\in B_n(K),\quad\det X=\prod\limits_{i=1}^n\lambda_{ii}\neq0,\]
 
     $\therefore B_n(K)\subset\gl _n(K)$.
 
@@ -1926,5 +2528,273 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\therefore X^\vee\in B_n(K)$.
 
     由书上第 3.3 节的定理 1 得 $X^{-1}=(\det X)^{-1}X^\vee$, $\therefore X^{-1}\in B_n(K)$.
+\end{proof}
+\subsection{环}
+\begin{exercisec}[5.3.3]
+    设 $R$ 是 $\mathbb{C}$ 的子环, $R[a_1,a_2,\cdots,a_n]\ (a_1,a_2,\cdots,a_n\in\mathbb{C})$ 是 $\mathbb{C}$ 的包含 $a_1,a_2,\cdots,a_n$ 和 $R$ 的子环中最小的. 是否有 $\mathbb{Q}[\sqrt{2},\sqrt{3}]=\mathbb{Q}[\sqrt{2}+\sqrt{3}]$? 是否有 $\mathbb{Z}[\sqrt{2},\sqrt{3}]=\mathbb{Z}[\sqrt{2}+\sqrt{3}]$?
+\end{exercisec}
+\begin{solution}
+    $\because\sqrt{2}+\sqrt{3}\in\mathbb{Q}[\sqrt{2},\sqrt{3}]$, $\therefore\mathbb{Q}[\sqrt{2}+\sqrt{3}]\subset\mathbb{Q}[\sqrt{2},\sqrt{3}]$.
+
+    $\because$
+    \[(\sqrt{2}+\sqrt{3})^2=2+3+2\sqrt{6},\]
+
+    $\therefore$
+    \[\sqrt{6}=\dfrac{1}{2}((\sqrt{2}+\sqrt{3})^2-2-3)\in\mathbb{Q}[\sqrt{2}+\sqrt{3}].\]
+
+    $\therefore$
+    \[\sqrt{2}=2\sqrt{3}+3\sqrt{2}-2(\sqrt{3}+\sqrt{2})=\sqrt{6}(\sqrt{2}+\sqrt{3})-2(\sqrt{3}+\sqrt{2})\in\mathbb{Q}[\sqrt{2}+\sqrt{3}],\]
+    \[\sqrt{3}=(\sqrt{2}+\sqrt{3})-\sqrt{2}\in\mathbb{Q}[\sqrt{2}+\sqrt{3}].\]
+
+    $\therefore\mathbb{Q}[\sqrt{2},\sqrt{3}]=\mathbb{Q}[\sqrt{2}+\sqrt{3}]$.
+
+    $\because\sqrt{2}+\sqrt{3}\in\mathbb{Z}[\sqrt{2},\sqrt{3}]$, $\therefore\mathbb{Z}[\sqrt{2}+\sqrt{3}]\subset\mathbb{Z}[\sqrt{2},\sqrt{3}]$.
+
+    有
+    \[\mathbb{Z}[\sqrt{2}+\sqrt{3}]=\left\{\sum\limits_{i=0}^na_i(\sqrt{2}+\sqrt{3})^n\bigg|a_1,a_2,\cdots,a_n\in\mathbb{Z},n\in\mathbb{N}_+\right\}.\]
+
+    要证明 $\mathbb{Z}[\sqrt{2},\sqrt{3}]=\mathbb{Z}[\sqrt{2}+\sqrt{3}]$, 需要证明 $\sqrt{2}\in\mathbb{Z}[\sqrt{2}+\sqrt{3}]$ 或 $\sqrt{3}\in\mathbb{Z}[\sqrt{2}+\sqrt{3}]$. 要证明 $\mathbb{Z}[\sqrt{2},\sqrt{3}]=\mathbb{Z}[\sqrt{2}+\sqrt{3}]$, 需要证明 $\sqrt{2}\notin\mathbb{Z}[\sqrt{2}+\sqrt{3}]$ 且 $\sqrt{3}\notin\mathbb{Z}[\sqrt{2}+\sqrt{3}]$.
+    
+    问题归结为求整数域上的方程
+    \begin{equation}\label{eq5.1}
+        \sum\limits_{i=0}^na_i(\sqrt{2}+\sqrt{3})^n=\sqrt{2}
+    \end{equation}
+    (或者 $=\sqrt{3}$) 的解 $a_1,a_2,\cdots,a_n$.
+
+    可以将方程 (\ref{eq5.1}) 化简为下面的方程组:
+    \begin{align}\label{eq5.2}
+        & \begin{cases}
+            b_{10}a_0+b_{11}a_1+\cdots+b_{1n}a_n=0, \\
+            b_{20}\sqrt{2}a_0+b_{21}\sqrt{2}a_1+\cdots+b_{2n}\sqrt{2}a_n=\sqrt{2}, \\
+            b_{30}\sqrt{3}a_0+b_{31}\sqrt{3}a_1+\cdots+b_{3n}\sqrt{3}a_n=0, \\
+            b_{40}\sqrt{6}a_0+b_{41}\sqrt{6}a_1+\cdots+b_{4n}\sqrt{6}a_n=0, \\
+        \end{cases}\nonumber \\
+        & \Rightarrow\begin{cases}
+            b_{10}a_0+b_{11}a_1+\cdots+b_{1n}a_n=0, \\
+            b_{20}a_0+b_{21}a_1+\cdots+b_{2n}a_n=1, \\
+            b_{30}a_0+b_{31}a_1+\cdots+b_{3n}a_n=0, \\
+            b_{40}a_0+b_{41}a_1+\cdots+b_{4n}a_n=0, \\
+        \end{cases}
+    \end{align}
+
+    其中的系数 $b_{ij}\in\mathbb{Z}$ 可以由方程 (\ref{eq5.1}) 的各项展开得到, 比如当 $n=2$ 时有
+    \begin{align*}
+        & a_0+a_1(\sqrt{2}+\sqrt{3})+a_2(\sqrt{2}+\sqrt{3})^2=\sqrt{2} \\
+        & \Rightarrow a_0+\sqrt{2}a_1+\sqrt{3}a_1+(2+3+2\sqrt{6})a_2=\sqrt{2} \\
+        & \Rightarrow\begin{cases}
+            a_0+5a_2=0, \\
+            \sqrt{2}a_1=\sqrt{2}, \\
+            \sqrt{3}a_1=0, \\
+            2\sqrt{6}a_2=0,
+        \end{cases}\Rightarrow\begin{cases}
+            a_0+5a_2=0, \\
+            a_1=1, \\
+            a_1=0, \\
+            2a_2=0.
+        \end{cases}
+    \end{align*}
+
+    下面的代码中, \verb|sys[n_]| 可以对给定的 $n$ 求出线性方程组 (\ref{eq5.2}) 的左边. 变元 $a_i$ 用 \verb|a[i]| 表示.
+    \begin{verbatim}
+x = Sqrt[2] + Sqrt[3];
+expr[n_] := Expand[Sum[a[i] x^i, {i, 0, n}]];
+sys[n_] := (Plus @@ #) & /@ 
+   Join[{Cases[expr[n], 
+      Except[
+       Times[u___, Sqrt[2], v___] | Times[u___, Sqrt[3], v___] | 
+        Times[u___, Sqrt[6], v___]]]}, 
+    Cases[expr[n], Times[u___, #, v___] :> u v] & /@ {Sqrt[2], 
+      Sqrt[3], Sqrt[6]}];\end{verbatim}
+    
+    下面的代码可以对 $n$ 从 $0$ 到 $100$ 解方程 (\ref{eq5.2}).
+    \begin{verbatim}
+Array[Solve[sys[#] == {0, 1, 0, 0}, Array[a, #], Integers] &, 100]\end{verbatim}
+
+    把代码中的 \verb|{0, 1, 0, 0}| 换成 \verb|{0, 0, 1, 0}| 可以解方程
+    \[\sum\limits_{i=0}^na_i(\sqrt{2}+\sqrt{3})^n=\sqrt{3}\]
+    对应的线性方程组.
+
+    经验证, 当 $n\leq 100$ 时方程组 (\ref{eq5.2}) 都没有解. 推测 $\mathbb{Z}[\sqrt{2},\sqrt{3}]\neq\mathbb{Z}[\sqrt{2}+\sqrt{3}]$, 目前没有想到证明方法.
+\end{solution}
+\begin{exercisec}[5.3.4]
+    判断下列集合 $S$ 是否是 $R$ 的子环:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $S=\{a/b|a\in\mathbb{Z},b\in\mathbb{Z}\backslash(3\mathbb{Z})\},R=\mathbb{Q}$;
+        \item $S$ 是 $\mathbb{R}$ 上的函数 $1,\cos nt,\sin nt,n\in\mathbb{Z}$ 的整系数线性组合(有限和)全体, $R=\mathbb{R}^\mathbb{R}$, 定义函数的加法和乘法为逐点相加和相乘.
+    \end{enumerate}
+\end{exercisec}
+\begin{solution}
+    (1) $\forall r,s\in S$, $\exists$ 不为 $3$ 的素数 $p_1,p_2,\cdots,p_n$ 和 $a,b,\alpha_1,\alpha_2,\cdots,\alpha_n,\beta_1,\beta_2,\cdots,\beta_n\in\mathbb{Z}$, 使得
+    \[r=\dfrac{a}{p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_n^{\alpha_n}},\quad s=\dfrac{b}{p_1^{\beta_1}p_2^{\beta_2}\cdots p_n^{\beta_n}}.\]
+
+    $\therefore$
+    \[r+s=\dfrac{ap_1^{\beta_1}p_2^{\beta_2}\cdots p_n^{\beta_n}+bp_1^{\alpha_1}p_2^{\alpha_2}\cdots p_n^{\alpha_n}}{p_1^{\alpha_1+\beta_1}p_2^{\alpha_2+\beta_2}\cdots p_n^{\alpha_n+\beta_n}}\in S,\]
+    \[rs=\dfrac{ab}{p_1^{\alpha_1+\beta_1}p_2^{\alpha_2+\beta_2}\cdots p_n^{\alpha_n+\beta_n}}\in S.\]
+
+    $\therefore S$ 对乘法和加法封闭, 是 $R$ 的子环.
+
+    (2) 假设 $\dfrac{1+\cos2t}{2}=\cos^2t\in S$, 即 $\forall t\in\mathbb{R},\exists n\in\mathbb{N},a_i,b_i\in\mathbb{Z}$,
+    \[\dfrac{1+\cos2t}{2}=a_0+\sum\limits_{k=1}^n(a_k\cos kt+b_k\sin kt).\]
+
+    两边积分得
+    \begin{align*}
+        \pi & =\int_0^{2\pi}\dfrac{1+\cos2t}{2}\mathrm{d}t \\
+        & =\int_0^{2\pi}\left(a_0+\sum\limits_{k=1}^n(a_k\cos kt+b_k\sin kt)\right)\mathrm{d}t \\
+        & =2\pi a_0,
+    \end{align*}
+
+    $a_0=\dfrac{1}{2}$, 与 $a_0\in\mathbb{Z}$ 矛盾. $\therefore S$ 对乘法不封闭, 不是 $\mathbb{R}$ 的子环.
+\end{solution}
+\begin{exercisec}[5.3.5,有修改]\label{exc5.3.5}
+    证明: $\overline{a}\in\mathbb{Z}_m\backslash\{\overline{0}\}$ 是 $\mathbb{Z}_m$ 的可逆元当且仅当 $a$ 与 $m$ 互素.
+\end{exercisec}
+\begin{proof}
+    设 $b$ 是 $a,m$ 的公因子, 则 $\forall n\in\mathbb{N},b$ 是 $a+nm,m$ 的公因子.
+
+    $\therefore$ 如果 $a\notin(0,m),a+km\in(0,m)$, $\gcd(a,m)>1$ 当且仅当 $\gcd(a+km,m)>1$. 取逆否命题得 $a,m$ 互素当且仅当 $a+km,m$ 互素.
+    
+    $\therefore$ 不妨设 $a\in(0,m)$.
+
+    ($\Rightarrow$) 证明逆否命题. 如果 $\gcd(a,m)>1$, 那么 $\lcm(a,m)=\dfrac{am}{\gcd(a,m)}<am$.
+
+    设 $\lcm(a,m)=ab=mc$. $\because a>0,\lcm(a,m)>0$, $\therefore b=\dfrac{\lcm(a,m)}{a}>0$. $\because ab<am$, $\therefore b<m$.
+    
+    $\therefore 0<b<m$ 满足 $\overline{a}\overline{b}=\overline{cm}=\overline{0}$, $\therefore\overline{a}$ 是非平凡的零因子, 不可逆.
+
+    ($\Leftarrow$) 如果 $\gcd(a,m)=1$, 由书上第 1 章第 9 节的命题得 $\exists u,v\in\mathbb{Z}$ 使得 $\gcd(a,m)=au+mv=1$. $\therefore$
+    \[\overline{au}=\overline{1-mv}=\overline{1},\]
+
+    $\therefore\overline{u}$ 是 $\overline{a}$ 的逆元.
+\end{proof}
+\begin{note}
+    从这题也可以看出, $\mathbb{Z}_m$ 中的元素要么可逆, 要么是零因子.
+\end{note}
+\begin{exercisec}[5.3.6]
+    设集合 $R$ 上有两个运算, 除加法的交换律外满足环的其他公理, 证明 $R$ 是环.
+\end{exercisec}
+\begin{proof}
+    $\forall a,b\in R$, 有
+    \[-(a-b)+(a-b)=0.\]
+
+    由分配律得
+    \[-a+b+a-b=0.\]
+
+    等式两边左边加上 $a$, 右边加上 $b$ 得
+    \[a-a+b+a-b+b=b+a.\]
+
+    $\therefore a+b=b+a$.
+\end{proof}
+\begin{exercisec}[5.3.10]
+    设 $R$ 是环, $S\subset R$, 证明:
+    \[C(S)=\{a\in R|ax=xa,\forall x\in S\}\]
+    是 $R$ 的子环.
+\end{exercisec}
+\begin{proof}
+    设 $a,b\in C(S)$, 则 $\forall x\in S,ax=xa,bx=xa$. $\therefore\forall x\in S$,
+    \[(a+b)x=ax+bx=xa+xb=x(a+b),\]
+    \[(ab)x=a(bx)=a(xb)=(ax)b=(xa)b=x(ab),\]
+
+    $\therefore a+b,ab\in C(S)$. $\therefore C(S)$ 是 $R$ 的子环.
+\end{proof}
+\begin{exercisec}[5.3.11]
+    确定环同态
+    \[\varphi:\begin{array}{rcl}
+        \mathbb{R}[x,y,z] & \to & \mathbb{R}[t] \\
+        f(x,y,z) & \mapsto & f(t,t^2,t^3) \\
+    \end{array}\]
+    的核.
+\end{exercisec}
+\begin{solution}
+    记
+    \[R_n=\{x^iy^jz^k\in\mathbb{R}[x,y,z]|i+2j+3k=n\},\]
+    \[T_n=\left\{\sum\limits_{i=1}^ka_iu_i\Bigg|a_i\in\mathbb{R},u_i\in R_n,k\in\mathbb{N}_+,\sum\limits_{i=1}^na_i=0\right\}.\]
+
+    $\forall u=x^iy^jz^k\in R_n,\varphi(u)=t^it^{2j}t^{3k}=t^{i+2j+3k}=t^n$.
+
+    $\forall w_1=\sum\limits_{i=1}^{k_1}a_iu_i,w_2=\sum\limits_{i=1}^{k_2}b_iv_i\in T_n$, 记 $a_{k_1+j}=b_j,u_{k_1+j}=v_j$, 则
+    \[w_1+w_2=\sum\limits_{i=1}^{k_1+k_2}a_iu_i,\quad\sum\limits_{i=1}^{k_1+k_2}a_i=\sum\limits_{i=1}^{k_1}a_i+\sum\limits_{i=1}^{k_2}b_i=0,\]
+
+    $\therefore w_1+w_2\in R_n$. $\because$
+    \[-w_1=\sum\limits_{i=1}^{k_1}(-a_i)u_i\in T_n,\]
+
+    $\therefore T_n$ 是 $\mathbb{R}[x,y,z]$ 的加法群的子群.
+
+    $\forall w=\sum\limits_{i=1}^{k_1}a_iu_i\in T_n$,
+    \[\varphi(w)=\sum\limits_{i=1}^{k_1}a_i\varphi(u_i)=\sum\limits_{i=1}^{k_1}a_it^n=t^n\left(\sum\limits_{i=1}^{k_1}a_i\right)=0,\]
+
+    $\therefore T_n\subset\ker\varphi$.
+
+    $\forall w_1=\sum\limits_{l=1}^{k_1}a_lu_l\in T_i,w_2=\sum\limits_{m=1}^{k_2}b_mv_m\in T_j$,
+    \[w_1w_2=\sum\limits_{l=1}^{k_1}\sum\limits_{m=1}^{k_2}a_lb_m\cdot u_lv_m.\]
+
+    记 $s_{l,m}=u_lv_m\in R_{i+j}$, 则
+    \[w_1w_2=\sum\limits_{l=1}^{k_1}\sum\limits_{m=1}^{k_2}a_lb_ms_{l,m},\]
+
+    其中
+    \[\sum\limits_{l=1}^{k_1}\sum\limits_{m=1}^{k_2}a_lb_m=\sum\limits_{l=1}^{k_1}a_l\sum\limits_{m=1}^{k_2}b_m=\sum\limits_{l=1}^{k_1}a_l\cdot0=0,\]
+    
+    $\therefore w_1w_2\in T_{i+j}$. $\therefore T_i$ 中元素与 $T_j$ 中元素的乘积是 $T_{i+j}$ 中的元素.
+    
+    记
+    \[T=\left\{\sum\limits_{n=0}^ka_nu_n\Bigg|a_n\in\mathbb{R},u_n\in T_n,k\in\mathbb{N}_+\right\}.\]
+
+    $\forall w=\sum\limits_{n=1}^{k_1}a_iu_i\in T,\varphi(w)=\sum\limits_{n=1}^{k_1}a_i\varphi(u_i)=\sum\limits_{n=1}^{k_1}a_i\cdot0=0$, $\therefore T\subset\ker f$.
+
+    $\forall w\in\mathbb{R}[x,y,z]\backslash T$, 将 $w$ 写成齐次多项式的乘积:
+    \[w=\sum\limits_{n=0}^{\deg w}w_n,\]
+
+    其中 $w_n$ 是 $n$ 次齐次多项式.
+
+    $\because w\notin T$, $\therefore\exists n$ 使得 $w_n\notin T_n$. 设
+    \[w_n=\sum\limits_{i=1}^ka_iv_i,\]
+    
+    其中 $v_i\in R_n$. $\because w_n\notin T_n$, $\therefore\sum\limits_{i=1}^na_i\neq0$. 设 $a=\sum\limits_{i=1}^na_i$, 则 $w_n-ax^n\in T_n$.
+
+    $\because T_n\subset\ker\varphi$, $\therefore$
+    \[\varphi(w_n-ax^n)=0\Rightarrow\varphi(w_n)=\varphi(ax^n)=at^n\neq0.\]
+
+    $\therefore w_n\notin\ker\varphi,\therefore w\notin\ker\varphi$. $\therefore\ker\varphi=T$.
+\end{solution}
+\subsection{域}
+\begin{exercisec}[5.4.6]
+    设 $p$ 是奇素数. 证明 $\mathbb{Z}_p$ 中的非零元有一半是平方元(即是 $\mathbb{Z}_p$ 中某个元素的平方), 且如果 $a,b$ 不是平方元, 则 $ab$ 是平方元.
+\end{exercisec}
+\begin{proof}
+    设
+    \[f:\begin{array}{rcl}
+        \mathbb{Z}_p^* & \to & \mathbb{Z}_p^* \\
+        x & \mapsto & x^2 \\
+    \end{array},\]
+
+    则 $\im f$ 为 $\mathbb{Z}_p^*$ 中的平方元全体.
+
+    在 $\mathbb{Z}_p^*$ 上建立等价关系 $\sim$: $\forall x,y\in\mathbb{Z}_p^*,x\sim y\Leftrightarrow f(x)= f(y)$. 由第 1 章笔记的推论 1.1 得 $|\mathbb{Z}_p^*/\sim|=|\im f|$.
+
+    有 $f(p-x)=(p-x)^2=p^2-2px+x^2=f(x)$.
+    
+    设 $x,y\in\mathbb{Z}_p^*,0<x<y<p$ 满足 $f(x)=f(y)$, 即 $\exists k\in\mathbb{Z}$ 使得 $y^2=x^2+kp\Rightarrow(y+x)(y-x)=kp$.
+
+    $\because0<x<y<p$, $\therefore y-x<p,y+x<2p$. $\therefore x+y=p,y-x=k$.
+
+    $\therefore$ 对 $x\neq y$, $f(x)=f(y)$ 当且仅当 $y=p-x$. $\therefore$ 设 $A\in\mathbb{Z}_p^*/\sim,x\in A$, 则 $A=\{x,p-x\}$.
+
+    $\therefore\forall A\in\mathbb{Z}_p^*/\sim,|A|=2$, $\therefore$
+    \[|\mathbb{Z}_p^*|=\sum\limits_{A\in\mathbb{Z}_p^*/\sim}|A|=|\mathbb{Z}_p^*/\sim|\cdot2,\]
+
+    $\therefore\mathbb{Z}_p^*$ 中的平方元个数为
+    \[|\im f|=|\mathbb{Z}_p^*/\sim|=\dfrac{|\mathbb{Z}_p^*|}{2}.\]
+\end{proof}
+\begin{exercisec}[5.4.7]
+    设 $p$ 是素数. 证明: 同态
+    \[\begin{array}{rcl}
+        \mathbb{Z} & \to & \mathbb{Z}_p \\
+        x & \mapsto & \overline{x} \\
+    \end{array}\]
+
+    诱导的群同态 $\slop_2(\mathbb{Z})\to\slop_2(\mathbb{Z}_p)$ 是满射.
+\end{exercisec}
+\begin{proof}
+    $\forall A=\begin{pmatrix} \overline{a} & \overline{b} \\ \overline{c} & \overline{d} \end{pmatrix}\in SL_2(\mathbb{Z}_p),\overline{ad-bc}=\overline{1}\Rightarrow\exists k$ 使得 $ad-bc=1+kp$.
 \end{proof}
 \end{document}

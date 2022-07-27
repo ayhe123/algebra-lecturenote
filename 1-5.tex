@@ -6,8 +6,8 @@
 % 引理 4.2 和之后的习题. 引理 4.2 需要补充添加 \varphi':X\to g(X) 保持素性的条件
 % 有空的话可以改一下最后一节的label的编号
 
-\documentclass[UTF8]{ctexart}
-\usepackage[bgcolor]{lecturenote}
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 
 \title{第5章笔记和习题}
 
@@ -73,7 +73,7 @@ $\because$
     $1$ 的一个 $n$ 次方根 $\varepsilon_k$ 是本原的当且仅当 $k,n$ 互素.
 \end{theorem}
 \begin{proof}
-    假设 $d=\operatorname{gcd}(k,n)>1$, 由第1.9节第2小节的式 (2) 得 $\operatorname{lcm}(k,n)=\dfrac{kn}{d}=mn$, 其中 $m\in\mathbb{N}_+$.
+    ($\Rightarrow$) 假设 $d=\operatorname{gcd}(k,n)>1$, 由第1.9节第2小节的式 (2) 得 $\lcm (k,n)=\dfrac{kn}{d}=mn$, 其中 $m\in\mathbb{N}_+$.
 
     $\therefore$
     \[\varepsilon_k^{n/d}=(\varepsilon_1^k)^{n/d}=\varepsilon_1^{mn}=(\varepsilon_1^n)^m=1^m=1.\]
@@ -110,20 +110,14 @@ $\because$
 
     设 $j=\dfrac{f}{\sqrt{\gamma}}$, 则 $j^2=-1$.
 
-    设 $M$ 为书上第2小节的式 (2) 定义的域, 映射
+    设
     \[\sigma:\begin{array}{rcl}
-        K & \to & M \\[6pt]
-        a+bj\ (a,b\in\mathbb{R}) & \mapsto & \begin{pmatrix}
-            a & b \\
-            -b & a \\
-        \end{pmatrix} \\
+        K & \to & \mathbb{C} \\
+        a+bj\ (a,b\in\mathbb{R}) & \mapsto & a+bi \\
     \end{array}.\]
 
     $\because e=f+\beta=\beta+\sqrt{\gamma}j,\therefore\{1,j\}$ 构成 $K$ 在 $\mathbb{R}$ 上的一个基. $\therefore\forall x\in K,\exists!(a,b)$ 使得
-    \[x=a+bj\Rightarrow\sigma(x)=\begin{pmatrix}
-            a & b \\
-            -b & a \\
-        \end{pmatrix}.\]
+    \[x=a+bj\Rightarrow\sigma(x)=a+bi.\]
 
     $\therefore\sigma$ 是确切定义的.
 
@@ -133,13 +127,7 @@ $\because$
 
     $\therefore\sigma$ 是环同态.
 
-    $\because K$ 的乘法半群是 Abel 群, 由第4章笔记的定理2.1得 $K$ 是域. $\therefore$
-    \[\sigma:\begin{array}{rcl}
-        K & \to & \mathbb{C} \\
-        a+bj\ (a,b\in\mathbb{R}) & \to & a+bi \\
-    \end{array}.\]
-
-    是同构.
+    $\because K$ 的乘法半群是 Abel 群, 由第4章笔记的定理2.1得 $K$ 是域, $\sigma$ 是同构.
 \end{proof}
 \begin{note}
     环同构与群同构有一点不同: 群同构要求像和原像都是群, 而环同构对像和原像的乘法半群没有要求. $\therefore$ 证明时没有考虑 $K$ 的乘法半群.
@@ -150,7 +138,7 @@ $\because$
 
     考虑 $x^4+2$ 的两个根 $\sqrt[4]{2},i\sqrt[4]{2}$.
 
-    $\because\mathbb{Q}(\sqrt[4]{2})\in\mathbb{R},i\in\mathbb{Q}(i\sqrt[4]{2}),\therefore\mathbb{Q}(\sqrt[4]{2})\neq\mathbb{Q}(i\sqrt[4]{2})$.
+    $\because\mathbb{Q}(\sqrt[4]{2})\subset\mathbb{R},i\sqrt[4]{2}\in\mathbb{Q}(i\sqrt[4]{2})\backslash\mathbb{R},\therefore\mathbb{Q}(\sqrt[4]{2})\neq\mathbb{Q}(i\sqrt[4]{2})$.
 
     但是
 
@@ -650,13 +638,13 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     可以证明 $1+X\in R[X]$ 的逆不存在, $\therefore R[X]$ 的子域都是 $R$ 的子域, 但这不意味着从 $R[X]$ 不能构造出 $R$ 的扩域.
 \end{example}
 \begin{example}
-    考察由等价关系 $\sim$ 确定的商集 $\pi_\sim(\mathbb{R}[X])$, 其中 $\forall f,g\in\mathbb{R}[X],f\sim g\Leftrightarrow(X^2+1)|(f-g)$.
+    考察由等价关系 $\sim$ 确定的商集 $ \mathbb{R}[X]/\sim$, 其中 $\forall f,g\in\mathbb{R}[X],f\sim g\Leftrightarrow(X^2+1)|(f-g)$.
 
-    定义等价类的加法和乘法为其代表元的加法和乘法, 用与书上p133第1段相同的方法可以验证 $\pi_\sim(\mathbb{R}[X])$ 是环.
+    定义等价类的加法和乘法为其代表元的加法和乘法, 用与书上p133第1段相同的方法可以验证 $ \mathbb{R}[X]/\sim$ 是环.
 
     $\because(X^2+1)|(X^2+1),\therefore X^2+1\in\overline{0},\therefore\overline{X^2+1}=\overline{0},\therefore\overline{X^2}=\overline{-1}$. 定义
     \[\varphi:\begin{array}{rcl}
-        \pi_\sim(\mathbb{R}[X]) & \to & \mathbb{C} \\[6pt]
+         \mathbb{R}[X]/\sim & \to & \mathbb{C} \\[6pt]
         \overline{aX+b} & \mapsto & ai+b\ (a,b\in\mathbb{R}) \\
     \end{array}.\]
 
@@ -669,7 +657,7 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     由 $\varphi$ 的定义得 $\varphi$ 是双射.
 
-    $\forall f,g\in\pi_\sim(\mathbb{R}[X])$, 设 $\overline{f}=\overline{aX+b},\overline{g}=\overline{cX+d}$,
+    $\forall f,g\in \mathbb{R}[X]/\sim$, 设 $\overline{f}=\overline{aX+b},\overline{g}=\overline{cX+d}$,
 
     则 $\exists p,q\in R[X]$ 满足
     \[f=(X^2+1)p+aX+b,\quad g=(X^2+1)q+cX+d.\]
@@ -828,13 +816,13 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 \end{definition}
 下面的几个性质(实际上是几个反例)可以澄清一些似是而非的问题.
 \begin{property}
-    (1) 环 $R$ 中元素的 $\gcd$ 和 $\operatorname{lcm}$ 不一定存在.
+    (1) 环 $R$ 中元素的 $\gcd$ 和 $\lcm $ 不一定存在.
 
-    (2) 对 $a,b\in R$, $\gcd(a,b)$ 存在, $\operatorname{lcm}(a,b)$ 不一定存在.
+    (2) 对 $a,b\in R$, $\gcd(a,b)$ 存在, $\lcm (a,b)$ 不一定存在.
 
-    (3) 对 $a,b\in R$, 若 $\operatorname{lcm}(a,b)$ 存在, 则 $\gcd(a,b)$ 存在.
+    (3) 对 $a,b\in R$, 若 $\lcm (a,b)$ 存在, 则 $\gcd(a,b)$ 存在.
 
-    (4) $\forall a,b\in R$, $\operatorname{lcm}(a,b)$ 存在, 但 $R$ 中元素不一定有素因子分解.
+    (4) $\forall a,b\in R$, $\lcm (a,b)$ 存在, 但 $R$ 中元素不一定有素因子分解.
 \end{property}
 \begin{proof}
     (1) 在 $\mathbb{Z}[\sqrt{-3}]$ 中, 有
@@ -845,20 +833,20 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     有 $2|a,2|b,(1+\sqrt{-3})|a,(1+\sqrt{-3})|b$.
 
-    假设 $d=\gcd(a,b)$ 存在, 则 $2|d,(1+\sqrt{-3})|d$. $\therefore d=\operatorname{lcm}(2,1+\sqrt{-3})$.
+    假设 $d=\gcd(a,b)$ 存在, 则 $2|d,(1+\sqrt{-3})|d$. $\therefore d=\lcm (2,1+\sqrt{-3})$.
 
     $\because 2,1+\sqrt{-3}$ 是素元(考察其范数, 具体证明过程类似于例 \ref{exp3.2}), 由书上的整除性判别法(P166)得
-    \[d=\operatorname{lcm}(2,1+\sqrt{-3})=2(1+\sqrt{-3})=b,\]
+    \[d=\lcm (2,1+\sqrt{-3})=2(1+\sqrt{-3})=b,\]
 
     与 $b\nmid a$ 矛盾.
 
-    假设 $m=\operatorname{lcm}(2,1+\sqrt{-3})$ 存在.
+    假设 $m=\lcm (2,1+\sqrt{-3})$ 存在.
 
     $\because 2|a,(1+\sqrt{-3})|a,\therefore m|a$. $\because 2|b,(1+\sqrt{-3})|b,\therefore m|b$.
 
     $\therefore m=\gcd(a,b)$, 与 $\gcd(a,b)$ 不存在矛盾.
 
-    (2) $\because 2,1+\sqrt{-3}\in\mathbb{Z}[\sqrt{-3}]$ 是素元, $\therefore\gcd(2,1+\sqrt{-3})=1$. 但是 (1) 证明了 $\operatorname{lcm}(2,1+\sqrt{-3})$ 不存在.
+    (2) $\because 2,1+\sqrt{-3}\in\mathbb{Z}[\sqrt{-3}]$ 是素元, $\therefore\gcd(2,1+\sqrt{-3})=1$. 但是 (1) 证明了 $\lcm (2,1+\sqrt{-3})$ 不存在.
 
     (3) 证明与书上定理 2(b) 相同. 需要注意的是书上定理 2(b) 的证明对 $\gcd(a,b)$ 的存在性没有要求.
 
@@ -868,11 +856,11 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     令 $Y=X^{2^{-n}}$, 则 $R'=\mathbb{Q}[Y]$.
 
-    $\because\mathbb{Q}[Y]$ 是 Euclid 环, 由书上的定理3得 $\forall a,b\in R',\gcd(a,b)$ 和 $\operatorname{lcm}(a,b)$ 存在.
+    $\because\mathbb{Q}[Y]$ 是 Euclid 环, 由书上的定理3得 $\forall a,b\in R',\gcd(a,b)$ 和 $\lcm (a,b)$ 存在.
 
-    $\therefore$ 在 $R'$ 上 $\gcd(f,g)$ 和 $\operatorname{lcm}(f,g)$ 存在.
+    $\therefore$ 在 $R'$ 上 $\gcd(f,g)$ 和 $\lcm (f,g)$ 存在.
 
-    % 补充证明: 在 $R$ 上 $\gcd(f,g)$ 和 $\operatorname{lcm}(f,g)$ 存在.
+    % 补充证明: 在 $R$ 上 $\gcd(f,g)$ 和 $\lcm (f,g)$ 存在.
 
     $\because$
     \[1-X=(1+X^{1/2})(1-X^{1/2})=(1+X^{1/2})(1+X^{1/4})(1-X^{1/4})=\cdots,\]
@@ -891,11 +879,11 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
     \[X=(X^{1/3})^3=(X^{1/9})^9=\cdots.\]
 \end{example}
 \subsection{Euclid 环}
-% 补充证明: 若 $R$ 中的任意元素 $a,b,\gcd(a,b)$ 都存在, 则 $\operatorname{lcm}(a,b)$ 也存在.
+% 补充证明: 若 $R$ 中的任意元素 $a,b,\gcd(a,b)$ 都存在, 则 $\lcm (a,b)$ 也存在.
 % 只有证明了这个定理书上的定理 3 才没有逻辑漏洞
-% 如果不能直接证明, 可以用定理 4 证明 $\operatorname{lcm}(a,b)$ 存在.
+% 如果不能直接证明, 可以用定理 4 证明 $\lcm (a,b)$ 存在.
 \begin{theorem}[书上的定理3]
-    (1) 在 Euclid 环 $R$ 中, 任意两个元素 $a,b$ 都有 $\gcd$ 和 $\operatorname{lcm}$.
+    (1) 在 Euclid 环 $R$ 中, 任意两个元素 $a,b$ 都有 $\gcd$ 和 $\lcm $.
 
     (2) $a,b\in R$ 互素当且仅当 $\exists u,v\in R$,
     \[au+bv=1.\]
@@ -1533,7 +1521,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     在 $A_{mn}$ 上建立等价关系 $\sim$: $\forall x,y\in A_{mn},x\sim y\Leftrightarrow x$ 与 $y$ 有相同个数的分量为 $0$.
 
-    设 $\pi_\sim(A_{mn})=\{A_{(1)},A_{(2)},\cdots,A_{(n)}\}$, 其中 $A_{(i)}$ 中的元素有 $i$ 个非零分量, 则 $|A_{mn}|=\sum\limits_{i=1}^nA_{(i)}$.
+    设 $ A_{mn}/\sim=\{A_{(1)},A_{(2)},\cdots,A_{(n)}\}$, 其中 $A_{(i)}$ 中的元素有 $i$ 个非零分量, 则 $|A_{mn}|=\sum\limits_{i=1}^nA_{(i)}$.
 
     考察 $|A_{(i)}|$. 将 $m$ 分解为 $i$ 个正整数 $m_1,m_2,\cdots,m_i$ 相加(类似于用 $i-1$ 个隔板将 $m$ 个相同元素分隔开), 一共有 $\dbinom{m-1}{i-1}$ 种分法. 将 $m_1,m_2,\cdots,m_i$ 分配给 $n$ 个分量, 一共有 $\dbinom{n}{i}$ 种分法.
 
@@ -1694,7 +1682,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \begin{exercise}\label{ex3.1}
     证明:
     \[(1)\ n\mathbb{Z}+m\mathbb{Z}=\mathbb{Z}\cdot\gcd(m,n),\]
-    \[(2)\ n\mathbb{Z}\cap m\mathbb{Z}=\mathbb{Z}\cdot\operatorname{lcm}(m,n).\]
+    \[(2)\ n\mathbb{Z}\cap m\mathbb{Z}=\mathbb{Z}\cdot\lcm (m,n).\]
 \end{exercise}
 \begin{proof}
     (1) $\because n\mathbb{Z}+m\mathbb{Z}$ 对加法封闭, 且 $0\in n\mathbb{Z}+m\mathbb{Z}$, $\therefore n\mathbb{Z}+m\mathbb{Z}$ 是 $\mathbb{Z}$ 的一个子群.
@@ -1715,8 +1703,8 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     (2)
     \begin{align*}
         x\in n\mathbb{Z}\cap m\mathbb{Z} & \Leftrightarrow n|x,m|x \\
-        & \Leftrightarrow\operatorname{lcm}(m,n)|x \\
-        & \Leftrightarrow x\in\operatorname{lcm}(m,n)\mathbb{Z}.
+        & \Leftrightarrow\lcm (m,n)|x \\
+        & \Leftrightarrow x\in\lcm (m,n)\mathbb{Z}.
     \end{align*}
 \end{proof}
 \stepcounter{exercise}

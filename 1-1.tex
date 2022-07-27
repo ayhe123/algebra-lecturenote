@@ -1,6 +1,5 @@
-\documentclass{ctexart}
-\usepackage[bgcolor]{lecturenote}
-
+\documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
+\usepackage{lecturenote}
 \title{第1章笔记和习题}
 
 \begin{document}
@@ -79,6 +78,76 @@
     $\therefore\forall x''\in X'',\exists x\in X$ 使得 $f(g(x))=x''$.
 
     $\therefore f\circ g$ 是满射.
+\end{proof}
+\subsection{交换图}
+交换图是表示映射之间关系的一种有向图. 交换图的节点是集合, 边是映射, 从节点 $A$ 到 $B$ 的一条通路表示这一条通路上各条边合成得到的映射, 比如
+\[A_1\xrightarrow{f_1}A_2\xrightarrow{f_2}\cdots\xrightarrow{f_{n-2}}A_{n-1}\xrightarrow{f_{n-1}}A_n\]
+
+表示映射 $f=f_{n-1}\circ f_{n-2}\circ\cdots f_1$.
+
+不是任意的节点是集合, 边是映射的图都是交换图. 称一个图 $G$ 是\textbf{交换图}(commutative graph), 或者称图 $G$ \textbf{交换}(commutative), 如果 $G$ 的任意两个节点 $A,B$ 之间的所有通路都表示相同的映射. 比如图
+\begin{center}
+    \begin{tikzcd}[row sep=large,column sep=large]
+        A \arrow[rd, "f"] \arrow[r, "g"] \arrow[d, "h"] & B \arrow[ld, "\sigma"] \arrow[d, "\varphi"] \\
+        C \arrow[r, "\psi"] & D
+    \end{tikzcd}
+\end{center}
+交换当且仅当 $h=f\circ g,\varphi=\psi\circ f,\sigma=\psi\circ h=\varphi\circ g=\psi\circ f\circ g$.
+
+在这门课中, 我们不会画太复杂的交换图, 遇到的交换图主要有下面两种:
+\begin{example}\label{exa1.2}
+    如果 $f=g\circ h$, 那么图
+    \begin{center}
+        \begin{tikzcd}[row sep=large,column sep=large]
+            A \arrow[rd, "f"] \arrow[r, "h"] & B \arrow[d, "g"] \\
+            & C
+        \end{tikzcd}
+    \end{center}
+    交换.
+
+    $\forall y\in\im f$, $\exists x\in A$ 使得 $f(x)=y\Rightarrow g\circ h(x)=y$. $\therefore\exists z=h(x)\in B$ 使得 $g(z)=y$. $\therefore y\in\im g$. $\therefore\im f\subset\im g$.
+
+    设 $f$ 是满射, 则 $\im f=C\supset\im g\Rightarrow\im f=\im g$.
+    
+    设 $h$ 是满射, 则 $h(A)=B$. $\because\forall y\in\im g,\exists z\in B=h(A)$ 使得 $g(z)=y$, $\therefore\forall y\in\im g,\exists x\in A$ 使得 $f(x)=g(h(x))=y$. $\therefore\im f\supset\im g\Rightarrow\im f=\im g$.
+\end{example}
+\begin{example}
+    如果 $f\circ g=\varphi\circ\psi$, 那么图
+    \begin{center}
+        \begin{tikzcd}[row sep=large,column sep=large]
+            A \arrow[d, "\psi"] \arrow[r, "g"] & B \arrow[d, "f"] \\
+            C \arrow[r, "\varphi"] & D
+        \end{tikzcd}
+    \end{center}
+    交换. 由结合律得图
+    \begin{center}
+        \begin{tikzcd}[row sep=large,column sep=large]
+            A \arrow[rd, "\varphi\circ\psi"] \arrow[d, "\psi"] \arrow[r, "g"] & B \arrow[d, "f"] \\
+            C \arrow[r, "\varphi"] & D
+        \end{tikzcd}
+    \end{center}
+    交换.
+
+    如果 $g,\psi$ 是满射, 则由例 \ref{exa1.2} 得 $\im f=\im(\varphi\circ\psi)=\im\varphi$.
+\end{example}
+\subsection{商映射(对应教材1.6节)}
+下面的定理是书上这节的结论的一个常用的推论.
+\begin{corollary}
+    设映射 $f:X\to Y$, $\im f$ 是有限集, 在 $X$ 上定义等价关系 $\sim$: $\forall x,y\in R,x\sim y\Leftrightarrow f(x)=f(y)$, 则 $|X/\sim|=|\im f|$.
+\end{corollary}
+\begin{proof}
+    由书上这节的结论得 $\exists$ 单射 $g$ 和满射 $h$ 使得图
+    \begin{center}
+        \begin{tikzcd}[row sep=large,column sep=large]
+            X \arrow[rd, "f"] \arrow[r, "h"] & X/\sim \arrow[d, "g"] \\
+            & Y
+        \end{tikzcd}
+    \end{center}
+    交换.
+    
+    $\because h$ 是满射, 由例 \ref{exa1.2} 得 $\im f=\im g$. $\therefore\im g$ 是有限集.
+
+    $\because\im g$ 是单射, $\therefore|X/\sim|$ 是有限集. 由引理 \ref{l1.1} 得 $|\im g|=|X/\sim|$.
 \end{proof}
 \subsection{置换(对应教材1.8节)}
 在这里补充证明几个定理.
@@ -315,7 +384,10 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     \[\sigma\circ f(x_1,x_2,\cdots,x_n)=(\sigma_i\sigma_{i+1}\cdots\sigma_{j-1}\sigma_{j-2}\cdots\sigma_i)\circ f(x_1,x_2,\cdots,x_n).\]
 
     由书上的引理 1,
-    \[(\sigma_i\sigma_{i+1}\cdots\sigma_{j-1}\sigma_{j-2}\cdots\sigma_i)\circ f(x_1,x_2,\cdots,x_n)=(\sigma_i\sigma_{i+1}\cdots\sigma_{j-1}\sigma_{j-2}\cdots\sigma_{i-1})\circ(\sigma_i\circ f)(x_1,x_2,\cdots,x_n).\]
+    \begin{align*}
+        & (\sigma_i\sigma_{i+1}\cdots\sigma_{j-1}\sigma_{j-2}\cdots\sigma_i)\circ f(x_1,x_2,\cdots,x_n) \\
+        & =(\sigma_i\sigma_{i+1}\cdots\sigma_{j-1}\sigma_{j-2}\cdots\sigma_{i-1})\circ(\sigma_i\circ f)(x_1,x_2,\cdots,x_n). \\
+    \end{align*}
 
     由定义,
     \[(\sigma_i\circ f)(x_1,x_2,\cdots,x_n)=-f(x_1,x_2,\cdots,x_n),\]
@@ -511,7 +583,7 @@ n & \to & \dfrac{n+(-1)^nn}{4}
 \begin{proof}
     $\because\bar{x}'=\bar{x}\Rightarrow f(x')=f(x),\therefore\bar{f}$ 是有确切定义的.
 
-    $\because\bar{f}$ 是单射 $\Leftrightarrow\forall\bar{x},\bar{x}'\in\pi_\sim(X)$, 若 $\bar{x}\neq\bar{x}'$, 则 $\bar{f}(\bar{x})\neq\bar{f}(\bar{x}')\Leftrightarrow$ 若 $\bar{f}(\bar{x})=\bar{f}(\bar{x}')$, 则 $\bar{x}=\bar{x}'$, $\therefore$
+    $\because\bar{f}$ 是单射 $\Leftrightarrow\forall\bar{x},\bar{x}'\in X/\sim$, 若 $\bar{x}\neq\bar{x}'$, 则 $\bar{f}(\bar{x})\neq\bar{f}(\bar{x}')\Leftrightarrow$ 若 $\bar{f}(\bar{x})=\bar{f}(\bar{x}')$, 则 $\bar{x}=\bar{x}'$, $\therefore$
     \[x\sim x'\Leftrightarrow f(x)=f(x')\]
 
     是 $\bar{f}$ 成为单射的条件.
@@ -712,7 +784,11 @@ n & \to & \dfrac{n+(-1)^nn}{4}
         0 & 0 & 2\left(\dfrac{y_4-y_1}{x_4-x_1}-\dfrac{y_2-y_1}{x_2-x_1}\right) & x_4-x_2+\left(\dfrac{y_4^2-y_1^2}{x_4-x_1}-\dfrac{y_2^2-y_1^2}{x_2-x_1}\right) \\[8pt]
     \end{pmatrix}.\]
 
-    $\because$ 四点不共线, $\therefore$ 过点 $x_1,x_2$ 的直线的斜率不等于过点 $x_1,x_3$ 的直线的斜率, 即 $\dfrac{y_3-y_1}{x_3-x_1}\neq\dfrac{y_2-y_1}{x_2-x_1}$, 同理得 $\dfrac{y_4-y_1}{x_4-x_1}\neq\dfrac{y_2-y_1}{x_2-x_1}$. 第 $i\ (i=3,4)$ 行除以 $\dfrac{y_i-y_1}{x_i-x_1}-\dfrac{y_2-y_1}{x_2-x_1}$ 得
+    $\because$ 四点不共线, $\therefore$ 过点 $x_1,x_2$ 的直线的斜率不等于过点 $x_1,x_3$ 的直线的斜率,
+    
+    $\therefore\dfrac{y_3-y_1}{x_3-x_1}\neq\dfrac{y_2-y_1}{x_2-x_1}$, 同理得 $\dfrac{y_4-y_1}{x_4-x_1}\neq\dfrac{y_2-y_1}{x_2-x_1}$.
+    
+    第 $i\ (i=3,4)$ 行除以 $\dfrac{y_i-y_1}{x_i-x_1}-\dfrac{y_2-y_1}{x_2-x_1}$ 得
     \[\begin{pmatrix}
         1 & 2x_1 & 2y_1 & x_1^2+y_1^2 \\
         0 & 2 & 2\dfrac{y_2-y_1}{x_2-x_1} & x_2+x_1+\dfrac{y_2^2-y_1^2}{x_2-x_1} \\[16pt]
@@ -854,7 +930,10 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     当 $2|i,2|j$ 时有 $i<j\Rightarrow\sigma(i)<\sigma(j)$. 当 $2\nmid i,2\nmid j$ 时有 $i<j\Rightarrow\sigma(i)>\sigma(j)$.
 
     $\because\forall i,j,i+j<2n+1\Rightarrow j/2<n-(i-1)/2$, $\therefore$ 当 $2\nmid i,2|j$ 时 $\sigma(j)=j/2<n-(i-1)/2=\sigma(i)$. $\therefore\sigma$ 的反序数为
-    \[|\{(i,j):2\nmid i,2\nmid j,i<j\}|+|\{(i,j):2\nmid i,2|j,i<j\}|=\dfrac{1}{2}\left\lfloor\dfrac{n+1}{2}\right\rfloor\left\lfloor\dfrac{n+1}{2}-1\right\rfloor+\dfrac{1}{2}\left\lfloor\dfrac{n}{2}\right\rfloor\left\lfloor\dfrac{n}{2}+1\right\rfloor.\]
+    \begin{align*}
+        & |\{(i,j):2\nmid i,2\nmid j,i<j\}|+|\{(i,j):2\nmid i,2|j,i<j\}| \\
+        & =\dfrac{1}{2}\left\lfloor\dfrac{n+1}{2}\right\rfloor\left\lfloor\dfrac{n+1}{2}-1\right\rfloor+\dfrac{1}{2}\left\lfloor\dfrac{n}{2}\right\rfloor\left\lfloor\dfrac{n}{2}+1\right\rfloor. \\
+    \end{align*}
 
     置换的分解现在还没想出来. 下面的代码可以生成输出这 3 题的循环的交互式程序. 循环以图的形式给出, 可以方便地看出有多少个不相交的循环.
 \begin{verbatim}
@@ -863,13 +942,15 @@ permGraph[list_] :=
  Graph[Flatten[rules /@ First[PermutationCycles[list]]], 
   VertexLabels -> Placed["Name", Center], VertexSize -> 0.6]
 Manipulate[
- permGraph[Join[Range[2, n, 2], Range[1, n, 2]]], {n, 2, 100, 1}](*第 2 题*)
-Manipulate[
- permGraph[Join[Range[1, n, 2], Range[2, n, 2]]], {n, 2, 100, 1}](*第 3 题*)
+ permGraph[
+   Join[Range[2, n, 2], Range[1, n, 2]]], {n, 2, 100, 1}](*第 2 题*)
 Manipulate[
  permGraph[
-  Riffle[Reverse[Range[Floor[n/2] + 1, n]], Range[Floor[n/2]]]], {n, 
-  2, 100, 1}](*第 4 题*)
+   Join[Range[1, n, 2], Range[2, n, 2]]], {n, 2, 100, 1}](*第 3 题*)
+Manipulate[
+ permGraph[
+   Riffle[Reverse[Range[Floor[n/2] + 1, n]], Range[Floor[n/2]]]],
+ {n, 2, 100, 1}](*第 4 题*)
 \end{verbatim}
 \end{solution}
 
@@ -1005,7 +1086,8 @@ Manipulate[
         & (a,b)\preceq(a',b')\wedge(a',b')\preceq(a'',b'') \\
         & \Rightarrow((a\leq a')\wedge(a<a'\vee b\leq b'))\wedge((a'\leq a'')\wedge(a'<a''\vee b'\leq b'')) \\
         & \Rightarrow((a\leq a')\wedge(a'\leq a''))\wedge((a<a'\vee b\leq b')\wedge(a'<a''\vee b'\leq b'')) \\
-        & \Rightarrow(a\leq a'')\wedge((a<a'\wedge a'<a'')\vee (b\leq b'\wedge a'<a'')\vee(a<a'\wedge b'\leq b'')\vee(b\leq b'\wedge b'\leq b'')) \\
+        & \Rightarrow(a\leq a'')\wedge((a<a'\wedge a'<a'')\vee (b\leq b'\wedge a'<a'') \\
+        & \quad\vee(a<a'\wedge b'\leq b'')\vee(b\leq b'\wedge b'\leq b'')) \\
         & \Rightarrow(a\leq a'')\wedge(((a<a'')\vee (b\leq b'\wedge a'<a''))\vee((a<a'\wedge b'\leq b'')\vee(b\leq b''))) \\
         & \Rightarrow(a\leq a'')\wedge(a<a''\vee b\leq b'') \\
         & \Rightarrow(a,b)\preceq(a'',b''),
@@ -1028,10 +1110,13 @@ Manipulate[
 \begin{note}
     考虑如下定义的 $\mathbb{R}^n\ (n\in\mathbb{N})$ 上的二元关系 $\preceq_n$:
     \begin{equation}\label{eq2.5}
-        (a_1,\cdots,a_n)\preceq_n(b_1,\cdots,b_n)\Leftrightarrow\begin{cases}
-            (a_1<b_1)\vee(a_1=b_1\wedge((a_1,\cdots,a_{n-1})\preceq_{n-1}(b_1,\cdots,b_{n-1}))), & n>1, \\
-            a_1\leq b_1, & n=1.
-        \end{cases}
+        \begin{aligned}
+            & (a_1,\cdots,a_n)\preceq_n(b_1,\cdots,b_n) \\
+            & \Leftrightarrow\begin{cases}
+                (a_1<b_1)\vee(a_1=b_1\wedge((a_1,\cdots,a_{n-1})\preceq_{n-1}(b_1,\cdots,b_{n-1}))), & n>1, \\
+                a_1\leq b_1, & n=1.
+            \end{cases}
+        \end{aligned}
     \end{equation}
 
     在
@@ -1113,12 +1198,14 @@ Manipulate[
     有
     \begin{align*}
         & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}(\mathcal{T}\mathcal{D}^{m-i}+(m-i)\mathcal{D}^{m-i-1}) \\
-        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1}.
+        & =\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & \quad+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1}.
     \end{align*}
 
     当 $m>n-1$ 时, 有 $m\geq n>i$, $m-i>0$,
     \begin{align*}
-        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & \quad+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
         & =\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i-1)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
         & =\sum\limits_{i=0}^{n-1}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=1}^n\dfrac{m!(n-1)!}{(m-i)!(i-1)!(n-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
         & =\mathcal{T}^{n}\mathcal{D}^{m}+\mathcal{D}^{m-n}+\sum\limits_{i=1}^{n-1}\left(\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}+\dfrac{m!(n-1)!}{(m-i)!(i-1)!(n-i)!}\right)\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
@@ -1130,7 +1217,8 @@ Manipulate[
 
     当 $m\leq n-1$ 时, 有 $m<n$,
     \begin{align*}
-        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
+        & \sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
+        & \quad+\sum\limits_{i=0}^{\min\{m,n-1\}}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
         & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m-1}\dfrac{m!(n-1)!(m-i)}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
         & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m-1}\dfrac{m!(n-1)!}{(m-i-1)!i!(n-1-i)!}\mathcal{T}^{n-1-i}\mathcal{D}^{m-i-1} \\
         & =\sum\limits_{i=0}^m\dfrac{m!(n-1)!}{(m-i)!i!(n-1-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i}+\sum\limits_{i=0}^{m}\dfrac{m!(n-1)!}{(m-i)!i!(n-i)!}\mathcal{T}^{n-i}\mathcal{D}^{m-i} \\
