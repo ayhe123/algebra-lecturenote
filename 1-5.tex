@@ -79,6 +79,14 @@ $\because$
     \[\varepsilon_k^{n/d}=(\varepsilon_1^k)^{n/d}=\varepsilon_1^{mn}=(\varepsilon_1^n)^m=1^m=1.\]
 
     $\therefore\exists\dfrac{k}{d}<k,\varepsilon_k^{k/d}=1$, 与 $\varepsilon_k$ 是本原的矛盾.
+
+    ($\Leftarrow$) 如果 $\gcd(k,n)=1$, 由书上第 1.9 节的命题得 $\exists r,s$ 使得 $nr+ks=1$. $\therefore$
+    \[\varepsilon_1=\varepsilon_1^{nr+ks}=\varepsilon_1^{ks}=\varepsilon_k^s.\]
+
+    假设 $\varepsilon_k$ 不是本原的, 即 $\exists n'<n$ 使得 $\varepsilon_k^{n'}=1$, 则
+    \[\varepsilon_1^{n'}=\varepsilon_k^{sn'}=1,\]
+
+    与 $\varepsilon_1$ 是本原的矛盾.
 \end{proof}
 \begin{theorem}[书上的定理4]
     $\mathbb{R}$ 上的任一 $2$ 维向量空间 $K$ 如果还是一个结合, 交换, 具有单位元 $1$ 且无平凡的零因子的环, 则 $K\simeq\mathbb{C}$.
@@ -159,7 +167,7 @@ $\because$
 
 的运算与变量 $x\in\mathbb{R}$ 有关. 但是把 $x$ 看成矩阵或者是别的什么东西, 多项式的许多性质仍然成立.
 
-仅仅在形式上添加与 $a_i$ 不同(不属于相同的集合)的 $x$ 并且定义 $a$ 与 $x$ 的各种运算会使问题变得复杂. 因此在这里我们先不考虑 $x$, 只考虑多项式的运算, 之后才用构造同态的方法考虑多项式的"取值" $x$.
+仅仅在形式上添加与 $a_i$ 不同(不属于相同的集合)的 $x$ 并且定义 $a$ 与 $x$ 的各种运算会使问题变得复杂. 因此在这里我们先不考虑 $x$, 只考虑多项式的运算, 之后才用构造同态的方法考虑多项式的``取值'' $x$.
 
 回忆一下线性方程组
 \[\begin{cases}
@@ -191,10 +199,10 @@ $\because n$ 不是确定的数, $\therefore$ 可以用序列
 
 下面的两个例子可以说明序列表示的好处.
 \begin{example}
-    如果将环 $R$ 上的多项式看成是 $R$ 上的函数, 我们希望形式不同的多项式的值也不同, 即
+    如果将环 $R$ 上的多项式看成是 $R$ 上的多项式函数, 我们希望形式不同的多项式的值也不同, 即
     \[(a_i)\neq(b_i)\Rightarrow\sum\limits_{i=0}^{n}a_ix^i\neq\sum\limits_{i=0}^{m}b_ix^i.\]
 
-    但是这与实际不符. 考虑 $\mathbb{Z}_2$ 上的多项式
+    但是这与实际不符. 考虑 $\mathbb{Z}_2$ 上的多项式函数
     \[f(x)=x^2+x.\]
 
     容易验证 $f(0)=f(1)=0,f(x)=0$.
@@ -216,7 +224,7 @@ $\because n$ 不是确定的数, $\therefore$ 可以用序列
 
     是同构.
 
-    如果将 $X$ 看成未知元的话, 很难想象如何把函数 "代入" 实数.
+    如果将 $X$ 看成未知元的话, 很难想象如何把函数 ``代入'' 实数.
 \end{example}
 使用序列的问题是表示起来比较复杂, 所有要用一些方法来简化多项式的表示.
 \begin{example}
@@ -422,11 +430,11 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
     (1) 由 $u_i-v_i=(u_i+w_i)-(v_i+w_i)$ 得.
 
-    (2) 设 $k$ 是 $u,v,w$ 中第一个不满足 $u_i=v_i=w_i$ 的下标, 则 $u_k\geq v_k\geq w_k$ 且至少有一个 "$\geq$" 不取等号, $\therefore u_k>w_k$.
+    (2) 设 $k$ 是 $u,v,w$ 中第一个不满足 $u_i=v_i=w_i$ 的下标, 则 $u_k\geq v_k\geq w_k$ 且至少有一个 ``$\geq$'' 不取等号, $\therefore u_k>w_k$.
 
     (3) 由 (2) 得 $X^uX^w\succ X^vX^w\succ X^vX^z$.
 \end{proof}
-\subsection{多项式的"取值"}
+\subsection{多项式的``取值''}
 类比函数的取值. 给定函数 $f\in\mathbb{R}^\mathbb{R}$ 和 $a\in\mathbb{R}$, 称 $f(a)\in\mathbb{R}$ 为函数在点 $a$ 处的\textbf{取值}. 事实上我们对于 $\forall a\in\mathbb{R}$ 建立了一个映射
 \[\varphi_a:\begin{array}{rcl}
     \mathbb{R}^\mathbb{R} & \to & \mathbb{R} \\
@@ -633,7 +641,7 @@ $\forall f\in R[X_1,X_2,\cdots,X_n],f$ 在字典序意义下有首项.
 
 中严格的小于号是可以成立的.
 \begin{example}
-    设 $f,g\in\mathbb{Z}_6[X],f=1+2x,g=2+3x$, 则 $fg=2+x$, $\deg(fg)=\deg f=\deg g=1$.
+    设 $f,g\in\mathbb{Z}_6[X],f=1+2X,g=2+3X$, 则 $fg=2+X$, $\deg(fg)=\deg f=\deg g=1$.
 
     可以证明 $1+X\in R[X]$ 的逆不存在, $\therefore R[X]$ 的子域都是 $R$ 的子域, 但这不意味着从 $R[X]$ 不能构造出 $R$ 的扩域.
 \end{example}
@@ -1166,7 +1174,7 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         & =\cos(2\theta)+i\sin(2\theta)+\sqrt{2}\left(\cos\left(\theta+\dfrac{\pi}{2}\right)+i\sin\left(\theta+\dfrac{\pi}{2}\right)\right),
     \end{align*}
     \begin{align*}
-        \operatorname{Re}(z^2+(1+i)z) & =\cos(2\theta)+\sqrt{2}\cos\left(\theta+\dfrac{\pi}{2}\right) \\
+        \re(z^2+(1+i)z) & =\cos(2\theta)+\sqrt{2}\cos\left(\theta+\dfrac{\pi}{2}\right) \\
         & =\cos(2\theta)+\cos\theta-\sin\theta \\
         & =\cos^2\theta-\sin^2\theta+\cos\theta-\sin\theta=0.
     \end{align*}
@@ -1188,18 +1196,16 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     直线 $y=x$ 与 $x+y=1$ 与 $x^2+y^2=1$ 的交点为
     \[\left(\dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right),\quad(-1,0),\quad\left(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right),\quad(0,-1).\]
 
-    文件夹里的 \verb|1-5-5.1.ggb| 画出了曲线 $x^2-y^2+x-y=0,x^2+y^2=1$ 以及它们的交点.
+    \verb|materials| 文件夹里的 \verb|1-5-5.1.ggb| 画出了曲线 $x^2-y^2+x-y=0,x^2+y^2=1$ 以及它们的交点.
 \end{solution}
 \begin{exercise}% 1.2
     设复数 $\delta$ 满足 $\delta^4=-1$, 域 $\mathbb{R}(\delta)$ 由 $\mathbb{R}$ 添加 $\delta$ 得到. 证明 $\mathbb{R}(\delta)=\mathbb{C}$.
 \end{exercise}
 \begin{proof}
     $\because$
-
     \[\delta_k=\cos\dfrac{\pi+2\pi k}{4}+i\sin\dfrac{\pi+2\pi k}{4}\quad(k=1,2,3,4),\]
 
     $\therefore$
-
     \[i=\dfrac{\delta_k-\cos\dfrac{\pi+2\pi k}{4}}{\sin\dfrac{\pi+2\pi k}{4}}\in\mathbb{R}(\delta_k)\quad(k=1,2,3,4),\]
 
     $\therefore\mathbb{R}(\delta)\supset\mathbb{C}$.
@@ -1213,28 +1219,27 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     由定理1得映射 $z\to\overline{z}$ 是 $\mathbb{C}$ 的一个自同构.
 
     $\therefore\forall z_1,z_2\in\mathbb{C}$,
-    \[\overline{z_1+z_2}=\overline{z_1}+\overline{z_2},\]
-    \[\overline{z_1\cdot z_2}=\overline{z_1}\cdot\overline{z_2}.\]
+    \[\overline{z_1\pm z_2}=\overline{z_1}\pm\overline{z_2},\quad\overline{z_1\cdot z_2}=\overline{z_1}\cdot\overline{z_2}.\]
 
-    $\because$ 对 $C=(c_{ij})\in M_n(\mathbb{C}),\det C$ 可以由 $c_{ij}$ 经过有限次 $+,\cdot$ 两种运算得到, $\therefore\det\overline{C}=\overline{\det C}$, 其中 $\overline{C}=(\overline{c_{ij}})$.
+    $\because$ 对 $C=(c_{ij})\in M_n(\mathbb{C}),\det C$ 可以由 $c_{ij}$ 经过有限次 $+,-,\cdot$ 两种运算得到, $\therefore\det\overline{C}=\overline{\det C}$, 其中 $\overline{C}=(\overline{c_{ij}})$.
 
     令 $C=A+iB$ 即得.
 \end{proof}
 \begin{exercise}\label{ex1.4}
     设 $A,B\in M_n(\mathbb{R})$,
     \[C=\begin{pmatrix}
-        A & -B \\
-        B & A
+        A & B \\
+        -B & A
     \end{pmatrix}\in M_{2n}(\mathbb{R}).\]
 
     证明:
     \[\det C=|\det(A+iB)|^2.\]
 \end{exercise}
 \begin{proof}
-    由第3章的补充题3得
+    由第3章的补充题13(2)得
     \[\begin{vmatrix}
-        A & -B \\
-        B & A
+        A & B \\
+        -B & A
     \end{vmatrix}=|(A-iB)(A+iB)|=\det(A-iB)\det(A+iB).\]
 
     由第 \ref{ex1.3} 题得
@@ -1242,8 +1247,8 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     $\therefore$
     \[\begin{vmatrix}
-        A & -B \\
-        B & A
+        A & B \\
+        -B & A
     \end{vmatrix}=\overline{\det(A+iB)}\det(A+iB)=|\det(A+iB)|^2.\]
 \end{proof}
 \begin{exercise}% 1.5
@@ -1329,13 +1334,12 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 
     $\because\varphi$ 是同构, $\therefore$
     \begin{align*}
-        \varphi(a+d) & =\varphi(a+\sqrt{d}\cdot\sqrt{d}) \\
-        & =\varphi(a)+\varphi(\sqrt{d})\varphi(\sqrt{d}) \\
-        & =a+(m+n\sqrt{d})^2 \\
-        & =a+m^2+n^2d+2mn\sqrt{d}.
+        \varphi(d) & =\varphi(\sqrt{d})\varphi(\sqrt{d}) \\
+        & =(m+n\sqrt{d})^2 \\
+        & =m^2+n^2d+2mn\sqrt{d}.
     \end{align*}
 
-    $\because\varphi$ 保持有理数不变, $\therefore m=0,n^2=1,n=\pm1$.
+    $\because\varphi$ 保持有理数不变, $\therefore\varphi(d)=d\Rightarrow m=0,n^2=1,n=\pm1$.
 \end{solution}
 \begin{exercise}% 1.7
     当 $n>1$ 时, 求 $1$ 的所有 $n$ 次方根的和.
@@ -1346,19 +1350,19 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
         \sum\limits_{k=1}^{n}\varepsilon_k & =\sum\limits_{k=1}^{n}\left(\cos\dfrac{2\pi k}{n}+i\sin\dfrac{2\pi k}{n}\right) \\
         & =\sum\limits_{k=1}^{n}\dfrac{2\cos\dfrac{2\pi k}{n}\sin\dfrac{\pi}{n}+2i\sin\dfrac{2\pi k}{n}\sin\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}} \\
         & =\sum\limits_{k=1}^{n}\dfrac{\sin\left(\dfrac{2\pi k}{n}+\dfrac{\pi}{n}\right)-\sin\left(\dfrac{2\pi k}{n}-\dfrac{\pi}{n}\right)}{2\sin\dfrac{\pi}{n}}+i\sum\limits_{k=1}^{n}\dfrac{\cos\left(\dfrac{2\pi k}{n}-\dfrac{\pi}{n}\right)-\cos\left(\dfrac{2\pi k}{n}+\dfrac{\pi}{n}\right)}{2\sin\dfrac{\pi}{n}} \\
-        & =\dfrac{\sin\left(2\pi+\dfrac{\pi}{n}\right)-\sin\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}}-i\dfrac{\cos\left(2\pi+\dfrac{\pi}{n}\right)-\cos\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}} \\
-        & =0.
+        & =\dfrac{\sin\left(2\pi+\dfrac{\pi}{n}\right)-\sin\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}}-i\dfrac{\cos\left(2\pi+\dfrac{\pi}{n}\right)-\cos\dfrac{\pi}{n}}{2\sin\dfrac{\pi}{n}}=0.
     \end{align*}
 \end{solution}
 \begin{note}
     (1) 这题用 Eular 公式计算更简便.
 
-    (2) 这个结论可以直观地得到: 将 $1$ 的所有 $n$ 次方根按辐角从小到大的顺序首尾相连可以组成一个正 $n$ 边形, 如图1.
-    \begin{center}
+    (2) 这个结论可以直观地得到: 将 $1$ 的所有 $n$ 次方根按辐角从小到大的顺序首尾相连可以组成一个正 $n$ 边形, 如图 \ref{f1}.
+    \begin{figure}[htbp!]
+        \centering
         \begin{tikzpicture}[scale=2]
             \node [above left] at (0,0) {$O$};
-            \node [above left] at (2,0) {$\operatorname{Re}$};
-            \node [above left] at (0,2) {$\im $};
+            \node [above left] at (2,0) {$\re$};
+            \node [above left] at (0,2) {$\im$};
             \draw [->] (-2,0) -- (2,0);
             \draw [->] (0,-1) -- (0,2);
             \foreach \n/\t/\u in
@@ -1373,9 +1377,9 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
             \node [above left,red] at (-.309,.951) {$\varepsilon_4$};
             \draw [red,thick,->] (-.309,.951) -- (0,0);
             \node [below right,red] at (0,0) {$\varepsilon_5$};
-            \node [below] at (0,-1) {图1};
         \end{tikzpicture}
-    \end{center}
+        \caption{将所有 $5$ 次单位根首尾相连}\label{f1}
+    \end{figure}
 \end{note}
 \begin{exercise}% 1.8
     证明 $\zeta=\dfrac{2+i}{2-i}$ 不是 $1$ 的根, 尽管 $|\zeta|=1$.
@@ -1384,22 +1388,31 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
     假设 $\zeta^n=1$, 则
     \begin{align*}
         & (2-i)^n=(2+i)^n \\
-        \Rightarrow & (2-i)^n=(2-i+2i)^n \\
-        \Rightarrow & (2-i)^n=(2-i)^n+(2i)^n+\sum\limits_{k=1}^{n-1}(2-i)^k(2i)^{n-k} \\
-        \Rightarrow & (2i)^n=-(2-i)\sum\limits_{k=1}^{n-1}(2-i)^{k-1}(2i)^{n-k}.
+        & \Rightarrow(2-i)^n=(2-i+2i)^n \\
+        & \Rightarrow(2-i)^n=(2-i)^n+(2i)^n+\sum\limits_{k=1}^{n-1}(2-i)^k(2i)^{n-k} \\
+        & \Rightarrow(2i)^n=-(2-i)\sum\limits_{k=1}^{n-1}(2-i)^{k-1}(2i)^{n-k}.
     \end{align*}
 
     设 $a+bi=-\sum\limits_{k=1}^{n-1}(2-i)^{k-1}(2i)^{n-k}$, 则
     \begin{align*}
         & (2-i)(a+bi)=(2i)^n \\
-        \Rightarrow & |2-i||a+bi|=|2i|^n \\
-        \Rightarrow & |2-i|^2|a+bi|^2=|2i|^{2n} \\
-        \Rightarrow & 5(a^2+b^2)=2^{2n}, \\
+        & \Rightarrow|2-i||a+bi|=|2i|^n \\
+        & \Rightarrow|2-i|^2|a+bi|^2=|2i|^{2n} \\
+        & \Rightarrow5(a^2+b^2)=2^{2n}, \\
     \end{align*}
 
     与 $5\nmid2^{2n}$ 矛盾.
 \end{proof}
-第1.10题在第3章的补充题2那里做过了.
+\begin{exercise}% 1.9
+    设 $c$ 满足 $|c|=1$, $f(z)=cz,g(z)=c\overline{z}$. 证明: $(f(z)|f(z'))=(g(z)|g(z'))=(z|z')$.
+\end{exercise}
+\begin{proof}
+    有
+    \[(f(z)|f(z'))=\re f(z)\overline{f(z')}=\re cz\overline{cz'}=\re cz\overline{z'}\overline{c}=\re z\overline{z'}c\overline{c}=\re z\overline{z'}=(z|z'),\]
+    \[(g(z)|g(z'))=\re g(z)\overline{g(z')}=\re c\overline{z}\overline{c\overline{z'}}=\re c\overline{z}z'\overline{c}=\re\overline{z}z'c\overline{c}=\re z'\overline{z}=(z|z').\qedhere\]
+\end{proof}
+
+第1.10题在第3章的补充题12那里做过了.
 \subsection{习题5.2}
 \stepcounter{exsection}
 \begin{exercise}% 2.1
@@ -1728,9 +1741,9 @@ $\mathbb{Z}[X]$ 上既约多项式的判别法(如 Eisenstein 判别法)只适�
 \end{solution}
 \begin{note}
     这题的分解式是我用 Mathematica 找到的. 代码如下:
-    \begin{verbatim}
+    \begin{lstlisting}
     Array[Factor[8 #1 x^#2 - 4 x^2 + 1] &, {4, 5}, {1, 3}] // MatrixForm
-    \end{verbatim}
+    \end{lstlisting}
 \end{note}
 证明下面一题需要证明一个引理.
 \begin{lemma}\label{l4.2}

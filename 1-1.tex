@@ -936,22 +936,24 @@ n & \to & \dfrac{n+(-1)^nn}{4}
     \end{align*}
 
     置换的分解现在还没想出来. 下面的代码可以生成输出这 3 题的循环的交互式程序. 循环以图的形式给出, 可以方便地看出有多少个不相交的循环.
-\begin{verbatim}
+\begin{lstlisting}
 rules[cycle_] := Thread[DirectedEdge[cycle, RotateLeft[cycle]]];
 permGraph[list_] := 
  Graph[Flatten[rules /@ First[PermutationCycles[list]]], 
   VertexLabels -> Placed["Name", Center], VertexSize -> 0.6]
+(*第 2 题*)
 Manipulate[
  permGraph[
-   Join[Range[2, n, 2], Range[1, n, 2]]], {n, 2, 100, 1}](*第 2 题*)
+   Join[Range[2, n, 2], Range[1, n, 2]]], {n, 2, 100, 1}]
+(*第 3 题*)
 Manipulate[
  permGraph[
-   Join[Range[1, n, 2], Range[2, n, 2]]], {n, 2, 100, 1}](*第 3 题*)
+   Join[Range[1, n, 2], Range[2, n, 2]]], {n, 2, 100, 1}]
+(*第 4 题*)
 Manipulate[
  permGraph[
-   Riffle[Reverse[Range[Floor[n/2] + 1, n]], Range[Floor[n/2]]]],
- {n, 2, 100, 1}](*第 4 题*)
-\end{verbatim}
+   Riffle[Reverse[Range[Floor[n/2] + 1, n]], Range[Floor[n/2]]]], {n, 2, 100, 1}]
+\end{lstlisting}
 \end{solution}
 
 证明下面一题需要先证明一个引理.

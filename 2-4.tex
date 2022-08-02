@@ -1493,13 +1493,13 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \end{landscape}
 \begin{note}
     最后的行列式的化简是用 Mathematica 算的, 代码如下:
-    \begin{verbatim}
+    \begin{lstlisting}
 Det[{{a Conjugate[a], b Conjugate[b], a Conjugate[b], b Conjugate[a]},
      {c Conjugate[c], d Conjugate[d], c Conjugate[d], d Conjugate[c]},
      {a Conjugate[c], b Conjugate[d], a Conjugate[d], b Conjugate[c]},
      {c Conjugate[a], d Conjugate[b], c Conjugate[b], d Conjugate[a]}}]
     // Simplify
-    \end{verbatim}
+    \end{lstlisting}
 \end{note}
 \printbibliography
 \end{document}

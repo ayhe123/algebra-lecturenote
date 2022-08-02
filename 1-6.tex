@@ -464,7 +464,7 @@ $v,M_v$ 中的元素分别是 $f,g_\omega$ 中的元素的首项.
 \end{proof}
 
 利用 Sturm 定理可以写出计算多项式在任一区间内实根个数的程序. 下面这个 Mathematica 程序可以计算 $f(X)=X^3+3X-1$ 在区间 $[-10,10]$ 内实根的个数(不计重数):
-\begin{verbatim}
+\begin{lstlisting}
 f = X^3 + 3 X - 1;
 lb = -10;
 ub = 10;
@@ -475,7 +475,7 @@ While[! NumberQ[sturm[[-1]]],
     sturm = Append[
         sturm, -PolynomialRemainder[sturm[[-2]], sturm[[-1]], X]]];
 changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
-\end{verbatim}
+\end{lstlisting}
 其中 \verb|changeNum[list_]| 函数用于计算列表 \verb|list| 的变号数.
 \section{第6章习题}
 \subsection{习题 6.1}
