@@ -1,7 +1,3 @@
-% TODO:
-% 习题 2.1,2.9, 习题 4 的补充题 7 ($\leftarrow$), 补充题 9
-% 将 $K$ 的零元 $0$ 和 $V$ 的零元 $\boldsymbol{0}$ 区分开
-
 \documentclass[color=black,device=normal,lang=cn,mode=geye]{elegantnote}
 \usepackage{lecturenote}
 \title{第1章笔记和习题}
@@ -39,14 +35,14 @@ $\therefore AB=E,\therefore A$ 可逆.
 \begin{theorem}\label{t1.1}
     设 $V$ 的所有的基组成的集合为 $V_b$, 给定 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 则
     \[\varphi:\begin{array}{rcl}
-        \gl _n(K) & \to & V_b \\
+        \gl_n(K) & \to & V_b \\
         A & \to & (\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A \\
     \end{array}\]
 
     是双射.
 \end{theorem}
 \begin{proof}
-    设 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A$, 则
+    设 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A$ (其中 $A\in\gl_n(K)$), 则
     \[(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')A^{-1}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)AA^{-1}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n),\]
 
     即 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 的线性组合.
@@ -96,17 +92,7 @@ $\therefore AB=E,\therefore A$ 可逆.
 \end{pmatrix}.\]
 
 与定理 \ref{t1.1} 最后的那部分类似, 有
-\[\begin{pmatrix}
-    a_1 \\
-    a_2 \\
-    \vdots \\
-    a_n \\
-\end{pmatrix}=A\begin{pmatrix}
-    b_1 \\
-    b_2 \\
-    \vdots \\
-    b_n \\
-\end{pmatrix}.\]
+\[[a_1,a_2,\cdots,a_n]=A[b_1,b_2,\cdots,b_n].\]
 \subsection{子空间的和与直和}
 先考虑两个子空间的情况.
 \begin{theorem}\label{t1.2}
@@ -121,6 +107,7 @@ $\therefore AB=E,\therefore A$ 可逆.
 
     设 $U'$ 满足 $U_1\subset U',U_2\subset U'$, 则 $\forall\boldsymbol{x}_1\in U_1,\boldsymbol{x}_2\in U_2$, 有 $\boldsymbol{x}_1+\boldsymbol{x}_2\in U'.\therefore U\subset U'$.
 \end{proof}
+
 对于有限个子空间的和, 由定理 \ref{t1.2} 结合数学归纳法得定理 \ref{t1.2} 的结论成立.
 
 对于一般的指标集, 定义
@@ -128,6 +115,7 @@ $\therefore AB=E,\therefore A$ 可逆.
     设 $V_i,i\in I$ 为 $V$ 的子空间. 定义
     \[\sum\limits_{i\in I}V_i:=\left\{\sum\limits_{i\in I}\boldsymbol{x}_i\bigg|\boldsymbol{x}_i\in V_i,\text{只有有限个}\ \boldsymbol{x}_i\neq0\right\}.\]
 \end{definition}
+
 $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元素之和'', $\therefore\sum\limits_{i\in I}V_i$ 是 $V$ 的子空间.
 
 书上定理 7 的证明用到了下面的结论.
@@ -141,7 +129,7 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
     \[\boldsymbol{v}=\boldsymbol{v}_1+\boldsymbol{v}_2+\cdots+\boldsymbol{v}_r=\boldsymbol{u}_1+\boldsymbol{u}_2+\cdots+\boldsymbol{u}_r,\boldsymbol{v}_i,\boldsymbol{u}_i\in V_i,\]
 
     则
-    \[(\boldsymbol{v}_1-\boldsymbol{u}_1)+(\boldsymbol{v}_2-\boldsymbol{u}_2)+\cdots+(\boldsymbol{v}_r-\boldsymbol{u}_r)=0,\quad\boldsymbol{v}_i-\boldsymbol{u}_i\in V_i.\]
+    \[(\boldsymbol{v}_1-\boldsymbol{u}_1)+(\boldsymbol{v}_2-\boldsymbol{u}_2)+\cdots+(\boldsymbol{v}_r-\boldsymbol{u}_r)=\boldsymbol{0},\quad\boldsymbol{v}_i-\boldsymbol{u}_i\in V_i.\]
 
     $\therefore\boldsymbol{v}_i-\boldsymbol{u}_i=\boldsymbol{0},\boldsymbol{v}_i=\boldsymbol{u}_i$.
 \end{proof}
@@ -205,6 +193,7 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
     令 $\boldsymbol{u}=\varphi(\boldsymbol{x}),\boldsymbol{v}=\varphi(\boldsymbol{y})$, 则 $\boldsymbol{x}=\varphi^{-1}(\boldsymbol{u}),\boldsymbol{y}=\varphi^{-1}(\boldsymbol{v})$,
     \[\alpha\varphi^{-1}(\boldsymbol{u})+\beta\varphi^{-1}(\boldsymbol{v})=\varphi^{-1}(\alpha\boldsymbol{u}+\beta\boldsymbol{v}).\]
 \end{proof}
+
 类似于有限集合中的双射, 有:
 \begin{theorem}\label{t1.5}
     若 $U,V$ 是 $n$ 维向量空间, $f:U\to V$ 是线性映射且是单射, 则 $f$ 是同构.
@@ -299,7 +288,67 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
     
     由陪集运算的定义得 $\varphi$ 是同构.
 \end{proof}
-设 $U$ 是 $V$ 的子空间. 当 $\dim V=\infty$ 时, 书上对于 $\operatorname{codim}U$ 的定义没有意义. 这时可以令 $\operatorname{codim}U=\dim V/U$.
+
+设 $U$ 是 $V$ 的子空间. 当 $\dim V=\infty$ 时, 书上对于 $\codim U$ 的定义没有意义. 这时可以令 $\codim U=\dim V/U$.
+
+在无穷维空间 $V$ 中与有限维空间类似地定义补空间.
+\begin{definition}
+    设 $U,W$ 是 $V$ 的子空间. 如果 $U+W=V,U\cap W=\{0\}$, 则称 $W$ 为 $U$ 的 \textbf{补空间}. 特别地, 当 $U$ 是 $V$ 的非平凡子空间时, 有 $U\oplus W=V$.
+\end{definition}
+
+需要注意的是, 这里没有断言 $U$ 的补空间一定存在.
+
+设 $U$ 是 $V$ 的子空间, 只有在 $\codim U$ 有限时讨论 $U$ 的补空间的维数才有意义. 先证明一个引理.
+\begin{lemma}\label{l1.1}
+    设 $U$ 是有限维向量空间, $W$ 是线性空间(可以是无限维的). 如果线性映射 $\varphi:U\to W$ 是满射, 则 $W$ 是有限维的, 且 $\dim W\leq\dim U$. 等号成立当且仅当 $\varphi$ 是同构.
+\end{lemma}
+\begin{proof}
+    设 $\dim U=n,U$ 的一个基为 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_n$. 有
+    \[W=\im\varphi=\left<\varphi(\boldsymbol{u}_1),\varphi(\boldsymbol{u}_2),\cdots,\varphi(\boldsymbol{u}_n)\right>.\]
+
+    $\therefore$
+    \begin{equation}\label{eq1.2}
+        \dim W\leq n=\dim U.
+    \end{equation}
+
+    由书上的定理 5 得 $\dim U=\dim V\Rightarrow U\simeq V$.
+    
+    如果 $\varphi$ 是同构, 则 $\varphi^{-1}:W\to U$ 存在且为满射. $\therefore$ 有 $\dim U\leq\dim W$. 由式 (\ref{eq1.2}) 得 $\dim U=\dim W$.
+\end{proof}
+\begin{theorem}\label{t1.7}
+    设 $U$ 是线性空间(可以是无限维的) $V$ 的子空间. 如果 $\codim U$ 是有限数, 则存在 $V$ 的 $\codim U$ 维子空间 $W$ 使得 $W$ 是 $U$ 的子空间.
+\end{theorem}
+\begin{proof}
+    对 $\codim U$ 用数学归纳法. 当 $\codim U=0$ 时, 有 $V/U=\{0\}$. $\therefore\forall\boldsymbol{v}\in V,\exists\boldsymbol{u}\in U$ 使得 $\boldsymbol{v}=\boldsymbol{0}+\boldsymbol{u}=\boldsymbol{u}$. $\therefore U\supset V$. $\because U\subset V$, $\therefore U=V$. $\therefore\exists W=\{0\}$ 使得 $V=U=U+\{0\}$.
+
+    假设当 $\codim U\leq k$ 时命题成立. 设 $\codim U=k+1$.
+
+    假设 $\forall\boldsymbol{x}\in V,\boldsymbol{x}\in U$, 则 $\therefore V/U=V/V\simeq\{0\}$, 与 $\dim V/U=\codim U>0$ 矛盾.
+
+    设 $\boldsymbol{w}\in V\backslash U$, 则 $\left<\boldsymbol{w}\right>+U$ 是直和. 考虑映射
+    \[\varphi:\begin{array}{rcl}
+        V/U & \to & V/(\left<\boldsymbol{w}\right>\oplus U) \\
+        \boldsymbol{v}+U & \mapsto & \boldsymbol{v}+(\left<\boldsymbol{w}\right>\oplus U) \\
+    \end{array}\]
+
+    容易验证 $\varphi$ 是线性的, 且是满射. $\because\forall k\in K,\varphi(\boldsymbol{v}+U)=\varphi(\boldsymbol{v}+k\boldsymbol{w}+U)$, $\therefore\varphi$ 不是单射. 由引理 \ref{l1.1} 得
+    \[\codim(\left<\boldsymbol{w}\right>\oplus U)=\dim V/(\left<\boldsymbol{w}\right>\oplus U)<\dim V/U=\codim U.\]
+
+    由归纳假定得 $\exists W'$ 使得 $W'+(\left<\boldsymbol{w}\right>\oplus U)=V,W'\cap(\left<\boldsymbol{w}\right>\oplus U)=\{\boldsymbol{0}\}$. 由第 \ref{ex2.4} 题得 $W'+\left<\boldsymbol{w}\right>+U$ 是直和.
+    
+    $\therefore\exists W=W'\oplus\left<\boldsymbol{w}\right>$ 使得 $W\oplus U=V$.
+
+    考虑映射
+    \[\psi:\begin{array}{rcl}
+        W & \to & V/U \\
+        \boldsymbol{w} & \mapsto & \boldsymbol{w}+U \\
+    \end{array}.\]
+
+    $\because W\oplus U=V$, $\therefore\forall\boldsymbol{v}\in V,\exists\boldsymbol{w}\in W,\boldsymbol{u}\in U$ 使得
+    \[\psi(\boldsymbol{v})=\boldsymbol{v}+U=\boldsymbol{w}+\boldsymbol{u}+U=\boldsymbol{w}+U=\psi(\boldsymbol{w}),\]
+
+    $\therefore\psi$ 是同构, 有 $\dim W=\dim V/U=\codim U$.
+\end{proof}
 \subsection{一些例子}
 \begin{example}
     从子空间产生的一些流形具有很好的几何结构.
@@ -310,10 +359,11 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
     则 $\dim V_i=i$,
     \[0\subset V_1\subset V_2\subset\cdots\subset V_n=V.\]
     
-    考虑所有由上式定义的子空间链组成的集合.
+    所有由上式定义的子空间链组成的集合称为\textbf{旗流形}.
 
-    (2) 考虑
-    \[G_{n,m}=\{U\subset V|\dim U=m\}.\]
+    (2) 称
+    \[G_{n,m}=\{U\subset V|\dim U=m\}\]
+    为\textbf{Grassmann 流形}.
 \end{example}
 \section{对偶空间(对应教材1.3节)}
 下面证明线性函数的一些简单的性质.
@@ -355,7 +405,7 @@ $\therefore f$ 是线性函数. $\therefore$ 在线性函数全体 $V^*\in K^V$ 
     由式 (\ref{eq2.1}) 得若 $f(\boldsymbol{e}_i)=0$, 则 $\forall\boldsymbol{x},f(\boldsymbol{x})=0$, 即 $\ker\varphi=\{0\}.\therefore\varphi$ 是单射. 由式 (\ref{eq2.1}) 后面的讨论得 $f$ 是满射. 
 \end{proof}
 
-与之类似的看法在数学中很常见. 比如说生成函数([BAI] 第 5 章习题 3.6)就是将幂级数与数列等同起来.
+由上面的定理, 可以将函数与向量等同起来. 与之类似的看法在数学中很常见. 比如说生成函数([BAI] 第 5 章习题 3.6)就是将幂级数与数列等同起来.
 
 设 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)$ 和 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')$ 是 $V$ 的基且满足式 (\ref{eq1.1}), $\boldsymbol{x}=\lambda_1\boldsymbol{e}_1 +\cdots+\lambda_n\boldsymbol{e}_n=\lambda_1'\boldsymbol{e}_1'+\cdots+\lambda_n'\boldsymbol{e}_n'$. 将 (\ref{eq2.1}) 写成坐标的形式:
 \[f(\boldsymbol{x})=(f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n))\begin{pmatrix}
@@ -426,32 +476,33 @@ $\therefore$
 
     由定理 \ref{t1.5} 得 $\varepsilon$ 是双射.
 \end{proof}
-举几个具体的例子.
-\begin{example}
-    设 $V=\left<e^{imx}=\cos mx+i\sin mx|m=1,2,\cdots,n\right>,\lambda\in\mathbb{R}$, 
-    容易验证
-    \[f_k:\begin{array}{rcl}
-        V & \to & \mathbb{R} \\
-        \varphi & \to & \dfrac{1}{2\pi}\int_0^{2\pi}\varphi e^{-ikx}\mathrm{d}x \\
-    \end{array}\]
-    是线性函数. 容易验证
-    \[f_k(e^{imx})=\delta_{km},\quad V^*=\left<f_k|k=1,2,\cdots,n\right>.\]
 
-    这是 Fourier 分析的本质.
-\end{example}
 书上定理 2 定义的 $\varepsilon$ 被称为\textbf{自然同构}, 因为这个同构与基的选取无关. 相反的, 给定 $V$ 的一个基 $(\boldsymbol{e}_i)$, 形如
 \[f:\begin{array}{rcl}
     V & \to & \mathbb{R}^n \\
     a_1\boldsymbol{e}_1+a_2\boldsymbol{e}_2+\cdots+a_n\boldsymbol{e}_n & \to & (a_1,a_2,\cdots,a_n) \\
 \end{array}\]
 的同构依赖于基的选取, 所以是不自然的.
+
+举几个具体的例子.
+\begin{example}
+    设 $V=\left<e^{imx}=\cos mx+i\sin mx|m=1,2,\cdots,n\right>,\lambda\in\mathbb{R}$, 
+    容易验证
+    \[f_k:\begin{array}{rcl}
+        V & \to & \mathbb{R} \\
+        \varphi & \to & \dfrac{1}{2\pi}\int_0^{2\pi}\varphi(x)e^{-ikx}\mathrm{d}x \\
+    \end{array}\]
+    是线性函数. 容易验证
+    \[f_k(e^{imx})=\delta_{km},\quad V^*=\left<f_k|k=1,2,\cdots,n\right>.\]
+
+    这是 Fourier 分析的本质.
+\end{example}
 \section{双线性型和二次型(对应教材1.4节)}
 \subsection{双线性型}
 在 $\mathcal{L}_2(V,K)$ 上定义
 \[(\alpha f+\beta g)(\boldsymbol{u},\boldsymbol{v}):=\alpha f(\boldsymbol{u},\boldsymbol{v})+\beta g(\boldsymbol{u},\boldsymbol{v}),\]
 
 容易验证 $\mathcal{L}_2(V,K)$ 是域 $K$ 上的线性空间.
-
 
 证明书上的定理 1 需要先证明一个引理.
 \begin{lemma}\label{l3.1}
@@ -495,11 +546,7 @@ $\therefore$
     \[f(\boldsymbol{x},\boldsymbol{y})=\sum\limits_{i,j}f_{ij}x_iy_j.\]
 
     $\because f_{ij}=f_{ji},\therefore$
-    \begin{align*}
-        \sum\limits_{i,j}f_{ij}x_iy_j & =\sum\limits_{i,j}f_{ji}x_iy_j \\
-        & =\sum\limits_{i,j}f_{ij}y_ix_j \\
-        & =f(\boldsymbol{y},\boldsymbol{x}).
-    \end{align*}
+    \[\sum\limits_{i,j}f_{ij}x_iy_j=\sum\limits_{i,j}f_{ji}x_iy_j=\sum\limits_{i,j}f_{ij}y_ix_j=f(\boldsymbol{y},\boldsymbol{x}).\qedhere\]
 \end{proof}
 上述性质不依赖于基的选取, $\therefore$ 对称矩阵 $F$ 的合同 $F'={}^tAFA$ 也是对称的.
 
@@ -510,12 +557,8 @@ $\therefore$
 \end{theorem}
 \begin{proof}
     设 $\boldsymbol{x}$ 在基 $(\boldsymbol{e}_i)$ 下的坐标为 $(x_i),F_{ij}=f(\boldsymbol{e}_i,\boldsymbol{e}_j)$, 则
-    \begin{align*}
-        f(-\boldsymbol{x},-\boldsymbol{x}) & =\sum\limits_{i,j}f_{ij}(-x_i)(-x_j) \\
-        & =\sum\limits_{i,j}f_{ij}x_ix_j \\
-        & =f(\boldsymbol{x},\boldsymbol{x}).
-    \end{align*}
-   
+    \[f(-\boldsymbol{x},-\boldsymbol{x})=\sum\limits_{i,j}f_{ij}(-x_i)(-x_j)=\sum\limits_{i,j}f_{ij}x_ix_j=f(\boldsymbol{x},\boldsymbol{x}).\]
+
     $\therefore q(-\boldsymbol{x})=q(\boldsymbol{x})$.
 
     $\because$
@@ -554,7 +597,7 @@ $\therefore$
 
     对 $V$ 的维数用数学归纳法. 当 $\dim V=1$ 时, 任意的基都是 $f$ 的规范基. 假设 $\dim V=n-1$ 时 $V$ 上任一对称的双线性型 $f$ 都有规范基.
 
-    $\because f\neq0,\therefore\exists\boldsymbol{e}_1$ 使得 $f(\boldsymbol{e}_1,\boldsymbol{e}_1)\neq0$. 设方程 $f(\boldsymbol{e}_1,\boldsymbol{x})=0$ 的解空间为 $L$, 由书上第 1.3 节的定理 4(i) 得 $\dim L=n-1$.
+    $\because f\neq0,\therefore\exists\boldsymbol{e}_1$ 使得 $f(\boldsymbol{e}_1,\boldsymbol{e}_1)\neq0$. 设方程 $f(\boldsymbol{e}_1,\boldsymbol{x})=0$ 的解空间为 $L$, 由书上第 3 节的定理 4(i) 得 $\dim L=n-1$.
     
     设 $f$ 是 $V$ 上的对称的双线性型, 则 $f$ 在 $L$ 上的限制 $\bar{f}=f|_L$ 是 $L$ 上的对称的双线性型. 由归纳假定, $\exists L$ 的基 $\boldsymbol{e}_2,\boldsymbol{e}_3,\cdots,\boldsymbol{e}_n$ 使得
     \[\bar{f}(\boldsymbol{e}_i,\boldsymbol{e}_j)=0,\quad2\leq i\neq j\leq n.\]
@@ -592,18 +635,8 @@ $\therefore$
     
     $(\Rightarrow)\because F$ 是正定的, $\therefore f$ 是正定的, $\therefore\exists$ 基 $(\boldsymbol{e}_i')$ 满足 $f$ 在基下的矩阵为 $E.\therefore\exists B\in\gl _n(\mathbb{R}),F={}^tBEB={}^tBB$.
 
-    ($\Leftarrow$) 设 $F={}^tBB$.
-
-    由 [BAI] 第 3 章习题的第 3.1(2) 题得 $({}^tB)^\vee={}^t(B^\vee)$. $\because\det B=\det{}^tB,\therefore$
-    \begin{align*}
-        ({}^tB)^{-1} & =(\det{}^tB)^{-1}({}^tB)^\vee \\
-        & =(\det{}^tB)^{-1}{}^t(B^\vee) \\
-        & =(\det B)^{-1}{}^t(B^\vee) \\
-        & ={}^t((\det B)^{-1}B^\vee) \\
-        & ={}^t(B^{-1}).
-    \end{align*}
-
-    $\therefore{}^t(B^{-1})FB^{-1}=({}^tB)^{-1}\cdot{}^tB\cdot B\cdot B^{-1}=E$.
+    ($\Leftarrow$) 设 $F={}^tBB$. 由 [BAI] 第 2 章笔记的定理 1.1 得 $({}^tB)^{-1}={}^t(B^{-1})$. $\therefore$
+    \[{}^t(B^{-1})FB^{-1}=({}^tB)^{-1}\cdot{}^tB\cdot B\cdot B^{-1}=E.\]
 
     $\therefore f$ 在基 $(\boldsymbol{e}_i')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)B^{-1}$ 下的矩阵为 $E.\therefore f$ 是正定的.
 \end{proof}
@@ -618,11 +651,9 @@ $\therefore$
 \end{pmatrix},\quad q(\boldsymbol{u})=ax^2+2bxy+cy^2.\]
 
 假设 $a=c=0$, 令 $\boldsymbol{u}=-b^{-1}y\boldsymbol{e}_1+y\boldsymbol{e}_2$, 则
-\[q(\boldsymbol{u})=-2bb^{-1}y^2=<0,\]
+\[q(\boldsymbol{u})=-2bb^{-1}y^2\leq0,\]
 
-与 $q$ 正定矛盾. $\therefore a^2+c^2\neq0$. 不妨设 $a\neq0$.
-
-$\therefore$ 可以将 $q(\boldsymbol{u})$ 配方:
+与 $q$ 正定矛盾. $\therefore a^2+c^2\neq0$. 不妨设 $a\neq0$. 可以将 $q(\boldsymbol{u})$ 配方:
 \begin{equation}\label{eq3.2}
     q(\boldsymbol{u})=a\left(x+\dfrac{b}{a}y\right)^2+\left(c-\dfrac{b^2}{a}\right)y^2.
 \end{equation}
@@ -635,8 +666,7 @@ $\therefore$ 可以将 $q(\boldsymbol{u})$ 配方:
 假设 $c-\dfrac{b^2}{a}<0$, 令 $\boldsymbol{u}=-\dfrac{b}{a}\boldsymbol{e}_1+\boldsymbol{e}_2$, 则
 \[q(\boldsymbol{u})=\left(c-\dfrac{b^2}{a}\right)<0,\]
 
-与 $q$ 正定矛盾. $\therefore$
-\[c-\dfrac{b^2}{a}>0.\]
+与 $q$ 正定矛盾. $\therefore c-\dfrac{b^2}{a}>0$.
 
 $\because a>0,\therefore$ 上式两边乘 $a$ 得
 \[\begin{vmatrix}
@@ -654,7 +684,7 @@ $\because a>0,\therefore$ 上式两边乘 $a$ 得
 \begin{proof}
     对 $\dim V$ 用数学归纳法. $\dim V=1,2$ 的情形前面已经讨论过了.
 
-    假设当 $\dim V=n-1$ 时成立. 设双线性型 $f$ 在基 $(\boldsymbol{v}_i)$ 下的矩阵为 $F$.
+    假设当 $\dim V=n-1$ 时成立. 设双线性型 $f$ 在基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 下的矩阵为 $F$.
 
     设 $f$ 在 $L=\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_{n-1}\right>$ 上的限制为 $\bar{f}$, 则其在基 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_{n-1}$ 下的矩阵为
     \[\overline{F}=\begin{pmatrix}
@@ -666,10 +696,7 @@ $\because a>0,\therefore$ 上式两边乘 $a$ 得
 
     $\therefore\overline{F}$ 的主子式 $\overline{\Delta}_i=\Delta_i\ (i=1,2,\cdots,n-1)$.
 
-    由归纳假定, $\exists$ 基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$(设 $\boldsymbol{x}$ 在基下的坐标为 $(x_1,x_2,\cdots,x_n)$)满足
-    \[f(\boldsymbol{x},\boldsymbol{x})=\dfrac{\Delta_1}{\Delta_0}x_1^2+\dfrac{\Delta_2}{\Delta_1}x_2^2+\cdots+\dfrac{\Delta_{n-1}}{\Delta_{n-2}}x_{n-1}^2.\]
-
-    $\therefore$ 对 $1\leq i,j\leq n-1$, 有
+    由归纳假定, $\exists$ 基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$ 满足: 对 $1\leq i,j\leq n-1$, 有
     \[f(\boldsymbol{e}_i,\boldsymbol{e}_j)=\bar{f}(\boldsymbol{e}_i,\boldsymbol{e}_j)=\begin{cases}
         0 & i\neq j, \\
         \dfrac{\overline{\Delta}_i}{\overline{\Delta}_{i-1}}=\dfrac{\Delta_i}{\Delta_{i-1}} & i=j.
@@ -678,36 +705,31 @@ $\because a>0,\therefore$ 上式两边乘 $a$ 得
     考虑方程组
     \[f(\boldsymbol{x},\boldsymbol{e}_i)=0,\quad i=1,2,\cdots,n-1.\]
 
-    由书上第 1.3 节的定理 4(i) 得解空间 $U$ 的维数为 $1$, 方程组有非零解.
+    由书上第 1.3 节的定理 4(i) 得解空间 $U$ 的维数为 $1$, 方程组有非零解. 设 $\boldsymbol{e}_n$ 是方程组的一个非零解.
 
-    $\because\forall\boldsymbol{y}\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\backslash\{0\},\exists i$ 使得 $f(\boldsymbol{y},\boldsymbol{e}_i)\neq0$,
-    
-    $\therefore\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U=\{0\}$.
+    假设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 线性相关, 则 $\exists a_1,a_2,\cdots,a_{n-1}$ 使得
+    \[\boldsymbol{e}_n=a_1\boldsymbol{e}_1+a_2\boldsymbol{e}_2+\cdots+a_{n-1}\boldsymbol{e}_{n-1}.\]
 
-    $\therefore$ 设 $\boldsymbol{e}_n$ 是方程组的一个非零解, 假设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 线性相关, 则
-    \[\boldsymbol{e}_n\in\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U,\]
+    $\because\boldsymbol{e}_n\neq0$, $\therefore a_1,a_2,\cdots,a_{n-1}$ 不全为 $0$. 设 $a_i\neq0$, 则
+    \[f(\boldsymbol{e}_n,\boldsymbol{e}_i)=a_if(\boldsymbol{e}_i,\boldsymbol{e}_i)\neq0,\]
 
-    与 $\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>\cap U=\{0\}$ 矛盾. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 是 $V$ 的一个基, 且满足
+    与 $f(\boldsymbol{e}_n,\boldsymbol{e}_i)=0$ 矛盾. $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n$ 是 $V$ 的一个基, 且满足
     \[f(\boldsymbol{e}_i,\boldsymbol{e}_j)=0,\quad1\leq i,j\leq n.\]
     
     设
     \[(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n)A,\]
 
-    则 $A\in\gl _n(\mathbb{R}),F$ 有分解式
+    则 $A\in\gl_n(\mathbb{R}),F$ 有分解式
     \begin{equation}\label{eq3.3}
         F={}^tA\begin{pmatrix}
             f(\boldsymbol{e}_1,\boldsymbol{e}_1) \\
             & f(\boldsymbol{e}_2,\boldsymbol{e}_2) \\
             && \ddots \\
             &&& f(\boldsymbol{e}_n,\boldsymbol{e}_n)
-        \end{pmatrix}A,
+        \end{pmatrix}A.
     \end{equation}
 
-    $\therefore\rank \diag (f(\boldsymbol{e}_1,\boldsymbol{e}_1),\cdots,f(\boldsymbol{e}_n,\boldsymbol{e}_n))=\rank F$.
-
-    $\because\Delta_n\neq0,\therefore\rank F=n,\therefore f(\boldsymbol{e}_1,\boldsymbol{e}_1),\cdots,f(\boldsymbol{e}_n,\boldsymbol{e}_n)\neq0.\therefore\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是规范基.
-
-    $\because\dim U=1,\therefore\forall\lambda\in\mathbb{R},\lambda\boldsymbol{e}_n\in U,\therefore\forall\lambda\in\mathbb{R},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\lambda\boldsymbol{e}_n$ 是规范基. 有
+    $\because\forall\lambda\in\mathbb{R},\lambda\boldsymbol{e}_n\in U,\therefore\forall\lambda\in\mathbb{R},\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\lambda\boldsymbol{e}_n$ 是规范基. 有
     \begin{align*}
         (\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n) & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\lambda\boldsymbol{e}_n)A_\lambda \\
         & =(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\lambda\boldsymbol{e}_n)\begin{pmatrix}
@@ -764,7 +786,7 @@ $\because f(\boldsymbol{e}_i,\boldsymbol{e}_i)=0,\therefore$
 \begin{align*}
     f(\boldsymbol{e}_2,\boldsymbol{e}_1)+f(\boldsymbol{e}_1,\boldsymbol{e}_2) & =f(\boldsymbol{e}_2,\boldsymbol{e}_1)+f(\boldsymbol{e}_1,\boldsymbol{e}_2)+f(\boldsymbol{e}_2,\boldsymbol{e}_2)+f(\boldsymbol{e}_1,\boldsymbol{e}_1) \\
     & =f(\boldsymbol{e}_2,\boldsymbol{e}_1+\boldsymbol{e}_2)+f(\boldsymbol{e}_1,\boldsymbol{e}_1+\boldsymbol{e}_2) \\
-    & =f(\boldsymbol{e}_1+\boldsymbol{e}_2,\boldsymbol{e}_1+\boldsymbol{e}_2)=0, \\
+    & =f(\boldsymbol{e}_1+\boldsymbol{e}_2,\boldsymbol{e}_1+\boldsymbol{e}_2)=0,
 \end{align*}
 
 $\therefore$
@@ -794,7 +816,7 @@ $\therefore F$ 在基 $(\boldsymbol{e}_1,\boldsymbol{e}_2)$ 下的矩阵为
 
 设 $\dim V=n,f\in\mathcal{L}_2^-(V,K),V_0=\ker f$, 则 $\forall\boldsymbol{v}\in V_0,\forall\boldsymbol{x}\in V,f(\boldsymbol{v},\boldsymbol{x})=0$.
 
-$\because f$ 是斜对称的, $\therefore f(\boldsymbol{x},\boldsymbol{v})=f(\boldsymbol{v},\boldsymbol{x})=0$.
+$\because f$ 是斜对称的, $\therefore f(\boldsymbol{x},\boldsymbol{v})=-f(\boldsymbol{v},\boldsymbol{x})=0$.
 
 设 $V=V_1\oplus V_0,V$ 的一个基 $\underbrace{\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k}_{\in V_1},\underbrace{\boldsymbol{e}_{k+1},\boldsymbol{e}_{k+2},\cdots,\boldsymbol{e}_n}_{\in V_0}$, 则 $f(\boldsymbol{e}_i,\boldsymbol{e}_j)=f(\boldsymbol{e}_j,\boldsymbol{e}_i)=0\ (1\leq i \leq k<j\leq n),F$ 在这个基下的矩阵为
 \[F=\begin{pmatrix}
@@ -814,21 +836,18 @@ $\because f$ 是斜对称的, $\therefore f(\boldsymbol{x},\boldsymbol{v})=f(\bo
     f_{k1} & f_{k2} & \cdots & f_{kk} \\
 \end{pmatrix}.\]
 
-设 $\boldsymbol{v}\in V_1$. 如果
-\[f(\boldsymbol{v},V_1):=\{f(\boldsymbol{v},\boldsymbol{x})|\boldsymbol{x}\in V_1\}=\{0\},\]
+对 $V$ 的子空间 $U$, 定义
+\[f(\boldsymbol{v},U):=\{f(\boldsymbol{v},\boldsymbol{x})|\boldsymbol{x}\in U\}.\]
 
-则由
-\[f(\boldsymbol{v},V_0)=\{0\}\]
-得
-\[f(\boldsymbol{v},V)=\{0\}.\]
+设 $\boldsymbol{v}\in V_1$. 如果 $\boldsymbol{v}\in\ker\bar{f}$, 则 $\bar{f}(\boldsymbol{v},V_1)=f(\boldsymbol{v},V_1)=\{0\}$.
 
-$\therefore\boldsymbol{v}\in V_0.\because V_0\oplus V_1=V,\therefore\boldsymbol{v}=\boldsymbol{0}$.
+$\because f(\boldsymbol{v},V_0)=\{0\}$, $\therefore f(\boldsymbol{v},V)=\{0\}$. $\therefore\boldsymbol{v}\in V_0$.
 
-$\therefore\ker V_1=\{\boldsymbol{v}\in V_1|f(\boldsymbol{v},V_1)=0\}=\{0\}$.
+$\because V_0\oplus V_1=V$, $\therefore\boldsymbol{v}=\boldsymbol{0}$. $\therefore\ker\bar{f}=\{\boldsymbol{0}\}$, $\therefore\bar{f}$ 是非退化的.
 
-假设 $\bar{f}$ 是退化的, 则 $\exists$ 基 $(\boldsymbol{e}'_i)$ 使得 $f$ 在基 $(\boldsymbol{e}'_i)$ 下的矩阵 $F'$ 的最后一行和最后一列全为 $0$ ($\bar{f}$ 退化 $\Rightarrow\overline{F}$ 的行和列线性相关, 像第 \ref{exc3} 题那样作变换可以得到 $F={}^tAF'A,\det A\neq0$). $\therefore\boldsymbol{e}_n\in\ker V_1,\therefore\boldsymbol{e}_n=0$, 与 $(\boldsymbol{e}'_i)$ 线性无关矛盾. $\therefore\bar{f}$ 是非退化的.
+由上面的讨论, 对一般的 $f\in\mathcal{L}_2^-(V,K)$ 的研究可以归结为研究非退化的 $f\in\mathcal{L}_2^-(V,K)$.
 
-设 $q_f(\boldsymbol{v})=f(\boldsymbol{v},\boldsymbol{v})$, 则 $\forall\boldsymbol{v}_0\in V_0,\boldsymbol{v}_1\in V_1$, 有
+上述讨论也适用于 $\mathcal{L}_2^+(V,K)$. 设 $f$ 是对称的双线性型, $q_f(\boldsymbol{v})=f(\boldsymbol{v},\boldsymbol{v})$, $V_0=\ker f,V_0\oplus V_1=V$, 则 $\forall\boldsymbol{v}_0\in V_0,\boldsymbol{v}_1\in V_1$, 有
 \begin{align*}
     q_f(\boldsymbol{v}_0+\boldsymbol{v}_1) & =f(\boldsymbol{v}_0+\boldsymbol{v}_1,\boldsymbol{v}_0+\boldsymbol{v}_1) \\
     & =f(\boldsymbol{v}_0,\boldsymbol{v}_0+\boldsymbol{v}_1)+f(\boldsymbol{v}_1,\boldsymbol{v}_0+\boldsymbol{v}_1) \\
@@ -839,9 +858,7 @@ $\therefore\ker V_1=\{\boldsymbol{v}\in V_1|f(\boldsymbol{v},V_1)=0\}=\{0\}$.
 
 称 $V_0$ 为 $f$ 或 $q_f$ 的\textbf{迷向空间}.
 
-由上面的讨论, 对一般的 $f\in\mathcal{L}_2^-(V,K)$ 的研究可以归结为研究非退化的 $f\in\mathcal{L}_2^-(V,K)$.
-
-$\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对应于辛几何.
+$\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^-(V,K)$ 对应于辛几何.
 
 书上定理 10 的证明中有
 \[(\operatorname{Pf}({}^tUTU))^2=(\det U)^2(\operatorname{Pf}(T))^2\Rightarrow\operatorname{Pf}({}^tUTU)=\pm(\det U)\operatorname{Pf}(T),\]
@@ -851,29 +868,138 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 满足
 \[f_1^2(x)=f_2^2(x)=f_3^2(x)=x^2.\]
 \section{第1章习题}
-\subsection{习题1.2}
-\addtocounter{exsection}{2}
-\begin{exercise}%2.1
-    在 $q$ 元域 $\mathbb{F}_q$ 上的 $n$ 维向量空间 $V$ 中, 对于 $1\leq k\leq n$ 由多少个 $k$ 维子空间?
+在这章的习题中, 不加说明的话, 设 $E_{ij}$ 是矩阵单位.
+\subsection{习题1.1}
+\stepcounter{exsection}
+\begin{exercise}% 1.1
+    下列集合是否构成 $\mathbb{R}$ 上的向量空间?
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $M_n(\mathbb{R})$ 中秩为 $r$ 的所有矩阵 $F$;\addtocounter{enumi}{2}
+        \item $M_n(\mathbb{R})$ 所有行列式为 $0$ 的矩阵 $G$.
+    \end{enumerate}
 \end{exercise}
 \begin{solution}
-    $\because V\simeq\mathbb{F}_q^n,\therefore$ 只需求出 $\mathbb{F}_q^n$ 的 $k$ 维子空间的个数.
+    (1) 当 $r=0$ 时 $F$ 是由一个元素构成的向量空间. 当 $r>0$ 时, $F$ 不包含零元, 不是向量空间.
+    
+    (4) 考虑两个矩阵
+    \[A_1=E_{11}+E_{22}+E_{44},\quad A_2=E_{22}+E_{33}+E_{44}.\]
 
-    $\mathbb{F}_q^n$ 的 $1$ 维子空间具有 $\lambda\boldsymbol{x}\ (\lambda\in\mathbb{F}_q,\boldsymbol{x}\in V)$ 的形式. 为了避免重复, 设 $\boldsymbol{x}$ 的各分量的 $\gcd=1$. 目前没有发现 $1$ 维子空间的数目有什么规律. 下面的 Mathematica 程序可以计算 $1$ 维子空间的数目:
-    \begin{verbatim}
-        n = 3;
-        q = 4;
-        Flatten[Array[If[GCD[##] == 1, {##}, Nothing] &, Array[q &, n], 
-          Array[0 &, n]], n - 1] // Length
-    \end{verbatim}
+    有 $\det A_1=\det A_2=0,A_1+A_2=E+E_{22},\det(A_1+A_2)\neq0$, $\therefore G$ 对加法不封闭.
 \end{solution}
-\begin{exercise}[1]\label{ex2.2}
-    求 $n$ 阶实对称矩阵构成的空间 $V$ 的维数.
+\begin{exercise}[2]% 1.2
+    $p$ 元域 $\mathbb{F}_p$ 上长度为 $n$ 的坐标空间 $\mathbb{F}_p^n$ 中, 方程 $\alpha_1x_1+\alpha_2x_2+\cdots+\alpha_nx_n=0\ (\alpha_i\in\mathbb{F}_p,\text{不全为}0)$ 有多少个解?
 \end{exercise}
 \begin{solution}
-    设 $E_{ij}\ (i\leq j\leq n)$ 是第 $ij,ji$ 元为 $1$, 其他地方为 $0$ 的矩阵. 容易验证: (1) $E_{ij}\ (i\leq j\leq n)$ 线性无关. (2) 任一实对称矩阵都可以由 $E_{ij}\ (i\leq j\leq n)$ 线性表示.
+    设 $\alpha_s\neq0$, 则
+    \[x_s=\alpha_s^{-1}\alpha_1x_1+\cdots+\widehat{\alpha_s^{-1}\alpha_sx_s}+\cdots+\alpha_s^{-1}\alpha_nx_n.\]
+
+    $\therefore\forall x_1,\cdots,\hat{x}_s,\cdots,x_n$, 按上式定义 $x_s$, 则 $x_1,x_2,\cdots,x_n$ 构成方程 $\alpha_1x_1+\alpha_2x_2+\cdots+\alpha_nx_n=0$ 的解. $\therefore\alpha_1x_1+\alpha_2x_2+\cdots+\alpha_nx_n=0$ 的解空间同构于 $\mathbb{F}_p^{n-1}$, 有 $p^{n-1}$ 个元素.
+\end{solution}
+\begin{exercisec}[1.1.11]
+    对 $\mathbb{C}^n$ 定义新的纯量乘法 $\circ$: $b\circ(a_1,a_2,\cdots,a_n)=(b\overline{a}_1,b\overline{a}_2,\cdots,b\overline{a}_n)$. 在运算 $+,\circ$ 下 $\mathbb{C}^n$ 是否是向量空间?
+\end{exercisec}
+\begin{solution}
+    $\because 1\circ(a_1,a_2,\cdots,a_n)=(\overline{a}_1,\overline{a}_2,\cdots,\overline{a}_n)\not\equiv(a_1,a_2,\cdots,a_n)$, $\therefore$ 在运算 $+,\circ$ 下 $\mathbb{C}^n$ 不是向量空间.
+\end{solution}
+\begin{exercisec}[1.1.12]
+    设 $M$ 是有限集, $M$ 的所有子集形成的集合记作 $2^M$. 定义 $2^M$ 上的加法与 $2^M$ 与 $\mathbb{Z}_2$ 的纯量乘法如下:
+    \[A+B=(A\cup B)\backslash(A\cap B),\quad 1A=A,\quad0A=\varnothing,\]
+
+    证明: 在这两个运算下, $2^M$ 成为 $\mathbb{Z}_2$ 上的向量空间.
+\end{exercisec}
+\begin{proof}
+    在 [BAI] 第 4 章习题的第 3.1 题证明了 $2^M$ 是 Abel 群. $\forall A,B\in2^M$, 有
+    \[1A+1B=A+B=1(A+B),\]
+    \[0A+0B=\varnothing+\varnothing=\varnothing=0(A+B),\]
+    \[(0+0)A=\varnothing=0A+0A,\quad(0+1)A=A=0A+1A.\]
+
+    由 [BAI] 第 4 章习题的第 3.1 题得 $\forall A\in2^M,A+A=\varnothing$, $\therefore$
+    \[(1+1)A=0A=\varnothing=A+A=1A+1A.\]
+
+    $\therefore$ 纯量乘法与加法满足分配律.
+
+    有
+    \[1(1A)=1A=(1\cdot1)A,\quad1(0A)=1\varnothing=\varnothing=(1\cdot0)A\]
+    (同理得 $(0\cdot1)A=0(1A),0(0A)=(0\cdot0)A$).
+\end{proof}
+\begin{exercisec}[1.1.13]
+    设 $(A,+)$ 是 Abel 群, 证明: $A$ 能成为域 $\mathbb{Z}_p$ 上的向量空间当且仅当
+    \[\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}=\boldsymbol{0},\quad\forall\boldsymbol{x}\in A.\]
+\end{exercisec}
+\begin{solution}
+    ($\Rightarrow$) $\forall\boldsymbol{x}\in A$, 有
+    \[\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}=(\underbrace{1+\cdots+1}_{p\text{个}1})\boldsymbol{x}=0\boldsymbol{x}=\boldsymbol{0}.\]
+
+    ($\Leftarrow$) $\forall r\in\mathbb{Z}_p,\boldsymbol{x}\in A$, 定义纯量乘法
+    \[r\boldsymbol{x}:=\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{r\text{个}\boldsymbol{x}}.\]
+
+    容易验证在加法和这样定义的纯量乘法下, $A$ 能成为域 $\mathbb{Z}_p$ 上的向量空间.
+\end{solution}
+\begin{exercisec}[1.1.14]
+    设 $(A,+)$ 是 Abel 群, 证明: $A$ 能成为域 $\mathbb{Q}$ 上的向量空间当且仅当 $A$ 中的非零元都是无限阶的, 且对 $\forall n\in\mathbb{N},\boldsymbol{a}\in A$, 方程 $\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{n\text{个}\boldsymbol{x}}=\boldsymbol{a}$ 在 $A$ 中有解.
+\end{exercisec}
+\begin{solution}
+    ($\Rightarrow$) 假设 $\exists p\in\mathbb{Q}\backslash\{0\},\boldsymbol{x}\in A\backslash\{\boldsymbol{0}\}$ 使得 $\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}=\boldsymbol{0}$, 则 $\exists\boldsymbol{y}=p\boldsymbol{x}\in A\backslash\{\boldsymbol{0}\}$ 使得
+    \[\boldsymbol{y}=1\boldsymbol{y}=1(p\boldsymbol{x})=(1\cdot p)\boldsymbol{x}=\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}=\boldsymbol{0},\]
+    与 $\boldsymbol{y}\neq\boldsymbol{0}$ 矛盾.
+
+    $\forall n\in\mathbb{N},\boldsymbol{a}\in A$, 方程 $\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{n\text{个}\boldsymbol{x}}=\boldsymbol{a}$ 在 $A$ 中的解为 $\boldsymbol{x}=\dfrac{1}{n}\boldsymbol{a}$.
+
+    ($\Leftarrow$) 先证明方程 $\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{n\text{个}\boldsymbol{x}}=\boldsymbol{a}$ 的解是唯一的. 设 $\boldsymbol{u},\boldsymbol{v}$ 都是方程 $\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{n\text{个}\boldsymbol{x}}=\boldsymbol{a}$ 的解, 则
+    \[\underbrace{\boldsymbol{u}+\cdots+\boldsymbol{u}}_{n\text{个}\boldsymbol{u}}=\underbrace{\boldsymbol{v}+\cdots+\boldsymbol{v}}_{n\text{个}\boldsymbol{v}}\Rightarrow\underbrace{(\boldsymbol{u}-\boldsymbol{v})+\cdots+(\boldsymbol{u}-\boldsymbol{v})}_{n\text{个}(\boldsymbol{u}-\boldsymbol{v})}=\boldsymbol{0}.\]
+
+    $\because A$ 中的非零元都是无限阶的, $\therefore\boldsymbol{u}-\boldsymbol{v}=\boldsymbol{0}\Rightarrow\boldsymbol{u}=\boldsymbol{v}$.
+
+    下面证明: $A$ 成为 $\mathbb{Q}$ 上的线性空间. $\forall q=\dfrac{r}{s}\in\mathbb{Q},\boldsymbol{a}\in A$, 定义 $q\boldsymbol{a}$ 为方程
+    \[\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{s\text{个}\boldsymbol{x}}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{r\text{个}\boldsymbol{a}}\]
+    的解. 由这个方程的解的唯一性得 $q\boldsymbol{a}$ 是确切定义的.
+
+    对 $q'=\dfrac{r'}{s'}\in\mathbb{Q}$, 设 $\boldsymbol{u}_1=q\boldsymbol{a},\boldsymbol{u}_2=q'\boldsymbol{a}$, 则
+    \[\underbrace{\boldsymbol{u}_1+\cdots+\boldsymbol{u}_1}_{s\text{个}\boldsymbol{u}_1}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{r\text{个}\boldsymbol{a}},\quad\underbrace{\boldsymbol{u}_2+\cdots+\boldsymbol{u}_2}_{s'\text{个}\boldsymbol{u}_2}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{r'\text{个}\boldsymbol{a}}.\]
+
+    $\therefore$
+    \[\underbrace{\boldsymbol{u}_1+\cdots+\boldsymbol{u}_1}_{ss'\text{个}\boldsymbol{u}_1}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{rs'\text{个}\boldsymbol{a}},\quad \underbrace{\boldsymbol{u}_2+\cdots+\boldsymbol{u}_2}_{ss'\text{个}\boldsymbol{u}_2}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{r's\text{个}\boldsymbol{a}}.\]
+
+    两式两边相加得
+    \[\underbrace{(\boldsymbol{u}_1+\boldsymbol{u}_2)+\cdots+(\boldsymbol{u}_1+\boldsymbol{u}_2)}_{ss'\text{个}(\boldsymbol{u}_1+\boldsymbol{u}_2)}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{rs'+r's\text{个}\boldsymbol{a}},\]
+
+    即 $\boldsymbol{u}_1+\boldsymbol{u}_2=\dfrac{rs'+r's}{ss'}\boldsymbol{a}\Rightarrow q\boldsymbol{a}+q'\boldsymbol{a}=(q+q')\boldsymbol{a}$. 类似地, 可以验证 $\forall\boldsymbol{a},\boldsymbol{b}\in A,q(\boldsymbol{a}+\boldsymbol{b})=q\boldsymbol{a}+q\boldsymbol{b}$.
+
+    设 $\boldsymbol{u}_1=q\boldsymbol{a},\boldsymbol{u}_2=q'\boldsymbol{u}_1=q'(q\boldsymbol{a})$, 则
+    \[\underbrace{\boldsymbol{u}_1+\cdots+\boldsymbol{u}_1}_{s\text{个}\boldsymbol{u}_1}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{r\text{个}\boldsymbol{a}},\quad\underbrace{\boldsymbol{u}_2+\cdots+\boldsymbol{u}_2}_{s'\text{个}\boldsymbol{u}_2}=\underbrace{\boldsymbol{u}_1+\cdots+\boldsymbol{u}_1}_{r'\text{个}\boldsymbol{u}_1}.\]
+
+    $\therefore$
+    \[\underbrace{\boldsymbol{u}_2+\cdots+\boldsymbol{u}_2}_{ss'\text{个}\boldsymbol{u}_2}=\underbrace{\boldsymbol{u}_1+\cdots+\boldsymbol{u}_1}_{r's\text{个}\boldsymbol{u}_1}=\underbrace{\boldsymbol{a}+\cdots+\boldsymbol{a}}_{rr'\text{个}\boldsymbol{a}},\]
+
+    $\therefore$
+    \[\boldsymbol{u}_2=\dfrac{rr'}{ss'}\boldsymbol{a}=(qq')\boldsymbol{a}\Rightarrow q'(q)\boldsymbol{a}=(qq')\boldsymbol{a}.\qedhere\]
+\end{solution}
+\subsection{习题1.2}
+\stepcounter{exsection}
+\begin{exercise}%2.1
+    在 $q$ 元域 $\mathbb{F}_q$ 上的 $n$ 维向量空间 $V$ 中, 对于 $1\leq k\leq n$ 有多少个 $k$ 维子空间?
+\end{exercise}
+\begin{solution}
+\end{solution}
+\begin{exercise}\label{ex2.2}
+    (1) 求 $n$ 阶实对称矩阵构成的空间 $V$ 的维数.
+    
+    (3) 求迹为 $0$ 的 $n$ 阶实矩阵构成的空间 $V$ 的维数.
+\end{exercise}
+\begin{solution}
+    (1) 设 $F_{ij}=E_{ij}+E_{ji}\ (i\leq j\leq n)$. 容易验证: (a) $F_{ij}\ (i\leq j\leq n)$ 线性无关. (b) 任一实对称矩阵都可以由 $F_{ij}\ (i\leq j\leq n)$ 线性表示.
     
     $\therefore E_{ij}\ (i\leq j\leq n)$ 是 $V$ 的一个基. $\therefore\dim V=\dfrac{n(n+1)}{2}$.
+
+    (3) 设
+    \[V_d=\left<E_{11},E_{22},\cdots,E_{nn}\right>,\quad V_o=\left<E_{ij}|i\neq j\right>,\]
+
+    则 $M_n(\mathbb{R})=V_d\oplus V_o$.
+
+    设 $V_d'$ 是迹为 $0$ 的 $n$ 阶实矩阵的对角元构成的空间, 则 $V_d'$ 同构于方程 $a_{11}+a_{22}+\cdots+a_{nn}=0$ 的解空间, $V=V_d'\oplus V_o$.
+    
+    $\therefore\dim V_d'=n-1=\dim V_d-1$, $\therefore\dim V=\dim M_n(\mathbb{R})-1=n^2-1$.
 \end{solution}
 \begin{exercise}% 2.3
     求出全体域 $P$ 上次数 $\leq n$ 的满足 $f(1)=0$ 的多项式组成的空间 $V$ 的一个基.
@@ -883,9 +1009,9 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     \[f(X)=b_1(X-1)+b_2(X-1)^2+\cdots+b_n(X-1)^n\]
     的形式. 特别地, $f=0$ 当且仅当 $b_i=0.\therefore X-1,(X-1)^2,\cdots,(X-1)^n$ 是 $V$ 的一个基.
 \end{solution}
-\begin{exercise}% 2.4
+\begin{exercise}\label{ex2.4}
     证明: $V=U_1+U_2+\cdots+U_m$ 是直和的充要条件是
-    \[(U_1+U_2+\cdots+U_{i-1})U_i=\{\boldsymbol{0}\},\quad 1<i\leq m.\]
+    \[(U_1+U_2+\cdots+U_{i-1})\cap U_i=\{\boldsymbol{0}\},\quad 1<i\leq m.\]
 \end{exercise}
 \begin{proof}
     ($\Rightarrow$) 只需证明 $U_1+U_2+\cdots+U_i$ 是直和, 再由书上的定理 7 得.
@@ -895,10 +1021,10 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     其中 $\alpha_k$ 不全为 $0,\boldsymbol{u}_k\in U_k$.
 
-    $\therefore$ 在 $U_1+U_2+\cdots+U_{i-1}$ 中有
+    $\therefore$ 在 $U_1+U_2+\cdots+U_m$ 中有
     \[\boldsymbol{0}=\alpha_1\boldsymbol{u}_1+\alpha_2\boldsymbol{u}_2+\cdots+\alpha_m\boldsymbol{u}_m,\]
 
-    其中 $\boldsymbol{u}_k\in U_k$, 对 $k\leq i-1,\alpha_k$ 不全为 $0$, 对 $k>i-1,\alpha_k=0.\therefore U_1+U_2+\cdots+U_m$ 不是直和, 与 $U_1+U_2+\cdots+U_m$ 是直和矛盾.
+    其中 $\boldsymbol{u}_k\in U_k$, 对 $k\leq i-1,\alpha_k$ 不全为 $0$, 对 $k>i-1,\alpha_k=0$. $\therefore U_1+U_2+\cdots+U_m$ 不是直和, 与 $U_1+U_2+\cdots+U_m$ 是直和矛盾.
 
     ($\Leftarrow$) 用数学归纳法. 当 $m=2$ 时有
     \[U_1\cap U_2=\{0\}\Rightarrow\dim(U_1+U_2)=\dim U_1+\dim U_2,\]
@@ -906,13 +1032,13 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     $\therefore U_1+U_2$ 是直和.
 
     假设当 $m=k$ 时成立, 则由
-    \[(U_1+U_2+\cdots+U_{i-1})U_i=\{\boldsymbol{0}\},\quad 1<i\leq k\]
+    \[(U_1+U_2+\cdots+U_{i-1})\cap U_i=\{\boldsymbol{0}\},\quad 1<i\leq k\]
 
     得
     \[\dim(U_1+U_2+\cdots+U_k)=\dim U_1+\dim U_2+\cdots+\dim U_k.\]
 
     $\therefore$ 由
-    \[(U_1+U_2+\cdots+U_k)U_{k+1}=\{\boldsymbol{0}\}\]
+    \[(U_1+U_2+\cdots+U_k)\cap U_{k+1}=\{\boldsymbol{0}\}\]
 
     得
     \begin{align*}
@@ -930,10 +1056,12 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     \begin{align*}
           & (1,t-\alpha,(t-\alpha)^2,\cdots,(t-\alpha)^n) \\
         = & \ (1,t,t^2,\cdots,t^n)\begin{pmatrix}
-        -\alpha     & t \\
-        (-\alpha)^2 & 2(-\alpha)t       & t^2 \\
-        \vdots      & \vdots            & \vdots & \ddots \\
-        (-\alpha)^n & n(-\alpha)^{n-1}t & \binom{n}{2}(-\alpha)^{n-2}t^2 & \cdots & \binom{n}{k}(-\alpha)^{n-k}t^k & \cdots & t^n \\
+        1 & -\alpha & (-\alpha)^2 & (-\alpha)^3  & \cdots & (-\alpha)^n \\
+          & 1       & 2(-\alpha)  & 3(-\alpha)^2 & \cdots & n(-\alpha)^{n-1} \\
+          &         & 1           & 3(-\alpha)   & \cdots & \vdots \\
+          &         &             & 1            & \cdots & \binom{n}{k}(-\alpha)^{n-k} \\
+          &         &             &              & \ddots & \vdots \\
+          &  &  &  &  & 1 \\
     \end{pmatrix}.
     \end{align*}
 \end{solution}
@@ -994,43 +1122,167 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     $\therefore K[X]/L_3$ 是无限维的.
 \end{solution}
-\begin{exercise}% 2.9
-    证明:
-    \[\operatorname{codim}(U+W)+\operatorname{codim}(U\cap W)=\operatorname{codim}U+\operatorname{codim}W,\]
 
-    其中 $U,W$ 是 $V$ 的余维数有限的子空间.
+证明第 \ref{ex2.9} 题需要下面的引理. 这些引理本身也是很好的习题. 在第 \ref{ex2.9} 题和下面的引理中, 不加说明的话, 线性空间可以是无限维的.
+\begin{lemma}\label{l4.1}
+    设 $U,W$ 是线性空间 $V$ 的子空间, 则 $(U+W)/W\simeq U/(U\cap W)$.
+\end{lemma}
+\begin{proof}
+    设
+    \[\varphi:\begin{array}{rcll}
+        (U+W)/W & \to & U/(U\cap W) \\
+        \boldsymbol{u}+\boldsymbol{w}+W & \mapsto & \boldsymbol{u}+U\cap W & (\boldsymbol{u}\in U,\boldsymbol{w}\in W) \\
+    \end{array}.\]
+
+    容易验证 $\varphi$ 是线性映射, 且是满射.
+
+    对 $\boldsymbol{u}_1,\boldsymbol{u}_2\in U,\boldsymbol{w}_1,\boldsymbol{w}_2\in W$, 有
+    \[\boldsymbol{u}_1+\boldsymbol{w}_1+W=\boldsymbol{u}_2+\boldsymbol{w}_2+W\Rightarrow(\boldsymbol{u}_1+\boldsymbol{w}_1)-(\boldsymbol{u}_2+\boldsymbol{w}_2)\in W\Rightarrow\boldsymbol{u}_1-\boldsymbol{u}_2\in W.\]
+
+    $\because\boldsymbol{u}_1,\boldsymbol{u}_2\in U$, $\therefore\boldsymbol{u}_1-\boldsymbol{u}_2\in U$, $\therefore\boldsymbol{u}_1-\boldsymbol{u}_2\in U\cap W$. $\therefore$
+    \[\varphi(\boldsymbol{u}_1+\boldsymbol{w}_1+W)-\varphi(\boldsymbol{u}_1+\boldsymbol{w}_1+W)=\boldsymbol{u}_1-\boldsymbol{u}_2+U\cap W=\boldsymbol{0}+U\cap W.\]
+
+    $\therefore\varphi$ 是单射. $\therefore\varphi$ 是同构, $(U+W)/W\simeq U/(U\cap W)$.
+\end{proof}
+\begin{lemma}\label{l4.2}
+    设 $W\subset U\subset V$ 是线性空间, $U$ 有补空间 $U'$, 则 $V/W\simeq U/W\oplus U'$ (其中的直和是外直和).
+\end{lemma}
+\begin{proof}
+    考虑映射
+    \[\varphi:\begin{array}{rcll}
+        V/W & \to & U/W\oplus U' \\
+        \boldsymbol{u}+\boldsymbol{u}'+W & \mapsto & (\boldsymbol{u}+W,\boldsymbol{u}') & (\boldsymbol{u}\in U,\boldsymbol{u}'\in U') \\
+    \end{array}.\]
+
+    $\because U\oplus U'=V$, $\therefore\forall\boldsymbol{v}\in V,\exists!\boldsymbol{u}\in U,\boldsymbol{u}'\in U'$ 使得 $\boldsymbol{v}=\boldsymbol{u}+\boldsymbol{u}'$. $\therefore\psi$ 是确切定义的.
+
+    容易验证 $\varphi$ 是满射.
+
+    设 $\boldsymbol{u}_1+\boldsymbol{u}_1'+W,\boldsymbol{u}_2+\boldsymbol{u}'_2+W\in V/W$, 则
+    \begin{equation}\label{eq4.1}
+        \begin{aligned}
+            \varphi(\alpha(\boldsymbol{u}_1+\boldsymbol{u}_1'+W)+\beta(\boldsymbol{u}_2+\boldsymbol{u}'_2+W)) & =(\alpha\boldsymbol{u}_1+W,\alpha\boldsymbol{u}_1')+(\beta\boldsymbol{u}_2+W,\beta\boldsymbol{u}_2') \\
+            & =(\alpha(\boldsymbol{u}_1+W),\alpha\boldsymbol{u}_1')+(\beta(\boldsymbol{u}_2+W),\beta\boldsymbol{u}_2') \\
+            & =\alpha(\boldsymbol{u}_1+W,\boldsymbol{u}_1')+\beta(\boldsymbol{u}_2+W,\boldsymbol{u}_2') \\
+            & =\alpha\varphi(\boldsymbol{u}_1+\boldsymbol{u}_1'+W)+\beta\varphi(\boldsymbol{u}_2+\boldsymbol{u}_2'+W),
+        \end{aligned}
+    \end{equation}
+    
+    $\therefore\varphi$ 是线性映射.
+
+    设 $\varphi(\boldsymbol{u}_1+\boldsymbol{u}_1'+W)=\varphi(\boldsymbol{u}_2+\boldsymbol{u}_2'+W)$, 由式 (\ref{eq4.1}) 得
+    \begin{align*}
+        \varphi((\boldsymbol{u}_1+\boldsymbol{u}_1'+W)-(\boldsymbol{u}_2+\boldsymbol{u}'_2+W)) & =\varphi(\boldsymbol{u}_1+\boldsymbol{u}_1'+W)-\varphi(\boldsymbol{u}_2+\boldsymbol{u}_2'+W) \\
+        & =(\boldsymbol{0}+W,\boldsymbol{0}).
+    \end{align*}
+
+    $\because$
+    \[(\boldsymbol{u}_1+\boldsymbol{u}_1'+W)-(\boldsymbol{u}_2+\boldsymbol{u}'_2+W)=(\boldsymbol{u}_1-\boldsymbol{u}_2)+(\boldsymbol{u}_1'-\boldsymbol{u}_2')+W,\]
+
+    $\therefore$
+    \[\boldsymbol{u}_1-\boldsymbol{u}_2=\boldsymbol{0}=\boldsymbol{u}_1'-\boldsymbol{u}_2'=\boldsymbol{0}.\Rightarrow\boldsymbol{u}_1+\boldsymbol{u}_1'+W=\boldsymbol{u}_2+\boldsymbol{u}'_2+W.\]
+
+    $\therefore\varphi$ 是单射.
+\end{proof}
+\begin{lemma}\label{l4.3}
+    设 $U,W$ 是 $V$ 的子空间, $B\subset U,C\subset W$, $U+W=W\oplus B=U\oplus C$, 则
+    \[U+W=B\oplus C\oplus(U\cap W).\]
+\end{lemma}
+\begin{proof}
+    $\because U+W=W\oplus B$, $\therefore\forall\boldsymbol{x}\in U+W,\exists\boldsymbol{w}\in W,\boldsymbol{b}\in B$ 使得 $\boldsymbol{x}=\boldsymbol{w}+\boldsymbol{b}$. $\because U+W=U\oplus C$, $\therefore$ 对 $\boldsymbol{w}\in W\subset U+W,\exists\boldsymbol{c}\in C,\boldsymbol{u}\in U$ 使得 $\boldsymbol{w}=\boldsymbol{c}+\boldsymbol{u}$.
+
+    $\because\boldsymbol{w}\in W,\boldsymbol{c}\in C\subset W$, $\therefore\boldsymbol{u}=\boldsymbol{w}-\boldsymbol{c}\subset W$.
+    
+    $\therefore\forall\boldsymbol{x}\in U+W,\boldsymbol{x}=\boldsymbol{b}+\boldsymbol{c}+\boldsymbol{u}$, 其中 $\boldsymbol{b}\in B,\boldsymbol{c}\in C,\boldsymbol{u}\in U\cap W$.
+
+    $\because W+B$ 是直和, $\therefore W\cap B=\{\boldsymbol{0}\}$. $\because C\in W$, $\therefore C\cap B=\{\boldsymbol{0}\}$.
+
+    设 $\boldsymbol{x}\in(U\cap W)\cap(B\oplus C)$. $\because\boldsymbol{x}\in B\oplus C$, $\therefore\exists\boldsymbol{b}\in B,\boldsymbol{c}\in C$ 使得 $\boldsymbol{x}=\boldsymbol{b}+\boldsymbol{c}$.
+
+    $\because\boldsymbol{x}\in U\cap W\subset U,\boldsymbol{b}\in B\subset U$, $\therefore\boldsymbol{c}=\boldsymbol{x}-\boldsymbol{b}\in U$.
+    
+    $\because U+C$ 是直和, $\therefore U\cap C=\{\boldsymbol{0}\}$, $\therefore\boldsymbol{c}=\boldsymbol{0}$. 对称地, $\boldsymbol{b}=\boldsymbol{0}$. $\therefore\boldsymbol{x}=\boldsymbol{b}+\boldsymbol{c}=\boldsymbol{0}$.
+
+    $\therefore(U\cap W)\cap(B\oplus C)=\{\boldsymbol{0}\}$, 由第 \ref{ex2.4} 题得 $(U+W)=B+C+(U\cap W)$ 是直和.
+\end{proof}
+\begin{exercise}\label{ex2.9}
+    设 $U,W$ 是 $V$ 的余维数有限的子空间. 证明: (1) $U+W,V\cap W$ 的余维数有限;
+
+    (2) 下列等式成立:
+    \begin{equation}\label{eq4.2}
+        \codim(U+W)+\codim(U\cap W)=\codim U+\codim W.
+    \end{equation}
 \end{exercise}
 \begin{proof}
+    (1) 由定理 \ref{t1.7} 得 $U,W$ 的补空间存在. 设 $U',W'$ 分别是 $U,W$ 的一个补空间, 则 $\dim U'=\codim U,\dim W'=\codim W$.
+
+    考虑映射
+    \[\varphi:\begin{array}{rcl}
+        U' & \to & V/(U+W) \\
+        \boldsymbol{u}' & \mapsto & \boldsymbol{u}'+(U+W) \\
+    \end{array}.\]
     
-    % 设 $U',W',A,B$ 分别是 $U,W,U\cap W,U+W$ 的补空间.
+    容易验证 $\varphi$ 是线性的.
+
+    $\because\forall\boldsymbol{v}\in V,\exists\boldsymbol{u}\in U\subset U+W,\boldsymbol{u}'\in U'$ 使得
+    \[\boldsymbol{v}=\boldsymbol{u}+\boldsymbol{u}'\Rightarrow\boldsymbol{v}+(U+W)=\boldsymbol{u}+(U+W)=\varphi(\boldsymbol{u}),\]
+
+    $\therefore\varphi$ 是满射. 由引理 \ref{l1.1} 得 $\codim(U+W)=\dim V/(U+W)\leq\dim U'$ 为有限数.
+
+    考虑映射
+    \[\psi:\begin{array}{rcll}
+        V/W & \to & (U+W)/W \\
+        \boldsymbol{u}+\boldsymbol{u}'+W & \mapsto & \boldsymbol{u}+W & (\boldsymbol{u}\in U,\boldsymbol{u}'\in U') \\
+    \end{array}\]
+
+    与引理 \ref{l4.2} 一样, 得 $\psi$ 是确切定义的. 容易验证 $\psi$ 是线性的.
+
+    $\because\forall\boldsymbol{u}+\boldsymbol{w}\in U+W,\exists\boldsymbol{u}\in U\subset V$ 使得
+    \[\boldsymbol{u}+\boldsymbol{w}+W=\boldsymbol{u}+W=\psi(\boldsymbol{u}),\]
+
+    $\therefore\psi$ 是满射. 由引理 \ref{l1.1} 得 $\dim(U+W)/W\leq\dim  V/W$ 为有限数. 由引理 \ref{l4.1} 得 $\dim U/(U\cap W)$ 为有限数.
+
+    由引理 \ref{l4.2} 得 $V/(U\cap W)=U/(U\cap W)\oplus U'$, $\therefore$
+    \[\dim V/(U\cap W)=\dim U/(U\cap W)+\dim U'.\]
+
+    $\because$ 上式右边是有限数, $\therefore\codim(U\cap W)=\dim V/(U\cap W)$ 是有限数.
+
+    (2) 如果 $U\subset W\vee U\supset W$, 式 (\ref{eq4.1}) 退化为 $\codim U+\codim W=\codim U+\codim W$. 下面设 $U\not\subset W\wedge U\not\supset W$.
+
+    $\because U\not\subset W$, $\therefore\exists\boldsymbol{b}_1\in U\backslash W$. 如果 $U\not\subset(W+\left<\boldsymbol{b}_1\right>)$, 那么 $\exists\boldsymbol{b}_2\in U\backslash(W+\left<\boldsymbol{b}_1\right>)$. 如果 $U\not\subset(W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2\right>)$, 那么 $\exists\boldsymbol{b}_3\in U\backslash(W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2\right>)$. 一直做下去, 直到 $\exists t$ 使得 $U\subset(W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>)$ (由 $U\subset W+W'$ 且 $\dim W'$ 有限得 $t$ 存在). $\because$
+    \[\boldsymbol{b}_k\in U\backslash(W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_{k-1}\right>),\]
+
+    $\therefore\boldsymbol{b}_k\notin\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_{k-1}\right>$, $\therefore$
+    \[\left<\boldsymbol{b}_k\right>\cap\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_{k-1}\right>=\{\boldsymbol{0}\}.\]
+
+    由第 \ref{ex2.4} 题得 $\left<\boldsymbol{b}_1\right>+\left<\boldsymbol{b}_2\right>+\cdots+\left<\boldsymbol{b}_t\right>=\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>$ 是直和. $\therefore\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t$ 线性无关.
+
+    $\because U\subset W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>$, $\therefore U+W\subset W+\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>$.
     
-    % 设 $\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_r,\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_s,\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_t$ 是 $A$ 的一个基, 其中 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_s\in U,\boldsymbol{w}_1,\boldsymbol{w}_2,\cdots,\boldsymbol{w}_t\in R,\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_r\in A\backslash(U\cup V)$, 则 $\forall\boldsymbol{x}\in V,\exists\boldsymbol{y}\in U\land\boldsymbol{y}\in W,\alpha_1,\alpha_2,\cdots,\alpha_r\in K$ 使得
-    % \begin{equation}\label{exeq1}
-    %     \boldsymbol{x}=\boldsymbol{y}+\alpha_1\boldsymbol{a}_1+\alpha_2\boldsymbol{a}_2+\cdots+\alpha_r\boldsymbol{a}_r.
-    % \end{equation}
+    $\because\boldsymbol{b}_i\in U$, $\therefore\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>\subset U$, $\therefore\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>+W\subset U+W$, $\therefore\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>+W=U+W$.
 
-    % 特别地, 若 $\boldsymbol{x}=\boldsymbol{0}$, 则 $\boldsymbol{y}=\boldsymbol{0},\alpha_1\boldsymbol{a}_1+\alpha_2\boldsymbol{a}_2+\cdots+\alpha_r\boldsymbol{a}_r=\boldsymbol{0}.\because\boldsymbol{a}_i$ 线性无关, $\therefore\alpha_i=0$.
+    $\because\boldsymbol{b}_i\notin W$, $\therefore\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>\cap W=\{\boldsymbol{0}\}$, $\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>+W=(U+W)$ 是直和.
 
-    % 设 $\boldsymbol{x}\in U'$, 则
+    对称地, $\exists$ 线性无关的 $\boldsymbol{c}_1,\boldsymbol{c}_2,\cdots,\boldsymbol{c}_q$ 满足
+    \[\boldsymbol{c}_i\in W\backslash(U+\left<\boldsymbol{c}_1,\boldsymbol{c}_2,\cdots,\boldsymbol{c}_{i-1}\right>),\]
+    
+    且 $\left<\boldsymbol{c}_1,\boldsymbol{c}_2,\cdots,\boldsymbol{c}_t\right>+W=(U+W)$ 是直和.
 
-    % $\because U\oplus U'=V,\therefore\exists\boldsymbol{u}'\in U',\boldsymbol{u}''\in U$ 使得
-    % \begin{equation}\label{exeq2}
-    %     \boldsymbol{x}=\boldsymbol{u}'+\boldsymbol{u}''.
-    % \end{equation}
+    设 $B=\left<\boldsymbol{b}_1,\boldsymbol{b}_2,\cdots,\boldsymbol{b}_t\right>,C=\left<\boldsymbol{c}_1,\boldsymbol{c}_2,\cdots,\boldsymbol{c}_q\right>$. 由引理 \ref{l4.3} 得
+    \[U+W=B\oplus C\oplus(U\cap W).\]
+        
+    由定理 \ref{t1.7} 得 $U+W$ 的补空间存在. 设 $A$ 是 $U+W$ 的一个补空间, $\boldsymbol{a}_1,\boldsymbol{a}_2,\cdots,\boldsymbol{a}_s$ 是 $A$ 的一个基, 则
+    \[V=A\oplus(U+W)=A\oplus B\oplus W=A\oplus C\oplus U=A\oplus B\oplus C\oplus(U\cap W).\]
 
-    % 特别地, 若 $\boldsymbol{x}=\boldsymbol{0}$, 则 $\boldsymbol{u}'=\boldsymbol{u}''=\boldsymbol{0}$.
+    通过构造典范映射可以验证
+    \[A\oplus B\simeq W',\quad A\oplus C\simeq U',\quad A\oplus B\oplus C\simeq V/(U\cap W).\]
 
-    % 式 (\ref{exeq1}) $-$ 式 (\ref{exeq2}) 得
-    % \[\boldsymbol{0}=\boldsymbol{u}-\boldsymbol{u}''-\boldsymbol{u}'+\boldsymbol{w}+(\alpha_1\boldsymbol{a}_1+\alpha_2\boldsymbol{a}_2+\cdots+\alpha_r\boldsymbol{a}_r).\]
-
-    % $\because W\oplus W'=V,\therefore\exists\boldsymbol{w}'\in W',\boldsymbol{w}''\in W$ 使得
-    % \begin{equation}\label{exeq3}
-    %     \boldsymbol{u}'=\boldsymbol{w}'+\boldsymbol{w}''.
-    % \end{equation}
-
-    % 特别地, 若 $\boldsymbol{u}=\boldsymbol{0}$, 则 $\boldsymbol{w}'=\boldsymbol{w}''=\boldsymbol{0}$.
-
-    % 假设 $\boldsymbol{w}'\notin U'$, 则 
+    $\therefore$
+    \begin{align*}
+        \codim W+\codim U & =(\dim A+\dim B)+(\dim A+\dim C) \\
+        & =\dim A+(\dim A+\dim B+\dim C) \\
+        & =\codim(U+W)+\codim(U\cap W).\qedhere
+    \end{align*}
 \end{proof}
 \addtocounter{exercise}{2}
 \begin{exercise}% 2.12
@@ -1060,6 +1312,309 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     $\therefore\dim\bigcap\limits_{i=1}^kV_i=\dim\ker\varphi>0$.
 \end{proof}
+\begin{exercisec}[1.2.3(4)]
+    证明 $\sin x,\sin^2x,\cdots,\sin^nx$ 线性无关.
+\end{exercisec}
+\begin{proof}
+    只需证明 $1,\sin x,\sin^2x,\cdots,\sin^nx$ 线性无关.
+    
+    用数学归纳法. 当 $n=0$ 时显然成立. 设 $1,\sin x,\sin^2x,\cdots,\sin^{n-1}x$ 线性无关. 设
+    \begin{equation}\label{eq4.3}
+        a_0+a_1\sin x+a_2\sin^2x+\cdots+a_n\sin^nx=0.
+    \end{equation}
+
+    在式 (\ref{eq4.3}) 中令 $x=\dfrac{\pi}{2}$ 得
+    \[a_0+a_1+\cdots+a_n=0.\]
+
+    式 (\ref{eq4.3}) 减去上式得
+    \[a_1(\sin x-1)+a_2(\sin^2x-1)+\cdots+a_n(\sin^nx-1)=0.\]
+
+    上式两边除 $\sin x-1$ 得
+    \begin{align*}
+        & a_1+a_2(1+\sin x)+a_3(1+\sin x+\sin^2x)+\cdots+a_n(1+\sin x+\cdots+\sin^{n-1}x)=0 \\
+        & \Rightarrow(a_1+a_2+\cdots+a_n)+(a_2+\cdots+a_n)\sin x+(a_3+\cdots+a_n)\sin^2x \\
+        & \quad+\cdots+(a_{n-1}+a_n)\sin^{n-2}x+a_n\sin^{n-1}x=0. \\
+    \end{align*}
+
+    由归纳假定,
+    \[\begin{cases}
+        a_1+a_2+\cdots+a_n=0, \\
+        a_2+\cdots+a_n=0, \\
+        \cdots \\
+        a_{n-1}+a_n=0, \\
+        a_n=0, \\
+    \end{cases}\Rightarrow\begin{cases}
+        a_1=0, \\
+        a_2=0, \\
+        \cdots \\
+        a_n=0.
+    \end{cases}\]
+
+    $\therefore$ 式 (\ref{eq4.3}) $\Rightarrow a_0=0$, $\therefore1,\sin x,\sin^2x,\cdots,\sin^nx$ 线性无关.
+\end{proof}
+\begin{note}
+    第 1.2.4 题的 (1) (2) 也可以用类似的方法证明, 比如证明 $e^{a_1x},\cdots,e^{a_nx}$ 线性无关, 先在
+    \[b_1e^{a_1x}+\cdots+b_ne^{a_nx}=0\]
+    中令 $x=0$ 得 $b_1+\cdots+b_n=0$, 上式再两边除 $e^{a_1x}$, 减去 $b_1+\cdots+b_n$, 就可以得到少一个元素的式子.
+\end{note}
+\begin{exercisec}[1.2.5]
+    证明: 单变量实函数空间中的向量 $f_1,\cdots,f_n$ 线性无关当且仅当 $\exists a_1,\cdots,a_n$ 使得 $\det(f_i(a_j))\neq0$.
+\end{exercisec}
+\begin{proof}  
+    ($\Leftarrow$) $\because\det(f_i(a_j))\neq0$, $\therefore$ 关于 $\alpha_1,\alpha_2,\cdots,\alpha_n$ 的方程组
+    \begin{equation}\label{eq4.4}
+        \begin{cases}
+            \alpha_1f_1(a_1)+\alpha_2f_2(a_1)+\cdots+\alpha_nf_n(a_1)=0 \\
+            \alpha_1f_1(a_2)+\alpha_2f_2(a_2)+\cdots+\alpha_nf_n(a_2)=0 \\
+            \cdots \\
+            \alpha_1f_1(a_n)+\alpha_2f_2(a_n)+\cdots+\alpha_nf_n(a_n)=0 \\
+        \end{cases}
+    \end{equation}
+    只有零解.
+
+    $\therefore$ 如果 $\alpha_1,\alpha_2,\cdots,\alpha_n$ 满足 $\alpha_1f_1+\alpha_2f_2+\cdots+\alpha_nf_n=0$, 那么 $\alpha_1,\alpha_2,\cdots,\alpha_n$ 是方程组 (\ref{eq4.4}) 的解, $\therefore\alpha_1=\alpha_2=\cdots=\alpha_n=0$.
+
+    ($\Rightarrow$) 对 $a_1,a_2,\cdots,a_n\in\mathbb{R}$, 考虑映射
+    \[\varphi_{a_1,a_2,\cdots,a_n}:\begin{array}{rcl}
+        \left<f_1,\cdots,f_n\right> & \to & \mathbb{R}^n \\
+        f & \mapsto & Y_f:=[f(a_1),f(a_2),\cdots,f(a_n)] \\
+    \end{array}.\]
+
+    容易验证 $\varphi_{a_1,a_2,\cdots,a_n}$ 是线性映射.
+
+    对 $n$ 用数学归纳法证明: 如果 $f_1,\cdots,f_n$ 线性无关, 那么 $\exists a_1,a_2,\cdots,a_n$ 使得 $\varphi_{a_1,a_2,\cdots,a_n}$ 是满射.
+    
+    当 $n=1$ 时, $\because\{f_1\}$ 线性无关, $\therefore f_1\neq0$, $\therefore\exists a_1\in\mathbb{R}$ 使得 $f_1(a_1)\neq0$. $\therefore\forall y\in\mathbb{R},\exists f=(y/f_1(a_1))f_1\in\left<f_1\right>$ 使得
+    \[\varphi_{a_1}(f)=f(a_1)=(y/f_1(a_1))f_1(a_1)=y.\]
+
+    $\therefore\varphi_{a_1}$ 是满射.
+    
+    假定结论对 $n-1$ 个函数构成的向量组成立. 设 $f_1,\cdots,f_n$ 线性无关, 则 $f_1,\cdots,f_{n-1}$ 线性无关, 由归纳假定, $\exists a_1,a_2,\cdots,a_{n-1}$ 使得 $\varphi_{a_1,a_2,\cdots,a_{n-1}}$ 是满射. $\therefore\exists f_{(1)},\cdots,f_{(n-1)}\in\left<f_1,\cdots,f_{n-1}\right>$ 使得
+    \[\varphi_{a_1,a_2,\cdots,a_{n-1}}(f_{(i)})=[0,\cdots,0,1(\text{第}i\text{个}),0,\cdots,0].\]
+
+    有
+    \begin{align*}
+        & \varphi_{a_1,a_2,\cdots,a_{n-1}}(f_n-f_n(a_1)f_{(1)}-f_n(a_2)f_{(2)}-\cdots-f_n(a_{n-1})f_{(n-1)}) \\
+        & =[f_n(a_1),\cdots,f_n(a_{n-1})]-[f_n(a_1),0,\cdots,0]-[0,f_n(a_2),0,\cdots,0] \\
+        & \quad-\cdots-[0,\cdots,0,f_n(a_{n-1})]=0.
+    \end{align*}
+
+    记 $g=f_n-f_n(a_1)f_{(1)}-\cdots-f_n(a_{n-1})f_{(n-1)}$, 则 $g(a_i)=0\ (i=1,2,\cdots,n-1)$.
+    
+    $\because f_1,\cdots,f_n$ 线性无关, $\therefore f_n\notin\left<f_1,\cdots,f_{n-1}\right>$. $\therefore$
+    \[f_n\neq f_n(a_1)f_{(1)}+f_n(a_2)f_{(2)}+\cdots+f_n(a_{n-1})f_{(n-1)}\Rightarrow g\neq0.\]
+
+    $\therefore\exists a_n\in\mathbb{R}\backslash\{a_1,a_2,\cdots,a_{n-1}\},g(a_n)\neq0$.
+
+    $\therefore\forall[y_1,y_2,\cdots,y_n]\in\mathbb{R}^n,\exists$
+    \begin{align*}
+        h & =y_1f_{(1)}+\cdots+y_{n-1}f_{(n-1)}+\dfrac{y_n-y_1f_{(1)}(a_n)-\cdots-y_{n-1}f_{(n-1)}(a_{n-1})}{g(a_n)}g \\
+        & \in\left<f_{(1)},\cdots,f_{(n-1)},g\right>\subset\left<f_1,\cdots,f_{n-1}\right>
+    \end{align*}
+    满足 $h(a_i)=y_i\ (i=1,2,\cdots,n)\Rightarrow\varphi_{a_1,a_2,\cdots,a_n}(h)=[y_1,y_2,\cdots,y_n]$. $\therefore\varphi_{a_1,a_2,\cdots,a_n}$ 是满射.
+
+    $\because\varphi_{a_1,a_2,\cdots,a_n}$ 是线性映射, $\therefore\im\varphi_{a_1,a_2,\cdots,a_n}=\left<Y_{f_1},Y_{f_2},\cdots,Y_{f_n}\right>$.
+    
+    $\varphi_{a_1,a_2,\cdots,a_n}$ 是满射, $\therefore\left<Y_{f_1},Y_{f_2},\cdots,Y_{f_n}\right>=\im\varphi_{a_1,a_2,\cdots,a_n}=\mathbb{R}^n$. $\therefore Y_{f_1},Y_{f_2},\cdots,Y_{f_n}$ 线性无关, 有
+    \[\det(f_i(a_j))=\det(Y_{f_1},Y_{f_2},\cdots,Y_{f_n})\neq0.\qedhere\]
+\end{proof}
+\begin{exercisec}[1.3.2]
+    设 $V$ 是 $p$ 元域 $K$ 上的 $n$ 维向量空间 ($n\geq2$). 求:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item $V$ 的基的个数;
+        \stepcounter{enumi}
+        \item $M_n(K)$ 中的退化矩阵的个数.
+    \end{enumerate}
+\end{exercisec}
+\begin{solution}
+    与 [BAI] 第 4 章笔记的例 3.6 类似, 得
+    \[|\gl_n(K)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+
+    (1) 由定理 \ref{t1.1} 得 $V$ 的基与 $\gl_n(K)$ 间能建立双射, $\therefore V$ 的基的个数为 $|\gl_n(K)|$.
+
+    (3) $\because M_n(K)$ 中的退化矩阵全体为 $M_n(K)\backslash\gl_n(K)$, $\therefore M_n(K)$ 中的退化矩阵的个数为
+    \[|M_n(K)|-|\gl_n(K)|=p^{n^2}-(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+\end{solution}
+\begin{exercisec}[1.3.5]
+    设 $K[x_1,x_2,\cdots,x_m]$ 是 $K$ 上的 $m$ 元多项式环, 求下列空间的维数:
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item 所有 $k$ 次齐次多项式张成的空间;
+        \item 所有对称的 $k$ 次齐次多项式张成的空间.
+    \end{enumerate}
+\end{exercisec}
+\begin{solution}
+    (1) 所有 $k$ 次齐次多项式张成的空间的一个基是 $\{k$ 次 $m$ 元单项式全体$\}$.
+    
+    把 $m$ 元单项式的变元看成是 $m$ 个盒子, 每个变元的次数看成是盒子中的球的个数, 空间的维数 $|\{k$ 次 $m$ 元单项式全体$\}|$ 等价于下面的问题的解: 把相同的 $k$ 个球放进 $m$ 个盒子, 求放置方法的个数(记为 $V_{m,k}$).
+
+    把 $k$ 个球放进 $m$ 个盒子可以看成是先把 $i$ 个球放进第一个盒子, 再把 $k-i$ 个球放进后 $m-1$ 个盒子. $\therefore V_{m,k}$ 有递推式
+    \[V_{m,k}=\sum\limits_{i=0}^kV_{m-1,k-i}.\]
+
+    (2) 按照 $S(\alpha u+\beta v)=\alpha S(u)+\beta S(v)$ 将 [BAI] 第 6 章第 2 节第 3 小节定义的 $S(v)$ 的定义延拓为 $m$ 元多项式空间到 $m$ 元对称多项式空间 $U$ 的线性映射. 设 $V$ 是 $m$ 元单调单项式全体, 容易证明 $S:\left<V\right>\to U$ 是同构. $\therefore\dim U=|V|$.
+\end{solution}
+\begin{note}
+    写程序来验证这两题.
+
+    (1) 下面的代码中的 \verb|splitList[k_, m_]| 可以生成一个由 $m$ 元组构成的列表, 每个 $m$ 元组对应一个 $k$ 次单项式的各个元的次数或者把相同的 $k$ 个球放进 $m$ 个盒子, 每个盒子里球的个数.
+    \begin{lstlisting}
+split[list_] := 
+  ReplaceList[
+   list, {x___, y_} :> {x, y - #, #} /; 0 <= # <= y & /@ 
+    Range[0, Max[list]]];
+splitList[m_, k_] := Nest[Flatten[split /@ #, 1] &, {{k}}, m - 1];
+    \end{lstlisting}
+
+    下面的代码可以用递推式计算 $V_{m,k}$, 并且保存中间步骤:
+    \begin{lstlisting}
+V[1, k_] = 1;
+V[m_, k_] := V[m, k] = Sum[V[m - 1, k - i], {i, 0, k}];
+    \end{lstlisting}
+
+    列出当 $m,k<6$ 时 $V_{m,k}$ 的理论值和真实值:
+    \begin{lstlisting}
+TableForm[Array[V, {6, 6}], TableHeadings -> Automatic]
+TableForm[Array[Length[splitList[##]] &, {6, 6}], 
+ TableHeadings -> Automatic]
+    \end{lstlisting}
+
+    (2) 从 \verb|splitList[k_, m_]| 中去掉反序的 $m$ 元组就得到了全体单调单项式对应的 $m$ 元组:
+    \begin{lstlisting}
+splitMonoList[m_, k_] := 
+  Cases[splitList[m, k], Except[{___, x_, ___, y_, ___} /; x < y]];
+TableForm[Array[Length[splitMonoList[##]] &, {6, 6}], 
+  TableHeadings -> Automatic]
+    \end{lstlisting}
+\end{note}
+\begin{exercisec}[1.3.9]
+    证明: 向量空间 $V$ 是无限维的当且仅当 $V$ 中有一个向量序列 $\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots$ 使得对 $\forall k\in\mathbb{N}_+,\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_k$ 线性无关.
+\end{exercisec}
+\begin{proof}
+    ($\Rightarrow$) $V$ 的一个基就是满足条件的序列.
+
+    ($\Leftarrow$) 由书上的命题 1.29, $\left<\boldsymbol{v}_k|k\in\mathbb{N}_+\right>$ 是无限维的. $\because\left<\boldsymbol{v}_k|k\in\mathbb{N}_+\right>\subset V$, $\therefore V$ 是无限维的.
+\end{proof}
+\begin{exercisec}[1.3.10, 有修改]
+    设 $S,T$ 是一个向量空间的子集, 证明: $\left<S\right>\cap\left<T\right>\supset\left<S\cap T\right>$.
+
+    举例说明真包含关系可以成立.
+\end{exercisec}
+\begin{proof}
+    设 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_m\in S\cap T$ 是 $S\cap T$ 的一个极大线性无关组, 则 $\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_m\right>$ 是 $\left<S\right>$ 和 $\left<T\right>$ 的子集.
+    
+    $\forall\boldsymbol{x}\in\left<S\cap T\right>$, $\boldsymbol{x}\in\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_m\right>\Rightarrow\boldsymbol{x}\in\left<S\right>\wedge\boldsymbol{x}\in\left<T\right>$. $\therefore\left<S\right>\cap\left<T\right>\supset\left<S\cap T\right>$.
+
+    在 $\mathbb{R}^2$ 上, 令
+    \[S=\{(1,0),(0,1)\},\quad T=\{(1,2),(3,4)\},\]
+
+    有 $\left<S\right>\cap\left<T\right>=\mathbb{R}^2,\left<S\cap T\right>=\{0\}$.
+\end{proof}
+\begin{exercisec}[1.40]
+    举例说明: 书上的定理 1.38 不能推广到三个子空间的情形.
+\end{exercisec}
+\begin{solution}
+    考虑 $\mathbb{R}^2$ 中的子空间 $U_1=\left<(0,1)\right>,U_2=\left<(1,0)\right>,U_3=\left<(1,1)\right>$. 设 $\mathbb{R}^2$ 的基 $\boldsymbol{e}_1,\boldsymbol{e}_2$ 与 $U_1,U_2$ 相合, 则 $\boldsymbol{e}_1\in U_1,\boldsymbol{e}_2\in U_2$ 或者 $\boldsymbol{e}_1\in U_2,\boldsymbol{e}_2\in U_1$.
+    
+    $\because U_3\cap U_2=\{\boldsymbol{0}\},U_3\cap U_1=\{\boldsymbol{0}\}$, $\therefore\boldsymbol{e}_1\notin U_3\wedge\boldsymbol{e}_2\notin U_3$, $\therefore\boldsymbol{e}_1,\boldsymbol{e}_2$ 不与 $U_3$ 相合.
+\end{solution}
+\begin{exercisec}[1.4.1]
+    设 $U_1,U_2,U_3$ 是有限维向量空间 $V$ 的子空间, 证明
+    \begin{align*}
+        \dim(U_1+U_2+U_3) & \leq\dim U_1+\dim U_2+\dim U_3 \\
+        & \quad-\dim U_1\cap U_2-\dim U_2\cap U_3-\dim U_3\cap U_1+\dim U_1\cap U_2\cap U_3.
+    \end{align*}
+
+    举例说明严格的小于号可以成立.
+\end{exercisec}
+\begin{proof}
+    由补充题 \ref{exc1.4.4} 得
+    \[\dim((U_1+U_2)\cap U_3)\geq\dim(U_1\cap U_3+U_2\cap U_3),\]
+
+    $\therefore$
+    \begin{align*}
+        LHS & =\dim(U_1+U_2)+\dim U_3-\dim((U_1+U_2)\cap U_3) \\
+        & \leq(\dim U_1+\dim U_2-\dim U_1\cap U_2)+\dim U_3-\dim(U_1\cap U_3+U_2\cap U_3) \\
+        & =\dim U_1+\dim U_2+\dim U_3-\dim U_1\cap U_2 \\
+        & \quad-\dim(U_1\cap U_3)-\dim(U_2\cap U_3)+\dim(U_1\cap U_2\cap U_3) \\
+        & =RHS.
+    \end{align*}
+
+    补充题 \ref{exc1.4.4} 的例子在这里也适用.
+\end{proof}
+\begin{exercisec}[1.4.2]
+    设 $U,W$ 是 $V$ 的有限维子空间, $\dim(U+W)=1+\dim U\cap W$. 证明: $U$ 和 $W$ 一个是 $U+W$, 另一个是 $U\cap W$.
+\end{exercisec}
+\begin{proof}
+    只需证明: $U\subset W$ 或 $W\subset U$. 假设结论不成立, 即 $\exists\boldsymbol{u}\in U\backslash W,\boldsymbol{w}\in W\backslash U$.
+
+    $\because\boldsymbol{u}\notin W,\therefore\boldsymbol{u}\notin U\cap W$. 同理 $\boldsymbol{w}\notin U\cap W$.
+
+    设 $\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m$ 是 $U\cap W$ 的一个基, 则由 $\boldsymbol{u}\notin U\cap W=\left<\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m\right>$ 得 $\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m,\boldsymbol{u}$ 线性无关. 令
+    \[\alpha_1\boldsymbol{v}_1+\alpha_2\boldsymbol{v}_2+\cdots+\alpha_n\boldsymbol{v}_n+\beta\boldsymbol{u}+\gamma\boldsymbol{w}=\boldsymbol{0}.\]
+
+    假设 $\gamma\neq0$, 则
+    \[\boldsymbol{w}=-\dfrac{\alpha_1}{\gamma}\boldsymbol{v}_1-\dfrac{\alpha_2}{\gamma}\boldsymbol{v}_2-\cdots-\dfrac{\alpha_n}{\gamma}\boldsymbol{v}_n-\dfrac{\beta}{\gamma}\boldsymbol{u}\in U,\]
+
+    与 $\boldsymbol{w}\notin U$ 矛盾. $\therefore\gamma=0$,
+    \[\alpha_1\boldsymbol{v}_1+\alpha_2\boldsymbol{v}_2+\cdots+\alpha_n\boldsymbol{v}_n+\beta\boldsymbol{u}=\boldsymbol{0}.\]
+
+    $\because\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m,\boldsymbol{u}$ 线性无关, $\therefore\alpha_1=\alpha_2=\cdots=\alpha_n=\beta=0$. $\therefore\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m,\boldsymbol{u},\boldsymbol{w}$ 线性无关. $\therefore$
+    \[\dim(U+V)\geq\dim\left<\boldsymbol{v}_1,\cdots,\boldsymbol{v}_m,\boldsymbol{u},\boldsymbol{w}\right>=m+2=\dim U\cap V+2,\]
+
+    与 $\dim(U+W)=1+\dim U\cap W$ 矛盾.
+\end{proof}
+\begin{exercisec}[1.4.4]\label{exc1.4.4}
+    设 $U,V,W$ 是向量空间的子空间, 证明
+    \[U\cap(V+W)\supset(U\cap V)+(U\cap W).\]
+
+    举例说明真包含关系可以成立.
+\end{exercisec}
+\begin{proof}
+    $\forall\boldsymbol{x}\in(U\cap V)+(U\cap W),\exists\boldsymbol{y}_1\in U\cap V,\boldsymbol{y}_2\in U\cap W$ 使得 $\boldsymbol{x}=\boldsymbol{y}_1+\boldsymbol{y}_2$.
+
+    $\because\boldsymbol{y}_1,\boldsymbol{y}_2\in U$, $\therefore\boldsymbol{x}=\boldsymbol{y}_1+\boldsymbol{y}_2\in U$. $\because\boldsymbol{y}_1\in V,\boldsymbol{y}_2\in W$, $\therefore\boldsymbol{x}=\boldsymbol{y}_1+\boldsymbol{y}_2\in V+W$. $\therefore\boldsymbol{x}\in U\cap(V+W)$.
+
+    考虑 $\mathbb{R}^3$ 的子空间
+    \[U=\left<(1,1,0)\right>,\quad V=\left<(1,0,0)\right>,\quad W=\left<(0,1,0)\right>,\]
+
+    有
+    \[U\cap(V+W)=U,\quad(U\cap V)+(U\cap W)=\{\boldsymbol{0}\}.\qedhere\]
+\end{proof}
+\begin{exercisec}[1.4.7(1)]
+    设 $\boldsymbol{u}_1=(1,2,1),\boldsymbol{u}_2=(1,1,-1),\boldsymbol{u}_3=(1,3,3),\boldsymbol{v}_1=(1,2,2),\boldsymbol{v}_2=(2,3,-1),\boldsymbol{v}_3=(1,1,-3)$, 求出 $\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>$ 与 $\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$ 的和与交的一个基.
+\end{exercisec}
+\begin{solution}
+    $\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>$ 与 $\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$ 的和为 $\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3,\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$. $\because$ 对矩阵
+    \[[\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3,\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3]\]
+    作行变换可以得到标准基, $\therefore\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>+\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$ 的一个基是标准基.
+
+    解方程
+    \begin{equation}\label{eq4.5}
+        \alpha_1\boldsymbol{u}_1+\alpha_2\boldsymbol{u}_2+\alpha_3\boldsymbol{u}_3=\beta_1\boldsymbol{v}_1+\beta_2\boldsymbol{v}_2+\beta_3\boldsymbol{v}_3
+    \end{equation}
+    可以得到 $\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>\cap\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$ 中的元素. $\because$
+    \begin{align*}
+        & \dim(\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>\cap\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>) \\
+        & =\dim\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>+\dim\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>-\dim(\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>+\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>) \\
+        & =2+2-3=1,
+    \end{align*}
+
+    $\therefore$ 只需要求方程 (\ref{eq4.5}) 的一个满足 $\beta_i$ 非零的解. 将方程 (\ref{eq4.5}) 变形为
+    \[(^t\boldsymbol{u}_1,^t\boldsymbol{u}_2,^t\boldsymbol{u}_3,^t\boldsymbol{v}_1,^t\boldsymbol{v}_2,^t\boldsymbol{v}_3)[\alpha_1,\alpha_2,\alpha_3,-\beta_1,-\beta_2,-\beta_3]=\boldsymbol{0},\]
+    
+    系数矩阵作行变换得到
+    \[\begin{pmatrix}
+        1 & 0 & 2  & 0 & 2  & 2 \\
+        0 & 1 & -1 & 0 & 1  & 1 \\
+        0 & 0 & 0  & 1 & -1 & -2 \\
+    \end{pmatrix}.\]
+
+    令 $-\beta_3=1,\alpha_3=\beta_2=0$, 得 $\alpha_1=-2,\alpha_2=-1,-\beta_1=2$, 有
+    \[-2\boldsymbol{u}_1-\boldsymbol{u}_2+2\boldsymbol{v}_1+\boldsymbol{v}_3=\boldsymbol{0}\Rightarrow2\boldsymbol{u}_1+\boldsymbol{u}_2=2\boldsymbol{v}_1+\boldsymbol{v}_3=(3,5,1).\]
+
+    $\therefore\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\boldsymbol{u}_3\right>\cap\left<\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\right>$ 的一个基为 $(3,5,1)$.
+\end{solution}
 \subsection{习题1.3}
 \stepcounter{exsection}
 \begin{exercise}\label{ex3.1}
@@ -1068,7 +1623,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 \begin{proof}
     设 $X,Y\in M_n(K),a,b\in K$, 容易验证 $\tr A_f(aX+bY)=a\tr A_fX+b\tr A_fY.\therefore$ 由 $\tilde{f}(X)=\tr A_fX$ 定义的函数 $\tilde{f}\in(M_n(K))^*$.
 
-    设 $E_{ij}$ 为第 $i,j$ 元为 $1$, 其余元素为 $0$ 的矩阵, 则 $E_{ij}(1\leq i,j\leq n)$ 为 $M_n(K)$ 的一个基. 设 $A_f=(a_{ij})=(f(E_{ji}))$, 则若 $f$ 确定, 则 $A_f$ 唯一确定. 有
+    $E_{ij}(1\leq i,j\leq n)$ 为 $M_n(K)$ 的一个基. 设 $A_f=(a_{ij})=(f(E_{ji}))$, 则若 $f$ 确定, 则 $A_f$ 唯一确定. 有
     \[A_fE_{ij}=\begin{pmatrix}
                &        &        & (\text{第}j\text{列}) \\
         0      & \cdots & 0      & a_{1i} & 0      & \cdots & 0 \\
@@ -1081,6 +1636,30 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     
     $\because f-\tilde{f}\in(M_n(K))^*$, 由定理 \ref{t2.1}, $f-\tilde{f}=0\Rightarrow f=\tilde{f}$.
 \end{proof}
+\begin{proof}[另一种证法]
+    在 $(M_n(K))^*$ 中与 $E_{ij}$ 对偶的基为 $\{f_{ij}|1\leq i,j\leq n\}$, 其中
+    \[f_{ij}:\begin{array}{rcll}
+        M_n(K) & \to & K \\
+        E_{ij} & \mapsto & 1 \\
+        E_{i'j'} & \mapsto & 0 & (i'\neq i,j'\neq j) \\
+    \end{array}.\]
+
+    $\forall f\in(M_n(K))^*,\exists!A_f=(a_{ij})\in M_n(K)$ 使得 $f=\sum\limits_{i,j=1}^na_{ij}f_{ji}$.
+
+    $\forall X\in M_n(K)$, 设 $X=(x_{ij})=\sum\limits_{i,j=1}^nx_{ij}E_{ij}$, 则
+    \begin{align*}
+        f(X) & =f\left(\sum\limits_{k,l=1}^nx_{kl}E_{kl}\right) \\
+        & =\sum\limits_{i,j=1}^na_{ij}f_{ji}\left(\sum\limits_{k,l=1}^nx_{kl}E_{kl}\right) \\
+        & =\sum\limits_{i,j=1}^na_{ij}\sum\limits_{k,l=1}^nx_{kl}f_{ji}(E_{kl}) \\
+        & =\sum\limits_{i=1}^n\sum\limits_{j=1}^na_{ij}x_{ji}.
+    \end{align*}
+
+    设 $A_fX=(b_{ij})$, 则 $b_{kl}=\sum\limits_{j=1}^na_{kj}x_{jl}$, 有
+    \[\sum\limits_{i=1}^n\sum\limits_{j=1}^na_{ij}x_{ji}=\sum\limits_{i=1}^nb_{ii}=\tr A_fX.\qedhere\]
+\end{proof}
+\begin{note}
+    这题是张量卷积(在第 6 章会介绍)的一个特殊情况, 第二种证明使用的方法可以推广到一般的张量卷积上.
+\end{note}
 \begin{exercise}% 3.2
     设 $a(X)$ 是 $\mathbb{R}[X]$ 中的一个固定的多项式, $P_n$ 是所有次数 $\leq n-1$ 的实多项式的子空间. 下列 $P_n\to\mathbb{R}$ 的函数是否是线性函数?
 
@@ -1093,7 +1672,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     (4) $f(u)=\dfrac{\mathrm{d}^3}{\mathrm{d}t^3}a(t)u(t)\Big|_{t=-1}$.
 \end{exercise}
 \begin{solution}
-    按照定理 \ref{t3.1} 逐一验证. (1)(2)(4) 是线性函数.
+    按照定义逐一验证. (1)(2)(4) 是线性函数.
 
     (3) 设 $v(t)=\dfrac{1}{u(t)a(t)}.\because$
     \begin{align*}
@@ -1107,10 +1686,10 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 \end{solution}
 \begin{note}
     用下面这段代码验证 (4), 输出 $0$ 则说明 $f(mu+nv)=mf(u)+nf(v)$ (没错我又偷懒了):
-    \begin{verbatim}
-        D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] - 
-          D[a[x] (m u[x] + n v[x]), {x, 3}] // Simplify
-    \end{verbatim}
+    \begin{lstlisting}
+D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] - 
+  D[a[x] (m u[x] + n v[x]), {x, 3}] // Simplify
+    \end{lstlisting}
 \end{note}
 \begin{exercise}% 3.3
     设 $f,g\in V^*$ 满足 $\ker f=\ker g$. 证明: $\exists\lambda\in K$ 使得 $g=\lambda f$.
@@ -1122,7 +1701,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     $\because\ker f$ 是方程 $f(\boldsymbol{x})=0$ 的解空间, 由书上的定理 4(i) 得 $\dim\ker f\geq n-1$(当且仅当 $f=0$ 时取大于号).
 
     $\therefore\exists r\ (r\geq n-1)$ 个线性无关的向量 $\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_r$ 使得
-    \begin{equation}\label{exeq1}
+    \begin{equation}\label{eq4.6}
         \begin{cases}
             \varepsilon_{\boldsymbol{x_1}}(f)=f(\boldsymbol{x_1})=0, \\
             \varepsilon_{\boldsymbol{x_2}}(f)=f(\boldsymbol{x_2})=0, \\
@@ -1131,7 +1710,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         \end{cases}
     \end{equation}
 
-    $\because\boldsymbol{x}\to\varepsilon_{\boldsymbol{x}}$ 是同构, $\therefore\varepsilon_{\boldsymbol{x_1}},\cdots,\varepsilon_{\boldsymbol{x_r}}$ 线性无关, 秩为 $r$. 由书上的定理 4 得方程组 (\ref{exeq1}) 的解空间 $U$ 满足 $\dim U=n-r\leq 1$.
+    $\because\boldsymbol{x}\to\varepsilon_{\boldsymbol{x}}$ 是同构, $\therefore\varepsilon_{\boldsymbol{x_1}},\cdots,\varepsilon_{\boldsymbol{x_r}}$ 线性无关, 秩为 $r$. 由书上的定理 4 得方程组 (\ref{eq4.6}) 的解空间 $U$ 满足 $\dim U=n-r\leq 1$.
 
     $\because f,g\in U,\therefore\exists\lambda\in K$ 使得 $g=\lambda f$.
 \end{solution}
@@ -1154,12 +1733,53 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     
     由书上第 3 小节的最后一句话, $\exists V$ 的一个基与 $e^1,\cdots,e^{i-1},f,e^{i+1},\cdots,e^n$ 对偶. 设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 与 $e^1,\cdots,e^{i-1},f,e^{i+1},\cdots,e^n$ 对偶, 则 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 满足 $f(\boldsymbol{e}_j)=\delta_{ij},f(\boldsymbol{x})=\alpha_i$.
 \end{proof}
+\begin{exercisec}[1.6.2]\label{exc1.6.2}
+    证明: $n$ 维向量空间的任何 $k$ 维子空间 $U$ 都是 $n-k$ 个线性函数的核的交.
+\end{exercisec}
+\begin{proof}
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_k$ 是 $U$ 的一个基, 将其扩充为 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$. 设这个基在 $V^*$ 上的对偶基为 $e^1,e^2,\cdots,e^n$, 则 $\forall i>k,j\leq k,e^i(\boldsymbol{e}_j)=0$. 
+
+    $\therefore\forall i>k,\forall\boldsymbol{x}\in U,e^i(\boldsymbol{x})=0$. $\therefore U\subset\ker e^i$. $\therefore U\subset\bigcap\limits_{i=k+1}^n\ker e^i$.
+
+    另一方面, $\bigcap\limits_{i=k+1}^n\ker e^i$ 是方程组 $e^i(\boldsymbol{x})=0,i=k+1,\cdots,n$ 的解空间. $\because e^{k+1},\cdots,e^n$ 的秩为 $n-k$, 由书上定理 4(i) 得 $\dim\bigcap\limits_{i=k+1}^n\ker e^i=n-(n-k)=k$, $\therefore U=\bigcap\limits_{i=k+1}^n\ker e^i$.
+\end{proof}
+\begin{exercisec}[1.6.3]
+    证明: $n$ 维向量空间上的 $n$ 个线性函数 $f^1,f^2,\cdots,f^n$ 线性无关当且仅当它们的核的交是 $\{\boldsymbol{0}\}$.
+\end{exercisec}
+\begin{proof}
+    ($\Leftarrow$) 在补充题 \ref{exc1.6.2} 的证明中, 令 $k=0$ 得.
+
+    ($\Rightarrow$) 由书上定理 4(i) 得方程组 $f^1(\boldsymbol{x}),f^2(\boldsymbol{x}),\cdots,f^n(\boldsymbol{x})$ 的解空间 $U=\{\boldsymbol{0}\}$, $\therefore$
+    \[\bigcap\limits_{i=1}^n\ker f^i=U=\{\boldsymbol{0}\}.\qedhere\]
+\end{proof}
+\begin{exercisec}[1.6.4]
+    设 $f,g$ 是向量空间 $V$ ($\charop K\neq 2$) 的两个线性函数. 证明: 如果 $\forall\boldsymbol{x}\in V,f(\boldsymbol{x})g(\boldsymbol{x})=0$, 那么 $f=0\vee g=0$.
+\end{exercisec}
+\begin{proof}
+    取 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 设 $\boldsymbol{x}$ 在这个基下的坐标为 $X$, 则
+    \[f(\boldsymbol{x})=(f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n))X,\quad g(\boldsymbol{x})=(g(\boldsymbol{e}_1),g(\boldsymbol{e}_2),\cdots,g(\boldsymbol{e}_n))X.\]
+
+    $\therefore$
+    \begin{align*}
+        f(\boldsymbol{x})g(\boldsymbol{x}) & =(f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n))X(g(\boldsymbol{e}_1),g(\boldsymbol{e}_2),\cdots,g(\boldsymbol{e}_n))X \\
+        & =X{}^t[f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n)](g(\boldsymbol{e}_1),g(\boldsymbol{e}_2),\cdots,g(\boldsymbol{e}_n))X.
+    \end{align*}
+
+    $\because\forall\boldsymbol{x}\in V,f(\boldsymbol{x})g(\boldsymbol{x})=0$, $\therefore$ 由补充题 \ref{exc1.7.11} 得矩阵
+    \[[f(\boldsymbol{e}_1),f(\boldsymbol{e}_2),\cdots,f(\boldsymbol{e}_n)](g(\boldsymbol{e}_1),g(\boldsymbol{e}_2),\cdots,g(\boldsymbol{e}_n))\]
+    是斜对称的, 即 $f(\boldsymbol{e}_i)g(\boldsymbol{e}_j)=-f(\boldsymbol{e}_j)g(\boldsymbol{e}_i)$.
+
+    假设 $f\neq0\wedge g\neq0$, 则 $f,g$ 分别在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 上的取值不全为 $0$.
+
+    不妨设 $f(\boldsymbol{e}_i)\neq0,g(\boldsymbol{e}_j)\neq0$, 则 $f(\boldsymbol{e}_i)g(\boldsymbol{e}_j)\neq0$. $\therefore f(\boldsymbol{e}_j)g(\boldsymbol{e}_i)=-f(\boldsymbol{e}_i)g(\boldsymbol{e}_j)\neq0\Rightarrow f(\boldsymbol{e}_j)\neq0\Rightarrow f(\boldsymbol{e}_j)g(\boldsymbol{e}_j)\neq0$, 与 $f(\boldsymbol{e}_j)g(\boldsymbol{e}_j)=0$ 矛盾.
+\end{proof}
 \subsection{习题1.4}
-\begin{exercisec}% 补充题1
+\subsubsection{基本概念}
+\begin{exercisec}[1.7.1(2), 有修改]
     证明映射
     \[\varphi:\begin{array}{rcl}
         M_n(K)\times M_n(K) & \to & K \\
-        (A,B) & \to & \tr (AB) \\
+        (A,B) & \to & \tr(AB) \\
     \end{array}\]
     是对称的双线性型. 计算其秩.
 \end{exercisec}
@@ -1173,10 +1793,10 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
             X & \to & XA \\
         \end{array}.\]
     容易验证 $L_A,R_A$ 是线性映射. 由第 \ref{ex3.1} 题的证明得 $\tr $ 是线性映射.
-    
+
     与性质 \ref{p2.1} 类似, 得 $\varphi_A(X)=\varphi(X,A)=\tr \circ R_A$ 和 $\varphi_A'(X)=\varphi(A,X)=\tr \circ L_A$ 是线性映射. $\therefore\varphi$ 是双线性映射.
 
-    沿用第 \ref{ex2.2} 的证明中的记号. $E_{ij}(1\leq i,j\leq n)$ 是 $M_n(K)$ 的一个基. 将 $E_{ij}$ 排成一行:
+    $E_{ij}(1\leq i,j\leq n)$ 是 $M_n(K)$ 的一个基. 将 $E_{ij}$ 排成一行:
     \[E_{11},\cdots,E_{1n},E_{21},\cdots,E_{2n},E_{31},\cdots,E_{n1},\cdots,E_{nn}.\]
 
     记 $\tilde{E}_k\ (1\leq k\leq n^2)$ 为上述序列的第 $k$ 个, 则 $\tilde{E}_k\ (1\leq k\leq n^2)$ 是 $M_n(K)$ 的一个基.
@@ -1188,9 +1808,9 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     $\therefore F$ 是对称矩阵, $\therefore\varphi$ 是对称的双线性型.
 
-    交换 $F$ 的第 $n(i-1)+j,n(j-1)+i\ (1\leq i,j\leq n)$ 行得到单位矩阵 $E.\because$ 初等行变换不改变矩阵的秩, $\therefore\rank F=\rank E=n$.
+    交换 $F$ 的第 $n(i-1)+j,n(j-1)+i\ (1\leq i,j\leq n)$ 行得到 $n^2$ 阶单位矩阵 $E.\because$ 初等行变换不改变矩阵的秩, $\therefore\rank F=\rank E=n^2$.
 \end{proof}
-\begin{exercisec}% 补充题2
+\begin{exercisec}
     设 $V=P_n(X)$ 为次数 $\leq n$ 的实多项式, 容易验证
     \[\varphi:\begin{array}{rcl}
         V\times V & \to & \mathbb{R} \\
@@ -1206,72 +1826,23 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     $\therefore1,X,X^2-\dfrac{2}{3}$ 是 $P_1(X)$ 的一个规范基.
 \end{solution}
-\begin{exercisec}\label{exc3}
-    求
-    \[^tX\begin{pmatrix}
-        2 & 1 \\
-        1 & 3
-    \end{pmatrix}Y\]
-    的规范基.
-\end{exercisec}
-\begin{solution}
-    对矩阵同时进行初等行,列变换:
-    \[\begin{pmatrix}
-            2 & 1 \\
-            1 & 3
-        \end{pmatrix}=\begin{pmatrix}
-            1 & 0 \\
-            \dfrac{1}{2} & 1
-        \end{pmatrix}\begin{pmatrix}
-            2 & 0 \\
-            0 & \dfrac{5}{2}
-        \end{pmatrix}\begin{pmatrix}
-            1 & \dfrac{1}{2} \\
-            0 & 1
-        \end{pmatrix}.\]
-
-        设基 $(\boldsymbol{e}_i')$ 满足
-        \[A=\begin{pmatrix}
-            1 & \dfrac{1}{2} \\
-            0 & 1
-        \end{pmatrix}\]
-        是 $(\boldsymbol{e}_i')$ 到 $(\boldsymbol{e}_i)$ 的转换矩阵, 由定理 \ref{t3.1}, 题中的双线性型的规范基为 $(\boldsymbol{e}_i')$.
-
-        $\therefore\left(\boldsymbol{e}_1,\dfrac{1}{2}\boldsymbol{e}_1+\boldsymbol{e}_2\right)$ 是题中的双线性型的规范基.
-\end{solution}
-\begin{exercisec}% 补充题4
-    把 $X_1X_2+X_2^2+X_2X_3$ 化为规范型.
-\end{exercisec}
-\begin{solution}
-    \begin{align*}
-        & X_1X_2+X_2^2+X_2X_3 \\
-        & =\left(X_2^2+X_1X_2+X_2X_3+\dfrac{1}{4}X_1^2+\dfrac{1}{2}X_1X_3+\dfrac{1}{4}X_3^2\right)-\dfrac{1}{4}X_1^2-\dfrac{1}{4}X_3^2-\dfrac{1}{2}X_1X_3 \\
-        & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\dfrac{1}{4}(X_1^2+X_3^2+2X_1X_3) \\
-        & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\left(\dfrac{X_1+X_3}{2}\right)^2.
-    \end{align*}
-\end{solution}
-\begin{exercisec}% 补充题5
-    设 $\charop  K\neq 2,A\in M_n(K)$. 证明: $A=(a_{ij})$ 斜对称当且仅当
-    \[{}^tXAX=0,\quad\forall X=[x_1,x_2,\cdots,x_n].\]
+\begin{exercisec}[1.72(1)]
+    定义双线性型 $f$ 的右核 $R_f:=\{\boldsymbol{y}\in V|f(\boldsymbol{x},\boldsymbol{y})=0,\forall\boldsymbol{x}\in V\}$. 证明: $\dim R_f=\dim V-\rank f$.
 \end{exercisec}
 \begin{proof}
-    设 $f_A$ 是 $V$ 上的双线性型, $f_A$ 在 $V$ 的基 $\boldsymbol{e}_i$ 下的矩阵为 $A$. 与性质 \ref{p3.1} 类似, $A$ 斜对称 $\Leftrightarrow f_A$ 斜对称.
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, 则 $R_f$ 是方程组
+    \[f(\boldsymbol{x},\boldsymbol{e}_1)=0,f(\boldsymbol{x},\boldsymbol{e}_2)=0,\cdots,f(\boldsymbol{x},\boldsymbol{e}_n)=0\]
+    的解空间. 设 $f_i(\boldsymbol{x})=f(\boldsymbol{x},\boldsymbol{e}_i)\in V^*$, 则 $R_f$ 是方程组
+    \[f_1(\boldsymbol{x})=0,f_2(\boldsymbol{x})=0,\cdots,f_n(\boldsymbol{x})=0\]
+    的解空间. 由书上第 3 节的定理 4(i) 得 $\dim R_f=\dim V-\rank\{f_1,f_2,\cdots,f_n\}$.
 
-    $(\Rightarrow)f_A$ 斜对称 $\Rightarrow\forall\boldsymbol{x}\in V,f(\boldsymbol{x},\boldsymbol{x})=-f(\boldsymbol{x},\boldsymbol{x})\Rightarrow f(\boldsymbol{x},\boldsymbol{x})=0.\because$
-    \[\begin{array}{rcl}
-        V & \to & K^n \\
-        \boldsymbol{x}=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_n\boldsymbol{e}_n & \to & [x_1,x_2,\cdots,x_n] \\
-    \end{array}\]
+    把 $\boldsymbol{e}_i$ 看成是 $V^*$ 上的线性函数: $\forall f\in V^*$,
+    \[\boldsymbol{e}_i(f)=f(\boldsymbol{e}_i).\]
 
-    是同构, $\therefore\forall X\in K^n,\exists\boldsymbol{x}\in V$ 使得 $f(\boldsymbol{x},\boldsymbol{x})={}^tXAX$.
-
-    $\because f(\boldsymbol{x},\boldsymbol{x})=0,\therefore{}^tXAX=0$.
-
-    ($\Leftarrow$) 设 $A=(a_{ij}),X_i=[0,\cdots,0,1(\text{第}i\text{个}),0,\cdots,0]$. 则 $a_{ii}={}^tX_iAX_i=0$. 有
-    \[a_{ii}+a_{ij}+a_{ji}+a_{jj}=({}^tX_i+{}^tX_j)A(X_i+X_j)=0.\]
-
-    $\because a_{ii}=a_{jj}=0,\therefore a_{ij}=a_{ji}=0.\therefore A$ 是斜对称的.
+    $\because\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V^{**}$ 的一个基, 由书上第 3 节的定理 3 (或者书上的定理 1.57, 后者在叙述和证明上都更清楚) 得
+    \[\rank\{f_1,f_2,\cdots,f_n\}=\rank(\boldsymbol{e}_i(f_j))=\rank(f_j(\boldsymbol{e}_i))=\rank(f(\boldsymbol{e}_i,\boldsymbol{e}_j))=\rank f.\qedhere\]
 \end{proof}
+\subsubsection{对称双线性型}
 \stepcounter{exsection}
 \begin{exercise}\label{ex4.1}
     设 $\Delta_1,\Delta_2,\cdots,\Delta_n=F$ 是矩阵 $F$ 对应的实二次型 $q$ 的主子式. 证明: $q$ 和 $F$ 是负定的当且仅当 $(-1)^k\Delta_k>0$ 对 $\forall k=1,2,\cdots,n$ 成立.
@@ -1289,7 +1860,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
 
     与 $q$ 是负定的矛盾. $\therefore(-1)^n\Delta_n>0$.
 \end{proof}
-\begin{exercise}% 4.2
+\begin{exercise}[有修改]% 4.2
     举出例子:
     
     (1) 正定矩阵 $A=(a_{ij})$ 的某个元素 $a_{ij}<0$;
@@ -1335,11 +1906,14 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         \Delta_3=-\mu^3+3\mu-2>0,
     \end{cases}\Rightarrow\mu\leq-2.\]
 \end{solution}
+\begin{note}
+    原题要求两个矩阵正定, 但第二个矩阵的行列式 $\leq0$.
+\end{note}
 \begin{exercise}% 4.4
     设 $\boldsymbol{x}=[x_1,x_2,x_3]\in\mathbb{C}^3$,
     \[Q(\boldsymbol{x})=x_1^3+x_2^3+x_3^3-3x_1x_2x_3=(x_1+x_2+x_3)(x_1+\varepsilon x_2+\varepsilon^2x_3)(x_1+\varepsilon^2x_2+\varepsilon x_3),\]
 
-    其中 $\varepsilon$ 是 $3$ 次本原根. 证明 $Q(\boldsymbol{x})Q(\boldsymbol{y})=Q(\boldsymbol{z}),z_i=z_i(\boldsymbol{x},\boldsymbol{y})=\sum_{j,k}a^{(i)}_{jk}x_jy_k$ 是对称的双线性型.
+    其中 $\varepsilon$ 是 $3$ 次本原根. 证明 $Q(\boldsymbol{x})Q(\boldsymbol{y})=Q(\boldsymbol{z})$, 其中 $z_i=z_i(\boldsymbol{x},\boldsymbol{y})=\sum\limits_{j,k}a^{(i)}_{jk}x_jy_k$ 是对称的双线性型.
 \end{exercise}
 \begin{proof}
     设
@@ -1392,7 +1966,177 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     
     $\because\Delta_{n-1}>0,\therefore\Delta_n>0$. 由书上的定理 8 得 $B=E+\varepsilon A$ 正定.
 \end{proof}
-\begin{exercisec}\label{exc6}
+\begin{exercisec}[1.7.2]\label{exc1.7.2}
+    求
+    \[^tX\begin{pmatrix}
+        2 & 1 \\
+        1 & 3
+    \end{pmatrix}Y\]
+    的规范基.
+\end{exercisec}
+\begin{solution}
+    对矩阵同时进行初等行,列变换:
+    \[\begin{pmatrix}
+            2 & 1 \\
+            1 & 3
+        \end{pmatrix}=\begin{pmatrix}
+            1 & 0 \\
+            \dfrac{1}{2} & 1
+        \end{pmatrix}\begin{pmatrix}
+            2 & 0 \\
+            0 & \dfrac{5}{2}
+        \end{pmatrix}\begin{pmatrix}
+            1 & \dfrac{1}{2} \\
+            0 & 1
+        \end{pmatrix}.\]
+
+        设基 $(\boldsymbol{e}_i')$ 满足
+        \[A=\begin{pmatrix}
+            1 & \dfrac{1}{2} \\
+            0 & 1
+        \end{pmatrix}\]
+        是 $(\boldsymbol{e}_i')$ 到 $(\boldsymbol{e}_i)$ 的转换矩阵, 由定理 \ref{t3.1}, 题中的双线性型的规范基为 $(\boldsymbol{e}_i')$.
+
+        $\therefore\left(\boldsymbol{e}_1,\dfrac{1}{2}\boldsymbol{e}_1+\boldsymbol{e}_2\right)$ 是题中的双线性型的规范基.
+\end{solution}
+\begin{exercisec}[1.7.3]
+    用 Jacobi 方法把双线性型
+    \[f(\boldsymbol{x},\boldsymbol{y})=x_1y_1-x_1y_2+x_1y_3-x_2y_1+x_2y_2+2x_2y_3+x_3y_1+2x_3y_2+x_3y_3\]
+    化为典范型.
+\end{exercisec}
+\begin{solution}
+    $f$ 在基 $[0,0,1],[0,1,0],[1,0,0]$ 下的矩阵为
+    \[F=\begin{pmatrix}
+        1 & 2  & 1  \\
+        2 & 1  & -1 \\
+        1 & -1 & 1  \\
+    \end{pmatrix}.\]
+
+    有
+    \[\Delta_1=1,\quad\Delta_2=-3,\quad\Delta_3=-9.\]
+
+    设 $f$ 在 $\left<[0,0,1],[0,1,0]\right>$ 上的限制为 $\bar{f}$. 考虑 $\left<[0,0,1],[0,1,0]\right>$ 上的方程
+    \[\bar{f}(\boldsymbol{x},[0,0,1])=0\Rightarrow2x_2+x_3=0.\]
+
+    $[0,1,-2]$ 是上述方程在 $\left<[0,0,1],[0,1,0]\right>$ 中的一个解, 且
+    \[\begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        1 & 0 \\
+    \end{pmatrix}=\begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        1 & -2 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 2 \\
+        0 & 1 \\
+    \end{pmatrix}.\]
+
+    $\therefore$ 令
+    \[\begin{pmatrix}
+        0 \\
+        x_2 \\
+        x_3 \\
+    \end{pmatrix}=x_1'\begin{pmatrix}
+        0 \\
+        0 \\
+        1 \\
+    \end{pmatrix}+x_2'\begin{pmatrix}
+        0 \\
+        1 \\
+        -2 \\
+    \end{pmatrix}\Rightarrow\begin{cases}
+        x_2'=x_2 \\
+        x_1'=x_3+2x_2 \\
+    \end{cases}\]
+    (对 $y_1',y_2'$ 同理), 则 $\bar{f}$ 有典范型
+    \[\bar{f}(\boldsymbol{x},\boldsymbol{y})=\dfrac{\Delta_1}{\Delta_0}x_1'y_1'+\dfrac{\Delta_2}{\Delta_1}x_2'y_2'=(x_3+2x_2)(y_3+2y_2)-3x_2y_2.\]
+
+    考虑 $\mathbb{R}^3$ 上的方程组
+    \[\begin{cases}
+        f(\boldsymbol{x},[0,0,1])=0, \\
+        f(\boldsymbol{x},[0,1,-2])=0 \\
+    \end{cases}\Rightarrow\begin{cases}
+        x_1+2x_2+x_3=0, \\
+        -3x_2-3x_3=0. \\
+    \end{cases}\]
+
+    $[1,-1,1]$ 是上述方程组的一个解, 且
+    \[\begin{pmatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0 \\
+    \end{pmatrix}=\begin{pmatrix}
+        0 & 0  & 1 \\
+        0 & 1  & -1 \\
+        1 & -2 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 & 2 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1 \\
+    \end{pmatrix}.\]
+
+    $\therefore$ 令
+    \[\begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+    \end{pmatrix}=x_1''\begin{pmatrix}
+        0 \\
+        0 \\
+        1 \\
+    \end{pmatrix}+x_2''\begin{pmatrix}
+        0 \\
+        1 \\
+        -2 \\
+    \end{pmatrix}+x_3''\begin{pmatrix}
+        1 \\
+        -1 \\
+        1 \\
+    \end{pmatrix}\Rightarrow\begin{cases}
+        x_3''=x_1 \\
+        x_2''=x_1+x_2 \\
+        x_1''=x_1+2x_2+x_3 \\
+    \end{cases}\]
+    (对 $y_1'',y_2'',y_3''$ 同理), 则 $f$ 有典范型
+    \begin{align*}
+        f(\boldsymbol{x},\boldsymbol{y}) & =\dfrac{\Delta_1}{\Delta_0}x_1''y_1''+\dfrac{\Delta_2}{\Delta_1}x_2''y_2''+\dfrac{\Delta_3}{\Delta_2}x_3''y_3'' \\
+        & =(x_1+2x_2+x_3)(y_1+2y_2+y_3)-3(x_1+x_2)(y_1+y_2)+3x_1y_1.
+    \end{align*}
+\end{solution}
+\begin{exercisec}[1.7.4]
+    用 Jacobi 方法判断下面两个矩阵是否合同:
+    \[\begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 0 & -1 \\
+        3 & -1 & 3 \\
+    \end{pmatrix},\quad\begin{pmatrix}
+        1 & 3 & 0 \\
+        3 & 1 & 1 \\
+        0 & 1 & 5 \\
+    \end{pmatrix}.\]
+\end{exercisec}
+\begin{proof}
+    这两个矩阵的主子式分别为
+    \[\Delta_1=1,\quad\Delta_2=-4,\quad\Delta_3=-25,\quad\Delta_1'=1,\quad\Delta_2'=-8,\quad\Delta_3'=-41.\]
+
+    $\therefore$ 这两个矩阵分别合同于
+    \[\diag(1,-4,25/4),\quad\diag(1,-8,41/8).\]
+
+    $\therefore$ 这两个矩阵不合同.
+\end{proof}
+\begin{exercisec}
+    把 $X_1X_2+X_2^2+X_2X_3$ 化为规范型.
+\end{exercisec}
+\begin{solution}
+    \begin{align*}
+        & X_1X_2+X_2^2+X_2X_3 \\
+        & =\left(X_2^2+X_1X_2+X_2X_3+\dfrac{1}{4}X_1^2+\dfrac{1}{2}X_1X_3+\dfrac{1}{4}X_3^2\right)-\dfrac{1}{4}X_1^2-\dfrac{1}{4}X_3^2-\dfrac{1}{2}X_1X_3 \\
+        & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\dfrac{1}{4}(X_1^2+X_3^2+2X_1X_3) \\
+        & =\left(X_2+\dfrac{1}{2}X_1+\dfrac{1}{2}X_3\right)^2-\left(\dfrac{X_1+X_3}{2}\right)^2.
+    \end{align*}
+\end{solution}
+\begin{exercisec}\label{exc26}
     设 $F=(f_{ij})\in M_n(\mathbb{R})$ 是对称矩阵. 证明: $F$ 半正定 $\Leftrightarrow\exists A\in M_n(\mathbb{R}),F={}^tAA$.
 \end{exercisec}
 \begin{solution}
@@ -1408,7 +2152,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         0 & 0 \\
     \end{pmatrix}A',\]
 
-    其中 $A'=(a_{ij})\in\gl _n(\mathbb{R}).\because$
+    其中 $A'=(a_{ij})\in\gl_n(\mathbb{R})$. $\because$
     \[{}^t\begin{pmatrix}
         E_r & 0 \\
         0 & 0 \\
@@ -1435,7 +2179,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         0 & 0 \\
     \end{pmatrix}Q,\]
 
-    其中 $P,Q\in\gl _n(\mathbb{R}).\therefore$
+    其中 $P,Q\in\gl_n(\mathbb{R}).\therefore$
     \begin{align*}
         F & ={}^tAA \\
         & ={}^tQ\begin{pmatrix}
@@ -1458,80 +2202,132 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         \end{pmatrix}{}^tPQ,
     \end{align*}
 
-    其中 ${}^tPQ\in\gl _n(\mathbb{R}).\therefore F$ 是半正定的.
+    其中 ${}^tPQ\in\gl_n(\mathbb{R}).\therefore F$ 是半正定的.
 \end{solution}
-\begin{exercisec}% 补充题7
-    $F=(f_{ij})\in M_n(\mathbb{R})$ 半正定是否一定 $\Leftrightarrow\Delta_i\geq0$?
+
+% 证明补充题 \ref{exc1.7.6} 需要先证明一个引理.
+% \begin{lemma}
+%     $q$ 半正定当且仅当 $\forall$ 指标 $1\leq i_1<i_2<\cdots<i_k\leq n\ (1\leq k<n)$, $q$ 在 $V$ 的子空间 $\left<\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}\right>$ 上的限制 $\bar{q}_{i_1,i_2,\cdots,i_k}$ 半正定.
+% \end{lemma}
+% \begin{proof}
+%     ($\Rightarrow$) $\forall\boldsymbol{x}\in\left<\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}\right>,\boldsymbol{x}\in V$.
+    
+%     $\because q$ 半正定, $\therefore\bar{q}_{i_1,i_2,\cdots,i_k}(\boldsymbol{x})=q(\boldsymbol{x})\geq0$, $\therefore\bar{q}_{i_1,i_2,\cdots,i_k}$ 半正定.
+
+%     ($\Leftarrow$)
+% \end{proof}
+\begin{exercisec}[1.7.6]\label{exc1.7.6}
+    设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, $V$ 上的实二次型 $q$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下的矩阵为 $A=(a_{ij})$. 证明 $q$ 是半正定的当且仅当 $\forall$ 指标 $1\leq i_1<i_2<\cdots<i_k\leq n\ (1\leq k\leq n)$, $A$ 的 $k$ 阶子式(见 [BAI] 第 3 章第 3 节的定义)
+    \[M\begin{pmatrix}
+        i_1,i_2,\cdots,i_k \\
+        i_1,i_2,\cdots,i_k \\
+    \end{pmatrix}\]
+    非负.
 \end{exercisec}
-\begin{solution}
-    设 $r=\rank F$. 如果 $r=n$, 则由书上的定理 8 得命题成立. 下面设 $r<n$.
+\begin{proof}
+    ($\Rightarrow$) $\forall$ 指标 $1\leq i_1<i_2<\cdots<i_k\leq n$, 设 $q$ 在 $V$ 的子空间 $\left<\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}\right>$ 上的限制为 $\bar{q}_{i_1,i_2,\cdots,i_k}$.
 
-    ($\Rightarrow$) 对 $n$ 用数学归纳法. $n=1$ 的情况是显然的. 假设对 $\forall F=(f_{ij})\in M_{n-1}(\mathbb{R})$, 命题成立.
+    $\forall\boldsymbol{x}\in\left<\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}\right>,\boldsymbol{x}\in V$. $\because q$ 半正定, $\therefore\bar{q}_{i_1,i_2,\cdots,i_k}(\boldsymbol{x})=q(\boldsymbol{x})\geq0$, $\therefore\bar{q}_{i_1,i_2,\cdots,i_k}$ 半正定.
     
-    由书上的推论 1\', $F\in M_n(\mathbb{R})$ 有分解式
-    \[F={}^tA\begin{pmatrix}
+    由补充题 \ref{exc26} 得 $\exists B\in M_k(\mathbb{R})$ 使得 $\bar{q}_{i_1,i_2,\cdots,i_k}$ 在 $\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}$ 下的矩阵为 ${}^tBB$.
+
+    $\because\exists B\in M_k(\mathbb{R})$ 使得 $\bar{q}_{i_1,i_2,\cdots,i_k}$ 在 $\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}$ 下的矩阵为 ${}^tBB$, $\therefore\bar{q}_{i_1,i_2,\cdots,i_k}$ 在 $\boldsymbol{e}_{i_1},\boldsymbol{e}_{i_2},\cdots,\boldsymbol{e}_{i_k}$ 下的矩阵的行列式
+    \[M\begin{pmatrix}
+        i_1,i_2,\cdots,i_k \\
+        i_1,i_2,\cdots,i_k \\
+    \end{pmatrix}=\det{}^tBB=\det{}^tB\det B=(\det B)^2\]
+    非负.
+
+    ($\Leftarrow$) 对 $n$ 用数学归纳法. $n=1$ 时的情形是显然的. 设命题对 $n-1$ 维向量空间成立.
+    
+    对 $n$ 维向量空间 $V=\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n\right>$ 上的 $q$, $q$ 在 $U=\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>$ 上的限制 $\bar{q}$ 满足 $\forall$ 指标 $1\leq i_1<i_2<\cdots<i_k\leq n-1\ (1\leq k\leq n-1)$, $A$ 的 $k$ 阶子式
+    $M\begin{pmatrix}
+        i_1,i_2,\cdots,i_k \\
+        i_1,i_2,\cdots,i_k \\
+    \end{pmatrix}$
+    非负.
+
+    由归纳假定, $\bar{q}$ 半正定, $\therefore\exists U$ 的一个基 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_{n-1}$ 使得 $\bar{q}$ 在这个基下的矩阵为
+    \[\begin{pmatrix}
         E_r & 0 \\
         0 & 0 \\
-    \end{pmatrix}A,\]
+    \end{pmatrix}.\]
 
-    其中 $A\in M_n(\mathbb{R})$.
-    
-    设
-    \[B=\begin{pmatrix}
-        E_r & 0 \\
-        0 & 0 \\
-    \end{pmatrix}A'=(b_{ij}),\]
-    
-    有
+    $\because V=\left<\boldsymbol{e}_n\right>\oplus\left<\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}\right>=\left<\boldsymbol{e}_n\right>\oplus\left<\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_{n-1}\right>$, $\therefore\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_{n-1},\boldsymbol{e}_n$ 是 $V$ 的一个基, $q$ 在这个基下的矩阵为
+    \[A'=\begin{pmatrix}
+        E_r & 0 & A_{1n} \\
+        0 & 0 & A_{2n} \\
+        {}^tA_{1n} & {}^tA_{2n} & a_{nn}' \\
+    \end{pmatrix},\]
+
+    其中 $A_{1n}$ 是 $r$ 行 $1$ 列向量, $A_{2n}$ 是 $n-r-1$ 行向量, 设
+    \[[A_{1n},A_{2n}]=[a_1',a_2',\cdots,a_{n-1}'].\]
+
+    $A'$ 的第 $t,n\ (r<t<n)$ 行第 $t,n$ 列交叉处的元素组成的矩阵的行列式为
+    \[\begin{vmatrix}
+        0 & a_{tn}' \\
+        a_{tn}' & a_{nn}'
+    \end{vmatrix}=-(a_{tn}')^2.\]
+
+    由题得
+    \begin{equation}\label{eq4.7}
+        -(a_{tn}')^2\geq0\Rightarrow a_{tn}'=0,\forall t=r+1,r+2,\cdots,n-1.
+    \end{equation}
+
+    $A'$ 的第 $1,\cdots,r,n$ 行第 $1,\cdots,r,n$ 列交叉处的元素组成的矩阵的行列式为(下面的变换为行变换)
+    \[\begin{vmatrix}
+        1 & 0 & \cdots & 0 & a_{1n}' \\
+        0 & 1 & \cdots & 0 & a_{2n}' \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & a_{n-1,n}' \\
+        a_{1n}' & a_{2n}' & \cdots & a_{n-1,n}' & a_{nn}' \\
+    \end{vmatrix}\xrightarrow{F_{(n,i)}(-a_{in}')\ (i=1,2,\cdots,n-1)}\begin{vmatrix}
+        1 & 0 & \cdots & 0 & a_{1n}' \\
+        0 & 1 & \cdots & 0 & a_{2n}' \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & a_{n-1,n}' \\
+        0 & 0 & \cdots & 0 & a \\
+    \end{vmatrix}=a,\]
+
+    其中
+    \[a=a_{nn}'-(a_{1n}')^2-(a_{2n}')^2-\cdots-(a_{nn}')^2.\]
+
+    由题得
+    \begin{equation}\label{eq4.8}
+        a\geq0\Rightarrow a_{nn}'\geq(a_{1n}')^2+(a_{2n}')^2+\cdots+(a_{nn}')^2.
+    \end{equation}
+
+    $\forall\boldsymbol{x}=x_1\boldsymbol{u}_1+\cdots+x_{n-1}\boldsymbol{u}_{n-1}+x_n\boldsymbol{e}_n\in V$, 设 $X=[x_1,x_2,\cdots,x_n]$, 则
     \begin{align*}
-        f_{ij} & =\sum\limits_{k=1}^na_{ki}a_{kj} \\
-        & =\sum\limits_{k=1}^na_{ki}\sum\limits_{l=1}^nf_{kl}a_{lj} \\
-        & =\sum\limits_{k=1}^na_{ki}\sum\limits_{l=1}^r\delta_{kl}a_{lj} \\
-        & =\sum\limits_{k=1}^ra_{ki}a_{kj}.
+        q(\boldsymbol{x}) & ={}^tXA'X \\
+        & =x^2_1+x^2_2+\cdots+x^2_r+a_{nn}'x_n^2+2a_{1n}'x_1x_n+2a_{2n}'x_2x_n+\cdots+2a_{n-1,n}'x_{n-1}x_n.
     \end{align*}
 
-    考虑 $F$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下对应的二次型在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$ 上的限制的矩阵 $\overline{F}=(\bar{f}_{ij})$. $\because r\leq n-1$, $\therefore$
-    \[\bar{f}_{ij}=f_{ij}=\sum\limits_{k=1}^ra_{ki}a_{kj},\quad1\leq i,j\leq n-1.\]
+    由式 (\ref{eq4.7}) 得
+    \[q(\boldsymbol{x})=x^2_1+x^2_2+\cdots+x^2_r+a_{nn}'x_n^2+2a_{1n}'x_1x_n+2a_{2n}'x_2x_n+\cdots+2a_{rn}'x_rx_n.\]
 
-    $\therefore$
-    \[\overline{F}={}^tA'A',\]
+    由式 (\ref{eq4.8}) 得
+    \begin{align*}
+        q(\boldsymbol{x}) & \geq x^2_1+x^2_2+\cdots+x^2_r+((a_{1n}')^2+(a_{2n}')^2+\cdots+(a_{nn}')^2)x_n^2 \\
+        & \quad+2a_{1n}'x_1x_n+2a_{2n}'x_2x_n+\cdots+2a_{rn}'x_rx_n \\
+        & =(x^2_1+2a_{1n}'x_1x_n+(a_{1n}')^2x_n^2)+(x^2_2+2a_{2n}'x_2x_n+(a_{2n}')^2x_n^2) \\
+        & \quad+\cdots+(x^2_r+2a_{rn}'x_rx_n+(a_{nn}')^2x_n^2) \\
+        & =(x_1+a_{1n}'x_n)^2+(x_2+a_{2n}'x_n)^2+\cdots+(x_r+a_{rn}'x_n)^2\geq0.
+    \end{align*}
 
-    其中 $A'\in M_{n-1}(\mathbb{R})$ 是第 $r+1,r+2,\cdots,n-1$ 行全为 $0$ 的矩阵. 由第 \ref{exc6} 题得 $\overline{F}$ 半正定. 由归纳假定, $F$ 的主子式 $\overline{\Delta_i}\geq0,\forall i=1,2,\cdots,n-1.\therefore\Delta_i=\overline{\Delta_i}\geq0,\forall i=1,2,\cdots,n-1$.
-
-    $\because r<n,\therefore\Delta_n=\det F=0.\therefore\Delta_i\geq0,\forall i=1,2,\cdots,n$.
-
-    % ($\Rightarrow$) 对 $n$ 用数学归纳法. $n=1$ 的情况是显然的. 假设对 $\forall F=(f_{ij})\in M_{n-1}(\mathbb{R})$, 命题成立.
-    
-    % 由书上的推论 1\', $F\in M_n(\mathbb{R})$ 有分解式
-    % \[F={}^tA'\begin{pmatrix}
-    %     E_r & 0 \\
-    %     0 & 0 \\
-    % \end{pmatrix}A',\]
-
-    % 其中 $r=\rank F$. 设
-    % \[B=\begin{pmatrix}
-    %     E_r & 0 \\
-    %     0 & 0 \\
-    % \end{pmatrix}A'=(b_{ij}),C={}^tA'=(c_{ij}),\]
-    
-    % 有
-    % \begin{align*}
-    %     f_{ij} & =\sum\limits_{k=1}^nc_{ik}b_{kj} \\
-    %     & =\sum\limits_{k=1}^nc_{ik}\sum\limits_{l=1}^nf_{kl}a_{lj} \\
-    %     & =\sum\limits_{k=1}^nc_{ik}\sum\limits_{l=1}^r\delta_{kl}a_{lj} \\
-    %     & =\sum\limits_{k=1}^rc_{ik}a_{kj},
-    % \end{align*}
-
-    % 考虑 $F$ 在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 下对应的二次型在 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1}$ 上的限制的矩阵 $\overline{F}=(\bar{f}_{ij})$. 有
-    % \[\bar{f}_{ij}=f_{ij}=\sum\limits_{k=1}^rc_{ik}a_{kj}.\]
-    % \begin{align*}
-    %     \Delta_i & =\sum\limits_{\sigma\in S_i}\varepsilon_\sigma\prod\limits_{j=1}^if_{j\sigma(j)} \\
-    %     & =\sum\limits_{\sigma\in S_i}\varepsilon_\sigma\prod\limits_{j=1}^i\sum\limits_{k=1}^ra_{kj}a_{k\sigma(j)} \\
-    % \end{align*}
-\end{solution}
+    $\therefore q$ 是半正定的.
+\end{proof}
 \begin{note}
-    验证这题的结论用的 Mathematica 脚本(生成随机的半正定矩阵 ${}^tAFA$, 计算 $\Delta_i$):
-    \begin{verbatim}
+    下面的 \verb|subMat[mat_, xInd_, yInd_]| 可以生成矩阵 \verb|mat| 的第 \verb|xInd| 行第 \verb|yInd| 列交叉处的元素组成的矩阵, 计算子式:
+    \begin{lstlisting}
+subMat[mat_, xInd_, yInd_] := 
+  If[mat != {} && xInd != {} && yInd != {},
+    {MatrixForm[mat[[xInd, yInd]]], Det[mat[[xInd, yInd]]]},
+    Nothing];
+    \end{lstlisting}
+    
+    用下面的代码生成随机的半正定矩阵 $F={}^tA\diag(1,\cdots,1,0,\cdots,0)A$, 计算 $\Delta_i$:
+    \begin{lstlisting}
         size = 4; (*矩阵的阶*)
         rank = 3; (*矩阵的秩*)
         lb = -2; (*随机数下限*)
@@ -1541,14 +2337,117 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
         A = Array[RandomInteger[{lb, ub}] &, {size, size}];
         While[MatrixRank[A] < size, 
          A = Array[RandomInteger[{lb, ub}] &, {size, size}];]
-        
-        (*生成半正定矩阵并计算主子式*)
-        F = DiagonalMatrix[Array[1 &, rank], 0, size];
-        Array[MatrixForm[(Transpose[A] . F . A)[[1 ;; #, 1 ;; #]]] &, size]
-        Array[Det[(Transpose[A] . F . A)[[1 ;; #, 1 ;; #]]] &, size]
-    \end{verbatim}
+
+        (*随机的半正定矩阵*)
+        F = Transpose[A] . DiagonalMatrix[Array[1 &, rank], 0, size] . A;
+
+        (*主子式*)
+        Array[subMat[F, Range[#], Range[#]] &, Length[F]]
+    \end{lstlisting}
+
+    下面的代码输出 $F$ 的所有子式, 格式为 \{\{子阵,子式\},选取的行\}:
+    \begin{lstlisting}
+    {subMat[F, #, #], #} & /@
+      Union[
+       ReplaceList[
+        Range[Length[F]],
+        {{x___, y___, z___, u___, v___} :> {x, z, v},
+         {x___, y___, z___, u___, v___} :> {y, u}}]]
+    \end{lstlisting}
 \end{note}
-\begin{exercisec}% 补充题 8
+\subsubsection{斜对称双线性型}
+\begin{exercisec}[1.7.11]\label{exc1.7.11}
+    设 $\charop K\neq 2,A\in M_n(K)$. 证明: $A=(a_{ij})$ 斜对称当且仅当
+    \[{}^tXAX=0,\quad\forall X=[x_1,x_2,\cdots,x_n].\]
+\end{exercisec}
+\begin{proof}
+    设 $f_A$ 是 $V$ 上的双线性型, $f_A$ 在 $V$ 的基 $\boldsymbol{e}_i$ 下的矩阵为 $A$. 与性质 \ref{p3.1} 类似, $A$ 斜对称 $\Leftrightarrow f_A$ 斜对称.
+
+    $(\Rightarrow)f_A$ 斜对称 $\Rightarrow\forall\boldsymbol{x}\in V,f(\boldsymbol{x},\boldsymbol{x})=-f(\boldsymbol{x},\boldsymbol{x})\Rightarrow f(\boldsymbol{x},\boldsymbol{x})=0.\because$
+    \[\begin{array}{rcl}
+        V & \to & K^n \\
+        \boldsymbol{x}=x_1\boldsymbol{e}_1+x_2\boldsymbol{e}_2+\cdots+x_n\boldsymbol{e}_n & \to & [x_1,x_2,\cdots,x_n] \\
+    \end{array}\]
+
+    是同构, $\therefore\forall X\in K^n,\exists\boldsymbol{x}\in V$ 使得 $f(\boldsymbol{x},\boldsymbol{x})={}^tXAX$.
+
+    $\because f(\boldsymbol{x},\boldsymbol{x})=0,\therefore{}^tXAX=0$.
+
+    ($\Leftarrow$) 设 $A=(a_{ij}),X_i=[0,\cdots,0,1(\text{第}i\text{个}),0,\cdots,0]$. 则 $a_{ii}={}^tX_iAX_i=0$. 有
+    \[a_{ii}+a_{ij}+a_{ji}+a_{jj}=({}^tX_i+{}^tX_j)A(X_i+X_j)=0.\]
+
+    $\because a_{ii}=a_{jj}=0,\therefore a_{ij}+a_{ji}=0.\therefore A$ 是斜对称的.
+\end{proof}
+\begin{exercisec}[1.7.13]
+    设 $A$ 是 $n$ 阶斜对称实方阵, $E$ 是 $n$ 阶单位矩阵, $\lambda\in\mathbb{C}$. 证明: 如果 $\det(\lambda E-A)=0$, 那么 $\re\lambda=0$.
+\end{exercisec}
+\begin{proof}
+    如果 $\lambda=0$, 那么显然有 $\re\lambda=0$. 下面设 $\lambda\neq0$.
+
+    (a) 如果 $A$ 是标准形式, 则
+    \[\lambda E-A=\begin{pmatrix}
+        \lambda  & 1 & 0  & 0 &&& \cdots &&& 0 \\
+        -1 & \lambda & 0  & 0 &&& \cdots &&& 0 \\
+        0  & 0 & \lambda  & 1 &&& \cdots &&& 0 \\
+        0  & 0 & -1 & \lambda &&& \cdots &&& 0 \\
+        &&& \ddots & \ddots \\
+        &&&& \lambda  & 1 & 0 & 0 \\
+        &&&& -1 & \lambda & 0 & 0 \\
+        &&&& 0  & 0 & \lambda & 0 \\
+        &&&& 0  & 0 & 0 & \lambda \\
+        &&&&&&& \ddots & \ddots \\
+        &&&&&&&& \lambda & 0 \\
+        &&&&&&&& 0 & \lambda \\
+    \end{pmatrix}.\]
+
+    反复按前两行前两列展开, 得
+    \begin{align*}
+        \det(\lambda E-A) & =\begin{vmatrix}
+            \lambda  & 1 \\
+            -1 & \lambda \\
+        \end{vmatrix}\cdot\begin{vmatrix}
+            \lambda  & 1 & 0  & 0 &&& \cdots &&& 0 \\
+            -1 & \lambda & 0  & 0 &&& \cdots &&& 0 \\
+            0  & 0 & \lambda  & 1 &&& \cdots &&& 0 \\
+            0  & 0 & -1 & \lambda &&& \cdots &&& 0 \\
+            &&& \ddots & \ddots \\
+            &&&& \lambda  & 1 & 0 & 0 \\
+            &&&& -1 & \lambda & 0 & 0 \\
+            &&&& 0  & 0 & \lambda & 0 \\
+            &&&& 0  & 0 & 0 & \lambda \\
+            &&&&&&& \ddots & \ddots \\
+            &&&&&&&& \lambda & 0 \\
+            &&&&&&&& 0 & \lambda \\
+        \end{vmatrix} \\
+        & =\begin{vmatrix}
+            \lambda  & 1 \\
+            -1 & \lambda \\
+        \end{vmatrix}^2\cdot\begin{vmatrix}
+            \lambda  & 1 & 0  & 0 &&& \cdots &&& 0 \\
+            -1 & \lambda & 0  & 0 &&& \cdots &&& 0 \\
+            0  & 0 & \lambda  & 1 &&& \cdots &&& 0 \\
+            0  & 0 & -1 & \lambda &&& \cdots &&& 0 \\
+            &&& \ddots & \ddots \\
+            &&&& \lambda  & 1 & 0 & 0 \\
+            &&&& -1 & \lambda & 0 & 0 \\
+            &&&& 0  & 0 & \lambda & 0 \\
+            &&&& 0  & 0 & 0 & \lambda \\
+            &&&&&&& \ddots & \ddots \\
+            &&&&&&&& \lambda & 0 \\
+            &&&&&&&& 0 & \lambda \\
+        \end{vmatrix} \\
+        & =\cdots \\
+        & =\begin{vmatrix}
+            \lambda  & 1 \\
+            -1 & \lambda \\
+        \end{vmatrix}^r\cdot|\diag(\underbrace{\lambda,\cdots,\lambda}_{n-2r\text{个}\lambda})|=(\lambda^2+1)^r\lambda^{n-2r}.
+    \end{align*}
+
+    $\because\lambda\neq0,\det(\lambda E-A)=0$, $\therefore(\lambda^2+1)^r=0\Rightarrow\lambda^2+1=0\Rightarrow\lambda=i$.
+
+    (b)
+\end{proof}
+\begin{exercisec}
     把 $f(\boldsymbol{x},\boldsymbol{y})=x_1y_3-y_1x_3+x_1y_2-y_1x_2+x_2y_3-y_2x_3+x_2y_4-y_2x_4$ 化为标准型.
 \end{exercisec}
 \begin{solution}
@@ -1566,7 +2465,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^+(V,K)$ 对�
     令 $y'_3=-y_3,x'_3=-x_3,y'_4=y_3+y_4,x'_4=x_3+x_4$, 则
     \[f(\boldsymbol{x},\boldsymbol{y})=x_1'y_2'-y_1'x_2'+x_3'y_4'-y_3'x_4'.\]
 \end{solution}
-\begin{exercisec}% 补充题 9
+\begin{exercisec}
     设 $f$ 是非退化, 斜对称的双线性型, $F'=(f_{ij})\in M_n(\mathbb{R})$ 斜对称, 证明:
     
     $\exists\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 使得 $f_{ij}=f(\boldsymbol{v}_i,\boldsymbol{v}_j)$.
