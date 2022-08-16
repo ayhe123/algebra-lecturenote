@@ -243,3 +243,7 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+*.py
+elegantnote.cls
+*.zip

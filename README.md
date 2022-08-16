@@ -23,7 +23,7 @@
 1. `no_bg.zip` 是编译好的 PDF 文件（无背景颜色），`with_bg.zip` 是编译好的 PDF 文件（有绿色的背景颜色）。
 2.  `materials.zip` 里面有文中提到的 `.nb` 文件和 `.ggb` 文件。
 
-如果你会使用 $\LaTeX$, 可以自己编译，具体方法见“编译方法”一节。
+如果你会使用 LaTeX, 可以自己编译，具体方法见“编译方法”一节。
 
 ## 文件及符号说明
 
@@ -37,17 +37,20 @@
 
 笔记的符号基本上与教材和视频一致。下面的符号表是笔记中一些教材和视频中没有的符号。
 
-| 符号                          | 含义                         |
-| ----------------------------- | ---------------------------- |
-| $LHS$                         | 等式左边                     |
-| $RHS$                         | 等式右边                     |
-| $\lfloor x \rfloor$           | $x$ 向下取整                 |
-| $\lceil x \rceil$             | $x$ 向上取整                 |
-| $\exists !a$                  | 存在唯一的 $a$               |
-| $a\Rightarrow b$              | $a$ 蕴含命题 $b$             |
-| $a\vee b$                     | 命题 $a$ 成立或命题 $b$ 成立 |
-| $a\wedge b$（第2卷第6章之前） | 命题 $a$ 与命题 $b$ 都成立   |
-| $a\wedge b$（第2卷第6章之后） | $a$ 与 $b$ 的外积            |
+| 符号                          | 含义                                 |
+| ----------------------------- | ------------------------------------ |
+| $\because$                    | 因为                                 |
+| $\therefore$                  | 所以                                 |
+| $LHS$                         | 原式左边                             |
+| $RHS$                         | 原式右边                             |
+| $\lfloor x \rfloor$           | $x$ 向下取整                         |
+| $\lceil x \rceil$             | $x$ 向上取整                         |
+| $\exists !a$                  | 存在唯一的 $a$                       |
+| $a\Rightarrow b$              | 命题 $a$ 蕴含命题 $b$                |
+| $a\Leftrightarrow b$          | $a\Rightarrow b$ 且 $b\Rightarrow a$ |
+| $a\vee b$                     | 命题 $a$ 成立或命题 $b$ 成立         |
+| $a\wedge b$（第2卷第6章之前） | 命题 $a$ 与命题 $b$ 都成立           |
+| $a\wedge b$（第2卷第6章之后） | $a$ 与 $b$ 的外积                    |
 
 其他教材和视频中没有的符号第一次出现时应该会有说明。
 
@@ -75,27 +78,13 @@
 git clone https://github.com/ayhe123/algebra-lecturenote.git
 git clone https://github.com/ayhe123/ElegantNote.git
 cp ElegantNote/elegantnote.cls algebra-lecturenote
-cp ElegantNote/utils/auto_build.sh algebra-lecturenote
-cd algebra-lecturenote
-./auto_build.sh
 ```
 
-按提示进行操作即可。
-
-`2-4.tex` 有参考文献，要额外编译：
-
-```bash
-xelatex 2-4
-biber 2-4
-xelatex 2-4
-xelatex 2-4
-```
-
-由于我不会写批处理文件，所以 Windows 用户只能逐个编译文件（或者帮我写一个批处理文件）。
+然后就可以编译了
 
 ### 使用原版 ElegantNote
 
-主流的 $\LaTeX$ 发行版应该都预装有 ElegantNote，不用下载。
+主流的 LaTeX 发行版应该都预装有 ElegantNote，不用下载。
 
 这里介绍不用 `mdframed` 宏包的方法。首先删掉 `lecturenote.sty` 的下列内容：
 ```LaTeX
@@ -117,15 +106,9 @@ xelatex 2-4
 
 之后就能正常编译了。
 
-可以使用 `auto_build.sh`。在 Linux 或者 MacOS 下执行：
+### 自动编译
 
-```bash
-git clone https://github.com/ayhe123/algebra-lecturenote.git
-git clone https://github.com/ayhe123/ElegantNote.git
-cp ElegantNote/utils/auto_build.sh algebra-lecturenote
-cd algebra-lecturenote
-./auto_build.sh
-```
+我写了一个 Python 程序用来自动编译 LaTeX 文件，[源码地址](https://github.com/ayhe123/LaTeX-batch-builder)
 
 ### 一键修改样式
 
