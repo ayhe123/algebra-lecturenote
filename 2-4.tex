@@ -379,12 +379,12 @@ $\therefore\{\varphi_{1,\beta}|\beta\in K\}$ 是 $\aff (K)$ 的子群, 且同构
 
 $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\dot{p}+\boldsymbol{v}$ 满足 $De=\mathcal{E}$. 从上式可以看出,
 \[D:\begin{array}{rcl}
-    \aff (\mathbb{A}) & \to & \gl (V) \\
+    \aff (\mathbb{A}) & \to & GL (V) \\
     f & \to & Df \\
 \end{array}\]
 是群同态.
 
-对 $\forall\mathcal{F}\in\gl (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{p}+\boldsymbol{v})=f(\dot{p})+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\gl (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\therefore D$ 是满同态. 有
+对 $\forall\mathcal{F}\in GL (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{p}+\boldsymbol{v})=f(\dot{p})+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in GL (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\therefore D$ 是满同态. 有
 \begin{lemma}
     $\ker D$ 是 $\mathbb{A}$ 上的平移变换全体 $T$.
 \end{lemma}
@@ -401,7 +401,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 \end{proof}
 有下面的正合列
 \begin{equation}\label{eq3.1}
-    e\to T\xrightarrow{\xi}\aff (\mathbb{A})\xrightarrow{\eta}\gl (V)\to\mathcal{E},
+    e\to T\xrightarrow{\xi}\aff (\mathbb{A})\xrightarrow{\eta} GL (V)\to\mathcal{E},
 \end{equation}
 
 其中 $\xi$ 是恒等变换, $\eta=D$.
@@ -413,7 +413,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 \begin{proof}
     前面证明过 $\eta=D$ 是 $\aff (\mathcal{A})$ 上的群同态. $\therefore\eta|_{G_{\dot{o}}}$ 是群同态.
 
-    对 $\forall\mathcal{F}\in\gl (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{o}+\boldsymbol{v})=\dot{o}+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in\gl (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\because f(\dot{o})=\dot{o}$, $\therefore f\in G_{\dot{o}}$. $\therefore \eta|_{G_{\dot{o}}}$ 是满同态.
+    对 $\forall\mathcal{F}\in GL (V),\dot{p}\in\mathbb{A}$, 可以构造仿射映射 $f$ 使得 $f(\dot{o}+\boldsymbol{v})=\dot{o}+\mathcal{F}\boldsymbol{v}$. $\because Df=\mathcal{F}\in GL (V)$, 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$. $\because f(\dot{o})=\dot{o}$, $\therefore f\in G_{\dot{o}}$. $\therefore \eta|_{G_{\dot{o}}}$ 是满同态.
     
     $\because\forall f\in\ker\eta|_{G_{\dot{o}}},Df=\mathcal{E}$,
     \[f(\dot{o}+\boldsymbol{v})=\dot{o}+\boldsymbol{v}\Rightarrow f=e.\]
@@ -424,7 +424,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
     $\forall f\in\aff (\mathbb{A})$, $\exists!t_{\boldsymbol{a}}\in T,g\in G_{\dot{o}}$ 使得 $f=t_{\boldsymbol{a}}g$.
 \end{theorem}
 \begin{proof}
-    (存在性) 设 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+Df\boldsymbol{v}$. $\because f\in\aff (\mathbb{A})$, 由引理 \ref{l3.1} 得 $Df\in\gl (V)$. 由引理 \ref{l3.3} 得 $\eta|_{G_{\dot{o}}}$ 是双射, $\therefore\exists g\in G_{\dot{o}}$ 使得 $g(\dot{o}+\boldsymbol{v})=\dot{o}+Df\boldsymbol{v}$.
+    (存在性) 设 $f:\dot{p}+\boldsymbol{v}\to f(\dot{p})+Df\boldsymbol{v}$. $\because f\in\aff (\mathbb{A})$, 由引理 \ref{l3.1} 得 $Df\in GL (V)$. 由引理 \ref{l3.3} 得 $\eta|_{G_{\dot{o}}}$ 是双射, $\therefore\exists g\in G_{\dot{o}}$ 使得 $g(\dot{o}+\boldsymbol{v})=\dot{o}+Df\boldsymbol{v}$.
 
     令 $\boldsymbol{a}=\overrightarrow{of(o)}$, 则
     \begin{align*}
@@ -441,7 +441,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 
     $\therefore\boldsymbol{a}=Df\boldsymbol{v}-Dg\boldsymbol{v}$. 同理得 $\boldsymbol{a}=Df\boldsymbol{u}-Dg\boldsymbol{u}$. $\therefore(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$.
 
-    $\because f,g\in\aff (\mathbb{A}),\therefore Df,Dg\in\gl (V)$. 假设 $Df\neq Dg$, 则 $Df-Dg\in\gl (V)$, $\therefore\ker(Df-Dg)=\{\boldsymbol{0}\}$, 与 $\boldsymbol{u}-\boldsymbol{v}\neq\boldsymbol{0}$ 但 $(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$ 矛盾. $\therefore Dg=Df$.
+    $\because f,g\in\aff (\mathbb{A}),\therefore Df,Dg\in GL (V)$. 假设 $Df\neq Dg$, 则 $Df-Dg\in GL (V)$, $\therefore\ker(Df-Dg)=\{\boldsymbol{0}\}$, 与 $\boldsymbol{u}-\boldsymbol{v}\neq\boldsymbol{0}$ 但 $(Df-Dg)(\boldsymbol{u}-\boldsymbol{v})=\boldsymbol{0}$ 矛盾. $\therefore Dg=Df$.
 
     设 $f=t_{\boldsymbol{b}}g$, 则 $f=t_{\boldsymbol{b}-\boldsymbol{a}}t_{\boldsymbol{a}}g$, 其中 $\boldsymbol{a}=\overrightarrow{of(o)}$. 由存在性的证明得 $f=t_{\boldsymbol{a}}g$, $\therefore f=t_{\boldsymbol{b}-\boldsymbol{a}}f$. $\therefore\boldsymbol{b}=\boldsymbol{a}$.
 \end{proof}
@@ -465,7 +465,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 \end{proof}
 定理 \ref{t3.1} 说明映射
 \[\begin{array}{rcl}
-    \aff (\mathbb{A}) & \to & \gl (V)\times V \\
+    \aff (\mathbb{A}) & \to & GL (V)\times V \\
     f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
 \end{array}\]
 是双射. 如果定义形式上的运算
@@ -474,7 +474,7 @@ $\therefore\aff (\mathbb{A})$ 是群, 单位元为 $e:\dot{p}+\boldsymbol{v}\to\
 则
 \begin{theorem}\label{t3.3}
     \[\varphi:\begin{array}{rcl}
-        \aff (\mathbb{A}) & \to & \gl (V)\times V \\
+        \aff (\mathbb{A}) & \to & GL (V)\times V \\
         f=t_{\boldsymbol{a}}g,\ g\in G_{\dot{o}} & \to & (Df,\boldsymbol{a}) \\
     \end{array}\]
     是同构.
@@ -539,7 +539,7 @@ Euclid 空间 $\mathbb{E}$ 上的映射 $f$ 是运动当且仅当 $f$ 保持距�
     对 $\boldsymbol{u},\boldsymbol{v}\in V$, 设 $\dot{p}+\boldsymbol{u}=\dot{q},\dot{p}+\boldsymbol{u}+\boldsymbol{v}=\dot{q}+\boldsymbol{v}=\dot{r}$, 则 $\overrightarrow{pq}=\boldsymbol{u},\overrightarrow{pr}=\boldsymbol{u}+\boldsymbol{v}$. 有
     \[\mathcal{F}(\boldsymbol{u}+\boldsymbol{v})=\overrightarrow{f(\dot{p})f(\dot{r})}=\overrightarrow{f(\dot{p})f(\dot{q})}+\overrightarrow{f(\dot{q})f(\dot{r})}=\mathcal{F}\boldsymbol{u}+\mathcal{F}\boldsymbol{v}.\]
 
-    $\therefore\mathcal{F}\in\gl (V)$. 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$.
+    $\therefore\mathcal{F}\in GL (V)$. 由引理 \ref{l3.1} 得 $f\in\aff (\mathbb{A})$.
 \end{proof}
 当 $K=\mathbb{R},\dim\mathbb{A}\geq2$ 时, \cite[p41]{geometry} 证明了: 上述定理有更符合几何直观的加强命题:
 \begin{theorem}
@@ -788,13 +788,13 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     $\boldsymbol{L}_+$ 在空间 $\Lambda^3$ 上的作用是\textbf{可迁的}, 即 $\forall\boldsymbol{p},\boldsymbol{q}\in\Lambda^3,\exists g\in\boldsymbol{L}^+$ 使得 $g\boldsymbol{p}=\boldsymbol{q}$.
 \end{theorem}
 \begin{proof}
-    $\because\forall\boldsymbol{u}=(t,x_1,x_2,x_3)\in\Lambda^3,P_{\boldsymbol{u}}$ 正定, $\therefore\exists A\in\slop _2(\mathbb{C})$ 使得
+    $\because\forall\boldsymbol{u}=(t,x_1,x_2,x_3)\in\Lambda^3,P_{\boldsymbol{u}}$ 正定, $\therefore\exists A\in SL _2(\mathbb{C})$ 使得
     \[P_{\boldsymbol{u}}=A\begin{pmatrix}
         1 & 0 \\
         0 & 1 \\
     \end{pmatrix}A^*.\]
 
-    $\therefore\exists B,C\in\slop _2(\mathbb{C})$ 使得 $P_{\boldsymbol{p}}=\Gamma_B(E),P_{\boldsymbol{q}}=\Gamma_C(E)$.
+    $\therefore\exists B,C\in SL _2(\mathbb{C})$ 使得 $P_{\boldsymbol{p}}=\Gamma_B(E),P_{\boldsymbol{q}}=\Gamma_C(E)$.
 
     $\therefore P_{\boldsymbol{p}}=\Gamma_B\Gamma_{C^{-1}}(P_{\boldsymbol{q}})=\Gamma_{BC^{-1}}(P_{\boldsymbol{q}})$.
 \end{proof}
@@ -1209,7 +1209,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 % 先证明一个引理.
 % \begin{lemma}
 %     设 $V$ 是 $1$ 维线性空间, 零元为 $0$, 则
-%     $\gl (V)\simeq V\backslash\{0\}$.
+%     $ GL (V)\simeq V\backslash\{0\}$.
 % \end{lemma}
 % \begin{proof}
     
@@ -1221,7 +1221,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     (1) 求 $|A_1(\mathbb{F}_p)|$. (2) $A_1(\mathbb{F}_p)$ 同构于什么群?
 \end{exercise}
 \begin{solution}
-    (2) 由定理 \ref{t3.3} 得 $A_1(\mathbb{F}_p)\simeq\gl (\mathbb{F}_p)\times\mathbb{F}_p$.
+    (2) 由定理 \ref{t3.3} 得 $A_1(\mathbb{F}_p)\simeq GL (\mathbb{F}_p)\times\mathbb{F}_p$.
 
     (1) 由第 2 章笔记的定理 1.1 得
     \[\begin{array}{rcl}
@@ -1230,14 +1230,14 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
     \end{array}\]
     是同构. $\therefore|\mathcal{L}(\mathbb{F}_p)|=p$.
 
-    设 $f:1\mapsto0\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,f(a)=f(a\cdot 1)=af(1)=0$, $\therefore f\notin\gl (\mathbb{F}_p)$.
+    设 $f:1\mapsto0\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,f(a)=f(a\cdot 1)=af(1)=0$, $\therefore f\notin GL (\mathbb{F}_p)$.
 
     设 $f:1\mapsto b\neq0\in\mathcal{L}(\mathbb{F}_p)$. 令 $g:b\mapsto 1\in\mathcal{L}(\mathbb{F}_p)$, 则 $\forall a\in\mathbb{F}_p,fg(a)=f(g(a\cdot 1))=f(a\cdot g(1))=af(g(1))=a$, $\therefore$
     \[\begin{array}{rcl}
-        \gl (\mathbb{F}_p) & \to & \mathbb{F}_p\backslash\{0\} \\
+        GL (\mathbb{F}_p) & \to & \mathbb{F}_p\backslash\{0\} \\
         f & \to & f(1) \\
     \end{array}\]
-    是双射. $\therefore|\gl (\mathbb{F}_p)|=p-1,|A_1(\mathbb{F}_p)|=|\gl (\mathbb{F}_p)||\mathbb{F}_p|=p(p-1)$.
+    是双射. $\therefore| GL (\mathbb{F}_p)|=p-1,|A_1(\mathbb{F}_p)|=| GL (\mathbb{F}_p)||\mathbb{F}_p|=p(p-1)$.
 \end{solution}
 \begin{exercise}% 3.2
     Euclid 平面上的一个固有运动 $f$ 满足
@@ -1381,7 +1381,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
 \begin{landscape}
     \begin{proof}
         这里用纯代数方法证明, 因此比较繁琐. 设
-        \[S=\{B\in\gl _2(\mathbb{C})|B^*=B\},\]
+        \[S=\{B\in GL _2(\mathbb{C})|B^*=B\},\]
         
         则
         \[E_{(1)}=\begin{pmatrix}
@@ -1401,7 +1401,7 @@ $\boldsymbol{L}_+$ 中的变换保持二次型 $t^2-x_1^2-x_2^2-x_3^2$ 不变, $
         \[A=\begin{pmatrix}
             \alpha & \beta \\
             \gamma & \delta \\
-        \end{pmatrix}\in\slop _n(\mathbb{C}).\]
+        \end{pmatrix}\in SL _n(\mathbb{C}).\]
     
         $\because$
         \begin{align*}

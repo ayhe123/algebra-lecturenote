@@ -5,7 +5,7 @@
 
 \begin{document}
 \maketitle
-在这章的笔记中, 对环 $R$, 记 $R^*:=R\backslash\{0\}$.
+在这章的笔记中, 对环 $R$, 记 $R^*=R\backslash\{0\}$.
 \section{运算(对应教材4.1节)}
 \subsection{对于可逆元素定义的一个说明}
 可逆的定义中要求元素 $a$ 满足 $\exists b,ab=ba=e,a$ 才可逆. 对于 $A,B\in M_n(\mathbb{R})$, $AB=E\Rightarrow BA=E$. 是否只要 $a$ 满足 $\exists b,ab=e,a$ 就可逆? 答案是否定的.
@@ -45,7 +45,7 @@ $(G:H)$ 有更一般的定义(对于无限群也适用的), 以后会介绍.
 \begin{example}
     设 $K$ 是域,
     \[\varphi:\begin{array}{rcl}
-        \gl _{n-1}(K) & \to & \gl _n(K) \\
+        GL _{n-1}(K) & \to & GL _n(K) \\
         A & \to & \begin{pmatrix}
             A & 0 \\
             0 & 1 \\
@@ -229,7 +229,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
 不是所有的子群都是正规的, 比如对 $S_3$ 中的 $\left<(1\ 2)\right>$, 有 $(1\ 3)(1\ 2)(1\ 3)=(2\ 3)\notin\left<(1\ 2)\right>$.
 \subsection{一些例子}
-研究 $\operatorname{Aut}(G)$ 和 $\operatorname{Inn}(G)$ 的差别是很有趣的. 比如说 $\operatorname{Aut}(S_n)$ 和 $\operatorname{Inn}(S_n)$ 差不多, 但是有:
+研究 $\aut(G)$ 和 $\inn(G)$ 的差别是很有趣的. 比如说 $\aut(S_n)$ 和 $\inn(S_n)$ 差不多, 但是有:
 \begin{example}
     考虑
     \[\theta:\begin{array}{rcl}
@@ -239,11 +239,11 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     其中
     \[\sigma'(i)=\sigma(i+1)-1,\]
-    \[a+b:=\begin{cases}
+    \[a+b=\begin{cases}
         a+b & a+b\leq n, \\
         a+b-kn & n<a+b<kn,k\in\mathbb{Z}, \\
     \end{cases},\]
-    \[a-b:=\begin{cases}
+    \[a-b=\begin{cases}
         a-b & a-b\geq 0, \\
         kn-(a-b) & a-b>-kn,k\in\mathbb{Z}_+. \\
     \end{cases}\]
@@ -256,7 +256,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \end{align*}
     \[(\pi\circ\tau)'(i)=\pi\circ\tau(i+1)-1=\pi(\tau(i+1))-1,\]
 
-    $\therefore\theta(\pi\circ\tau)=\theta(\pi)\circ\theta(\tau),\theta\in\operatorname{Aut}(S_n)$.
+    $\therefore\theta(\pi\circ\tau)=\theta(\pi)\circ\theta(\tau),\theta\in\aut(S_n)$.
 
     但在 $n=4$ 时考虑 $\sigma=(1\ 2)$, 有 $\sigma'=(2\ 3)$.
 
@@ -265,7 +265,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     另一方面, $\sigma'(i)\neq i,\therefore\sigma'\neq\pi\sigma\pi^{-1}$, 与 $\sigma'=\pi\sigma\pi^{-1}$ 矛盾.
 
-    $\therefore\theta\notin\operatorname{Inn}(S_3)$.
+    $\therefore\theta\notin\inn(S_3)$.
 \end{example}
 
 下面是同构和同态的一些例子, 作为教材的补充.
@@ -305,7 +305,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 \begin{example}\label{ex2.4}
     类似于第 2 章习题的习题 3.6, 构造:
     \[f:\begin{array}{rcl}
-        S_n & \to & \gl _n(\mathbb{R}) \\
+        S_n & \to & GL _n(\mathbb{R}) \\
         \sigma & \to & P_\sigma \\
     \end{array},\]
 
@@ -315,9 +315,9 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     \[A=BP_\sigma C,\]
 
     其中 $P_\sigma$ 的定义见例 \ref{ex2.4}. 可以证明:
-    \[\gl _n(\mathbb{R})=\bigcup\limits_{\sigma\in S_n}HP_\sigma H,\]
+    \[ GL _n(\mathbb{R})=\bigcup\limits_{\sigma\in S_n}HP_\sigma H,\]
 
-    其中 $H=\gl _n(\mathbb{R})\cap B_n(\mathbb{R})$.
+    其中 $H= GL _n(\mathbb{R})\cap B_n(\mathbb{R})$.
 \end{example}
 \section{环和域(对应教材4.3节)}
 \subsection{环同态的核}
@@ -404,7 +404,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 补充一下书上定理4证明的后半部分.
 
 设 $P$ 是域, 定义 $P$ 上的\textbf{数乘}: $\forall a\in P,n\in\mathbb{Z}$,
-\[n\cdot a:=\begin{cases}
+\[n\cdot a=\begin{cases}
     \underbrace{a+a+\cdots+a}_{n\text{个}a}, & n\geq0, \\
     \underbrace{-a+(-a)+\cdots+(-a)}_{-n\text{个}-a}, & n<0. \\
 \end{cases}\]
@@ -606,7 +606,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设 $R$ 是有单位元的环, 沿用书上定理 2 的记号 $U(R)$.
 
     容易验证
-    \[U(\mathbb{Z})=\{\pm1\},\quad U(M_n(K))=\gl _n(K).\]
+    \[U(\mathbb{Z})=\{\pm1\},\quad U(M_n(K))= GL _n(K).\]
 
     $\because\forall s\in\mathbb{Z},$ 在 $\mathbb{Z}_m$ 中有 $\overline{sm}=\bar{0},\therefore$
     \begin{align*}
@@ -626,10 +626,10 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     容易验证 $\overline{\mathbb{Q}}$ 是域.
 
-    $\operatorname{Aut}\overline{\mathbb{Q}}$ 称为有理数域上的\textbf{绝对 Galois 群}, 记作 $\operatorname{Gal}\overline{\mathbb{Q}}/\mathbb{Q}$.
+    $\aut\overline{\mathbb{Q}}$ 称为有理数域上的\textbf{绝对 Galois 群}, 记作 $\operatorname{Gal}\overline{\mathbb{Q}}/\mathbb{Q}$.
 \end{example}
 \begin{example}
-    设 $p$ 为素数, $F=\mathbb{Z}_p$, 考虑 $F$ 上的 $2$ 阶全体可逆方阵 $G=\gl _2(F)$ 的个数 $|G|$.
+    设 $p$ 为素数, $F=\mathbb{Z}_p$, 考虑 $F$ 上的 $2$ 阶全体可逆方阵 $G= GL _2(F)$ 的个数 $|G|$.
 
     将 $2$ 阶方阵写成
     \[A=\begin{pmatrix}
@@ -647,7 +647,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
 
     事实上, $\because F^2$ 中的一个基为两个线性无关的向量, $\therefore F^2$ 中的基的个数为 $|G|$.
 
-    考虑更一般的 $|\gl _n(F)|$.
+    考虑更一般的 $| GL _n(F)|$.
 
     考察 $n$ 阶方阵
     \[A=[A_{(1)},A_{(2)},\cdots,A_{(n)}],\]
@@ -665,7 +665,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     $\because\forall x_1,x_2,\cdots,x_n\in F,A_{(n)}\neq x_1A_{(1)}+x_2A_{(2)}+\cdots+x_{n-1}A_{(n-1)},\therefore A_{(n)}$ 有 $=p^n-p^{n-1}$ 种情况.
 
     $\therefore$
-    \[|\gl_n(F)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+    \[| GL_n(F)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
 \end{example}
 \begin{example}
     下面是通过 $\mathbb{Z}_p$ 上的 $n$ 次不可约多项式的根来构造 $p^n$ 元域 $F_{p^n}$ (其中 $p$ 是素数, $n\in\mathbb{N}_+$) 的两个例子.
@@ -1228,7 +1228,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设 $A,B\in M_n(\mathbb{R})$ 且 $(AB)^m=E$ 对某个 $m\in\mathbb{Z}$ 成立, 证明: $(BA)^m=E$.
 \end{exercise}
 \begin{proof}
-    $\because(AB)^m=E,\therefore AB\in\gl _n(\mathbb{R}),\therefore A,B\in\gl _n(\mathbb{R})$.
+    $\because(AB)^m=E,\therefore AB\in GL _n(\mathbb{R}),\therefore A,B\in GL _n(\mathbb{R})$.
 
     当 $m=1$ 时由第 2.3 节第 5 小节的推论 2 得 $BA=AB=E$.
 
@@ -1241,7 +1241,7 @@ $\therefore$ 也可以用 $\left<S\right>=\bigcap\limits_{\substack{S\subset H\s
     设
     \[\underbrace{ABA\cdots ABA}_{p+1\text{个}A}=C,\quad\underbrace{BAB\cdots BAB}_{q+1\text{个}B}=D,\]
 
-    则 $C,D\in\gl _n(\mathbb{R}),CD=E$. 由第 2.3 节第 5 小节的推论 2 得 $DC=E$, 即
+    则 $C,D\in GL _n(\mathbb{R}),CD=E$. 由第 2.3 节第 5 小节的推论 2 得 $DC=E$, 即
     \[\underbrace{BAB\cdots BAB}_{q+1\text{个}B}\underbrace{ABA\cdots ABA}_{p+1\text{个}A}=E.\]
 
     $\therefore(BA)^m=E$.
@@ -2403,10 +2403,10 @@ TableForm[
     $\therefore$ 当 $f(1)=\pm1$ 时 $f$ 是同构.
 \end{solution}
 \begin{exercisec}[5.2.26]
-    证明 $f:A\mapsto({}^tA)^{-1}$ 是 $\gl_n(\mathbb{R})$ 的自同构.
+    证明 $f:A\mapsto({}^tA)^{-1}$ 是 $ GL_n(\mathbb{R})$ 的自同构.
 \end{exercisec}
 \begin{proof}
-    $\because({}^t({}^tA)^{-1})^{-1}=A$, $\therefore f^{-1}=f$, 由书上的定理 2.16 得 $f$ 是双射. 容易验证 $f$ 是 $\gl_n(\mathbb{R})$ 上的同构.
+    $\because({}^t({}^tA)^{-1})^{-1}=A$, $\therefore f^{-1}=f$, 由书上的定理 2.16 得 $f$ 是双射. 容易验证 $f$ 是 $ GL_n(\mathbb{R})$ 上的同构.
 \end{proof}
 \begin{exercisec}[5.2.27]\label{exc5.2.27}
     设 $G$ 是群. 证明在映射的合成下 $G$ 的右平移(定义见定理 \ref{t2.5})全体 $G_R$ 是群, $\varphi:a\mapsto R_{a^{-1}}$ 是 $G\to G_R$ 的同构.
@@ -2499,7 +2499,7 @@ TableForm[
     $\because\forall2$ 阶元 $a\in G$, $a\neq e\Rightarrow\forall b\in G,ba\neq b$, $\therefore\forall b\in G,L_a(b)\neq b$.
 \end{solution}
 \begin{exercisec}
-    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $\gl_n(K)$ 的子群.
+    证明: 域 $K$ 上对角线上元素 $\neq0$ 的 $n$ 阶上三角矩阵全体(记为 $B_n(K)$) 与矩阵的乘法构成 $ GL_n(K)$ 的子群.
 \end{exercisec}
 \begin{proof}
     $\because$
@@ -2510,7 +2510,7 @@ TableForm[
         0 & 0 & \cdots & \lambda_{nn} \\
     \end{pmatrix}\in B_n(K),\quad\det X=\prod\limits_{i=1}^n\lambda_{ii}\neq0,\]
 
-    $\therefore B_n(K)\subset\gl _n(K)$.
+    $\therefore B_n(K)\subset GL _n(K)$.
 
     容易验证 $B_n(K)$ 对矩阵的乘法封闭, $E\in B_n(K)$.
 
@@ -2798,7 +2798,7 @@ Array[Solve[sys[#] == {0, 1, 0, 0}, Array[a, #], Integers] &, 100]\end{lstlistin
         x & \mapsto & \overline{x} \\
     \end{array}\]
 
-    诱导的群同态 $\slop_2(\mathbb{Z})\to\slop_2(\mathbb{Z}_p)$ 是满射.
+    诱导的群同态 $ SL_2(\mathbb{Z})\to SL_2(\mathbb{Z}_p)$ 是满射.
 \end{exercisec}
 \begin{proof}
     $\forall A=\begin{pmatrix} \overline{a} & \overline{b} \\ \overline{c} & \overline{d} \end{pmatrix}\in SL_2(\mathbb{Z}_p),\overline{ad-bc}=\overline{1}\Rightarrow\exists k$ 使得 $ad-bc=1+kp$.

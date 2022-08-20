@@ -143,7 +143,7 @@ $\therefore$
     0 & 1 \\
 \end{vmatrix}=-1.\]
 可以定义\textbf{特殊正交群}
-\[SO(n):=\{A\in O(n)|\det A=1\}.\]
+\[SO(n)=\{A\in O(n)|\det A=1\}.\]
 
 以后会更深入地研究 $O(n)$ 和 $SO(n)$.
 \begin{theorem}[书上的定理 8]
@@ -220,10 +220,10 @@ $\therefore$
 
 $\because\forall\boldsymbol{x},\boldsymbol{y},[\mathcal{A}\boldsymbol{x}|\mathcal{A}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}]$, 与正交矩阵的情形类似, 有 ${}^tAJ_0A=J_0$.
 \begin{theorem}
-    $V$ 上的辛变换全体(记作 $\spop (2m)$)是一个群.
+    $V$ 上的辛变换全体(记作 $Sp(2m)$)是一个群.
 \end{theorem}
 \begin{proof}
-    设 $\mathcal{A},\mathcal{B}\in\spop (2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
+    设 $\mathcal{A},\mathcal{B}\in Sp(2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
     \[[\mathcal{AB}\boldsymbol{x}|\mathcal{AB}\boldsymbol{y}]=[\mathcal{A}(\mathcal{B}\boldsymbol{x})|\mathcal{A}(\mathcal{B}\boldsymbol{y})]=[\mathcal{B}\boldsymbol{x}|\mathcal{B}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}],\]
     \[[\mathcal{A}^{-1}\boldsymbol{x}|\mathcal{A}^{-1}\boldsymbol{y}]=[\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{x})|\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{y})]=[\boldsymbol{x}|\boldsymbol{y}].\]
 \end{proof}
@@ -410,7 +410,7 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
     得 $(A^*)^{-1}=(A^{-1})^*$. $\therefore$
     \[(A^{-1})^*A^{-1}=(A^*)^{-1}A^{-1}=(A^*A)^{-1}=E^{-1}=E.\]
 
-    $\therefore A^{-1}\in U(n).\therefore U(n)$ 是 $\gl _n(\mathbb{C})$ 的子群.
+    $\therefore A^{-1}\in U(n).\therefore U(n)$ 是 $ GL _n(\mathbb{C})$ 的子群.
 \end{proof}
 \section{纯量积空间上的线性算子(对应第 3 节)}
 在这节中, 不加说明的话, $V$ 一律为域 $K$ 上的 $n$ 维纯量积空间($K=\mathbb{R}$ 则为 Euclid 空间, $K=\mathbb{C}$ 则为 Hermite 空间).
@@ -711,10 +711,10 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
     \[A=\begin{pmatrix}
         0 & 1 \\
         -1 & 0 \\
-    \end{pmatrix}\in\gl _2(\mathbb{R}).\]
+    \end{pmatrix}\in GL _2(\mathbb{R}).\]
     
     $\because\chi_A(t)=t^2+1$, $\therefore A$ 不能在域 $\mathbb{R}$ 上对角化. $\therefore A$ 不能写成
-    \[B^{-1}\diag (\lambda_1,\lambda_2)B,\quad \diag (\lambda_1,\lambda_2),B\in\gl _2(\mathbb{R})\]
+    \[B^{-1}\diag (\lambda_1,\lambda_2)B,\quad \diag (\lambda_1,\lambda_2),B\in GL _2(\mathbb{R})\]
 
     的形式.
 \end{example}
@@ -803,7 +803,7 @@ $\therefore\mathcal{A}$ 满足式 (\ref{eq3.4}) 等价于 $\mathcal{A}$ 是保�
 \begin{note}
     $\mathcal{A}$ 只在 $V$ 的标准正交基下可对角化, 而不是任意的基.
 
-    设矩阵 $A$ 可对角化, 即 $\exists B\in\gl _n(\mathbb{R})$ 使得 $A=B^{-1}\Lambda B$, 其中 $\Lambda$ 是对角矩阵. 则 $A^*=B^*\Lambda^*(B^{-1})^*$, $AA^*=B^{-1}\Lambda BB^*\Lambda^*(B^{-1})^*$, $A^*A=B^*\Lambda^*(B^{-1})^*B^{-1}\Lambda B$.
+    设矩阵 $A$ 可对角化, 即 $\exists B\in GL _n(\mathbb{R})$ 使得 $A=B^{-1}\Lambda B$, 其中 $\Lambda$ 是对角矩阵. 则 $A^*=B^*\Lambda^*(B^{-1})^*$, $AA^*=B^{-1}\Lambda BB^*\Lambda^*(B^{-1})^*$, $A^*A=B^*\Lambda^*(B^{-1})^*B^{-1}\Lambda B$.
 
     如果 $AA^*=A^*A$, 则 $B^*=B^{-1}$, $\therefore B$ 是酉矩阵. 在一般的基下这不一定成立.
 \end{note}
@@ -1429,7 +1429,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
 \end{solution}
 \begin{exercise}\label{ex1.3}
-    证明: $\forall A=(a_{ij})\in\gl _n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
+    证明: $\forall A=(a_{ij})\in GL _n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
 \end{exercise}
 \begin{proof}
     考察 $A$ 的列空间 $\left<A^{(1)},A^{(2)},\cdots,A^{(n)}\right>$.
@@ -1594,14 +1594,14 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     $\therefore{}^t\bar{A}=A$. $\therefore A$ 是 Hermite 矩阵.
 \end{proof}
 \begin{exercisec}% 补充题 2
-    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in\gl _n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
+    设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in GL _n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
 \end{exercisec}
 \begin{proof}
     ($\Rightarrow$) 由书上的定义 2, $V$ 是 Hermite 空间. $\therefore V$ 中有标准正交基 $(\boldsymbol{e}_i)$ 使得 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $E$.
 
-    由式 (\ref{eq2.1}) 得 $\exists Q\in\gl _n(\mathbb{C})$ 使得 $A={}^tQE\overline{Q}={}^tQ\overline{Q}$. 设 $P=\overline{Q}\in\gl _n(\mathbb{C})$, 则 $A=P^*P$.
+    由式 (\ref{eq2.1}) 得 $\exists Q\in GL _n(\mathbb{C})$ 使得 $A={}^tQE\overline{Q}={}^tQ\overline{Q}$. 设 $P=\overline{Q}\in GL _n(\mathbb{C})$, 则 $A=P^*P$.
 
-    ($\Leftarrow$) 设 $Q=\overline{P}\in\gl _n(\mathbb{C})$, 则 $A={}^tQ\overline{Q}$. $\therefore\forall X\in\mathbb{C}^n$,
+    ($\Leftarrow$) 设 $Q=\overline{P}\in GL _n(\mathbb{C})$, 则 $A={}^tQ\overline{Q}$. $\therefore\forall X\in\mathbb{C}^n$,
     \[{}^tXA\overline{X}={}^tX{}^tQ\overline{Q}\overline{X}={}^t(QX)\overline{QX}.\]
 
     设 $QX=[y_1,y_2,\cdots,y_n]\in\mathbb{C}^n$, 则
@@ -1609,7 +1609,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
         {}^t(QX)\overline{QX} & =y_1\overline{y_1}+y_2\overline{y_2}+\cdots+y_n\overline{y_n} \\
         & =|y_1|^2+|y_2|^2+\cdots+|y_n|^2\geq0,
     \end{align*}
-    (当且仅当 $QX=0$ 时取等号. $\because Q\in\gl _n(\mathbb{C})$, $\therefore$ 当且仅当 $X=0$ 时取等号.)
+    (当且仅当 $QX=0$ 时取等号. $\because Q\in GL _n(\mathbb{C})$, $\therefore$ 当且仅当 $X=0$ 时取等号.)
 
     $\therefore A$ 是正定的.
 \end{proof}
@@ -1870,14 +1870,14 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     设
     \[\mathfrak{G}=\{A_i\in M_n(\mathbb{C}),i\in I|A_iA_j=A_jA_i,\forall i,j\in I\},\]
 
-    证明: (1) $\exists C\in\gl _n(\mathbb{C})$ 使得
+    证明: (1) $\exists C\in GL _n(\mathbb{C})$ 使得
     \[C^{-1}\mathfrak{G}C=\{C^{-1}A_iC|i\in I\}\]
     是由上三角矩阵组成的.
 
     (2) $C^{-1}\mathfrak{G}C$ 中的元素是可交换的.
 \end{exercise}
 \begin{proof}
-    (1) 对矩阵的阶数 $n$ 用数学归纳法. $1$ 阶矩阵都是上三角矩阵. 假设命题对 $n-1$ 阶矩阵构成的 $\mathfrak{G}'$ 成立. 由第 \ref{ex3.9} 题得 $\mathfrak{G}$ 中的矩阵有共同的特征向量 $X=[x_1,x_2,\cdots,x_n]\neq0$. 设 $C\in\gl _n(\mathbb{C})$ 是第 $1$ 列为 $X$ 的矩阵, 则 $\forall i\in I$,
+    (1) 对矩阵的阶数 $n$ 用数学归纳法. $1$ 阶矩阵都是上三角矩阵. 假设命题对 $n-1$ 阶矩阵构成的 $\mathfrak{G}'$ 成立. 由第 \ref{ex3.9} 题得 $\mathfrak{G}$ 中的矩阵有共同的特征向量 $X=[x_1,x_2,\cdots,x_n]\neq0$. 设 $C\in GL _n(\mathbb{C})$ 是第 $1$ 列为 $X$ 的矩阵, 则 $\forall i\in I$,
     \[C^{-1}A_iC=\begin{pmatrix}
         \lambda_i & * \\
         0 & B_i \\
@@ -1901,7 +1901,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[F=\begin{pmatrix}
         1 & * \\
         0 & D \\
-    \end{pmatrix}\in\gl _n(\mathbb{C}),\]
+    \end{pmatrix}\in GL _n(\mathbb{C}),\]
 
     则 $\forall i$,
     \[(CF)^{-1}A_iCF=F^{-1}C^{-1}A_iCF=\begin{pmatrix}
@@ -1910,7 +1910,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \end{pmatrix}\]
     是上三角矩阵.
 
-    $\therefore\exists(CF)\in\gl _n(\mathbb{C})$ 使得
+    $\therefore\exists(CF)\in GL _n(\mathbb{C})$ 使得
     \[(CF)^{-1}\mathfrak{G}CF=\{C^{-1}A_iC|i\in I\}\]
     是由上三角矩阵组成的.
 

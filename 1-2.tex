@@ -78,6 +78,20 @@ $\therefore\ker\varphi_A$ 是方程 $AX=0$ 的解空间.
 
 $\therefore$
 \[\dim\ker\varphi_A+\dim\im \varphi_A=n.\]
+
+用 Mathematica 的 \verb|ArrayFlatten| 函数可以方便地构造分块矩阵, 比如要生成分块矩阵
+\[\begin{pmatrix}
+    E_2 & 0 & -E_2 \\
+    0 & 2E_3 & 0 \\
+    0 & 0 & E_2 \\
+\end{pmatrix}\]
+(其中 $E_n$ 表示 $n$ 阶单位矩阵), 只需要输入
+\begin{lstlisting}
+    ArrayFlatten[
+      {{IdentityMatrix[2], Array[0 &, {2, 3}], -IdentityMatrix[2]},
+       {Array[0 &, {3, 2}], 2 IdentityMatrix[3], Array[0 &, {3, 2}]},
+       {Array[0 &, {2, 2}], Array[0 &, {2, 3}], IdentityMatrix[2]}}]
+\end{lstlisting}
 \section{第2章习题}
 \subsection{习题2.1}
 \stepcounter{exsection}

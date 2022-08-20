@@ -79,7 +79,7 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     \[(a_i)+(b_i)=(a_i+b_i),\quad(a_i)(b_i)=(a_ib_i).\]
 
     对 $a,\in\mathbb{Z}_8,i\in\mathbb{N}_+$, 定义
-    \[\xi_{ia}:=(0,0,\cdots,0,a,0,\cdots),\]
+    \[\xi_{ia}=(0,0,\cdots,0,a,0,\cdots),\]
 
     即 $\xi_{ia}$ 的第 $i$ 个分量为 $a$, 其余为 $0$. 则 $2\xi_{i,4}=\xi_{i,4}^2=0$.
 
@@ -299,7 +299,7 @@ $\operatorname{Der}(R)$ 具有一些特别的性质.
     设 $v$ 是 $n$ 元单项式($v$ 通常为单调的, 但不单调的 $v$ 也不会影响定义), $N_v=\{\sigma\circ v|\sigma\in S_n\}$,
     
     则
-    \[S(v):=\sum_{u\in N_v}u.\]
+    \[S(v)=\sum_{u\in N_v}u.\]
 \end{definition}
 注意这样定义的 $S(v)\neq\sum\limits_{\sigma\in S_n}\sigma\circ v$. 比如说 $v=X_1^2,\sigma_1=(2\ 3),\sigma_2=(3\ 4)$, 有 $\sigma_1\circ v=\sigma_2\circ v=v,\therefore$ 在 $S(v)$ 中只有一项为 $v$, 但在 $\sum\limits_{\sigma\in S_n}\sigma\circ v$ 中至少有两项为 $v$.
 \begin{theorem}
@@ -1139,7 +1139,7 @@ changeNum[sturm /. X -> lb] - changeNum[sturm /. X -> ub]
     设 $f(X)=a_0X^n+a_1X^{n-1}+\cdots+a_n$ 是一个 $n$ 次实系数多项式. 证明: 如果知道了 $f(X),X^nf(1/X),f(-X),X^nf(-1/X)$ 的正根的一个上界, 就得出了 $f(X)$ 的正根和负根的上界和下界.
 \end{exercise}
 \begin{proof}
-    定义 $S_+(f):=\{x\in\mathbb{R}_+|f(x)=0\},S_-(f):=\{x\in\mathbb{R}_-|f(x)=0\}$. 有
+    定义 $S_+(f)=\{x\in\mathbb{R}_+|f(x)=0\},S_-(f)=\{x\in\mathbb{R}_-|f(x)=0\}$. 有
     \[S_+(fg)=S_+(f)\cup S_+(g),\quad S_-(fg)=S_-(f)\cup S_-(g).\]
 
     $\because S_+(X^n)=\varnothing,\therefore S_+(X^nf(1/X))=S_+(f(1/X))$.

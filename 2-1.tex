@@ -35,14 +35,14 @@ $\therefore AB=E,\therefore A$ 可逆.
 \begin{theorem}\label{t1.1}
     设 $V$ 的所有的基组成的集合为 $V_b$, 给定 $V$ 的一个基 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$, 则
     \[\varphi:\begin{array}{rcl}
-        \gl_n(K) & \to & V_b \\
+        GL_n(K) & \to & V_b \\
         A & \to & (\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A \\
     \end{array}\]
 
     是双射.
 \end{theorem}
 \begin{proof}
-    设 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A$ (其中 $A\in\gl_n(K)$), 则
+    设 $(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)A$ (其中 $A\in GL_n(K)$), 则
     \[(\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n')A^{-1}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n)AA^{-1}=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n),\]
 
     即 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 的每个向量都可以表示为 $\boldsymbol{e}_1',\boldsymbol{e}_2',\cdots,\boldsymbol{e}_n'$ 的线性组合.
@@ -113,7 +113,7 @@ $\therefore AB=E,\therefore A$ 可逆.
 对于一般的指标集, 定义
 \begin{definition}
     设 $V_i,i\in I$ 为 $V$ 的子空间. 定义
-    \[\sum\limits_{i\in I}V_i:=\left\{\sum\limits_{i\in I}\boldsymbol{x}_i\bigg|\boldsymbol{x}_i\in V_i,\text{只有有限个}\ \boldsymbol{x}_i\neq0\right\}.\]
+    \[\sum\limits_{i\in I}V_i=\left\{\sum\limits_{i\in I}\boldsymbol{x}_i\bigg|\boldsymbol{x}_i\in V_i,\text{只有有限个}\ \boldsymbol{x}_i\neq0\right\}.\]
 \end{definition}
 
 $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元素之和'', $\therefore\sum\limits_{i\in I}V_i$ 是 $V$ 的子空间.
@@ -234,10 +234,10 @@ $\because$ 两个``有限个非零元素之和''的和还是``有限个非零元
 类比剩余类环, 定义
 \begin{definition}
     设 $U$ 是 $V$ 的子空间. 对 $\boldsymbol{x}\in V$, 定义\textbf{陪集}和\textbf{商集}
-    \[\bar{\boldsymbol{x}}:=\{\boldsymbol{x}+\boldsymbol{u}|\boldsymbol{u}\in U\},\quad V/U:=\{\bar{\boldsymbol{x}}|\boldsymbol{x}\in V\}.\]
+    \[\bar{\boldsymbol{x}}=\{\boldsymbol{x}+\boldsymbol{u}|\boldsymbol{u}\in U\},\quad V/U=\{\bar{\boldsymbol{x}}|\boldsymbol{x}\in V\}.\]
 
     定义陪集的运算
-    \[\bar{\boldsymbol{x}}+\bar{\boldsymbol{y}}:=\overline{\boldsymbol{x}+\boldsymbol{y}},\quad\lambda\bar{\boldsymbol{x}}:=\overline{\lambda\boldsymbol{x}}\ (\lambda\in K).\]
+    \[\bar{\boldsymbol{x}}+\bar{\boldsymbol{y}}=\overline{\boldsymbol{x}+\boldsymbol{y}},\quad\lambda\bar{\boldsymbol{x}}=\overline{\lambda\boldsymbol{x}}\ (\lambda\in K).\]
 \end{definition}
 有几个简单的性质(类比剩余类环的性质).
 \begin{property}\label{p1.3}
@@ -500,7 +500,7 @@ $\therefore$
 \section{双线性型和二次型(对应教材1.4节)}
 \subsection{双线性型}
 在 $\mathcal{L}_2(V,K)$ 上定义
-\[(\alpha f+\beta g)(\boldsymbol{u},\boldsymbol{v}):=\alpha f(\boldsymbol{u},\boldsymbol{v})+\beta g(\boldsymbol{u},\boldsymbol{v}),\]
+\[(\alpha f+\beta g)(\boldsymbol{u},\boldsymbol{v})=\alpha f(\boldsymbol{u},\boldsymbol{v})+\beta g(\boldsymbol{u},\boldsymbol{v}),\]
 
 容易验证 $\mathcal{L}_2(V,K)$ 是域 $K$ 上的线性空间.
 
@@ -628,12 +628,12 @@ $\therefore$
 \end{proof}
 \subsection{正定二次型}
 \begin{theorem}[书上的定理 6]
-    $F\in M_n(\mathbb{R})$ 正定当且仅当 $\exists B\in\gl _n(\mathbb{R})$ 使得 $F={}^tBB$.
+    $F\in M_n(\mathbb{R})$ 正定当且仅当 $\exists B\in GL _n(\mathbb{R})$ 使得 $F={}^tBB$.
 \end{theorem}
 \begin{proof}
     设双线性型 $f$ 在基 $(\boldsymbol{e}_i)$ 下的矩阵为 $F$.
     
-    $(\Rightarrow)\because F$ 是正定的, $\therefore f$ 是正定的, $\therefore\exists$ 基 $(\boldsymbol{e}_i')$ 满足 $f$ 在基下的矩阵为 $E.\therefore\exists B\in\gl _n(\mathbb{R}),F={}^tBEB={}^tBB$.
+    $(\Rightarrow)\because F$ 是正定的, $\therefore f$ 是正定的, $\therefore\exists$ 基 $(\boldsymbol{e}_i')$ 满足 $f$ 在基下的矩阵为 $E.\therefore\exists B\in GL _n(\mathbb{R}),F={}^tBEB={}^tBB$.
 
     ($\Leftarrow$) 设 $F={}^tBB$. 由 [BAI] 第 2 章笔记的定理 1.1 得 $({}^tB)^{-1}={}^t(B^{-1})$. $\therefore$
     \[{}^t(B^{-1})FB^{-1}=({}^tB)^{-1}\cdot{}^tB\cdot B\cdot B^{-1}=E.\]
@@ -719,7 +719,7 @@ $\because a>0,\therefore$ 上式两边乘 $a$ 得
     设
     \[(\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n)=(\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_{n-1},\boldsymbol{e}_n)A,\]
 
-    则 $A\in\gl_n(\mathbb{R}),F$ 有分解式
+    则 $A\in GL_n(\mathbb{R}),F$ 有分解式
     \begin{equation}\label{eq3.3}
         F={}^tA\begin{pmatrix}
             f(\boldsymbol{e}_1,\boldsymbol{e}_1) \\
@@ -837,7 +837,7 @@ $\because f$ 是斜对称的, $\therefore f(\boldsymbol{x},\boldsymbol{v})=-f(\b
 \end{pmatrix}.\]
 
 对 $V$ 的子空间 $U$, 定义
-\[f(\boldsymbol{v},U):=\{f(\boldsymbol{v},\boldsymbol{x})|\boldsymbol{x}\in U\}.\]
+\[f(\boldsymbol{v},U)=\{f(\boldsymbol{v},\boldsymbol{x})|\boldsymbol{x}\in U\}.\]
 
 设 $\boldsymbol{v}\in V_1$. 如果 $\boldsymbol{v}\in\ker\bar{f}$, 则 $\bar{f}(\boldsymbol{v},V_1)=f(\boldsymbol{v},V_1)=\{0\}$.
 
@@ -932,7 +932,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^-(V,K)$ 对�
     \[\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{p\text{个}\boldsymbol{x}}=(\underbrace{1+\cdots+1}_{p\text{个}1})\boldsymbol{x}=0\boldsymbol{x}=\boldsymbol{0}.\]
 
     ($\Leftarrow$) $\forall r\in\mathbb{Z}_p,\boldsymbol{x}\in A$, 定义纯量乘法
-    \[r\boldsymbol{x}:=\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{r\text{个}\boldsymbol{x}}.\]
+    \[r\boldsymbol{x}=\underbrace{\boldsymbol{x}+\cdots+\boldsymbol{x}}_{r\text{个}\boldsymbol{x}}.\]
 
     容易验证在加法和这样定义的纯量乘法下, $A$ 能成为域 $\mathbb{Z}_p$ 上的向量空间.
 \end{solution}
@@ -1377,7 +1377,7 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^-(V,K)$ 对�
     ($\Rightarrow$) 对 $a_1,a_2,\cdots,a_n\in\mathbb{R}$, 考虑映射
     \[\varphi_{a_1,a_2,\cdots,a_n}:\begin{array}{rcl}
         \left<f_1,\cdots,f_n\right> & \to & \mathbb{R}^n \\
-        f & \mapsto & Y_f:=[f(a_1),f(a_2),\cdots,f(a_n)] \\
+        f & \mapsto & Y_f=[f(a_1),f(a_2),\cdots,f(a_n)] \\
     \end{array}.\]
 
     容易验证 $\varphi_{a_1,a_2,\cdots,a_n}$ 是线性映射.
@@ -1429,12 +1429,12 @@ $\mathcal{L}_2^+(V,K)$ 对应于 Riemann 几何, 而 $\mathcal{L}_2^-(V,K)$ 对�
 \end{exercisec}
 \begin{solution}
     与 [BAI] 第 4 章笔记的例 3.6 类似, 得
-    \[|\gl_n(K)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+    \[| GL_n(K)|=(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
 
-    (1) 由定理 \ref{t1.1} 得 $V$ 的基与 $\gl_n(K)$ 间能建立双射, $\therefore V$ 的基的个数为 $|\gl_n(K)|$.
+    (1) 由定理 \ref{t1.1} 得 $V$ 的基与 $ GL_n(K)$ 间能建立双射, $\therefore V$ 的基的个数为 $| GL_n(K)|$.
 
-    (3) $\because M_n(K)$ 中的退化矩阵全体为 $M_n(K)\backslash\gl_n(K)$, $\therefore M_n(K)$ 中的退化矩阵的个数为
-    \[|M_n(K)|-|\gl_n(K)|=p^{n^2}-(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
+    (3) $\because M_n(K)$ 中的退化矩阵全体为 $M_n(K)\backslash GL_n(K)$, $\therefore M_n(K)$ 中的退化矩阵的个数为
+    \[|M_n(K)|-| GL_n(K)|=p^{n^2}-(p^n-1)(p^n-p)(p^n-p^2)\cdots(p^n-p^{n-1}).\]
 \end{solution}
 \begin{exercisec}[1.3.5]
     设 $K[x_1,x_2,\cdots,x_m]$ 是 $K$ 上的 $m$ 元多项式环, 求下列空间的维数:
@@ -1827,7 +1827,7 @@ D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] -
     $\therefore1,X,X^2-\dfrac{2}{3}$ 是 $P_1(X)$ 的一个规范基.
 \end{solution}
 \begin{exercisec}[1.72(1)]
-    定义双线性型 $f$ 的右核 $R_f:=\{\boldsymbol{y}\in V|f(\boldsymbol{x},\boldsymbol{y})=0,\forall\boldsymbol{x}\in V\}$. 证明: $\dim R_f=\dim V-\rank f$.
+    定义双线性型 $f$ 的右核 $R_f=\{\boldsymbol{y}\in V|f(\boldsymbol{x},\boldsymbol{y})=0,\forall\boldsymbol{x}\in V\}$. 证明: $\dim R_f=\dim V-\rank f$.
 \end{exercisec}
 \begin{proof}
     设 $\boldsymbol{e}_1,\boldsymbol{e}_2,\cdots,\boldsymbol{e}_n$ 是 $V$ 的一个基, 则 $R_f$ 是方程组
@@ -2152,7 +2152,7 @@ D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] -
         0 & 0 \\
     \end{pmatrix}A',\]
 
-    其中 $A'=(a_{ij})\in\gl_n(\mathbb{R})$. $\because$
+    其中 $A'=(a_{ij})\in GL_n(\mathbb{R})$. $\because$
     \[{}^t\begin{pmatrix}
         E_r & 0 \\
         0 & 0 \\
@@ -2179,7 +2179,7 @@ D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] -
         0 & 0 \\
     \end{pmatrix}Q,\]
 
-    其中 $P,Q\in\gl_n(\mathbb{R}).\therefore$
+    其中 $P,Q\in GL_n(\mathbb{R}).\therefore$
     \begin{align*}
         F & ={}^tAA \\
         & ={}^tQ\begin{pmatrix}
@@ -2202,7 +2202,7 @@ D[a[x] m u[x], {x, 3}] + D[a[x] n v[x], {x, 3}] -
         \end{pmatrix}{}^tPQ,
     \end{align*}
 
-    其中 ${}^tPQ\in\gl_n(\mathbb{R}).\therefore F$ 是半正定的.
+    其中 ${}^tPQ\in GL_n(\mathbb{R}).\therefore F$ 是半正定的.
 \end{solution}
 
 % 证明补充题 \ref{exc1.7.6} 需要先证明一个引理.
@@ -2471,7 +2471,7 @@ subMat[mat_, xInd_, yInd_] :=
     $\exists\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 使得 $f_{ij}=f(\boldsymbol{v}_i,\boldsymbol{v}_j)$.
 \end{exercisec}
 \begin{proof}
-    取 $V$ 的一个基 $(\boldsymbol{e}_i)$, 设 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $F$, 则 $F$ 非退化. 由书上定理 9 的推论, $\exists A,B\in\gl _n(K)$ 使得
+    取 $V$ 的一个基 $(\boldsymbol{e}_i)$, 设 $f$ 在 $(\boldsymbol{e}_i)$ 下的矩阵为 $F$, 则 $F$ 非退化. 由书上定理 9 的推论, $\exists A,B\in GL _n(K)$ 使得
     \[{}^tAFA={}^tBF'B=J.\]
 
     $\because A,B$ 非退化, $\therefore AB^{-1}$ 非退化, 有
