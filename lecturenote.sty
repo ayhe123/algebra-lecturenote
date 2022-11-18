@@ -6,7 +6,20 @@
 % 中文日期
 \date{\zhtoday}
 
-\author{ayhe123\thanks{笔记发布在这个网址上: \url{https://github.com/ayhe123/algebra-lecturenote}}\thanks{本笔记遵循 CC-BY-4.0 协议}}
+\author{ayhe123}
+
+\fancypagestyle{fancy-license-info}{%
+  \fancyhf{}
+  \fancyfoot[L]{
+    \includegraphics[scale=.5]{materials/license.eps}\hspace{.5em}
+    \begin{minipage}[b][4ex][t]{25em}
+        \footnotesize{笔记发布在\href{https://github.com/ayhe123/algebra-lecturenote}{\color{blue}这里}\\
+        本笔记采用 CC-BY-4.0 许可证, 更多信息见\href{https://creativecommons.org/licenses/by/4.0}{\color{blue}这里}}
+    \end{minipage}}
+  \fancyfoot[R]{\footnotesize{第 \thepage 页}}
+}
+
+\pagestyle{fancy-license-info}
 
 \numberwithin{equation}{section}
 
@@ -34,6 +47,7 @@
 \DeclareMathOperator{\ft}{FT}
 \DeclareMathOperator{\res}{Res}
 \DeclareMathOperator{\aff}{Aff}
+\DeclareMathOperator{\spec}{Spec}
 \DeclareMathOperator{\pgl}{PGL}
 \DeclareMathOperator{\aut}{Aut}
 \DeclareMathOperator{\inn}{Inn}

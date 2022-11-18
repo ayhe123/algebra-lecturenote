@@ -1,4 +1,6 @@
 % TODO:
+% 1.4 $\det K\neq0$ 的条件能否减弱?
+% 辛空间跳过了
 % 定理 3.8 的 (3)
 % 极化分解的定理中的注脚
 % 习题 3.8
@@ -13,17 +15,17 @@
 \section{Euclid 向量空间(对应第 1 节)}
 在这节中, 不加说明的话, $V$ 一律为域 $K$ 上的 $n$ 维 Euclid 空间.
 \subsection{正交基}
-举几个 Euclid 空间中正交基的例子.
 \begin{example}
     设 $C_2(a,b)$ 是 $[a,b]$ 上连续函数全体, 定义
     \[(f|g)=\int_a^bf(x)g(x)\mathrm{d}x,\quad b>a\]
 
-    $\because$ 当 $i\neq j$ 时
+    $\because$ 当 $i\neq j,a=0,b=2\pi$ 时
     \[(\sin ix|\sin jx)=(\cos ix|\cos jx)=0,\]
 
-    $\therefore\sin ix$ 或 $\cos ix$ 是 $C_2(a,b)$ 的正交基.
+    $\therefore\sin ix$ 或 $\cos ix$ 在 $C_2(0,2\pi)$ 中是正交的.
 \end{example}
-证明书上定理 4 的推论需要证明一个引理.
+
+证明书上定理 4 的推论需要证明一个引理. 可以类比书上第 2 章第 3 节的引理 1 来理解这个引理(比如两个引理的证明都借助了某种作用).
 \begin{lemma}\label{l1.1}
     全不为 $0$ 的正交向量组 $\boldsymbol{u}_1,\boldsymbol{u}_2,\cdots,\boldsymbol{u}_m$ 线性无关.
 \end{lemma}
@@ -127,13 +129,14 @@ $\therefore$
 
 取 $\boldsymbol{x},\boldsymbol{y}=\boldsymbol{e}_i'$ 得 ${}^tAA=E$. 称满足 ${}^tAA=E$ 的矩阵为\textbf{正交矩阵}. 有:
 \begin{theorem}\label{t1.3}
-    $M_n(\mathbb{R})$ 上的正交矩阵全体(记作 $O(n)$)是一个群.
+    $M_n(\mathbb{R})$ 上的正交矩阵全体是一个群, 称为\textbf{正交群}, 记作 $O(n)$.
 \end{theorem}
 \begin{proof}
     设 $A,B\in O(n)$, 则 ${}^tAA=E,{}^tBB=E$. $\therefore{}^t(AB)\cdot AB={}^tB{}^tAAB={}^tBB=E$. $\therefore AB\in O(n)$.
 
-    $\because{}^tAA=E$ 两边转置得 $A{}^tA=E$, $\therefore A^{-1}={}^tA\in O(n)$.
+    $\because{}^tAA=E$ 两边取逆得 $A^{-1}{}^t(A^{-1})=A^{-1}({}^tA)^{-1}=E$. $\therefore {}^t(A^{-1})A^{-1}=E,A^{-1}\in O(n)$.
 \end{proof}
+
 若 $A\in O(n)$, 则 ${}^tAA=E\Rightarrow(\det A)^2=1,\det A=\pm1$. $\pm1$ 都可以取到, 比如:
 \[\begin{pmatrix}
     -1 & 0 \\
@@ -160,7 +163,7 @@ $\therefore$
 
     $\because$
     \begin{align*}
-        (\boldsymbol{v}_j,\boldsymbol{v}_k) & =\left(\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i\bigg|\sum\limits_{l=1}^na_{lk}\boldsymbol{e}_l\right) \\
+        (\boldsymbol{v}_j|\boldsymbol{v}_k) & =\left(\sum\limits_{i=1}^na_{ij}\boldsymbol{e}_i\bigg|\sum\limits_{l=1}^na_{lk}\boldsymbol{e}_l\right) \\
         & =\sum\limits_{i=1}^na_{ij}\left(\boldsymbol{e}_i\bigg|\sum\limits_{l=1}^na_{lk}\boldsymbol{e}_l\right) \\
         & =\sum\limits_{i=1}^na_{ij}a_{ik}\left(\boldsymbol{e}_i|\boldsymbol{e}_i\right) \\
         & =\sum\limits_{i=1}^na_{ij}a_{ik}.
@@ -168,6 +171,7 @@ $\therefore$
 
     $\because{}^tAA=E$, $\therefore\sum\limits_{i=1}^na_{ij}a_{ik}=\delta_{jk}$, $\therefore\boldsymbol{v}_1,\boldsymbol{v}_2,\cdots,\boldsymbol{v}_n$ 是 $V$ 的一个标准正交基. $\therefore A\in G,G\supset O(n)$.
 \end{proof}
+
 设 $X=[x_1,x_2,\cdots,x_n],Y=[y_1,y_2,\cdots,y_n]\in\mathbb{R}^n$, 则在 $\mathbb{R}^n$ 的正交基
 \[[1,0,\cdots,0],[0,1,0,\cdots,0],\cdots,[0,\cdots,0,1]\]
 下有
@@ -191,7 +195,7 @@ $\therefore$
 
 $\because{}^tAA=E$, $\therefore(A^{(i)}|A^{(j)})=\delta_{ij}$, $\therefore A^{(1)},A^{(2)},\cdots,A^{(n)}$ 是 $\mathbb{R}^n$ 的标准正交基.
 
-由定理\ref{t1.3}
+由定理 \ref{t1.3},
 \[{}^tA=({}^t(A_{(1)}),{}^t(A_{(2)}),\cdots,{}^t(A_{(n)}))\]
 也是正交矩阵, $\therefore{}^t(A_{(1)}),{}^t(A_{(2)}),\cdots,{}^t(A_{(n)})$ 是 $\mathbb{R}^n$ 的标准正交基.
 \subsection{辛空间}
@@ -225,7 +229,7 @@ $\because\forall\boldsymbol{x},\boldsymbol{y},[\mathcal{A}\boldsymbol{x}|\mathca
 \begin{proof}
     设 $\mathcal{A},\mathcal{B}\in Sp(2m)$, 则 $\forall\boldsymbol{x},\boldsymbol{y}\in V,\mathcal{B}\boldsymbol{x},\mathcal{B}\boldsymbol{y}\in V,$
     \[[\mathcal{AB}\boldsymbol{x}|\mathcal{AB}\boldsymbol{y}]=[\mathcal{A}(\mathcal{B}\boldsymbol{x})|\mathcal{A}(\mathcal{B}\boldsymbol{y})]=[\mathcal{B}\boldsymbol{x}|\mathcal{B}\boldsymbol{y}]=[\boldsymbol{x}|\boldsymbol{y}],\]
-    \[[\mathcal{A}^{-1}\boldsymbol{x}|\mathcal{A}^{-1}\boldsymbol{y}]=[\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{x})|\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{y})]=[\boldsymbol{x}|\boldsymbol{y}].\]
+    \[[\mathcal{A}^{-1}\boldsymbol{x}|\mathcal{A}^{-1}\boldsymbol{y}]=[\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{x})|\mathcal{A}(\mathcal{A}^{-1}\boldsymbol{y})]=[\boldsymbol{x}|\boldsymbol{y}].\qedhere\]
 \end{proof}
 \section{Hermite 向量空间(对应第 2 节)}
 \subsection{Hermite 矩阵}
@@ -287,6 +291,8 @@ $\therefore F={}^t\overline{F}$. 称满足 $F={}^t\overline{F}$ 的矩阵 $F$ �
 \begin{equation}\label{eq2.1}
     G={}^tAF\overline{A}.
 \end{equation}
+
+容易验证 $G$ 是 Hermite 的.
 \subsection{Hermite 空间上的度量}
 在这节以及之后的小节中, 不加说明的话, $V$ 表示域 $\mathbb{C}$ 上的 Hermite 空间.
 
@@ -1404,6 +1410,37 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore\|\boldsymbol{x}\|^2$ 是正定的.
 
+    (2) 有
+    \[\|\boldsymbol{x}\|=([1,1,1]|[1,1,1])=3+2+1-4-2+2=2,\]
+    \[\|\boldsymbol{y}\|=([2,2,1]|[2,2,1])=3\times4+2\times4+1-4\times4-2\times2+2\times2=5,\]
+    \[(\boldsymbol{x}|\boldsymbol{y})=([1,1,1]|[2,2,1])=(2,2,1)\begin{pmatrix}
+        3 & -2 & -1 \\
+        -2 & 2 & 1 \\
+        -1 & 1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 \\
+        1 \\
+        1 \\
+    \end{pmatrix}=3.\]
+
+    $\therefore\cos\alpha=\dfrac{(\boldsymbol{x}|\boldsymbol{y})}{\|\boldsymbol{x}\|\|\boldsymbol{y}\|}=\dfrac{3}{\sqrt{10}}$.
+
+    (3) 设 $\boldsymbol{y}=[y_1,y_2,y_3]\perp\boldsymbol{x}$, 则
+    \[(\boldsymbol{x}|\boldsymbol{y})=0\Rightarrow(y_1,y_2,y_3)\begin{pmatrix}
+        3 & -2 & -1 \\
+        -2 & 2 & 1 \\
+        -1 & 1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        1 \\
+        1 \\
+        1 \\
+    \end{pmatrix}=y_2+y_3=0.\]
+
+    $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
+\end{solution}
+\begin{note}
+    第 (2)(3) 问可以通过找 $V$ 的标准正交基来解.
+    
     (2) $\because$
     \begin{align*}
         \|\boldsymbol{x}\|^2 & =3x_1^2+2x_2^2+x_3^2-4x_1x_2-2x_1x_3+2x_2x_3 \\
@@ -1421,13 +1458,9 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \[\|\boldsymbol{y}\|^2=y_1'^2+y_2'^2+y_3'^2=5,\]
     \[(\boldsymbol{x}|\boldsymbol{y})=x_1'y_1'+x_2'y_2'+x_3'y_3'=3.\]
 
-    $\therefore\cos\alpha=\dfrac{(\boldsymbol{x}|\boldsymbol{y})}{\|\boldsymbol{x}\|\|\boldsymbol{y}\|}=\dfrac{3}{\sqrt{10}}$.
-
-    (3) 设 $\mathcal{y}=[y_1,y_2,y_3]\perp\boldsymbol{x}$, 则
+    (3) 设 $\boldsymbol{y}=[y_1,y_2,y_3]\perp\boldsymbol{x}$, 则
     \[(\boldsymbol{y}|\boldsymbol{x})=-(y_1-y_2-y_3)+y_1=y_2+y_3=0.\]
-
-    $\therefore\boldsymbol{x}^\perp=\{[y_1,y_2,y_3]|y_2+y_3=0\}$.
-\end{solution}
+\end{note}
 \begin{exercise}\label{ex1.3}
     证明: $\forall A=(a_{ij})\in GL _n(\mathbb{R})$ 都可以写成 $A=BC$ 的形式, 其中 $B$ 是正交矩阵, $C$ 是上三角矩阵, 且 $\pm\det A=\det C$.
 \end{exercise}
@@ -1451,7 +1484,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
         0 & 0 & \cdots & \lambda_{nn} \\
     \end{pmatrix}\quad(\lambda_{ii}\neq0).\]
 
-    由 [BAI] 第 4 章笔记的补充题 1 得
+    由 [BAI] 第 4 章笔记的补充题 19 得
     \[C=\begin{pmatrix}
         \lambda_{11} & \lambda_{12} & \cdots & \lambda_{1n} \\
         0 & \lambda_{22} & \cdots & \lambda_{2n} \\
@@ -1462,33 +1495,132 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\because A=BC,\therefore\det A=\det B\det C$. $\because\det B=\pm1,\therefore\pm\det A=\det C$.
 \end{proof}
-\stepcounter{exercise}
-\begin{exercise}[包含 1.4 的一部分命题]% 1.5
-    设 $A$ 是斜对称矩阵, $\det(E\pm A)\neq0$, 验证: $(E-A)^{-1}(E+A),(E+A)^{-1}(E-A)\in SO(n)$.
+
+证明第 \ref{ex1.4} 题需要先证明一个引理.
+\begin{lemma}\label{l6.1}
+    设 $A\in M_n(K)$, $A+E$ 可逆, 则
+    \[(E+A)^{-1}(E-A)=(E-A)(E+A)^{-1}.\]
+\end{lemma}
+\begin{proof}[证法 1]
+    \begin{align*}
+        LHS & =-(E+A)^{-1}(A-E) \\
+        & =-(E+A)^{-1}(E+A-2E) \\
+        & =-(E+A)^{-1}(E+A)+2(E+A)^{-1} \\
+        & =-(E+A)(E+A)^{-1}+2(E+A)^{-1} \\
+        & =-(E+A-2E)(E+A)^{-1} \\
+        & =RHS.\qedhere
+    \end{align*}
+\end{proof}
+\begin{proof}[证法 2]
+    有
+    \[(E+A)(E-A)=E^2-A^2=(E-A)(E+A),\]
+
+    两边左乘 $(E-A)^{-1}$, 再右乘 $(E-A)^{-1}$ 得
+    \[(E+A)^{-1}(E+A)(E-A)(E+A)^{-1}=(E+A)^{-1}(E-A)(E+A)(E+A)^{-1},\]
+
+    化简即得.
+\end{proof}
+\begin{exercise}[有修改]\label{ex1.4}
+    令 $\mathfrak{o}(n)$ 为 $n$ 阶斜对称实方阵全体形成的空间.
+    
+    (1) Cayley 变换
+    \begin{equation}\label{eq6.1}
+        K=(E-A)^{-1}(E+A),\quad A=(E-K)^{-1}(E+K)
+    \end{equation}
+    建立了正交群 $O(n)$ 和 $\mathfrak{o}(n)$ 间的联系. 证明: 如果 $A\in O(n),\det(E-A)\neq0$, 那么 $K\in\mathfrak{o}(n)$. 反之, 如果 $K\in\mathfrak{o}(n),\det K\neq0,\det(E-K)\neq0$, 那么 $A$ 是正交矩阵, 且 $1\notin\spec A$.
+
+    (2) 可以提出另一个 Cayley 变换
+    \begin{equation}\label{eq6.2}
+        K=(E+A)^{-1}(E-A),\quad A=(E+K)^{-1}(E-K).
+    \end{equation}
+
+    证明: 如果 $A\in O(n),\det(E+A)\neq0$, 那么 $K\in\mathfrak{o}(n)$. 反之, 如果 $K\in\mathfrak{o}(n),\det K\neq0,\det(E+K)\neq0$, 那么 $A$ 是正交矩阵, 且 $-1\notin\spec A$.
 \end{exercise}
 \begin{proof}
-    以验证 $(E-A)^{-1}(E+A)\in SO(n)$ 为例, 另一个类似. 有
-    \[{}^t((E-A)^{-1}(E+A))={}^t(E+A){}^t((E-A)^{-1}).\]
+    以 (1) 为例, (2) 的证明类似.
+    
+    设 $A\in O(n),\det(E+A)\neq0$, 由 [BAI] 第 2 章笔记的定理 2.1 得
+    \[{}^tK={}^t(E+A){}^t((E-A)^{-1})=(E+{}^tA)(E-{}^tA)^{-1}.\]
 
-    由 [BAI] 第 2 章笔记的定理 2.1 得
-    \[{}^t(E+A){}^t((E-A)^{-1})={}^t(E+A)({}^t(E-A))^{-1}.\]
+    $\because A\in O(n)$, $\therefore{}^tA=A^{-1}$, $\therefore$
+    \begin{align*}
+        (E+{}^tA)(E-{}^tA)^{-1} & =(E+A^{-1})(E-A^{-1})^{-1} \\
+        & =((A+A^{-1}A)A^{-1})((A-A^{-1}A)A^{-1})^{-1} \\
+        & =(A+E)A^{-1}A(A-E)^{-1} \\
+        & =(E+A)(-(E-A)^{-1}) \\
+        & =(-E-A)(E-A)^{-1}.
+    \end{align*}
 
-    $\because A$ 是斜对称矩阵, $\therefore{}^tA=-A$. $\therefore$
-    \[{}^t(E+A)({}^t(E-A))^{-1}=(E-A)(E+A)^{-1}.\]
+    由引理 \ref{l6.1} 得
+    \[(-E-A)(E-A)^{-1}=-(E+A)(E-A)^{-1}=-(E-A)^{-1}(E+A)=-K.\]
 
-    $\therefore$
-    \[{}^t((E-A)^{-1}(E+A))(E-A)^{-1}(E+A)=(E-A)(E+A)^{-1}(E-A)^{-1}(E+A).\]
+    $\therefore{}^tK=-K$.
+
+    反之, 设 $K\in\mathfrak{o}(n)$, 由引理 \ref{l6.1} 得
+    \begin{align*}
+        {}^tA & ={}^t(E+K){}^t(E-K)^{-1} \\
+        & =(E+{}^tK)(E-{}^tK)^{-1} \\
+        & =(E-K)(E+K)^{-1} \\
+        & =(E+K)^{-1}(E-K).
+    \end{align*}
 
     $\because$
-    \[(E+A)(E-A)=E-A^2=(E-A)(E+A),\]
+    \[{}^tAA=(E+K)^{-1}(E-K)(E-K)^{-1}(E+K)=E,\]
 
-    $\therefore$
-    \[(E-A)(E+A)^{-1}=(E+A)^{-1}(E-A),\]
-    \[(E-A)(E+A)^{-1}(E-A)^{-1}(E+A)=(E+A)^{-1}(E-A)(E-A)^{-1}(E+A)=E.\]
+    $\therefore A\in O(n)$.
 
-    $\therefore(E-A)^{-1}(E+A)\in O(n)$.
+    有
+    \begin{align*}
+        \det(A-E) & =\det((E-K)^{-1}(E+K)-E) \\
+        & =\det((E-K)^{-1}(E+K)-(E-K)^{-1}(E-K)) \\
+        & =\det((E-K)^{-1}\cdot(E+K-E+K)) \\
+        & =\det((E-K)^{-1}\cdot2K).
+    \end{align*}
 
-    $\because\det(E+A)=\det{}^t(E-A)=\det(E-A)$, $\therefore\det(E-A)^{-1}(E+A)=1$. $\therefore(E-A)^{-1}(E+A)\in SO(n)$.
+    $\because\det K\neq0,\det(E-K)^{-1}\neq0$, $\therefore\det(A-E)\neq0$, $\therefore1\notin\spec A$.
+\end{proof}
+\begin{note}
+    举一个 $\det K=0\Rightarrow 1\in\spec A$ 的例子. 首先用代码实现 Cayley 变换:
+    \begin{lstlisting}
+        cayley[A_] := 
+          Inverse[IdentityMatrix[Length[A]] - A] .
+          (IdentityMatrix[Length[A]] + A);
+    \end{lstlisting}
+    
+    构造一个斜对称矩阵 \verb|k|, 求 \verb|k| 的 Cayley 变换 $A$ 的 $\det(A-E)$ 值:
+    \begin{lstlisting}
+        k = Array[
+          If[#1 < #2, Subscript[a, ##], 
+            If[#1 == #2, 0, -Subscript[a, #2, #1]]] &, {4, 4}];
+        FullSimplify[Det[cayley[k] - Identity[4]]]
+    \end{lstlisting}
+
+    代入一些特殊值:
+    \begin{lstlisting}
+        % /. {Subscript[a, 1, 4] -> 0, Subscript[a, 1, 3] -> 0, 
+              Subscript[a, 1, 2] -> 0, Subscript[a, 3, 4] -> 0, 
+              Subscript[a, 2, 4] -> 0}
+    \end{lstlisting}
+
+    输出 $\dfrac{-15+a_{2,3}^2}{1+a_{2,3}^2}$. $\therefore$
+    \[\begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & \sqrt{15} & 0 \\
+        0 & -\sqrt{15} & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}\in\mathfrak{o}(4)\]
+    的 Cayley 变换有特征值 $1$.
+\end{note}
+\begin{exercise}% 1.5
+    验证: 由 Cayley 变换 (\ref{eq6.1}), (\ref{eq6.2}) 得到的矩阵 $(E-K)^{-1}(E+K),(E+K)^{-1}(E-K)\in SO(n)$.
+\end{exercise}
+\begin{proof}
+    以验证 $(E-K)^{-1}(E+K)\in SO(n)$ 为例, 另一个类似.
+
+    $\because\det(E+K)=\det{}^t(E-K)=\det(E-K)$, $\therefore$
+    \[\det((E-K)^{-1}(E+K))=\det((E-K)^{-1}(E-K))=1.\]
+
+    $\therefore(E-K)^{-1}(E+K)\in SO(n)$.
 \end{proof}
 \begin{exercise}% 1.6
     设 $A\in O(n)$ 的特征多项式为 $\chi_A(t)$, 证明:
@@ -1519,12 +1651,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 \begin{proof}
     $\because{}^tA=({}^tA_{(1)},{}^tA_{(2)},\cdots,{}^tA_{(n)})$, $\therefore$
     \begin{align*}
-        A{}^tA & =\begin{pmatrix}
-            A_{(1)} \\
-            A_{(2)} \\
-            \cdots \\
-            A_{(n)} \\
-        \end{pmatrix}({}^tA_{(1)},{}^tA_{(2)},\cdots,{}^tA_{(n)}) \\
+        A{}^tA & =[A_{(1)},A_{(2)},\cdots,A_{(n)},]({}^tA_{(1)},{}^tA_{(2)},\cdots,{}^tA_{(n)}) \\
         & =\begin{pmatrix}
             A_{(1)}{}^tA_{(1)} & A_{(1)}{}^tA_{(2)} & \cdots & A_{(1)}{}^tA_{(n)} \\
             A_{(2)}{}^tA_{(1)} & A_{(2)}{}^tA_{(2)} & \cdots & A_{(2)}{}^tA_{(n)} \\
@@ -1537,7 +1664,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
             \vdots  & \vdots  & \ddots & \vdots \\
             (A_{(n)}|A_{(1)}) & (A_{(n)}|A_{(2)}) & \cdots & (A_{(n)}|A_{(n)}) \\
         \end{pmatrix} \\
-        & =\diag (\|A_{(1)}\|^2,\|A_{(2)}\|^2,\cdots,\|A_{(n)}\|^2).
+        & =\diag(\|A_{(1)}\|^2,\|A_{(2)}\|^2,\cdots,\|A_{(n)}\|^2).
     \end{align*}
 
     $\therefore$
@@ -1562,26 +1689,147 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
     \end{vmatrix}^{-1}=\dfrac{1}{\prod\limits_{i=1}^n\lambda_{ii}}.\]
 
     由第 \ref{ex1.3} 题的证明过程得
-    \[\lambda_{jj}=\dfrac{1}{\left\|A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}\right\|}.\]
+    \[\lambda_{jj}=\dfrac{1}{\left\|A_{(j)}-\sum\limits_{i=1}^{j-1}(B_{(i)}|A_{(j)})B_{(i)}\right\|}.\]
 
-    $\because(B^{(i)})$ 是标准正交基, $\therefore$ 设 $A^{(j)}$ 在基 $(B^{(i)})$ 下有分解式
-    \[A^{(j)}=\mu_{1j}B^{(1)}+\mu_{2j}B^{(2)}+\cdots+\mu_{nj}B^{(n)},\]
+    $\because(B_{(i)})$ 是标准正交基, $\therefore$ 设 $A_{(j)}$ 在基 $(B_{(i)})$ 下有分解式
+    \[A_{(j)}=\mu_{1j}B_{(1)}+\mu_{2j}B_{(2)}+\cdots+\mu_{nj}B_{(n)},\]
 
     则
-    \[(B^{(i)}|A^{(j)})=\left(B^{(i)}\bigg|\sum\limits_{k=1}^n\mu_{kj}B^{(k)}\right)=\mu_{ij}.\]
+    \[(B_{(i)}|A_{(j)})=\left(B_{(i)}\bigg|\sum\limits_{k=1}^n\mu_{kj}B_{(k)}\right)=\mu_{ij}.\]
 
     $\therefore$
-    \[A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}=\sum\limits_{i=j}^n(B^{(i)}|A^{(j)})B^{(i)}=\sum\limits_{i=j}^n\mu_{ij}B^{(i)}.\]
+    \[A_{(j)}-\sum\limits_{i=1}^{j-1}(B_{(i)}|A_{(j)})B_{(i)}=\sum\limits_{i=j}^n(B_{(i)}|A_{(j)})B_{(i)}=\sum\limits_{i=j}^n\mu_{ij}B_{(i)}.\]
 
     $\therefore$
-    \[\left\|A^{(j)}-\sum\limits_{i=1}^{j-1}(B^{(i)}|A^{(j)})B^{(i)}\right\|=\sum\limits_{i=j}^n\mu_{ij}^2\leq\sum\limits_{i=1}^n\mu_{ij}^2=\|A^{(j)}\|.\]
+    \[\left\|A_{(j)}-\sum\limits_{i=1}^{j-1}(B_{(i)}|A_{(j)})B_{(i)}\right\|=\sum\limits_{i=j}^n\mu_{ij}^2\leq\sum\limits_{i=1}^n\mu_{ij}^2=\|A_{(j)}\|.\]
 
     $\therefore$
     \[|\det A|=\dfrac{1}{\prod\limits_{i=1}^n\lambda_{ii}}\leq\|A_{(1)}\|\cdot\|A_{(2)}\|\cdots\|A_{(n)}\|.\qedhere\]
 \end{proof}
+\begin{exercisec}[3.1.2]
+    在次数不超过 $n$ 的实多项式形成的向量空间 $P_{n+1}$ 中定义
+    \[(f|g)=\sum\limits_{k=0}^nf\left(\dfrac{k}{n}\right)g\left(\dfrac{k}{n}\right).\]
+
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item 证明: $(\cdot|\cdot)$ 是 $P_{n+1}$ 的内积;
+        \item 对 $f=t,g=at+b$, 求 $(f|g)$;
+        \item 求出所有正交于 $t$ 的多项式.
+    \end{enumerate}
+\end{exercisec}
+\begin{solution}
+    (1) 显然 $(\cdot|\cdot)$ 是双线性型. 有
+    \[(f|f)=\sum\limits_{k=0}^nf^2\left(\dfrac{k}{n}\right)\geq0.\]
+
+    如果 $(f|f)=0$, 那么 $f^2\left(\dfrac{k}{n}\right)=0$. 假设 $f$ 在 $\mathbb{R}$ 上不为 $0$, 则 $f$ 至多在 $n$ 个点处取零值, 与 $f^2\left(\dfrac{k}{n}\right)=0$ 矛盾. $\therefore(f|f)=0\Rightarrow f=0$. $\therefore f$ 是正定的.
+
+    (2)
+    \begin{align*}
+        (t|at+b) & =\sum\limits_{k=0}^n\left(\dfrac{k}{n}\right)\left(a\dfrac{k}{n}+b\right) \\
+        & =\dfrac{a}{n^2}\sum\limits_{k=0}^nk^2+\dfrac{b}{n}\sum\limits_{k=0}^nk \\
+        & =\dfrac{a}{n^2}\cdot\dfrac{n(n+1)(2n+1)}{6}+\dfrac{b}{n}\cdot\dfrac{n(n+1)}{2} \\
+        & =\dfrac{(n+1)(a+2an+3bn)}{6n}.
+    \end{align*}
+
+    (3) 由 (2) 得 $\left(t-\dfrac{1+2n}{3n}\bigg|t\right)=0$.
+
+    用书上定理 4 的正交化方法可以将 $t,t-\dfrac{1+2n}{3n}$ 扩充为 $P_{n+1}$ 的一个正交基 $t,t-\dfrac{1+2n}{3n},f_1,\cdots,f_{n-1}$, 具体地, 令
+    \begin{align*}
+        f_1(t) & =t^2-(t^2|t)t-\left(t^2\bigg|t-\dfrac{1+2n}{3n}\right)\left(t-\dfrac{1+2n}{3n}\right) \\
+        & =t^2-t\sum\limits_{k=0}^n\left(\dfrac{k}{n}\right)\left(\dfrac{k}{n}\right)^2-\left(t-\dfrac{1+2n}{3n}\right)\sum\limits_{k=0}^n\left(\dfrac{k}{n}-\dfrac{1+2n}{3n}\right)\left(\dfrac{k}{n}\right)^2 \\
+        & =t^2-\sum\limits_{k=0}^n\left(t\dfrac{k}{n}-\left(t-\dfrac{1+2n}{3n}\right)\left(\dfrac{k}{n}-\dfrac{1+2n}{3n}\right)\right)\left(\dfrac{k}{n}\right)^2 \\
+        & =t^2-\sum\limits_{k=0}^n\left(\dfrac{1+2n}{3n}\left(t+\dfrac{k}{n}\right)-\left(\dfrac{1+2n}{3n}\right)^2\right)\left(\dfrac{k}{n}\right)^2,
+    \end{align*}
+    \[f_2(t)=t^3-(t^3|t)t-\left(t^3\bigg|t-\dfrac{1+2n}{3n}\right)\left(t-\dfrac{1+2n}{3n}\right)-(t^3|f_2(t))f_2(t),\]
+    \[\cdots,\]
+    \begin{align*}
+        f_{n-1}(t) & =t^n-(t^n|t)t-\left(t^n\bigg|t-\dfrac{1+2n}{3n}\right)\left(t-\dfrac{1+2n}{3n}\right) \\
+        & \quad-(t^n|f_2(t))f_2(t)-\cdots-(t^n|f_{n-1}(t))f_{n-1}(t),
+    \end{align*}
+
+    则正交于 $t$ 的多项式全体为 $\left<t-\dfrac{1+2n}{3n},f_1,\cdots,f_{n-1}\right>$.
+\end{solution}
+\begin{exercisec}[3.1.4]
+    在实多项式空间 $\mathbb{R}[t]$ 中定义 $(f|g)=\int_0^\infty e^{-t}f(t)g(t)\mathrm{d}t$.
+    \begin{enumerate}
+        \def\labelenumi{(\arabic{enumi})}
+        \item 证明: 这是 $\mathbb{R}[t]$ 的一个内积;
+        \item 证明: $(t^n|t^m)=(m+n)!$;
+        \item 求出所有正交于 $t+1$ 的线性多项式 $at+b$.
+    \end{enumerate}
+\end{exercisec}
+\begin{solution}
+    (1) 显然 $(\cdot|\cdot)$ 是双线性型. 有
+    \[(f|f)=\int_0^\infty e^{-t}f^2(t)\mathrm{d}t\geq0.\]
+
+    如果 $f\neq0$, 那么 $e^{-t}f^2(t)>0\Rightarrow\int_0^\infty e^{-t}f^2(t)\mathrm{d}t>0$. $\therefore(\cdot|\cdot)$ 正定.
+
+    (2) $(t^n|t^m)=\int_0^\infty e^{-t}t^{n+m}\mathrm{d}t=\Gamma(n+m+1)=(n+m)!$, 其中 $\Gamma(z)$ 是 Euler $\Gamma$ 函数.
+
+    (3) 有
+    \begin{align*}
+        (t+1|at+b) & =\int_0^\infty e^{-t}(t+1)(at+b)\mathrm{d}t \\
+        & =\int_0^\infty e^{-t}(at^2+(a+b)t+b)\mathrm{d}t \\
+        & =a\Gamma(3)+(a+b)\Gamma(2)+b\Gamma(1) \\
+        & =2a+(a+b)+b=3a+2b.
+    \end{align*}
+
+    令 $(t+1|at+b)=0$, 得 $b=-3a/2$.
+\end{solution}
+\begin{exercisec}[3.1.7]
+    如果实方阵 $A$ 的列 $A^{(1)},A^{(2)},\cdots,A^{(n)}$ 都是非零且相互正交的, 求其逆矩阵.
+\end{exercisec}
+\begin{solution}
+    与第 \ref{ex1.7} 题类似, 有
+    \[{}^tAA=\diag(\|A^{(1)}\|^2,\|A^{(2)}\|^2,\cdots,\|A^{(n)}\|^2).\]
+
+    $\because A^{(1)},A^{(2)},\cdots,A^{(n)}$ 非零, $\therefore$
+    \[\diag(\|A^{(1)}\|^{-2},\|A^{(2)}\|^{-2},\cdots,\|A^{(n)}\|^{-2}){}^tAA=E.\]
+
+    $\therefore$
+    \[A^{-1}=\diag(\|A^{(1)}\|^{-2},\|A^{(2)}\|^{-2},\cdots,\|A^{(n)}\|^{-2}){}^tA.\]
+\end{solution}
+\begin{exercisec}[3.1.8]
+    求出 $\mathbb{R}^4$ 的子空间 $\left<(1,2,1,3),(4,1,1,1),(3,1,1,0)\right>$ 的一个标准正交基.
+\end{exercisec}
+\begin{solution}
+    容易验证 $(1,2,1,3),(4,1,1,1),(3,1,1,0)$ 线性无关. 有
+    \[\boldsymbol{e}_1=\dfrac{(1,2,1,3)}{\|(1,2,1,3)\|}=\left(\dfrac{1}{\sqrt{15}},\dfrac{2}{\sqrt{15}},\dfrac{1}{\sqrt{15}},\dfrac{3}{\sqrt{15}}\right),\]
+    \[\boldsymbol{e}_2=\dfrac{(4,1,1,1)-(\boldsymbol{e}_1|(4,1,1,1))\boldsymbol{e}_1}{\|(4,1,1,1)-(\boldsymbol{e}_1|(4,1,1,1))\boldsymbol{e}_1\|}=\left(\dfrac{10}{\sqrt{111}},-\dfrac{1}{\sqrt{111}},\dfrac{1}{\sqrt{111}},-\dfrac{9}{\sqrt{111}}\right),\]
+    \begin{align*}
+        \boldsymbol{e}_3 & =\dfrac{(3,1,1,0)-(\boldsymbol{e}_1|(3,1,1,0))\boldsymbol{e}_1-(\boldsymbol{e}_2|(3,1,1,0))\boldsymbol{e}_2}{\|(3,1,1,0)-(\boldsymbol{e}_1|(3,1,1,0))\boldsymbol{e}_1-(\boldsymbol{e}_2|(3,1,1,0))\boldsymbol{e}_2\|} \\
+        & =\left(-\dfrac{19}{\sqrt{16835}},\dfrac{87}{\sqrt{16835}},\dfrac{61}{\sqrt{16835}},-\dfrac{72}{\sqrt{16835}}\right).
+    \end{align*}
+\end{solution}
+\begin{exercisec}[3.1.13]
+    设 $K$ 是斜对称实方阵, $\lambda i\ (\lambda\in\mathbb{R}^*)$ 是其特征根, $X$ 是 $K$ 关于 $\lambda i$ 的特征向量. 记 $X=Y+iZ$, 其中 $Y,Z$ 是 Euclid 空间 $\mathbb{R}^n$ 中的元素. 证明: $Y,Z$ 正交且长度相等.
+\end{exercisec}
+\begin{proof}
+    有
+    \[K(Y+iZ)=\lambda i(Y+iZ)\Rightarrow\begin{cases}
+        KY=-\lambda Z \\
+        KZ=\lambda Y \\
+    \end{cases}.\]
+
+    $\therefore$
+    \[(Y|Z)={}^tYZ={}^tY\left(-\dfrac{1}{\lambda}KY\right)=-\dfrac{1}{\lambda}{}^tYKY.\]
+
+    $\because K$ 斜对称, $\therefore$
+    \[{}^tYKY={}^t({}^tYKY)={}^tY{}^tKY=-{}^tYKY\Rightarrow{}^tYKY=0.\]
+
+    $\therefore(Y|Z)=0$.
+
+    $\because$
+    \[{}^tYY=\dfrac{1}{\lambda}{}^tYKZ=-\dfrac{1}{\lambda}{}^tY{}^tKZ=-\dfrac{1}{\lambda}{}^t(KY)Z=-\dfrac{1}{\lambda}{}^t(-\lambda Z)Z={}^tZZ,\]
+
+    $\therefore\|Y\|=\|Z\|$.
+\end{proof}
+\begin{exercisec}
+    
+\end{exercisec}
 \subsection{习题 3.2}
 \stepcounter{exsection}
-\begin{exercisec}% 补充题 1
+\begin{exercisec}
     设 $A\in M_n(\mathbb{C})$. 证明: 如果 $\forall X\in\mathbb{C}^n,{}^tXA\overline{X}\in\mathbb{R}$, 则 $A$ 是 Hermite 矩阵.
 \end{exercisec}
 \begin{proof}
@@ -1593,7 +1841,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore{}^t\bar{A}=A$. $\therefore A$ 是 Hermite 矩阵.
 \end{proof}
-\begin{exercisec}% 补充题 2
+\begin{exercisec}
     设 $A\in M_n(\mathbb{C})$. 证明: 如果 $A$ 是正定的 Hermite 矩阵(即 $A$ 是 $V$ 上某个正定的 Hermite 型 $f$ 在某个基下的矩阵)当且仅当 $\exists P\in GL _n(\mathbb{C})$ 使得 $A=P^*P$, 其中 $P^*={}^t\overline{P}$.
 \end{exercisec}
 \begin{proof}
@@ -1613,7 +1861,7 @@ $\because B$ 非退化, $\therefore{}^tBB$ 非退化. $\therefore$ 方程组 (\r
 
     $\therefore A$ 是正定的.
 \end{proof}
-\begin{exercisec}% 补充题 3
+\begin{exercisec}
     在 $\mathbb{C}^2$ 上定义 $(\boldsymbol{x}|\boldsymbol{y})=x_1y_1+ix_1y_2-ix_2y_1+ix_2y_2$. $(*|*)$ 是否为 Hermite 型?
 \end{exercisec}
 \begin{solution}
