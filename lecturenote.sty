@@ -11,12 +11,13 @@
 \fancypagestyle{fancy-license-info}{%
   \fancyhf{}
   \fancyfoot[L]{
-    \includegraphics[scale=.5]{materials/license.eps}\hspace{.5em}
+    \href{https://creativecommons.org/licenses/by/4.0}{\includegraphics[scale=.5]{materials/license.eps}}\hspace{.5em}
     \begin{minipage}[b][4ex][t]{25em}
-        \footnotesize{笔记发布在\href{https://github.com/ayhe123/algebra-lecturenote}{\color{blue}这里}\\
-        本笔记采用 CC-BY-4.0 许可证, 更多信息见\href{https://creativecommons.org/licenses/by/4.0}{\color{blue}这里}}
+        \footnotesize{笔记发布在: \url{https://github.com/ayhe123/algebra-lecturenote}\\
+        本笔记采用 CC-BY-4.0 许可证, 点击左边的图标查看更多信息}
     \end{minipage}}
   \fancyfoot[R]{\footnotesize{第 \thepage 页}}
+  \renewcommand{\footrulewidth}{0.4pt}
 }
 
 \pagestyle{fancy-license-info}

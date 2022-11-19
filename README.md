@@ -21,7 +21,7 @@
 在 [这里](https://github.com/ayhe123/algebra-lecturenote/releases) 下载我编译好的 PDF 文件。文件包括：
 
 1. `no_bg.zip` 是编译好的 PDF 文件（无背景颜色），`with_bg.zip` 是编译好的 PDF 文件（有绿色的背景颜色）。
-2.  `materials.zip` 里面有文中提到的 `.nb` 文件和 `.ggb` 文件。
+2. `materials.zip` 里面有文中提到的 `.ggb` 文件。
 
 如果你会使用 LaTeX, 可以自己编译，具体方法见“编译方法”一节。
 
@@ -54,7 +54,7 @@
 
 其他教材和视频中没有的符号第一次出现时应该会有说明。
 
-[这个文件夹](materials) 里的 `.ggb` 文件是 [GeoGebra](https://www.geogebra.org)（一个类似于几何画板的软件）的存档，可以用 [这个网址](https://www.geogebra.org/classic) 打开。
+`.ggb` 文件是 [GeoGebra](https://www.geogebra.org)（一个类似于几何画板的软件）的存档，可以用 [这个网址](https://www.geogebra.org/classic) 打开。
 
 ## Mathematica 代码
 
