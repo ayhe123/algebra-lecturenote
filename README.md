@@ -62,6 +62,8 @@
 
 ## 编译方法
 
+需要安装主流的 LaTeX 发行版（比如 TeX Live、MacTeX）。
+
 这个笔记从 0.3 版开始使用 [ElegantNote 模板](https://github.com/ElegantLaTeX/ElegantNote)，能提供更多的自定义样式，且不容易有字体问题。
 
 ### 使用我修改过的 ElegantNote
@@ -74,9 +76,13 @@
 git clone https://github.com/ayhe123/algebra-lecturenote.git
 git clone https://github.com/ayhe123/ElegantNote.git
 cp ElegantNote/elegantnote.cls algebra-lecturenote
+make
+make clean
 ```
 
-然后就可以编译了
+参考文献需要用 `biber` 手动编译。
+
+Windows 用户可以用我写的一个 Python 程序用来自动编译 LaTeX 文件，[源码地址](https://github.com/ayhe123/LaTeX-batch-builder)
 
 ### 使用原版 ElegantNote
 
@@ -101,10 +107,6 @@ cp ElegantNote/elegantnote.cls algebra-lecturenote
 ```
 
 之后就能正常编译了。
-
-### 自动编译
-
-我写了一个 Python 程序用来自动编译 LaTeX 文件，[源码地址](https://github.com/ayhe123/LaTeX-batch-builder)
 
 ### 一键修改样式
 
